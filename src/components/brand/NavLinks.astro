@@ -22,23 +22,21 @@ const items = ['consultoria', 'productos', 'casos', 'eventos', 'sobreMi'] as con
       orientation === 'horizontal' ? 'items-center gap-6' : 'flex-col items-start gap-1',
     ]}
   >
-    {
-      items.map((key) => (
-        <li>
-          <a
-            href={localizedPath(locale, key)}
-            aria-current={key === current ? 'page' : undefined}
-            class:list={[
-              'block border-b-2 py-2.5 transition-colors duration-150',
-              key === current
-                ? 'border-accent text-link'
-                : 'border-transparent text-ink hover:text-link',
-            ]}
-          >
-            {t.nav[key]}
-          </a>
-        </li>
-      ))
-    }
+    {items.map((key) => (
+      <li>
+        <a
+          href={localizedPath(locale, key)}
+          aria-current={key === current ? 'page' : undefined}
+          class:list={[
+            'block border-b-2 py-2.5 transition-colors duration-150',
+            key === current
+              ? 'border-accent text-link'
+              : 'border-transparent text-ink hover:text-link',
+          ]}
+        >
+          {t.nav[key]}
+        </a>
+      </li>
+    ))}
   </ul>
 </nav>

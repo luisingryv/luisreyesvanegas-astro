@@ -3,7 +3,8 @@
 ---
 
 <style is:global>
-  [data-reveal] {
+  /* Solo transiciona al aparecer: al armar se oculta al instante. */
+  [data-reveal]:not([data-reveal-armed]) {
     transition:
       opacity 0.5s var(--ease-brand),
       transform 0.5s var(--ease-brand);

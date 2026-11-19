@@ -12,23 +12,21 @@ const { image, alt } = Astro.props;
 const frame = 'aspect-4/5 max-h-150 w-full rounded-lg';
 ---
 
-{
-  image && alt ? (
-    <Image
-      src={image}
-      alt={alt}
-      widths={[480, 800, 1200]}
-      sizes="(min-width: 1024px) 580px, 100vw"
-      loading="eager"
-      fetchpriority="high"
-      class:list={[frame, 'object-cover']}
-    />
-  ) : (
-    <div
-      aria-hidden="true"
-      class:list={[frame, 'relative overflow-hidden border border-hairline bg-surface-raised']}
-    >
-      <MonogramCurves class="absolute -right-1/4 -bottom-1/4 size-[120%] opacity-80" />
-    </div>
-  )
-}
+{image && alt ? (
+  <Image
+    src={image}
+    alt={alt}
+    widths={[480, 800, 1200]}
+    sizes="(min-width: 1024px) 580px, 100vw"
+    loading="eager"
+    fetchpriority="high"
+    class:list={[frame, 'object-cover']}
+  />
+) : (
+  <div
+    aria-hidden="true"
+    class:list={[frame, 'relative overflow-hidden border border-hairline bg-surface-raised']}
+  >
+    <MonogramCurves class="absolute -right-1/4 -bottom-1/4 size-[120%] opacity-80" />
+  </div>
+)}

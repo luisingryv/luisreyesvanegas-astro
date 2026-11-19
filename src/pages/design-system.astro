@@ -41,28 +41,32 @@ const colores = tokens.color.tokens.flatMap((t) =>
     </div>
 
     <ul class="mt-12 grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
-      {
-        colores.map((c) => (
-          <li class="overflow-hidden rounded-sm border border-hairline">
-            <div class="h-16" style={`background: var(--color-${c.name})`} />
-            <div class="bg-surface-raised px-2 py-1.5 text-caption">
-              <span class="block font-bold break-all">{c.name}</span>
-              <span class="text-ink-muted">{c.hex}</span>
-            </div>
-          </li>
-        ))
-      }
+      {colores.map((c) => (
+        <li class="overflow-hidden rounded-sm border border-hairline">
+          <div class="h-16" style={`background: var(--color-${c.name})`} />
+          <div class="bg-surface-raised px-2 py-1.5 text-caption">
+            <span class="block font-bold break-all">{c.name}</span>
+            <span class="text-ink-muted">{c.hex}</span>
+          </div>
+        </li>
+      ))}
     </ul>
   </Section>
 
   <Section tone="dark">
     <SectionHeader eyebrow="Section · dark" title="Botones, insignias y cifras">
-      <Button slot="action" href="#" variant="secondary">Acción a la derecha</Button>
+      <Button slot="action" href="#" variant="secondary">
+        Acción a la derecha
+      </Button>
     </SectionHeader>
     <div class="flex flex-wrap gap-3">
       <Button href="#">Principal</Button>
-      <Button href="#" variant="secondary">Secundario</Button>
-      <Button href="#" variant="secondary" external>Externo</Button>
+      <Button href="#" variant="secondary">
+        Secundario
+      </Button>
+      <Button href="#" variant="secondary" external>
+        Externo
+      </Button>
     </div>
     <div class="mt-8 flex flex-wrap gap-3">
       <Badge>Obtenida</Badge>
@@ -87,14 +91,12 @@ const colores = tokens.color.tokens.flatMap((t) =>
   <Section tone="dark-raised">
     <SectionHeader eyebrow="Section · dark-raised" title="Tarjetas sobre blue-800" />
     <ul class="grid gap-4 md:grid-cols-3">
-      {
-        ['01', '02', '03'].map((n) => (
-          <Card as="li" tone="surface">
-            <Eyebrow as="span">{n}</Eyebrow>
-            <p class="text-body">Card con tono surface, como en "Cómo trabajo".</p>
-          </Card>
-        ))
-      }
+      {['01', '02', '03'].map((n) => (
+        <Card as="li" tone="surface">
+          <Eyebrow as="span">{n}</Eyebrow>
+          <p class="text-body">Card con tono surface, como en "Cómo trabajo".</p>
+        </Card>
+      ))}
     </ul>
   </Section>
 
@@ -150,7 +152,9 @@ const colores = tokens.color.tokens.flatMap((t) =>
     <h2 class="text-heading font-bold">Section · brand</h2>
     <div class="mt-8 flex flex-wrap gap-3">
       <Button href="#">Principal en blanco</Button>
-      <Button href="#" variant="secondary">Secundario</Button>
+      <Button href="#" variant="secondary">
+        Secundario
+      </Button>
     </div>
   </Section>
 </Base>

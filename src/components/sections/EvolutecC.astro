@@ -21,9 +21,13 @@ const { content, campaign } = Astro.props;
       <SectionHeader id="evolutecc-titulo" eyebrow={content.eyebrow} title={content.titulo} flush />
       <p class="text-text-secondary-on-dark">{content.texto}</p>
       <div class="flex flex-wrap gap-2.5">
-        {content.cifras.map((cifra) => <Metric size="chip" value={cifra} />)}
+        {content.cifras.map((cifra) => (
+          <Metric size="chip" value={cifra} />
+        ))}
       </div>
-      <Button href={evoluteccUrl(campaign)} variant="accent" external>{content.boton}</Button>
+      <Button href={evoluteccUrl(campaign)} variant="accent" external>
+        {content.boton}
+      </Button>
     </div>
     <PhotoCard
       image={content.foto}

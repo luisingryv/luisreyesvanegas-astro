@@ -18,24 +18,23 @@ const { locale, content, charlas } = Astro.props;
 
 <Section tone="dark" reveal aria-labelledby="escenario-titulo">
   <SectionHeader id="escenario-titulo" eyebrow={content.eyebrow} title={content.titulo}>
-    <Button slot="action" href={localizedPath(locale, 'speaker', 'invitar')}>{content.boton}</Button
-    >
+    <Button slot="action" href={localizedPath(locale, 'speaker', 'invitar')}>
+      {content.boton}
+    </Button>
   </SectionHeader>
   <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
-    {
-      charlas.map((charla) => (
-        <li class="grid">
-          <PhotoCard
-            variant="card"
-            image={charla.foto}
-            alt={charla.alt}
-            meta={`${charla.lugar} · ${charla.fecha}`}
-            title={charla.titulo}
-            titleAs="h3"
-            sizes="(min-width: 1200px) 290px, (min-width: 640px) 50vw, 100vw"
-          />
-        </li>
-      ))
-    }
+    {charlas.map((charla) => (
+      <li class="grid">
+        <PhotoCard
+          variant="card"
+          image={charla.foto}
+          alt={charla.alt}
+          meta={`${charla.lugar} · ${charla.fecha}`}
+          title={charla.titulo}
+          titleAs="h3"
+          sizes="(min-width: 1200px) 290px, (min-width: 640px) 50vw, 100vw"
+        />
+      </li>
+    ))}
   </ul>
 </Section>

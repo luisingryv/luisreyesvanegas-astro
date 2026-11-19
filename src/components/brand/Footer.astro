@@ -30,16 +30,14 @@ const links = [
     </a>
     <nav aria-label={t.a11y.footerNav}>
       <ul class="flex flex-wrap gap-x-6 gap-y-2 text-small">
-        {
-          links.map((link) => (
-            <li>
-              <a href={link.href} class="text-link underline-offset-2 hover:underline">
-                {link.label}
-                {link.external && <span aria-hidden="true"> ↗</span>}
-              </a>
-            </li>
-          ))
-        }
+        {links.map((link) => (
+          <li>
+            <a href={link.href} class="text-link underline-offset-2 hover:underline">
+              {link.label}
+              {link.external && <span aria-hidden="true"> ↗</span>}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
     <p class="text-caption text-ink-muted">{t.footer.copyright}</p>

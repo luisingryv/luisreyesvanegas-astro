@@ -41,7 +41,7 @@ const { level, label, name, period, total, ofTotal, status } = Astro.props;
   <p class="text-caption text-blue-300">{period}</p>
   <div class="mt-1.5 flex flex-col gap-1.5" aria-hidden="true">
     <p class="text-label tracking-normal text-cyan-300 tabular-nums">
-      <span data-count>{total}</span>{' '}{ofTotal}
+      <span data-count>{total}</span> {ofTotal}
     </p>
     <div class="h-1.5 overflow-hidden rounded-pill bg-hairline">
       <div class="h-full origin-left rounded-pill bg-accent" data-bar></div>

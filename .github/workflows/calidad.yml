@@ -1,0 +1,61 @@
+# Calidad antes de cada despliegue: si algo falla, no se despliega.
+name: Calidad
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: calidad-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  calidad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Instalar dependencias
+        run: pnpm install --frozen-lockfile
+
+      - name: Tipos
+        run: pnpm check
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Formato
+        run: pnpm format:check
+
+      - name: Pruebas unitarias
+        run: pnpm test
+
+      # Usa el Chrome que trae ubuntu-latest; incluye axe (WCAG 2.2 AA).
+      - name: Pruebas de flujos y accesibilidad
+        run: pnpm test:e2e
+
+      - name: Lighthouse (95 o más en cada categoría)
+        run: pnpm lighthouse
+
+      - name: Guardar reportes si algo falla
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: reportes
+          path: |
+            playwright-report/
+            test-results/
+            .lighthouseci/
+          retention-days: 14

@@ -30,7 +30,9 @@ const filters = [
   <div class="flex flex-col gap-2.5">
     <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2.5">
       <p class="text-small font-bold text-ink-muted tabular-nums">
-        <span class="mr-1 text-title-md text-ink" data-badge-count>{obtained.length}</span>
+        <span class="mr-1 text-title-md text-ink" data-badge-count>
+          {obtained.length}
+        </span>
         {t.conteo(ordered.length, inProgress.length)}
       </p>
       <div
@@ -40,18 +42,16 @@ const filters = [
         data-badge-filters
         hidden
       >
-        {
-          filters.map((f, i) => (
-            <button
-              type="button"
-              class="filter rounded-pill border px-3.5 py-2 text-caption font-bold transition-colors duration-150"
-              data-filter={f.key}
-              aria-pressed={i === 0 ? 'true' : 'false'}
-            >
-              {f.label}
-            </button>
-          ))
-        }
+        {filters.map((f, i) => (
+          <button
+            type="button"
+            class="filter rounded-pill border px-3.5 py-2 text-caption font-bold transition-colors duration-150"
+            data-filter={f.key}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+          >
+            {f.label}
+          </button>
+        ))}
       </div>
     </div>
     <div
@@ -59,15 +59,13 @@ const filters = [
       style={`grid-template-columns: repeat(${ordered.length}, minmax(0, 1fr))`}
       aria-hidden="true"
     >
-      {
-        ordered.map((c) => (
-          <i
-            class="cell h-2.5 rounded-sm"
-            data-cell={c.estado === 'obtenida' ? 'ok' : 'cur'}
-            data-on
-          />
-        ))
-      }
+      {ordered.map((c) => (
+        <i
+          class="cell h-2.5 rounded-sm"
+          data-cell={c.estado === 'obtenida' ? 'ok' : 'cur'}
+          data-on
+        />
+      ))}
     </div>
   </div>
 
@@ -75,40 +73,38 @@ const filters = [
     class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,190px),1fr))] gap-3.5"
     data-badge-grid
   >
-    {
-      ordered.map((c) => {
-        const isObtained = c.estado === 'obtenida';
-        return (
-          <li
-            class="group flex min-w-0 flex-col items-center gap-2 rounded-md bg-surface-raised px-4 py-5 text-center"
-            data-badge={isObtained ? 'ok' : 'cur'}
+    {ordered.map((c) => {
+      const isObtained = c.estado === 'obtenida';
+      return (
+        <li
+          class="group flex min-w-0 flex-col items-center gap-2 rounded-md bg-surface-raised px-4 py-5 text-center"
+          data-badge={isObtained ? 'ok' : 'cur'}
+        >
+          <div
+            class="h-23 w-21 transition-transform duration-300 ease-brand group-hover:-translate-y-1 group-hover:-rotate-4"
+            aria-hidden="true"
+            data-hex
           >
-            <div
-              class="h-23 w-21 transition-transform duration-300 ease-brand group-hover:-translate-y-1 group-hover:-rotate-4"
-              aria-hidden="true"
-              data-hex
-            >
-              <BadgeHex id={c.id} insignia={c.insignia} obtained={isObtained} />
-            </div>
-            <Badge tone={isObtained ? 'solid' : 'dashed'} class="self-center">
-              {t.estado[c.estado]}
-            </Badge>
-            <h3 class="text-small font-bold text-balance">{c.nombre}</h3>
-            <p class="text-caption text-ink-muted">
-              {c.emisor}
-              {c.fecha && ` · ${c.fecha}`}
-            </p>
-            {c.verificacion && (
-              <a href={c.verificacion} class="text-caption font-bold text-link hover:underline">
-                {t.verificar}
-                <span class="sr-only">: {c.nombre}</span>
-                <span aria-hidden="true"> ↗</span>
-              </a>
-            )}
-          </li>
-        );
-      })
-    }
+            <BadgeHex id={c.id} insignia={c.insignia} obtained={isObtained} />
+          </div>
+          <Badge tone={isObtained ? 'solid' : 'dashed'} class="self-center">
+            {t.estado[c.estado]}
+          </Badge>
+          <h3 class="text-small font-bold text-balance">{c.nombre}</h3>
+          <p class="text-caption text-ink-muted">
+            {c.emisor}
+            {c.fecha && ` · ${c.fecha}`}
+          </p>
+          {c.verificacion && (
+            <a href={c.verificacion} class="text-caption font-bold text-link hover:underline">
+              {t.verificar}
+              <span class="sr-only">: {c.nombre}</span>
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          )}
+        </li>
+      );
+    })}
   </ul>
 </div>
 

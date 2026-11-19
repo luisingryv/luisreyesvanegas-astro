@@ -41,21 +41,19 @@ const absolute = (path: string) => new URL(path, Astro.site).toString();
       type="font/woff2"
       crossorigin
     />
-    {
-      route && (
-        <>
-          <link rel="canonical" href={absolute(localizedPath(locale, route))} />
-          {publishedLocales.map((code) => (
-            <link rel="alternate" hreflang={code} href={absolute(localizedPath(code, route))} />
-          ))}
-          <link
-            rel="alternate"
-            hreflang="x-default"
-            href={absolute(localizedPath(defaultLocale, route))}
-          />
-        </>
-      )
-    }
+    {route && (
+      <>
+        <link rel="canonical" href={absolute(localizedPath(locale, route))} />
+        {publishedLocales.map((code) => (
+          <link rel="alternate" hreflang={code} href={absolute(localizedPath(code, route))} />
+        ))}
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={absolute(localizedPath(defaultLocale, route))}
+        />
+      </>
+    )}
     <slot name="head" />
   </head>
   <body class="flex min-h-dvh flex-col">

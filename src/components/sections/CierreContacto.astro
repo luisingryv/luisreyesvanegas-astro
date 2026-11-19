@@ -17,13 +17,19 @@ const agenda = bookingUrl(locale);
 
 <Section tone="brand" reveal id="contacto" aria-labelledby="cierre-titulo">
   <div class="flex flex-col items-start gap-6">
-    <h2 id="cierre-titulo" class="text-heading-lg font-bold text-balance">{content.titulo}</h2>
+    <h2 id="cierre-titulo" class="text-heading-lg font-bold text-balance">
+      {content.titulo}
+    </h2>
     <div class="flex flex-wrap gap-3">
-      <Button href={agenda} size="lg">{content.consultoria}</Button>
+      <Button href={agenda} size="lg">
+        {content.consultoria}
+      </Button>
       <Button href={localizedPath(locale, 'speaker', 'invitar')} size="lg">
         {content.conferencia}
       </Button>
-      <Button href={agenda} size="lg">{content.conversacion}</Button>
+      <Button href={agenda} size="lg">
+        {content.conversacion}
+      </Button>
     </div>
     <a href={localizedPath(locale, 'contacto')} class="font-bold text-link underline">
       {content.otrasOpciones}

@@ -17,7 +17,9 @@ const Heading = `h${level}` as const;
 <div class:list={['flex flex-wrap items-end justify-between gap-4', !flush && 'mb-8']}>
   <div class="flex max-w-3xl flex-col gap-2.5">
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-    <Heading id={id} class="text-heading font-bold text-balance text-ink">{title}</Heading>
+    <Heading id={id} class="text-heading font-bold text-balance text-ink">
+      {title}
+    </Heading>
     {lead && <p class="text-lead text-ink-muted">{lead}</p>}
   </div>
   <slot name="action" />

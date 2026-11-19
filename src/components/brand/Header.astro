@@ -31,20 +31,22 @@ const ctaHref = bookingUrl(locale);
 
     <div class="hidden items-center gap-4 xl:flex">
       <LanguageSwitcher locale={locale} route={route} />
-      <Button href={ctaHref} size="sm">{t.header.cta}</Button>
+      <Button href={ctaHref} size="sm">
+        {t.header.cta}
+      </Button>
     </div>
 
     <details class="xl:hidden">
-      <summary
-        class="cursor-pointer list-none rounded-pill border border-gray-700 px-4.5 py-3 text-small leading-none font-bold [&::-webkit-details-marker]:hidden"
-      >
+      <summary class="cursor-pointer list-none rounded-pill border border-gray-700 px-4.5 py-3 text-small leading-none font-bold [&::-webkit-details-marker]:hidden">
         {t.a11y.menu}
       </summary>
       <div class="absolute inset-x-0 top-full z-40 border-b border-hairline bg-surface">
         <Container class="flex flex-col gap-6 py-6">
           <NavLinks locale={locale} current={route} orientation="vertical" />
           <LanguageSwitcher locale={locale} route={route} />
-          <Button href={ctaHref} size="sm" class="self-start">{t.header.cta}</Button>
+          <Button href={ctaHref} size="sm" class="self-start">
+            {t.header.cta}
+          </Button>
         </Container>
       </div>
     </details>

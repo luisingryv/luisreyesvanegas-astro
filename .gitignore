@@ -16,6 +16,7 @@ pnpm-debug.log*
 # resultados de Playwright
 test-results/
 playwright-report/
+.lighthouseci/
 
 # environment variables
 .env

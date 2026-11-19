@@ -20,41 +20,39 @@ const t = getDictionary(locale);
 
 <nav aria-label={t.a11y.languageNav}>
   <ul class="flex items-center gap-2 text-caption">
-    {
-      locales.map((code, i) => (
-        <li class="flex items-center gap-2">
-          {i > 0 && (
-            <span aria-hidden="true" class="text-ink-muted">
-              ·
+    {locales.map((code, i) => (
+      <li class="flex items-center gap-2">
+        {i > 0 && (
+          <span aria-hidden="true" class="text-ink-muted">
+            ·
+          </span>
+        )}
+        {code === locale ? (
+          <span class="text-ink" aria-current="true">
+            <span aria-hidden="true">{localeLabels[code]}</span>
+            <span class="sr-only" lang={code}>
+              {localeNames[code]}
             </span>
-          )}
-          {code === locale ? (
-            <span class="text-ink" aria-current="true">
-              <span aria-hidden="true">{localeLabels[code]}</span>
-              <span class="sr-only" lang={code}>
-                {localeNames[code]}
-              </span>
+          </span>
+        ) : isPublishedLocale(code) ? (
+          <a
+            href={localizedPath(code, route)}
+            hreflang={code}
+            lang={code}
+            class="text-ink-muted transition-colors duration-150 hover:text-ink"
+          >
+            <span aria-hidden="true">{localeLabels[code]}</span>
+            <span class="sr-only">{localeNames[code]}</span>
+          </a>
+        ) : (
+          <span class="text-ink-muted">
+            <span aria-hidden="true">{localeLabels[code]}</span>
+            <span class="sr-only">
+              <span lang={code}>{localeNames[code]}</span>, {t.a11y.languageUnavailable}
             </span>
-          ) : isPublishedLocale(code) ? (
-            <a
-              href={localizedPath(code, route)}
-              hreflang={code}
-              lang={code}
-              class="text-ink-muted transition-colors duration-150 hover:text-ink"
-            >
-              <span aria-hidden="true">{localeLabels[code]}</span>
-              <span class="sr-only">{localeNames[code]}</span>
-            </a>
-          ) : (
-            <span class="text-ink-muted">
-              <span aria-hidden="true">{localeLabels[code]}</span>
-              <span class="sr-only">
-                <span lang={code}>{localeNames[code]}</span>, {t.a11y.languageUnavailable}
-              </span>
-            </span>
-          )}
-        </li>
-      ))
-    }
+          </span>
+        )}
+      </li>
+    ))}
   </ul>
 </nav>

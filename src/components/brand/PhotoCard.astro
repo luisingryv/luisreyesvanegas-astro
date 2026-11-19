@@ -52,12 +52,10 @@ const isCard = variant === 'card';
       class="relative size-full object-contain"
     />
   </div>
-  {
-    (meta || title) && (
-      <figcaption class:list={['flex flex-col gap-1.5', isCard && 'p-5']}>
-        {meta && <span class="text-caption text-blue-300">{meta}</span>}
-        {title && <Title class="text-title-sm font-bold text-ink">{title}</Title>}
-      </figcaption>
-    )
-  }
+  {(meta || title) && (
+    <figcaption class:list={['flex flex-col gap-1.5', isCard && 'p-5']}>
+      {meta && <span class="text-caption text-blue-300">{meta}</span>}
+      {title && <Title class="text-title-sm font-bold text-ink">{title}</Title>}
+    </figcaption>
+  )}
 </figure>
