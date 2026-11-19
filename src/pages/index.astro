@@ -1,7 +1,7 @@
 ---
-import Base from '../layouts/Base.astro';
----
+import { defaultLocale } from '../i18n/config';
+import { localizedPath } from '../i18n/routes';
 
-<Base title="Luis Reyes Vanegas" lang="es">
-  <p>Proyecto base · paso 1 completo.</p>
-</Base>
+// Temporal: Sobre mí es la única página del hito 1. Cuando exista Home, apunta a 'home'.
+return Astro.redirect(localizedPath(defaultLocale, 'sobreMi'));
+---

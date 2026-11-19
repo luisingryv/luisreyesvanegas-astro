@@ -1,24 +1,72 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/brand/Footer.astro';
+import Header from '../components/brand/Header.astro';
+import { defaultLocale, publishedLocales, type PublishedLocale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+import { localizedPath, type RouteKey } from '../i18n/routes';
 
 interface Props {
+  locale: PublishedLocale;
   title: string;
   description?: string;
-  lang?: string;
+  route?: RouteKey;
 }
 
-const { title, description = '', lang = 'es' } = Astro.props;
+const { locale, title, description, route } = Astro.props;
+const t = getDictionary(locale);
+const absolute = (path: string) => new URL(path, Astro.site).toString();
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <title>{title}</title>
+    <title>{`${title} · ${t.meta.siteName}`}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="preload"
+      href="/fonts/HumanSans-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/HumanSans-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    {
+      route && (
+        <>
+          <link rel="canonical" href={absolute(localizedPath(locale, route))} />
+          {publishedLocales.map((code) => (
+            <link rel="alternate" hreflang={code} href={absolute(localizedPath(code, route))} />
+          ))}
+          <link
+            rel="alternate"
+            hreflang="x-default"
+            href={absolute(localizedPath(defaultLocale, route))}
+          />
+        </>
+      )
+    }
   </head>
-  <body>
-    <slot />
+  <body class="flex min-h-dvh flex-col">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-pill focus:bg-primary focus:px-4 focus:py-2 focus:text-on-primary"
+    >
+      {t.a11y.skipToContent}
+    </a>
+    <Header locale={locale} route={route} />
+    <main id="contenido" class="flex-1">
+      <slot />
+    </main>
+    <Footer locale={locale} />
   </body>
 </html>

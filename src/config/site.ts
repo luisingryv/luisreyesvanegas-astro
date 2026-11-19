@@ -1,0 +1,20 @@
+import { CALENDAR_BOOKING_URL } from 'astro:env/server';
+import type { Locale } from '../i18n/config';
+import { localizedPath } from '../i18n/routes';
+
+export const site = {
+  linkedin: 'https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/',
+} as const;
+
+export function evoluteccUrl(campaign: string): string {
+  const url = new URL('https://evolutecc.com/');
+  url.searchParams.set('utm_source', 'luisreyesvanegas');
+  url.searchParams.set('utm_medium', 'referral');
+  url.searchParams.set('utm_campaign', campaign);
+  return url.toString();
+}
+
+// Mientras Luis no entregue la URL de la agenda, se va a Contacto.
+export function bookingUrl(locale: Locale): string {
+  return CALENDAR_BOOKING_URL ?? localizedPath(locale, 'contacto');
+}

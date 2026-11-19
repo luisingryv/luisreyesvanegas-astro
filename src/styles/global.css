@@ -1,23 +1,23 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* ─── Human Sans ──────────────────────────────────────────── */
 @font-face {
-  font-family: "Human Sans";
-  src: url("/fonts/HumanSans-Light.woff2") format("woff2");
+  font-family: 'Human Sans';
+  src: url('/fonts/HumanSans-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Human Sans";
-  src: url("/fonts/HumanSans-Regular.woff2") format("woff2");
+  font-family: 'Human Sans';
+  src: url('/fonts/HumanSans-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Human Sans";
-  src: url("/fonts/HumanSans-Bold.woff2") format("woff2");
+  font-family: 'Human Sans';
+  src: url('/fonts/HumanSans-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -55,8 +55,19 @@
   --color-text-secondary-on-dark: #c9c8ce;
   --color-text-tertiary-on-dark: #a9a8ae;
 
+  /* Semánticos, tema claro; el oscuro los redefine con [data-theme="dark"] */
+  --color-surface: var(--color-white);
+  --color-surface-raised: var(--color-blue-200);
+  --color-ink: var(--color-night);
+  --color-ink-muted: var(--color-gray-700);
+  --color-primary: var(--color-blue-500);
+  --color-on-primary: var(--color-white);
+  --color-link: var(--color-blue-500);
+  --color-accent: var(--color-cyan-500);
+  --color-hairline: #1f2a8a;
+
   /* ─── Tipografía ──────────────────────────────────────────── */
-  --font-sans: "Human Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   /* Escala de texto (Tailwind v4: --text-* define size/line-height) */
   --text-display: clamp(38px, 5vw, 64px);
@@ -69,14 +80,14 @@
   --text-lead: clamp(17px, 1.6vw, 20px);
   --text-lead--line-height: 1.55;
 
-  --text-body: 1rem;          /* 16px */
+  --text-body: 1rem; /* 16px */
   --text-body--line-height: 1.5;
 
-  --text-eyebrow: 0.75rem;    /* 12px */
+  --text-eyebrow: 0.75rem; /* 12px */
   --text-eyebrow--line-height: 1.33;
   --text-eyebrow--letter-spacing: 0.12em;
 
-  --text-caption: 0.8125rem;  /* 13px */
+  --text-caption: 0.8125rem; /* 13px */
   --text-caption--line-height: 1.38;
 
   /* ─── Radios ──────────────────────────────────────────────── */
@@ -92,28 +103,15 @@
   --spacing-gutter: max(16px, 5vw);
 }
 
-/* ─── Tokens semánticos (tema claro por defecto) ─────────── */
-:root {
-  --color-surface:        var(--color-white);
-  --color-surface-raised: var(--color-blue-200);
-  --color-ink:            var(--color-night);
-  --color-ink-muted:      var(--color-gray-700);
-  --color-primary:        var(--color-blue-500);
-  --color-on-primary:     var(--color-white);
-  --color-link:           var(--color-blue-500);
-  --color-accent:         var(--color-cyan-500);
-  --color-hairline:       #1f2a8a;
-}
-
 /* ─── Tema oscuro ────────────────────────────────────────── */
-[data-theme="dark"],
+[data-theme='dark'],
 .dark {
-  --color-surface:        var(--color-night);
+  --color-surface: var(--color-night);
   --color-surface-raised: var(--color-blue-800);
-  --color-ink:            var(--color-white);
-  --color-ink-muted:      var(--color-gray-400);
-  --color-link:           var(--color-cyan-400);
-  --color-hairline:       var(--color-dark-border);
+  --color-ink: var(--color-white);
+  --color-ink-muted: var(--color-gray-400);
+  --color-link: var(--color-cyan-400);
+  --color-hairline: var(--color-dark-border);
 }
 
 /* ─── Base ───────────────────────────────────────────────── */
@@ -137,9 +135,9 @@ body {
   min-height: 100dvh;
 }
 
-/* Accesibilidad: foco visible en todo lo interactivo */
+/* link y no primary: blue-500 sobre night no llega a 3:1 */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-link);
   outline-offset: 3px;
 }
 

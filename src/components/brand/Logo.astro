@@ -1,0 +1,13 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../../assets/brand/marca-h-color-blanco.svg';
+
+interface Props {
+  alt: string;
+  class?: string;
+}
+
+const { alt, class: className } = Astro.props;
+---
+
+<Image src={logo} alt={alt} loading="eager" class:list={['h-7 w-auto', className]} />

@@ -1,0 +1,18 @@
+---
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { publishedLocales } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+---
+
+<Base locale={lang} title={t.pages.sobreMi.title} route="sobreMi">
+  <h1>{t.pages.sobreMi.title}</h1>
+</Base>

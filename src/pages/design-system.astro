@@ -7,7 +7,7 @@ const colores = tokens.color.tokens.flatMap((t) =>
 );
 ---
 
-<Base title="Sistema de diseño · Luis Reyes" lang="es">
+<Base locale="es" title="Sistema de diseño">
   <style>
     .ds-page {
       max-width: var(--width-container);
@@ -15,7 +15,9 @@ const colores = tokens.color.tokens.flatMap((t) =>
       padding-inline: var(--spacing-gutter);
       padding-block: 48px;
     }
-    .ds-section { margin-block-end: 64px; }
+    .ds-section {
+      margin-block-end: 64px;
+    }
     .ds-h1 {
       font-size: var(--text-display);
       line-height: var(--text-display--line-height);
@@ -60,17 +62,30 @@ const colores = tokens.color.tokens.flatMap((t) =>
       overflow: hidden;
       border: 1px solid var(--color-hairline);
     }
-    .color-swatch__block { block-size: 64px; }
+    .color-swatch__block {
+      block-size: 64px;
+    }
     .color-swatch__label {
       padding: 6px 8px;
       font-size: 11px;
       line-height: 1.4;
       background: var(--color-surface-raised);
     }
-    .color-swatch__name { font-weight: 700; display: block; overflow-wrap: anywhere; }
-    .color-swatch__hex { color: var(--color-ink-muted); }
+    .color-swatch__name {
+      font-weight: 700;
+      display: block;
+      overflow-wrap: anywhere;
+    }
+    .color-swatch__hex {
+      color: var(--color-ink-muted);
+    }
 
-    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -83,16 +98,40 @@ const colores = tokens.color.tokens.flatMap((t) =>
       line-height: 1;
       text-decoration: none;
       border: 2px solid transparent;
-      transition: background-color 150ms, color 150ms, border-color 150ms;
+      transition:
+        background-color 150ms,
+        color 150ms,
+        border-color 150ms;
     }
-    .btn-primary { background: var(--color-primary); color: var(--color-on-primary); }
-    .btn-primary:hover { background: var(--color-blue-600); }
-    .btn-secondary { background: transparent; color: var(--color-ink); border-color: var(--color-ink); }
-    .btn-secondary:hover { background: var(--color-surface-raised); }
-    .btn-ghost { background: transparent; color: var(--color-link); border-color: var(--color-link); }
-    .btn-ghost:hover { background: var(--color-blue-200); }
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+    }
+    .btn-primary:hover {
+      background: var(--color-blue-600);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-ink);
+      border-color: var(--color-ink);
+    }
+    .btn-secondary:hover {
+      background: var(--color-surface-raised);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-link);
+      border-color: var(--color-link);
+    }
+    .btn-ghost:hover {
+      background: var(--color-blue-200);
+    }
 
-    .card-row { display: flex; flex-wrap: wrap; gap: 16px; }
+    .card-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
     .card {
       flex: 1 1 240px;
       background: var(--color-surface-raised);
@@ -119,12 +158,25 @@ const colores = tokens.color.tokens.flatMap((t) =>
       padding: 32px;
       margin-block-end: 24px;
     }
-    .ds-dark-bg .ds-lead { color: var(--color-text-secondary-on-dark); }
-    .ds-dark-bg .ds-caption { color: var(--color-text-tertiary-on-dark); }
-    .ds-dark-bg .card { background: var(--color-surface-raised); }
-    .ds-dark-bg .metric { color: var(--color-link); }
-    .ds-dark-bg .btn-secondary { color: var(--color-white); border-color: var(--color-white); }
-    .ds-dark-bg .btn-secondary:hover { background: var(--color-blue-800); }
+    .ds-dark-bg .ds-lead {
+      color: var(--color-text-secondary-on-dark);
+    }
+    .ds-dark-bg .ds-caption {
+      color: var(--color-text-tertiary-on-dark);
+    }
+    .ds-dark-bg .card {
+      background: var(--color-surface-raised);
+    }
+    .ds-dark-bg .metric {
+      color: var(--color-link);
+    }
+    .ds-dark-bg .btn-secondary {
+      color: var(--color-white);
+      border-color: var(--color-white);
+    }
+    .ds-dark-bg .btn-secondary:hover {
+      background: var(--color-blue-800);
+    }
   </style>
 
   <main class="ds-page">
@@ -141,7 +193,9 @@ const colores = tokens.color.tokens.flatMap((t) =>
       <p class="ds-h2" style="margin-block:12px 0;">Heading · 700</p>
       <p class="ds-lead">Lead · 400 · Fundé mi primer negocio a los 16.</p>
       <p>Body · 400 · 16px · Texto corrido con Human Sans regular.</p>
-      <p style="font-weight:300;color:var(--color-ink-muted);">Body light · 300 · Texto de apoyo.</p>
+      <p style="font-weight:300;color:var(--color-ink-muted);">
+        Body light · 300 · Texto de apoyo.
+      </p>
       <p class="ds-caption">Caption · 400 · 13px · Pies de foto y metadatos.</p>
 
       <div class="ds-dark-bg" data-theme="dark" style="margin-block-start:32px;">

@@ -1,0 +1,38 @@
+---
+import type { PublishedLocale } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import { localizedPath, type RouteKey } from '../../i18n/routes';
+
+interface Props {
+  locale: PublishedLocale;
+  current?: RouteKey;
+  orientation: 'horizontal' | 'vertical';
+}
+
+const { locale, current, orientation } = Astro.props;
+const t = getDictionary(locale);
+
+const items = ['consultoria', 'productos', 'casos', 'eventos', 'sobreMi'] as const;
+---
+
+<nav aria-label={t.a11y.mainNav}>
+  <ul class:list={['flex', orientation === 'horizontal' ? 'items-center gap-7' : 'flex-col gap-1']}>
+    {
+      items.map((key) => (
+        <li>
+          <a
+            href={localizedPath(locale, key)}
+            aria-current={key === current ? 'page' : undefined}
+            class:list={[
+              'block text-body transition-colors duration-150 hover:text-ink',
+              orientation === 'vertical' && 'py-3',
+              key === current ? 'font-bold text-ink' : 'text-text-secondary-on-dark',
+            ]}
+          >
+            {t.nav[key]}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

@@ -1,9 +1,10 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import node from '@astrojs/node';
 
 export default defineConfig({
+  site: 'https://luisreyesvanegas.com',
   output: 'server',
 
   adapter: node({
@@ -11,6 +12,17 @@ export default defineConfig({
   }),
 
   integrations: [react()],
+
+  env: {
+    schema: {
+      CALENDAR_BOOKING_URL: envField.string({
+        context: 'server',
+        access: 'public',
+        optional: true,
+        url: true,
+      }),
+    },
+  },
 
   vite: {
     plugins: [tailwindcss()],
