@@ -1,3 +1,154 @@
 @import "tailwindcss";
 
-/* Los tokens del sistema de diseño Luis Reyes se definen en el paso 2 */
+/* ─── Human Sans ──────────────────────────────────────────── */
+@font-face {
+  font-family: "Human Sans";
+  src: url("/fonts/HumanSans-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Human Sans";
+  src: url("/fonts/HumanSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Human Sans";
+  src: url("/fonts/HumanSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Tokens de color (tokens-luis-reyes.json) ────────────── */
+@theme {
+  /* Escala azul */
+  --color-blue-200: #e5eef9;
+  --color-blue-300: #80aae0;
+  --color-blue-400: #3377ce;
+  --color-blue-500: #0055c2;
+  --color-blue-600: #004092;
+  --color-blue-700: #002b61;
+  --color-blue-800: #001531;
+
+  /* Escala cyan */
+  --color-cyan-200: #d6f1ff;
+  --color-cyan-300: #85d5ff;
+  --color-cyan-400: #33b9ff;
+  --color-cyan-500: #00a7ff;
+  --color-cyan-600: #007dbf;
+  --color-cyan-700: #005480;
+  --color-cyan-800: #002a40;
+
+  /* Grises y negro de marca */
+  --color-white: #ffffff;
+  --color-gray-400: #848388;
+  --color-gray-700: #3a3941;
+  --color-night: #090812;
+
+  /* Colores sin token en el prototipo (propuesta para Luis) */
+  --color-gray-100: #24232c;   /* borde hairline oscuro */
+  --color-gray-200: #c9c8ce;   /* texto secundario sobre night */
+  --color-gray-300: #a9a8ae;   /* texto terciario sobre night */
+
+  /* ─── Tipografía ──────────────────────────────────────────── */
+  --font-sans: "Human Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Escala de texto (Tailwind v4: --text-* define size/line-height) */
+  --text-display: clamp(38px, 5vw, 64px);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.02em;
+
+  --text-heading: clamp(28px, 3.4vw, 42px);
+  --text-heading--line-height: 1.1;
+
+  --text-lead: clamp(17px, 1.6vw, 20px);
+  --text-lead--line-height: 1.55;
+
+  --text-body: 1rem;          /* 16px */
+  --text-body--line-height: 1.5;
+
+  --text-eyebrow: 0.75rem;    /* 12px */
+  --text-eyebrow--line-height: 1.33;
+  --text-eyebrow--letter-spacing: 0.12em;
+
+  --text-caption: 0.8125rem;  /* 13px */
+  --text-caption--line-height: 1.38;
+
+  /* ─── Radios ──────────────────────────────────────────────── */
+  --radius-lg: 24px;
+  --radius-md: 20px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+
+  /* ─── Layout ─────────────────────────────────────────────── */
+  --width-container: 1200px;
+  --spacing-section-y: clamp(56px, 8vw, 104px);
+  --spacing-hero-y: clamp(48px, 7vw, 104px);
+  --spacing-gutter: max(16px, 5vw);
+}
+
+/* ─── Tokens semánticos (tema claro por defecto) ─────────── */
+:root {
+  --color-surface:        var(--color-white);
+  --color-surface-raised: var(--color-blue-200);
+  --color-ink:            var(--color-night);
+  --color-ink-muted:      var(--color-gray-700);
+  --color-primary:        var(--color-blue-500);
+  --color-on-primary:     var(--color-white);
+  --color-link:           var(--color-blue-500);
+  --color-accent:         var(--color-cyan-500);
+  --color-hairline:       #1f2a8a;
+}
+
+/* ─── Tema oscuro ────────────────────────────────────────── */
+[data-theme="dark"],
+.dark {
+  --color-surface:        var(--color-night);
+  --color-surface-raised: var(--color-blue-800);
+  --color-ink:            var(--color-white);
+  --color-ink-muted:      var(--color-gray-400);
+  --color-link:           var(--color-cyan-400);
+  --color-hairline:       #24232c;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  color: var(--color-ink);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+/* Accesibilidad: foco visible en todo lo interactivo */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

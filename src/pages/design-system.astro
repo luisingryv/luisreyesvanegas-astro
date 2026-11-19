@@ -1,0 +1,267 @@
+---
+import Base from '../layouts/Base.astro';
+
+const colores = [
+  { name: 'blue-200', hex: '#e5eef9', dark: false },
+  { name: 'blue-300', hex: '#80aae0', dark: false },
+  { name: 'blue-400', hex: '#3377ce', dark: true },
+  { name: 'blue-500', hex: '#0055c2', dark: true },
+  { name: 'blue-600', hex: '#004092', dark: true },
+  { name: 'blue-700', hex: '#002b61', dark: true },
+  { name: 'blue-800', hex: '#001531', dark: true },
+  { name: 'cyan-200', hex: '#d6f1ff', dark: false },
+  { name: 'cyan-300', hex: '#85d5ff', dark: false },
+  { name: 'cyan-400', hex: '#33b9ff', dark: false },
+  { name: 'cyan-500', hex: '#00a7ff', dark: false },
+  { name: 'cyan-600', hex: '#007dbf', dark: true },
+  { name: 'cyan-700', hex: '#005480', dark: true },
+  { name: 'cyan-800', hex: '#002a40', dark: true },
+  { name: 'white',    hex: '#ffffff', dark: false },
+  { name: 'gray-100', hex: '#24232c', dark: true },
+  { name: 'gray-200', hex: '#c9c8ce', dark: false },
+  { name: 'gray-300', hex: '#a9a8ae', dark: false },
+  { name: 'gray-400', hex: '#848388', dark: true },
+  { name: 'gray-700', hex: '#3a3941', dark: true },
+  { name: 'night',    hex: '#090812', dark: true },
+];
+---
+
+<Base title="Sistema de diseño · Luis Reyes" lang="es">
+  <style>
+    .ds-page {
+      max-width: var(--width-container);
+      margin-inline: auto;
+      padding-inline: var(--spacing-gutter);
+      padding-block: 48px;
+    }
+    .ds-section { margin-block-end: 64px; }
+    .ds-h1 {
+      font-size: var(--text-display);
+      line-height: var(--text-display--line-height);
+      letter-spacing: var(--text-display--letter-spacing);
+      font-weight: 700;
+      margin-block-end: 8px;
+    }
+    .ds-h2 {
+      font-size: var(--text-heading);
+      line-height: var(--text-heading--line-height);
+      font-weight: 700;
+      border-block-end: 1px solid var(--color-hairline);
+      padding-block-end: 8px;
+      margin-block: 48px 24px;
+    }
+    .ds-eyebrow {
+      font-size: var(--text-eyebrow);
+      line-height: var(--text-eyebrow--line-height);
+      letter-spacing: var(--text-eyebrow--letter-spacing);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--color-link);
+      margin-block-end: 12px;
+    }
+    .ds-lead {
+      font-size: var(--text-lead);
+      line-height: var(--text-lead--line-height);
+      font-weight: 400;
+      color: var(--color-ink-muted);
+    }
+    .ds-caption {
+      font-size: var(--text-caption);
+      line-height: var(--text-caption--line-height);
+      color: var(--color-ink-muted);
+    }
+
+    /* Colores */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 12px;
+    }
+    .color-swatch {
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--color-hairline);
+    }
+    .color-swatch__block {
+      block-size: 64px;
+    }
+    .color-swatch__label {
+      padding: 6px 8px;
+      font-size: 11px;
+      line-height: 1.4;
+      background: var(--color-surface-raised);
+    }
+    .color-swatch__name { font-weight: 700; display: block; }
+    .color-swatch__hex  { color: var(--color-ink-muted); }
+
+    /* Botones */
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1;
+      cursor: pointer;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: background-color 150ms, color 150ms, border-color 150ms;
+    }
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+    }
+    .btn-primary:hover { background: var(--color-blue-600); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-ink);
+      border-color: var(--color-ink);
+    }
+    .btn-secondary:hover {
+      background: var(--color-surface-raised);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-link);
+      border-color: var(--color-link);
+    }
+    .btn-ghost:hover { background: var(--color-blue-200); }
+
+    /* Tarjetas */
+    .card-row { display: flex; flex-wrap: wrap; gap: 16px; }
+    .card {
+      flex: 1 1 240px;
+      background: var(--color-surface-raised);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+    .card-dark {
+      background: var(--color-blue-800);
+      color: var(--color-white);
+    }
+    .metric {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+    }
+    .metric-dark { color: var(--color-cyan-400); }
+
+    /* Separadores de sección */
+    .section-sep {
+      border: none;
+      border-block-start: 1px solid var(--color-hairline);
+      margin-block: var(--spacing-section-y);
+    }
+
+    /* Fondo nocturno para demo */
+    .ds-dark-bg {
+      background: var(--color-night);
+      color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-block-end: 24px;
+    }
+    .ds-dark-bg .ds-eyebrow { color: var(--color-cyan-400); }
+  </style>
+
+  <main class="ds-page">
+    <p class="ds-eyebrow">SISTEMA DE DISEÑO</p>
+    <h1 class="ds-h1">Luis Reyes · Paso 2</h1>
+    <p class="ds-lead">Human Sans incrustada · tokens de color · tipografía · radios · botones.</p>
+
+    <hr class="section-sep" />
+
+    <!-- TIPOGRAFÍA -->
+    <section class="ds-section">
+      <h2 class="ds-h2">Tipografía</h2>
+
+      <div style="margin-block-end:32px;">
+        <p class="ds-eyebrow">EYEBROW · 12px · 700 · 0.12em</p>
+        <p class="ds-h1">Display · 700 · clamp(38–64px)</p>
+        <p style="font-size:var(--text-heading);line-height:var(--text-heading--line-height);font-weight:700;margin-block:12px 0;">Heading · 700 · clamp(28–42px)</p>
+        <p class="ds-lead" style="margin-block:12px 0;">Lead · 400 · clamp(17–20px) · "Fundé mi primer negocio a los 16."</p>
+        <p style="font-size:var(--text-body);line-height:var(--text-body--line-height);margin-block:12px 0;">Body · 400 · 16px · Texto corrido normal, con la fuente Human Sans a peso regular.</p>
+        <p style="font-size:var(--text-body);line-height:var(--text-body--line-height);font-weight:300;color:var(--color-ink-muted);margin-block:12px 0;">Body Light · 300 · 16px · Texto de apoyo e introducciones en gris.</p>
+        <p class="ds-caption" style="margin-block:12px 0;">Caption · 400 · 13px · Pies de foto y metadatos.</p>
+      </div>
+
+      <!-- Demo sobre fondo oscuro -->
+      <div class="ds-dark-bg">
+        <p class="ds-eyebrow">SOBRE FONDO NIGHT</p>
+        <p class="ds-h1" style="color:var(--color-white);">Display blanco</p>
+        <p class="ds-lead" style="color:var(--color-gray-200);">Texto secundario en gray-200 (#c9c8ce).</p>
+        <p class="ds-caption" style="color:var(--color-gray-300);">Texto terciario en gray-300 (#a9a8ae).</p>
+      </div>
+    </section>
+
+    <!-- COLORES -->
+    <section class="ds-section">
+      <h2 class="ds-h2">Colores</h2>
+      <div class="color-grid">
+        {colores.map((c) => (
+          <div class="color-swatch">
+            <div
+              class="color-swatch__block"
+              style={`background:${c.hex};`}
+            />
+            <div class="color-swatch__label">
+              <span class="color-swatch__name">{c.name}</span>
+              <span class="color-swatch__hex">{c.hex}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- BOTONES -->
+    <section class="ds-section">
+      <h2 class="ds-h2">Botones</h2>
+      <div class="btn-row">
+        <a href="#" class="btn btn-primary">Hablemos</a>
+        <a href="#" class="btn btn-secondary">Invitarme a hablar</a>
+        <a href="#" class="btn btn-ghost">Ver mi CV →</a>
+      </div>
+      <div class="ds-dark-bg" style="margin-block-start:24px;">
+        <div class="btn-row">
+          <a href="#" class="btn btn-primary">Hablemos</a>
+          <a href="#" class="btn" style="background:transparent;color:#fff;border:2px solid #fff;">Invitarme a hablar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARJETAS Y RADIOS -->
+    <section class="ds-section">
+      <h2 class="ds-h2">Tarjetas · Radios · Métricas</h2>
+      <div class="card-row">
+        <div class="card">
+          <p class="ds-eyebrow">MÉTRICA</p>
+          <p class="metric">400+</p>
+          <p class="ds-caption" style="margin-block-start:4px;">proyectos con EvolutecC</p>
+        </div>
+        <div class="card">
+          <p class="ds-eyebrow">MÉTRICA</p>
+          <p class="metric">90%</p>
+          <p class="ds-caption" style="margin-block-start:4px;">tasa de recompra</p>
+        </div>
+        <div class="card card-dark">
+          <p class="ds-eyebrow" style="color:var(--color-cyan-400);">MÉTRICA OSCURA</p>
+          <p class="metric metric-dark">26.449</p>
+          <p class="ds-caption" style="margin-block-start:4px;color:var(--color-gray-200);">equipos en el XPRIZE</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEPARADORES -->
+    <section class="ds-section">
+      <h2 class="ds-h2">Separadores de sección</h2>
+      <p class="ds-caption">El hairline solo separa secciones y bordes. Nunca bajo un título.</p>
+      <hr class="section-sep" />
+      <p class="ds-caption">↑ separador de sección con hairline claro (#1f2a8a en tema claro).</p>
+    </section>
+  </main>
+</Base>
