@@ -61,6 +61,7 @@
   --color-ink: var(--color-night);
   --color-ink-muted: var(--color-gray-700);
   --color-primary: var(--color-blue-500);
+  --color-primary-hover: var(--color-blue-400);
   --color-on-primary: var(--color-white);
   --color-link: var(--color-blue-500);
   --color-accent: var(--color-cyan-500);
@@ -103,7 +104,8 @@
   --spacing-gutter: max(16px, 5vw);
 }
 
-/* ─── Tema oscuro ────────────────────────────────────────── */
+/* ─── Temas por bloque ───────────────────────────────────── */
+/* color se repite en cada tema: el heredado de html ya viene resuelto */
 [data-theme='dark'],
 .dark {
   --color-surface: var(--color-night);
@@ -112,6 +114,21 @@
   --color-ink-muted: var(--color-gray-400);
   --color-link: var(--color-cyan-400);
   --color-hairline: var(--color-dark-border);
+  color: var(--color-ink);
+}
+
+/* Fondo blue-500: el cyan de enlace no da contraste, todo va en blanco */
+[data-theme='brand'] {
+  --color-surface: var(--color-blue-500);
+  --color-surface-raised: var(--color-blue-600);
+  --color-ink: var(--color-white);
+  --color-ink-muted: var(--color-blue-200);
+  --color-primary: var(--color-white);
+  --color-primary-hover: var(--color-blue-200);
+  --color-on-primary: var(--color-blue-500);
+  --color-link: var(--color-white);
+  --color-hairline: var(--color-blue-400);
+  color: var(--color-ink);
 }
 
 /* ─── Base ───────────────────────────────────────────────── */

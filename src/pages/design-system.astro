@@ -1,6 +1,20 @@
 ---
+import Badge from '../components/brand/Badge.astro';
+import Button from '../components/brand/Button.astro';
+import Card from '../components/brand/Card.astro';
+import Eyebrow from '../components/brand/Eyebrow.astro';
+import Metric from '../components/brand/Metric.astro';
+import PhotoCard from '../components/brand/PhotoCard.astro';
+import Section from '../components/brand/Section.astro';
+import SectionHeader from '../components/brand/SectionHeader.astro';
 import Base from '../layouts/Base.astro';
 import tokens from '../../referencia/tokens-luis-reyes.json';
+import fotoEquipo from '../assets/fotos/equipo_2025-09-01_evolutecc-aniversario-5_027.jpg';
+import fotoQuito from '../assets/fotos/evento_2025-11-28_cursor-meetup-quito_luis-reyes-vanegas_001.jpg';
+import fotoLima from '../assets/fotos/evento_2025-08-29_gdg-summit-latam-2025-lima_luis-reyes-vanegas_001.jpg';
+
+// Página de desarrollo: no se publica.
+if (import.meta.env.PROD) return new Response(null, { status: 404 });
 
 const colores = tokens.color.tokens.flatMap((t) =>
   typeof t.value === 'string' && t.value.startsWith('#') ? [{ name: t.name, hex: t.value }] : [],
@@ -8,265 +22,134 @@ const colores = tokens.color.tokens.flatMap((t) =>
 ---
 
 <Base locale="es" title="Sistema de diseño">
-  <style>
-    .ds-page {
-      max-width: var(--width-container);
-      margin-inline: auto;
-      padding-inline: var(--spacing-gutter);
-      padding-block: 48px;
-    }
-    .ds-section {
-      margin-block-end: 64px;
-    }
-    .ds-h1 {
-      font-size: var(--text-display);
-      line-height: var(--text-display--line-height);
-      letter-spacing: var(--text-display--letter-spacing);
-      font-weight: 700;
-      margin-block-end: 8px;
-    }
-    .ds-h2 {
-      font-size: var(--text-heading);
-      line-height: var(--text-heading--line-height);
-      font-weight: 700;
-      margin-block: 48px 24px;
-    }
-    .ds-eyebrow {
-      font-size: var(--text-eyebrow);
-      line-height: var(--text-eyebrow--line-height);
-      letter-spacing: var(--text-eyebrow--letter-spacing);
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--color-link);
-      margin-block-end: 12px;
-    }
-    .ds-lead {
-      font-size: var(--text-lead);
-      line-height: var(--text-lead--line-height);
-      font-weight: 400;
-      color: var(--color-ink-muted);
-    }
-    .ds-caption {
-      font-size: var(--text-caption);
-      line-height: var(--text-caption--line-height);
-      color: var(--color-ink-muted);
-    }
+  <Section tone="light">
+    <SectionHeader
+      level={1}
+      eyebrow="Sistema de diseño"
+      title="Componentes de marca"
+      lead="Cada bloque de esta página usa los componentes de src/components/brand con los tokens."
+    />
 
-    .color-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 12px;
-    }
-    .color-swatch {
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      border: 1px solid var(--color-hairline);
-    }
-    .color-swatch__block {
-      block-size: 64px;
-    }
-    .color-swatch__label {
-      padding: 6px 8px;
-      font-size: 11px;
-      line-height: 1.4;
-      background: var(--color-surface-raised);
-    }
-    .color-swatch__name {
-      font-weight: 700;
-      display: block;
-      overflow-wrap: anywhere;
-    }
-    .color-swatch__hex {
-      color: var(--color-ink-muted);
-    }
+    <div class="flex flex-col gap-3">
+      <Eyebrow>Eyebrow</Eyebrow>
+      <p class="text-display font-bold">Display</p>
+      <p class="text-heading font-bold">Heading</p>
+      <p class="text-lead text-ink-muted">Lead · bajada de sección</p>
+      <p class="text-body">Body · texto corrido</p>
+      <p class="text-body font-light text-ink-muted">Body light · texto de apoyo</p>
+      <p class="text-caption text-ink-muted">Caption · pies de foto</p>
+    </div>
 
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: var(--radius-pill);
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1;
-      text-decoration: none;
-      border: 2px solid transparent;
-      transition:
-        background-color 150ms,
-        color 150ms,
-        border-color 150ms;
-    }
-    .btn-primary {
-      background: var(--color-primary);
-      color: var(--color-on-primary);
-    }
-    .btn-primary:hover {
-      background: var(--color-blue-600);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--color-ink);
-      border-color: var(--color-ink);
-    }
-    .btn-secondary:hover {
-      background: var(--color-surface-raised);
-    }
-    .btn-ghost {
-      background: transparent;
-      color: var(--color-link);
-      border-color: var(--color-link);
-    }
-    .btn-ghost:hover {
-      background: var(--color-blue-200);
-    }
-
-    .card-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .card {
-      flex: 1 1 240px;
-      background: var(--color-surface-raised);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-    }
-    .metric {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      line-height: 1;
-    }
-
-    .section-sep {
-      border: none;
-      border-block-start: 1px solid var(--color-hairline);
-      margin-block: var(--spacing-section-y);
-    }
-
-    .ds-dark-bg {
-      background: var(--color-surface);
-      color: var(--color-ink);
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      margin-block-end: 24px;
-    }
-    .ds-dark-bg .ds-lead {
-      color: var(--color-text-secondary-on-dark);
-    }
-    .ds-dark-bg .ds-caption {
-      color: var(--color-text-tertiary-on-dark);
-    }
-    .ds-dark-bg .card {
-      background: var(--color-surface-raised);
-    }
-    .ds-dark-bg .metric {
-      color: var(--color-link);
-    }
-    .ds-dark-bg .btn-secondary {
-      color: var(--color-white);
-      border-color: var(--color-white);
-    }
-    .ds-dark-bg .btn-secondary:hover {
-      background: var(--color-blue-800);
-    }
-  </style>
-
-  <main class="ds-page">
-    <p class="ds-eyebrow">Sistema de diseño</p>
-    <h1 class="ds-h1">Luis Reyes · Paso 2</h1>
-    <p class="ds-lead">Human Sans incrustada · tokens de color · tipografía · radios · botones.</p>
-
-    <hr class="section-sep" />
-
-    <section class="ds-section">
-      <h2 class="ds-h2">Tipografía</h2>
-      <p class="ds-eyebrow">Eyebrow · 12px · 700 · 0.12em</p>
-      <p class="ds-h1">Display · 700</p>
-      <p class="ds-h2" style="margin-block:12px 0;">Heading · 700</p>
-      <p class="ds-lead">Lead · 400 · Fundé mi primer negocio a los 16.</p>
-      <p>Body · 400 · 16px · Texto corrido con Human Sans regular.</p>
-      <p style="font-weight:300;color:var(--color-ink-muted);">
-        Body light · 300 · Texto de apoyo.
-      </p>
-      <p class="ds-caption">Caption · 400 · 13px · Pies de foto y metadatos.</p>
-
-      <div class="ds-dark-bg" data-theme="dark" style="margin-block-start:32px;">
-        <p class="ds-eyebrow">Sobre fondo night</p>
-        <p class="ds-h1">Display blanco</p>
-        <p class="ds-lead">text-secondary-on-dark · texto secundario.</p>
-        <p class="ds-caption">text-tertiary-on-dark · texto terciario.</p>
-      </div>
-    </section>
-
-    <section class="ds-section">
-      <h2 class="ds-h2">Colores</h2>
-      <div class="color-grid">
-        {
-          colores.map((c) => (
-            <div class="color-swatch">
-              <div class="color-swatch__block" style={`background:var(--color-${c.name});`} />
-              <div class="color-swatch__label">
-                <span class="color-swatch__name">{c.name}</span>
-                <span class="color-swatch__hex">{c.hex}</span>
-              </div>
+    <ul class="mt-12 grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-3">
+      {
+        colores.map((c) => (
+          <li class="overflow-hidden rounded-sm border border-hairline">
+            <div class="h-16" style={`background: var(--color-${c.name})`} />
+            <div class="bg-surface-raised px-2 py-1.5 text-caption">
+              <span class="block font-bold break-all">{c.name}</span>
+              <span class="text-ink-muted">{c.hex}</span>
             </div>
-          ))
-        }
-      </div>
-    </section>
+          </li>
+        ))
+      }
+    </ul>
+  </Section>
 
-    <section class="ds-section">
-      <h2 class="ds-h2">Botones</h2>
-      <div class="btn-row">
-        <a href="#" class="btn btn-primary">Hablemos</a>
-        <a href="#" class="btn btn-secondary">Invitarme a hablar</a>
-        <a href="#" class="btn btn-ghost">Enlace secundario →</a>
-      </div>
-      <div class="ds-dark-bg" data-theme="dark" style="margin-block-start:24px;">
-        <div class="btn-row">
-          <a href="#" class="btn btn-primary">Hablemos</a>
-          <a href="#" class="btn btn-secondary">Invitarme a hablar</a>
-        </div>
-      </div>
-    </section>
+  <Section tone="dark">
+    <SectionHeader eyebrow="Section · dark" title="Botones, insignias y cifras">
+      <Button slot="action" href="#" variant="secondary">Acción a la derecha</Button>
+    </SectionHeader>
+    <div class="flex flex-wrap gap-3">
+      <Button href="#">Principal</Button>
+      <Button href="#" variant="secondary">Secundario</Button>
+      <Button href="#" variant="secondary" external>Externo</Button>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Badge>Obtenida</Badge>
+      <Badge tone="soft">En proceso</Badge>
+      <Metric size="chip" value="400+" label="proyectos" />
+      <Metric size="chip" value="90%" label="de recompra" />
+    </div>
+    <div class="mt-10 grid gap-8 md:grid-cols-2">
+      <Metric
+        value="Top 100"
+        label="entre 26.449 equipos del Build with Gemini XPRIZE"
+        source={{ text: 'gxp.moonshots.com', href: 'https://gxp.moonshots.com/' }}
+      />
+      <Metric
+        value="US$10.000 → US$4.000"
+        label="al mes en Google Cloud"
+        source={{ text: 'UTPN, 2025' }}
+      />
+    </div>
+  </Section>
 
-    <section class="ds-section">
-      <h2 class="ds-h2">Tarjetas · radios · cifras</h2>
-      <div class="card-row">
-        <div class="card">
-          <p class="ds-eyebrow">Cifra</p>
-          <p class="metric">400+</p>
-          <p class="ds-caption">proyectos con EvolutecC</p>
-        </div>
-        <div class="card">
-          <p class="ds-eyebrow">Cifra</p>
-          <p class="metric">90%</p>
-          <p class="ds-caption">de recompra</p>
-        </div>
-      </div>
-      <div class="ds-dark-bg" data-theme="dark" style="margin-block-start:16px;">
-        <div class="card-row">
-          <div class="card">
-            <p class="ds-eyebrow">Cifra en oscuro</p>
-            <p class="metric">26.449</p>
-            <p class="ds-caption">equipos en el XPRIZE</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <Section tone="dark-raised">
+    <SectionHeader eyebrow="Section · dark-raised" title="Tarjetas sobre blue-800" />
+    <ul class="grid gap-4 md:grid-cols-3">
+      {
+        ['01', '02', '03'].map((n) => (
+          <Card as="li" tone="surface">
+            <Eyebrow as="span">{n}</Eyebrow>
+            <p class="text-body">Card con tono surface, como en "Cómo trabajo".</p>
+          </Card>
+        ))
+      }
+    </ul>
+  </Section>
 
-    <section class="ds-section">
-      <h2 class="ds-h2">Separador de sección</h2>
-      <p class="ds-caption">El hairline separa secciones y bordes. Nunca va bajo un título.</p>
-      <hr class="section-sep" />
-    </section>
-  </main>
+  <Section tone="light">
+    <SectionHeader eyebrow="Section · light" title="Tarjetas sobre blanco" />
+    <ul class="grid gap-4 md:grid-cols-3">
+      <Card as="li">
+        <Badge>Obtenida</Badge>
+        <p class="text-body font-bold">Card raised</p>
+        <p class="text-caption text-ink-muted">Radio lg (24 px)</p>
+      </Card>
+      <Card as="li" radius="md">
+        <Badge tone="soft">En curso</Badge>
+        <p class="text-body font-bold">Card raised</p>
+        <p class="text-caption text-ink-muted">Radio md (20 px)</p>
+      </Card>
+      <Card as="li" tone="brand">
+        <Eyebrow as="span">Brand</Eyebrow>
+        <p class="text-body font-bold">Card brand</p>
+        <p class="text-caption text-ink-muted">Fondo blue-500</p>
+      </Card>
+    </ul>
+  </Section>
+
+  <Section tone="dark" separator>
+    <SectionHeader eyebrow="Section · dark con separador" title="PhotoCard 4:3 sin recorte" />
+    <div class="grid gap-6 md:grid-cols-3">
+      <PhotoCard
+        image={fotoEquipo}
+        alt="Equipo de EvolutecC con camisetas de la marca en el quinto aniversario de la empresa"
+        eyebrow="Foto 3:2"
+        title="Sobra poco espacio arriba y abajo"
+        sizes="(min-width: 768px) 33vw, 100vw"
+      />
+      <PhotoCard
+        image={fotoQuito}
+        alt="Asistentes al Cursor meetup en Quito"
+        eyebrow="Foto vertical"
+        title="El relleno es la misma foto desenfocada"
+        titleAs="h3"
+        sizes="(min-width: 768px) 33vw, 100vw"
+      />
+      <PhotoCard
+        image={fotoLima}
+        alt="Luis Reyes con integrantes de GDG en el GDG Summit Latam 2025, Lima"
+        sizes="(min-width: 768px) 33vw, 100vw"
+      />
+    </div>
+  </Section>
+
+  <Section tone="brand">
+    <h2 class="text-heading font-bold">Section · brand</h2>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <Button href="#">Principal en blanco</Button>
+      <Button href="#" variant="secondary">Secundario</Button>
+    </div>
+  </Section>
 </Base>

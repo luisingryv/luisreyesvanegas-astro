@@ -1,0 +1,40 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Container from './Container.astro';
+
+interface Props extends HTMLAttributes<'section'> {
+  tone?: 'dark' | 'dark-raised' | 'light' | 'brand';
+  spacing?: 'section' | 'hero';
+  separator?: boolean;
+}
+
+const {
+  tone = 'light',
+  spacing = 'section',
+  separator = false,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const tones = {
+  dark: { theme: 'dark', bg: 'bg-surface' },
+  'dark-raised': { theme: 'dark', bg: 'bg-surface-raised' },
+  light: { theme: undefined, bg: 'bg-surface' },
+  brand: { theme: 'brand', bg: 'bg-surface' },
+} as const;
+---
+
+<section
+  data-theme={tones[tone].theme}
+  class:list={[
+    tones[tone].bg,
+    spacing === 'hero' ? 'py-hero-y' : 'py-section-y',
+    separator && 'border-t border-hairline',
+    className,
+  ]}
+  {...rest}
+>
+  <Container>
+    <slot />
+  </Container>
+</section>

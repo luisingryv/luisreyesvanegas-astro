@@ -1,0 +1,18 @@
+---
+interface Props {
+  tone?: 'solid' | 'soft';
+  class?: string;
+}
+
+const { tone = 'solid', class: className } = Astro.props;
+---
+
+<span
+  class:list={[
+    'inline-flex items-center self-start rounded-pill px-3 py-1 text-caption font-bold',
+    tone === 'solid' ? 'bg-primary text-on-primary' : 'bg-white text-blue-600',
+    className,
+  ]}
+>
+  <slot />
+</span>
