@@ -1,0 +1,10 @@
+orden: 1
+nombre:
+  es: 'Introduction to Claude Cowork'
+emisor:
+  es: 'Anthropic · Claude Academy'
+fecha:
+  anio: 2026
+  mes: 10
+estado: obtenida
+verificacion: 'https://academy.claude.com/verify/b56b13366f0e51dfdfe4bb5a66848762'

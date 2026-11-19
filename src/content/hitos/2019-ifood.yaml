@@ -1,0 +1,11 @@
+capitulo: startup
+anio: 2019
+edad: 22
+titulo:
+  es: 'Integración con iFood'
+texto:
+  es: 'Integramos Mandaos con iFood tras un piloto que validó la API. Para soportar su demanda aceleramos la nueva app, que pasó a llamarse Netivery.'
+cifra:
+  es: '≈2.400 → ≈70.000 pedidos al mes'
+impacto:
+  es: 'Un resultado de todo el equipo: tecnología, operación y estrategia.'

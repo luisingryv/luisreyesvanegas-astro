@@ -1,0 +1,13 @@
+# Plantilla: los archivos que empiezan por _ no se cargan.
+# Copia este archivo sin el _ inicial para agregar un testimonio.
+# Solo se muestra si permiso y publicado son true (regla del documento madre):
+# recomendación real de LinkedIn, texto tal cual y enlace a la fuente.
+texto:
+  es: 'Texto de la recomendación, tal como está publicado.'
+autor: 'Nombre Apellido'
+cargo:
+  es: 'Cargo'
+empresa: 'Empresa'
+fuente: 'https://www.linkedin.com/in/...'
+permiso: false
+publicado: false

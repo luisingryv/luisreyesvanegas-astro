@@ -1,0 +1,11 @@
+capitulo: cimientos
+anio: 2016
+edad: 19
+titulo:
+  es: 'Clínica del Caribe: el SIGC pasa a la web'
+texto:
+  es: 'Lideré la migración del sistema de incidencias clínicas de escritorio (VB.NET) a web (ASP.NET). Un MVP validó la propuesta y abrió paso a la migración completa.'
+cifra:
+  es: '≈300 equipos → 1 despliegue'
+impacto:
+  es: 'En uso más de 10 años después, con más de 300 usuarios.'

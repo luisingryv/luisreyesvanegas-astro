@@ -1,0 +1,12 @@
+capitulo: startup
+anio: 2018
+orden: 2
+edad: 21
+titulo:
+  es: 'API de integraciones y app en Ionic'
+texto:
+  es: 'Diseñé y construí una API pública para integrar a terceros y migré la app móvil de Cordova a Ionic. Farmacias como Droguería Juliao se integraron para su distribución de última milla.'
+cifra:
+  es: 'De producto a plataforma'
+impacto:
+  es: 'Abrió la puerta a integraciones con grandes clientes.'

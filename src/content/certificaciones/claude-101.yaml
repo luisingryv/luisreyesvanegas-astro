@@ -1,0 +1,10 @@
+orden: 2
+nombre:
+  es: 'Claude 101'
+emisor:
+  es: 'Anthropic · Claude Academy'
+fecha:
+  anio: 2026
+  mes: 10
+estado: obtenida
+verificacion: 'https://academy.claude.com/verify/2ef58f9fd0d519c601075445741c464b'

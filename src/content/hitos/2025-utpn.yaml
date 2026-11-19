@@ -1,0 +1,12 @@
+capitulo: arquitecto-ceo
+anio: 2025
+orden: 2
+edad: 28
+titulo:
+  es: 'Optimización de Google Cloud en UTPN'
+texto:
+  es: 'Audité la infraestructura de una red nacional de peajes, rediseñé el acceso a la videovigilancia y eliminé el tráfico de salida que disparaba la factura.'
+cifra:
+  es: 'US$10.000 → US$4.000 al mes'
+impacto:
+  es: 'El presupuesto liberado se convirtió en un contrato de soporte de largo plazo.'

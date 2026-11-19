@@ -1,0 +1,12 @@
+capitulo: arquitecto-ceo
+anio: 2025
+orden: 1
+edad: 28
+titulo:
+  es: 'Cloud Expert de Glasslake'
+texto:
+  es: 'Administro la cuenta de AWS de una startup de SAP de San Francisco con presencia global, en pleno crecimiento: centralicé las cuentas con Organizations e IAM Identity Center, construí los entornos multitenant y las redes hacia los entornos de sus clientes con Transit Gateway, VPN y endpoints, y me encargo de la seguridad, los costos, el soporte y la evidencia técnica de sus certificaciones SOC 2 e ISO 27001.'
+cifra:
+  es: 'US$62.000 en créditos AWS (MAP)'
+impacto:
+  es: 'Créditos otorgados a través del programa MAP, con el aliado Nexa Connect. Además, el tráfico por NAT Gateway bajó entre 75 y 80% al optimizar la red.'

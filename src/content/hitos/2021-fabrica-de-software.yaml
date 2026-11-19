@@ -1,0 +1,11 @@
+capitulo: fundador
+anio: 2021
+edad: 24
+titulo:
+  es: 'De agencia a fábrica de software'
+texto:
+  es: 'Primer desarrollo a la medida: una plataforma de renta de maquinaria pesada en Angular. Con ella formalizamos Scrum, historias de usuario y entregas validadas con el cliente.'
+cifra:
+  es: 'Primer desarrollo a la medida'
+impacto:
+  es: 'Primeras oficinas y primeros desarrolladores contratados.'

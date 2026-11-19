@@ -1,0 +1,14 @@
+fecha: 2025-11-28
+evento: 'Cursor meetup Quito'
+titulo:
+  es: 'Infraestructura en la nube: IA + Terraform + AWS'
+tipo: charla
+lugar:
+  es: 'Quito, Ecuador'
+foto: ../../assets/fotos/evento_2025-11-28_cursor-meetup-quito_luis-reyes-vanegas_001.jpg
+alt:
+  es: 'Asistentes al Cursor meetup en Quito'
+sobreMi:
+  orden: 1
+  titulo:
+    es: 'Cursor meetup: infraestructura en la nube con IA, Terraform y AWS'
