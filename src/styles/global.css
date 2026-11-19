@@ -24,7 +24,8 @@
 }
 
 /* ─── Tokens de color (tokens-luis-reyes.json) ────────────── */
-@theme {
+/* static: publica todas las variables aunque Tailwind no detecte su uso */
+@theme static {
   /* Escala azul */
   --color-blue-200: #e5eef9;
   --color-blue-300: #80aae0;
@@ -49,10 +50,10 @@
   --color-gray-700: #3a3941;
   --color-night: #090812;
 
-  /* Colores sin token en el prototipo (propuesta para Luis) */
-  --color-gray-100: #24232c;   /* borde hairline oscuro */
-  --color-gray-200: #c9c8ce;   /* texto secundario sobre night */
-  --color-gray-300: #a9a8ae;   /* texto terciario sobre night */
+  /* Colores del prototipo, nombrados por Luis el 19 nov 2026 */
+  --color-dark-border: #24232c;
+  --color-text-secondary-on-dark: #c9c8ce;
+  --color-text-tertiary-on-dark: #a9a8ae;
 
   /* ─── Tipografía ──────────────────────────────────────────── */
   --font-sans: "Human Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -112,7 +113,7 @@
   --color-ink:            var(--color-white);
   --color-ink-muted:      var(--color-gray-400);
   --color-link:           var(--color-cyan-400);
-  --color-hairline:       #24232c;
+  --color-hairline:       var(--color-dark-border);
 }
 
 /* ─── Base ───────────────────────────────────────────────── */

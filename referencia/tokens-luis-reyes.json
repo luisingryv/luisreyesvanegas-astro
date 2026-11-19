@@ -26,6 +26,9 @@
       {"name": "gray-400", "value": "#848388", "usage": "Gris medio. Texto secundario sobre night (5.3:1); no usar como texto sobre blanco (3.8:1)."},
       {"name": "gray-700", "value": "#3a3941", "usage": "Gris grafito. Texto secundario sobre blanco (11.4:1); bordes en tema oscuro."},
       {"name": "night", "value": "#090812", "usage": "NEGRO DE MARCA (RGB 9, 8, 18). Fondo oscuro principal y color del texto sobre blanco."},
+      {"name": "dark-border", "value": "#24232c", "usage": "Bordes y separadores sobre fondos oscuros (hairline del tema oscuro). Nombrado por Luis el 19 nov 2026."},
+      {"name": "text-secondary-on-dark", "value": "#c9c8ce", "usage": "Texto secundario sobre night. Nombrado por Luis el 19 nov 2026."},
+      {"name": "text-tertiary-on-dark", "value": "#a9a8ae", "usage": "Texto terciario sobre night. Nombrado por Luis el 19 nov 2026."},
       {"name": "surface", "value": {"light": "{white}", "dark": "{night}"}, "usage": "Fondo de página."},
       {"name": "surface-raised", "value": {"light": "{blue-200}", "dark": "{blue-800}"}, "usage": "Tarjetas y paneles sobre surface."},
       {"name": "ink", "value": {"light": "{night}", "dark": "{white}"}, "usage": "Texto principal sobre surface y surface-raised."},
@@ -34,7 +37,7 @@
       {"name": "on-primary", "value": "{white}", "usage": "Texto e ícono sobre primary (6.8:1)."},
       {"name": "link", "value": {"light": "{blue-500}", "dark": "{cyan-400}"}, "usage": "Enlaces y texto de acento sobre surface (6.8:1 claro, 9:1 oscuro)."},
       {"name": "accent", "value": "{cyan-500}", "usage": "Relleno de acento; texto encima en night."},
-      {"name": "hairline", "value": {"light": "#1f2a8a", "dark": "#24232c"}, "usage": "Separadores entre secciones y bordes finos. No va bajo los títulos de sección."}
+      {"name": "hairline", "value": {"light": "#1f2a8a", "dark": "{dark-border}"}, "usage": "Separadores entre secciones y bordes finos. No va bajo los títulos de sección."}
     ]
   },
   "type": {
