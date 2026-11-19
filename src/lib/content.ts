@@ -86,6 +86,7 @@ export interface Certificacion {
   emisor: string;
   fecha?: string;
   estado: EstadoCertificacion;
+  insignia: CollectionEntry<'certificaciones'>['data']['insignia'];
   verificacion?: string;
 }
 
@@ -101,6 +102,7 @@ export async function getCertificaciones(locale: PublishedLocale): Promise<Certi
         emisor: localize(data.emisor, locale, where),
         fecha: data.fecha && formatMonthYear(data.fecha, locale),
         estado: data.estado,
+        insignia: data.insignia,
         verificacion: data.verificacion,
       };
     });

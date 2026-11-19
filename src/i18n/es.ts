@@ -37,9 +37,23 @@ export const es = {
     edad: (n: number) => `${n} años`,
     resumen: (r: { anios: number; hitos: number; desde: number; hasta: number }) =>
       `${r.anios} años · ${r.hitos} hitos · ${r.desde}–${r.hasta}`,
+    enJuego: 'En juego',
+    bloqueado: 'Bloqueado',
+    deHitos: (total: number) => `de ${total} hitos`,
+    nivelCompletado: (n: number) => `Nivel ${n} completado`,
+    siguiente: (nombre: string) => `Siguiente: ${nombre}`,
+    desbloqueado: (nombre: string) => `Desbloqueado: ${nombre}`,
+    capitulos: 'Capítulos de la historia',
   },
   certificaciones: {
     verificar: 'Verificar',
+    conteo: (total: number, enProceso: number) => `de ${total} obtenidas · ${enProceso} en proceso`,
+    filtros: {
+      etiqueta: 'Filtrar insignias',
+      todas: 'Todas',
+      obtenidas: 'Obtenidas',
+      enProceso: 'En proceso',
+    },
     estado: {
       obtenida: 'Obtenida',
       'en-proceso': 'En proceso',

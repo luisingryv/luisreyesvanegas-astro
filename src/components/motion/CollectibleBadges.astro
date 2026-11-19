@@ -1,0 +1,265 @@
+---
+// Pieza 09 · Insignias coleccionables (laboratorio de motion).
+import Badge from '../brand/Badge.astro';
+import BadgeHex from './BadgeHex.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import type { Certificacion } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  certificaciones: Certificacion[];
+}
+
+const { locale, certificaciones } = Astro.props;
+const t = getDictionary(locale).certificaciones;
+
+// Primero las obtenidas: el contador y la barra se llenan en ese orden.
+const obtained = certificaciones.filter((c) => c.estado === 'obtenida');
+const inProgress = certificaciones.filter((c) => c.estado !== 'obtenida');
+const ordered = [...obtained, ...inProgress];
+
+const filters = [
+  { key: 'all', label: t.filtros.todas },
+  { key: 'ok', label: t.filtros.obtenidas },
+  { key: 'cur', label: t.filtros.enProceso },
+] as const;
+---
+
+<div class="flex flex-col gap-5.5" data-badges>
+  <div class="flex flex-col gap-2.5">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2.5">
+      <p class="text-small font-bold text-ink-muted tabular-nums">
+        <span class="mr-1 text-title-md text-ink" data-badge-count>{obtained.length}</span>
+        {t.conteo(ordered.length, inProgress.length)}
+      </p>
+      <div
+        class="flex flex-wrap gap-2"
+        role="group"
+        aria-label={t.filtros.etiqueta}
+        data-badge-filters
+        hidden
+      >
+        {
+          filters.map((f, i) => (
+            <button
+              type="button"
+              class="filter rounded-pill border px-3.5 py-2 text-caption font-bold transition-colors duration-150"
+              data-filter={f.key}
+              aria-pressed={i === 0 ? 'true' : 'false'}
+            >
+              {f.label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+    <div
+      class="grid gap-1"
+      style={`grid-template-columns: repeat(${ordered.length}, minmax(0, 1fr))`}
+      aria-hidden="true"
+    >
+      {
+        ordered.map((c) => (
+          <i
+            class="cell h-2.5 rounded-sm"
+            data-cell={c.estado === 'obtenida' ? 'ok' : 'cur'}
+            data-on
+          />
+        ))
+      }
+    </div>
+  </div>
+
+  <ul
+    class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,190px),1fr))] gap-3.5"
+    data-badge-grid
+  >
+    {
+      ordered.map((c) => {
+        const isObtained = c.estado === 'obtenida';
+        return (
+          <li
+            class="group flex min-w-0 flex-col items-center gap-2 rounded-md bg-surface-raised px-4 py-5 text-center"
+            data-badge={isObtained ? 'ok' : 'cur'}
+          >
+            <div
+              class="h-23 w-21 transition-transform duration-300 ease-brand group-hover:-translate-y-1 group-hover:-rotate-4"
+              aria-hidden="true"
+              data-hex
+            >
+              <BadgeHex id={c.id} insignia={c.insignia} obtained={isObtained} />
+            </div>
+            <Badge tone={isObtained ? 'solid' : 'dashed'} class="self-center">
+              {t.estado[c.estado]}
+            </Badge>
+            <h3 class="text-small font-bold text-balance">{c.nombre}</h3>
+            <p class="text-caption text-ink-muted">
+              {c.emisor}
+              {c.fecha && ` · ${c.fecha}`}
+            </p>
+            {c.verificacion && (
+              <a href={c.verificacion} class="text-caption font-bold text-link hover:underline">
+                {t.verificar}
+                <span class="sr-only">: {c.nombre}</span>
+                <span aria-hidden="true"> ↗</span>
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>
+
+<style>
+  .cell {
+    background: color-mix(in oklab, var(--color-blue-300) 40%, transparent);
+    transition: background 0.25s ease;
+  }
+  .cell[data-on][data-cell='ok'] {
+    background: var(--color-primary);
+  }
+  .cell[data-on][data-cell='cur'] {
+    background: color-mix(in oklab, var(--color-primary) 26%, transparent);
+  }
+  .filter {
+    border-color: var(--color-blue-300);
+    color: var(--color-ink-muted);
+  }
+  .filter[aria-pressed='true'] {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+</style>
+
+<script>
+  import { isBelowFold, loadGsap, onceNearViewport, prefersReducedMotion } from './motion';
+
+  function setup(root: HTMLElement) {
+    const reduce = prefersReducedMotion();
+    const grid = root.querySelector<HTMLElement>('[data-badge-grid]')!;
+    const cards = [...grid.querySelectorAll<HTMLElement>('[data-badge]')];
+    const cells = [...root.querySelectorAll<HTMLElement>('[data-cell]')];
+    const count = root.querySelector<HTMLElement>('[data-badge-count]')!;
+    const filterGroup = root.querySelector<HTMLElement>('[data-badge-filters]')!;
+    const buttons = [...filterGroup.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+
+    // Filtros: sin JavaScript no aparecen; con reducir movimiento filtran sin animar.
+    filterGroup.hidden = false;
+    buttons.forEach((button) =>
+      button.addEventListener('click', async () => {
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+        const value = button.dataset.filter;
+        const apply = () =>
+          cards.forEach((c) => (c.hidden = value !== 'all' && c.dataset.badge !== value));
+        if (reduce) return apply();
+        const { gsap, Flip } = await loadGsap();
+        const state = Flip.getState(cards);
+        apply();
+        Flip.from(state, {
+          duration: 0.5,
+          ease: 'brand',
+          onEnter: (els) =>
+            gsap.fromTo(els, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.35 }),
+        });
+      }),
+    );
+
+    // Pausa la ola de las insignias en proceso fuera de pantalla.
+    new IntersectionObserver(([entry]) => {
+      root.toggleAttribute('data-badges-paused', !entry?.isIntersecting);
+    }).observe(root);
+
+    if (reduce || !isBelowFold(grid)) return;
+
+    // Armar: contador en cero, barra vacía e insignias sin estampar.
+    const fills = cards.map((c) => c.querySelector<SVGGElement>('[data-fill]')!);
+    count.textContent = '0';
+    cells.forEach((cell) => delete cell.dataset.on);
+    cards.forEach((c) => (c.style.opacity = '0'));
+    fills.forEach((f) => f.setAttribute('transform', 'translate(0 110)'));
+
+    const restoreFinalState = () => {
+      count.textContent = String(cards.filter((c) => c.dataset.badge === 'ok').length);
+      cells.forEach((cell) => (cell.dataset.on = ''));
+      cards.forEach((c) => (c.style.opacity = ''));
+      fills.forEach((f, i) =>
+        f.setAttribute('transform', `translate(0 ${cards[i]!.dataset.badge === 'ok' ? 0 : 55})`),
+      );
+    };
+
+    onceNearViewport(root, async () => {
+      try {
+        const { gsap, ScrollTrigger } = await loadGsap();
+        ScrollTrigger.create({
+          trigger: grid,
+          start: 'top 75%',
+          end: 'max',
+          once: true,
+          onEnter: () => {
+            let stamped = 0;
+            const okCells = cells.filter((c) => c.dataset.cell === 'ok');
+            const curCells = cells.filter((c) => c.dataset.cell === 'cur');
+            let pending = 0;
+            cards.forEach((card, i) => {
+              const delay = i * 0.13;
+              const fill = fills[i]!;
+              gsap.fromTo(
+                card,
+                { opacity: 0, y: 18 },
+                { opacity: 1, y: 0, duration: 0.45, delay, ease: 'brand' },
+              );
+              if (card.dataset.badge === 'ok') {
+                gsap.fromTo(
+                  fill,
+                  { y: 110 },
+                  { y: 0, duration: 0.55, delay: delay + 0.15, ease: 'brand' },
+                );
+                const hex = card.querySelector('[data-hex] svg');
+                gsap.to(hex, {
+                  keyframes: { scale: [1.5, 0.94, 1], rotate: [-14, 3, 0] },
+                  transformOrigin: '50% 50%',
+                  duration: 0.6,
+                  delay: delay + 0.55,
+                  ease: 'brand',
+                });
+                const shine = card.querySelector('[data-shine]');
+                gsap.fromTo(
+                  shine,
+                  { x: 0 },
+                  { x: 150, duration: 0.7, delay: delay + 0.75, ease: 'none' },
+                );
+                gsap.to(shine, {
+                  keyframes: { opacity: [0, 1, 0] },
+                  duration: 0.7,
+                  delay: delay + 0.75,
+                });
+                gsap.delayedCall(delay + 0.6, () => {
+                  stamped += 1;
+                  count.textContent = String(stamped);
+                  okCells[stamped - 1]!.dataset.on = '';
+                });
+              } else {
+                gsap.fromTo(
+                  fill,
+                  { y: 110 },
+                  { y: 55, duration: 1.3, delay: delay + 0.15, ease: 'brand' },
+                );
+                gsap.delayedCall(delay + 0.8, () => {
+                  curCells[pending]!.dataset.on = '';
+                  pending += 1;
+                });
+              }
+            });
+          },
+        });
+      } catch {
+        restoreFinalState();
+      }
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-badges]').forEach(setup);
+</script>

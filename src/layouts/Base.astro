@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Footer from '../components/brand/Footer.astro';
 import Header from '../components/brand/Header.astro';
+import Reveal from '../components/motion/Reveal.astro';
 import { defaultLocale, publishedLocales, type PublishedLocale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 import { localizedPath, type RouteKey } from '../i18n/routes';
@@ -69,5 +70,6 @@ const absolute = (path: string) => new URL(path, Astro.site).toString();
       <slot />
     </main>
     <Footer locale={locale} />
+    <Reveal />
   </body>
 </html>

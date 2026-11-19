@@ -58,6 +58,8 @@ const certificaciones = defineCollection({
         mes: z.number().int().min(1).max(12).optional(),
       })
       .optional(),
+    // Ícono de la insignia (pieza 09); no son logos de terceros.
+    insignia: z.enum(['ia', 'liderazgo', 'oratoria', 'formacion', 'cloud', 'idioma']),
     estado: z.enum(['obtenida', 'en-proceso', 'en-curso', 'en-tramite']),
     verificacion: z.url().optional(),
   }),

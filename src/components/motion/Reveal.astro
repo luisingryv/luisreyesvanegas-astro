@@ -1,0 +1,37 @@
+---
+// Apariciones suaves: cada bloque con data-reveal sube 20 px y aparece una sola vez.
+---
+
+<style is:global>
+  [data-reveal] {
+    transition:
+      opacity 0.5s var(--ease-brand),
+      transform 0.5s var(--ease-brand);
+  }
+  [data-reveal][data-reveal-armed] {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+</style>
+
+<script>
+  import { isBelowFold, prefersReducedMotion } from './motion';
+
+  if (!prefersReducedMotion()) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          delete (entry.target as HTMLElement).dataset.revealArmed;
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.15 },
+    );
+    document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
+      if (!isBelowFold(el, 0.9)) return;
+      el.dataset.revealArmed = '';
+      observer.observe(el);
+    });
+  }
+</script>

@@ -1,20 +1,87 @@
 ---
 interface Props {
+  level: number;
   label: string;
-  status: string;
   name: string;
   period: string;
+  total: number;
+  ofTotal: string;
+  status: { done: string; on: string; locked: string };
 }
 
-const { label, status, name, period } = Astro.props;
+const { level, label, name, period, total, ofTotal, status } = Astro.props;
 ---
 
-<div class="flex flex-col gap-1.5 rounded-md border border-hairline bg-surface-raised p-4">
-  <p class="flex justify-between text-label font-bold text-link uppercase">
+<!-- Estado final por defecto (completado); la pieza 03 cambia data-state con el scroll. -->
+<div
+  class="level-card flex flex-col gap-1.5 rounded-md border border-hairline bg-surface-raised p-4"
+  data-level-card={level}
+  data-state="done"
+>
+  <p class="flex items-center justify-between text-label font-bold uppercase">
     <span>{label}</span>
-    <span>{status}</span>
+    <span class="when-done">{status.done}</span>
+    <span class="when-on">{status.on}</span>
+    <span class="when-locked">
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        class="size-3.5"
+      >
+        <rect x="5" y="11" width="14" height="9" rx="2"></rect>
+        <path d="M8 11V8a4 4 0 0 1 8 0v3"></path>
+      </svg>
+      <span class="sr-only">{status.locked}</span>
+    </span>
   </p>
   <p class="text-title-sm font-bold">{name}</p>
   <p class="text-caption text-blue-300">{period}</p>
-  <div class="mt-1.5 h-1.5 rounded-pill bg-accent"></div>
+  <div class="mt-1.5 flex flex-col gap-1.5" aria-hidden="true">
+    <p class="text-label tracking-normal text-cyan-300 tabular-nums">
+      <span data-count>{total}</span>{' '}{ofTotal}
+    </p>
+    <div class="h-1.5 overflow-hidden rounded-pill bg-hairline">
+      <div class="h-full origin-left rounded-pill bg-accent" data-bar></div>
+    </div>
+  </div>
 </div>
+
+<style>
+  .level-card {
+    transition:
+      border-color 0.3s,
+      box-shadow 0.3s;
+  }
+  .level-card [class^='when-'] {
+    display: none;
+  }
+  .level-card[data-state='done'] .when-done,
+  .level-card[data-state='on'] .when-on,
+  .level-card[data-state='locked'] .when-locked {
+    display: inline-flex;
+  }
+  .level-card[data-state='done'] > p:first-child,
+  .level-card[data-state='on'] > p:first-child {
+    color: var(--color-cyan-300);
+  }
+  .level-card[data-state='locked'] > p:first-child {
+    color: var(--color-ink-muted);
+  }
+  .level-card[data-state='on'] {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-glow-ring);
+  }
+  /* Bloqueada: atenuada con color y no con opacidad, para mantener el contraste AA. */
+  .level-card[data-state='locked'] :is(p, span) {
+    color: var(--color-ink-muted);
+  }
+  .level-card[data-state='locked'] [data-bar] {
+    opacity: 0;
+  }
+  [data-bar] {
+    transition: transform 0.5s var(--ease-brand);
+  }
+</style>

@@ -1,0 +1,466 @@
+---
+// Pieza 03 · Línea de tiempo por niveles (laboratorio de motion).
+import Button from '../brand/Button.astro';
+import LevelCard from '../brand/LevelCard.astro';
+import MilestoneCard from '../brand/MilestoneCard.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import type { Historia } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  historia: Historia;
+  cta: { label: string; href: string };
+}
+
+const { locale, historia, cta } = Astro.props;
+const t = getDictionary(locale).historia;
+const { niveles, resumen } = historia;
+
+const lockIcon = 'M8 11V8a4 4 0 0 1 8 0v3';
+const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
+---
+
+<div class="level-timeline" data-level-timeline>
+  <ul
+    class="mb-9 grid grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] gap-3"
+    aria-label={t.capitulos}
+  >
+    {
+      niveles.map((n) => (
+        <li class="grid">
+          <LevelCard
+            level={n.nivel}
+            label={t.nivel(n.nivel)}
+            name={n.nombre}
+            period={n.periodo}
+            total={n.hitos.length}
+            ofTotal={t.deHitos(n.hitos.length)}
+            status={{ done: t.completado, on: t.enJuego, locked: t.bloqueado }}
+          />
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    niveles.map((n, i) => {
+      const next = niveles[i + 1];
+      return (
+        <div class="chapter" data-chapter={n.nivel}>
+          <div class="ch-head mb-5.5 flex flex-wrap items-baseline gap-x-3.5 gap-y-1.5">
+            <p class="text-label font-bold text-cyan-300 uppercase">{t.nivel(n.nivel)}</p>
+            <h3 class="text-title-md font-bold text-balance">{n.nombre}</h3>
+            <p class="text-caption text-blue-300">{n.periodo}</p>
+            {n.rotulo && (
+              <p class="basis-full text-caption text-text-tertiary-on-dark">{n.rotulo}</p>
+            )}
+          </div>
+
+          <div class="path relative max-w-195" data-path>
+            <div
+              class="rail absolute top-3.5 bottom-3.5 w-0.5 rounded-sm bg-hairline"
+              aria-hidden="true"
+            >
+              <i class="absolute inset-0 origin-top bg-accent shadow-glow" data-rail-fill />
+            </div>
+            <ol class="grid gap-4.5">
+              {n.hitos.map((h) => (
+                <li class="hito relative" data-hito>
+                  <span
+                    class="node absolute top-5.5 grid size-5.5 place-items-center rounded-full border-2 bg-night"
+                    aria-hidden="true"
+                    data-node
+                  >
+                    <span class="size-2 rounded-full" />
+                  </span>
+                  <MilestoneCard
+                    year={h.anio}
+                    age={t.edad(h.edad)}
+                    title={h.titulo}
+                    text={h.texto}
+                    stat={h.cifra}
+                    impactLabel={t.impacto}
+                    impact={h.impacto}
+                    link={h.enlace}
+                  />
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          {next ? (
+            <div
+              class="levelup mt-6.5 flex max-w-181 flex-wrap items-center gap-x-4.5 gap-y-3.5"
+              data-levelup
+              data-open
+            >
+              <span
+                class="grid size-13 flex-none place-items-center rounded-full bg-accent shadow-glow"
+                aria-hidden="true"
+                data-medal
+              >
+                <svg viewBox="0 0 16 16" class="size-5.5" fill="none">
+                  <path
+                    d="M3 8.5l3 3 7-7"
+                    class="stroke-night"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <div class="flex flex-col gap-0.5">
+                <p class="text-label font-bold text-cyan-300 uppercase">
+                  {t.nivelCompletado(n.nivel)}
+                </p>
+                <p class="text-title-sm font-bold">
+                  {n.nombre} · {n.periodo}
+                </p>
+              </div>
+              <p class="nextlvl inline-flex items-center gap-2 rounded-pill border px-3.5 py-2.5 text-caption font-bold sm:ml-auto">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  class="size-3.5"
+                >
+                  <rect x="5" y="11" width="14" height="9" rx="2" />
+                  <path class="when-open" d={unlockIcon} />
+                  <path class="when-closed" d={lockIcon} />
+                </svg>
+                <span class="when-open">{t.desbloqueado(next.nombre)}</span>
+                <span class="when-closed">{t.siguiente(next.nombre)}</span>
+              </p>
+            </div>
+          ) : (
+            <div
+              class="levelup final mt-6.5 flex flex-wrap items-center gap-x-5 gap-y-4 rounded-lg border border-accent bg-surface-raised px-5 py-4.5 shadow-glow-ring"
+              data-levelup
+              data-open
+              data-final
+            >
+              <span
+                class="relative grid size-16 flex-none place-items-center rounded-full bg-accent shadow-glow"
+                aria-hidden="true"
+                data-medal
+              >
+                <svg viewBox="0 0 16 16" class="size-7" fill="none">
+                  <path
+                    d="M3 8.5l3 3 7-7"
+                    class="stroke-night"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="pointer-events-none absolute inset-0" data-burst />
+              </span>
+              <div class="flex flex-[1_1_240px] flex-col gap-0.5">
+                <p class="text-label font-bold text-cyan-300 uppercase">{t.recorridoCompleto}</p>
+                <p class="text-title-md font-bold">{t.resumen(resumen)}</p>
+              </div>
+              <Button href={cta.href} variant="accent" size="sm">
+                {cta.label}
+              </Button>
+            </div>
+          )}
+        </div>
+      );
+    })
+  }
+</div>
+
+<style>
+  /* Riel y nodos: 56 px de margen en escritorio, 40 px en celular (laboratorio). */
+  .path {
+    padding-left: 2.5rem;
+  }
+  .rail {
+    left: 0.6875rem;
+  }
+  .node {
+    left: -2.4375rem;
+  }
+  @media (min-width: 40rem) {
+    .path {
+      padding-left: 3.5rem;
+    }
+    .rail {
+      left: 1.1875rem;
+    }
+    .node {
+      left: -2.9375rem;
+    }
+    .ch-head,
+    .levelup {
+      margin-left: 3.5rem;
+    }
+  }
+  .chapter + .chapter {
+    margin-top: 3.5rem;
+  }
+
+  .node {
+    border-color: var(--color-accent);
+    transition: border-color 0.3s;
+  }
+  .node > span {
+    background: var(--color-accent);
+    transition: background 0.3s;
+  }
+  /* Pendiente de desbloquear: se atenúa con color y no con opacidad, para cumplir AA. */
+  .hito :global(article),
+  .hito :global(article :is(h4, p, span)) {
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease,
+      filter 0.3s ease;
+  }
+  .hito[data-dim] :global(article) {
+    filter: grayscale(1);
+  }
+  .hito[data-dim] :global(article :is(h4, p, span)) {
+    color: var(--color-ink-muted);
+  }
+  .hito[data-dim] :global([data-stat] > span) {
+    background: transparent;
+    box-shadow: inset 0 0 0 1px var(--color-hairline);
+  }
+  .hito[data-dim] .node {
+    border-color: var(--color-hairline);
+  }
+  .hito[data-dim] .node > span {
+    background: var(--color-hairline);
+  }
+
+  .levelup :is(p, [data-medal]) {
+    transition:
+      color 0.3s 0.4s,
+      background-color 0.3s 0.4s;
+  }
+  .levelup:not([data-open]) p {
+    color: var(--color-ink-muted);
+  }
+  .levelup:not([data-open]) [data-medal] {
+    background: var(--color-hairline);
+    box-shadow: none;
+  }
+  .levelup:not([data-open]) [data-medal] path {
+    stroke: var(--color-ink-muted);
+  }
+  .levelup.final:not([data-open]) {
+    border-color: var(--color-hairline);
+    box-shadow: none;
+  }
+  .nextlvl {
+    border-style: dashed;
+    border-color: var(--color-hairline);
+    color: var(--color-ink-muted);
+  }
+  [data-open] .nextlvl {
+    border-style: solid;
+    border-color: var(--color-accent);
+    color: var(--color-link);
+  }
+  [data-open] .when-closed,
+  .levelup:not([data-open]) .when-open {
+    display: none;
+  }
+  :global([data-burst] i) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin: -3px;
+    border-radius: 2px;
+    background: var(--color-accent);
+    opacity: 0;
+  }
+  :global([data-burst] i:nth-child(3n)) {
+    background: var(--color-blue-300);
+  }
+  :global([data-burst] i:nth-child(4n)) {
+    width: 4px;
+    height: 4px;
+    margin: -2px;
+    background: var(--color-white);
+  }
+</style>
+
+<script>
+  import { isBelowFold, loadGsap, onceNearViewport, prefersReducedMotion } from './motion';
+
+  interface Chapter {
+    card: HTMLElement;
+    hitos: HTMLElement[];
+    path: HTMLElement;
+    fill: HTMLElement;
+    levelup: HTMLElement;
+    count: HTMLElement;
+    bar: HTMLElement;
+    done: boolean;
+  }
+
+  type Gsap = Awaited<ReturnType<typeof loadGsap>>['gsap'];
+
+  function setup(root: HTMLElement) {
+    const chapters: Chapter[] = [...root.querySelectorAll<HTMLElement>('[data-chapter]')].map(
+      (ch) => {
+        const card = root.querySelector<HTMLElement>(`[data-level-card="${ch.dataset.chapter}"]`)!;
+        return {
+          card,
+          hitos: [...ch.querySelectorAll<HTMLElement>('[data-hito]')],
+          path: ch.querySelector<HTMLElement>('[data-path]')!,
+          fill: ch.querySelector<HTMLElement>('[data-rail-fill]')!,
+          levelup: ch.querySelector<HTMLElement>('[data-levelup]')!,
+          count: card.querySelector<HTMLElement>('[data-count]')!,
+          bar: card.querySelector<HTMLElement>('[data-bar]')!,
+          done: false,
+        };
+      },
+    );
+
+    // Armar: lo que todavía no se ve queda pendiente de desbloquear.
+    const limit = 0.85;
+    chapters.forEach((c) => {
+      c.hitos.forEach((h) => {
+        if (isBelowFold(h, limit)) h.dataset.dim = '';
+      });
+      if (isBelowFold(c.path, limit)) c.fill.style.transform = 'scaleY(0)';
+    });
+
+    let gsap: Gsap | undefined;
+
+    const sync = (animate: boolean) => {
+      let previousDone = true;
+      chapters.forEach((c, i) => {
+        const revealed = c.hitos.filter((h) => !('dim' in h.dataset)).length;
+        const complete = revealed === c.hitos.length;
+        c.count.textContent = String(revealed);
+        c.bar.style.transform = `scaleX(${revealed / c.hitos.length})`;
+
+        const state = complete ? 'done' : previousDone ? 'on' : 'locked';
+        const wasLocked = c.card.dataset.state === 'locked';
+        c.card.dataset.state = state;
+        if (animate && gsap && wasLocked && state === 'on') {
+          pop(gsap, c.card, { scale: [0.94, 1.04, 1] }, 0.7);
+        }
+
+        if (complete && !c.done) {
+          c.done = true;
+          c.levelup.dataset.open = '';
+          if (animate && gsap) celebrate(gsap, c, i === chapters.length - 1);
+        } else if (!complete) {
+          c.done = false;
+          delete c.levelup.dataset.open;
+        }
+        previousDone = complete;
+      });
+    };
+
+    // Rebote corto: aproxima el resorte del laboratorio (stiffness 260, damping 16).
+    const pop = (g: Gsap, el: Element | null, keyframes: Record<string, number[]>, delay = 0) => {
+      if (!el) return;
+      g.set(el, Object.fromEntries(Object.entries(keyframes).map(([k, v]) => [k, v[0]])));
+      g.to(el, { keyframes, duration: 0.6, delay, ease: 'brand' });
+    };
+
+    const celebrate = (g: Gsap, c: Chapter, final: boolean) => {
+      pop(
+        g,
+        c.levelup.querySelector('[data-medal]'),
+        { scale: [0.2, 1.25, 1], rotate: [-120, 0, 0] },
+        0.45,
+      );
+      if (!final) return;
+      pop(g, c.levelup, { scale: [0.96, 1.02, 1] }, 0.4);
+      const burst = c.levelup.querySelector<HTMLElement>('[data-burst]');
+      if (!burst) return;
+      const count = 22;
+      burst.replaceChildren(...Array.from({ length: count }, () => document.createElement('i')));
+      [...burst.children].forEach((dot, i) => {
+        const angle = (i / count) * Math.PI * 2 + Math.random() * 0.3;
+        const radius = 46 + Math.random() * 42;
+        g.timeline({ delay: 0.55, onComplete: () => dot.remove() })
+          .fromTo(
+            dot,
+            { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 },
+            {
+              x: Math.cos(angle) * radius,
+              y: Math.sin(angle) * radius,
+              rotate: 180 + Math.random() * 180,
+              scale: 0.6,
+              duration: 1.1,
+              ease: 'brand',
+            },
+          )
+          .to(dot, { opacity: 0, duration: 0.45, ease: 'power1.in' }, 0.65);
+      });
+    };
+
+    sync(false);
+
+    const restoreFinalState = () => {
+      chapters.forEach((c) => {
+        c.hitos.forEach((h) => delete h.dataset.dim);
+        c.fill.style.transform = '';
+      });
+      sync(false);
+    };
+
+    onceNearViewport(root, async () => {
+      try {
+        const loaded = await loadGsap();
+        gsap = loaded.gsap;
+        const { ScrollTrigger } = loaded;
+
+        chapters.forEach((c) => {
+          gsap!.fromTo(
+            c.fill,
+            { scaleY: 0 },
+            {
+              scaleY: 1,
+              ease: 'none',
+              scrollTrigger: { trigger: c.path, start: 'top 80%', end: 'bottom 55%', scrub: true },
+            },
+          );
+          c.hitos.forEach((h) => {
+            if (!('dim' in h.dataset)) return;
+            // end 'max': con scroll rápido o si ya se pasó, el hito igual se desbloquea.
+            ScrollTrigger.create({
+              trigger: h,
+              start: 'top 75%',
+              end: 'max',
+              once: true,
+              onEnter: () => reveal(h),
+            });
+          });
+        });
+      } catch {
+        restoreFinalState();
+      }
+    });
+
+    const reveal = (h: HTMLElement) => {
+      if (!gsap) return;
+      delete h.dataset.dim;
+      gsap.from(h.querySelector('article'), { x: 28, duration: 0.6, ease: 'brand' });
+      pop(gsap, h.querySelector('[data-node]'), { scale: [0.3, 1.4, 1] });
+      pop(
+        gsap,
+        h.querySelector('[data-stat]'),
+        { scale: [0.6, 1.08, 1], opacity: [0, 1, 1] },
+        0.25,
+      );
+      sync(true);
+    };
+  }
+
+  if (!prefersReducedMotion()) {
+    document.querySelectorAll<HTMLElement>('[data-level-timeline]').forEach(setup);
+  }
+</script>

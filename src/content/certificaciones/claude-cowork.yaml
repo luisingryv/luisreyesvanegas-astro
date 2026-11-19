@@ -6,5 +6,6 @@ emisor:
 fecha:
   anio: 2026
   mes: 10
+insignia: ia
 estado: obtenida
 verificacion: 'https://academy.claude.com/verify/b56b13366f0e51dfdfe4bb5a66848762'

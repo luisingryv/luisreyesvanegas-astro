@@ -115,6 +115,15 @@
   --radius-sm: 10px;
   --radius-pill: 999px;
 
+  /* ─── Sombras (resplandor cyan de las piezas de motion) ──── */
+  --shadow-glow: 0 0 30px color-mix(in oklab, var(--color-accent) 55%, transparent);
+  --shadow-glow-ring:
+    0 0 0 4px color-mix(in oklab, var(--color-accent) 8%, transparent),
+    0 10px 40px -18px color-mix(in oklab, var(--color-accent) 60%, transparent);
+
+  /* ─── Motion (MOTION-DEL-SITIO, sección 6) ───────────────── */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+
   /* ─── Layout ─────────────────────────────────────────────── */
   --width-container: 1200px;
   --spacing-section-y: clamp(56px, 8vw, 104px);

@@ -16,7 +16,7 @@ interface Props {
 const { locale, content, charlas } = Astro.props;
 ---
 
-<Section tone="dark" aria-labelledby="escenario-titulo">
+<Section tone="dark" reveal aria-labelledby="escenario-titulo">
   <SectionHeader id="escenario-titulo" eyebrow={content.eyebrow} title={content.titulo}>
     <Button slot="action" href={localizedPath(locale, 'speaker', 'invitar')}>{content.boton}</Button
     >

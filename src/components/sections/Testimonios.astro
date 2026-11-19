@@ -19,7 +19,7 @@ const t = getDictionary(locale).testimonios;
 
 {
   testimonios.length > 0 && (
-    <Section tone="light" aria-labelledby="testimonios-titulo">
+    <Section tone="light" reveal aria-labelledby="testimonios-titulo">
       <SectionHeader id="testimonios-titulo" eyebrow={content.eyebrow} title={content.titulo} />
       <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
         {testimonios.map((testimonio) => (
