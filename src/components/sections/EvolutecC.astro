@@ -1,0 +1,34 @@
+---
+import Button from '../brand/Button.astro';
+import Metric from '../brand/Metric.astro';
+import PhotoCard from '../brand/PhotoCard.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import { evoluteccUrl } from '../../config/site';
+import type { PaginaSobreMi } from '../../lib/content';
+
+interface Props {
+  content: PaginaSobreMi['evolutecc'];
+  campaign: string;
+}
+
+const { content, campaign } = Astro.props;
+---
+
+<Section tone="dark" aria-labelledby="evolutecc-titulo">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-10">
+    <div class="flex min-w-0 flex-col items-start gap-4">
+      <SectionHeader id="evolutecc-titulo" eyebrow={content.eyebrow} title={content.titulo} flush />
+      <p class="text-text-secondary-on-dark">{content.texto}</p>
+      <div class="flex flex-wrap gap-2.5">
+        {content.cifras.map((cifra) => <Metric size="chip" value={cifra} />)}
+      </div>
+      <Button href={evoluteccUrl(campaign)} variant="accent" external>{content.boton}</Button>
+    </div>
+    <PhotoCard
+      image={content.foto}
+      alt={content.fotoAlt}
+      sizes="(min-width: 1024px) 580px, 100vw"
+    />
+  </div>
+</Section>

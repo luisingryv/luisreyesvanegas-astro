@@ -4,6 +4,11 @@ import { localizedPath } from '../i18n/routes';
 
 export const site = {
   linkedin: 'https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/',
+  person: {
+    name: 'Luis Carlos Reyes Vanegas',
+    worksFor: [{ name: 'EvolutecC', url: 'https://evolutecc.com/' }, { name: 'Trama AI' }],
+    alumniOf: [{ name: 'SENA' }],
+  },
 } as const;
 
 export function evoluteccUrl(campaign: string): string {

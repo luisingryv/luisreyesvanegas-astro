@@ -4,10 +4,15 @@ import logo from '../../assets/brand/marca-h-color-blanco.svg';
 
 interface Props {
   alt: string;
-  class?: string;
+  size?: 'md' | 'sm';
 }
 
-const { alt, class: className } = Astro.props;
+const { alt, size = 'md' } = Astro.props;
 ---
 
-<Image src={logo} alt={alt} loading="eager" class:list={['h-7 w-auto', className]} />
+<Image
+  src={logo}
+  alt={alt}
+  loading="eager"
+  class:list={['block w-auto', size === 'md' ? 'h-8.5' : 'h-7']}
+/>

@@ -1,7 +1,15 @@
 import type { ImageMetadata } from 'astro';
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import type { PublishedLocale } from '../i18n/config';
-import { formatMonthYear, localize, summarizeYears } from './content-format';
+import { formatMonthYear, localize, resolveLocalized, summarizeYears } from './content-format';
+
+export async function getPaginaSobreMi(locale: PublishedLocale) {
+  const entry = await getEntry('sobreMi', 'sobre-mi');
+  if (!entry) throw new Error('Falta src/content/paginas/sobre-mi.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/sobre-mi');
+}
+
+export type PaginaSobreMi = Awaited<ReturnType<typeof getPaginaSobreMi>>;
 
 export type EstadoCertificacion = CollectionEntry<'certificaciones'>['data']['estado'];
 
@@ -62,6 +70,8 @@ export async function getHistoria(locale: PublishedLocale) {
 
   return { niveles, resumen: summarizeYears(hitos.map((h) => h.data.anio)) };
 }
+
+export type Historia = Awaited<ReturnType<typeof getHistoria>>;
 
 export async function getPrincipios(locale: PublishedLocale): Promise<string[]> {
   const principios = await getCollection('principios');

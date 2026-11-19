@@ -55,6 +55,7 @@ const absolute = (path: string) => new URL(path, Astro.site).toString();
         </>
       )
     }
+    <slot name="head" />
   </head>
   <body class="flex min-h-dvh flex-col">
     <a

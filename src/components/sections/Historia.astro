@@ -1,0 +1,94 @@
+---
+import Button from '../brand/Button.astro';
+import LevelCard from '../brand/LevelCard.astro';
+import MilestoneCard from '../brand/MilestoneCard.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import type { Historia, PaginaSobreMi } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaSobreMi['historia'];
+  historia: Historia;
+}
+
+const { locale, content, historia } = Astro.props;
+const t = getDictionary(locale).historia;
+---
+
+<Section tone="dark" separator aria-labelledby="historia-titulo">
+  <SectionHeader id="historia-titulo" eyebrow={content.eyebrow} title={content.titulo} />
+
+  <div class="flex flex-col gap-9">
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,230px),1fr))] gap-3">
+      {
+        historia.niveles.map((n) => (
+          <li class="grid">
+            <LevelCard
+              label={t.nivel(n.nivel)}
+              status={t.completado}
+              name={n.nombre}
+              period={n.periodo}
+            />
+          </li>
+        ))
+      }
+    </ul>
+
+    {
+      historia.niveles.map((n) => (
+        <div class="flex flex-col gap-5 pt-6">
+          <div class="flex flex-wrap items-baseline gap-x-3.5 gap-y-1.5">
+            <p class="text-label font-bold text-link uppercase">{t.nivel(n.nivel)}</p>
+            <h3 class="text-title-md font-bold">{n.nombre}</h3>
+            <p class="text-caption text-blue-300">{n.periodo}</p>
+            {n.rotulo && (
+              <p class="basis-full text-caption text-text-tertiary-on-dark">{n.rotulo}</p>
+            )}
+          </div>
+          <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-4">
+            {n.hitos.map((h) => (
+              <li class="grid">
+                <MilestoneCard
+                  year={h.anio}
+                  age={t.edad(h.edad)}
+                  title={h.titulo}
+                  text={h.texto}
+                  stat={h.cifra}
+                  impactLabel={t.impacto}
+                  impact={h.impacto}
+                  link={h.enlace}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+
+    <div
+      class="flex flex-wrap items-center gap-x-5 gap-y-4 rounded-lg border border-accent bg-surface-raised px-6 py-5"
+    >
+      <span
+        aria-hidden="true"
+        class="grid size-15 flex-none place-items-center rounded-full bg-accent"
+      >
+        <svg viewBox="0 0 16 16" class="size-6.5" fill="none">
+          <path
+            d="M3 8.5l3 3 7-7"
+            class="stroke-night"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </span>
+      <div class="flex flex-[1_1_240px] flex-col gap-0.5">
+        <p class="text-label font-bold text-link uppercase">{t.recorridoCompleto}</p>
+        <p class="text-title-md font-bold">{t.resumen(historia.resumen)}</p>
+      </div>
+      <Button href="#contacto" variant="accent" size="sm">{content.siguienteNivel}</Button>
+    </div>
+  </div>
+</Section>

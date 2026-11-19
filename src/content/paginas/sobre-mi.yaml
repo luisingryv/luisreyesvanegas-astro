@@ -1,0 +1,77 @@
+apertura:
+  eyebrow:
+    es: 'Sobre mí'
+  titulo:
+    es: 'Llevo 13 años construyendo tecnología.'
+  bajada:
+    es: 'Fundé mi primer negocio a los 16, reparando computadores y haciendo sitios web. Hoy diseño arquitecturas cloud e IA para empresas de Estados Unidos y Latinoamérica, soy CTO de EvolutecC y CEO de Trama AI.'
+  hablemos:
+    es: 'Hablemos'
+  invitarme:
+    es: 'Invitarme a hablar'
+  # Retrato editorial pendiente. Cuando llegue, cópialo a src/assets/fotos/ y descomenta:
+  # retrato: ../../assets/fotos/<archivo>.jpg
+  # retratoAlt:
+  #   es: '<descripción del retrato>'
+
+historia:
+  eyebrow:
+    es: 'Mi historia'
+  titulo:
+    es: 'Cómo llegué hasta aquí'
+  siguienteNivel:
+    es: 'Siguiente nivel: tu proyecto →'
+
+principios:
+  eyebrow:
+    es: 'Cómo trabajo'
+  titulo:
+    es: 'Cuatro principios'
+
+evolutecc:
+  eyebrow:
+    es: 'EvolutecC'
+  titulo:
+    es: 'La empresa de desarrollo de software que cofundé en 2020.'
+  texto:
+    es: 'Como cofundador y CTO lidero un equipo que ha entregado más de 400 proyectos de software, con un 90% de recompra.'
+  cifras:
+    - es: '400+ proyectos'
+    - es: '90% de recompra'
+  boton:
+    es: '¿Necesitas desarrollo de software? Conoce EvolutecC'
+  foto: ../../assets/fotos/equipo_2025-09-01_evolutecc-aniversario-5_027.jpg
+  fotoAlt:
+    es: 'Equipo de EvolutecC con camisetas de la marca en el quinto aniversario de la empresa'
+
+certificaciones:
+  eyebrow:
+    es: 'Certificaciones y formación'
+  titulo:
+    es: 'Lo que sigo aprendiendo'
+
+testimonios:
+  eyebrow:
+    es: 'Testimonios'
+  titulo:
+    es: 'Lo que dicen quienes han trabajado conmigo'
+
+escenario:
+  eyebrow:
+    es: 'Conferencias y comunidad'
+  titulo:
+    es: 'En el escenario'
+  boton:
+    es: 'Invitarme a una conferencia'
+
+cierre:
+  titulo:
+    es: '¿Cómo puedo ayudarte?'
+  consultoria:
+    es: 'Consultoría'
+  conferencia:
+    es: 'Conferencia'
+  conversacion:
+    es: 'Conversación general'
+  otrasOpciones:
+    es: 'Otras opciones: desarrollo de software, producto o prensa →'

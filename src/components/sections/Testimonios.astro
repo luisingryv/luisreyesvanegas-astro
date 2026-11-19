@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import Card from '../brand/Card.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import type { PaginaSobreMi, Testimonio } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaSobreMi['testimonios'];
+  testimonios: Testimonio[];
+}
+
+const { locale, content, testimonios } = Astro.props;
+const t = getDictionary(locale).testimonios;
+---
+
+{
+  testimonios.length > 0 && (
+    <Section tone="light" aria-labelledby="testimonios-titulo">
+      <SectionHeader id="testimonios-titulo" eyebrow={content.eyebrow} title={content.titulo} />
+      <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
+        {testimonios.map((testimonio) => (
+          <Card as="li" tone="surface" class="gap-4">
+            <figure class="flex flex-col gap-4">
+              <blockquote class="text-body text-ink-muted">{testimonio.texto}</blockquote>
+              <figcaption class="flex items-center gap-3">
+                {testimonio.foto && (
+                  <Image
+                    src={testimonio.foto}
+                    alt=""
+                    width={88}
+                    class="size-11 flex-none rounded-full object-cover"
+                  />
+                )}
+                <span class="flex flex-col text-small">
+                  <b>{testimonio.autor}</b>
+                  <span class="text-ink-muted">
+                    {testimonio.cargo} · {testimonio.empresa}
+                  </span>
+                </span>
+              </figcaption>
+            </figure>
+            <a href={testimonio.fuente} class="text-small font-bold text-link hover:underline">
+              {t.verFuente}
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          </Card>
+        ))}
+      </ul>
+    </Section>
+  )
+}

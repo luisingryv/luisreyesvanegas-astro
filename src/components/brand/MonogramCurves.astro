@@ -1,0 +1,20 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<svg
+  aria-hidden="true"
+  focusable="false"
+  viewBox="0 0 600 600"
+  fill="none"
+  stroke-width="1.2"
+  class:list={['pointer-events-none', className]}
+>
+  <path d="M60 560 C 60 260, 220 80, 520 60" class="stroke-hairline-light"></path>
+  <path d="M100 580 C 110 300, 260 120, 560 110" class="stroke-hairline-light"></path>
+  <path d="M140 600 C 160 340, 300 170, 600 160" class="stroke-dark-border"></path>
+</svg>

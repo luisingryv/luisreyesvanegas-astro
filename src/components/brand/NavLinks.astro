@@ -16,7 +16,12 @@ const items = ['consultoria', 'productos', 'casos', 'eventos', 'sobreMi'] as con
 ---
 
 <nav aria-label={t.a11y.mainNav}>
-  <ul class:list={['flex', orientation === 'horizontal' ? 'items-center gap-7' : 'flex-col gap-1']}>
+  <ul
+    class:list={[
+      'flex text-small font-bold',
+      orientation === 'horizontal' ? 'items-center gap-6' : 'flex-col items-start gap-1',
+    ]}
+  >
     {
       items.map((key) => (
         <li>
@@ -24,9 +29,10 @@ const items = ['consultoria', 'productos', 'casos', 'eventos', 'sobreMi'] as con
             href={localizedPath(locale, key)}
             aria-current={key === current ? 'page' : undefined}
             class:list={[
-              'block text-body transition-colors duration-150 hover:text-ink',
-              orientation === 'vertical' && 'py-3',
-              key === current ? 'font-bold text-ink' : 'text-text-secondary-on-dark',
+              'block border-b-2 py-2.5 transition-colors duration-150',
+              key === current
+                ? 'border-accent text-link'
+                : 'border-transparent text-ink hover:text-link',
             ]}
           >
             {t.nav[key]}

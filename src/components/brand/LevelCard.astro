@@ -1,0 +1,20 @@
+---
+interface Props {
+  label: string;
+  status: string;
+  name: string;
+  period: string;
+}
+
+const { label, status, name, period } = Astro.props;
+---
+
+<div class="flex flex-col gap-1.5 rounded-md border border-hairline bg-surface-raised p-4">
+  <p class="flex justify-between text-label font-bold text-link uppercase">
+    <span>{label}</span>
+    <span>{status}</span>
+  </p>
+  <p class="text-title-sm font-bold">{name}</p>
+  <p class="text-caption text-blue-300">{period}</p>
+  <div class="mt-1.5 h-1.5 rounded-pill bg-accent"></div>
+</div>

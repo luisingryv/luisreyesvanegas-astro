@@ -7,14 +7,20 @@ interface Props {
 }
 
 const { tone = 'raised', radius = 'lg', as: Tag = 'div', class: className } = Astro.props;
+
+const tones = {
+  raised: 'bg-surface-raised',
+  surface: 'border border-hairline bg-surface',
+  brand: 'bg-surface',
+} as const;
 ---
 
 <Tag
   data-theme={tone === 'brand' ? 'brand' : undefined}
   class:list={[
-    'flex flex-col gap-3 p-6 md:p-8',
+    'flex min-w-0 flex-col gap-3 p-6',
     radius === 'md' ? 'rounded-md' : 'rounded-lg',
-    tone === 'raised' ? 'bg-surface-raised' : 'bg-surface',
+    tones[tone],
     className,
   ]}
 >

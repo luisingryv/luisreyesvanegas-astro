@@ -1,8 +1,26 @@
 ---
 import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import AperturaSobreMi from '../../components/sections/AperturaSobreMi.astro';
+import Certificaciones from '../../components/sections/Certificaciones.astro';
+import CierreContacto from '../../components/sections/CierreContacto.astro';
+import Escenario from '../../components/sections/Escenario.astro';
+import EvolutecC from '../../components/sections/EvolutecC.astro';
+import Historia from '../../components/sections/Historia.astro';
+import Principios from '../../components/sections/Principios.astro';
+import Testimonios from '../../components/sections/Testimonios.astro';
 import Base from '../../layouts/Base.astro';
 import { publishedLocales } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
+import { localizedPath } from '../../i18n/routes';
+import {
+  getCertificaciones,
+  getCharlasSobreMi,
+  getHistoria,
+  getPaginaSobreMi,
+  getPrincipios,
+  getTestimonios,
+} from '../../lib/content';
+import { personSchema, serializeJsonLd } from '../../lib/structured-data';
 
 export const prerender = true;
 
@@ -11,8 +29,41 @@ export const getStaticPaths = (() =>
 
 const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
 const t = getDictionary(lang);
+
+const [pagina, historia, principios, certificaciones, charlas, testimonios] = await Promise.all([
+  getPaginaSobreMi(lang),
+  getHistoria(lang),
+  getPrincipios(lang),
+  getCertificaciones(lang),
+  getCharlasSobreMi(lang),
+  getTestimonios(lang),
+]);
+
+const url = new URL(localizedPath(lang, 'sobreMi'), Astro.site).toString();
 ---
 
-<Base locale={lang} title={t.pages.sobreMi.title} route="sobreMi">
-  <h1>{t.pages.sobreMi.title}</h1>
+<Base
+  locale={lang}
+  title={t.pages.sobreMi.title}
+  description={pagina.apertura.bajada}
+  route="sobreMi"
+>
+  <script
+    is:inline
+    slot="head"
+    type="application/ld+json"
+    set:html={serializeJsonLd(personSchema(url, certificaciones))}
+  />
+  <AperturaSobreMi locale={lang} content={pagina.apertura} />
+  <Historia locale={lang} content={pagina.historia} historia={historia} />
+  <Principios content={pagina.principios} principios={principios} />
+  <EvolutecC content={pagina.evolutecc} campaign="sobre-mi" />
+  <Certificaciones
+    locale={lang}
+    content={pagina.certificaciones}
+    certificaciones={certificaciones}
+  />
+  <Testimonios locale={lang} content={pagina.testimonios} testimonios={testimonios} />
+  <Escenario locale={lang} content={pagina.escenario} charlas={charlas} />
+  <CierreContacto locale={lang} content={pagina.cierre} />
 </Base>

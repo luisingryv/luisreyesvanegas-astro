@@ -107,7 +107,51 @@ const testimonios = defineCollection({
     }),
 });
 
+// Textos propios de la página Sobre mí (títulos, bajadas, botones).
+const sobreMi = defineCollection({
+  loader: glob({ pattern: 'sobre-mi.yaml', base: './src/content/paginas' }),
+  schema: ({ image }) => {
+    const encabezado = z.object({ eyebrow: localized, titulo: localized });
+    return z.object({
+      apertura: z
+        .object({
+          eyebrow: localized,
+          titulo: localized,
+          bajada: localized,
+          hablemos: localized,
+          invitarme: localized,
+          retrato: image().optional(),
+          retratoAlt: localized.optional(),
+        })
+        .refine((a) => !a.retrato || a.retratoAlt, {
+          message: 'El retrato necesita su alt.',
+          path: ['retratoAlt'],
+        }),
+      historia: encabezado.extend({ siguienteNivel: localized }),
+      principios: encabezado,
+      evolutecc: encabezado.extend({
+        texto: localized,
+        cifras: z.array(localized),
+        boton: localized,
+        foto: image(),
+        fotoAlt: localized,
+      }),
+      certificaciones: encabezado,
+      testimonios: encabezado,
+      escenario: encabezado.extend({ boton: localized }),
+      cierre: z.object({
+        titulo: localized,
+        consultoria: localized,
+        conferencia: localized,
+        conversacion: localized,
+        otrasOpciones: localized,
+      }),
+    });
+  },
+});
+
 export const collections = {
+  sobreMi,
   capitulos,
   hitos,
   principios,

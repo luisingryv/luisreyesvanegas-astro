@@ -1,0 +1,29 @@
+---
+import Card from '../brand/Card.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PaginaSobreMi } from '../../lib/content';
+
+interface Props {
+  content: PaginaSobreMi['principios'];
+  principios: string[];
+}
+
+const { content, principios } = Astro.props;
+---
+
+<Section tone="dark-raised" aria-labelledby="principios-titulo">
+  <SectionHeader id="principios-titulo" eyebrow={content.eyebrow} title={content.titulo} />
+  <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-4">
+    {
+      principios.map((principio, i) => (
+        <Card as="li" tone="surface">
+          <span aria-hidden="true" class="text-caption font-bold text-link">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <p class="text-title-sm leading-[1.35] font-bold">{principio}</p>
+        </Card>
+      ))
+    }
+  </ol>
+</Section>

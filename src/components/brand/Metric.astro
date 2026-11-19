@@ -16,9 +16,9 @@ const { value, label, source, size = 'large' } = Astro.props;
 
 {
   size === 'chip' ? (
-    <span class="inline-flex items-baseline gap-1.5 rounded-sm bg-surface-raised px-3 py-1.5 text-caption font-bold text-ink">
+    <span class="inline-flex items-baseline gap-1.5 self-start rounded-sm bg-accent px-3 py-2 text-caption leading-none font-bold text-night">
       {value}
-      {label && <span class="font-normal">{label}</span>}
+      {label && <span>{label}</span>}
     </span>
   ) : (
     <div class="flex flex-col gap-1">

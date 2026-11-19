@@ -20,7 +20,7 @@ const ctaHref = bookingUrl(locale);
 ---
 
 <header data-theme="dark" class="relative border-b border-hairline bg-surface text-ink">
-  <Container class="flex h-18 items-center justify-between gap-6">
+  <Container class="flex items-center justify-between gap-6 py-4">
     <a href={localizedPath(locale, 'home')} class="shrink-0">
       <Logo alt={t.meta.siteName} />
     </a>
@@ -29,14 +29,14 @@ const ctaHref = bookingUrl(locale);
       <NavLinks locale={locale} current={route} orientation="horizontal" />
     </div>
 
-    <div class="hidden items-center gap-6 xl:flex">
+    <div class="hidden items-center gap-4 xl:flex">
       <LanguageSwitcher locale={locale} route={route} />
-      <Button href={ctaHref}>{t.header.cta}</Button>
+      <Button href={ctaHref} size="sm">{t.header.cta}</Button>
     </div>
 
     <details class="xl:hidden">
       <summary
-        class="cursor-pointer list-none rounded-pill border-2 border-ink px-4 py-2 text-caption font-bold [&::-webkit-details-marker]:hidden"
+        class="cursor-pointer list-none rounded-pill border border-gray-700 px-4.5 py-3 text-small leading-none font-bold [&::-webkit-details-marker]:hidden"
       >
         {t.a11y.menu}
       </summary>
@@ -44,7 +44,7 @@ const ctaHref = bookingUrl(locale);
         <Container class="flex flex-col gap-6 py-6">
           <NavLinks locale={locale} current={route} orientation="vertical" />
           <LanguageSwitcher locale={locale} route={route} />
-          <Button href={ctaHref} class="self-start">{t.header.cta}</Button>
+          <Button href={ctaHref} size="sm" class="self-start">{t.header.cta}</Button>
         </Container>
       </div>
     </details>

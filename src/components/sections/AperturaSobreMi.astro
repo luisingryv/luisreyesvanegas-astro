@@ -1,0 +1,42 @@
+---
+import Button from '../brand/Button.astro';
+import Eyebrow from '../brand/Eyebrow.astro';
+import MonogramCurves from '../brand/MonogramCurves.astro';
+import Portrait from '../brand/Portrait.astro';
+import Section from '../brand/Section.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { PaginaSobreMi } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaSobreMi['apertura'];
+}
+
+const { locale, content } = Astro.props;
+---
+
+<Section
+  tone="dark"
+  spacing="hero"
+  class="relative overflow-hidden"
+  aria-labelledby="apertura-titulo"
+>
+  <MonogramCurves class="absolute -bottom-55 -left-40 size-160" />
+  <div
+    class="relative grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] items-center gap-12"
+  >
+    <div class="flex min-w-0 flex-col gap-5.5">
+      <Eyebrow>{content.eyebrow}</Eyebrow>
+      <h1 id="apertura-titulo" class="text-display font-bold text-balance">{content.titulo}</h1>
+      <p class="max-w-[54ch] text-lead text-text-secondary-on-dark">{content.bajada}</p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <Button href="#contacto" size="lg">{content.hablemos}</Button>
+        <Button href={localizedPath(locale, 'speaker')} variant="secondary" size="lg">
+          {content.invitarme}
+        </Button>
+      </div>
+    </div>
+    <Portrait image={content.retrato} alt={content.retratoAlt} />
+  </div>
+</Section>

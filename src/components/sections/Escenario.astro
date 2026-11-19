@@ -1,0 +1,41 @@
+---
+import Button from '../brand/Button.astro';
+import PhotoCard from '../brand/PhotoCard.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { CharlaDestacada, PaginaSobreMi } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaSobreMi['escenario'];
+  charlas: CharlaDestacada[];
+}
+
+const { locale, content, charlas } = Astro.props;
+---
+
+<Section tone="dark" aria-labelledby="escenario-titulo">
+  <SectionHeader id="escenario-titulo" eyebrow={content.eyebrow} title={content.titulo}>
+    <Button slot="action" href={localizedPath(locale, 'speaker', 'invitar')}>{content.boton}</Button
+    >
+  </SectionHeader>
+  <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
+    {
+      charlas.map((charla) => (
+        <li class="grid">
+          <PhotoCard
+            variant="card"
+            image={charla.foto}
+            alt={charla.alt}
+            meta={`${charla.lugar} · ${charla.fecha}`}
+            title={charla.titulo}
+            titleAs="h3"
+            sizes="(min-width: 1200px) 290px, (min-width: 640px) 50vw, 100vw"
+          />
+        </li>
+      ))
+    }
+  </ul>
+</Section>

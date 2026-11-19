@@ -1,0 +1,43 @@
+---
+import Badge from '../brand/Badge.astro';
+import Card from '../brand/Card.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import type { Certificacion, PaginaSobreMi } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaSobreMi['certificaciones'];
+  certificaciones: Certificacion[];
+}
+
+const { locale, content, certificaciones } = Astro.props;
+const t = getDictionary(locale).certificaciones;
+---
+
+<Section tone="light" aria-labelledby="certificaciones-titulo">
+  <SectionHeader id="certificaciones-titulo" eyebrow={content.eyebrow} title={content.titulo} />
+  <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,260px),1fr))] gap-4">
+    {
+      certificaciones.map((c) => (
+        <Card as="li" radius="md" class="gap-2.5">
+          <Badge tone={c.estado === 'obtenida' ? 'solid' : 'soft'}>{t.estado[c.estado]}</Badge>
+          <h3 class="text-title-sm font-bold">{c.nombre}</h3>
+          <p class="text-small text-ink-muted">
+            {c.emisor}
+            {c.fecha && ` · ${c.fecha}`}
+          </p>
+          {c.verificacion && (
+            <a href={c.verificacion} class="text-small font-bold text-link hover:underline">
+              {t.verificar}
+              <span class="sr-only">: {c.nombre}</span>
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          )}
+        </Card>
+      ))
+    }
+  </ul>
+</Section>

@@ -19,7 +19,7 @@ const t = getDictionary(locale);
 ---
 
 <nav aria-label={t.a11y.languageNav}>
-  <ul class="flex items-center gap-2 text-caption font-bold">
+  <ul class="flex items-center gap-2 text-caption">
     {
       locales.map((code, i) => (
         <li class="flex items-center gap-2">
@@ -40,7 +40,7 @@ const t = getDictionary(locale);
               href={localizedPath(code, route)}
               hreflang={code}
               lang={code}
-              class="text-text-secondary-on-dark transition-colors duration-150 hover:text-ink"
+              class="text-ink-muted transition-colors duration-150 hover:text-ink"
             >
               <span aria-hidden="true">{localeLabels[code]}</span>
               <span class="sr-only">{localeNames[code]}</span>

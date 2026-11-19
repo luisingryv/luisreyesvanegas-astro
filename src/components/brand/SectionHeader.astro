@@ -7,23 +7,18 @@ interface Props {
   lead?: string;
   level?: 1 | 2 | 3;
   id?: string;
+  flush?: boolean;
 }
 
-const { title, eyebrow, lead, level = 2, id } = Astro.props;
+const { title, eyebrow, lead, level = 2, id, flush = false } = Astro.props;
 const Heading = `h${level}` as const;
 ---
 
-<div class="mb-10 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between">
-  <div class="flex max-w-3xl flex-col gap-3">
+<div class:list={['flex flex-wrap items-end justify-between gap-4', !flush && 'mb-8']}>
+  <div class="flex max-w-3xl flex-col gap-2.5">
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
     <Heading id={id} class="text-heading font-bold text-balance text-ink">{title}</Heading>
     {lead && <p class="text-lead text-ink-muted">{lead}</p>}
   </div>
-  {
-    Astro.slots.has('action') && (
-      <div class="shrink-0">
-        <slot name="action" />
-      </div>
-    )
-  }
+  <slot name="action" />
 </div>
