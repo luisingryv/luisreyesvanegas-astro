@@ -1,0 +1,37 @@
+---
+// Productos: Trama AI con la medalla 3D (pieza 05) y el portafolio con aliados. "Solicitar demo"
+// lleva a Contacto mientras no haya un canal propio para demos (por aprobar).
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import SeccionesProductos from '../../components/productos/SeccionesProductos.astro';
+import { publishedLocales } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import { localizedPath } from '../../i18n/routes';
+import Base from '../../layouts/Base.astro';
+import { getFormularioGeneral, getPaginaProductos } from '../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const [textos, formulario] = await Promise.all([
+  getPaginaProductos(lang),
+  getFormularioGeneral(lang),
+]);
+---
+
+<Base
+  locale={lang}
+  title={t.pages.productos.title}
+  description={textos.hero.texto}
+  route="productos"
+>
+  <SeccionesProductos
+    locale={lang}
+    textos={textos}
+    comunes={formulario}
+    demoHref={localizedPath(lang, 'contacto', 'general')}
+  />
+</Base>

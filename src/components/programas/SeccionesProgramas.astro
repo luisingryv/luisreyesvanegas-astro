@@ -1,0 +1,385 @@
+---
+// Programas AWS, del hero a las preguntas frecuentes (prototipo aprobado). El formulario va en
+// EvaluarProgramas. Narrativa: los seis pasos aparecen en orden y las barras de tramos y de
+// hallazgos crecen al verse.
+import Button from '../brand/Button.astro';
+import CheckMark from '../brand/CheckMark.astro';
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import GraficaInversion from './GraficaInversion.astro';
+import type { PaginaProgramasAws } from '../../lib/content';
+
+interface Props {
+  textos: PaginaProgramasAws;
+  sesionHref: string;
+}
+
+const { textos, sesionHref } = Astro.props;
+const h2 = 'text-[clamp(28px,3.4vw,42px)] leading-[1.1] font-bold text-balance';
+const COLORES_BARRA = ['bg-accent', 'bg-blue-400', 'bg-blue-300'];
+---
+
+<Section
+  tone="dark"
+  spacing="hero"
+  class="programas-hero relative overflow-hidden"
+  aria-labelledby="programas-titulo"
+>
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 1200 600"
+    preserveAspectRatio="none"
+    class="pointer-events-none absolute inset-0 size-full opacity-35"
+  >
+    <path
+      d="M0 100 H1200 M0 200 H1200 M0 300 H1200 M0 400 H1200 M0 500 H1200 M150 0 V600 M300 0 V600 M450 0 V600 M600 0 V600 M750 0 V600 M900 0 V600 M1050 0 V600"
+      class="programas-reticula"
+    ></path>
+  </svg>
+  <div class="relative grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] items-center gap-12">
+    <div class="flex min-w-0 flex-col gap-5.5">
+      <Eyebrow>{textos.hero.eyebrow}</Eyebrow>
+      <h1
+        id="programas-titulo"
+        class="text-[clamp(40px,5.4vw,72px)] leading-[1.02] font-bold tracking-[-0.02em] text-balance"
+      >
+        {textos.hero.titulo}
+      </h1>
+      <p class="max-w-[56ch] text-[clamp(17px,1.6vw,20px)] leading-[1.55] text-text-secondary-on-dark">
+        {textos.hero.texto}
+      </p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <Button href="#evaluar" size="lg">
+          {textos.hero.evaluar}
+        </Button>
+        <Button href={sesionHref} size="lg" variant="secondary">
+          {textos.hero.sesion}
+        </Button>
+      </div>
+    </div>
+    <GraficaInversion textos={textos.hero.grafica} />
+  </div>
+</Section>
+
+<Section tone="dark" separator aria-labelledby="idea-titulo" reveal>
+  <div class="flex flex-col gap-7">
+    <div class="flex max-w-205 flex-col gap-3.5">
+      <h2
+        id="idea-titulo"
+        class="text-[clamp(28px,3.6vw,46px)] leading-[1.1] font-bold text-balance"
+      >
+        {textos.idea.titulo}
+      </h2>
+      <p class="text-[17px] text-text-secondary-on-dark">{textos.idea.texto}</p>
+    </div>
+    <h3 class="mt-2 text-[20px] font-bold">{textos.idea.tiposTitulo}</h3>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-4">
+      {textos.idea.tipos.map((tipo) => (
+        <li class="flex min-w-0 flex-col gap-2.5 rounded-lg border border-hairline bg-surface-raised p-6">
+          <span class="text-[20px] leading-[1.25] font-bold">{tipo.titulo}</span>
+          <span class="text-[15px] text-text-secondary-on-dark">{tipo.texto}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Section>
+
+<Section tone="dark-raised" aria-labelledby="rutas-titulo" reveal>
+  <div class="flex flex-col gap-7">
+    <h2 id="rutas-titulo" class={h2}>
+      {textos.rutas.titulo}
+    </h2>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
+      {textos.rutas.lista.map((ruta) => (
+        <li class="grid">
+          <a
+            href="#evaluar"
+            class="flex min-w-0 flex-col gap-3 rounded-lg border border-hairline bg-surface p-7 transition-colors hover:border-accent"
+          >
+            <span class="text-[11px] font-bold tracking-[0.12em] text-cyan-300 uppercase">
+              {ruta.etiqueta}
+            </span>
+            <span class="text-[24px] leading-[1.2] font-bold">{ruta.titulo}</span>
+            <span class="grow text-[15px] text-text-secondary-on-dark">{ruta.texto}</span>
+            <span class="self-start rounded-sm bg-accent px-2.5 py-1.75 text-[12px] font-bold text-night">
+              {ruta.umbral}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="text-[14px] text-text-tertiary-on-dark">{textos.rutas.nota}</p>
+  </div>
+</Section>
+
+<Section tone="dark" aria-labelledby="inicio-titulo" reveal>
+  <div class="flex flex-col gap-7">
+    <div class="flex flex-col gap-3">
+      <h2 id="inicio-titulo" class={h2}>
+        {textos.inicio.titulo}
+      </h2>
+      <p class="max-w-[70ch] text-text-secondary-on-dark">{textos.inicio.texto}</p>
+    </div>
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-4">
+      <article class="flex min-w-0 flex-col gap-3 rounded-lg border border-accent bg-surface-raised p-7">
+        <span class="text-[11px] font-bold tracking-[0.12em] text-cyan-300 uppercase">
+          {textos.inicio.assessment.eyebrow}
+        </span>
+        <h3 class="text-[24px] leading-[1.2] font-bold">{textos.inicio.assessment.titulo}</h3>
+        <p class="text-[15px] text-text-secondary-on-dark">{textos.inicio.assessment.texto}</p>
+        <span class="self-start rounded-sm bg-accent px-2.5 py-1.75 text-[12px] font-bold text-night">
+          {textos.inicio.assessment.sello}
+        </span>
+        <span class="text-[14px] text-text-tertiary-on-dark">
+          {textos.inicio.assessment.aplica}
+        </span>
+      </article>
+      <article class="flex min-w-0 flex-col gap-3 rounded-lg border border-hairline bg-surface-raised p-7">
+        <span class="text-[11px] font-bold tracking-[0.12em] text-cyan-300 uppercase">
+          {textos.inicio.prueba.eyebrow}
+        </span>
+        <h3 class="text-[24px] leading-[1.2] font-bold">{textos.inicio.prueba.titulo}</h3>
+        <p class="text-[15px] text-text-secondary-on-dark">{textos.inicio.prueba.texto}</p>
+        <span class="text-[14px] text-text-tertiary-on-dark">{textos.inicio.prueba.aplica}</span>
+      </article>
+    </div>
+    <p class="text-[14px] text-text-tertiary-on-dark">{textos.inicio.nota}</p>
+  </div>
+</Section>
+
+<Section tone="dark" aria-labelledby="fases-titulo">
+  <div class="flex flex-col gap-7">
+    <div class="flex flex-col gap-3">
+      <h2 id="fases-titulo" class={h2}>
+        {textos.fases.titulo}
+      </h2>
+      <p class="max-w-[70ch] text-text-secondary-on-dark">{textos.fases.texto}</p>
+    </div>
+    <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-4">
+      {textos.fases.lista.map((fase, i) => (
+        <li
+          class="grid grid-cols-[56px_minmax(0,1fr)] gap-4 rounded-md border border-hairline bg-surface-raised p-5.5"
+          data-reveal
+        >
+          <span
+            class="grid size-12 place-items-center rounded-[14px] border border-accent text-[15px] font-bold text-link"
+            aria-hidden="true"
+          >
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <span class="flex min-w-0 flex-col gap-1.5">
+            <b class="text-[18px] leading-[1.25]">{fase.titulo}</b>
+            <span class="text-[14px] text-text-secondary-on-dark">{fase.texto}</span>
+          </span>
+        </li>
+      ))}
+    </ol>
+    <h3 class="mt-3 text-[20px] font-bold">{textos.fases.estrategiasTitulo}</h3>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
+      {textos.fases.estrategias.map((e) => (
+        <li class="flex min-w-0 flex-col gap-2 rounded-md border border-hairline p-5.5">
+          <b class="text-[18px]">{e.titulo}</b>
+          <span class="text-[14px] text-text-secondary-on-dark">{e.texto}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Section>
+
+<Section tone="dark-raised" aria-labelledby="inversion-titulo" reveal>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-10">
+    <div class="flex min-w-0 flex-col gap-4">
+      <h2 id="inversion-titulo" class={h2}>
+        {textos.inversion.titulo}
+      </h2>
+      <p class="text-text-secondary-on-dark">{textos.inversion.texto}</p>
+      <p class="text-[14px] text-text-tertiary-on-dark">{textos.inversion.nota}</p>
+    </div>
+    <div class="flex flex-col gap-3.5 rounded-lg border border-accent bg-surface p-7">
+      <span class="text-[11px] font-bold tracking-[0.12em] text-cyan-300 uppercase">
+        {textos.inversion.ejemplo.eyebrow}
+      </span>
+      <p class="flex items-baseline justify-between gap-3 border-b border-hairline pb-3">
+        <span class="text-text-secondary-on-dark">{textos.inversion.ejemplo.consumo}</span>
+        <span class="text-[24px] font-bold">{textos.inversion.ejemplo.consumoValor}</span>
+      </p>
+      <p class="flex items-baseline justify-between gap-3 border-b border-hairline pb-3">
+        <span class="text-text-secondary-on-dark">{textos.inversion.ejemplo.inversion}</span>
+        <span class="text-[24px] font-bold text-link">
+          {textos.inversion.ejemplo.inversionValor}
+        </span>
+      </p>
+      <div class="flex flex-col gap-2">
+        <span class="text-text-secondary-on-dark">{textos.inversion.ejemplo.tramos}</span>
+        <div class="barra-apilada flex h-3.5 gap-1.5" aria-hidden="true" data-barra-apilada>
+          <span class="flex-1 rounded-[6px] bg-accent"></span>
+          <span class="flex-3 rounded-[6px] bg-blue-400"></span>
+        </div>
+        <span class="flex justify-between text-[11px] text-text-tertiary-on-dark">
+          <span>{textos.inversion.ejemplo.primerTramo}</span>
+          <span>{textos.inversion.ejemplo.siguientes}</span>
+        </span>
+      </div>
+      <span class="text-[13px] text-text-tertiary-on-dark">{textos.inversion.ejemplo.rondas}</span>
+    </div>
+  </div>
+</Section>
+
+<Section tone="dark" aria-labelledby="caso-titulo" reveal>
+  <div class="flex flex-col gap-7">
+    <div class="flex flex-col gap-3">
+      <h2 id="caso-titulo" class={h2}>
+        {textos.caso.titulo}
+      </h2>
+      <p class="max-w-[70ch] text-text-secondary-on-dark">{textos.caso.texto}</p>
+    </div>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-4">
+      {textos.caso.cifras.map((cifra) => (
+        <li class="flex min-w-0 flex-col gap-2 rounded-md border border-hairline bg-surface-raised p-5.5">
+          <span class="text-[clamp(26px,2.6vw,34px)] leading-[1.1] font-bold">{cifra.metrica}</span>
+          <span class="text-[14px] text-text-secondary-on-dark">{cifra.texto}</span>
+          {cifra.barra && (
+            <span
+              class="barra-apilada mt-auto flex h-2.5 gap-1 pt-2"
+              aria-hidden="true"
+              data-barra-apilada
+            >
+              {cifra.barra.map((parte, i) => (
+                <span
+                  class:list={['rounded-pill', COLORES_BARRA[i % COLORES_BARRA.length]]}
+                  style={`flex: ${parte}`}
+                />
+              ))}
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
+  </div>
+</Section>
+
+<Section tone="light" aria-labelledby="costo-titulo" reveal>
+  <div class="flex flex-col gap-7">
+    <div class="flex flex-col gap-2.5">
+      <h2 id="costo-titulo" class={h2}>
+        {textos.costo.titulo}
+      </h2>
+      <p class="text-[17px] text-ink-muted">{textos.costo.texto}</p>
+    </div>
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-4">
+      <div class="flex min-w-0 flex-col gap-3 rounded-lg bg-surface-raised p-7">
+        <h3 class="text-[20px] font-bold">{textos.costo.cubreTitulo}</h3>
+        <ul class="flex flex-col gap-2.5">
+          {textos.costo.cubre.map((item) => (
+            <li class="grid grid-cols-[22px_minmax(0,1fr)] gap-2.5">
+              <CheckMark class="mt-0.75 size-4.5 text-primary" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="flex min-w-0 flex-col gap-3 rounded-lg border border-blue-300 p-7">
+        <h3 class="text-[20px] font-bold">{textos.costo.aparteTitulo}</h3>
+        <ul class="flex flex-col gap-2.5">
+          {textos.costo.aparte.map((item) => (
+            <li class="grid grid-cols-[22px_minmax(0,1fr)] gap-2.5 text-ink-muted">
+              <svg aria-hidden="true" viewBox="0 0 16 16" class="mt-0.75 size-4.5">
+                <path
+                  d="M4 4l8 8M12 4l-8 8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div data-theme="dark" class="flex flex-col gap-2 rounded-md bg-surface px-7 py-6">
+      <p class="text-[18px] font-bold">{textos.costo.aviso}</p>
+      <p class="text-[15px] text-text-secondary-on-dark">{textos.costo.entrada}</p>
+    </div>
+  </div>
+</Section>
+
+<section class="nexa py-section-y" aria-labelledby="nexa-titulo" data-theme="dark">
+  <div class="mx-auto box-content grid max-w-(--width-container) grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-10 px-gutter">
+    <div class="flex min-w-0 flex-col gap-4">
+      <span class="text-eyebrow font-bold text-nexa-orange uppercase">{textos.nexa.eyebrow}</span>
+      <h2 id="nexa-titulo" class={h2}>
+        {textos.nexa.titulo}
+      </h2>
+      <p class="text-nexa-text">{textos.nexa.texto}</p>
+      <ul class="flex flex-wrap gap-2">
+        {textos.nexa.servicios.map((s) => (
+          <li class="rounded-pill border border-nexa-orange px-3 py-1.75 text-[13px] font-bold text-nexa-orange">
+            {s}
+          </li>
+        ))}
+      </ul>
+      <a
+        href={textos.nexa.enlace.url}
+        target="_blank"
+        rel="noopener"
+        class="self-start rounded-pill bg-nexa-orange px-5.5 py-3.75 font-bold text-nexa-navy"
+      >
+        {textos.nexa.enlace.texto} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+    {/* Logo pendiente: Luis entrega el archivo. Mientras tanto, el nombre en texto. */}
+    <div class="grid min-h-55 place-items-center self-stretch rounded-lg bg-white p-10">
+      <span class="text-[clamp(28px,3vw,40px)] font-bold text-nexa-navy">{textos.nexa.nombre}</span>
+    </div>
+  </div>
+</section>
+
+<Section tone="dark" aria-labelledby="faq-titulo" reveal>
+  <div class="flex flex-col gap-6">
+    <h2 id="faq-titulo" class={h2}>
+      {textos.faq.titulo}
+    </h2>
+    <dl class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] gap-x-10 gap-y-2">
+      {textos.faq.lista.map((item) => (
+        <div class="flex flex-col gap-1.5 border-b border-hairline py-4">
+          <dt class="text-[17px] font-bold">{item.pregunta}</dt>
+          <dd class="text-[15px] text-text-secondary-on-dark">{item.respuesta}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</Section>
+
+<style>
+  .programas-hero {
+    background: radial-gradient(
+      120% 90% at 80% 10%,
+      var(--color-glow-core) 0%,
+      var(--color-night) 60%
+    );
+  }
+
+  .programas-reticula {
+    stroke: var(--color-hairline-light);
+    stroke-width: 1;
+  }
+
+  .nexa {
+    background: var(--color-nexa-navy);
+    color: var(--color-white);
+  }
+
+  .barra-apilada > :global(span) {
+    transform-origin: left;
+  }
+</style>
+
+<script>
+  import { iniciarBarrasApiladas } from '../motion/barras-apiladas';
+
+  for (const barra of document.querySelectorAll<HTMLElement>('[data-barra-apilada]')) {
+    iniciarBarrasApiladas(barra);
+  }
+</script>

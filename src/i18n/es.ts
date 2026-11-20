@@ -127,6 +127,12 @@ export const es = {
     cv: {
       title: 'CV · Arquitecto de soluciones cloud e IA',
     },
+    programasAws: {
+      title: 'AWS puede invertir en tu migración',
+    },
+    productos: {
+      title: 'Productos · Trama AI',
+    },
     sobreMi: {
       title: 'Sobre mí',
     },

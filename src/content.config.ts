@@ -1,7 +1,14 @@
 import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
-import { NECESIDADES_PRENSA, PRESUPUESTOS_SPEAKER } from './lib/formularios/opciones';
+import {
+  INFRAESTRUCTURAS_AWS,
+  NECESIDADES_PRENSA,
+  PLAZOS_AWS,
+  PRESUPUESTOS_SPEAKER,
+  TIPOS_EMPRESA_AWS,
+  TIPOS_INVERSIONISTA,
+} from './lib/formularios/opciones';
 
 // Un archivo YAML por entrada; los que empiezan por _ son plantillas y no se cargan.
 const entries = (collection: string) =>
@@ -917,7 +924,200 @@ const cvPagina = defineCollection({
   }),
 });
 
+const tituloTexto = z.object({ titulo: localized, texto: localized });
+
+const programasAwsPagina = defineCollection({
+  loader: glob({ pattern: 'programas-aws.yaml', base: './src/content/paginas' }),
+  schema: z.object({
+    hero: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      evaluar: localized,
+      sesion: localized,
+      grafica: z.object({
+        alt: localized,
+        hoy: localized,
+        destino: localized,
+        inversion: localized,
+      }),
+    }),
+    idea: tituloTexto.extend({ tiposTitulo: localized, tipos: z.array(tituloTexto).min(1) }),
+    rutas: z.object({
+      titulo: localized,
+      lista: z.array(tituloTexto.extend({ etiqueta: localized, umbral: localized })).min(1),
+      nota: localized,
+    }),
+    inicio: tituloTexto.extend({
+      assessment: tituloTexto.extend({ eyebrow: localized, sello: localized, aplica: localized }),
+      prueba: tituloTexto.extend({ eyebrow: localized, aplica: localized }),
+      nota: localized,
+    }),
+    fases: tituloTexto.extend({
+      lista: z.array(tituloTexto).length(6),
+      estrategiasTitulo: localized,
+      estrategias: z.array(tituloTexto).min(1),
+    }),
+    inversion: tituloTexto.extend({
+      nota: localized,
+      ejemplo: z.object({
+        eyebrow: localized,
+        consumo: localized,
+        consumoValor: localized,
+        inversion: localized,
+        inversionValor: localized,
+        tramos: localized,
+        primerTramo: localized,
+        siguientes: localized,
+        rondas: localized,
+      }),
+    }),
+    caso: tituloTexto.extend({
+      cifras: z
+        .array(
+          z.object({
+            metrica: localized,
+            texto: localized,
+            /** Barra apilada (porcentajes o partes): tramos 25/75, hallazgos 12/25/57. */
+            barra: z.array(z.number().positive()).optional(),
+          }),
+        )
+        .min(1),
+    }),
+    costo: tituloTexto.extend({
+      cubreTitulo: localized,
+      cubre: z.array(localized).min(1),
+      aparteTitulo: localized,
+      aparte: z.array(localized).min(1),
+      aviso: localized,
+      entrada: localized,
+    }),
+    nexa: tituloTexto.extend({
+      eyebrow: localized,
+      servicios: z.array(localized).min(1),
+      enlace: z.object({ texto: localized, url: z.url() }),
+      nombre: z.string().min(1),
+    }),
+    faq: z.object({
+      titulo: localized,
+      lista: z.array(z.object({ pregunta: localized, respuesta: localized })).min(1),
+    }),
+    evaluar: tituloTexto.extend({
+      condiciones: localized,
+      sesion: localized,
+      campos: z.object({
+        tipoEmpresa: localized,
+        infraestructura: localized,
+        consumo: localized,
+        anual: localized,
+        anualAyuda: localized,
+        migrar: localized,
+        decide: localized,
+        decideEjemplo: localized,
+        plazo: localized,
+        empresa: localized,
+        correo: localized,
+      }),
+      tiposEmpresa: z.array(z.object({ valor: z.enum(TIPOS_EMPRESA_AWS), texto: localized })),
+      infraestructuras: z.array(
+        z.object({ valor: z.enum(INFRAESTRUCTURAS_AWS), texto: localized }),
+      ),
+      plazos: z.array(z.object({ valor: z.enum(PLAZOS_AWS), texto: localized })),
+      consumoAprox: localized,
+      consumoMas: localized,
+      anualAprox: localized,
+      anualMas: localized,
+      enviar: localized,
+      recibido: localized,
+    }),
+    nota: z.object({ texto: localized, enlace: localized }),
+  }),
+});
+
+const productosPagina = defineCollection({
+  loader: glob({ pattern: 'productos.yaml', base: './src/content/paginas' }),
+  schema: z.object({
+    hero: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      equipo: localized,
+      verDemo: localized,
+      inversionista: localized,
+      // Pieza 05: el texto de las caras se dibuja en canvas, por idioma.
+      medalla: z.object({
+        etiqueta: localized,
+        frente: z.object({
+          rotulo: localized,
+          linea1: localized,
+          linea2: localized,
+          evento: localized,
+        }),
+        reverso: z.object({
+          rotulo: localized,
+          nombre: localized,
+          equipo: z.array(z.string().min(1)).min(1),
+          cierre: localized,
+        }),
+      }),
+      fuente: z.object({ texto: localized, url: z.url() }),
+    }),
+    funciona: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      pasos: z.array(tituloTexto).length(3),
+      modulos: z.array(localized).min(1),
+      conversacion: z.object({
+        titulo: localized,
+        demostracion: localized,
+        mensajes: z
+          .array(
+            z.object({ quien: z.enum(['equipo', 'trama']), autor: localized, texto: localized }),
+          )
+          .min(2),
+      }),
+    }),
+    logros: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      lista: z.array(z.object({ metrica: localized, texto: localized })).min(1),
+    }),
+    caminos: z.object({
+      titulo: localized,
+      empresas: tituloTexto.extend({ eyebrow: localized, boton: localized }),
+      inversionistas: tituloTexto.extend({
+        eyebrow: localized,
+        campos: z.object({ tipo: localized, pais: localized, correo: localized }),
+        tipos: z.array(z.object({ valor: z.enum(TIPOS_INVERSIONISTA), texto: localized })),
+        enviar: localized,
+        aviso: localized,
+        recibido: localized,
+      }),
+    }),
+    portafolio: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      productos: z
+        .array(
+          z.object({
+            nombre: z.string().min(1),
+            dueno: localized,
+            estado: localized,
+            texto: localized,
+          }),
+        )
+        .min(1),
+      usar: localized,
+      invertir: localized,
+      proximos: tituloTexto,
+    }),
+    juntos: tituloTexto.extend({ eyebrow: localized }),
+  }),
+});
+
 export const collections = {
+  productosPagina,
+  programasAwsPagina,
   cvPagina,
   bio,
   eventosPagina,

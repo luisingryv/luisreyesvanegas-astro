@@ -1,0 +1,207 @@
+# Textos de Productos (prototipo aprobado). La medalla es la pieza 05 (diseño propio, sin logos de
+# terceros). Por aprobar: los mensajes de la conversación (demostración, sin datos de clientes),
+# los textos de la medalla 3D (del laboratorio), "Solicitar demo" hacia Contacto y recibido. El
+# video demo y la foto de Luis y Andrés están pendientes: no se muestran espacios vacíos.
+hero:
+  eyebrow:
+    es: 'Producto destacado · Trama AI'
+  titulo:
+    es: 'Agentes de IA que operan el inventario de tu empresa.'
+  texto:
+    es: 'Trama es un agente en WhatsApp que lleva el inventario y la operación de empresas textiles medianas: entradas, salidas, contabilidad y nómina en un solo flujo.'
+  equipo:
+    es: 'Hecho por Trama AI, Corp. · Luis Reyes Vanegas (CEO), Gianfranco Castro (CTO), Johan Burgos (DevOps) y Najem Nabhan (PM)'
+  verDemo:
+    es: 'Ver demo'
+  inversionista:
+    es: 'Soy inversionista'
+  medalla:
+    etiqueta:
+      es: 'Medalla: ganador de categoría, Small Business Services, Build with Gemini XPRIZE 2026'
+    frente:
+      rotulo:
+        es: 'Ganador de categoría'
+      linea1:
+        es: 'Small Business'
+      linea2:
+        es: 'Services'
+      evento:
+        es: 'Build with Gemini XPRIZE 2026'
+    reverso:
+      rotulo:
+        es: 'Logro desbloqueado'
+      nombre:
+        es: 'Trama AI'
+      equipo:
+        - 'Luis Reyes Vanegas'
+        - 'Gianfranco Castro'
+        - 'Johan Burgos'
+        - 'Najem Nabhan'
+      cierre:
+        es: 'Construido en 90 días'
+  fuente:
+    texto:
+      es: 'Fuente: gxp.moonshots.com'
+    url: 'https://gxp.moonshots.com/'
+funciona:
+  eyebrow:
+    es: 'Qué hace y cómo funciona'
+  titulo:
+    es: 'Así funciona Trama'
+  pasos:
+    - titulo:
+        es: 'Tu equipo escribe por WhatsApp'
+      texto:
+        es: 'Registra entradas, salidas y novedades sin aprender un sistema nuevo.'
+    - titulo:
+        es: 'El agente organiza la operación'
+      texto:
+        es: 'Actualiza el inventario y deja listo lo que necesitan contabilidad y nómina.'
+    - titulo:
+        es: 'La gerencia consulta en el momento'
+      texto:
+        es: 'Pregunta por existencias, movimientos y pendientes, y recibe la respuesta en la misma conversación.'
+  modulos:
+    - es: 'Inventario'
+    - es: 'Entradas y salidas'
+    - es: 'Contabilidad'
+    - es: 'Nómina'
+  conversacion:
+    titulo:
+      es: 'Trama'
+    demostracion:
+      es: 'Demostración'
+    mensajes:
+      - quien: equipo
+        autor:
+          es: 'Bodega'
+        texto:
+          es: 'Entrada: 12 rollos de denim azul.'
+      - quien: trama
+        autor:
+          es: 'Trama'
+        texto:
+          es: 'Listo, registré los 12 rollos. En bodega hay 48 rollos de denim azul.'
+      - quien: equipo
+        autor:
+          es: 'Producción'
+        texto:
+          es: 'Salida: 5 rollos para el corte de la orden 214.'
+      - quien: trama
+        autor:
+          es: 'Trama'
+        texto:
+          es: 'Registrado. Quedan 43 rollos y la salida ya está lista para contabilidad.'
+      - quien: equipo
+        autor:
+          es: 'Gerencia'
+        texto:
+          es: '¿Qué tenemos pendiente hoy?'
+      - quien: trama
+        autor:
+          es: 'Trama'
+        texto:
+          es: 'Aprobar la compra de hilo y revisar la nómina del viernes.'
+logros:
+  eyebrow:
+    es: 'Logros del producto'
+  titulo:
+    es: 'Lo que Trama ya logró'
+  lista:
+    - metrica:
+        es: '1.º de categoría'
+      texto:
+        es: 'Small Business Services en el Build with Gemini XPRIZE 2026.'
+    - metrica:
+        es: 'Top 100'
+      texto:
+        es: 'Entre 26.449 equipos de todo el mundo.'
+    - metrica:
+        es: '90 días'
+      texto:
+        es: 'El tiempo en que el equipo construyó el producto.'
+    - metrica:
+        es: '≈US$6.000'
+      texto:
+        es: 'En créditos de AWS para migrar de Google Cloud a AWS con el programa MAP.'
+caminos:
+  titulo:
+    es: 'Dos formas de acercarte a Trama'
+  empresas:
+    eyebrow:
+      es: 'Para empresas'
+    titulo:
+      es: 'Quiero usar Trama en mi empresa'
+    texto:
+      es: 'Te mostramos el producto con un caso parecido al tuyo y vemos si resuelve tu operación.'
+    boton:
+      es: 'Solicitar demo'
+  inversionistas:
+    eyebrow:
+      es: 'Para inversionistas'
+    titulo:
+      es: 'Quiero conocer la empresa'
+    texto:
+      es: 'Trama AI es una C corp de Delaware con su tabla de capitalización definida. La estructura societaria, el pool de acciones, el runway y los ingresos recurrentes los comparto en una conversación privada.'
+    campos:
+      tipo:
+        es: 'Tipo de inversionista'
+      pais:
+        es: 'País'
+      correo:
+        es: 'Correo'
+    tipos:
+      - valor: 'angel'
+        texto:
+          es: 'Ángel'
+      - valor: 'fondo'
+        texto:
+          es: 'Fondo'
+      - valor: 'family-office'
+        texto:
+          es: 'Family office'
+      - valor: 'socio-estrategico'
+        texto:
+          es: 'Socio estratégico'
+    enviar:
+      es: 'Solicitar información'
+    aviso:
+      es: 'Esta página es informativa y no constituye una oferta de valores.'
+    recibido:
+      es: 'Gracias. Recibí tu solicitud y te escribo para agendar la conversación.'
+portafolio:
+  eyebrow:
+    es: 'Portafolio'
+  titulo:
+    es: 'Productos propios y de aliados'
+  productos:
+    - nombre: 'Trama AI'
+      dueno:
+        es: 'Propio · Trama AI, Corp.'
+      estado:
+        es: 'En producción'
+      texto:
+        es: 'Agentes de IA que operan el inventario y la operación de empresas con inventario físico. Empezó en la industria textil.'
+    - nombre: 'Ofilix'
+      dueno:
+        es: 'Aliado · Andrés Martínez · Solutek'
+      estado:
+        es: 'En producción'
+      texto:
+        es: 'Plataforma de conversación empresarial: una bandeja para 9 canales con IA conversacional, CRM, gestión de servicios de TI y telefonía en la nube. ofilix.com'
+  usar:
+    es: 'Usar el producto'
+  invertir:
+    es: 'Invertir'
+  proximos:
+    titulo:
+      es: 'Próximos productos'
+    texto:
+      es: 'Se suman a medida que firmamos con aliados estratégicos.'
+juntos:
+  eyebrow:
+    es: 'Construimos juntos'
+  titulo:
+    es: 'Ya escalamos un producto antes.'
+  texto:
+    es: 'Andrés Martínez y yo trabajamos juntos en Mandaos, donde yo era Head of Product. Con la integración con iFood, la operación pasó de unos 2.400 a unos 70.000 pedidos al mes. Hoy seguimos creando productos juntos.'

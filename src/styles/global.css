@@ -71,6 +71,12 @@
   --color-glow-edge: #060b1c;
   --color-line-on-light: #cce6ff;
 
+  /* Colores de Nexa Connect (aliado con acuerdo firmado), solo en su sección de Programas AWS.
+     Del prototipo; por aprobar como tokens. */
+  --color-nexa-navy: #183154;
+  --color-nexa-orange: #ed8310;
+  --color-nexa-text: #d4d8de;
+
   /* Semánticos, tema claro; el oscuro los redefine con [data-theme="dark"] */
   --color-surface: var(--color-white);
   --color-surface-raised: var(--color-blue-200);

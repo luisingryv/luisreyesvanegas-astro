@@ -2,7 +2,15 @@
 // códigos; la interfaz los traduce. Un campo vacío de un formulario HTML cuenta como ausente.
 import { z } from 'astro/zod';
 import { IDIOMAS } from '../../../db/schema';
-import { NECESIDADES_PRENSA, PRESUPUESTOS_SPEAKER } from './opciones';
+import {
+  CONSUMOS_AWS,
+  INFRAESTRUCTURAS_AWS,
+  NECESIDADES_PRENSA,
+  PLAZOS_AWS,
+  PRESUPUESTOS_SPEAKER,
+  TIPOS_EMPRESA_AWS,
+  TIPOS_INVERSIONISTA,
+} from './opciones';
 
 export type CodigoError = 'requerido' | 'invalido' | 'muy-corto' | 'muy-largo' | 'debe-aceptar';
 
@@ -119,10 +127,48 @@ export const formularioPrensa = z.object({
   mensaje: opcional(5000),
 });
 
-// Los de Productos y Programas AWS se agregan aquí cuando se construyan sus páginas.
+const opcionDe = <T extends readonly [string, ...string[]]>(valores: T) =>
+  z.preprocess(
+    vacioAusente,
+    z.enum(valores, { error: (i) => (i.input === undefined ? 'requerido' : 'invalido') }),
+  );
+
+/** Evaluación para el programa MAP (Programas AWS, #evaluar). Lo que quiere migrar va en el mensaje. */
+export const formularioProgramasAws = z.object({
+  formulario: z.literal('programas-aws', { error: 'invalido' }),
+  ...comunes,
+  tipoEmpresa: opcionDe(TIPOS_EMPRESA_AWS),
+  infraestructura: opcionDe(INFRAESTRUCTURAS_AWS),
+  consumo: z.preprocess(
+    (v) => (typeof v === 'string' && v.trim() !== '' ? Number(v) : vacioAusente(v)),
+    z
+      .number({ error: (i) => (i.input === undefined ? 'requerido' : 'invalido') })
+      .refine((n) => (CONSUMOS_AWS as readonly number[]).includes(n), { error: 'invalido' }),
+  ),
+  mensaje: opcional(3000),
+  decide: opcional(120),
+  plazo: opcionDe(PLAZOS_AWS),
+  empresa: requerido(2, 160),
+});
+
+/** Inversionistas de Trama (Productos, #invertir). */
+export const formularioProductos = z.object({
+  formulario: z.literal('productos', { error: 'invalido' }),
+  ...comunes,
+  inversionista: opcionDe(TIPOS_INVERSIONISTA),
+  pais: requerido(2, 80),
+});
+
 export const solicitud = z.discriminatedUnion(
   'formulario',
-  [formularioGeneral, formularioConsultoria, formularioSpeaker, formularioPrensa],
+  [
+    formularioGeneral,
+    formularioConsultoria,
+    formularioSpeaker,
+    formularioPrensa,
+    formularioProgramasAws,
+    formularioProductos,
+  ],
   { error: 'invalido' },
 );
 

@@ -1,0 +1,53 @@
+---
+// Programas AWS (MAP con Nexa Connect). Una nota fija al pie recuerda que los incentivos dependen
+// de la aprobación de AWS y lleva a las condiciones completas (#condiciones).
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import EvaluarProgramas from '../../components/programas/EvaluarProgramas.astro';
+import SeccionesProgramas from '../../components/programas/SeccionesProgramas.astro';
+import { bookingUrl } from '../../config/site';
+import { publishedLocales } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import Base from '../../layouts/Base.astro';
+import { getFormularioGeneral, getPaginaProgramasAws } from '../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const [textos, formulario] = await Promise.all([
+  getPaginaProgramasAws(lang),
+  getFormularioGeneral(lang),
+]);
+const sesionHref = bookingUrl(lang);
+---
+
+<Base
+  locale={lang}
+  title={t.pages.programasAws.title}
+  description={textos.hero.texto}
+  route="programasAws"
+  headerCta={{ texto: t.header.programas, href: '#evaluar' }}
+>
+  <SeccionesProgramas textos={textos} sesionHref={sesionHref} />
+  <EvaluarProgramas
+    locale={lang}
+    textos={textos.evaluar}
+    comunes={formulario}
+    sesionHref={sesionHref}
+  />
+  <div
+    role="note"
+    data-theme="dark"
+    class="sticky bottom-0 z-10 border-t border-hairline bg-surface-raised px-gutter py-3 text-[13px] text-text-secondary-on-dark"
+  >
+    <div class="mx-auto flex max-w-(--width-container) flex-wrap items-center justify-between gap-x-4 gap-y-1.5">
+      <span>{textos.nota.texto}</span>
+      <a href="#condiciones" class="font-bold text-link hover:underline">
+        {textos.nota.enlace}
+      </a>
+    </div>
+  </div>
+</Base>

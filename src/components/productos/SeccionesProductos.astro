@@ -1,0 +1,243 @@
+---
+// Productos (prototipo aprobado): Trama AI con la medalla 3D (pieza 05), cómo funciona (con la
+// conversación de demostración), sus logros (pieza 02), las dos formas de acercarse, el
+// portafolio con Ofilix y "Ya escalamos un producto antes". Andrés Martínez solo se nombra aquí.
+import AchievementCard from '../brand/AchievementCard.astro';
+import Button from '../brand/Button.astro';
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import { FormularioProductos } from '../formularios/FormularioProductos';
+import Medalla3D from '../motion/Medalla3D.astro';
+import ConversacionTrama from './ConversacionTrama.astro';
+import { getDictionary } from '../../i18n';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { FormularioGeneral, PaginaProductos } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  textos: PaginaProductos;
+  comunes: FormularioGeneral;
+  demoHref: string;
+}
+
+const { locale, textos, comunes, demoHref } = Astro.props;
+const t = getDictionary(locale);
+const h2 = 'text-[clamp(28px,3.4vw,42px)] leading-[1.1] font-bold text-balance';
+const { medalla } = textos.hero;
+---
+
+<Section tone="dark" spacing="hero" aria-labelledby="productos-titulo">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-12">
+    <div class="flex min-w-0 flex-col gap-5.5">
+      <Eyebrow>{textos.hero.eyebrow}</Eyebrow>
+      <h1
+        id="productos-titulo"
+        class="text-[clamp(38px,5vw,64px)] leading-[1.04] font-bold tracking-[-0.02em] text-balance"
+      >
+        {textos.hero.titulo}
+      </h1>
+      <p class="max-w-[54ch] text-[clamp(17px,1.6vw,20px)] leading-[1.55] text-text-secondary-on-dark">
+        {textos.hero.texto}
+      </p>
+      <p class="text-[14px] text-text-tertiary-on-dark">{textos.hero.equipo}</p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <Button href="#usar" size="lg">
+          {textos.hero.verDemo}
+        </Button>
+        <Button href="#invertir" size="lg" variant="accent">
+          {textos.hero.inversionista}
+        </Button>
+      </div>
+    </div>
+    <div class="flex flex-col items-center gap-4">
+      <Medalla3D
+        class="max-w-100"
+        etiqueta={medalla.etiqueta}
+        caras={{
+          frente: medalla.frente,
+          reverso: {
+            rotulo: medalla.reverso.rotulo,
+            nombre: medalla.reverso.nombre,
+            equipo: medalla.reverso.equipo,
+            cierre: medalla.reverso.cierre,
+          },
+        }}
+      />
+      <a
+        href={textos.hero.fuente.url}
+        target="_blank"
+        rel="noopener"
+        class="text-[13px] text-cyan-300 underline-offset-2 hover:underline"
+      >
+        {textos.hero.fuente.texto} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</Section>
+
+<Section tone="dark" separator aria-labelledby="funciona-titulo">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] gap-10">
+    <div class="flex min-w-0 flex-col gap-6">
+      <div class="flex flex-col gap-2.5">
+        <Eyebrow>{textos.funciona.eyebrow}</Eyebrow>
+        <h2 id="funciona-titulo" class={h2}>
+          {textos.funciona.titulo}
+        </h2>
+      </div>
+      <ol class="flex flex-col gap-3.5">
+        {textos.funciona.pasos.map((paso, i) => (
+          <li class="grid grid-cols-[44px_minmax(0,1fr)] items-start gap-3.5 border-t border-hairline pt-3.5">
+            <span class="text-[15px] font-bold text-link" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <span class="flex flex-col gap-1">
+              <b class="text-[18px]">{paso.titulo}</b>
+              <span class="text-[15px] text-text-secondary-on-dark">{paso.texto}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+      <ul class="flex flex-wrap gap-2">
+        {textos.funciona.modulos.map((m) => (
+          <li class="rounded-pill border border-gray-700 px-3.5 py-2.25 text-[14px] font-bold">
+            {m}
+          </li>
+        ))}
+      </ul>
+    </div>
+    <ConversacionTrama
+      titulo={textos.funciona.conversacion.titulo}
+      demostracion={textos.funciona.conversacion.demostracion}
+      mensajes={textos.funciona.conversacion.mensajes}
+    />
+  </div>
+</Section>
+
+<Section tone="dark-raised" aria-labelledby="logros-trama-titulo">
+  <div class="flex flex-col gap-7">
+    <div class="flex flex-col gap-2.5">
+      <Eyebrow>{textos.logros.eyebrow}</Eyebrow>
+      <h2 id="logros-trama-titulo" class={h2}>
+        {textos.logros.titulo}
+      </h2>
+    </div>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-4" data-logros>
+      {textos.logros.lista.map((logro, i) => (
+        <AchievementCard
+          as="li"
+          bloqueado={t.logros.bloqueado}
+          logro={{ id: `trama-${i}`, metrica: logro.metrica, descripcion: logro.texto }}
+        />
+      ))}
+    </ul>
+  </div>
+</Section>
+
+<Section tone="dark" aria-labelledby="caminos-titulo">
+  <div class="flex flex-col gap-7">
+    <h2 id="caminos-titulo" class={h2}>
+      {textos.caminos.titulo}
+    </h2>
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-start gap-4">
+      <div
+        id="usar"
+        class="flex min-w-0 flex-col gap-4 rounded-lg border border-hairline bg-surface-raised p-8"
+      >
+        <span class="text-[12px] font-bold tracking-[0.12em] text-link uppercase">
+          {textos.caminos.empresas.eyebrow}
+        </span>
+        <h3 class="text-[26px] leading-[1.2] font-bold">{textos.caminos.empresas.titulo}</h3>
+        <p class="text-text-secondary-on-dark">{textos.caminos.empresas.texto}</p>
+        <Button href={demoHref} class="mt-auto self-start">
+          {textos.caminos.empresas.boton}
+        </Button>
+      </div>
+      <div id="invertir">
+        <FormularioProductos
+          textos={{
+            eyebrow: textos.caminos.inversionistas.eyebrow,
+            titulo: textos.caminos.inversionistas.titulo,
+            texto: textos.caminos.inversionistas.texto,
+            tipo: textos.caminos.inversionistas.campos.tipo,
+            tipos: textos.caminos.inversionistas.tipos,
+            pais: textos.caminos.inversionistas.campos.pais,
+            correo: textos.caminos.inversionistas.campos.correo,
+            autorizacion: comunes.autorizacion,
+            enviar: textos.caminos.inversionistas.enviar,
+            aviso: textos.caminos.inversionistas.aviso,
+            recibido: textos.caminos.inversionistas.recibido,
+            error: comunes.error,
+          }}
+          mensajes={t.formulario}
+          idioma={locale}
+          pagina={localizedPath(locale, 'productos')}
+          politicaHref={localizedPath(locale, 'privacidad')}
+        />
+      </div>
+    </div>
+  </div>
+</Section>
+
+<Section tone="light" aria-labelledby="portafolio-titulo" reveal>
+  <div class="flex flex-col gap-7">
+    <div class="flex flex-col gap-2.5">
+      <Eyebrow>{textos.portafolio.eyebrow}</Eyebrow>
+      <h2 id="portafolio-titulo" class={h2}>
+        {textos.portafolio.titulo}
+      </h2>
+    </div>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-4">
+      {textos.portafolio.productos.map((p) => (
+        <li class="flex min-w-0 flex-col gap-3 rounded-lg bg-surface-raised p-7">
+          <div class="flex flex-wrap justify-between gap-2">
+            <span class="text-[11px] font-bold tracking-[0.1em] text-blue-600 uppercase">
+              {p.dueno}
+            </span>
+            <span class="rounded-pill bg-primary px-2.25 py-1.25 text-[11px] font-bold text-on-primary">
+              {p.estado}
+            </span>
+          </div>
+          <h3 class="text-[28px] font-bold">{p.nombre}</h3>
+          <p class="grow text-ink-muted">{p.texto}</p>
+          <div class="flex flex-wrap gap-x-4 gap-y-2 font-bold">
+            <a href="#usar" class="text-link hover:underline">
+              {textos.portafolio.usar}
+              <span class="sr-only">: {p.nombre}</span> <span aria-hidden="true">→</span>
+            </a>
+            <a href="#invertir" class="text-link hover:underline">
+              {textos.portafolio.invertir}
+              <span class="sr-only">: {p.nombre}</span> <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </li>
+      ))}
+      <li class="flex min-w-0 flex-col justify-center gap-2 rounded-lg border border-dashed border-primary p-7">
+        <b class="text-[18px]">{textos.portafolio.proximos.titulo}</b>
+        <span class="text-[15px] text-ink-muted">{textos.portafolio.proximos.texto}</span>
+      </li>
+    </ul>
+  </div>
+</Section>
+
+<Section tone="dark" aria-labelledby="juntos-titulo" reveal>
+  <div class="flex max-w-[64ch] flex-col gap-4">
+    <Eyebrow>{textos.juntos.eyebrow}</Eyebrow>
+    <h2 id="juntos-titulo" class={h2}>
+      {textos.juntos.titulo}
+    </h2>
+    <p class="text-text-secondary-on-dark">{textos.juntos.texto}</p>
+  </div>
+</Section>
+
+<script>
+  import { mejorarFormulario } from '../formularios/formulario';
+  import { iniciarLogros } from '../motion/logros';
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-formulario]')) {
+    mejorarFormulario(form);
+  }
+  for (const lista of document.querySelectorAll<HTMLElement>('[data-logros]')) {
+    iniciarLogros(lista);
+  }
+</script>

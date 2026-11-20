@@ -1,0 +1,122 @@
+---
+// Pieza 05 · Medalla de ganador en 3D (Productos; nunca en la misma página que la pieza 01). El HTML
+// trae la medalla plana con el texto completo; Three.js se descarga solo cuando la medalla se
+// acerca a la pantalla, si hay WebGL y no está activado "reducir movimiento".
+import type { CarasMedalla } from './medalla3d/scene';
+
+interface Props {
+  /** Texto de la medalla para lectores de pantalla. */
+  etiqueta: string;
+  caras: CarasMedalla;
+  class?: string;
+}
+
+const { etiqueta, caras, class: className } = Astro.props;
+---
+
+<div
+  class:list={['medalla3d relative aspect-square w-full', className]}
+  role="img"
+  aria-label={etiqueta}
+  data-medalla3d={JSON.stringify(caras)}
+>
+  <div class="medalla-plana" aria-hidden="true">
+    <span class="text-[11px] font-bold tracking-[0.14em] text-cyan-300 uppercase">
+      {caras.frente.rotulo}
+    </span>
+    <span class="text-[clamp(22px,3vw,34px)] leading-[1.05] font-bold">
+      {caras.frente.linea1}
+      <br />
+      {caras.frente.linea2}
+    </span>
+    <span class="text-[13px] text-text-tertiary-on-dark">{caras.frente.evento}</span>
+  </div>
+</div>
+
+<style>
+  .medalla3d {
+    /* El dedo puede mover la medalla sin bloquear el scroll vertical. */
+    touch-action: pan-y;
+  }
+
+  .medalla3d :global(canvas) {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  .medalla-plana {
+    position: absolute;
+    inset: 8%;
+    display: grid;
+    place-content: center;
+    gap: 10px;
+    padding: 0 12%;
+    border: 5px solid var(--color-cyan-400);
+    border-radius: 50%;
+    background: var(--color-night);
+    box-shadow:
+      0 0 0 14px var(--color-glow-core),
+      0 0 80px var(--color-primary);
+    text-align: center;
+    transition: opacity 400ms var(--ease-brand);
+  }
+
+  .medalla3d[data-live] .medalla-plana {
+    opacity: 0;
+  }
+</style>
+
+<script>
+  import { onceNearViewport, prefersReducedMotion } from './motion';
+  import type { CarasMedalla } from './medalla3d/scene';
+
+  const hayWebGL = () => {
+    try {
+      const canvas = document.createElement('canvas');
+      return Boolean(canvas.getContext('webgl2') ?? canvas.getContext('webgl'));
+    } catch {
+      return false;
+    }
+  };
+
+  // Armar la escena de Three.js ocupa el hilo principal. En escritorio se hace cuando el navegador
+  // queda libre; en pantallas táctiles, después de la primera interacción, para que la carga de
+  // la página siga liviana. Mientras tanto se ve la medalla plana.
+  const cuandoConvenga = (montar: () => void) => {
+    const enReposo = () => {
+      if (typeof window.requestIdleCallback === 'function') {
+        window.requestIdleCallback(montar, { timeout: 2000 });
+      } else {
+        setTimeout(montar, 200);
+      }
+    };
+    if (!window.matchMedia('(hover: none), (pointer: coarse)').matches) return enReposo();
+    const eventos = ['pointerdown', 'touchstart', 'scroll', 'keydown'] as const;
+    const primera = () => {
+      for (const e of eventos) window.removeEventListener(e, primera);
+      enReposo();
+    };
+    for (const e of eventos) window.addEventListener(e, primera, { passive: true });
+  };
+
+  for (const host of document.querySelectorAll<HTMLElement>('[data-medalla3d]')) {
+    if (prefersReducedMotion()) continue;
+    onceNearViewport(host, () =>
+      cuandoConvenga(() => {
+        if (!hayWebGL()) return;
+        const caras = JSON.parse(host.dataset.medalla3d ?? 'null') as CarasMedalla | null;
+        if (!caras) return;
+        // El texto de las caras se dibuja con Human Sans: se espera a que cargue.
+        Promise.all([import('./medalla3d/scene'), document.fonts.ready])
+          .then(([{ mountMedalla3D }]) => mountMedalla3D(host, caras))
+          .catch(() => {
+            // Falló la descarga o la escena: queda la medalla plana.
+          });
+      }),
+    );
+  }
+</script>

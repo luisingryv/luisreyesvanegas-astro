@@ -1,0 +1,125 @@
+---
+// "Así funciona Trama" como una conversación de WhatsApp que se escribe sola (mapa de motion,
+// aprobado). Los mensajes son de demostración y lo dicen: no hay datos de clientes. Ocupa el
+// espacio del video demo hasta que exista. Sin JavaScript o con "reducir movimiento", la
+// conversación completa y quieta (motion/conversacion.ts).
+interface Mensaje {
+  quien: 'equipo' | 'trama';
+  autor: string;
+  texto: string;
+}
+
+interface Props {
+  titulo: string;
+  demostracion: string;
+  mensajes: Mensaje[];
+}
+
+const { titulo, demostracion, mensajes } = Astro.props;
+---
+
+<figure
+  class="conversacion flex min-w-0 flex-col overflow-hidden rounded-lg border border-hairline bg-surface-raised"
+  data-conversacion
+>
+  <figcaption class="flex items-center justify-between gap-3 border-b border-hairline px-5 py-4">
+    <span class="flex items-center gap-3">
+      <span
+        class="grid size-9 place-items-center rounded-full bg-primary text-[15px] font-bold text-on-primary"
+        aria-hidden="true"
+      >
+        T
+      </span>
+      <span class="font-bold">{titulo}</span>
+    </span>
+    <span class="rounded-pill border border-accent px-2.5 py-1 text-[11px] font-bold tracking-[0.08em] text-link uppercase">
+      {demostracion}
+    </span>
+  </figcaption>
+  <ol class="flex min-h-90 flex-col gap-2.5 p-5" aria-live="off" data-mensajes>
+    {mensajes.map((m) => (
+      <li class:list={['mensaje', m.quien === 'trama' ? 'mensaje-trama' : 'mensaje-equipo']}>
+        <span class="mb-0.5 block text-[11px] font-bold text-cyan-300">{m.autor}</span>
+        {m.texto}
+      </li>
+    ))}
+    <li class="escribiendo" aria-hidden="true" hidden data-escribiendo>
+      <i></i>
+      <i></i>
+      <i></i>
+    </li>
+  </ol>
+</figure>
+
+<style>
+  .mensaje {
+    max-width: 82%;
+    padding: 10px 14px;
+    border-radius: 16px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .mensaje-equipo {
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .mensaje-equipo span {
+    color: var(--color-blue-200);
+  }
+
+  .mensaje-trama {
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    background: var(--color-night);
+    border: 1px solid var(--color-hairline);
+  }
+
+  .escribiendo {
+    align-self: flex-start;
+    display: flex;
+    gap: 4px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: var(--color-night);
+    border: 1px solid var(--color-hairline);
+  }
+
+  .escribiendo[hidden] {
+    display: none;
+  }
+
+  .escribiendo i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-text-tertiary-on-dark);
+    animation: punto 1s ease-in-out infinite;
+  }
+
+  .escribiendo i:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .escribiendo i:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes punto {
+    50% {
+      transform: translateY(-4px);
+      opacity: 0.5;
+    }
+  }
+</style>
+
+<script>
+  import { iniciarConversacion } from '../motion/conversacion';
+
+  for (const c of document.querySelectorAll<HTMLElement>('[data-conversacion]')) {
+    iniciarConversacion(c);
+  }
+</script>

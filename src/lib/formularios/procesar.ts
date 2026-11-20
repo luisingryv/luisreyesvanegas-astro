@@ -74,6 +74,23 @@ export async function procesarSolicitud(
             cierre: datos.cierre,
           }),
         };
+      case 'programas-aws':
+        return {
+          mensaje: datos.mensaje,
+          datos: quitarVacios({
+            tipoEmpresa: datos.tipoEmpresa,
+            infraestructura: datos.infraestructura,
+            consumoMensual: String(datos.consumo),
+            consumoAnual: String(datos.consumo * 12),
+            decide: datos.decide,
+            plazo: datos.plazo,
+            empresa: datos.empresa,
+          }),
+        };
+      case 'productos':
+        return {
+          datos: quitarVacios({ inversionista: datos.inversionista, pais: datos.pais }),
+        };
     }
   })();
 

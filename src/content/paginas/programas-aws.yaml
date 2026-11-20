@@ -1,0 +1,361 @@
+# Textos de Programas AWS (MAP con Nexa Connect, prototipo aprobado). Nunca "créditos gratis":
+# AWS invierte en la migración, por tramos (Luis, 17 nov 2026). El logo de Nexa Connect está
+# pendiente (Luis lo entrega); mientras tanto va el nombre. Por aprobar: recibido.
+hero:
+  eyebrow:
+    es: 'Migración a AWS · con Nexa Connect'
+  titulo:
+    es: 'AWS puede invertir en tu migración.'
+  texto:
+    es: 'Con Nexa Connect, partner de AWS, reviso tu entorno, diseño la arquitectura a la que vas a llegar y armamos el caso para que AWS evalúe cofinanciar la migración con su programa MAP. Lo hicimos con una startup de SAP de San Francisco y hoy lo llevamos a empresas de Latinoamérica y Estados Unidos.'
+  evaluar:
+    es: 'Evaluar mi caso'
+  sesion:
+    es: 'Agendar sesión de arquitectura'
+  grafica:
+    alt:
+      es: 'Ilustración: el consumo crece mes a mes; la arquitectura objetivo proyecta el consumo anual y AWS puede invertir un porcentaje en tramos'
+    hoy:
+      es: 'Tu consumo hoy'
+    destino:
+      es: 'A dónde vas'
+    inversion:
+      es: 'Lo que puede invertir AWS'
+idea:
+  titulo:
+    es: 'El crecimiento de tu factura no es solo un problema de costos.'
+  texto:
+    es: 'AWS puede cofinanciar la migración de empresas que muestran uso real y en expansión, siempre con su aprobación previa y si cumplen las condiciones del programa. Por eso empezamos revisando tu cuenta, no pidiendo créditos: con el caso técnico en la mano, AWS evalúa si aplica y cuánto invierte.'
+  tiposTitulo:
+    es: 'Qué podemos migrar'
+  tipos:
+    - titulo:
+        es: 'Lo que corre en tus servidores'
+      texto:
+        es: 'VMware, Windows Server, Linux, bases de datos SQL, ERP y aplicaciones que hoy viven en tu datacenter.'
+    - titulo:
+        es: 'Lo que tienes en otra nube'
+      texto:
+        es: 'Si estás en Google Cloud o en Azure. Trama, la empresa que dirijo, hizo este camino hacia AWS.'
+    - titulo:
+        es: 'Las cargas nuevas de tus clientes'
+      texto:
+        es: 'Si ya estás en AWS y tus clientes llevan sus procesos a tu plataforma, esas cargas también cuentan como migración.'
+    - titulo:
+        es: 'Tus sistemas SAP'
+      texto:
+        es: 'SAP HANA, S/4HANA y ECC, en producción, pruebas y recuperación ante desastres.'
+rutas:
+  titulo:
+    es: '¿Es para tu empresa?'
+  lista:
+    - etiqueta:
+        es: 'Startups'
+      titulo:
+        es: 'Tu startup crece mes a mes'
+      texto:
+        es: 'Es donde mejor funciona el programa. Si tu consumo en AWS o en otra nube sube cada mes, vale la pena revisarlo.'
+      umbral:
+        es: 'Desde unos US$50.000 al año'
+    - etiqueta:
+        es: 'Empresas'
+      titulo:
+        es: 'Vas a mover tu datacenter'
+      texto:
+        es: 'Para AWS, una migración empresarial empieza a ser atractiva cuando el consumo anual supera el medio millón de dólares.'
+      umbral:
+        es: 'Más de US$500.000 al año'
+    - etiqueta:
+        es: 'Ya estás en AWS'
+      titulo:
+        es: 'Tus clientes te traen sus cargas'
+      texto:
+        es: 'Cada cliente que lleva sus procesos a tu plataforma suma consumo nuevo en AWS, y eso también abre la puerta al programa.'
+      umbral:
+        es: 'Crecimiento sostenido'
+  nota:
+    es: 'Los montos son orientativos y hablan de consumo anual. Quien define si tu empresa califica es AWS.'
+inicio:
+  titulo:
+    es: 'Dos formas de empezar antes de migrar'
+  texto:
+    es: 'Son programas de AWS que ejecutamos con Nexa Connect. Sirven para tomar la decisión con datos y no con suposiciones.'
+  assessment:
+    eyebrow:
+      es: 'Empresas con servidores propios o en otra nube'
+    titulo:
+      es: 'Assessment de infraestructura'
+    texto:
+      es: 'Instalamos un agente que mide durante 7 a 15 días el uso real de CPU y memoria de tus servidores. Con esos datos armamos el caso técnico y de negocio de la migración. Todo el proceso toma de 4 a 5 semanas.'
+    sello:
+      es: 'Sin costo para tu empresa'
+    aplica:
+      es: 'Aplica si tienes que decidir sobre tu infraestructura en los próximos 12 meses: renovar servidores o pasar a la nube.'
+  prueba:
+    eyebrow:
+      es: 'Startups y empresas'
+    titulo:
+      es: 'Prueba de concepto'
+    texto:
+      es: 'En unas dos semanas probamos en AWS un caso de uso concreto, de migración o de inteligencia artificial, para validar la solución antes de decidir.'
+    aplica:
+      es: 'Aplica cuando hay una necesidad real de tu empresa detrás de la prueba.'
+  nota:
+    es: 'Ambos programas están sujetos a la evaluación y aprobación previa de AWS.'
+fases:
+  titulo:
+    es: 'Cómo lo hacemos'
+  texto:
+    es: 'Seis pasos, desde la primera revisión de tu cuenta hasta que queda acompañada por el equipo de AWS de tu región. Si tu empresa tiene servidores propios, la revisión técnica se hace con el assessment. Si eres una startup, partimos de tu proyección de crecimiento.'
+  lista:
+    - titulo:
+        es: 'Diagnóstico de elegibilidad'
+      texto:
+        es: 'Vemos cómo ha crecido tu consumo, qué cargas vienen en camino y a qué se dedica tu negocio. Si no hay caso, te lo decimos aquí.'
+    - titulo:
+        es: 'Revisión técnica de solo lectura'
+      texto:
+        es: 'Con un acceso de solo lectura revisamos la cuenta servicio por servicio, con el marco Well-Architected de AWS: inventario, dependencias, seguridad y costos.'
+    - titulo:
+        es: 'Arquitectura objetivo y business case'
+      texto:
+        es: 'Diseñamos la plataforma a la que vas a llegar, la costeamos en la calculadora de AWS y la comparamos con lo que pagas hoy.'
+    - titulo:
+        es: 'Registro de la oportunidad'
+      texto:
+        es: 'Con el caso listo, Nexa Connect registra la oportunidad ante AWS y se asigna tu Account Manager.'
+    - titulo:
+        es: 'Plan con hitos medibles'
+      texto:
+        es: 'Un plan por etapas con criterios que se pueden verificar. AWS usa esos hitos para liberar cada tramo de la inversión.'
+    - titulo:
+        es: 'El equipo de AWS de tu región'
+      texto:
+        es: 'La cuenta queda acompañada por el equipo regional de AWS, para nuevos programas, beneficios y soporte técnico.'
+  estrategiasTitulo:
+    es: 'Y para cada aplicación, la estrategia que le conviene'
+  estrategias:
+    - titulo:
+        es: 'Rehost'
+      texto:
+        es: 'Llevas la aplicación tal como está, rápido y con poco riesgo, y la modernizas después.'
+    - titulo:
+        es: 'Replatform'
+      texto:
+        es: 'Haces ajustes puntuales para aprovechar servicios administrados, como bases de datos RDS o autoescalado.'
+    - titulo:
+        es: 'Refactor'
+      texto:
+        es: 'Rediseñas la aplicación para la nube: contenedores, serverless, microservicios o IA generativa.'
+inversion:
+  titulo:
+    es: 'La inversión se calcula sobre la plataforma a la que vas.'
+  texto:
+    es: 'Quien solo muestra su factura actual deja dinero sobre la mesa. Por eso modelamos tu arquitectura objetivo en la calculadora de AWS y, con esa proyección anual, AWS evalúa si aprueba la inversión y qué porcentaje cubre. Si la aprueba, la entrega por tramos según el programa y el avance de los hitos del plan, y cada carga nueva puede abrir otra ronda.'
+  nota:
+    es: 'Los valores son estimados. Las cifras finales las define AWS en su evaluación y pueden ser diferentes.'
+  ejemplo:
+    eyebrow:
+      es: 'Un ejemplo estimado'
+    consumo:
+      es: 'Consumo anual proyectado'
+    consumoValor:
+      es: 'US$250.000'
+    inversion:
+      es: 'Inversión estimada de AWS'
+    inversionValor:
+      es: '≈US$60.000'
+    tramos:
+      es: 'Entregada por tramos'
+    primerTramo:
+      es: 'Primer tramo'
+    siguientes:
+      es: 'Tramos siguientes, según los hitos'
+    rondas:
+      es: 'Puede haber hasta tres rondas, para que acomodes tu flujo de caja mientras pasas tus cargas a la nube.'
+caso:
+  titulo:
+    es: 'Así funcionó con una startup de SAP de San Francisco'
+  texto:
+    es: 'Ya estaban en AWS y crecían con las cargas que les traían sus clientes, incluidas nuevas cuentas en Europa. Un mes nos dimos cuenta de que, en los primeros nueve días, la factura casi igualaba la del mes anterior. Ahí empezamos a armar el caso con Nexa Connect, y AWS aprobó el programa Incremental Workloads Migrate.'
+  cifras:
+    - metrica:
+        es: 'US$62.000'
+      texto:
+        es: 'Aprobados por AWS en dos tramos: 25% al aprobar y 75% al cumplir los hitos.'
+      barra: [25, 75]
+    - metrica:
+        es: '94'
+      texto:
+        es: 'Hallazgos en la revisión técnica: 12 críticos, 25 medios y 57 bajos, ninguno bloqueante.'
+      barra: [12, 25, 57]
+    - metrica:
+        es: '84%'
+      texto:
+        es: 'Del consumo era transferencia de datos y no cómputo. El problema estaba en la arquitectura.'
+    - metrica:
+        es: 'AWS LATAM'
+      texto:
+        es: 'La cuenta pasó al equipo regional de AWS, con acompañamiento comercial y técnico local.'
+costo:
+  titulo:
+    es: 'La implementación de este programa es de costo cero.'
+  texto:
+    es: 'Esto es lo que cubre y lo que va por aparte.'
+  cubreTitulo:
+    es: 'Cubre'
+  cubre:
+    - es: 'La implementación del programa de migración, con Nexa Connect'
+    - es: 'Servicios nativos de AWS: cómputo, contenedores, bases de datos, redes y almacenamiento'
+    - es: 'Servicios de IA de AWS, como Bedrock y Kiro, según el caso'
+    - es: 'Hasta tres posibles rondas de inversión, a medida que crecen tus cargas'
+  aparteTitulo:
+    es: 'Va por aparte'
+  aparte:
+    - es: 'Productos de AWS Marketplace, porque son de otros fabricantes'
+    - es: 'La administración de tu cuenta'
+    - es: 'El acompañamiento mensual'
+    - es: 'Mi trabajo como arquitecto de soluciones, que acordamos aparte'
+  aviso:
+    es: 'No gestionamos créditos gratis de Amazon. AWS decide si invierte en tu migración después de validar el caso técnico y comercial.'
+  entrada:
+    es: 'La puerta de entrada es la sesión de arquitectura, donde identificamos si tu empresa aplica.'
+nexa:
+  eyebrow:
+    es: 'Partner de AWS'
+  titulo:
+    es: 'Quién ejecuta la migración'
+  texto:
+    es: 'Nexa Connect es partner de AWS especialista en migración y modernización, con sede en Santiago de Chile y operación en Chile, Perú, Colombia, Ecuador, México, Guatemala y Argentina. Acompaña cada proyecto desde el assessment hasta la operación productiva, incluidas las migraciones SAP más críticas. En Chile, además, factura AWS de forma local.'
+  servicios:
+    - es: 'Migración y modernización'
+    - es: 'Migraciones SAP'
+    - es: 'Recuperación ante desastres'
+    - es: 'FinOps'
+    - es: 'Servicios administrados 24/7'
+  enlace:
+    texto:
+      es: 'Conoce Nexa Connect'
+    url: 'https://xnexaconnect.cl/migracion-a-aws/'
+  nombre: 'Nexa Connect'
+faq:
+  titulo:
+    es: 'Preguntas frecuentes'
+  lista:
+    - pregunta:
+        es: '¿Mi empresa califica?'
+      respuesta:
+        es: 'Depende de cuánto consumes, cómo viene creciendo y qué vas a migrar. Lo revisamos en la sesión de arquitectura y te damos una respuesta clara.'
+    - pregunta:
+        es: '¿Cuánto cuesta?'
+      respuesta:
+        es: 'La implementación del programa es de costo cero. La sesión de arquitectura cuesta US$450 y es por donde empezamos.'
+    - pregunta:
+        es: '¿Y si ya estoy en AWS?'
+      respuesta:
+        es: 'También aplica. Las cargas nuevas que te traen tus clientes pueden entrar como migración incremental.'
+    - pregunta:
+        es: '¿Qué pasa si no consumo lo que proyectamos?'
+      respuesta:
+        es: 'AWS entrega la inversión por tramos justamente para revisar el consumo real. Si no llegas a lo proyectado, no carga los tramos siguientes.'
+    - pregunta:
+        es: '¿Qué servicios cubre?'
+      respuesta:
+        es: 'Solo servicios nativos de AWS. Los productos de AWS Marketplace no entran, porque son de otros fabricantes.'
+    - pregunta:
+        es: '¿Pueden migrar SAP?'
+      respuesta:
+        es: 'Sí. Nexa Connect se especializa en migraciones SAP a AWS, incluidos SAP HANA, S/4HANA y ECC.'
+    - pregunta:
+        es: '¿Funciona desde Latinoamérica?'
+      respuesta:
+        es: 'Sí. Nexa Connect opera en siete países de la región y también atendemos empresas de Estados Unidos.'
+evaluar:
+  titulo:
+    es: 'Cuéntanos de tu empresa.'
+  texto:
+    es: 'Con estos datos preparo la sesión y te digo desde el principio si vemos una oportunidad para el programa.'
+  condiciones:
+    es: 'Los incentivos, fondos y beneficios de apoyo de Amazon Web Services están sujetos a evaluación, validación y aprobación previa por parte de Amazon Web Services. Su disponibilidad dependerá del cumplimiento de los requisitos y criterios de elegibilidad establecidos por AWS para cada programa y proyecto. La presentación de una solicitud no garantiza la aprobación y asignación.'
+  sesion:
+    es: 'Prefiero agendar la sesión (US$450)'
+  campos:
+    tipoEmpresa:
+      es: 'Tu empresa es'
+    infraestructura:
+      es: 'Dónde está hoy tu infraestructura'
+    consumo:
+      es: 'Consumo actual, promedio mensual'
+    anual:
+      es: 'Consumo anual estimado'
+    anualAyuda:
+      es: 'Se calcula solo: tu promedio mensual por 12.'
+    migrar:
+      es: '¿Qué quieres migrar o hacer crecer?'
+    decide:
+      es: '¿Quién toma la decisión?'
+    decideEjemplo:
+      es: 'Cargo'
+    plazo:
+      es: '¿Cuándo tienes que tomar la decisión?'
+    empresa:
+      es: 'Empresa y país'
+    correo:
+      es: 'Correo'
+  tiposEmpresa:
+    - valor: 'startup'
+      texto:
+        es: 'Una startup'
+    - valor: 'datacenter'
+      texto:
+        es: 'Una empresa con datacenter propio'
+    - valor: 'en-aws'
+      texto:
+        es: 'Una plataforma que ya está en AWS'
+  infraestructuras:
+    - valor: 'servidores'
+      texto:
+        es: 'En mis servidores'
+    - valor: 'aws'
+      texto:
+        es: 'AWS'
+    - valor: 'google-cloud'
+      texto:
+        es: 'Google Cloud'
+    - valor: 'azure'
+      texto:
+        es: 'Azure'
+    - valor: 'otra'
+      texto:
+        es: 'Otra nube'
+  plazos:
+    - valor: 'menos-3'
+      texto:
+        es: 'En menos de 3 meses'
+    - valor: '3-6'
+      texto:
+        es: 'Entre 3 y 6 meses'
+    - valor: '6-12'
+      texto:
+        es: 'Entre 6 y 12 meses'
+    - valor: 'mas-12'
+      texto:
+        es: 'En más de 12 meses'
+  # {monto}: el consumo con formato. "≈US$10.000 al mes" / "Más de US$250.000 al mes".
+  consumoAprox:
+    es: '≈{monto} al mes'
+  consumoMas:
+    es: 'Más de {monto} al mes'
+  anualAprox:
+    es: '≈{monto} al año'
+  anualMas:
+    es: 'Más de {monto} al año'
+  enviar:
+    es: 'Enviar'
+  recibido:
+    es: 'Gracias. Recibí los datos de tu empresa y te escribo para preparar la sesión.'
+nota:
+  texto:
+    es: 'Los incentivos y fondos de AWS están sujetos a su evaluación y aprobación previa. Presentar una solicitud no garantiza su asignación.'
+  enlace:
+    es: 'Ver condiciones'

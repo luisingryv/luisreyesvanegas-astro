@@ -16,7 +16,9 @@
         "http://127.0.0.1:4399/es/eventos",
         "http://127.0.0.1:4399/es/speaker",
         "http://127.0.0.1:4399/es/prensa",
-        "http://127.0.0.1:4399/es/cv"
+        "http://127.0.0.1:4399/es/cv",
+        "http://127.0.0.1:4399/es/programas-aws",
+        "http://127.0.0.1:4399/es/productos"
       ],
       "numberOfRuns": 3,
       "settings": {

@@ -1,0 +1,146 @@
+---
+// "Cuéntanos de tu empresa." (#evaluar): condiciones de AWS, la sesión como alternativa y el
+// formulario. El consumo anual se calcula solo (mensual × 12) y cuenta hasta el valor nuevo.
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import { FormularioProgramas } from '../formularios/FormularioProgramas';
+import { getDictionary } from '../../i18n';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { FormularioGeneral, PaginaProgramasAws } from '../../lib/content';
+import { CONSUMO_AWS_INICIAL, CONSUMOS_AWS } from '../../lib/formularios/opciones';
+
+interface Props {
+  locale: PublishedLocale;
+  textos: PaginaProgramasAws['evaluar'];
+  comunes: FormularioGeneral;
+  sesionHref: string;
+}
+
+const { locale, textos, comunes, sesionHref } = Astro.props;
+const t = getDictionary(locale);
+const formato = new Intl.NumberFormat('es-CO');
+const usd = (n: number) => `US$${formato.format(n)}`;
+const maximo = CONSUMOS_AWS[CONSUMOS_AWS.length - 1];
+const anual = (mensual: number) =>
+  (mensual === maximo ? textos.anualMas : textos.anualAprox).replace('{monto}', usd(mensual * 12));
+---
+
+<Section tone="dark-raised" id="evaluar" aria-labelledby="evaluar-titulo">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-12">
+    <div class="flex min-w-0 flex-col gap-4">
+      <Eyebrow as="span" class="sr-only">
+        {textos.titulo}
+      </Eyebrow>
+      <h2
+        id="evaluar-titulo"
+        class="text-[clamp(30px,4vw,50px)] leading-[1.08] font-bold text-balance"
+      >
+        {textos.titulo}
+      </h2>
+      <p class="text-text-secondary-on-dark">{textos.texto}</p>
+      <p
+        id="condiciones"
+        class="rounded-[16px] border border-hairline p-4 text-[13px] text-text-tertiary-on-dark"
+      >
+        {textos.condiciones}
+      </p>
+      <a
+        href={sesionHref}
+        class="self-start rounded-pill border border-accent px-5.5 py-3.5 font-bold text-link hover:bg-surface"
+      >
+        {textos.sesion}
+      </a>
+    </div>
+    <div
+      data-anual-plantillas={JSON.stringify({
+        aprox: textos.anualAprox,
+        mas: textos.anualMas,
+        maximo,
+      })}
+    >
+      <FormularioProgramas
+        textos={{
+          tipoEmpresa: textos.campos.tipoEmpresa,
+          tiposEmpresa: textos.tiposEmpresa,
+          infraestructura: textos.campos.infraestructura,
+          infraestructuras: textos.infraestructuras,
+          consumo: textos.campos.consumo,
+          consumos: CONSUMOS_AWS.map((v) => ({
+            valor: String(v),
+            texto: (v === maximo ? textos.consumoMas : textos.consumoAprox).replace(
+              '{monto}',
+              usd(v),
+            ),
+          })),
+          consumoInicial: String(CONSUMO_AWS_INICIAL),
+          anual: textos.campos.anual,
+          anualInicial: anual(CONSUMO_AWS_INICIAL),
+          anualAyuda: textos.campos.anualAyuda,
+          migrar: textos.campos.migrar,
+          decide: textos.campos.decide,
+          decideEjemplo: textos.campos.decideEjemplo,
+          plazo: textos.campos.plazo,
+          plazos: textos.plazos,
+          empresa: textos.campos.empresa,
+          correo: textos.campos.correo,
+          autorizacion: comunes.autorizacion,
+          enviar: textos.enviar,
+          recibido: textos.recibido,
+          error: comunes.error,
+        }}
+        mensajes={t.formulario}
+        idioma={locale}
+        pagina={localizedPath(locale, 'programasAws')}
+        politicaHref={localizedPath(locale, 'privacidad')}
+      />
+    </div>
+  </div>
+</Section>
+
+<script>
+  import { mejorarFormulario } from '../formularios/formulario';
+  import { prefersReducedMotion } from '../motion/motion';
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-formulario]')) {
+    mejorarFormulario(form);
+  }
+
+  // Consumo anual: el mensual por 12, con conteo hasta el valor nuevo.
+  for (const caja of document.querySelectorAll<HTMLElement>('[data-anual-plantillas]')) {
+    const { aprox, mas, maximo } = JSON.parse(caja.dataset.anualPlantillas ?? '{}') as {
+      aprox: string;
+      mas: string;
+      maximo: number;
+    };
+    const select = caja.querySelector<HTMLSelectElement>('select[name="consumo"]');
+    const salida = caja.querySelector<HTMLOutputElement>('[data-anual]');
+    if (!select || !salida) continue;
+    const formato = new Intl.NumberFormat('es-CO');
+    const escribir = (anual: number, mensual: number) => {
+      const plantilla = mensual === maximo ? mas : aprox;
+      salida.value = plantilla.replace('{monto}', `US$${formato.format(Math.round(anual))}`);
+    };
+    let mostrado = Number(select.value) * 12;
+    let cuadro = 0;
+    select.addEventListener('change', () => {
+      const mensual = Number(select.value);
+      const destino = mensual * 12;
+      cancelAnimationFrame(cuadro);
+      if (prefersReducedMotion()) {
+        mostrado = destino;
+        escribir(destino, mensual);
+        return;
+      }
+      const desde = mostrado;
+      const inicio = performance.now();
+      const paso = (ahora: number) => {
+        const k = Math.min(1, (ahora - inicio) / 600);
+        mostrado = desde + (destino - desde) * (1 - Math.pow(1 - k, 3));
+        escribir(k < 1 ? mostrado : destino, mensual);
+        if (k < 1) cuadro = requestAnimationFrame(paso);
+      };
+      cuadro = requestAnimationFrame(paso);
+    });
+  }
+</script>

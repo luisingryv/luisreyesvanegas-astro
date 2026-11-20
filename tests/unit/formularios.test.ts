@@ -145,3 +145,57 @@ describe('contacto de prensa', () => {
     expect(errores({ ...prensa, cierre: 'mañana' })).toEqual({ cierre: 'invalido' });
   });
 });
+
+describe('evaluación de Programas AWS', () => {
+  const evaluacion = {
+    formulario: 'programas-aws',
+    tipoEmpresa: 'startup',
+    infraestructura: 'google-cloud',
+    consumo: '10000',
+    plazo: '3-6',
+    empresa: 'Acme, Colombia',
+    email: 'cto@ejemplo.com',
+    acepta: 'on',
+  };
+
+  it('acepta el consumo como texto del <select> y lo deja como número', () => {
+    const r = solicitud.parse({ ...evaluacion, mensaje: '', decide: '' });
+    expect(r).toMatchObject({ formulario: 'programas-aws', consumo: 10000 });
+  });
+
+  it('solo acepta las opciones del formulario', () => {
+    expect(errores({ ...evaluacion, consumo: '12345' })).toEqual({ consumo: 'invalido' });
+    expect(errores({ ...evaluacion, tipoEmpresa: 'gobierno' })).toEqual({
+      tipoEmpresa: 'invalido',
+    });
+    expect(errores({ formulario: 'programas-aws' })).toEqual({
+      tipoEmpresa: 'requerido',
+      infraestructura: 'requerido',
+      consumo: 'requerido',
+      plazo: 'requerido',
+      empresa: 'requerido',
+      email: 'requerido',
+      acepta: 'debe-aceptar',
+    });
+  });
+});
+
+describe('inversionistas de Trama', () => {
+  it('pide tipo de inversionista, país, correo y autorización', () => {
+    expect(
+      solicitud.safeParse({
+        formulario: 'productos',
+        inversionista: 'angel',
+        pais: 'Colombia',
+        email: 'inversion@ejemplo.com',
+        acepta: 'on',
+      }).success,
+    ).toBe(true);
+    expect(errores({ formulario: 'productos', inversionista: 'banco' })).toEqual({
+      inversionista: 'invalido',
+      pais: 'requerido',
+      email: 'requerido',
+      acepta: 'debe-aceptar',
+    });
+  });
+});

@@ -1,0 +1,122 @@
+---
+// Gráfica del hero de Programas AWS (protagonista): el consumo crece mes a mes, la proyección de la
+// arquitectura objetivo se dibuja y se llenan las barras de lo que puede invertir AWS. Solo CSS:
+// arranca con el primer pintado, sin parpadeo, y queda quieta con "reducir movimiento".
+interface Props {
+  textos: { alt: string; hoy: string; destino: string; inversion: string };
+}
+
+const { textos } = Astro.props;
+const consumo = [
+  { x: 30, y: 232, h: 18 },
+  { x: 74, y: 220, h: 30 },
+  { x: 118, y: 200, h: 50 },
+  { x: 162, y: 168, h: 82 },
+  { x: 206, y: 118, h: 132 },
+];
+---
+
+<figure class="grafica rounded-lg border border-hairline bg-surface-raised p-6">
+  <svg role="img" aria-label={textos.alt} viewBox="0 0 480 280" class="h-auto w-full">
+    <path d="M20 250 H460" class="grafica-base"></path>
+    {consumo.map((b, i) => (
+      <rect
+        x={b.x}
+        y={b.y}
+        width="34"
+        height={b.h}
+        rx="4"
+        class="grafica-consumo"
+        style={`--i: ${i}`}
+      />
+    ))}
+    <path d="M260 110 C 320 90, 380 70, 450 40" class="grafica-proyeccion"></path>
+    <rect x="300" y="170" width="60" height="80" rx="6" class="grafica-aws" style="--i: 0"></rect>
+    <rect
+      x="370"
+      y="110"
+      width="60"
+      height="140"
+      rx="6"
+      class="grafica-aws grafica-aws-tenue"
+      style="--i: 1"
+    ></rect>
+    <text x="30" y="272" class="grafica-rotulo">
+      {textos.hoy.toUpperCase()}
+    </text>
+    <text x="262" y="30" class="grafica-rotulo grafica-rotulo-destino">
+      {textos.destino.toUpperCase()}
+    </text>
+    <text x="300" y="272" class="grafica-rotulo">
+      {textos.inversion.toUpperCase()}
+    </text>
+  </svg>
+</figure>
+
+<style>
+  .grafica-base {
+    stroke: var(--color-dark-border);
+  }
+
+  .grafica-consumo {
+    fill: var(--color-blue-400);
+  }
+
+  .grafica-proyeccion {
+    fill: none;
+    stroke: var(--color-cyan-400);
+    stroke-width: 3;
+    stroke-dasharray: 7 7;
+  }
+
+  .grafica-aws {
+    fill: var(--color-accent);
+  }
+
+  .grafica-aws-tenue {
+    opacity: 0.55;
+  }
+
+  .grafica-rotulo {
+    fill: var(--color-text-tertiary-on-dark);
+    font-size: 11px;
+  }
+
+  .grafica-rotulo-destino {
+    fill: var(--color-cyan-300);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .grafica-consumo,
+    .grafica-aws {
+      transform-box: fill-box;
+      transform-origin: 50% 100%;
+      animation: crecer 0.7s var(--ease-brand) backwards;
+      animation-delay: calc(200ms + var(--i) * 120ms);
+    }
+
+    .grafica-proyeccion {
+      animation: dibujar 1s ease-in-out 850ms backwards;
+    }
+
+    .grafica-aws {
+      animation-duration: 0.8s;
+      animation-delay: calc(1700ms + var(--i) * 180ms);
+    }
+  }
+
+  @keyframes crecer {
+    from {
+      transform: scaleY(0);
+    }
+  }
+
+  @keyframes dibujar {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+</style>

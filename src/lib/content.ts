@@ -185,10 +185,10 @@ export type PaginaHome = Awaited<ReturnType<typeof getPaginaHome>>;
 
 export interface Logro {
   id: string;
-  etiqueta: string;
+  etiqueta?: string;
   metrica: string;
   descripcion: string;
-  quien: string;
+  quien?: string;
   fuente?: { texto: string; url: string };
   barras?: { antes: number; despues: number; leyenda: string };
   sellos?: string[];
@@ -389,6 +389,22 @@ export async function getPaginaCv(locale: PublishedLocale) {
 }
 
 export type PaginaCv = Awaited<ReturnType<typeof getPaginaCv>>;
+
+export async function getPaginaProgramasAws(locale: PublishedLocale) {
+  const entry = await getEntry('programasAwsPagina', 'programas-aws');
+  if (!entry) throw new Error('Falta src/content/paginas/programas-aws.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/programas-aws');
+}
+
+export type PaginaProgramasAws = Awaited<ReturnType<typeof getPaginaProgramasAws>>;
+
+export async function getPaginaProductos(locale: PublishedLocale) {
+  const entry = await getEntry('productosPagina', 'productos');
+  if (!entry) throw new Error('Falta src/content/paginas/productos.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/productos');
+}
+
+export type PaginaProductos = Awaited<ReturnType<typeof getPaginaProductos>>;
 
 // ─── Legal ────────────────────────────────────────────────────
 
