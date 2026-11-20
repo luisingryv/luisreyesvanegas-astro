@@ -1,0 +1,54 @@
+---
+// Bloque del XPRIZE. Las tres cifras van en el HTML; la pieza 01 (motion) las anima.
+import Button from '../brand/Button.astro';
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { PaginaHome } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaHome['xprize'];
+}
+
+const { locale, content } = Astro.props;
+---
+
+<Section tone="dark" reveal aria-labelledby="xprize-titulo">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-center gap-8 rounded-lg border border-accent bg-surface-raised p-[clamp(28px,4vw,56px)]">
+    <div class="flex min-w-0 flex-col gap-4">
+      <Eyebrow>{content.eyebrow}</Eyebrow>
+      <h2 id="xprize-titulo" class="text-heading font-bold text-balance">
+        {content.titulo}
+      </h2>
+      <p class="text-text-secondary-on-dark">{content.texto}</p>
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
+        <Button href={localizedPath(locale, 'productos')} variant="highlight" size="md">
+          {content.boton}
+        </Button>
+        <a href={content.fuente.url} class="font-bold text-link underline underline-offset-4">
+          {content.fuente.texto}
+        </a>
+      </div>
+    </div>
+    <dl class="grid grid-cols-3 gap-3" data-xprize>
+      {content.cifras.map((cifra, i) => {
+        const ganador = i === content.cifras.length - 1;
+        return (
+          <div
+            class:list={[
+              'flex min-w-0 flex-col-reverse justify-end gap-1.5 rounded-[16px] p-3 hyphens-auto sm:p-4.5',
+              ganador ? 'bg-accent text-night' : 'bg-surface',
+            ]}
+          >
+            <dt class:list={['text-caption', ganador ? 'font-bold' : 'text-text-tertiary-on-dark']}>
+              {cifra.etiqueta}
+            </dt>
+            <dd class="text-[clamp(20px,2.4vw,30px)] leading-tight font-bold">{cifra.valor}</dd>
+          </div>
+        );
+      })}
+    </dl>
+  </div>
+</Section>

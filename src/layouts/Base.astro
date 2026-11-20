@@ -20,13 +20,24 @@ interface Props {
   imageAlt?: string;
   /** profile para Sobre mí; article para noticias y casos. */
   type?: 'website' | 'profile' | 'article';
+  /** Destino de "Agendar sesión" sin URL de la agenda (ver Header). */
+  agendaSinUrl?: string;
 }
 
 // Tarjetas generadas con scripts/og/generar.mjs (una por idioma publicado).
 const ogPorIdioma: Record<PublishedLocale, ImageMetadata> = { es: ogEs };
 const ogLocale: Record<PublishedLocale, string> = { es: 'es_LA' };
 
-const { locale, title, description, route, image, imageAlt, type = 'website' } = Astro.props;
+const {
+  locale,
+  title,
+  description,
+  route,
+  image,
+  imageAlt,
+  type = 'website',
+  agendaSinUrl,
+} = Astro.props;
 const t = getDictionary(locale);
 const absolute = (path: string) => new URL(path, Astro.site).toString();
 const fullTitle = `${title} · ${t.meta.siteName}`;
@@ -97,7 +108,7 @@ const og = await getImage({
     >
       {t.a11y.skipToContent}
     </a>
-    <Header locale={locale} route={route} />
+    <Header locale={locale} route={route} agendaSinUrl={agendaSinUrl} />
     <main id="contenido" class="flex-1">
       <slot />
     </main>

@@ -13,3 +13,9 @@ enlace:
   texto:
     es: 'Fuente: gxp.moonshots.com'
   url: 'https://gxp.moonshots.com/'
+# Versión corta para la trayectoria del Home.
+home:
+  titulo:
+    es: 'Trama AI y el XPRIZE'
+  texto:
+    es: 'Como CEO de Trama AI, ganamos la categoría Small Business Services del Build with Gemini XPRIZE.'

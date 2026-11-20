@@ -35,6 +35,8 @@ const hitos = defineCollection({
     cifra: localized,
     impacto: localized,
     enlace: z.object({ texto: localized, url: z.url() }).optional(),
+    /** Versión corta para la trayectoria del Home. */
+    home: z.object({ titulo: localized, texto: localized }).optional(),
   }),
 });
 
@@ -74,6 +76,8 @@ const charlas = defineCollection({
         fechaFin: z.coerce.date().optional(),
         evento: z.string().min(1),
         titulo: localized,
+        /** Texto de la tarjeta cuando no basta el título de la charla. */
+        resumen: localized.optional(),
         tipo: z.enum(['charla', 'charla-y-panel', 'comunidad', 'podcast', 'webinar']),
         lugar: localized,
         foto: image().optional(),
@@ -107,6 +111,110 @@ const testimonios = defineCollection({
       permiso: z.boolean(),
       publicado: z.boolean().default(false),
     }),
+});
+
+// Logros con cifra (pieza 02): Home, subpáginas de puertas, Productos y casos.
+// Cada cifra sale de la sección 6 del documento madre y lleva cliente y periodo.
+const logros = defineCollection({
+  loader: entries('logros'),
+  schema: z
+    .object({
+      etiqueta: localized,
+      metrica: localized,
+      descripcion: localized,
+      quien: localized,
+      fuente: z.object({ texto: z.string().min(1), url: z.url() }).optional(),
+      /** Antes y después en porcentaje del ancho de la barra. */
+      barras: z
+        .object({
+          antes: z.number().min(0).max(100),
+          despues: z.number().min(0).max(100),
+          leyenda: localized,
+        })
+        .optional(),
+      sellos: z.array(z.string().min(1)).optional(),
+      home: z.object({ orden: z.number().int() }).optional(),
+    })
+    .refine((l) => !(l.barras && l.sellos), {
+      message: 'Un logro lleva barras o sellos, no ambos.',
+    }),
+});
+
+// Textos propios del Home.
+const home = defineCollection({
+  loader: glob({ pattern: 'home.yaml', base: './src/content/paginas' }),
+  schema: ({ image }) => {
+    const encabezado = { eyebrow: localized, titulo: localized };
+    return z.object({
+      hero: z.object({
+        ...encabezado,
+        bajada: localized,
+        premio: z.object({ texto: localized, url: z.url() }),
+        agendar: localized,
+        invitarme: localized,
+        retrato: image(),
+        retratoAlt: localized,
+      }),
+      router: z.object({
+        titulo: localized,
+        tarjetas: z.array(
+          z.object({
+            etiqueta: localized,
+            titulo: localized,
+            texto: localized,
+            boton: localized,
+            ruta: z.enum(['consultoria', 'productos']),
+          }),
+        ),
+      }),
+      logros: z.object(encabezado),
+      xprize: z.object({
+        ...encabezado,
+        texto: localized,
+        boton: localized,
+        fuente: z.object({ texto: localized, url: z.url() }),
+        cifras: z.array(z.object({ valor: localized, etiqueta: localized })).length(3),
+      }),
+      trayectoria: z.object({ ...encabezado, boton: localized }),
+      charlas: z.object({ ...encabezado, verTodos: localized }),
+      casos: z.object({
+        ...encabezado,
+        verTodos: localized,
+        grupos: z.array(
+          z.object({
+            titulo: localized,
+            destacado: z.boolean(),
+            casos: z.array(
+              z.object({
+                nombre: z.string().min(1),
+                slug: z
+                  .string()
+                  .regex(/^[a-z0-9-]+$/)
+                  .optional(),
+              }),
+            ),
+          }),
+        ),
+      }),
+      evolutecc: z.object({ titulo: localized, texto: localized, boton: localized }),
+      contacto: z.object({
+        ...encabezado,
+        texto: localized,
+        whatsapp: localized,
+        campos: z.object({
+          nombre: localized,
+          correo: localized,
+          tema: localized,
+          mensaje: localized,
+        }),
+        temas: z.array(z.object({ valor: z.string().regex(/^[a-z0-9-]+$/), texto: localized })),
+        autorizacion: z.object({ antes: localized, enlace: localized, despues: localized }),
+        enviar: localized,
+        enviado: localized,
+        error: localized,
+      }),
+    });
+  },
 });
 
 // Textos propios de la página Sobre mí (títulos, bajadas, botones).
@@ -154,6 +262,8 @@ const sobreMi = defineCollection({
 });
 
 export const collections = {
+  home,
+  logros,
   sobreMi,
   capitulos,
   hitos,

@@ -19,7 +19,8 @@ export function evoluteccUrl(campaign: string): string {
   return url.toString();
 }
 
-// Mientras Luis no entregue la URL de la agenda, se va a Contacto.
-export function bookingUrl(locale: Locale): string {
-  return CALENDAR_BOOKING_URL ?? localizedPath(locale, 'contacto');
+// Mientras Luis no entregue la URL de la agenda, se va a Contacto (o al formulario de la
+// misma página, si lo tiene).
+export function bookingUrl(locale: Locale, sinAgenda?: string): string {
+  return CALENDAR_BOOKING_URL ?? sinAgenda ?? localizedPath(locale, 'contacto');
 }

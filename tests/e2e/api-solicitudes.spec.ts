@@ -42,12 +42,12 @@ test.describe('POST /api/solicitudes', () => {
 
     const ok = await enviar({ ...base(), acepta: 'on' });
     expect(ok.status()).toBe(303);
-    expect(ok.headers().location).toBe('/es/sobre-mi?formulario=enviado#formulario');
+    expect(ok.headers().location).toBe('/es/sobre-mi?formulario=enviado#formulario-enviado');
 
     const error = await enviar({ ...base(), pagina: 'https://otro.com/' });
     expect(error.status()).toBe(303);
     // Nunca redirige fuera del sitio.
-    expect(error.headers().location).toBe('/?formulario=error#formulario');
+    expect(error.headers().location).toBe('/?formulario=error#formulario-error');
   });
 
   test('detrás del proxy de Hostinger acepta el formulario del dominio en https', async ({
@@ -63,7 +63,7 @@ test.describe('POST /api/solicitudes', () => {
       maxRedirects: 0,
     });
     expect(r.status()).toBe(303);
-    expect(r.headers().location).toBe('/es/sobre-mi?formulario=enviado#formulario');
+    expect(r.headers().location).toBe('/es/sobre-mi?formulario=enviado#formulario-enviado');
   });
 
   test('rechaza formularios enviados desde otro dominio', async ({ request }) => {

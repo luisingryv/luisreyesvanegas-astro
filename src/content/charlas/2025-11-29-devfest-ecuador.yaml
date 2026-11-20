@@ -2,6 +2,8 @@ fecha: 2025-11-29
 evento: 'DevFest Ecuador 2025'
 titulo:
   es: 'Infraestructura estable con Terraform, GCP, Cloud Run y Cloudflare asistida por IA'
+resumen:
+  es: 'Infraestructura estable con Terraform, GCP, Cloud Run y Cloudflare asistida por IA. Más de 700 asistentes.'
 tipo: charla
 lugar:
   es: 'Quito, Ecuador'

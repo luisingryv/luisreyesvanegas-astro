@@ -12,11 +12,13 @@ import { localizedPath, type RouteKey } from '../../i18n/routes';
 interface Props {
   locale: PublishedLocale;
   route?: RouteKey;
+  /** A dónde lleva "Agendar sesión" mientras no haya URL de la agenda (p. ej. '#agenda'). */
+  agendaSinUrl?: string;
 }
 
-const { locale, route } = Astro.props;
+const { locale, route, agendaSinUrl } = Astro.props;
 const t = getDictionary(locale);
-const ctaHref = bookingUrl(locale);
+const ctaHref = bookingUrl(locale, agendaSinUrl);
 ---
 
 <header data-theme="dark" class="relative border-b border-hairline bg-surface text-ink">

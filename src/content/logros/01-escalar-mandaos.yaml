@@ -1,0 +1,15 @@
+etiqueta:
+  es: 'Escalar'
+metrica:
+  es: '70.000'
+descripcion:
+  es: 'Pedidos al mes después de la integración con iFood, que dirigí como Head of Product de Mandaos: producto, equipo y API. Antes eran unos 2.400.'
+quien:
+  es: 'Mandaos / Netivery con iFood'
+barras:
+  antes: 3.4
+  despues: 100
+  leyenda:
+    es: '≈2.400 → ≈70.000 · ×29'
+home:
+  orden: 1

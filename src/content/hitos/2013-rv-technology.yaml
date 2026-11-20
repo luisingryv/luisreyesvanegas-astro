@@ -9,3 +9,9 @@ cifra:
   es: 'Primera empresa a los 16'
 impacto:
   es: 'Primeros clientes y primer contacto con el negocio de la tecnología.'
+# Versión corta para la trayectoria del Home.
+home:
+  titulo:
+    es: 'R&V Technology'
+  texto:
+    es: 'Fundé mi primer negocio: reparaba computadores y hacía sitios web.'

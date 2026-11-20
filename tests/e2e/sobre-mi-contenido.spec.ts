@@ -94,9 +94,9 @@ test.describe('Sobre mí · contenido', () => {
 });
 
 test.describe('rutas e idiomas', () => {
-  test('la raíz lleva a Sobre mí', async ({ page }) => {
+  test('la raíz lleva al Home en español', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveURL(/\/es\/sobre-mi$/);
+    await expect(page).toHaveURL(/\/es$/);
   });
 
   test('EN y PT no se publican todavía', async ({ request }) => {

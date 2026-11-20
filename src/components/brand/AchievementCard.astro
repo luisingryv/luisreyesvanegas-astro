@@ -1,0 +1,63 @@
+---
+// Pieza 02 · Tarjeta de logro. La cifra final va escrita en el HTML; el contador (motion)
+// solo la anima. Cada logro lleva cliente y periodo, y la fuente cuando la hay.
+import CheckMark from './CheckMark.astro';
+import type { Logro } from '../../lib/content';
+
+interface Props {
+  logro: Logro;
+  as?: 'article' | 'li';
+}
+
+const { logro, as: Tag = 'article' } = Astro.props;
+---
+
+<Tag
+  class="flex min-w-0 flex-col gap-3 rounded-lg border border-hairline bg-surface-raised p-6"
+  data-logro={logro.id}
+>
+  <div class="flex items-center justify-between gap-3">
+    <span class="text-label font-bold text-link uppercase">{logro.etiqueta}</span>
+    <CheckMark />
+  </div>
+  <p
+    class="text-[clamp(36px,3.6vw,46px)] leading-none font-bold tracking-[-0.02em] tabular-nums"
+    data-metrica
+  >
+    {logro.metrica}
+  </p>
+  <p class="text-[15px] text-text-secondary-on-dark">{logro.descripcion}</p>
+  {logro.barras && (
+    <div class="flex flex-col gap-1.5" data-barras>
+      <div class="h-1.5 overflow-hidden rounded-pill bg-dark-border">
+        <div class="h-full bg-blue-300" style={`width: ${logro.barras.antes}%`} />
+      </div>
+      <div class="h-1.5 overflow-hidden rounded-pill bg-dark-border">
+        <div class="h-full bg-accent" style={`width: ${logro.barras.despues}%`} />
+      </div>
+      <span class="text-label text-gray-400 normal-case tracking-normal">
+        {logro.barras.leyenda}
+      </span>
+    </div>
+  )}
+  {logro.sellos && (
+    <ul class="flex flex-wrap gap-2">
+      {logro.sellos.map((sello) => (
+        <li class="rounded-sm border border-accent px-3 py-2 text-[12px] font-bold text-link">
+          {sello}
+        </li>
+      ))}
+    </ul>
+  )}
+  <p class="mt-auto text-[12px] text-blue-300">
+    {logro.quien}
+    {logro.fuente && (
+      <>
+        {' · '}
+        <a href={logro.fuente.url} class="underline underline-offset-2 hover:text-link">
+          {logro.fuente.texto}
+        </a>
+      </>
+    )}
+  </p>
+</Tag>

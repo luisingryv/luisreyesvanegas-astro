@@ -1,0 +1,35 @@
+---
+import RouterCard from '../brand/RouterCard.astro';
+import Section from '../brand/Section.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { PaginaHome } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaHome['router'];
+}
+
+const { locale, content } = Astro.props;
+---
+
+<Section tone="dark" reveal aria-labelledby="router-titulo">
+  <div class="flex flex-col gap-6">
+    <h2 id="router-titulo" class="text-[15px] font-bold text-gray-400">
+      {content.titulo}
+    </h2>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
+      {content.tarjetas.map((tarjeta) => (
+        <li class="grid">
+          <RouterCard
+            href={localizedPath(locale, tarjeta.ruta)}
+            tag={tarjeta.etiqueta}
+            title={tarjeta.titulo}
+            text={tarjeta.texto}
+            cta={tarjeta.boton}
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</Section>

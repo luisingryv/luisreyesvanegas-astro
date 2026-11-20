@@ -1,0 +1,22 @@
+---
+import AchievementCard from '../brand/AchievementCard.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { Logro, PaginaHome } from '../../lib/content';
+
+interface Props {
+  content: PaginaHome['logros'];
+  logros: Logro[];
+}
+
+const { content, logros } = Astro.props;
+---
+
+<Section tone="dark" separator class="border-b border-hairline" aria-labelledby="logros-titulo">
+  <SectionHeader id="logros-titulo" eyebrow={content.eyebrow} title={content.titulo} />
+  <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-4" data-logros>
+    {logros.map((logro) => (
+      <AchievementCard logro={logro} as="li" />
+    ))}
+  </ul>
+</Section>

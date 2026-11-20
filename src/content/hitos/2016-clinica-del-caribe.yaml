@@ -9,3 +9,9 @@ cifra:
   es: '≈300 equipos → 1 despliegue'
 impacto:
   es: 'En uso más de 10 años después, con más de 300 usuarios.'
+# Versión corta para la trayectoria del Home.
+home:
+  titulo:
+    es: 'SIGC, Clínica del Caribe'
+  texto:
+    es: 'Pasé el sistema de la clínica de escritorio a web. Sigue en uso.'

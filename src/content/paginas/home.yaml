@@ -1,0 +1,176 @@
+# Textos del Home, tal cual el prototipo aprobado (referencia/prototipo/home.html, 20 nov 2026).
+# Logros, trayectoria y charlas salen de sus colecciones.
+hero:
+  eyebrow:
+    es: 'Arquitecto cloud · IA · CEO de Trama AI'
+  titulo:
+    es: 'Innovación y escalabilidad en la nube, con resultados medibles.'
+  bajada:
+    es: 'Soy arquitecto de soluciones cloud e IA. Trabajo con empresas de Estados Unidos y Latinoamérica: entiendo qué necesita tu negocio y diseño la solución en AWS, Google Cloud o Azure.'
+  premio:
+    texto:
+      es: 'Ganador de categoría · Build with Gemini XPRIZE 2026'
+    url: 'https://gxp.moonshots.com/'
+  agendar:
+    es: 'Agendar sesión de arquitectura'
+  invitarme:
+    es: 'Invitarme a hablar'
+  retrato: ../../assets/fotos/retrato_sin-fecha_oficina-chaqueta-verde-home_luis-reyes-vanegas_001.jpg
+  retratoAlt:
+    es: 'Luis Carlos Reyes Vanegas en su oficina'
+
+router:
+  titulo:
+    es: 'Consultoría y productos'
+  tarjetas:
+    - etiqueta:
+        es: 'Consultoría'
+      titulo:
+        es: 'Necesito resolver algo en mi nube o con IA'
+      texto:
+        es: 'Costos, crecimiento, programas de la nube, migración, buenas prácticas, seguridad o adopción de IA.'
+      boton:
+        es: 'Ver consultoría'
+      ruta: consultoria
+    - etiqueta:
+        es: 'Productos'
+      titulo:
+        es: 'Quiero ver o invertir en productos'
+      texto:
+        es: 'Trama AI, la plataforma que dirijo, y los productos que construyo con mis socios.'
+      boton:
+        es: 'Ver productos'
+      ruta: productos
+
+logros:
+  eyebrow:
+    es: 'Logros desbloqueados'
+  titulo:
+    es: 'Algunos resultados de los últimos años.'
+
+xprize:
+  eyebrow:
+    es: 'Logro desbloqueado · Trama AI · 2026'
+  titulo:
+    es: 'Ganador de categoría en el Build with Gemini XPRIZE.'
+  texto:
+    es: 'Con Gianfranco Castro, Johan Burgos y Najem Nabhan construimos Trama AI en 90 días: agentes de IA que operan el inventario de distribuidores textiles. Ganamos la categoría Small Business Services.'
+  boton:
+    es: 'Conoce Trama AI'
+  fuente:
+    texto:
+      es: 'Fuente: gxp.moonshots.com'
+    url: 'https://gxp.moonshots.com/'
+  cifras:
+    - valor:
+        es: '26.449'
+      etiqueta:
+        es: 'equipos en competencia'
+    - valor:
+        es: 'Top 100'
+      etiqueta:
+        es: 'finalistas'
+    - valor:
+        es: '1.º'
+      etiqueta:
+        es: 'de su categoría'
+
+trayectoria:
+  eyebrow:
+    es: 'Trayectoria'
+  titulo:
+    es: 'Mi trayectoria desde 2013'
+  boton:
+    es: 'Conoce mi historia'
+
+charlas:
+  eyebrow:
+    es: 'Eventos y charlas'
+  titulo:
+    es: 'Charlas recientes'
+  verTodos:
+    es: 'Ver todos los eventos →'
+
+# Burbujas con el nombre del cliente (sin logos hasta tener permisos). Los casos sin página
+# propia llevan al índice de casos.
+casos:
+  eyebrow:
+    es: 'Casos'
+  titulo:
+    es: 'Casos de éxito'
+  verTodos:
+    es: 'Ver todos los casos →'
+  grupos:
+    - titulo:
+        es: 'Mis productos y mi consultoría'
+      destacado: true
+      casos:
+        - nombre: 'Trama AI'
+        - nombre: 'UTPN / KMA'
+          slug: utpn
+        - nombre: 'Glasslake'
+          slug: glasslake
+    - titulo:
+        es: 'Trayectoria'
+      destacado: false
+      casos:
+        - nombre: 'Fuerza Aérea · TIVIT'
+        - nombre: 'Clínica del Caribe'
+        - nombre: 'Mandaos'
+          slug: mandaos
+
+evolutecc:
+  titulo:
+    es: '¿Necesitas desarrollo a la medida?'
+  texto:
+    es: 'En EvolutecC, donde soy CTO, desarrollamos software a la medida para empresas. Llevamos más de 400 proyectos entregados.'
+  boton:
+    es: 'Conoce EvolutecC'
+
+contacto:
+  eyebrow:
+    es: 'Contacto'
+  titulo:
+    es: 'Cuéntame qué estás construyendo.'
+  texto:
+    es: 'Si tu factura de nube crece más rápido que tu negocio, si vas a migrar o si quieres que tu equipo trabaje con IA, escríbeme y lo revisamos juntos. También acepto invitaciones para dar charlas.'
+  # La línea de WhatsApp aparece cuando Luis entregue el número corporativo (configuración).
+  whatsapp:
+    es: 'WhatsApp:'
+  campos:
+    nombre:
+      es: 'Nombre'
+    correo:
+      es: 'Correo'
+    tema:
+      es: '¿En qué te ayudo?'
+    mensaje:
+      es: 'Mensaje'
+  temas:
+    - valor: consultoria
+      texto:
+        es: 'Consultoría cloud o IA'
+    - valor: conferencia
+      texto:
+        es: 'Conferencia o charla'
+    - valor: contratacion
+      texto:
+        es: 'Contratación'
+    - valor: conversacion
+      texto:
+        es: 'Conversación general'
+  # Casilla de autorización (Luis, 20 nov 2026): texto del prototipo de Contacto.
+  autorizacion:
+    antes:
+      es: 'Acepto la'
+    enlace:
+      es: 'política de privacidad'
+    despues:
+      es: 'y el tratamiento de mis datos para responder este mensaje.'
+  enviar:
+    es: 'Enviar'
+  # Mensajes después de enviar sin JavaScript. No están en el prototipo: pendientes de aprobar.
+  enviado:
+    es: 'Gracias. Recibí tu mensaje y te respondo pronto.'
+  error:
+    es: 'No se pudo enviar. Revisa los campos e inténtalo de nuevo.'

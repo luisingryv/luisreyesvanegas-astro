@@ -1,0 +1,47 @@
+---
+// Casos como burbujas con el nombre del cliente (pieza 08 en el paso de motion).
+// Sin logos hasta tener permisos; cada burbuja enlaza a su caso o al índice de casos.
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { PaginaHome } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaHome['casos'];
+}
+
+const { locale, content } = Astro.props;
+const indice = localizedPath(locale, 'casos');
+---
+
+<Section tone="light" reveal id="casos" aria-labelledby="casos-titulo">
+  <SectionHeader id="casos-titulo" eyebrow={content.eyebrow} title={content.titulo}>
+    <a slot="action" href={indice} class="font-bold text-link hover:underline">
+      {content.verTodos}
+    </a>
+  </SectionHeader>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] gap-8" data-casos>
+    {content.grupos.map((grupo) => (
+      <div class="flex min-w-0 flex-col gap-4">
+        <h3 class="text-[17px] font-bold">{grupo.titulo}</h3>
+        <ul class="flex flex-wrap gap-3.5">
+          {grupo.casos.map((caso) => (
+            <li>
+              <a
+                href={caso.slug ? `${indice}/${caso.slug}` : indice}
+                class:list={[
+                  'grid size-32 place-items-center rounded-full border border-blue-300 p-3.5 text-center text-small leading-tight font-bold text-ink transition-colors hover:border-primary',
+                  grupo.destacado ? 'bg-surface-raised' : 'bg-surface',
+                ]}
+              >
+                {caso.nombre}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</Section>

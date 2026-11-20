@@ -6,68 +6,352 @@
     "nota": "El token hairline ya no se usa bajo los títulos de sección (decisión del 14 nov 2026): solo en separadores entre secciones y bordes."
   },
   "color": {
-    "themes": [{"id": "light", "name": "Fondo blanco"}, {"id": "dark", "name": "Fondo oscuro"}],
+    "themes": [
+      {
+        "id": "light",
+        "name": "Fondo blanco"
+      },
+      {
+        "id": "dark",
+        "name": "Fondo oscuro"
+      }
+    ],
     "tokens": [
-      {"name": "blue-200", "value": "#e5eef9", "usage": "Azul corporativo, tinte más claro. Fondos suaves, tarjetas y zonas destacadas sobre blanco."},
-      {"name": "blue-300", "value": "#80aae0", "usage": "Azul corporativo claro. Ilustración y gráficos; como texto solo sobre night (8.3:1)."},
-      {"name": "blue-400", "value": "#3377ce", "usage": "Azul corporativo medio. Estados hover de elementos en blue-500; gráficos."},
-      {"name": "blue-500", "value": "#0055c2", "usage": "AZUL PRINCIPAL de la marca (RGB 0, 85, 194). Botones, enlaces y títulos sobre blanco (6.8:1); fondo de marca con texto blanco."},
-      {"name": "blue-600", "value": "#004092", "usage": "Azul corporativo oscuro. Estado presionado de blue-500; texto sobre blue-200."},
-      {"name": "blue-700", "value": "#002b61", "usage": "Azul profundo. Uno de los fondos aprobados para el ícono y la marca en blanco."},
-      {"name": "blue-800", "value": "#001531", "usage": "Azul noche. Superficies elevadas en el tema oscuro; texto blanco 18:1."},
-      {"name": "cyan-200", "value": "#d6f1ff", "usage": "Celeste, tinte más claro. Fondos informativos suaves."},
-      {"name": "cyan-300", "value": "#85d5ff", "usage": "Celeste claro. Gráficos e ilustración."},
-      {"name": "cyan-400", "value": "#33b9ff", "usage": "Celeste medio. Enlaces y acentos de texto sobre night (9:1)."},
-      {"name": "cyan-500", "value": "#00a7ff", "usage": "CELESTE de acento (RGB 0, 167, 255). Fondo de marca con logo en blanco; como relleno lleva texto night (7.6:1). No usar como texto sobre blanco (2.6:1)."},
-      {"name": "cyan-600", "value": "#007dbf", "usage": "Celeste oscuro. Hover de cyan-500; texto grande sobre blanco (4.5:1)."},
-      {"name": "cyan-700", "value": "#005480", "usage": "Celeste profundo. Gráficos y fondos oscuros secundarios."},
-      {"name": "cyan-800", "value": "#002a40", "usage": "Celeste noche. Gráficos y fondos oscuros."},
-      {"name": "white", "value": "#ffffff", "usage": "Blanco. Fondo principal claro; texto y logo sobre fondos oscuros y azules."},
-      {"name": "gray-400", "value": "#848388", "usage": "Gris medio. Texto secundario sobre night (5.3:1); no usar como texto sobre blanco (3.8:1)."},
-      {"name": "gray-700", "value": "#3a3941", "usage": "Gris grafito. Texto secundario sobre blanco (11.4:1); bordes en tema oscuro."},
-      {"name": "night", "value": "#090812", "usage": "NEGRO DE MARCA (RGB 9, 8, 18). Fondo oscuro principal y color del texto sobre blanco."},
-      {"name": "dark-border", "value": "#24232c", "usage": "Bordes y separadores sobre fondos oscuros (hairline del tema oscuro). Nombrado por Luis el 19 nov 2026."},
-      {"name": "text-secondary-on-dark", "value": "#c9c8ce", "usage": "Texto secundario sobre night. Nombrado por Luis el 19 nov 2026."},
-      {"name": "text-tertiary-on-dark", "value": "#a9a8ae", "usage": "Texto terciario sobre night. Nombrado por Luis el 19 nov 2026."},
-      {"name": "hairline-light", "value": "#1f2a8a", "usage": "Valor claro de hairline; también es el trazo de las curvas del monograma sobre night."},
-      {"name": "surface", "value": {"light": "{white}", "dark": "{night}"}, "usage": "Fondo de página."},
-      {"name": "surface-raised", "value": {"light": "{blue-200}", "dark": "{blue-800}"}, "usage": "Tarjetas y paneles sobre surface."},
-      {"name": "ink", "value": {"light": "{night}", "dark": "{white}"}, "usage": "Texto principal sobre surface y surface-raised."},
-      {"name": "ink-muted", "value": {"light": "{gray-700}", "dark": "{gray-400}"}, "usage": "Texto secundario, pies de página, metadatos sobre surface."},
-      {"name": "primary", "value": "{blue-500}", "usage": "Relleno de acciones principales y bloques de marca, en ambos temas; su texto es on-primary."},
-      {"name": "on-primary", "value": "{white}", "usage": "Texto e ícono sobre primary (6.8:1)."},
-      {"name": "link", "value": {"light": "{blue-500}", "dark": "{cyan-400}"}, "usage": "Enlaces y texto de acento sobre surface (6.8:1 claro, 9:1 oscuro)."},
-      {"name": "accent", "value": "{cyan-500}", "usage": "Relleno de acento; texto encima en night."},
-      {"name": "hairline", "value": {"light": "{hairline-light}", "dark": "{dark-border}"}, "usage": "Separadores entre secciones y bordes finos. No va bajo los títulos de sección."}
+      {
+        "name": "blue-200",
+        "value": "#e5eef9",
+        "usage": "Azul corporativo, tinte más claro. Fondos suaves, tarjetas y zonas destacadas sobre blanco."
+      },
+      {
+        "name": "blue-300",
+        "value": "#80aae0",
+        "usage": "Azul corporativo claro. Ilustración y gráficos; como texto solo sobre night (8.3:1)."
+      },
+      {
+        "name": "blue-400",
+        "value": "#3377ce",
+        "usage": "Azul corporativo medio. Estados hover de elementos en blue-500; gráficos."
+      },
+      {
+        "name": "blue-500",
+        "value": "#0055c2",
+        "usage": "AZUL PRINCIPAL de la marca (RGB 0, 85, 194). Botones, enlaces y títulos sobre blanco (6.8:1); fondo de marca con texto blanco."
+      },
+      {
+        "name": "blue-600",
+        "value": "#004092",
+        "usage": "Azul corporativo oscuro. Estado presionado de blue-500; texto sobre blue-200."
+      },
+      {
+        "name": "blue-700",
+        "value": "#002b61",
+        "usage": "Azul profundo. Uno de los fondos aprobados para el ícono y la marca en blanco."
+      },
+      {
+        "name": "blue-800",
+        "value": "#001531",
+        "usage": "Azul noche. Superficies elevadas en el tema oscuro; texto blanco 18:1."
+      },
+      {
+        "name": "cyan-200",
+        "value": "#d6f1ff",
+        "usage": "Celeste, tinte más claro. Fondos informativos suaves."
+      },
+      {
+        "name": "cyan-300",
+        "value": "#85d5ff",
+        "usage": "Celeste claro. Gráficos e ilustración."
+      },
+      {
+        "name": "cyan-400",
+        "value": "#33b9ff",
+        "usage": "Celeste medio. Enlaces y acentos de texto sobre night (9:1)."
+      },
+      {
+        "name": "cyan-500",
+        "value": "#00a7ff",
+        "usage": "CELESTE de acento (RGB 0, 167, 255). Fondo de marca con logo en blanco; como relleno lleva texto night (7.6:1). No usar como texto sobre blanco (2.6:1)."
+      },
+      {
+        "name": "cyan-600",
+        "value": "#007dbf",
+        "usage": "Celeste oscuro. Hover de cyan-500; texto grande sobre blanco (4.5:1)."
+      },
+      {
+        "name": "cyan-700",
+        "value": "#005480",
+        "usage": "Celeste profundo. Gráficos y fondos oscuros secundarios."
+      },
+      {
+        "name": "cyan-800",
+        "value": "#002a40",
+        "usage": "Celeste noche. Gráficos y fondos oscuros."
+      },
+      {
+        "name": "white",
+        "value": "#ffffff",
+        "usage": "Blanco. Fondo principal claro; texto y logo sobre fondos oscuros y azules."
+      },
+      {
+        "name": "gray-400",
+        "value": "#848388",
+        "usage": "Gris medio. Texto secundario sobre night (5.3:1); no usar como texto sobre blanco (3.8:1)."
+      },
+      {
+        "name": "gray-700",
+        "value": "#3a3941",
+        "usage": "Gris grafito. Texto secundario sobre blanco (11.4:1); bordes en tema oscuro."
+      },
+      {
+        "name": "night",
+        "value": "#090812",
+        "usage": "NEGRO DE MARCA (RGB 9, 8, 18). Fondo oscuro principal y color del texto sobre blanco."
+      },
+      {
+        "name": "dark-border",
+        "value": "#24232c",
+        "usage": "Bordes y separadores sobre fondos oscuros (hairline del tema oscuro). Nombrado por Luis el 19 nov 2026."
+      },
+      {
+        "name": "text-secondary-on-dark",
+        "value": "#c9c8ce",
+        "usage": "Texto secundario sobre night. Nombrado por Luis el 19 nov 2026."
+      },
+      {
+        "name": "text-tertiary-on-dark",
+        "value": "#a9a8ae",
+        "usage": "Texto terciario sobre night. Nombrado por Luis el 19 nov 2026."
+      },
+      {
+        "name": "red-600",
+        "value": "#c62828",
+        "usage": "Error sobre fondos claros (5.6:1 en white, 4.8:1 en blue-200). Luis, 20 nov 2026."
+      },
+      {
+        "name": "red-300",
+        "value": "#ff7a7a",
+        "usage": "Error sobre fondos oscuros (7.9:1 en night, 7.2:1 en blue-800). Luis, 20 nov 2026."
+      },
+      {
+        "name": "glow-core",
+        "value": "#0a1a3f",
+        "usage": "Centro del resplandor azul detrás del logo 3D (cierre)."
+      },
+      {
+        "name": "glow-edge",
+        "value": "#060b1c",
+        "usage": "Borde del resplandor azul, antes de night."
+      },
+      {
+        "name": "line-on-light",
+        "value": "#cce6ff",
+        "usage": "Líneas finas sobre blanco."
+      },
+      {
+        "name": "hairline-light",
+        "value": "#1f2a8a",
+        "usage": "Valor claro de hairline; también es el trazo de las curvas del monograma sobre night."
+      },
+      {
+        "name": "surface",
+        "value": {
+          "light": "{white}",
+          "dark": "{night}"
+        },
+        "usage": "Fondo de página."
+      },
+      {
+        "name": "surface-raised",
+        "value": {
+          "light": "{blue-200}",
+          "dark": "{blue-800}"
+        },
+        "usage": "Tarjetas y paneles sobre surface."
+      },
+      {
+        "name": "ink",
+        "value": {
+          "light": "{night}",
+          "dark": "{white}"
+        },
+        "usage": "Texto principal sobre surface y surface-raised."
+      },
+      {
+        "name": "ink-muted",
+        "value": {
+          "light": "{gray-700}",
+          "dark": "{gray-400}"
+        },
+        "usage": "Texto secundario, pies de página, metadatos sobre surface."
+      },
+      {
+        "name": "primary",
+        "value": "{blue-500}",
+        "usage": "Relleno de acciones principales y bloques de marca, en ambos temas; su texto es on-primary."
+      },
+      {
+        "name": "on-primary",
+        "value": "{white}",
+        "usage": "Texto e ícono sobre primary (6.8:1)."
+      },
+      {
+        "name": "link",
+        "value": {
+          "light": "{blue-500}",
+          "dark": "{cyan-400}"
+        },
+        "usage": "Enlaces y texto de acento sobre surface (6.8:1 claro, 9:1 oscuro)."
+      },
+      {
+        "name": "accent",
+        "value": "{cyan-500}",
+        "usage": "Relleno de acento; texto encima en night."
+      },
+      {
+        "name": "hairline",
+        "value": {
+          "light": "{hairline-light}",
+          "dark": "{dark-border}"
+        },
+        "usage": "Separadores entre secciones y bordes finos. No va bajo los títulos de sección."
+      },
+      {
+        "name": "error",
+        "value": {
+          "light": "{red-600}",
+          "dark": "{red-300}"
+        },
+        "usage": "Mensajes y bordes de campos con error en formularios."
+      }
     ]
   },
   "type": {
     "families": {
       "sans": "\"Human Sans\", system-ui, -apple-system, \"Segoe UI\", sans-serif"
     },
-    "weights": [300, 400, 700],
+    "weights": [
+      300,
+      400,
+      700
+    ],
     "styles": [
-      {"name": "display", "fontSize": "48px", "lineHeight": "52px", "fontWeight": 700, "usage": "Títulos de portada y hero. En el prototipo: clamp(38px, 5vw, 64px), line-height 1.04, letter-spacing -0.02em."},
-      {"name": "heading", "fontSize": "28px", "lineHeight": "34px", "fontWeight": 700, "usage": "Títulos de sección. En el prototipo: clamp(28px, 3.4vw, 42px), line-height 1.1."},
-      {"name": "body", "fontSize": "16px", "lineHeight": "24px", "fontWeight": 400, "usage": "Texto corrido."},
-      {"name": "body-light", "fontSize": "16px", "lineHeight": "24px", "fontWeight": 300, "usage": "Texto de apoyo e introducciones."},
-      {"name": "lead", "fontSize": "clamp(17px, 1.6vw, 20px)", "lineHeight": "1.55", "fontWeight": 400, "usage": "Bajada del hero (del prototipo)."},
-      {"name": "eyebrow", "fontSize": "12px", "lineHeight": "16px", "fontWeight": 700, "letterSpacing": "0.12em", "usage": "Rótulo en mayúsculas sobre un título, en color link."},
-      {"name": "caption", "fontSize": "13px", "lineHeight": "18px", "fontWeight": 400, "usage": "Pies de foto y metadatos, en ink-muted."},
-      {"name": "heading-lg", "fontSize": "clamp(30px, 4vw, 50px)", "lineHeight": "1.08", "fontWeight": 700, "usage": "Título del cierre de contacto. Tomado del prototipo aprobado de Sobre mí (19 nov 2026)."},
-      {"name": "title-md", "fontSize": "clamp(22px, 2.4vw, 28px)", "lineHeight": "1.2", "fontWeight": 700, "usage": "Títulos de nivel, año de cada hito y resumen del recorrido. Del prototipo de Sobre mí."},
-      {"name": "title-sm", "fontSize": "18px", "lineHeight": "1.3", "fontWeight": 700, "usage": "Títulos de tarjeta (hitos, principios, certificaciones, charlas; 17–18 px en el prototipo)."},
-      {"name": "small", "fontSize": "14px", "lineHeight": "1.5", "fontWeight": 400, "usage": "Menú, texto de tarjeta, enlaces del pie. Del prototipo de Sobre mí."},
-      {"name": "label", "fontSize": "11px", "lineHeight": "1.3", "fontWeight": 700, "letterSpacing": "0.14em", "usage": "Rótulos pequeños en mayúsculas (NIVEL, IMPACTO, COMPLETADO) e insignias; 10–11 px en el prototipo."}
+      {
+        "name": "display",
+        "fontSize": "48px",
+        "lineHeight": "52px",
+        "fontWeight": 700,
+        "usage": "Títulos de portada y hero. En el prototipo: clamp(38px, 5vw, 64px), line-height 1.04, letter-spacing -0.02em."
+      },
+      {
+        "name": "heading",
+        "fontSize": "28px",
+        "lineHeight": "34px",
+        "fontWeight": 700,
+        "usage": "Títulos de sección. En el prototipo: clamp(28px, 3.4vw, 42px), line-height 1.1."
+      },
+      {
+        "name": "body",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": 400,
+        "usage": "Texto corrido."
+      },
+      {
+        "name": "body-light",
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontWeight": 300,
+        "usage": "Texto de apoyo e introducciones."
+      },
+      {
+        "name": "lead",
+        "fontSize": "clamp(17px, 1.6vw, 20px)",
+        "lineHeight": "1.55",
+        "fontWeight": 400,
+        "usage": "Bajada del hero (del prototipo)."
+      },
+      {
+        "name": "eyebrow",
+        "fontSize": "12px",
+        "lineHeight": "16px",
+        "fontWeight": 700,
+        "letterSpacing": "0.12em",
+        "usage": "Rótulo en mayúsculas sobre un título, en color link."
+      },
+      {
+        "name": "caption",
+        "fontSize": "13px",
+        "lineHeight": "18px",
+        "fontWeight": 400,
+        "usage": "Pies de foto y metadatos, en ink-muted."
+      },
+      {
+        "name": "heading-lg",
+        "fontSize": "clamp(30px, 4vw, 50px)",
+        "lineHeight": "1.08",
+        "fontWeight": 700,
+        "usage": "Título del cierre de contacto. Tomado del prototipo aprobado de Sobre mí (19 nov 2026)."
+      },
+      {
+        "name": "title-md",
+        "fontSize": "clamp(22px, 2.4vw, 28px)",
+        "lineHeight": "1.2",
+        "fontWeight": 700,
+        "usage": "Títulos de nivel, año de cada hito y resumen del recorrido. Del prototipo de Sobre mí."
+      },
+      {
+        "name": "title-sm",
+        "fontSize": "18px",
+        "lineHeight": "1.3",
+        "fontWeight": 700,
+        "usage": "Títulos de tarjeta (hitos, principios, certificaciones, charlas; 17–18 px en el prototipo)."
+      },
+      {
+        "name": "small",
+        "fontSize": "14px",
+        "lineHeight": "1.5",
+        "fontWeight": 400,
+        "usage": "Menú, texto de tarjeta, enlaces del pie. Del prototipo de Sobre mí."
+      },
+      {
+        "name": "label",
+        "fontSize": "11px",
+        "lineHeight": "1.3",
+        "fontWeight": 700,
+        "letterSpacing": "0.14em",
+        "usage": "Rótulos pequeños en mayúsculas (NIVEL, IMPACTO, COMPLETADO) e insignias; 10–11 px en el prototipo."
+      }
     ]
   },
-  "radius": {"tokens": [
-    {"name": "radius-lg", "value": "24px", "usage": "Tarjetas grandes y fotos."},
-    {"name": "radius-md", "value": "20px", "usage": "Tarjetas de hitos (prototipo)."},
-    {"name": "radius-sm", "value": "10px", "usage": "Chips de cifra (prototipo)."},
-    {"name": "radius-pill", "value": "999px", "usage": "Botones y etiquetas."},
-    {"name": "radius-icon", "value": "22%", "usage": "Ícono de app."}
-  ]},
+  "radius": {
+    "tokens": [
+      {
+        "name": "radius-lg",
+        "value": "24px",
+        "usage": "Tarjetas grandes y fotos."
+      },
+      {
+        "name": "radius-md",
+        "value": "20px",
+        "usage": "Tarjetas de hitos (prototipo)."
+      },
+      {
+        "name": "radius-sm",
+        "value": "10px",
+        "usage": "Chips de cifra (prototipo)."
+      },
+      {
+        "name": "radius-pill",
+        "value": "999px",
+        "usage": "Botones y etiquetas."
+      },
+      {
+        "name": "radius-icon",
+        "value": "22%",
+        "usage": "Ícono de app."
+      }
+    ]
+  },
   "layout": {
     "container": "1200px",
     "gutter": "max(16px, 5vw)",

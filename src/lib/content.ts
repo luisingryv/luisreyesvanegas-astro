@@ -1,7 +1,13 @@
 import type { ImageMetadata } from 'astro';
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import type { PublishedLocale } from '../i18n/config';
-import { formatMonthYear, localize, resolveLocalized, summarizeYears } from './content-format';
+import {
+  formatEventDate,
+  formatMonthYear,
+  localize,
+  resolveLocalized,
+  summarizeYears,
+} from './content-format';
 
 export async function getPaginaSobreMi(locale: PublishedLocale) {
   const entry = await getEntry('sobreMi', 'sobre-mi');
@@ -164,4 +170,108 @@ export async function getTestimonios(locale: PublishedLocale): Promise<Testimoni
       foto: data.foto,
     };
   });
+}
+
+// ─── Home ─────────────────────────────────────────────────────
+
+export async function getPaginaHome(locale: PublishedLocale) {
+  const entry = await getEntry('home', 'home');
+  if (!entry) throw new Error('Falta src/content/paginas/home.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/home');
+}
+
+export type PaginaHome = Awaited<ReturnType<typeof getPaginaHome>>;
+
+export interface Logro {
+  id: string;
+  etiqueta: string;
+  metrica: string;
+  descripcion: string;
+  quien: string;
+  fuente?: { texto: string; url: string };
+  barras?: { antes: number; despues: number; leyenda: string };
+  sellos?: string[];
+}
+
+export async function getLogrosHome(locale: PublishedLocale): Promise<Logro[]> {
+  const logros = await getCollection('logros', (l) => l.data.home !== undefined);
+  return logros
+    .sort((a, b) => (a.data.home?.orden ?? 0) - (b.data.home?.orden ?? 0))
+    .map(({ id, data }) => {
+      const where = `logros/${id}`;
+      return {
+        id,
+        etiqueta: localize(data.etiqueta, locale, where),
+        metrica: localize(data.metrica, locale, where),
+        descripcion: localize(data.descripcion, locale, where),
+        quien: localize(data.quien, locale, where),
+        fuente: data.fuente,
+        barras: data.barras && {
+          antes: data.barras.antes,
+          despues: data.barras.despues,
+          leyenda: localize(data.barras.leyenda, locale, where),
+        },
+        sellos: data.sellos,
+      };
+    });
+}
+
+export interface HitoCorto {
+  id: string;
+  anio: number;
+  titulo: string;
+  texto: string;
+}
+
+export async function getTrayectoriaHome(locale: PublishedLocale): Promise<HitoCorto[]> {
+  const hitos = await getCollection('hitos', (h) => h.data.home !== undefined);
+  return hitos
+    .sort((a, b) => a.data.anio - b.data.anio || a.data.orden - b.data.orden)
+    .flatMap(({ id, data }) =>
+      data.home
+        ? [
+            {
+              id,
+              anio: data.anio,
+              titulo: localize(data.home.titulo, locale, `hitos/${id}`),
+              texto: localize(data.home.texto, locale, `hitos/${id}`),
+            },
+          ]
+        : [],
+    );
+}
+
+export interface CharlaReciente {
+  id: string;
+  evento: string;
+  resumen: string;
+  cuando: string;
+  foto: ImageMetadata;
+  alt: string;
+}
+
+/** Las charlas con foto más recientes, de la más nueva a la más antigua. */
+export async function getCharlasRecientes(
+  locale: PublishedLocale,
+  cantidad = 3,
+): Promise<CharlaReciente[]> {
+  const charlas = await getCollection('charlas', (c) => c.data.foto !== undefined);
+  return charlas
+    .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime())
+    .slice(0, cantidad)
+    .flatMap(({ id, data }) => {
+      if (!data.foto || !data.alt) return [];
+      const where = `charlas/${id}`;
+      const lugar = localize(data.lugar, locale, where);
+      return [
+        {
+          id,
+          evento: data.evento,
+          resumen: localize(data.resumen ?? data.titulo, locale, where),
+          cuando: `${formatEventDate(data.fecha, data.fechaFin, locale)} · ${lugar}`,
+          foto: data.foto,
+          alt: localize(data.alt, locale, where),
+        },
+      ];
+    });
 }

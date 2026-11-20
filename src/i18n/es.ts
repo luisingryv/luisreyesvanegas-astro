@@ -67,6 +67,10 @@ export const es = {
     verFuente: 'Ver en LinkedIn',
   },
   pages: {
+    // Posicionamiento del documento madre (sección 2).
+    home: {
+      title: 'Arquitecto de soluciones cloud e IA',
+    },
     sobreMi: {
       title: 'Sobre mí',
     },

@@ -1,0 +1,11 @@
+etiqueta:
+  es: 'Seguridad y cumplimiento'
+metrica:
+  es: '2'
+descripcion:
+  es: 'Glasslake obtuvo ISO 27001 y SOC 2. Acompañé la parte técnica en la nube como Cloud Expert.'
+quien:
+  es: 'Glasslake · 2026'
+sellos: ['ISO 27001', 'SOC 2']
+home:
+  orden: 5

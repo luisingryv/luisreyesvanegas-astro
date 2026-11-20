@@ -1,0 +1,33 @@
+---
+import Button from '../brand/Button.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { HitoCorto, PaginaHome } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaHome['trayectoria'];
+  hitos: HitoCorto[];
+}
+
+const { locale, content, hitos } = Astro.props;
+---
+
+<Section tone="dark-raised" reveal aria-labelledby="trayectoria-titulo">
+  <SectionHeader id="trayectoria-titulo" eyebrow={content.eyebrow} title={content.titulo}>
+    <Button slot="action" href={localizedPath(locale, 'sobreMi')} variant="secondary">
+      {content.boton}
+    </Button>
+  </SectionHeader>
+  <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,190px),1fr))] gap-4" data-trayectoria>
+    {hitos.map((hito) => (
+      <li class="flex flex-col gap-2.5 border-t-2 border-accent pt-4">
+        <span class="text-[24px] font-bold">{hito.anio}</span>
+        <span class="text-[17px] leading-tight font-bold">{hito.titulo}</span>
+        <span class="text-small text-text-tertiary-on-dark">{hito.texto}</span>
+      </li>
+    ))}
+  </ol>
+</Section>

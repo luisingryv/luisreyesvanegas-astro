@@ -1,0 +1,15 @@
+etiqueta:
+  es: 'Optimizar costos'
+metrica:
+  es: '−60%'
+descripcion:
+  es: 'Reduje la factura mensual de Google Cloud de una plataforma con streaming 24/7 de unos 15 TB diarios.'
+quien:
+  es: 'UTPN / KMA · 2025'
+barras:
+  antes: 100
+  despues: 40
+  leyenda:
+    es: 'US$10.000 → US$4.000 al mes'
+home:
+  orden: 3

@@ -10,3 +10,9 @@ cifra:
   es: 'Desarrollador → Head of Product'
 impacto:
   es: 'Equipo de producto de 6 personas y primer contacto con AWS.'
+# Versión corta para la trayectoria del Home.
+home:
+  titulo:
+    es: 'Mandaos'
+  texto:
+    es: 'Entré como desarrollador y llegué a Head of Product en esta startup de última milla.'

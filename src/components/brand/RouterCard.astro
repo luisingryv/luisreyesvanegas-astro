@@ -1,0 +1,29 @@
+---
+// Tarjeta del router de audiencias: toda la tarjeta es el enlace.
+import Eyebrow from './Eyebrow.astro';
+
+interface Props {
+  href: string;
+  tag: string;
+  title: string;
+  text: string;
+  cta: string;
+}
+
+const { href, tag, title, text, cta } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group flex min-h-55 flex-col gap-3.5 rounded-lg border border-hairline bg-surface-raised p-7 text-ink transition-colors hover:border-accent"
+>
+  <Eyebrow as="span">{tag}</Eyebrow>
+  <span class="text-[24px] leading-[1.2] font-bold text-balance">{title}</span>
+  <span class="grow text-[15px] text-text-tertiary-on-dark">{text}</span>
+  <span class="font-bold text-link">
+    {cta}{' '}
+    <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">
+      →
+    </span>
+  </span>
+</a>

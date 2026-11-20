@@ -17,7 +17,8 @@ function volverALaPagina(pagina: unknown, resultado: 'enviado' | 'error', base: 
   const ruta = typeof pagina === 'string' && /^\/(?![/\\])/.test(pagina) ? pagina : '/';
   const destino = new URL(ruta, base);
   destino.searchParams.set('formulario', resultado);
-  destino.hash = 'formulario';
+  // El formulario muestra el mensaje con :target, sin JavaScript.
+  destino.hash = `formulario-${resultado}`;
   return new Response(null, {
     status: 303,
     headers: { Location: destino.pathname + destino.search + destino.hash },

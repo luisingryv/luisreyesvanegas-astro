@@ -1,0 +1,46 @@
+---
+import PhotoCard from '../brand/PhotoCard.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { CharlaReciente, PaginaHome } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaHome['charlas'];
+  charlas: CharlaReciente[];
+}
+
+const { locale, content, charlas } = Astro.props;
+---
+
+{charlas.length > 0 && (
+  <Section tone="dark" reveal id="eventos" aria-labelledby="charlas-titulo">
+    <SectionHeader id="charlas-titulo" eyebrow={content.eyebrow} title={content.titulo}>
+      <a
+        slot="action"
+        href={localizedPath(locale, 'eventos')}
+        class="font-bold text-link hover:underline"
+      >
+        {content.verTodos}
+      </a>
+    </SectionHeader>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
+      {charlas.map((charla) => (
+        <li class="grid">
+          <PhotoCard
+            variant="card"
+            image={charla.foto}
+            alt={charla.alt}
+            meta={charla.cuando}
+            title={charla.evento}
+            titleAs="h3"
+            description={charla.resumen}
+            sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
+          />
+        </li>
+      ))}
+    </ul>
+  </Section>
+)}

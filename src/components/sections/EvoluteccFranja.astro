@@ -1,0 +1,32 @@
+---
+// Franja breve hacia EvolutecC (desarrollo a la medida), con UTM por página.
+import Button from '../brand/Button.astro';
+import Container from '../brand/Container.astro';
+import { evoluteccUrl } from '../../config/site';
+import type { PaginaHome } from '../../lib/content';
+
+interface Props {
+  content: PaginaHome['evolutecc'];
+  campaign: string;
+}
+
+const { content, campaign } = Astro.props;
+---
+
+<section
+  data-theme="dark"
+  aria-labelledby="evolutecc-franja-titulo"
+  class="border-b border-hairline bg-surface py-[clamp(40px,5vw,64px)]"
+>
+  <Container class="flex flex-wrap items-center justify-between gap-x-8 gap-y-5">
+    <div class="flex max-w-[70ch] flex-col gap-1.5">
+      <h2 id="evolutecc-franja-titulo" class="text-[20px] font-bold">
+        {content.titulo}
+      </h2>
+      <p class="text-text-secondary-on-dark">{content.texto}</p>
+    </div>
+    <Button href={evoluteccUrl(campaign)} variant="accent" external>
+      {content.boton}
+    </Button>
+  </Container>
+</section>

@@ -30,6 +30,16 @@ test.describe('accesibilidad WCAG 2.2 AA (axe)', () => {
     await expectNoViolations(page);
   });
 
+  test('el Home al cargar y con reducir movimiento', async ({ browser }) => {
+    for (const reducedMotion of ['no-preference', 'reduce'] as const) {
+      const context = await browser.newContext({ reducedMotion });
+      const page = await context.newPage();
+      await page.goto('/es');
+      await expectNoViolations(page);
+      await context.close();
+    }
+  });
+
   test('con reducir movimiento', async ({ browser }) => {
     const context = await browser.newContext({ reducedMotion: 'reduce' });
     const page = await context.newPage();

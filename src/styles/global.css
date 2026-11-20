@@ -61,6 +61,15 @@
   --color-text-secondary-on-dark: #c9c8ce;
   --color-text-tertiary-on-dark: #a9a8ae;
 
+  /* Error (Luis, 20 nov 2026): AA en claro y en oscuro */
+  --color-red-600: #c62828;
+  --color-red-300: #ff7a7a;
+
+  /* Resplandor del cierre y líneas sobre blanco, nombrados el 20 nov 2026 */
+  --color-glow-core: #0a1a3f;
+  --color-glow-edge: #060b1c;
+  --color-line-on-light: #cce6ff;
+
   /* Semánticos, tema claro; el oscuro los redefine con [data-theme="dark"] */
   --color-surface: var(--color-white);
   --color-surface-raised: var(--color-blue-200);
@@ -73,6 +82,7 @@
   --color-accent: var(--color-cyan-500);
   --color-hairline-light: #1f2a8a;
   --color-hairline: var(--color-hairline-light);
+  --color-error: var(--color-red-600);
 
   /* ─── Tipografía ──────────────────────────────────────────── */
   --font-sans: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
@@ -147,6 +157,7 @@
   --color-ink-muted: var(--color-gray-400);
   --color-link: var(--color-cyan-400);
   --color-hairline: var(--color-dark-border);
+  --color-error: var(--color-red-300);
   color: var(--color-ink);
 }
 
@@ -161,6 +172,8 @@
   --color-on-primary: var(--color-blue-500);
   --color-link: var(--color-white);
   --color-hairline: var(--color-blue-400);
+  /* Sobre blue-500 ningún rojo da contraste: el error va en blanco (con ícono y texto). */
+  --color-error: var(--color-white);
   color: var(--color-ink);
 }
 
@@ -188,8 +201,7 @@ body {
 /* ─── Puente shadcn/ui → tokens de marca ─────────────────── */
 /* Los primitivos de src/components/ui leen estas variables. Se declaran en :root y en
    cada [data-theme] para que se recalculen con el tema del bloque. primary, accent,
-   radios y fuente no se redefinen: son los de la marca. Falta un color de error
-   (destructive): el sistema de diseño no lo tiene todavía. */
+   radios y fuente no se redefinen: son los de la marca. destructive es el rojo de error. */
 :root,
 [data-theme] {
   --background: var(--color-surface);
@@ -209,6 +221,7 @@ body {
   --border: var(--color-hairline);
   --input: var(--color-hairline);
   --ring: var(--color-link);
+  --destructive: var(--color-error);
 }
 
 @theme inline {
@@ -228,12 +241,22 @@ body {
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
 }
 
 @layer base {
   * {
     border-color: var(--border);
   }
+}
+
+/* Avisos del formulario sin JavaScript: el endpoint vuelve a #formulario-enviado o
+   #formulario-error y el aviso aparece con :target. */
+.formulario-aviso {
+  display: none;
+}
+.formulario-aviso:target {
+  display: block;
 }
 
 /* Movimiento reducido */

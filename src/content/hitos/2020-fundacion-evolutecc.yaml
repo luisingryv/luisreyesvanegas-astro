@@ -9,3 +9,9 @@ cifra:
   es: 'Fundada el 28 de agosto de 2020'
 impacto:
   es: 'Crecimiento con recursos propios y 90% de recompra de clientes.'
+# Versión corta para la trayectoria del Home.
+home:
+  titulo:
+    es: 'EvolutecC'
+  texto:
+    es: 'Cofundé la empresa y soy su CTO. Con el equipo hemos entregado más de 400 proyectos.'
