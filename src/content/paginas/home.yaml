@@ -74,6 +74,36 @@ xprize:
         es: '1.º'
       etiqueta:
         es: 'de su categoría'
+  # Pieza 01 (laboratorio de motion, aprobada): de 26.449 equipos al ganador de categoría.
+  pieza:
+    medalla:
+      rotulo:
+        es: 'Ganador de categoría'
+      categoria:
+        es: 'Small Business Services'
+      premio:
+        es: 'Build with Gemini XPRIZE 2026'
+    fases:
+      equipos:
+        es: 'Equipos'
+      finalistas:
+        es: 'Top 100'
+      ganador:
+        es: 'Ganador'
+    contador:
+      equipos:
+        es: 'Equipos inscritos'
+      finalistas:
+        es: 'Finalistas'
+      ganador:
+        es: 'Ganador de categoría'
+      # {n}: número que baja de 26.449 a 100; {total}: 26.449.
+      top:
+        es: 'Top {n}'
+      final:
+        es: '1 de {total}'
+    nota:
+      es: 'Cada punto representa unos 10 equipos inscritos en todo el mundo.'
 
 trayectoria:
   eyebrow:

@@ -1,5 +1,5 @@
 ---
-// Casos como burbujas con el nombre del cliente (pieza 08 en el paso de motion).
+// Pieza 08 · Casos como burbujas con el nombre del cliente.
 // Sin logos hasta tener permisos; cada burbuja enlaza a su caso o al índice de casos.
 import Section from '../brand/Section.astro';
 import SectionHeader from '../brand/SectionHeader.astro';
@@ -22,26 +22,100 @@ const indice = localizedPath(locale, 'casos');
       {content.verTodos}
     </a>
   </SectionHeader>
-  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] gap-8" data-casos>
+  <div
+    class="relative grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] gap-8"
+    data-casos
+  >
     {content.grupos.map((grupo) => (
       <div class="flex min-w-0 flex-col gap-4">
         <h3 class="text-[17px] font-bold">{grupo.titulo}</h3>
-        <ul class="flex flex-wrap gap-3.5">
+        <ul class="flex flex-wrap gap-x-5.5 gap-y-4.5 px-1.5 pt-3.5 pb-5.5">
           {grupo.casos.map((caso) => (
             <li>
               <a
                 href={caso.slug ? `${indice}/${caso.slug}` : indice}
-                class:list={[
-                  'grid size-32 place-items-center rounded-full border border-blue-300 p-3.5 text-center text-small leading-tight font-bold text-ink transition-colors hover:border-primary',
-                  grupo.destacado ? 'bg-surface-raised' : 'bg-surface',
-                ]}
+                class="burbuja block rounded-full text-ink"
+                data-burbuja
               >
-                {caso.nombre}
+                <span
+                  class:list={[
+                    'burbuja-interior relative grid size-[clamp(108px,11vw,128px)] place-items-center rounded-full border-[1.5px] border-blue-300 p-3.5 text-center text-small leading-tight font-bold',
+                    grupo.destacado ? 'bg-surface-raised' : 'bg-surface',
+                  ]}
+                >
+                  {caso.nombre}
+                </span>
               </a>
             </li>
           ))}
         </ul>
       </div>
     ))}
+    <div
+      class="burbujas-estallido pointer-events-none absolute inset-0"
+      aria-hidden="true"
+      data-estallido
+    ></div>
   </div>
 </Section>
+
+<style>
+  /* Brillo de burbuja de jabón. */
+  .burbuja-interior::before {
+    content: '';
+    position: absolute;
+    left: 20%;
+    top: 11%;
+    width: 30%;
+    height: 16%;
+    border-radius: 50%;
+    background: color-mix(in oklab, var(--color-white) 85%, transparent);
+    transform: rotate(-24deg);
+    pointer-events: none;
+  }
+
+  .burbuja-interior {
+    transition:
+      border-color 250ms ease,
+      box-shadow 250ms ease;
+  }
+
+  .burbuja:hover .burbuja-interior,
+  .burbuja:focus-visible .burbuja-interior {
+    border-color: var(--color-primary);
+    box-shadow:
+      0 0 0 6px color-mix(in oklab, var(--color-primary) 14%, transparent),
+      0 16px 34px -18px var(--color-primary);
+  }
+
+  .burbuja {
+    will-change: transform;
+  }
+
+  .burbujas-estallido :global(i) {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    margin: -3.5px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+
+  .burbujas-estallido :global(i:nth-child(3n)) {
+    background: var(--color-blue-300);
+  }
+
+  .burbujas-estallido :global(i:nth-child(4n)) {
+    width: 4px;
+    height: 4px;
+    margin: -2px;
+  }
+</style>
+
+<script>
+  import { iniciarBurbujas } from '../motion/burbujas';
+
+  for (const campo of document.querySelectorAll<HTMLElement>('[data-casos]')) {
+    iniciarBurbujas(campo);
+  }
+</script>

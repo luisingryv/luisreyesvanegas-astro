@@ -1,0 +1,137 @@
+---
+// Pieza 01 · De 26.449 equipos al ganador de categoría (laboratorio de motion).
+// El HTML trae el estado final: medalla, contador "1 de 26.449" y la fase Ganador.
+// El script dibuja los puntos y, si la pieza llega desde abajo, reproduce la secuencia
+// una vez al verse a la mitad. Con "reducir movimiento" se dibuja quieta.
+import type { PaginaHome } from '../../lib/content';
+
+interface Props {
+  textos: PaginaHome['xprize']['pieza'];
+  /** Equipos inscritos y finalistas (cifras oficiales del documento madre). */
+  total?: number;
+  finalistas?: number;
+  class?: string;
+}
+
+const { textos, total = 26449, finalistas = 100, class: className } = Astro.props;
+const formato = new Intl.NumberFormat('es', { useGrouping: 'always' });
+const final = textos.contador.final.replace('{total}', formato.format(total));
+const fases = [textos.fases.equipos, textos.fases.finalistas, textos.fases.ganador];
+---
+
+<div
+  class:list={[
+    'xprize-field @container relative aspect-4/5 w-full overflow-hidden rounded-lg border border-hairline bg-surface sm:aspect-16/10',
+    className,
+  ]}
+  data-xprize-field
+  data-total={total}
+  data-finalistas={finalistas}
+  data-texto-equipos={textos.contador.equipos}
+  data-texto-finalistas={textos.contador.finalistas}
+  data-texto-ganador={textos.contador.ganador}
+  data-texto-top={textos.contador.top}
+  data-texto-final={final}
+>
+  <canvas aria-hidden="true" class="absolute inset-0 size-full"></canvas>
+
+  <div
+    class="xprize-medal absolute top-1/2 left-1/2 grid aspect-square w-[clamp(140px,30%,236px)] place-items-center rounded-full border-[1.5px] border-accent bg-surface text-center"
+    role="img"
+    aria-label={`${textos.medalla.rotulo}: ${textos.medalla.categoria}, ${textos.medalla.premio}`}
+  >
+    <div class="grid gap-1.5 px-[14%]" aria-hidden="true">
+      <span class="text-[clamp(8px,1.6cqi,10px)] leading-tight font-bold tracking-[0.14em] text-cyan-300 uppercase">
+        {textos.medalla.rotulo}
+      </span>
+      <span class="text-[clamp(14px,3.4cqi,22px)] leading-[1.05] font-bold">
+        {textos.medalla.categoria}
+      </span>
+      <span class="text-[clamp(9px,1.8cqi,12px)] leading-tight text-gray-400">
+        {textos.medalla.premio}
+      </span>
+    </div>
+  </div>
+
+  <div
+    class="pointer-events-none absolute inset-0 flex flex-col justify-between p-[clamp(14px,4cqi,28px)]"
+    aria-hidden="true"
+  >
+    <div class="flex flex-wrap items-start justify-between gap-3">
+      <div class="grid gap-0.5">
+        <span class="text-label font-bold text-gray-400 uppercase" data-contador-texto>
+          {textos.contador.ganador}
+        </span>
+        <span
+          class="text-[clamp(22px,6cqi,44px)] leading-none font-bold tabular-nums"
+          data-contador
+        >
+          {final}
+        </span>
+      </div>
+      <ol class="flex flex-wrap gap-1.5">
+        {fases.map((fase, i) => (
+          <li class="xprize-phase" data-fase={i} data-on={i === fases.length - 1 ? '' : undefined}>
+            {fase}
+          </li>
+        ))}
+      </ol>
+    </div>
+    <p class="max-w-[34ch] text-[12px] leading-snug text-gray-400">{textos.nota}</p>
+  </div>
+</div>
+
+<style>
+  .xprize-medal {
+    transform: translate(-50%, -50%);
+    box-shadow:
+      0 0 0 10px color-mix(in oklab, var(--color-accent) 8%, transparent),
+      0 0 60px color-mix(in oklab, var(--color-accent) 35%, transparent);
+  }
+
+  .xprize-medal::before {
+    content: '';
+    position: absolute;
+    inset: 9px;
+    border-radius: 50%;
+    border: 1px dashed color-mix(in oklab, var(--color-cyan-300) 45%, transparent);
+  }
+
+  /* Antes de la secuencia la medalla espera oculta; aparece con rebote al llegar al centro. */
+  .xprize-field[data-estado='previo'] .xprize-medal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.55);
+  }
+
+  .xprize-field[data-estado='medalla'] .xprize-medal {
+    transition:
+      opacity 300ms ease-out,
+      transform 650ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .xprize-phase {
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-pill);
+    background: color-mix(in oklab, var(--color-night) 55%, transparent);
+    padding: 7px 10px;
+    font-size: 11px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--color-gray-400);
+  }
+
+  .xprize-phase[data-on] {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-night);
+  }
+</style>
+
+<script>
+  import { iniciarXprize } from './xprize';
+
+  for (const campo of document.querySelectorAll<HTMLElement>('[data-xprize-field]')) {
+    iniciarXprize(campo);
+  }
+</script>

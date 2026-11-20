@@ -174,6 +174,18 @@ const home = defineCollection({
         boton: localized,
         fuente: z.object({ texto: localized, url: z.url() }),
         cifras: z.array(z.object({ valor: localized, etiqueta: localized })).length(3),
+        pieza: z.object({
+          medalla: z.object({ rotulo: localized, categoria: localized, premio: localized }),
+          fases: z.object({ equipos: localized, finalistas: localized, ganador: localized }),
+          contador: z.object({
+            equipos: localized,
+            finalistas: localized,
+            ganador: localized,
+            top: localized,
+            final: localized,
+          }),
+          nota: localized,
+        }),
       }),
       trayectoria: z.object({ ...encabezado, boton: localized }),
       charlas: z.object({ ...encabezado, verTodos: localized }),
