@@ -1,4 +1,10 @@
 @import 'tailwindcss';
+/* shadcn/ui: animaciones y variantes de estado (data-open, data-checked…) */
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+/* dark: de shadcn sigue a nuestro tema oscuro por bloque */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *, .dark, .dark *));
 
 /* ─── Human Sans ──────────────────────────────────────────── */
 @font-face {
@@ -177,6 +183,57 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-link);
   outline-offset: 3px;
+}
+
+/* ─── Puente shadcn/ui → tokens de marca ─────────────────── */
+/* Los primitivos de src/components/ui leen estas variables. Se declaran en :root y en
+   cada [data-theme] para que se recalculen con el tema del bloque. primary, accent,
+   radios y fuente no se redefinen: son los de la marca. Falta un color de error
+   (destructive): el sistema de diseño no lo tiene todavía. */
+:root,
+[data-theme] {
+  --background: var(--color-surface);
+  --foreground: var(--color-ink);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-surface);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-on-primary);
+  --secondary: var(--color-surface-raised);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-surface-raised);
+  --muted-foreground: var(--color-ink-muted);
+  --accent: var(--color-accent);
+  --accent-foreground: var(--color-night);
+  --border: var(--color-hairline);
+  --input: var(--color-hairline);
+  --ring: var(--color-link);
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
 }
 
 /* Movimiento reducido */

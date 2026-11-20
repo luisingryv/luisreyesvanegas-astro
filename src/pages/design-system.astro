@@ -7,6 +7,7 @@ import Metric from '../components/brand/Metric.astro';
 import PhotoCard from '../components/brand/PhotoCard.astro';
 import Section from '../components/brand/Section.astro';
 import SectionHeader from '../components/brand/SectionHeader.astro';
+import { Button as UiButton } from '@/components/ui/button';
 import Base from '../layouts/Base.astro';
 import tokens from '../../referencia/tokens-luis-reyes.json';
 import fotoEquipo from '../assets/fotos/equipo_2025-09-01_evolutecc-aniversario-5_027.jpg';
@@ -145,6 +146,29 @@ const colores = tokens.color.tokens.flatMap((t) =>
         alt="Luis Reyes con integrantes de GDG en el GDG Summit Latam 2025, Lima"
         sizes="(min-width: 768px) 33vw, 100vw"
       />
+    </div>
+  </Section>
+
+  <Section tone="light">
+    <SectionHeader
+      eyebrow="Capa ui · shadcn/ui"
+      title="Primitivos con los tokens de marca"
+      lead="Button de shadcn (Radix), renderizado como HTML estático. En claro y en oscuro toma los tokens del bloque."
+    />
+    <div class="flex flex-wrap items-center gap-3">
+      <UiButton>Default</UiButton>
+      <UiButton variant="outline">Outline</UiButton>
+      <UiButton variant="secondary">Secondary</UiButton>
+      <UiButton variant="ghost">Ghost</UiButton>
+      <UiButton variant="link">Link</UiButton>
+      <UiButton disabled>Disabled</UiButton>
+    </div>
+    <div class="mt-6 flex flex-wrap items-center gap-3 rounded-lg bg-surface p-6" data-theme="dark">
+      <UiButton>Default</UiButton>
+      <UiButton variant="outline">Outline</UiButton>
+      <UiButton variant="secondary">Secondary</UiButton>
+      <UiButton variant="ghost">Ghost</UiButton>
+      <UiButton variant="link">Link</UiButton>
     </div>
   </Section>
 
