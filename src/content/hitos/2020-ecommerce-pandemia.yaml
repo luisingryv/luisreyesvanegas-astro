@@ -3,9 +3,17 @@ anio: 2020
 edad: 23
 titulo:
   es: 'Pandemia: e-commerce en 4 días'
+  en: 'Pandemic: e-commerce in 4 days'
+  pt: 'Pandemia: e-commerce em 4 dias'
 texto:
   es: 'Pusimos en línea la tienda de Ara (Jerónimo Martins) en WooCommerce, integrada con SAP Business One. La salida de iFood mostró el riesgo de depender de un solo cliente.'
+  en: "We launched the Ara (Jerónimo Martins) store on WooCommerce, integrated with SAP Business One. iFood's exit showed the risk of depending on a single client."
+  pt: 'Colocamos no ar a loja da Ara (Jerónimo Martins) em WooCommerce, integrada ao SAP Business One. A saída do iFood mostrou o risco de depender de um único cliente.'
 cifra:
   es: 'Tienda integrada con SAP en 4 días'
+  en: 'Store integrated with SAP in 4 days'
+  pt: 'Loja integrada ao SAP em 4 dias'
 impacto:
   es: 'La experiencia que sirvió de base para fundar EvolutecC.'
+  en: 'The experience that laid the groundwork for founding EvolutecC.'
+  pt: 'A experiência que serviu de base para fundar a EvolutecC.'

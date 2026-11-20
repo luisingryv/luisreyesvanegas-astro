@@ -1,8 +1,12 @@
 orden: 8
 nombre:
   es: 'Certificación Internacional en Coaching Ejecutivo y de Equipos'
+  en: 'International Certification in Executive and Team Coaching'
+  pt: 'Certificação Internacional em Coaching Executivo e de Equipes'
 emisor:
   es: 'Naranjo Consulting & Coaching'
+  en: 'Naranjo Consulting & Coaching'
+  pt: 'Naranjo Consulting & Coaching'
 fecha:
   anio: 2026
 insignia: liderazgo

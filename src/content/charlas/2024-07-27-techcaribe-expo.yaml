@@ -2,18 +2,28 @@ fecha: 2024-07-27
 evento: 'TechCaribe Expo 2024 · Google I/O Extended'
 titulo:
   es: 'Charla: Crea aplicaciones con Vertex AI y Cloud Run. Panel: retos y oportunidades al crecer en una empresa de base tecnológica'
+  en: 'Talk: Build apps with Vertex AI and Cloud Run. Panel: challenges and opportunities of growing in a tech company'
+  pt: 'Palestra: Crie aplicações com Vertex AI e Cloud Run. Painel: desafios e oportunidades de crescer em uma empresa de base tecnológica'
 tipo: charla-y-panel
 detalle:
   es: 'Charla: Crea aplicaciones con Vertex AI y Cloud Run. Panel: retos y oportunidades al crecer en una empresa de base tecnológica.'
+  en: 'Talk: Build apps with Vertex AI and Cloud Run. Panel: challenges and opportunities of growing in a tech company.'
+  pt: 'Palestra: Crie aplicações com Vertex AI e Cloud Run. Painel: desafios e oportunidades de crescer em uma empresa de base tecnológica.'
 lugar:
   es: 'Barranquilla'
+  en: 'Barranquilla'
+  pt: 'Barranquilla'
 ciudad: barranquilla
 foto: ../../assets/fotos/charla_2024-07-27_techcaribe-expo-2024-google-io-extended-vertex-ai-cloud-run_luis-reyes-vanegas_001.jpg
 alt:
   es: 'Luis Reyes junto a la pantalla de su charla Crea aplicaciones con Vertex AI y Cloud Run en TechCaribe Expo 2024'
+  en: 'Luis Reyes next to the screen of his talk Build apps with Vertex AI and Cloud Run at TechCaribe Expo 2024'
+  pt: 'Luis Reyes ao lado da tela da sua palestra Crie aplicações com Vertex AI e Cloud Run na TechCaribe Expo 2024'
 sobreMi:
   orden: 4
   titulo:
     es: 'TechCaribe Expo 2024 y Google I/O Extended: Vertex AI y Cloud Run'
+    en: 'TechCaribe Expo 2024 and Google I/O Extended: Vertex AI and Cloud Run'
+    pt: 'TechCaribe Expo 2024 e Google I/O Extended: Vertex AI e Cloud Run'
 speaker:
   orden: 6

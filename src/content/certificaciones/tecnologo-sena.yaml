@@ -1,8 +1,12 @@
 orden: 12
 nombre:
   es: 'Tecnólogo en Análisis y Desarrollo de Sistemas de Información'
+  en: 'Technologist in Information Systems Analysis and Development'
+  pt: 'Tecnólogo em Análise e Desenvolvimento de Sistemas de Informação'
 emisor:
   es: 'SENA'
+  en: 'SENA'
+  pt: 'SENA'
 # año pendiente: Luis lo entrega
 insignia: formacion
 estado: obtenida

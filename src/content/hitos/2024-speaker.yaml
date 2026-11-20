@@ -3,9 +3,17 @@ anio: 2024
 edad: 27
 titulo:
   es: 'Speaker en la comunidad tech'
+  en: 'Speaker in the tech community'
+  pt: 'Palestrante na comunidade tech'
 texto:
   es: 'Empecé en 2023 con GDG Barranquilla y desde 2024 doy charlas, talleres y paneles sobre nube, IA y producto: BAQ.JS, TechCaribe Expo, la Cámara de Comercio de Barranquilla, GDG Summit Latam (Lima) y DevFest Ecuador (Quito), entre otros.'
+  en: 'I started in 2023 with GDG Barranquilla and since 2024 I have given talks, workshops and panels on cloud, AI and product: BAQ.JS, TechCaribe Expo, the Barranquilla Chamber of Commerce, GDG Summit Latam (Lima) and DevFest Ecuador (Quito), among others.'
+  pt: 'Comecei em 2023 com o GDG Barranquilla e desde 2024 dou palestras, workshops e painéis sobre nuvem, IA e produto: BAQ.JS, TechCaribe Expo, a Câmara de Comércio de Barranquilla, GDG Summit Latam (Lima) e DevFest Ecuador (Quito), entre outros.'
 cifra:
   es: 'Colombia · Ecuador · Perú'
+  en: 'Colombia · Ecuador · Peru'
+  pt: 'Colômbia · Equador · Peru'
 impacto:
   es: 'Ahí empezó mi marca personal.'
+  en: "That's where my personal brand began."
+  pt: 'Ali começou minha marca pessoal.'

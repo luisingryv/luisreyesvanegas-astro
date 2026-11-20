@@ -3,15 +3,27 @@ anio: 2020
 edad: 23
 titulo:
   es: 'Fundación de EvolutecC'
+  en: 'Founding EvolutecC'
+  pt: 'Fundação da EvolutecC'
 texto:
   es: 'Cofundé EvolutecC, empresa de desarrollo de software, como CTO: producto, tecnología y arquitectura. Empezamos con sitios web y e-commerce, sin capital externo.'
+  en: 'I co-founded EvolutecC, a software development company, as CTO: product, technology and architecture. We started with websites and e-commerce, without outside capital.'
+  pt: 'Cofundei a EvolutecC, empresa de desenvolvimento de software, como CTO: produto, tecnologia e arquitetura. Começamos com sites e e-commerce, sem capital externo.'
 cifra:
   es: 'Fundada el 28 de agosto de 2020'
+  en: 'Founded on August 28, 2020'
+  pt: 'Fundada em 28 de agosto de 2020'
 impacto:
   es: 'Crecimiento con recursos propios y 90% de recompra de clientes.'
+  en: 'Self-funded growth and 90% repeat clients.'
+  pt: 'Crescimento com recursos próprios e 90% de recompra dos clientes.'
 # Versión corta para la trayectoria del Home.
 home:
   titulo:
     es: 'EvolutecC'
+    en: 'EvolutecC'
+    pt: 'EvolutecC'
   texto:
     es: 'Cofundé la empresa y soy su CTO. Con el equipo hemos entregado más de 400 proyectos.'
+    en: 'I co-founded the company and I am its CTO. With the team we have delivered more than 400 projects.'
+    pt: 'Cofundei a empresa e sou seu CTO. Com a equipe, entregamos mais de 400 projetos.'

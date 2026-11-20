@@ -3,17 +3,33 @@
 largos:
   - etiqueta:
       es: 'Corta · 50 palabras'
+      en: 'Short · 50 words'
+      pt: 'Curta · 50 palavras'
     texto:
       es: 'Luis Reyes Vanegas es arquitecto de soluciones cloud e IA con 13 años de experiencia. Es CEO de Trama AI, ganadora de la categoría Small Business Services del Build with Gemini XPRIZE 2026, y cofundador y CTO de EvolutecC. Ayuda a empresas de Estados Unidos y Latinoamérica a crecer en la nube y a adoptar la IA.'
+      en: 'Luis Reyes Vanegas is a cloud and AI solutions architect with 13 years of experience. He is the CEO of Trama AI, winner of the Small Business Services category of the Build with Gemini XPRIZE 2026, and co-founder and CTO of EvolutecC. He helps companies in the United States and Latin America grow in the cloud and adopt AI.'
+      pt: 'Luis Reyes Vanegas é arquiteto de soluções cloud e IA com 13 anos de experiência. É CEO da Trama AI, vencedora da categoria Small Business Services do Build with Gemini XPRIZE 2026, e cofundador e CTO da EvolutecC. Ajuda empresas dos Estados Unidos e da América Latina a crescer na nuvem e a adotar a IA.'
   - etiqueta:
       es: 'Media · 100 palabras'
+      en: 'Medium · 100 words'
+      pt: 'Média · 100 palavras'
     texto:
       es: 'Luis Reyes Vanegas es arquitecto de soluciones cloud e IA con 13 años de experiencia. Es CEO de Trama AI, ganadora de la categoría Small Business Services del Build with Gemini XPRIZE 2026, y cofundador y CTO de EvolutecC, donde con su equipo ha entregado más de 400 proyectos de software. Como consultor diseña arquitecturas en AWS, Google Cloud y Azure para optimizar costos, escalar, migrar y cumplir con seguridad, y acompaña a equipos que quieren trabajar con IA. Ha dado charlas en GDG Summit Latam (Lima), DevFest Ecuador (Quito) y la comunidad de Google Developer Groups.'
+      en: 'Luis Reyes Vanegas is a cloud and AI solutions architect with 13 years of experience. He is the CEO of Trama AI, winner of the Small Business Services category of the Build with Gemini XPRIZE 2026, and co-founder and CTO of EvolutecC, where he and his team have delivered more than 400 software projects. As a consultant he designs architectures on AWS, Google Cloud and Azure to optimize costs, scale, migrate and meet security requirements, and he supports teams that want to work with AI. He has spoken at GDG Summit Latam (Lima), DevFest Ecuador (Quito) and the Google Developer Groups community.'
+      pt: 'Luis Reyes Vanegas é arquiteto de soluções cloud e IA com 13 anos de experiência. É CEO da Trama AI, vencedora da categoria Small Business Services do Build with Gemini XPRIZE 2026, e cofundador e CTO da EvolutecC, onde com sua equipe entregou mais de 400 projetos de software. Como consultor, projeta arquiteturas na AWS, no Google Cloud e no Azure para otimizar custos, escalar, migrar e cumprir requisitos de segurança, e acompanha equipes que querem trabalhar com IA. Deu palestras no GDG Summit Latam (Lima), no DevFest Ecuador (Quito) e na comunidade Google Developer Groups.'
   - etiqueta:
       es: 'Larga · 200 palabras'
+      en: 'Long · 200 words'
+      pt: 'Longa · 200 palavras'
     texto:
       es: 'Luis Reyes Vanegas es arquitecto de soluciones cloud e IA con 13 años de experiencia. Empezó a los 16 con su primer negocio de tecnología y desde entonces ha llevado sistemas a producción para clínicas, startups y grandes organizaciones. Fue Head of Product de Mandaos, una startup de última milla, donde la integración con iFood llevó la operación de unos 2.400 a unos 70.000 pedidos al mes. Es cofundador y CTO de EvolutecC, donde con su equipo ha entregado más de 400 proyectos de software. Como CEO de Trama AI construyó con su equipo, en 90 días, agentes de IA que operan el inventario de distribuidores textiles, y ganaron la categoría Small Business Services del Build with Gemini XPRIZE 2026, entre 26.449 equipos. Como consultor diseña arquitecturas en AWS, Google Cloud y Azure para empresas de Estados Unidos y Latinoamérica, y acompaña a equipos que quieren adoptar la IA con Claude. Tiene certificaciones internacionales en liderazgo transformacional y en comunicación y oratoria. Ha dado charlas en GDG Summit Latam (Lima), DevFest Ecuador (Quito), TechCaribe y la comunidad de Google Developer Groups.'
+      en: 'Luis Reyes Vanegas is a cloud and AI solutions architect with 13 years of experience. He started his first technology business at 16 and has since taken systems to production for clinics, startups and large organizations. He was Head of Product at Mandaos, a last-mile startup, where the iFood integration took the operation from about 2,400 to about 70,000 orders a month. He is co-founder and CTO of EvolutecC, where he and his team have delivered more than 400 software projects. As CEO of Trama AI, he and his team built, in 90 days, AI agents that run the inventory of textile distributors, and they won the Small Business Services category of the Build with Gemini XPRIZE 2026, among 26,449 teams. As a consultant he designs architectures on AWS, Google Cloud and Azure for companies in the United States and Latin America, and he supports teams that want to adopt AI with Claude. He holds international certifications in transformational leadership and in communication and public speaking. He has spoken at GDG Summit Latam (Lima), DevFest Ecuador (Quito), TechCaribe and the Google Developer Groups community.'
+      pt: 'Luis Reyes Vanegas é arquiteto de soluções cloud e IA com 13 anos de experiência. Começou aos 16 com seu primeiro negócio de tecnologia e desde então levou sistemas à produção para clínicas, startups e grandes organizações. Foi Head of Product da Mandaos, uma startup de última milha, onde a integração com o iFood levou a operação de cerca de 2.400 para cerca de 70.000 pedidos por mês. É cofundador e CTO da EvolutecC, onde com sua equipe entregou mais de 400 projetos de software. Como CEO da Trama AI, construiu com sua equipe, em 90 dias, agentes de IA que operam o estoque de distribuidores têxteis, e venceram a categoria Small Business Services do Build with Gemini XPRIZE 2026, entre 26.449 equipes. Como consultor, projeta arquiteturas na AWS, no Google Cloud e no Azure para empresas dos Estados Unidos e da América Latina, e acompanha equipes que querem adotar a IA com o Claude. Tem certificações internacionais em liderança transformacional e em comunicação e oratória. Deu palestras no GDG Summit Latam (Lima), no DevFest Ecuador (Quito), na TechCaribe e na comunidade Google Developer Groups.'
 copiar:
   es: 'Copiar'
+  en: 'Copy'
+  pt: 'Copiar'
 copiada:
   es: 'Copiada'
+  en: 'Copied'
+  pt: 'Copiada'

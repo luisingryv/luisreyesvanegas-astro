@@ -10,119 +10,225 @@ permiso: true
 tarjeta:
   metrica:
     es: 'US$62.000'
+    en: 'US$62,000'
+    pt: 'US$62.000'
   titulo:
     es: 'Una startup de SAP escala de forma segura en AWS'
+    en: 'A SAP startup scales securely on AWS'
+    pt: 'Uma startup de SAP escala com segurança na AWS'
   quien:
     es: 'Glasslake · 2025–hoy'
+    en: 'Glasslake · 2025–present'
+    pt: 'Glasslake · 2025–hoje'
 consultoria:
   etiqueta:
     es: 'Escalar'
+    en: 'Scale'
+    pt: 'Escalar'
   titulo:
     es: 'Una startup de SAP escala de forma segura en AWS'
+    en: 'A SAP startup scales securely on AWS'
+    pt: 'Uma startup de SAP escala com segurança na AWS'
   metrica:
     es: 'US$62.000'
+    en: 'US$62,000'
+    pt: 'US$62.000'
   quien:
     es: 'Glasslake · 2025–hoy · Cloud Expert y administrador de la cuenta'
+    en: 'Glasslake · 2025–present · Cloud Expert and account administrator'
+    pt: 'Glasslake · 2025–hoje · Cloud Expert e administrador da conta'
   pasos:
     - clave:
         es: 'Contexto'
+        en: 'Context'
+        pt: 'Contexto'
       texto:
         es: 'Startup de SAP de San Francisco con presencia global, en pleno crecimiento y con experiencia en AWS: una cuenta robusta que tiene que escalar sin perder seguridad.'
+        en: 'A San Francisco SAP startup with a global presence, growing fast and experienced with AWS: a robust account that has to scale without losing security.'
+        pt: 'Startup de SAP de São Francisco com presença global, em pleno crescimento e com experiência na AWS: uma conta robusta que precisa escalar sem perder segurança.'
     - clave:
         es: 'Hallazgo'
+        en: 'Finding'
+        pt: 'Descoberta'
       texto:
         es: 'Había que robustecer la cuenta con buenas prácticas: redes seguras hacia los entornos de sus clientes, orden en los accesos y control de costos.'
+        en: "The account needed to be strengthened with best practices: secure networks to its clients' environments, order in access and cost control."
+        pt: 'Era preciso fortalecer a conta com boas práticas: redes seguras até os ambientes dos clientes, ordem nos acessos e controle de custos.'
     - clave:
         es: 'Decisión'
+        en: 'Decision'
+        pt: 'Decisão'
       texto:
         es: 'Organizations e IAM Identity Center para centralizar cuentas, beneficios y pagos; entornos multitenant; Transit Gateway, VPN y endpoints; seguridad con Amazon Inspector y monitoreo; revisión y proyección de costos.'
+        en: 'Organizations and IAM Identity Center to centralize accounts, benefits and payments; multitenant environments; Transit Gateway, VPN and endpoints; security with Amazon Inspector and monitoring; cost review and forecasting.'
+        pt: 'Organizations e IAM Identity Center para centralizar contas, benefícios e pagamentos; ambientes multitenant; Transit Gateway, VPN e endpoints; segurança com Amazon Inspector e monitoramento; revisão e projeção de custos.'
     - clave:
         es: 'Resultado'
+        en: 'Result'
+        pt: 'Resultado'
       texto:
         es: 'La cuenta crece con orden: créditos del programa MAP, tráfico por NAT Gateway 75–80% menor e ISO 27001 y SOC 2 logradas por el cliente, con mi contribución técnica.'
+        en: 'The account grows in order: MAP program credits, 75–80% less NAT Gateway traffic, and ISO 27001 and SOC 2 achieved by the client with my technical contribution.'
+        pt: 'A conta cresce com ordem: créditos do programa MAP, tráfego pelo NAT Gateway 75–80% menor e ISO 27001 e SOC 2 conquistadas pelo cliente, com minha contribuição técnica.'
   viz:
     tipo: 'anillo'
 pagina:
   titulo:
     es: 'Cómo Glasslake escala de forma segura en AWS'
+    en: 'How Glasslake scales securely on AWS'
+    pt: 'Como a Glasslake escala com segurança na AWS'
   resumen:
     es: 'Glasslake es una startup de SAP de San Francisco con presencia global y una cuenta de AWS robusta, en pleno crecimiento. Como su Cloud Expert y administrador de la cuenta, me encargo de la arquitectura, las redes, la seguridad y los costos para que la infraestructura crezca con el negocio.'
+    en: 'Glasslake is a San Francisco SAP startup with a global presence and a robust, fast-growing AWS account. As its Cloud Expert and account administrator, I handle architecture, networking, security and costs so the infrastructure grows with the business.'
+    pt: 'A Glasslake é uma startup de SAP de São Francisco com presença global e uma conta AWS robusta, em pleno crescimento. Como seu Cloud Expert e administrador da conta, cuido da arquitetura, das redes, da segurança e dos custos para que a infraestrutura cresça com o negócio.'
   ficha:
     - clave:
         es: 'Cliente'
+        en: 'Client'
+        pt: 'Cliente'
       valor:
         es: 'Glasslake'
+        en: 'Glasslake'
+        pt: 'Glasslake'
     - clave:
         es: 'Sector'
+        en: 'Industry'
+        pt: 'Setor'
       valor:
         es: 'Software para SAP'
+        en: 'Software for SAP'
+        pt: 'Software para SAP'
     - clave:
         es: 'País'
+        en: 'Country'
+        pt: 'País'
       valor:
         es: 'Estados Unidos (San Francisco), presencia global'
+        en: 'United States (San Francisco), global presence'
+        pt: 'Estados Unidos (São Francisco), presença global'
     - clave:
         es: 'Mi rol'
+        en: 'My role'
+        pt: 'Meu papel'
       valor:
         es: 'Cloud Expert y administrador de la cuenta: arquitectura, redes, seguridad, costos y soporte'
+        en: 'Cloud Expert and account administrator: architecture, networking, security, costs and support'
+        pt: 'Cloud Expert e administrador da conta: arquitetura, redes, segurança, custos e suporte'
     - clave:
         es: 'Periodo'
+        en: 'Period'
+        pt: 'Período'
       valor:
         es: '2025–hoy'
+        en: '2025–present'
+        pt: '2025–hoje'
     - clave:
         es: 'Nube'
+        en: 'Cloud'
+        pt: 'Nuvem'
       valor:
         es: 'AWS'
+        en: 'AWS'
+        pt: 'AWS'
     - clave:
         es: 'Aliado'
+        en: 'Partner'
+        pt: 'Parceiro'
       valor:
         es: 'Nexa Connect, para el programa MAP'
+        en: 'Nexa Connect, for the MAP program'
+        pt: 'Nexa Connect, para o programa MAP'
   bloques:
     - clave:
         es: 'Contexto'
+        en: 'Context'
+        pt: 'Contexto'
       texto:
         es: 'Glasslake ya tenía experiencia en AWS y una cuenta en pleno crecimiento. Necesitaba robustecerla con buenas prácticas: redes seguras hacia los entornos SAP de sus clientes, orden en los accesos y control de los costos.'
+        en: "Glasslake already had AWS experience and a fast-growing account. It needed to strengthen it with best practices: secure networks to its clients' SAP environments, order in access and cost control."
+        pt: 'A Glasslake já tinha experiência na AWS e uma conta em pleno crescimento. Precisava fortalecê-la com boas práticas: redes seguras até os ambientes SAP dos clientes, ordem nos acessos e controle dos custos.'
     - clave:
         es: 'Decisión'
+        en: 'Decision'
+        pt: 'Decisão'
       texto:
         es: 'Centralicé las cuentas con AWS Organizations e IAM Identity Center: desde la cuenta principal se reparten los beneficios y programas y se manejan los pagos. Construí los entornos multitenant y las conexiones de red con Transit Gateway, VPN, endpoints y proxies hacia los clientes, y una infraestructura que crece en proporción a su costo de servicio.'
+        en: 'I centralized the accounts with AWS Organizations and IAM Identity Center: benefits and programs are shared and payments are managed from the main account. I built the multitenant environments and the network connections with Transit Gateway, VPN, endpoints and proxies to the clients, and an infrastructure that grows in proportion to its cost of service.'
+        pt: 'Centralizei as contas com AWS Organizations e IAM Identity Center: a partir da conta principal são distribuídos os benefícios e programas e são feitos os pagamentos. Construí os ambientes multitenant e as conexões de rede com Transit Gateway, VPN, endpoints e proxies até os clientes, e uma infraestrutura que cresce na proporção do seu custo de serviço.'
     - clave:
         es: 'Operación'
+        en: 'Operations'
+        pt: 'Operação'
       texto:
         es: 'Administro la cuenta: usuarios y accesos, cumplimiento de la seguridad con Amazon Inspector y monitoreo, revisión y proyección de costos, y soporte de los servicios.'
+        en: 'I run the account: users and access, security compliance with Amazon Inspector and monitoring, cost review and forecasting, and service support.'
+        pt: 'Administro a conta: usuários e acessos, conformidade de segurança com Amazon Inspector e monitoramento, revisão e projeção de custos, e suporte dos serviços.'
     - clave:
         es: 'Programas'
+        en: 'Programs'
+        pt: 'Programas'
       texto:
         es: 'Con nuestro aliado Nexa Connect, Glasslake accedió al programa MAP de AWS. Además, el equipo recibió 10 usuarios de Kiro con créditos.'
+        en: 'With our partner Nexa Connect, Glasslake joined the AWS MAP program. The team also received 10 Kiro users with credits.'
+        pt: 'Com nosso parceiro Nexa Connect, a Glasslake entrou no programa MAP da AWS. Além disso, a equipe recebeu 10 usuários do Kiro com créditos.'
     - clave:
         es: 'Seguridad'
+        en: 'Security'
+        pt: 'Segurança'
       texto:
         es: 'Preparé la evidencia técnica en la nube para sus certificaciones. Glasslake obtuvo ISO 27001 y SOC 2: es un logro del cliente, con mi contribución técnica.'
+        en: "I prepared the technical cloud evidence for its certifications. Glasslake achieved ISO 27001 and SOC 2: it is the client's achievement, with my technical contribution."
+        pt: 'Preparei a evidência técnica na nuvem para as certificações. A Glasslake obteve ISO 27001 e SOC 2: é uma conquista do cliente, com minha contribuição técnica.'
   cifras:
     - metrica:
         es: 'US$62.000'
+        en: 'US$62,000'
+        pt: 'US$62.000'
       texto:
         es: 'En créditos de AWS por el programa MAP, con Nexa Connect.'
+        en: 'In AWS credits through the MAP program, with Nexa Connect.'
+        pt: 'Em créditos da AWS pelo programa MAP, com a Nexa Connect.'
     - metrica:
         es: '−75 a −80%'
+        en: '−75 to −80%'
+        pt: '−75 a −80%'
       texto:
         es: 'En el tráfico por NAT Gateway después de optimizar la red.'
+        en: 'In NAT Gateway traffic after optimizing the network.'
+        pt: 'No tráfego pelo NAT Gateway depois de otimizar a rede.'
     - metrica:
         es: 'US$8.000'
+        en: 'US$8,000'
+        pt: 'US$8.000'
       texto:
         es: 'En créditos para 10 usuarios de Kiro.'
+        en: 'In credits for 10 Kiro users.'
+        pt: 'Em créditos para 10 usuários do Kiro.'
     - metrica:
         es: 'ISO 27001 · SOC 2'
+        en: 'ISO 27001 · SOC 2'
+        pt: 'ISO 27001 · SOC 2'
       texto:
         es: 'Certificaciones logradas por Glasslake.'
+        en: 'Certifications achieved by Glasslake.'
+        pt: 'Certificações conquistadas pela Glasslake.'
   fuente:
     es: 'Fuente: Luis Reyes Vanegas, con autorización de Glasslake. Montos de programas según elegibilidad.'
+    en: "Source: Luis Reyes Vanegas, with Glasslake's authorization. Program amounts subject to eligibility."
+    pt: 'Fonte: Luis Reyes Vanegas, com autorização da Glasslake. Valores dos programas conforme a elegibilidade.'
   cierre:
     titulo:
       es: '¿Tu empresa está por crecer en la nube?'
+      en: 'Is your company about to grow in the cloud?'
+      pt: 'Sua empresa está prestes a crescer na nuvem?'
     texto:
       es: 'Revisemos si tu infraestructura aguanta y qué programas te corresponden.'
+      en: "Let's check whether your infrastructure can handle it and which programs you qualify for."
+      pt: 'Vamos ver se sua infraestrutura aguenta e quais programas correspondem a você.'
     enlace:
       texto:
         es: 'Ver revisión de escalabilidad'
+        en: 'See scalability review'
+        pt: 'Ver revisão de escalabilidade'
       destino:
         ruta: 'escalarInfraestructura'

@@ -8,5 +8,9 @@ permiso: true
 tarjeta:
   titulo:
     es: 'Soluciones en la nube para la Fuerza Aérea Colombiana, como aliados de TIVIT'
+    en: 'Cloud solutions for the Colombian Air Force, as TIVIT partners'
+    pt: 'Soluções em nuvem para a Força Aérea Colombiana, como parceiros da TIVIT'
   quien:
     es: 'Fuerza Aérea Colombiana · TIVIT · 2023'
+    en: 'Colombian Air Force · TIVIT · 2023'
+    pt: 'Força Aérea Colombiana · TIVIT · 2023'

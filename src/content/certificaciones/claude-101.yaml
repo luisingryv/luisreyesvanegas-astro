@@ -1,8 +1,12 @@
 orden: 2
 nombre:
   es: 'Claude 101'
+  en: 'Claude 101'
+  pt: 'Claude 101'
 emisor:
   es: 'Anthropic · Claude Academy'
+  en: 'Anthropic · Claude Academy'
+  pt: 'Anthropic · Claude Academy'
 fecha:
   anio: 2026
   mes: 10

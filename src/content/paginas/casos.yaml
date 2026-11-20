@@ -3,67 +3,127 @@
 hero:
   eyebrow:
     es: 'Casos'
+    en: 'Case studies'
+    pt: 'Casos'
   titulo:
     es: 'Casos de éxito'
+    en: 'Case studies'
+    pt: 'Casos de sucesso'
   texto:
     es: 'Proyectos en los que estuve, con el problema que había, lo que decidimos y el resultado medido. Cada caso dice si fue una consultoría mía, un producto o un proyecto que lideré con mi equipo en EvolutecC.'
+    en: 'Projects I worked on, with the problem at hand, what we decided and the measured result. Each case says whether it was my own consulting, a product, or a project I led with my team at EvolutecC.'
+    pt: 'Projetos dos quais participei, com o problema que havia, o que decidimos e o resultado medido. Cada caso diz se foi uma consultoria minha, um produto ou um projeto que liderei com minha equipe na EvolutecC.'
 filtros:
   etiqueta:
     es: 'Filtros'
+    en: 'Filters'
+    pt: 'Filtros'
   tema:
     es: 'Tema'
+    en: 'Topic'
+    pt: 'Tema'
   tipo:
     es: 'Tipo'
+    en: 'Type'
+    pt: 'Tipo'
   todos:
     es: 'Todos'
+    en: 'All'
+    pt: 'Todos'
   temas:
     costos:
       es: 'Costos'
+      en: 'Costs'
+      pt: 'Custos'
     crecimiento:
       es: 'Crecimiento'
+      en: 'Growth'
+      pt: 'Crescimento'
     programas:
       es: 'Programas'
+      en: 'Programs'
+      pt: 'Programas'
     migracion:
       es: 'Migración'
+      en: 'Migration'
+      pt: 'Migração'
     buenas-practicas:
       es: 'Buenas prácticas'
+      en: 'Best practices'
+      pt: 'Boas práticas'
     seguridad:
       es: 'Seguridad'
+      en: 'Security'
+      pt: 'Segurança'
     ia:
       es: 'IA'
+      en: 'AI'
+      pt: 'IA'
   tipos:
     consultoria-propia:
       es: 'Consultoría propia'
+      en: 'My own consulting'
+      pt: 'Consultoria própria'
     startup-producto:
       es: 'Startup o producto'
+      en: 'Startup or product'
+      pt: 'Startup ou produto'
     evolutecc:
       es: 'Liderado con mi equipo en EvolutecC'
+      en: 'Led with my team at EvolutecC'
+      pt: 'Liderado com minha equipe na EvolutecC'
   vacio:
     es: 'No hay casos con esta combinación todavía.'
+    en: 'There are no cases with this combination yet.'
+    pt: 'Ainda não há casos com esta combinação.'
 lista:
   es: 'Lista de casos'
+  en: 'Case list'
+  pt: 'Lista de casos'
 verCaso:
   es: 'Ver caso'
+  en: 'See case'
+  pt: 'Ver caso'
 cierre:
   titulo:
     es: '¿Tienes un problema parecido?'
+    en: 'Have a similar problem?'
+    pt: 'Tem um problema parecido?'
   boton:
     es: 'Agendar sesión de arquitectura'
+    en: 'Book an architecture session'
+    pt: 'Agendar sessão de arquitetura'
 plantilla:
   volver:
     es: 'Todos los casos'
+    en: 'All case studies'
+    pt: 'Todos os casos'
   ficha:
     es: 'Ficha del caso'
+    en: 'Case facts'
+    pt: 'Ficha do caso'
   resultado:
     es: 'Resultado'
+    en: 'Result'
+    pt: 'Resultado'
   diagrama:
     eyebrow:
       es: 'Cómo funcionó'
+      en: 'How it worked'
+      pt: 'Como funcionou'
     titulo:
       es: 'La arquitectura, antes y después'
+      en: 'The architecture, before and after'
+      pt: 'A arquitetura, antes e depois'
     momento:
       es: 'Momento'
+      en: 'Stage'
+      pt: 'Momento'
     antes:
       es: 'Antes'
+      en: 'Before'
+      pt: 'Antes'
     despues:
       es: 'Después'
+      en: 'After'
+      pt: 'Depois'

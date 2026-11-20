@@ -2,40 +2,78 @@
 orden: 2
 eyebrow:
   es: 'Legal'
+  en: 'Legal'
+  pt: 'Legal'
 titulo:
   es: 'Términos de uso'
+  en: 'Terms of use'
+  pt: 'Termos de uso'
 navegacion:
   es: 'Términos de uso'
+  en: 'Terms of use'
+  pt: 'Termos de uso'
 secciones:
   - titulo:
       es: 'Para qué sirve el sitio'
+      en: 'What the site is for'
+      pt: 'Para que serve o site'
     texto:
       es: 'Presenta mi trayectoria, mis servicios, mis charlas y los productos en los que participo. Es informativo y no reemplaza una propuesta firmada.'
+      en: 'It presents my background, my services, my talks and the products I take part in. It is informational and does not replace a signed proposal.'
+      pt: 'Apresenta minha trajetória, meus serviços, minhas palestras e os produtos dos quais participo. É informativo e não substitui uma proposta assinada.'
   - titulo:
       es: 'Servicios y precios'
+      en: 'Services and prices'
+      pt: 'Serviços e preços'
     texto:
       es: 'Solo la sesión de arquitectura tiene precio publicado (US$450). Lo demás se cotiza después de conocer tu caso. El desarrollo a la medida lo presta EvolutecC.'
+      en: 'Only the architecture session has a published price (US$450). Everything else is quoted after learning about your case. Custom development is provided by EvolutecC.'
+      pt: 'Só a sessão de arquitetura tem preço publicado (US$450). O restante é orçado depois de conhecer seu caso. O desenvolvimento sob medida é prestado pela EvolutecC.'
   - titulo:
       es: 'Resultados y cifras'
+      en: 'Results and figures'
+      pt: 'Resultados e números'
     texto:
       es: 'Los casos son reales y se publican con permiso. No garantizan el mismo resultado en tu caso. Los incentivos, fondos y beneficios de apoyo de Amazon Web Services están sujetos a evaluación, validación y aprobación previa por parte de Amazon Web Services. Su disponibilidad dependerá del cumplimiento de los requisitos y criterios de elegibilidad establecidos por AWS para cada programa y proyecto. La presentación de una solicitud no garantiza la aprobación y asignación.'
+      en: 'The cases are real and published with permission. They do not guarantee the same result in your case. Amazon Web Services incentives, funds and support benefits are subject to prior evaluation, validation and approval by Amazon Web Services. Their availability will depend on meeting the requirements and eligibility criteria set by AWS for each program and project. Submitting an application does not guarantee approval and allocation.'
+      pt: 'Os casos são reais e publicados com permissão. Não garantem o mesmo resultado no seu caso. Os incentivos, fundos e benefícios de apoio da Amazon Web Services estão sujeitos a avaliação, validação e aprovação prévia por parte da Amazon Web Services. Sua disponibilidade dependerá do cumprimento dos requisitos e critérios de elegibilidade estabelecidos pela AWS para cada programa e projeto. A apresentação de uma solicitação não garante a aprovação e a concessão.'
   - titulo:
       es: 'Productos e inversión'
+      en: 'Products and investment'
+      pt: 'Produtos e investimento'
     texto:
       es: 'Nada en el sitio es una oferta pública de valores ni una invitación a invertir.'
+      en: 'Nothing on the site is a public offering of securities or an invitation to invest.'
+      pt: 'Nada no site é uma oferta pública de valores mobiliários nem um convite para investir.'
   - titulo:
       es: 'Propiedad intelectual'
+      en: 'Intellectual property'
+      pt: 'Propriedade intelectual'
     texto:
       es: 'El contenido es mío o se usa con autorización. Las marcas de terceros pertenecen a sus dueños y mencionarlas no implica patrocinio.'
+      en: 'The content is mine or used with authorization. Third-party trademarks belong to their owners and mentioning them does not imply sponsorship.'
+      pt: 'O conteúdo é meu ou usado com autorização. As marcas de terceiros pertencem aos seus donos e mencioná-las não implica patrocínio.'
   - titulo:
       es: 'Uso adecuado'
+      en: 'Proper use'
+      pt: 'Uso adequado'
     texto:
       es: 'No envíes información falsa, no intentes acceder sin permiso a los sistemas y no uses los formularios para publicidad no solicitada.'
+      en: 'Do not submit false information, do not try to access the systems without permission and do not use the forms for unsolicited advertising.'
+      pt: 'Não envie informações falsas, não tente acessar os sistemas sem permissão e não use os formulários para publicidade não solicitada.'
   - titulo:
       es: 'Enlaces y responsabilidad'
+      en: 'Links and liability'
+      pt: 'Links e responsabilidade'
     texto:
       es: 'No controlo los sitios de terceros enlazados. El sitio se ofrece tal como está.'
+      en: 'I do not control the third-party sites linked here. The site is provided as is.'
+      pt: 'Não controlo os sites de terceiros com links aqui. O site é oferecido no estado em que se encontra.'
   - titulo:
       es: 'Ley aplicable'
+      en: 'Governing law'
+      pt: 'Lei aplicável'
     texto:
       es: 'Estos términos se rigen por las leyes de Colombia. Contacto: {correoContacto}.'
+      en: 'These terms are governed by the laws of Colombia. Contact: {correoContacto}.'
+      pt: 'Estes termos são regidos pelas leis da Colômbia. Contato: {correoContacto}.'

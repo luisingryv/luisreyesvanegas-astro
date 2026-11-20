@@ -1,8 +1,12 @@
 orden: 10
 nombre:
   es: 'Certificaciones de arquitectura cloud'
+  en: 'Cloud architecture certifications'
+  pt: 'Certificações de arquitetura cloud'
 emisor:
   es: 'AWS · Google Cloud'
+  en: 'AWS · Google Cloud'
+  pt: 'AWS · Google Cloud'
 fecha:
   anio: 2026
 insignia: cloud

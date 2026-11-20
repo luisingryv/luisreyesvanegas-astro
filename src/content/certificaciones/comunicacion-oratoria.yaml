@@ -1,8 +1,12 @@
 orden: 7
 nombre:
   es: 'Certificación Internacional en Comunicación y Oratoria (24 h)'
+  en: 'International Certification in Communication and Public Speaking (24 h)'
+  pt: 'Certificação Internacional em Comunicação e Oratória (24 h)'
 emisor:
   es: 'Naranjo Consulting & Coaching'
+  en: 'Naranjo Consulting & Coaching'
+  pt: 'Naranjo Consulting & Coaching'
 fecha:
   anio: 2025
   mes: 11

@@ -2,133 +2,247 @@
 ruta: 'escalarInfraestructura'
 titulo:
   es: 'Escalar la infraestructura'
+  en: 'Scaling infrastructure'
+  pt: 'Escalar a infraestrutura'
 hero:
   eyebrow:
     es: '02 / 07 · Crecer la infraestructura'
+    en: '02 / 07 · Grow the infrastructure'
+    pt: '02 / 07 · Fazer a infraestrutura crescer'
   titulo:
     es: '¿Vas a multiplicar usuarios y no sabes si tu infraestructura aguanta?'
+    en: 'About to multiply your users and not sure your infrastructure can handle it?'
+    pt: 'Vai multiplicar seus usuários e não sabe se sua infraestrutura aguenta?'
   texto:
     es: 'Reviso tu arquitectura antes de que llegue el crecimiento: proyecto la capacidad que vas a necesitar, encuentro los cuellos de botella y diseño una infraestructura que crece en proporción a lo que facturas.'
+    en: "I review your architecture before the growth arrives: I project the capacity you'll need, find the bottlenecks and design infrastructure that grows in proportion to your revenue."
+    pt: 'Reviso sua arquitetura antes que o crescimento chegue: projeto a capacidade de que você vai precisar, encontro os gargalos e projeto uma infraestrutura que cresce na proporção do que você fatura.'
   agendar:
     es: 'Agendar sesión de arquitectura · US$450'
+    en: 'Book an architecture session · US$450'
+    pt: 'Agendar sessão de arquitetura · US$450'
   llamada:
     es: 'Llamada de 20 min gratis'
+    en: 'Free 20-min call'
+    pt: 'Chamada gratuita de 20 min'
 senales:
   titulo:
     es: 'Señales de que este es tu caso'
+    en: 'Signs this is your case'
+    pt: 'Sinais de que este é o seu caso'
   items:
     - es: 'Vas a lanzar en un mercado nuevo o a sumar un cliente grande.'
+      en: "You're about to launch in a new market or add a large client."
+      pt: 'Você vai lançar em um mercado novo ou somar um cliente grande.'
     - es: 'Cada pico de tráfico es una noche sin dormir.'
+      en: 'Every traffic spike is a sleepless night.'
+      pt: 'Cada pico de tráfego é uma noite sem dormir.'
     - es: 'Escalar significa comprar servidores más grandes.'
+      en: 'Scaling means buying bigger servers.'
+      pt: 'Escalar significa comprar servidores maiores.'
     - es: 'No sabes cuánto te cuesta servir a cada usuario.'
+      en: "You don't know how much it costs you to serve each user."
+      pt: 'Você não sabe quanto custa atender cada usuário.'
     - es: 'La base de datos es el primer sospechoso cuando algo falla.'
+      en: 'The database is the first suspect when something fails.'
+      pt: 'O banco de dados é o primeiro suspeito quando algo falha.'
 entregables:
   eyebrow:
     es: 'Qué recibes'
+    en: 'What you get'
+    pt: 'O que você recebe'
   titulo:
     es: 'Revisión de escalabilidad y capacidad'
+    en: 'Scalability and capacity review'
+    pt: 'Revisão de escalabilidade e capacidade'
   items:
     - titulo:
         es: 'Proyección de capacidad'
+        en: 'Capacity projection'
+        pt: 'Projeção de capacidade'
       texto:
         es: 'Usuarios, carga y costo por usuario en los próximos escenarios de crecimiento.'
+        en: 'Users, load and cost per user in the upcoming growth scenarios.'
+        pt: 'Usuários, carga e custo por usuário nos próximos cenários de crescimento.'
     - titulo:
         es: 'Mapa de cuellos de botella'
+        en: 'Bottleneck map'
+        pt: 'Mapa de gargalos'
       texto:
         es: 'Qué se rompe primero y por qué, con evidencia de pruebas de carga.'
+        en: 'What breaks first and why, with evidence from load tests.'
+        pt: 'O que quebra primeiro e por quê, com evidência de testes de carga.'
     - titulo:
         es: 'Arquitectura objetivo'
+        en: 'Target architecture'
+        pt: 'Arquitetura-alvo'
       texto:
         es: 'Autoescalado, servicios administrados y el orden en que conviene migrar cada pieza.'
+        en: 'Autoscaling, managed services and the order in which it makes sense to migrate each piece.'
+        pt: 'Escalonamento automático, serviços gerenciados e a ordem em que convém migrar cada peça.'
     - titulo:
         es: 'Costo que crece con el negocio'
+        en: 'Cost that grows with the business'
+        pt: 'Custo que cresce com o negócio'
       texto:
         es: 'Una infraestructura cuyo costo sube en proporción a tus ingresos, no antes.'
+        en: 'Infrastructure whose cost rises in proportion to your revenue, not before.'
+        pt: 'Uma infraestrutura cujo custo sobe na proporção da sua receita, não antes.'
 proceso:
   eyebrow:
     es: 'Cómo lo hago'
+    en: 'How I do it'
+    pt: 'Como faço'
   titulo:
     es: 'Proceso'
+    en: 'Process'
+    pt: 'Processo'
   items:
     - numero: '01'
       titulo:
         es: 'Acceso de solo lectura'
+        en: 'Read-only access'
+        pt: 'Acesso somente leitura'
       texto:
         es: 'A tu cuenta, a tus métricas y a tu facturación.'
+        en: 'To your account, your metrics and your billing.'
+        pt: 'À sua conta, às suas métricas e ao seu faturamento.'
     - numero: '02'
       titulo:
         es: 'Pruebas y diagnóstico'
+        en: 'Testing and diagnosis'
+        pt: 'Testes e diagnóstico'
       texto:
         es: 'Pruebas de carga y revisión de la arquitectura actual.'
+        en: 'Load testing and a review of the current architecture.'
+        pt: 'Testes de carga e revisão da arquitetura atual.'
     - numero: '03'
       titulo:
         es: 'Plan de crecimiento'
+        en: 'Growth plan'
+        pt: 'Plano de crescimento'
       texto:
         es: 'Arquitectura objetivo, proyección de costos y prioridades.'
+        en: 'Target architecture, cost projection and priorities.'
+        pt: 'Arquitetura-alvo, projeção de custos e prioridades.'
     - numero: '04'
       titulo:
         es: 'Implementación'
+        en: 'Implementation'
+        pt: 'Implementação'
       texto:
         es: 'Con tu equipo, con mi acompañamiento o hecha por mí.'
+        en: 'With your team, with my support or done by me.'
+        pt: 'Com sua equipe, com meu acompanhamento ou feita por mim.'
   nota:
     es: 'Duración: según el tamaño de la plataforma.'
+    en: 'Duration: depends on the size of the platform.'
+    pt: 'Duração: conforme o tamanho da plataforma.'
 caso:
   eyebrow:
     es: 'Caso · Glasslake · 2025–2026'
+    en: 'Case · Glasslake · 2025–2026'
+    pt: 'Caso · Glasslake · 2025–2026'
   titulo:
     es: 'Una startup de SAP crece de forma segura en AWS'
+    en: 'A SAP startup grows securely on AWS'
+    pt: 'Uma startup de SAP cresce com segurança na AWS'
   texto:
-    es: 'Glasslake, una startup de SAP de San Francisco con presencia global, estaba dando sus primeros pasos en AWS mientras crecía. Diseñé redes seguras hacia los entornos SAP de sus clientes, ordené los accesos con IAM y optimicé la red: el tráfico por NAT Gateway bajó entre 75 y 80%.'
+    es: 'Glasslake, una startup de SAP de San Francisco con presencia global, tiene una cuenta de AWS robusta en pleno crecimiento. Diseñé redes seguras hacia los entornos SAP de sus clientes, ordené los accesos con IAM y optimicé la red: el tráfico por NAT Gateway bajó entre 75 y 80%.'
+    en: "Glasslake, a San Francisco SAP startup with a global presence, has a robust, fast-growing AWS account. I designed secure networks to its clients' SAP environments, organized access with IAM and optimized the network: NAT Gateway traffic dropped 75 to 80%."
+    pt: 'A Glasslake, uma startup de SAP de São Francisco com presença global, tem uma conta AWS robusta em pleno crescimento. Projetei redes seguras até os ambientes SAP dos clientes, organizei os acessos com IAM e otimizei a rede: o tráfego pelo NAT Gateway caiu entre 75 e 80%.'
   enlace:
     texto:
       es: 'Ver el caso completo'
+      en: 'See the full case'
+      pt: 'Ver o caso completo'
     destino:
       caso: 'glasslake'
   metrica:
     es: 'US$62.000'
+    en: 'US$62,000'
+    pt: 'US$62.000'
   leyenda:
     es: 'En créditos de AWS por el programa MAP, con el aliado Nexa Connect.'
+    en: 'In AWS credits through the MAP program, with partner Nexa Connect.'
+    pt: 'Em créditos da AWS pelo programa MAP, com o parceiro Nexa Connect.'
 empezar:
   eyebrow:
     es: 'Cómo empezar'
+    en: 'How to start'
+    pt: 'Como começar'
   titulo:
     es: 'Primero, una sesión de arquitectura'
+    en: 'First, an architecture session'
+    pt: 'Primeiro, uma sessão de arquitetura'
   texto:
     es: '90 minutos y un memo con recomendaciones en 48 horas, por US$450. Si después seguimos con la revisión de escalabilidad, te descuento los US$450. El valor de la revisión depende del tamaño de tu plataforma y te lo propongo después de la sesión.'
+    en: "90 minutes and a memo with recommendations within 48 hours, for US$450. If we then continue with the scalability review, I credit the US$450. The price of the review depends on the size of your platform and I'll propose it after the session."
+    pt: '90 minutos e um memorando com recomendações em 48 horas, por US$450. Se depois continuarmos com a revisão de escalabilidade, desconto os US$450. O valor da revisão depende do tamanho da sua plataforma e eu proponho depois da sessão.'
   aparte:
     eyebrow:
       es: 'Si estás en AWS'
+      en: "If you're on AWS"
+      pt: 'Se você está na AWS'
     titulo:
       es: 'Tu crecimiento puede abrir programas de AWS'
+      en: 'Your growth can open AWS programs'
+      pt: 'Seu crescimento pode abrir programas da AWS'
     texto:
       es: 'Si tu consumo crece, AWS puede invertir en tu migración o en cargas nuevas con el programa MAP, previa evaluación y aprobación de AWS.'
+      en: "If your usage is growing, AWS can invest in your migration or in new workloads through the MAP program, after AWS's evaluation and approval."
+      pt: 'Se seu consumo cresce, a AWS pode investir na sua migração ou em novas cargas com o programa MAP, após avaliação e aprovação da AWS.'
     enlace:
       texto:
         es: 'Conoce el programa MAP'
+        en: 'Learn about the MAP program'
+        pt: 'Conheça o programa MAP'
       destino:
         ruta: 'programasAws'
 faq:
   titulo:
     es: 'Preguntas frecuentes'
+    en: 'Frequently asked questions'
+    pt: 'Perguntas frequentes'
   items:
     - pregunta:
         es: '¿Trabajas solo con AWS?'
+        en: 'Do you only work with AWS?'
+        pt: 'Você só trabalha com a AWS?'
       respuesta:
         es: 'No. También con Google Cloud y Azure.'
+        en: 'No. Also with Google Cloud and Azure.'
+        pt: 'Não. Também com Google Cloud e Azure.'
     - pregunta:
         es: '¿Hacen falta pruebas de carga?'
+        en: 'Are load tests needed?'
+        pt: 'São necessários testes de carga?'
       respuesta:
         es: 'Casi siempre. Son la forma de saber qué se rompe antes de que lo descubran tus usuarios.'
+        en: "Almost always. They're how you find out what breaks before your users do."
+        pt: 'Quase sempre. São a forma de saber o que quebra antes que seus usuários descubram.'
     - pregunta:
         es: '¿Y si ya estamos en producción con mucho tráfico?'
+        en: "What if we're already in production with heavy traffic?"
+        pt: 'E se já estivermos em produção com muito tráfego?'
       respuesta:
         es: 'Mejor. Los cambios se planean por etapas para no detener la operación.'
+        en: "Even better. Changes are planned in stages so operations don't stop."
+        pt: 'Melhor. As mudanças são planejadas por etapas para não parar a operação.'
     - pregunta:
         es: '¿Qué pasa después de la revisión?'
+        en: 'What happens after the review?'
+        pt: 'O que acontece depois da revisão?'
       respuesta:
         es: 'Puedes implementar con tu equipo o seguir conmigo con acompañamiento mensual.'
+        en: 'You can implement with your team or continue with me through monthly support.'
+        pt: 'Você pode implementar com sua equipe ou seguir comigo com acompanhamento mensal.'
 cierre:
   titulo:
     es: 'Prepara tu plataforma antes de que llegue el crecimiento.'
+    en: 'Get your platform ready before the growth arrives.'
+    pt: 'Prepare sua plataforma antes que o crescimento chegue.'
   boton:
     es: 'Agendar sesión · Escalar'
+    en: 'Book a session · Scale'
+    pt: 'Agendar sessão · Escalar'

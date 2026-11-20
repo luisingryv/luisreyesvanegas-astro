@@ -8,146 +8,268 @@ permiso: true
 tarjeta:
   metrica:
     es: '−60%'
+    en: '−60%'
+    pt: '−60%'
   titulo:
     es: 'Una red nacional de peajes baja su factura de Google Cloud'
+    en: 'A national toll network cuts its Google Cloud bill'
+    pt: 'Uma rede nacional de pedágios reduz sua fatura do Google Cloud'
   quien:
     es: 'UTPN / KMA · 2025'
+    en: 'UTPN / KMA · 2025'
+    pt: 'UTPN / KMA · 2025'
 consultoria:
   etiqueta:
     es: 'Reducir'
+    en: 'Reduce'
+    pt: 'Reduzir'
   titulo:
     es: 'Una red nacional de peajes baja su factura de Google Cloud'
+    en: 'A national toll network cuts its Google Cloud bill'
+    pt: 'Uma rede nacional de pedágios reduz sua fatura do Google Cloud'
   metrica:
     es: '−60%'
+    en: '−60%'
+    pt: '−60%'
   quien:
     es: 'UTPN / KMA · 2025'
+    en: 'UTPN / KMA · 2025'
+    pt: 'UTPN / KMA · 2025'
   pasos:
     - clave:
         es: 'Contexto'
+        en: 'Context'
+        pt: 'Contexto'
       texto:
         es: 'La factura crecía y no estaba identificado de dónde venía el sobrecosto, aunque el uso de la plataforma estaba justificado.'
+        en: "The bill kept growing and no one had pinpointed where the overspending came from, even though the platform's usage was justified."
+        pt: 'A fatura crescia e não estava identificado de onde vinha o custo extra, embora o uso da plataforma fosse justificado.'
     - clave:
         es: 'Hallazgo'
+        en: 'Finding'
+        pt: 'Descoberta'
       texto:
         es: 'La videovigilancia 24/7 (≈15 TB diarios) salía a internet como transmisión en vivo.'
+        en: 'The 24/7 video surveillance (≈15 TB a day) went out to the internet as a live stream.'
+        pt: 'A videovigilância 24/7 (≈15 TB por dia) saía para a internet como transmissão ao vivo.'
     - clave:
         es: 'Decisión'
+        en: 'Decision'
+        pt: 'Decisão'
       texto:
         es: 'Acceso remoto a las cámaras, sin tráfico de salida.'
+        en: 'Remote access to the cameras, with no egress traffic.'
+        pt: 'Acesso remoto às câmeras, sem tráfego de saída.'
     - clave:
         es: 'Resultado'
+        en: 'Result'
+        pt: 'Resultado'
       texto:
         es: 'La factura bajó de US$10.000 a unos US$4.000 al mes, y el cliente firmó un contrato de soporte de largo plazo.'
+        en: 'The bill dropped from US$10,000 to about US$4,000 a month, and the client signed a long-term support contract.'
+        pt: 'A fatura caiu de US$10.000 para cerca de US$4.000 por mês, e o cliente assinou um contrato de suporte de longo prazo.'
   viz:
     tipo: 'barras'
     antes: 100
     despues: 40
     leyenda:
       - es: 'US$10.000 → US$4.000 al mes'
+        en: 'US$10,000 → US$4,000 a month'
+        pt: 'US$10.000 → US$4.000 por mês'
 pagina:
   titulo:
     es: 'Cómo una red nacional de peajes bajó 60% su factura de Google Cloud'
+    en: 'How a national toll network cut its Google Cloud bill by 60%'
+    pt: 'Como uma rede nacional de pedágios reduziu em 60% sua fatura do Google Cloud'
   resumen:
     es: 'La factura de Google Cloud de UTPN crecía y no estaba identificado de dónde venía el sobrecosto. Encontré que la videovigilancia 24/7 salía a internet como transmisión en vivo y cambié la forma de acceder a las cámaras. La factura pasó de US$10.000 a unos US$4.000 al mes.'
+    en: "UTPN's Google Cloud bill kept growing and no one had pinpointed where the overspending came from. I found that the 24/7 video surveillance went out to the internet as a live stream, and I changed how the cameras are accessed. The bill went from US$10,000 to about US$4,000 a month."
+    pt: 'A fatura do Google Cloud da UTPN crescia e não estava identificado de onde vinha o custo extra. Descobri que a videovigilância 24/7 saía para a internet como transmissão ao vivo e mudei a forma de acessar as câmeras. A fatura passou de US$10.000 para cerca de US$4.000 por mês.'
   ficha:
     - clave:
         es: 'Cliente'
+        en: 'Client'
+        pt: 'Cliente'
       valor:
         es: 'UTPN / KMA'
+        en: 'UTPN / KMA'
+        pt: 'UTPN / KMA'
     - clave:
         es: 'Sector'
+        en: 'Industry'
+        pt: 'Setor'
       valor:
         es: 'Red nacional de peajes'
+        en: 'National toll network'
+        pt: 'Rede nacional de pedágios'
     - clave:
         es: 'País'
+        en: 'Country'
+        pt: 'País'
       valor:
         es: 'Colombia'
+        en: 'Colombia'
+        pt: 'Colômbia'
     - clave:
         es: 'Mi rol'
+        en: 'My role'
+        pt: 'Meu papel'
       valor:
         es: 'Consultor de arquitectura cloud'
+        en: 'Cloud architecture consultant'
+        pt: 'Consultor de arquitetura cloud'
     - clave:
         es: 'Periodo'
+        en: 'Period'
+        pt: 'Período'
       valor:
         es: '2025'
+        en: '2025'
+        pt: '2025'
     - clave:
         es: 'Nube'
+        en: 'Cloud'
+        pt: 'Nuvem'
       valor:
         es: 'Google Cloud'
+        en: 'Google Cloud'
+        pt: 'Google Cloud'
     - clave:
         es: 'Volumen'
+        en: 'Volume'
+        pt: 'Volume'
       valor:
         es: 'Videovigilancia 24/7, unos 15 TB diarios'
+        en: '24/7 video surveillance, about 15 TB a day'
+        pt: 'Videovigilância 24/7, cerca de 15 TB por dia'
   bloques:
     - clave:
         es: 'Contexto'
+        en: 'Context'
+        pt: 'Contexto'
       texto:
         es: 'El uso de la plataforma estaba justificado, pero no estaba identificado de dónde venía el sobrecosto de la factura. Además, cerca de la mitad de la capacidad contratada estaba en uso.'
+        en: "The platform's usage was justified, but no one had pinpointed where the bill's overspending came from. Also, about half of the contracted capacity was in use."
+        pt: 'O uso da plataforma era justificado, mas não estava identificado de onde vinha o custo extra da fatura. Além disso, cerca de metade da capacidade contratada estava em uso.'
     - clave:
         es: 'Hallazgo'
+        en: 'Finding'
+        pt: 'Descoberta'
       texto:
         es: 'La videovigilancia 24/7, unos 15 TB diarios, salía a internet como transmisión en vivo. Ese tráfico de salida disparaba la factura.'
+        en: 'The 24/7 video surveillance, about 15 TB a day, went out to the internet as a live stream. That egress traffic sent the bill soaring.'
+        pt: 'A videovigilância 24/7, cerca de 15 TB por dia, saía para a internet como transmissão ao vivo. Esse tráfego de saída disparava a fatura.'
     - clave:
         es: 'Decisión'
+        en: 'Decision'
+        pt: 'Decisão'
       texto:
         es: 'Rediseñé el acceso a las cámaras para que se hiciera de forma remota, sin tráfico de salida, y ajusté la capacidad al uso real.'
+        en: 'I redesigned access to the cameras so it happens remotely, with no egress traffic, and I matched capacity to actual usage.'
+        pt: 'Redesenhei o acesso às câmeras para que fosse feito de forma remota, sem tráfego de saída, e ajustei a capacidade ao uso real.'
     - clave:
         es: 'Después'
+        en: 'After'
+        pt: 'Depois'
       texto:
         es: 'El presupuesto liberado se convirtió en un contrato de soporte de largo plazo para sostener y mejorar la infraestructura.'
+        en: 'The freed-up budget became a long-term support contract to sustain and improve the infrastructure.'
+        pt: 'O orçamento liberado virou um contrato de suporte de longo prazo para sustentar e melhorar a infraestrutura.'
   cifras:
     - metrica:
         es: '−60%'
+        en: '−60%'
+        pt: '−60%'
       texto:
         es: 'En la factura mensual de Google Cloud.'
+        en: 'On the monthly Google Cloud bill.'
+        pt: 'Na fatura mensal do Google Cloud.'
     - metrica:
         es: 'US$10.000'
+        en: 'US$10,000'
+        pt: 'US$10.000'
       texto:
         es: 'Al mes antes de la auditoría.'
+        en: 'A month before the audit.'
+        pt: 'Por mês antes da auditoria.'
     - metrica:
         es: 'US$4.000'
+        en: 'US$4,000'
+        pt: 'US$4.000'
       texto:
         es: 'Al mes después de los cambios.'
+        en: 'A month after the changes.'
+        pt: 'Por mês depois das mudanças.'
   fuente:
     es: 'Fuente: Luis Reyes Vanegas, con autorización de UTPN / KMA.'
+    en: "Source: Luis Reyes Vanegas, with UTPN / KMA's authorization."
+    pt: 'Fonte: Luis Reyes Vanegas, com autorização da UTPN / KMA.'
   cierre:
     titulo:
       es: '¿Tu factura de nube crece más rápido que tu negocio?'
+      en: 'Is your cloud bill growing faster than your business?'
+      pt: 'Sua fatura de nuvem cresce mais rápido que seu negócio?'
     texto:
       es: 'Revisemos dónde se va el gasto.'
+      en: "Let's find out where the spending goes."
+      pt: 'Vamos ver para onde vai o gasto.'
     enlace:
       texto:
         es: 'Ver auditoría de costos'
+        en: 'See cost audit'
+        pt: 'Ver auditoria de custos'
       destino:
         ruta: 'optimizarCostos'
 diagrama:
   etiqueta:
     es: 'Factura mensual de Google Cloud'
+    en: 'Monthly Google Cloud bill'
+    pt: 'Fatura mensal do Google Cloud'
   fuente:
     es: 'UTPN / KMA · 2025 · Se publica con permiso del cliente.'
+    en: "UTPN / KMA · 2025 · Published with the client's permission."
+    pt: 'UTPN / KMA · 2025 · Publicado com permissão do cliente.'
   prefijo: 'US$'
   antes:
     valor: 10000
     texto:
       es: 'La videovigilancia 24/7, unos 15 TB diarios, salía a internet como transmisión en vivo.'
+      en: 'The 24/7 video surveillance, about 15 TB a day, went out to the internet as a live stream.'
+      pt: 'A videovigilância 24/7, cerca de 15 TB por dia, saía para a internet como transmissão ao vivo.'
     nodos:
       - titulo:
           es: 'Cámaras de los peajes'
+          en: 'Toll booth cameras'
+          pt: 'Câmeras dos pedágios'
         detalle:
           es: '24/7 · ≈15 TB diarios'
+          en: '24/7 · ≈15 TB a day'
+          pt: '24/7 · ≈15 TB por dia'
       - titulo:
           es: 'Google Cloud'
+          en: 'Google Cloud'
+          pt: 'Google Cloud'
         detalle:
           es: 'Almacenamiento y procesamiento'
+          en: 'Storage and processing'
+          pt: 'Armazenamento e processamento'
       - titulo:
           es: 'Transmisión en vivo por internet'
+          en: 'Live streaming over the internet'
+          pt: 'Transmissão ao vivo pela internet'
         detalle:
           es: 'Tráfico de salida'
+          en: 'Egress traffic'
+          pt: 'Tráfego de saída'
         alerta: true
       - titulo:
           es: 'Operadores'
+          en: 'Operators'
+          pt: 'Operadores'
         detalle:
           es: 'Monitoreo de los peajes'
+          en: 'Toll booth monitoring'
+          pt: 'Monitoramento dos pedágios'
     flujos:
       - [4, 6]
       - [4, 11]
@@ -156,26 +278,46 @@ diagrama:
     valor: 4000
     delta:
       es: '−60%'
+      en: '−60%'
+      pt: '−60%'
     texto:
       es: 'El acceso a las cámaras pasó a escritorio remoto, sin tráfico de salida.'
+      en: 'Camera access moved to remote desktop, with no egress traffic.'
+      pt: 'O acesso às câmeras passou para área de trabalho remota, sem tráfego de saída.'
     nodos:
       - titulo:
           es: 'Cámaras de los peajes'
+          en: 'Toll booth cameras'
+          pt: 'Câmeras dos pedágios'
         detalle:
           es: '24/7 · ≈15 TB diarios'
+          en: '24/7 · ≈15 TB a day'
+          pt: '24/7 · ≈15 TB por dia'
       - titulo:
           es: 'Google Cloud'
+          en: 'Google Cloud'
+          pt: 'Google Cloud'
         detalle:
           es: 'Almacenamiento y procesamiento'
+          en: 'Storage and processing'
+          pt: 'Armazenamento e processamento'
       - titulo:
           es: 'Escritorio remoto'
+          en: 'Remote desktop'
+          pt: 'Área de trabalho remota'
         detalle:
           es: 'Sin tráfico de salida'
+          en: 'No egress traffic'
+          pt: 'Sem tráfego de saída'
         clave: true
       - titulo:
           es: 'Operadores'
+          en: 'Operators'
+          pt: 'Operadores'
         detalle:
           es: 'Monitoreo de los peajes'
+          en: 'Toll booth monitoring'
+          pt: 'Monitoramento dos pedágios'
     flujos:
       - [4, 6]
       - [1.5, 4]

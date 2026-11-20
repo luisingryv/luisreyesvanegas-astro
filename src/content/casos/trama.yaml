@@ -9,7 +9,13 @@ permiso: true
 tarjeta:
   metrica:
     es: '≈US$6.000'
+    en: '≈US$6,000'
+    pt: '≈US$6.000'
   titulo:
     es: 'Trama AI migra de Google Cloud a AWS con el programa MAP'
+    en: 'Trama AI migrates from Google Cloud to AWS with the MAP program'
+    pt: 'A Trama AI migra do Google Cloud para a AWS com o programa MAP'
   quien:
     es: 'Trama AI'
+    en: 'Trama AI'
+    pt: 'Trama AI'

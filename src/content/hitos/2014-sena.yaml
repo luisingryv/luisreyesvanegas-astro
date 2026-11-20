@@ -3,9 +3,17 @@ anio: 2014
 edad: 17
 titulo:
   es: 'SENA: desarrollo de software'
+  en: 'SENA: software development'
+  pt: 'SENA: desenvolvimento de software'
 texto:
   es: 'Estudié el tecnólogo en Análisis y Desarrollo de Sistemas de Información y construí mis primeros sitios con código y frameworks como Bootstrap.'
+  en: 'I studied the technologist program in Information Systems Analysis and Development and built my first sites with code and frameworks like Bootstrap.'
+  pt: 'Fiz o curso tecnólogo em Análise e Desenvolvimento de Sistemas de Informação e construí meus primeiros sites com código e frameworks como Bootstrap.'
 cifra:
   es: 'Del diseño visual al código'
+  en: 'From visual design to code'
+  pt: 'Do design visual ao código'
 impacto:
   es: 'La base técnica de todo lo que vino después.'
+  en: 'The technical foundation for everything that came next.'
+  pt: 'A base técnica de tudo o que veio depois.'

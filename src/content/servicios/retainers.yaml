@@ -2,133 +2,247 @@
 ruta: 'retainers'
 titulo:
   es: 'Acompañamiento mensual'
+  en: 'Monthly support'
+  pt: 'Acompanhamento mensal'
 hero:
   eyebrow:
     es: 'Acompañamiento mensual'
+    en: 'Monthly support'
+    pt: 'Acompanhamento mensal'
   titulo:
     es: 'Un arquitecto de cabecera para tu equipo.'
+    en: 'A go-to architect for your team.'
+    pt: 'Um arquiteto de confiança para sua equipe.'
   texto:
     es: 'Después del diagnóstico o de la implementación, sigo con tu equipo cada mes: reviso la arquitectura, los costos y la seguridad, acompaño las decisiones técnicas y estoy disponible cuando algo se complica.'
+    en: "After the diagnosis or the implementation, I keep working with your team every month: I review the architecture, costs and security, support technical decisions and I'm available when things get complicated."
+    pt: 'Depois do diagnóstico ou da implementação, sigo com sua equipe todo mês: reviso a arquitetura, os custos e a segurança, acompanho as decisões técnicas e estou disponível quando algo se complica.'
   agendar:
     es: 'Agendar sesión de arquitectura · US$450'
+    en: 'Book an architecture session · US$450'
+    pt: 'Agendar sessão de arquitetura · US$450'
   llamada:
     es: 'Llamada de 20 min gratis'
+    en: 'Free 20-min call'
+    pt: 'Chamada gratuita de 20 min'
 senales:
   titulo:
     es: 'Cuándo tiene sentido'
+    en: 'When it makes sense'
+    pt: 'Quando faz sentido'
   items:
     - es: 'Tu equipo no tiene un arquitecto cloud de tiempo completo.'
+      en: "Your team doesn't have a full-time cloud architect."
+      pt: 'Sua equipe não tem um arquiteto cloud em tempo integral.'
     - es: 'Ya hiciste una auditoría y quieres que los ahorros se sostengan.'
+      en: 'You already did an audit and want the savings to last.'
+      pt: 'Você já fez uma auditoria e quer que a economia se mantenha.'
     - es: 'Estás en plena migración o en un periodo de crecimiento.'
+      en: "You're in the middle of a migration or a growth period."
+      pt: 'Você está em plena migração ou em um período de crescimento.'
     - es: 'Necesitas a alguien que revise las decisiones antes de que lleguen a producción.'
+      en: 'You need someone to review decisions before they reach production.'
+      pt: 'Você precisa de alguém que revise as decisões antes que cheguem à produção.'
     - es: 'Te estás preparando para una certificación de seguridad.'
+      en: "You're preparing for a security certification."
+      pt: 'Você está se preparando para uma certificação de segurança.'
 entregables:
   eyebrow:
     es: 'Qué recibes'
+    en: 'What you get'
+    pt: 'O que você recebe'
   titulo:
     es: 'Qué incluye'
+    en: "What's included"
+    pt: 'O que inclui'
   items:
     - titulo:
         es: 'Revisión mensual'
+        en: 'Monthly review'
+        pt: 'Revisão mensal'
       texto:
         es: 'Costos, arquitectura y seguridad, con un informe corto y acciones.'
+        en: 'Costs, architecture and security, with a short report and actions.'
+        pt: 'Custos, arquitetura e segurança, com um relatório curto e ações.'
     - titulo:
         es: 'Acompañamiento a las decisiones'
+        en: 'Decision support'
+        pt: 'Acompanhamento das decisões'
       texto:
         es: 'Reviso diseños, cambios y proveedores antes de que tu equipo se comprometa.'
+        en: 'I review designs, changes and vendors before your team commits.'
+        pt: 'Reviso desenhos, mudanças e fornecedores antes que sua equipe se comprometa.'
     - titulo:
         es: 'Disponibilidad acordada'
+        en: 'Agreed availability'
+        pt: 'Disponibilidade acordada'
       texto:
         es: 'Un canal directo y tiempos de respuesta definidos en el acuerdo.'
+        en: 'A direct channel and response times defined in the agreement.'
+        pt: 'Um canal direto e tempos de resposta definidos no acordo.'
     - titulo:
         es: 'Programas de la nube'
+        en: 'Cloud programs'
+        pt: 'Programas da nuvem'
       texto:
         es: 'Seguimiento de créditos y programas como MAP cuando aplican.'
+        en: 'Tracking of credits and programs such as MAP when they apply.'
+        pt: 'Acompanhamento de créditos e programas como o MAP quando se aplicam.'
 proceso:
   eyebrow:
     es: 'Cómo lo hago'
+    en: 'How I do it'
+    pt: 'Como faço'
   titulo:
     es: 'Proceso'
+    en: 'Process'
+    pt: 'Processo'
   items:
     - numero: '01'
       titulo:
         es: 'Sesión o diagnóstico'
+        en: 'Session or diagnosis'
+        pt: 'Sessão ou diagnóstico'
       texto:
         es: 'El acompañamiento parte de entender tu caso.'
+        en: 'The support starts from understanding your case.'
+        pt: 'O acompanhamento parte de entender seu caso.'
     - numero: '02'
       titulo:
         es: 'Acuerdo'
+        en: 'Agreement'
+        pt: 'Acordo'
       texto:
         es: 'Definimos dedicación, canal y prioridades del trimestre.'
+        en: 'We define the time commitment, channel and priorities for the quarter.'
+        pt: 'Definimos a dedicação, o canal e as prioridades do trimestre.'
     - numero: '03'
       titulo:
         es: 'Ritmo mensual'
+        en: 'Monthly rhythm'
+        pt: 'Ritmo mensal'
       texto:
         es: 'Revisión, informe y seguimiento de acciones.'
+        en: 'Review, report and follow-up on actions.'
+        pt: 'Revisão, relatório e acompanhamento das ações.'
     - numero: '04'
       titulo:
         es: 'Ajuste trimestral'
+        en: 'Quarterly adjustment'
+        pt: 'Ajuste trimestral'
       texto:
         es: 'Revisamos qué funcionó y ajustamos la dedicación.'
+        en: 'We review what worked and adjust the time commitment.'
+        pt: 'Revisamos o que funcionou e ajustamos a dedicação.'
   nota:
     es: 'Tres niveles de dedicación, según el tamaño de tu equipo y tu operación.'
+    en: 'Three levels of time commitment, depending on the size of your team and your operation.'
+    pt: 'Três níveis de dedicação, conforme o tamanho da sua equipe e da sua operação.'
 caso:
   eyebrow:
     es: 'Caso · UTPN / KMA · 2025'
+    en: 'Case · UTPN / KMA · 2025'
+    pt: 'Caso · UTPN / KMA · 2025'
   titulo:
     es: 'De una auditoría a un soporte de largo plazo'
+    en: 'From an audit to long-term support'
+    pt: 'De uma auditoria a um suporte de longo prazo'
   texto:
     es: 'Después de bajar la factura de Google Cloud de una red nacional de peajes, el cliente decidió seguir con un contrato de soporte para sostener y mejorar lo construido.'
+    en: 'After cutting the Google Cloud bill of a national toll network, the client decided to continue with a support contract to sustain and improve what was built.'
+    pt: 'Depois de reduzir a fatura do Google Cloud de uma rede nacional de pedágios, o cliente decidiu seguir com um contrato de suporte para sustentar e melhorar o que foi construído.'
   enlace:
     texto:
       es: 'Ver el caso completo'
+      en: 'See the full case'
+      pt: 'Ver o caso completo'
     destino:
       caso: 'utpn'
   metrica:
     es: '−60%'
+    en: '−60%'
+    pt: '−60%'
   leyenda:
     es: 'En la factura mensual de Google Cloud, sostenido con soporte continuo.'
+    en: 'On the monthly Google Cloud bill, sustained with ongoing support.'
+    pt: 'Na fatura mensal do Google Cloud, mantida com suporte contínuo.'
 empezar:
   eyebrow:
     es: 'Cómo empezar'
+    en: 'How to start'
+    pt: 'Como começar'
   titulo:
     es: 'Primero, una sesión de arquitectura'
+    en: 'First, an architecture session'
+    pt: 'Primeiro, uma sessão de arquitetura'
   texto:
     es: 'El acompañamiento mensual se define después de la sesión de arquitectura o de un diagnóstico. El valor depende de la dedicación que necesites y te lo propongo con el plan.'
+    en: "Monthly support is defined after the architecture session or a diagnosis. The price depends on the time commitment you need and I'll propose it with the plan."
+    pt: 'O acompanhamento mensal é definido depois da sessão de arquitetura ou de um diagnóstico. O valor depende da dedicação de que você precisa e eu proponho com o plano.'
   aparte:
     eyebrow:
       es: 'Desarrollo a la medida'
+      en: 'Custom development'
+      pt: 'Desenvolvimento sob medida'
     titulo:
       es: '¿Necesitas un equipo que construya?'
+      en: 'Need a team to build it?'
+      pt: 'Precisa de uma equipe que construa?'
     texto:
       es: 'Yo acompaño la arquitectura. Si necesitas desarrollo de software a la medida, lo hace mi equipo en EvolutecC.'
+      en: 'I support the architecture. If you need custom software development, my team at EvolutecC does it.'
+      pt: 'Eu acompanho a arquitetura. Se você precisa de desenvolvimento de software sob medida, quem faz é minha equipe na EvolutecC.'
     enlace:
       texto:
         es: 'Conoce EvolutecC'
+        en: 'Discover EvolutecC'
+        pt: 'Conheça a EvolutecC'
       destino:
         evolutecc: 'retainers'
 faq:
   titulo:
     es: 'Preguntas frecuentes'
+    en: 'Frequently asked questions'
+    pt: 'Perguntas frequentes'
   items:
     - pregunta:
         es: '¿Hay permanencia mínima?'
+        en: 'Is there a minimum commitment?'
+        pt: 'Há permanência mínima?'
       respuesta:
         es: 'Sí. El acompañamiento mínimo es de 3 meses.'
+        en: 'Yes. The minimum engagement is 3 months.'
+        pt: 'Sim. O acompanhamento mínimo é de 3 meses.'
     - pregunta:
         es: '¿Reemplazas a mi equipo?'
+        en: 'Do you replace my team?'
+        pt: 'Você substitui minha equipe?'
       respuesta:
         es: 'No. Lo acompaño para que tome mejores decisiones y aprenda en el camino.'
+        en: 'No. I support them so they make better decisions and learn along the way.'
+        pt: 'Não. Eu a acompanho para que tome decisões melhores e aprenda no caminho.'
     - pregunta:
         es: '¿Atiendes emergencias?'
+        en: 'Do you handle emergencies?'
+        pt: 'Você atende emergências?'
       respuesta:
         es: 'Sí, según lo que acordemos. Fuera del acuerdo se cobran aparte.'
+        en: "Yes, according to what we agree. Outside the agreement they're billed separately."
+        pt: 'Sim, conforme o que acordarmos. Fora do acordo são cobradas à parte.'
     - pregunta:
         es: '¿Con qué nubes?'
+        en: 'Which clouds?'
+        pt: 'Com quais nuvens?'
       respuesta:
         es: 'AWS, Google Cloud y Azure.'
+        en: 'AWS, Google Cloud and Azure.'
+        pt: 'AWS, Google Cloud e Azure.'
 cierre:
   titulo:
     es: 'Hablemos de cómo trabaja tu equipo hoy.'
+    en: "Let's talk about how your team works today."
+    pt: 'Vamos falar de como sua equipe trabalha hoje.'
   boton:
     es: 'Agendar sesión de arquitectura'
+    en: 'Book an architecture session'
+    pt: 'Agendar sessão de arquitetura'

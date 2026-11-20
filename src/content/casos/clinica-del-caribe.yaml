@@ -8,7 +8,13 @@ permiso: true
 tarjeta:
   metrica:
     es: '10+ años'
+    en: '10+ years'
+    pt: '10+ anos'
   titulo:
     es: 'El sistema de incidencias clínicas pasa a la web y sigue en uso'
+    en: 'The clinical incident system moves to the web and is still in use'
+    pt: 'O sistema de incidentes clínicos vai para a web e continua em uso'
   quien:
     es: 'Clínica del Caribe · 2016'
+    en: 'Clínica del Caribe · 2016'
+    pt: 'Clínica del Caribe · 2016'

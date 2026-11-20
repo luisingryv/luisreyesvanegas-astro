@@ -1,8 +1,12 @@
 orden: 4
 nombre:
   es: 'Certificación Internacional en Liderazgo Transformacional (96 h)'
+  en: 'International Certification in Transformational Leadership (96 h)'
+  pt: 'Certificação Internacional em Liderança Transformacional (96 h)'
 emisor:
   es: 'Naranjo Consulting & Coaching'
+  en: 'Naranjo Consulting & Coaching'
+  pt: 'Naranjo Consulting & Coaching'
 fecha:
   anio: 2025
   mes: 7

@@ -3,9 +3,17 @@ anio: 2022
 edad: 25
 titulo:
   es: 'ProColombia con Asesoftware'
+  en: 'ProColombia with Asesoftware'
+  pt: 'ProColombia com a Asesoftware'
 texto:
   es: 'Asesoftware nos eligió por nuestra experiencia en Drupal para la plataforma de exportaciones de ProColombia. Entregamos el módulo de registro y el cliente nos asignó los módulos restantes.'
+  en: 'Asesoftware chose us for our Drupal experience for the ProColombia exports platform. We delivered the registration module and the client assigned us the remaining modules.'
+  pt: 'A Asesoftware nos escolheu pela nossa experiência em Drupal para a plataforma de exportações da ProColombia. Entregamos o módulo de cadastro e o cliente nos atribuiu os módulos restantes.'
 cifra:
   es: 'De 1 módulo a toda la plataforma'
+  en: 'From 1 module to the whole platform'
+  pt: 'De 1 módulo à plataforma inteira'
 impacto:
   es: 'Un proyecto con un año de retraso que volvió a avanzar.'
+  en: 'A project a year behind schedule that moved forward again.'
+  pt: 'Um projeto com um ano de atraso que voltou a avançar.'

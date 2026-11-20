@@ -1,79 +1,141 @@
 apertura:
   eyebrow:
     es: 'Sobre mí'
+    en: 'About me'
+    pt: 'Sobre mim'
   titulo:
     es: 'Llevo 13 años construyendo tecnología.'
+    en: "I've been building technology for 13 years."
+    pt: 'Há 13 anos construo tecnologia.'
   bajada:
     es: 'Fundé mi primer negocio a los 16, reparando computadores y haciendo sitios web. Hoy diseño arquitecturas cloud e IA para empresas de Estados Unidos y Latinoamérica, soy CTO de EvolutecC y CEO de Trama AI.'
+    en: "I started my first business at 16, repairing computers and building websites. Today I design cloud and AI architectures for companies in the United States and Latin America, and I'm CTO of EvolutecC and CEO of Trama AI."
+    pt: 'Fundei meu primeiro negócio aos 16, consertando computadores e fazendo sites. Hoje projeto arquiteturas cloud e IA para empresas dos Estados Unidos e da América Latina, sou CTO da EvolutecC e CEO da Trama AI.'
   hablemos:
     es: 'Hablemos'
+    en: "Let's talk"
+    pt: 'Vamos conversar'
   invitarme:
     es: 'Invitarme a hablar'
+    en: 'Invite me to speak'
+    pt: 'Convide-me para falar'
   # Retrato editorial (llegó el 19 nov 2026); original en Archivos/Fotos/01_Retratos/.
   retrato: ../../assets/fotos/retrato_sin-fecha_oficina-camiseta-blanca-sobre-mi_luis-reyes-vanegas_001.jpg
   retratoAlt:
     es: 'Luis Carlos Reyes Vanegas en su oficina'
+    en: 'Luis Carlos Reyes Vanegas in his office'
+    pt: 'Luis Carlos Reyes Vanegas em seu escritório'
 
 historia:
   eyebrow:
     es: 'Mi historia'
+    en: 'My story'
+    pt: 'Minha história'
   titulo:
     es: 'Cómo llegué hasta aquí'
+    en: 'How I got here'
+    pt: 'Como cheguei até aqui'
   siguienteNivel:
     es: 'Siguiente nivel: tu proyecto →'
+    en: 'Next level: your project →'
+    pt: 'Próximo nível: seu projeto →'
 
 principios:
   eyebrow:
     es: 'Cómo trabajo'
+    en: 'How I work'
+    pt: 'Como trabalho'
   titulo:
     es: 'Cuatro principios'
+    en: 'Four principles'
+    pt: 'Quatro princípios'
 
 evolutecc:
   eyebrow:
     es: 'EvolutecC'
+    en: 'EvolutecC'
+    pt: 'EvolutecC'
   titulo:
     es: 'La empresa de desarrollo de software que cofundé en 2020.'
+    en: 'The software development company I co-founded in 2020.'
+    pt: 'A empresa de desenvolvimento de software que cofundei em 2020.'
   texto:
     es: 'Como cofundador y CTO lidero un equipo que ha entregado más de 400 proyectos de software, con un 90% de recompra.'
+    en: 'As co-founder and CTO, I lead a team that has delivered more than 400 software projects, with a 90% repeat rate.'
+    pt: 'Como cofundador e CTO, lidero uma equipe que entregou mais de 400 projetos de software, com 90% de recompra.'
   cifras:
     - es: '400+ proyectos'
+      en: '400+ projects'
+      pt: '400+ projetos'
     - es: '90% de recompra'
+      en: '90% repeat clients'
+      pt: '90% de recompra'
   boton:
     es: '¿Necesitas desarrollo de software? Conoce EvolutecC'
+    en: 'Need software development? Discover EvolutecC'
+    pt: 'Precisa de desenvolvimento de software? Conheça a EvolutecC'
   foto: ../../assets/fotos/equipo_2025-09-01_evolutecc-aniversario-5_027.jpg
   fotoAlt:
     es: 'Equipo de EvolutecC con camisetas de la marca en el quinto aniversario de la empresa'
+    en: "EvolutecC team in branded T-shirts at the company's fifth anniversary"
+    pt: 'Equipe da EvolutecC com camisetas da marca no quinto aniversário da empresa'
 
 certificaciones:
   eyebrow:
     es: 'Certificaciones y formación'
+    en: 'Certifications and education'
+    pt: 'Certificações e formação'
   titulo:
     es: 'Lo que sigo aprendiendo'
+    en: 'What I keep learning'
+    pt: 'O que continuo aprendendo'
 
 testimonios:
   eyebrow:
     es: 'Testimonios'
+    en: 'Testimonials'
+    pt: 'Depoimentos'
   titulo:
     es: 'Lo que dicen quienes han trabajado conmigo'
+    en: 'What people who have worked with me say'
+    pt: 'O que dizem as pessoas que trabalharam comigo'
 
 escenario:
   eyebrow:
     es: 'Conferencias y comunidad'
+    en: 'Conferences and community'
+    pt: 'Conferências e comunidade'
   titulo:
     es: 'En el escenario'
+    en: 'On stage'
+    pt: 'No palco'
   boton:
     es: 'Invitarme a una conferencia'
+    en: 'Invite me to a conference'
+    pt: 'Convide-me para uma conferência'
 
 cierre:
   eyebrow:
     es: 'Hablemos'
+    en: "Let's talk"
+    pt: 'Vamos conversar'
   titulo:
     es: '¿Cómo puedo ayudarte?'
+    en: 'How can I help you?'
+    pt: 'Como posso ajudar você?'
   consultoria:
     es: 'Consultoría'
+    en: 'Consulting'
+    pt: 'Consultoria'
   conferencia:
     es: 'Conferencia'
+    en: 'Conference'
+    pt: 'Conferência'
   conversacion:
     es: 'Conversación general'
+    en: 'General conversation'
+    pt: 'Conversa geral'
   otrasOpciones:
     es: 'Otras opciones: desarrollo de software, producto o prensa →'
+    en: 'Other options: software development, product or press →'
+    pt: 'Outras opções: desenvolvimento de software, produto ou imprensa →'

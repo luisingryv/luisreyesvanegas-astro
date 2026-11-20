@@ -3,136 +3,238 @@
 hero:
   eyebrow:
     es: 'Arquitecto cloud · IA · CEO de Trama AI'
+    en: 'Cloud architect · AI · CEO of Trama AI'
+    pt: 'Arquiteto cloud · IA · CEO da Trama AI'
   titulo:
     es: 'Innovación y escalabilidad en la nube, con resultados medibles.'
+    en: 'Innovation and scalability in the cloud, with measurable results.'
+    pt: 'Inovação e escalabilidade na nuvem, com resultados mensuráveis.'
   bajada:
     es: 'Soy arquitecto de soluciones cloud e IA. Trabajo con empresas de Estados Unidos y Latinoamérica: entiendo qué necesita tu negocio y diseño la solución en AWS, Google Cloud o Azure.'
+    en: "I'm a cloud and AI solutions architect. I work with companies in the United States and Latin America: I understand what your business needs and design the solution on AWS, Google Cloud or Azure."
+    pt: 'Sou arquiteto de soluções cloud e IA. Trabalho com empresas dos Estados Unidos e da América Latina: entendo do que seu negócio precisa e projeto a solução na AWS, no Google Cloud ou no Azure.'
   premio:
     texto:
       es: 'Ganador de categoría · Build with Gemini XPRIZE 2026'
+      en: 'Category winner · Build with Gemini XPRIZE 2026'
+      pt: 'Vencedor de categoria · Build with Gemini XPRIZE 2026'
     url: 'https://gxp.moonshots.com/'
   agendar:
     es: 'Agendar sesión de arquitectura'
+    en: 'Book an architecture session'
+    pt: 'Agendar sessão de arquitetura'
   invitarme:
     es: 'Invitarme a hablar'
+    en: 'Invite me to speak'
+    pt: 'Convide-me para falar'
   retrato: ../../assets/fotos/retrato_sin-fecha_oficina-chaqueta-verde-home_luis-reyes-vanegas_001.jpg
   retratoAlt:
     es: 'Luis Carlos Reyes Vanegas en su oficina'
+    en: 'Luis Carlos Reyes Vanegas in his office'
+    pt: 'Luis Carlos Reyes Vanegas em seu escritório'
 
 router:
   titulo:
     es: 'Consultoría y productos'
+    en: 'Consulting and products'
+    pt: 'Consultoria e produtos'
   tarjetas:
     - etiqueta:
         es: 'Consultoría'
+        en: 'Consulting'
+        pt: 'Consultoria'
       titulo:
         es: 'Necesito resolver algo en mi nube o con IA'
+        en: 'I need to solve something in my cloud or with AI'
+        pt: 'Preciso resolver algo na minha nuvem ou com IA'
       texto:
         es: 'Costos, crecimiento, programas de la nube, migración, buenas prácticas, seguridad o adopción de IA.'
+        en: 'Costs, growth, cloud programs, migration, best practices, security or AI adoption.'
+        pt: 'Custos, crescimento, programas da nuvem, migração, boas práticas, segurança ou adoção de IA.'
       boton:
         es: 'Ver consultoría'
+        en: 'See consulting'
+        pt: 'Ver consultoria'
       ruta: consultoria
     - etiqueta:
         es: 'Productos'
+        en: 'Products'
+        pt: 'Produtos'
       titulo:
         es: 'Quiero ver o invertir en productos'
+        en: 'I want to see or invest in products'
+        pt: 'Quero ver ou investir em produtos'
       texto:
         es: 'Trama AI, la plataforma que dirijo, y los productos que construyo con mis socios.'
+        en: 'Trama AI, the platform I run, and the products I build with my partners.'
+        pt: 'Trama AI, a plataforma que dirijo, e os produtos que construo com meus sócios.'
       boton:
         es: 'Ver productos'
+        en: 'See products'
+        pt: 'Ver produtos'
       ruta: productos
 
 logros:
   eyebrow:
     es: 'Logros desbloqueados'
+    en: 'Achievements unlocked'
+    pt: 'Conquistas desbloqueadas'
   titulo:
     es: 'Algunos resultados de los últimos años.'
+    en: 'Some results from recent years.'
+    pt: 'Alguns resultados dos últimos anos.'
 
 xprize:
   eyebrow:
     es: 'Logro desbloqueado · Trama AI · 2026'
+    en: 'Achievement unlocked · Trama AI · 2026'
+    pt: 'Conquista desbloqueada · Trama AI · 2026'
   titulo:
     es: 'Ganador de categoría en el Build with Gemini XPRIZE.'
+    en: 'Category winner at the Build with Gemini XPRIZE.'
+    pt: 'Vencedor de categoria no Build with Gemini XPRIZE.'
   texto:
     es: 'Con Gianfranco Castro, Johan Burgos y Najem Nabhan construimos Trama AI en 90 días: agentes de IA que operan el inventario de distribuidores textiles. Ganamos la categoría Small Business Services.'
+    en: 'With Gianfranco Castro, Johan Burgos and Najem Nabhan we built Trama AI in 90 days: AI agents that run the inventory of textile distributors. We won the Small Business Services category.'
+    pt: 'Com Gianfranco Castro, Johan Burgos e Najem Nabhan construímos a Trama AI em 90 dias: agentes de IA que operam o estoque de distribuidores têxteis. Vencemos a categoria Small Business Services.'
   boton:
     es: 'Conoce Trama AI'
+    en: 'Discover Trama AI'
+    pt: 'Conheça a Trama AI'
   fuente:
     texto:
       es: 'Fuente: gxp.moonshots.com'
+      en: 'Source: gxp.moonshots.com'
+      pt: 'Fonte: gxp.moonshots.com'
     url: 'https://gxp.moonshots.com/'
   cifras:
     - valor:
         es: '26.449'
+        en: '26,449'
+        pt: '26.449'
       etiqueta:
         es: 'equipos en competencia'
+        en: 'competing teams'
+        pt: 'equipes na competição'
     - valor:
         es: 'Top 100'
+        en: 'Top 100'
+        pt: 'Top 100'
       etiqueta:
         es: 'finalistas'
+        en: 'finalists'
+        pt: 'finalistas'
     - valor:
         es: '1.º'
+        en: '1st'
+        pt: '1º'
       etiqueta:
         es: 'de su categoría'
+        en: 'in its category'
+        pt: 'da categoria'
   # Pieza 01 (laboratorio de motion, aprobada): de 26.449 equipos al ganador de categoría.
   pieza:
     medalla:
       rotulo:
         es: 'Ganador de categoría'
+        en: 'Category winner'
+        pt: 'Vencedor de categoria'
       categoria:
         es: 'Small Business Services'
+        en: 'Small Business Services'
+        pt: 'Small Business Services'
       premio:
         es: 'Build with Gemini XPRIZE 2026'
+        en: 'Build with Gemini XPRIZE 2026'
+        pt: 'Build with Gemini XPRIZE 2026'
     fases:
       equipos:
         es: 'Equipos'
+        en: 'Teams'
+        pt: 'Equipes'
       finalistas:
         es: 'Top 100'
+        en: 'Top 100'
+        pt: 'Top 100'
       ganador:
         es: 'Ganador'
+        en: 'Winner'
+        pt: 'Vencedor'
     contador:
       equipos:
         es: 'Equipos inscritos'
+        en: 'Registered teams'
+        pt: 'Equipes inscritas'
       finalistas:
         es: 'Finalistas'
+        en: 'Finalists'
+        pt: 'Finalistas'
       ganador:
         es: 'Ganador de categoría'
+        en: 'Category winner'
+        pt: 'Vencedor de categoria'
       # {n}: número que baja de 26.449 a 100; {total}: 26.449.
       top:
         es: 'Top {n}'
+        en: 'Top {n}'
+        pt: 'Top {n}'
       final:
         es: '1 de {total}'
+        en: '1 of {total}'
+        pt: '1 de {total}'
     nota:
       es: 'Cada punto representa unos 10 equipos inscritos en todo el mundo.'
+      en: 'Each dot represents about 10 teams registered worldwide.'
+      pt: 'Cada ponto representa cerca de 10 equipes inscritas no mundo todo.'
 
 trayectoria:
   eyebrow:
     es: 'Trayectoria'
+    en: 'Track record'
+    pt: 'Trajetória'
   titulo:
     es: 'Mi trayectoria desde 2013'
+    en: 'My path since 2013'
+    pt: 'Minha trajetória desde 2013'
   boton:
     es: 'Conoce mi historia'
+    en: 'Read my story'
+    pt: 'Conheça minha história'
 
 charlas:
   eyebrow:
     es: 'Eventos y charlas'
+    en: 'Events and talks'
+    pt: 'Eventos e palestras'
   titulo:
     es: 'Charlas recientes'
+    en: 'Recent talks'
+    pt: 'Palestras recentes'
   verTodos:
     es: 'Ver todos los eventos →'
+    en: 'See all events →'
+    pt: 'Ver todos os eventos →'
 
 # Burbujas con el nombre del cliente (sin logos hasta tener permisos). Los casos sin página
 # propia llevan al índice de casos.
 casos:
   eyebrow:
     es: 'Casos'
+    en: 'Case studies'
+    pt: 'Casos'
   titulo:
     es: 'Casos de éxito'
+    en: 'Case studies'
+    pt: 'Casos de sucesso'
   verTodos:
     es: 'Ver todos los casos →'
+    en: 'See all case studies →'
+    pt: 'Ver todos os casos →'
   grupos:
     - titulo:
         es: 'Mis productos y mi consultoría'
+        en: 'My products and my consulting'
+        pt: 'Meus produtos e minha consultoria'
       destacado: true
       casos:
         - nombre: 'Trama AI'
@@ -142,6 +244,8 @@ casos:
           slug: glasslake
     - titulo:
         es: 'Trayectoria'
+        en: 'Track record'
+        pt: 'Trajetória'
       destacado: false
       casos:
         - nombre: 'Fuerza Aérea · TIVIT'
@@ -152,31 +256,53 @@ casos:
 evolutecc:
   titulo:
     es: '¿Necesitas desarrollo a la medida?'
+    en: 'Need custom development?'
+    pt: 'Precisa de desenvolvimento sob medida?'
   texto:
     es: 'En EvolutecC, donde soy CTO, desarrollamos software a la medida para empresas. Llevamos más de 400 proyectos entregados.'
+    en: "At EvolutecC, where I'm CTO, we build custom software for companies. We have delivered more than 400 projects."
+    pt: 'Na EvolutecC, onde sou CTO, desenvolvemos software sob medida para empresas. Já entregamos mais de 400 projetos.'
   boton:
     es: 'Conoce EvolutecC'
+    en: 'Discover EvolutecC'
+    pt: 'Conheça a EvolutecC'
 
 contacto:
   eyebrow:
     es: 'Contacto'
+    en: 'Contact'
+    pt: 'Contato'
   titulo:
     es: 'Cuéntame qué estás construyendo.'
+    en: "Tell me what you're building."
+    pt: 'Conte o que você está construindo.'
   texto:
     es: 'Si tu factura de nube crece más rápido que tu negocio, si vas a migrar o si quieres que tu equipo trabaje con IA, escríbeme y lo revisamos juntos. También acepto invitaciones para dar charlas.'
+    en: "If your cloud bill is growing faster than your business, if you're about to migrate or if you want your team to work with AI, write to me and we'll review it together. I also accept invitations to give talks."
+    pt: 'Se sua fatura de nuvem cresce mais rápido que seu negócio, se você vai migrar ou se quer que sua equipe trabalhe com IA, escreva e revisamos juntos. Também aceito convites para dar palestras.'
   # Pregunta de tema propia del Home; el resto del formulario está en formularios/general.yaml.
   tema:
     es: '¿En qué te ayudo?'
+    en: 'How can I help?'
+    pt: 'Como posso ajudar?'
   temas:
     - valor: consultoria
       texto:
         es: 'Consultoría cloud o IA'
+        en: 'Cloud or AI consulting'
+        pt: 'Consultoria cloud ou IA'
     - valor: conferencia
       texto:
         es: 'Conferencia o charla'
+        en: 'Conference or talk'
+        pt: 'Conferência ou palestra'
     - valor: contratacion
       texto:
         es: 'Contratación'
+        en: 'Hiring'
+        pt: 'Contratação'
     - valor: conversacion
       texto:
         es: 'Conversación general'
+        en: 'General conversation'
+        pt: 'Conversa geral'

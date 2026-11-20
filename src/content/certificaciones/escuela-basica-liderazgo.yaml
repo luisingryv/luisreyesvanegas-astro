@@ -1,8 +1,12 @@
 orden: 6
 nombre:
   es: 'Escuela Básica de Liderazgo (48 h)'
+  en: 'Basic Leadership School (48 h)'
+  pt: 'Escola Básica de Liderança (48 h)'
 emisor:
   es: 'Naranjo Consulting & Coaching'
+  en: 'Naranjo Consulting & Coaching'
+  pt: 'Naranjo Consulting & Coaching'
 fecha:
   anio: 2025
   mes: 2

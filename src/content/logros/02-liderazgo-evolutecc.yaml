@@ -1,10 +1,18 @@
 etiqueta:
   es: 'Liderazgo técnico'
+  en: 'Technical leadership'
+  pt: 'Liderança técnica'
 metrica:
   es: '400+'
+  en: '400+'
+  pt: '400+'
 descripcion:
   es: 'Proyectos de software entregados con mi equipo en EvolutecC, donde soy CTO desde 2020.'
+  en: 'Software projects delivered with my team at EvolutecC, where I have been CTO since 2020.'
+  pt: 'Projetos de software entregues com minha equipe na EvolutecC, onde sou CTO desde 2020.'
 quien:
   es: 'EvolutecC · 2020–hoy · Liderado con mi equipo'
+  en: 'EvolutecC · 2020–present · Led with my team'
+  pt: 'EvolutecC · 2020–hoje · Liderado com minha equipe'
 home:
   orden: 2

@@ -1,15 +1,25 @@
 etiqueta:
   es: 'Escalar'
+  en: 'Scale'
+  pt: 'Escalar'
 metrica:
   es: '70.000'
+  en: '70,000'
+  pt: '70.000'
 descripcion:
   es: 'Pedidos al mes después de la integración con iFood, que dirigí como Head of Product de Mandaos: producto, equipo y API. Antes eran unos 2.400.'
+  en: 'Orders a month after the iFood integration, which I led as Head of Product at Mandaos: product, team and API. Before, it was about 2,400.'
+  pt: 'Pedidos por mês depois da integração com o iFood, que dirigi como Head of Product da Mandaos: produto, equipe e API. Antes eram cerca de 2.400.'
 quien:
   es: 'Mandaos / Netivery con iFood'
+  en: 'Mandaos / Netivery with iFood'
+  pt: 'Mandaos / Netivery com o iFood'
 barras:
   antes: 3.4
   despues: 100
   leyenda:
     es: '≈2.400 → ≈70.000 · ×29'
+    en: '≈2,400 → ≈70,000 · ×29'
+    pt: '≈2.400 → ≈70.000 · ×29'
 home:
   orden: 1

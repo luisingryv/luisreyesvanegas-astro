@@ -3,9 +3,17 @@ anio: 2019
 edad: 22
 titulo:
   es: 'Integración con iFood'
+  en: 'iFood integration'
+  pt: 'Integração com o iFood'
 texto:
   es: 'Integramos Mandaos con iFood tras un piloto que validó la API. Para soportar su demanda aceleramos la nueva app, que pasó a llamarse Netivery.'
+  en: 'We integrated Mandaos with iFood after a pilot that validated the API. To support its demand we sped up the new app, which was renamed Netivery.'
+  pt: 'Integramos a Mandaos com o iFood depois de um piloto que validou a API. Para suportar a demanda, aceleramos o novo app, que passou a se chamar Netivery.'
 cifra:
   es: '≈2.400 → ≈70.000 pedidos al mes'
+  en: '≈2,400 → ≈70,000 orders a month'
+  pt: '≈2.400 → ≈70.000 pedidos por mês'
 impacto:
   es: 'Un resultado de todo el equipo: tecnología, operación y estrategia.'
+  en: 'A result of the whole team: technology, operations and strategy.'
+  pt: 'Um resultado de toda a equipe: tecnologia, operação e estratégia.'

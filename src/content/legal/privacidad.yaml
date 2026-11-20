@@ -3,48 +3,94 @@
 orden: 1
 eyebrow:
   es: 'Legal'
+  en: 'Legal'
+  pt: 'Legal'
 titulo:
   es: 'Política de tratamiento de datos personales'
+  en: 'Personal data processing policy'
+  pt: 'Política de tratamento de dados pessoais'
 navegacion:
   es: 'Política de datos personales'
+  en: 'Personal data policy'
+  pt: 'Política de dados pessoais'
 secciones:
   - titulo:
       es: 'Responsable'
+      en: 'Data controller'
+      pt: 'Responsável'
     texto:
       es: 'Luis Carlos Reyes Vanegas, persona natural, con domicilio en {ciudad}, Colombia. Correo para asuntos de privacidad: {correoPrivacidad}.'
+      en: 'Luis Carlos Reyes Vanegas, an individual domiciled in {ciudad}, Colombia. Email for privacy matters: {correoPrivacidad}.'
+      pt: 'Luis Carlos Reyes Vanegas, pessoa física, com domicílio em {ciudad}, Colômbia. E-mail para assuntos de privacidade: {correoPrivacidad}.'
   - titulo:
       es: 'Qué datos recogemos y para qué'
+      en: 'What data we collect and why'
+      pt: 'Quais dados coletamos e para quê'
     texto:
       es: 'Los que nos das en los formularios de contacto, agenda, charlas e información de productos, y por WhatsApp, para responderte, agendar sesiones, evaluar invitaciones y enviarte la información que pediste.'
+      en: 'The data you give us in the contact, booking, talks and product information forms, and on WhatsApp, to reply to you, book sessions, evaluate invitations and send you the information you requested.'
+      pt: 'Os que você nos fornece nos formulários de contato, agenda, palestras e informações de produtos, e pelo WhatsApp, para responder, agendar sessões, avaliar convites e enviar as informações que você pediu.'
   - titulo:
       es: 'Autorización'
+      en: 'Authorization'
+      pt: 'Autorização'
     texto:
       es: 'Cada formulario te pide aceptar esta política antes de enviarlo. Guardamos prueba de esa autorización.'
+      en: 'Every form asks you to accept this policy before sending it. We keep proof of that authorization.'
+      pt: 'Cada formulário pede que você aceite esta política antes de enviá-lo. Guardamos prova dessa autorização.'
   - titulo:
       es: 'Quién más accede'
+      en: 'Who else has access'
+      pt: 'Quem mais tem acesso'
     texto:
       es: 'Proveedores que operan el sitio por cuenta nuestra (alojamiento, agenda, CRM y mensajería), solo con lo necesario. No vendemos tus datos.'
+      en: 'Providers that operate the site on our behalf (hosting, booking, CRM and messaging), only with what is necessary. We do not sell your data.'
+      pt: 'Fornecedores que operam o site em nosso nome (hospedagem, agenda, CRM e mensagens), apenas com o necessário. Não vendemos seus dados.'
   - titulo:
       es: 'Datos fuera de Colombia'
+      en: 'Data outside Colombia'
+      pt: 'Dados fora da Colômbia'
     texto:
       es: 'Algunos proveedores guardan datos en Estados Unidos o la Unión Europea, países que la SIC reconoce con un nivel adecuado de protección.'
+      en: 'Some providers store data in the United States or the European Union, countries the SIC recognizes as having an adequate level of protection.'
+      pt: 'Alguns fornecedores guardam dados nos Estados Unidos ou na União Europeia, países que a SIC reconhece com um nível adequado de proteção.'
   - titulo:
       es: 'Tus derechos'
+      en: 'Your rights'
+      pt: 'Seus direitos'
     texto:
       es: 'Conocer, actualizar, rectificar y suprimir tus datos, pedir prueba de la autorización, revocarla y presentar quejas ante la Superintendencia de Industria y Comercio.'
+      en: 'To know, update, correct and delete your data, request proof of the authorization, revoke it and file complaints with the Superintendence of Industry and Commerce.'
+      pt: 'Conhecer, atualizar, retificar e excluir seus dados, pedir prova da autorização, revogá-la e apresentar reclamações à Superintendência de Indústria e Comércio.'
   - titulo:
       es: 'Cómo ejercerlos'
+      en: 'How to exercise them'
+      pt: 'Como exercê-los'
     texto:
       es: 'Escribe al correo de privacidad. Respondemos consultas en hasta 10 días hábiles y reclamos en hasta 15, como dice la Ley 1581 de 2012.'
+      en: 'Write to the privacy email. We answer inquiries within 10 business days and claims within 15, as required by Law 1581 of 2012.'
+      pt: 'Escreva para o e-mail de privacidade. Respondemos consultas em até 10 dias úteis e reclamações em até 15, como determina a Lei 1581 de 2012.'
   - titulo:
       es: 'Cuánto tiempo los guardamos'
+      en: 'How long we keep it'
+      pt: 'Por quanto tempo guardamos'
     texto:
       es: 'Mientras sean necesarios para la finalidad y, sin relación activa, hasta {conservacion} desde el último contacto, salvo obligación legal.'
+      en: 'As long as it is needed for its purpose and, without an active relationship, up to {conservacion} from the last contact, unless the law requires otherwise.'
+      pt: 'Enquanto forem necessários para a finalidade e, sem relação ativa, até {conservacion} desde o último contato, salvo obrigação legal.'
   - titulo:
       es: 'Seguridad'
+      en: 'Security'
+      pt: 'Segurança'
     texto:
       es: 'Conexión cifrada, acceso restringido, autenticación de dos factores y proveedores con certificaciones de seguridad.'
+      en: 'Encrypted connection, restricted access, two-factor authentication and providers with security certifications.'
+      pt: 'Conexão criptografada, acesso restrito, autenticação de dois fatores e fornecedores com certificações de segurança.'
   - titulo:
       es: 'Visitantes de otros países'
+      en: 'Visitors from other countries'
+      pt: 'Visitantes de outros países'
     texto:
       es: 'Si vives en la Unión Europea o en California, también reconocemos los derechos que te dan sus leyes. Escríbenos al mismo correo.'
+      en: 'If you live in the European Union or California, we also recognize the rights their laws give you. Write to us at the same email.'
+      pt: 'Se você mora na União Europeia ou na Califórnia, também reconhecemos os direitos que suas leis lhe dão. Escreva para o mesmo e-mail.'

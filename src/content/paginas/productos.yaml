@@ -5,33 +5,59 @@
 hero:
   eyebrow:
     es: 'Producto destacado · Trama AI'
+    en: 'Featured product · Trama AI'
+    pt: 'Produto em destaque · Trama AI'
   titulo:
     es: 'Agentes de IA que operan el inventario de tu empresa.'
+    en: "AI agents that run your company's inventory."
+    pt: 'Agentes de IA que operam o estoque da sua empresa.'
   texto:
     es: 'Trama es un agente en WhatsApp que lleva el inventario y la operación de empresas textiles medianas: entradas, salidas, contabilidad y nómina en un solo flujo.'
+    en: 'Trama is a WhatsApp agent that runs the inventory and operations of mid-sized textile companies: stock in, stock out, accounting and payroll in a single flow.'
+    pt: 'A Trama é um agente no WhatsApp que cuida do estoque e da operação de empresas têxteis de médio porte: entradas, saídas, contabilidade e folha de pagamento em um só fluxo.'
   equipo:
     es: 'Hecho por Trama AI, Corp. · Luis Reyes Vanegas (CEO), Gianfranco Castro (CTO), Johan Burgos (DevOps) y Najem Nabhan (PM)'
+    en: 'Made by Trama AI, Corp. · Luis Reyes Vanegas (CEO), Gianfranco Castro (CTO), Johan Burgos (DevOps) and Najem Nabhan (PM)'
+    pt: 'Feito pela Trama AI, Corp. · Luis Reyes Vanegas (CEO), Gianfranco Castro (CTO), Johan Burgos (DevOps) e Najem Nabhan (PM)'
   verDemo:
     es: 'Ver demo'
+    en: 'See demo'
+    pt: 'Ver demo'
   inversionista:
     es: 'Soy inversionista'
+    en: "I'm an investor"
+    pt: 'Sou investidor'
   medalla:
     etiqueta:
       es: 'Medalla: ganador de categoría, Small Business Services, Build with Gemini XPRIZE 2026'
+      en: 'Medal: category winner, Small Business Services, Build with Gemini XPRIZE 2026'
+      pt: 'Medalha: vencedor de categoria, Small Business Services, Build with Gemini XPRIZE 2026'
     frente:
       rotulo:
         es: 'Ganador de categoría'
+        en: 'Category winner'
+        pt: 'Vencedor de categoria'
       linea1:
         es: 'Small Business'
+        en: 'Small Business'
+        pt: 'Small Business'
       linea2:
         es: 'Services'
+        en: 'Services'
+        pt: 'Services'
       evento:
         es: 'Build with Gemini XPRIZE 2026'
+        en: 'Build with Gemini XPRIZE 2026'
+        pt: 'Build with Gemini XPRIZE 2026'
     reverso:
       rotulo:
         es: 'Logro desbloqueado'
+        en: 'Achievement unlocked'
+        pt: 'Conquista desbloqueada'
       nombre:
         es: 'Trama AI'
+        en: 'Trama AI'
+        pt: 'Trama AI'
       equipo:
         - 'Luis Reyes Vanegas'
         - 'Gianfranco Castro'
@@ -39,169 +65,311 @@ hero:
         - 'Najem Nabhan'
       cierre:
         es: 'Construido en 90 días'
+        en: 'Built in 90 days'
+        pt: 'Construído em 90 dias'
   fuente:
     texto:
       es: 'Fuente: gxp.moonshots.com'
+      en: 'Source: gxp.moonshots.com'
+      pt: 'Fonte: gxp.moonshots.com'
     url: 'https://gxp.moonshots.com/'
 funciona:
   eyebrow:
     es: 'Qué hace y cómo funciona'
+    en: 'What it does and how it works'
+    pt: 'O que faz e como funciona'
   titulo:
     es: 'Así funciona Trama'
+    en: 'How Trama works'
+    pt: 'Como a Trama funciona'
   pasos:
     - titulo:
         es: 'Tu equipo escribe por WhatsApp'
+        en: 'Your team writes on WhatsApp'
+        pt: 'Sua equipe escreve pelo WhatsApp'
       texto:
         es: 'Registra entradas, salidas y novedades sin aprender un sistema nuevo.'
+        en: 'It logs stock in, stock out and updates without learning a new system.'
+        pt: 'Registra entradas, saídas e novidades sem aprender um sistema novo.'
     - titulo:
         es: 'El agente organiza la operación'
+        en: 'The agent organizes the operation'
+        pt: 'O agente organiza a operação'
       texto:
         es: 'Actualiza el inventario y deja listo lo que necesitan contabilidad y nómina.'
+        en: 'It updates the inventory and gets ready what accounting and payroll need.'
+        pt: 'Atualiza o estoque e deixa pronto o que a contabilidade e a folha de pagamento precisam.'
     - titulo:
         es: 'La gerencia consulta en el momento'
+        en: 'Management asks on the spot'
+        pt: 'A gerência consulta na hora'
       texto:
         es: 'Pregunta por existencias, movimientos y pendientes, y recibe la respuesta en la misma conversación.'
+        en: 'It asks about stock, movements and pending items, and gets the answer in the same conversation.'
+        pt: 'Pergunta por estoques, movimentações e pendências, e recebe a resposta na mesma conversa.'
   modulos:
     - es: 'Inventario'
+      en: 'Inventory'
+      pt: 'Estoque'
     - es: 'Entradas y salidas'
+      en: 'Stock in and out'
+      pt: 'Entradas e saídas'
     - es: 'Contabilidad'
+      en: 'Accounting'
+      pt: 'Contabilidade'
     - es: 'Nómina'
+      en: 'Payroll'
+      pt: 'Folha de pagamento'
   conversacion:
     titulo:
       es: 'Trama'
+      en: 'Trama'
+      pt: 'Trama'
     demostracion:
       es: 'Demostración'
+      en: 'Demo'
+      pt: 'Demonstração'
     mensajes:
       - quien: equipo
         autor:
           es: 'Bodega'
+          en: 'Warehouse'
+          pt: 'Depósito'
         texto:
           es: 'Entrada: 12 rollos de denim azul.'
+          en: 'Stock in: 12 rolls of blue denim.'
+          pt: 'Entrada: 12 rolos de denim azul.'
       - quien: trama
         autor:
           es: 'Trama'
+          en: 'Trama'
+          pt: 'Trama'
         texto:
           es: 'Listo, registré los 12 rollos. En bodega hay 48 rollos de denim azul.'
+          en: 'Done, I logged the 12 rolls. There are 48 rolls of blue denim in the warehouse.'
+          pt: 'Pronto, registrei os 12 rolos. No depósito há 48 rolos de denim azul.'
       - quien: equipo
         autor:
           es: 'Producción'
+          en: 'Production'
+          pt: 'Produção'
         texto:
           es: 'Salida: 5 rollos para el corte de la orden 214.'
+          en: 'Stock out: 5 rolls for cutting order 214.'
+          pt: 'Saída: 5 rolos para o corte do pedido 214.'
       - quien: trama
         autor:
           es: 'Trama'
+          en: 'Trama'
+          pt: 'Trama'
         texto:
           es: 'Registrado. Quedan 43 rollos y la salida ya está lista para contabilidad.'
+          en: 'Logged. 43 rolls left, and the stock-out is ready for accounting.'
+          pt: 'Registrado. Restam 43 rolos e a saída já está pronta para a contabilidade.'
       - quien: equipo
         autor:
           es: 'Gerencia'
+          en: 'Management'
+          pt: 'Gerência'
         texto:
           es: '¿Qué tenemos pendiente hoy?'
+          en: 'What do we have pending today?'
+          pt: 'O que temos pendente hoje?'
       - quien: trama
         autor:
           es: 'Trama'
+          en: 'Trama'
+          pt: 'Trama'
         texto:
           es: 'Aprobar la compra de hilo y revisar la nómina del viernes.'
+          en: "Approve the thread purchase and review Friday's payroll."
+          pt: 'Aprovar a compra de linha e revisar a folha de pagamento de sexta-feira.'
 logros:
   eyebrow:
     es: 'Logros del producto'
+    en: 'Product achievements'
+    pt: 'Conquistas do produto'
   titulo:
     es: 'Lo que Trama ya logró'
+    en: 'What Trama has already achieved'
+    pt: 'O que a Trama já conquistou'
   lista:
     - metrica:
         es: '1.º de categoría'
+        en: '1st in its category'
+        pt: '1º da categoria'
       texto:
         es: 'Small Business Services en el Build with Gemini XPRIZE 2026.'
+        en: 'Small Business Services at the Build with Gemini XPRIZE 2026.'
+        pt: 'Small Business Services no Build with Gemini XPRIZE 2026.'
     - metrica:
         es: 'Top 100'
+        en: 'Top 100'
+        pt: 'Top 100'
       texto:
         es: 'Entre 26.449 equipos de todo el mundo.'
+        en: 'Among 26,449 teams from around the world.'
+        pt: 'Entre 26.449 equipes do mundo todo.'
     - metrica:
         es: '90 días'
+        en: '90 days'
+        pt: '90 dias'
       texto:
         es: 'El tiempo en que el equipo construyó el producto.'
+        en: 'The time it took the team to build the product.'
+        pt: 'O tempo em que a equipe construiu o produto.'
     - metrica:
         es: '≈US$6.000'
+        en: '≈US$6,000'
+        pt: '≈US$6.000'
       texto:
         es: 'En créditos de AWS para migrar de Google Cloud a AWS con el programa MAP.'
+        en: 'In AWS credits to migrate from Google Cloud to AWS with the MAP program.'
+        pt: 'Em créditos da AWS para migrar do Google Cloud para a AWS com o programa MAP.'
 caminos:
   titulo:
     es: 'Dos formas de acercarte a Trama'
+    en: 'Two ways to get to know Trama'
+    pt: 'Duas formas de conhecer a Trama'
   empresas:
     eyebrow:
       es: 'Para empresas'
+      en: 'For companies'
+      pt: 'Para empresas'
     titulo:
       es: 'Quiero usar Trama en mi empresa'
+      en: 'I want to use Trama in my company'
+      pt: 'Quero usar a Trama na minha empresa'
     texto:
       es: 'Te mostramos el producto con un caso parecido al tuyo y vemos si resuelve tu operación.'
+      en: "We'll show you the product with a case similar to yours and see whether it solves your operation."
+      pt: 'Mostramos o produto com um caso parecido com o seu e vemos se ele resolve sua operação.'
     boton:
       es: 'Solicitar demo'
+      en: 'Request a demo'
+      pt: 'Solicitar demo'
   inversionistas:
     eyebrow:
       es: 'Para inversionistas'
+      en: 'For investors'
+      pt: 'Para investidores'
     titulo:
       es: 'Quiero conocer la empresa'
+      en: 'I want to learn about the company'
+      pt: 'Quero conhecer a empresa'
     texto:
       es: 'Trama AI es una C corp de Delaware con su tabla de capitalización definida. La estructura societaria, el pool de acciones, el runway y los ingresos recurrentes los comparto en una conversación privada.'
+      en: 'Trama AI is a Delaware C corp with a defined cap table. I share the corporate structure, the stock option pool, the runway and the recurring revenue in a private conversation.'
+      pt: 'A Trama AI é uma C corp de Delaware com sua tabela de capitalização definida. A estrutura societária, o pool de ações, o runway e a receita recorrente eu compartilho em uma conversa privada.'
     campos:
       tipo:
         es: 'Tipo de inversionista'
+        en: 'Investor type'
+        pt: 'Tipo de investidor'
       pais:
         es: 'País'
+        en: 'Country'
+        pt: 'País'
       correo:
         es: 'Correo'
+        en: 'Email'
+        pt: 'E-mail'
     tipos:
       - valor: 'angel'
         texto:
           es: 'Ángel'
+          en: 'Angel'
+          pt: 'Anjo'
       - valor: 'fondo'
         texto:
           es: 'Fondo'
+          en: 'Fund'
+          pt: 'Fundo'
       - valor: 'family-office'
         texto:
           es: 'Family office'
+          en: 'Family office'
+          pt: 'Family office'
       - valor: 'socio-estrategico'
         texto:
           es: 'Socio estratégico'
+          en: 'Strategic partner'
+          pt: 'Sócio estratégico'
     enviar:
       es: 'Solicitar información'
+      en: 'Request information'
+      pt: 'Solicitar informações'
     aviso:
       es: 'Esta página es informativa y no constituye una oferta de valores.'
+      en: 'This page is for information only and does not constitute an offer of securities.'
+      pt: 'Esta página é informativa e não constitui uma oferta de valores mobiliários.'
     recibido:
       es: 'Gracias. Recibí tu solicitud y te escribo para agendar la conversación.'
+      en: 'Thank you. I got your request and will write to you to schedule the conversation.'
+      pt: 'Obrigado. Recebi sua solicitação e escrevo para você para agendar a conversa.'
 portafolio:
   eyebrow:
     es: 'Portafolio'
+    en: 'Portfolio'
+    pt: 'Portfólio'
   titulo:
     es: 'Productos propios y de aliados'
+    en: 'Our own and partner products'
+    pt: 'Produtos próprios e de parceiros'
   productos:
     - nombre: 'Trama AI'
       dueno:
         es: 'Propio · Trama AI, Corp.'
+        en: 'Own · Trama AI, Corp.'
+        pt: 'Próprio · Trama AI, Corp.'
       estado:
         es: 'En producción'
+        en: 'In production'
+        pt: 'Em produção'
       texto:
         es: 'Agentes de IA que operan el inventario y la operación de empresas con inventario físico. Empezó en la industria textil.'
+        en: 'AI agents that run the inventory and operations of companies with physical inventory. It started in the textile industry.'
+        pt: 'Agentes de IA que operam o estoque e a operação de empresas com estoque físico. Começou na indústria têxtil.'
     - nombre: 'Ofilix'
       dueno:
         es: 'Aliado · Andrés Martínez · Solutek'
+        en: 'Partner · Andrés Martínez · Solutek'
+        pt: 'Parceiro · Andrés Martínez · Solutek'
       estado:
         es: 'En producción'
+        en: 'In production'
+        pt: 'Em produção'
       texto:
         es: 'Plataforma de conversación empresarial: una bandeja para 9 canales con IA conversacional, CRM, gestión de servicios de TI y telefonía en la nube. ofilix.com'
+        en: 'Business conversation platform: one inbox for 9 channels with conversational AI, CRM, IT service management and cloud telephony. ofilix.com'
+        pt: 'Plataforma de conversação empresarial: uma caixa de entrada para 9 canais com IA conversacional, CRM, gestão de serviços de TI e telefonia em nuvem. ofilix.com'
   usar:
     es: 'Usar el producto'
+    en: 'Use the product'
+    pt: 'Usar o produto'
   invertir:
     es: 'Invertir'
+    en: 'Invest'
+    pt: 'Investir'
   proximos:
     titulo:
       es: 'Próximos productos'
+      en: 'Upcoming products'
+      pt: 'Próximos produtos'
     texto:
       es: 'Se suman a medida que firmamos con aliados estratégicos.'
+      en: 'Added as we sign with strategic partners.'
+      pt: 'São incluídos à medida que fechamos com parceiros estratégicos.'
 juntos:
   eyebrow:
     es: 'Construimos juntos'
+    en: 'Building together'
+    pt: 'Construímos juntos'
   titulo:
     es: 'Ya escalamos un producto antes.'
+    en: "We've scaled a product before."
+    pt: 'Já escalamos um produto antes.'
   texto:
     es: 'Andrés Martínez y yo trabajamos juntos en Mandaos, donde yo era Head of Product. Con la integración con iFood, la operación pasó de unos 2.400 a unos 70.000 pedidos al mes. Hoy seguimos creando productos juntos.'
+    en: 'Andrés Martínez and I worked together at Mandaos, where I was Head of Product. With the iFood integration, the operation went from about 2,400 to about 70,000 orders a month. Today we keep building products together.'
+    pt: 'Andrés Martínez e eu trabalhamos juntos na Mandaos, onde eu era Head of Product. Com a integração com o iFood, a operação passou de cerca de 2.400 para cerca de 70.000 pedidos por mês. Hoje continuamos criando produtos juntos.'

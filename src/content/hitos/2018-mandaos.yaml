@@ -4,15 +4,27 @@ orden: 1
 edad: 21
 titulo:
   es: 'Mandaos: startup de última milla'
+  en: 'Mandaos: last-mile startup'
+  pt: 'Mandaos: startup de última milha'
 texto:
   es: 'Ingresé como desarrollador web a una startup barranquillera de logística de última milla y llegué a Head of Product, a cargo del producto y de las decisiones técnicas.'
+  en: 'I joined a Barranquilla last-mile logistics startup as a web developer and became Head of Product, in charge of the product and the technical decisions.'
+  pt: 'Entrei como desenvolvedor web em uma startup de logística de última milha de Barranquilla e cheguei a Head of Product, responsável pelo produto e pelas decisões técnicas.'
 cifra:
   es: 'Desarrollador → Head of Product'
+  en: 'Developer → Head of Product'
+  pt: 'Desenvolvedor → Head of Product'
 impacto:
   es: 'Equipo de producto de 6 personas y primer contacto con AWS.'
+  en: 'Product team of 6 people and first contact with AWS.'
+  pt: 'Equipe de produto de 6 pessoas e primeiro contato com a AWS.'
 # Versión corta para la trayectoria del Home.
 home:
   titulo:
     es: 'Mandaos'
+    en: 'Mandaos'
+    pt: 'Mandaos'
   texto:
     es: 'Entré como desarrollador y llegué a Head of Product en esta startup de última milla.'
+    en: 'I joined as a developer and became Head of Product at this last-mile startup.'
+    pt: 'Entrei como desenvolvedor e cheguei a Head of Product nesta startup de última milha.'

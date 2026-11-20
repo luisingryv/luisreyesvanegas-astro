@@ -1,12 +1,20 @@
 numero: 4
 etiqueta:
   es: 'Migrar'
+  en: 'Migrate'
+  pt: 'Migrar'
 dolor:
   es: '¿Quieres llevar tus sistemas a la nube o cambiar de nube?'
+  en: 'Want to move your systems to the cloud or switch clouds?'
+  pt: 'Quer levar seus sistemas para a nuvem ou mudar de nuvem?'
 oferta:
   es: 'Plan de migración con el programa MAP y Nexa Connect.'
+  en: 'Migration plan with the MAP program and Nexa Connect.'
+  pt: 'Plano de migração com o programa MAP e a Nexa Connect.'
 prueba:
   es: 'Trama: Google Cloud → AWS'
+  en: 'Trama: Google Cloud → AWS'
+  pt: 'Trama: Google Cloud → AWS'
 destino:
   ruta: programasAws
 viz:

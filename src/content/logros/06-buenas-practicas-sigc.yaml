@@ -1,10 +1,18 @@
 etiqueta:
   es: 'Buenas prácticas'
+  en: 'Best practices'
+  pt: 'Boas práticas'
 metrica:
   es: '10+'
+  en: '10+'
+  pt: '10+'
 descripcion:
   es: 'Años lleva en producción el SIGC, el sistema de la Clínica del Caribe que pasé de escritorio a web.'
+  en: 'Years in production for the SIGC, the Clínica del Caribe system I moved from desktop to web.'
+  pt: 'Anos em produção do SIGC, o sistema da Clínica del Caribe que levei do desktop para a web.'
 quien:
   es: 'SIGC · Clínica del Caribe · 300+ usuarios'
+  en: 'SIGC · Clínica del Caribe · 300+ users'
+  pt: 'SIGC · Clínica del Caribe · 300+ usuários'
 home:
   orden: 6

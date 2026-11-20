@@ -3,222 +3,416 @@
 hero:
   eyebrow:
     es: 'Arquitectura cloud e IA'
+    en: 'Cloud and AI architecture'
+    pt: 'Arquitetura cloud e IA'
   titulo:
     es: '¿Qué necesitas resolver en tu nube?'
+    en: 'What do you need to solve in your cloud?'
+    pt: 'O que você precisa resolver na sua nuvem?'
   texto:
     es: 'Puede ser una factura que crece más rápido que tu negocio, una infraestructura que tiene que aguantar el doble de usuarios, una migración, una certificación de seguridad o un equipo que quiere trabajar con IA. Reviso tu caso, encuentro dónde está el problema y diseño la solución contigo.'
+    en: 'It may be a bill growing faster than your business, infrastructure that has to handle twice the users, a migration, a security certification or a team that wants to work with AI. I review your case, find where the problem is and design the solution with you.'
+    pt: 'Pode ser uma fatura que cresce mais rápido que seu negócio, uma infraestrutura que precisa aguentar o dobro de usuários, uma migração, uma certificação de segurança ou uma equipe que quer trabalhar com IA. Reviso seu caso, encontro onde está o problema e projeto a solução com você.'
   agendar:
     es: 'Agendar sesión de arquitectura · US$450'
+    en: 'Book an architecture session · US$450'
+    pt: 'Agendar sessão de arquitetura · US$450'
   llamada:
     es: 'Llamada de 20 min gratis'
+    en: 'Free 20-min call'
+    pt: 'Chamada gratuita de 20 min'
 puertas:
   eyebrow:
     es: 'Elige tu misión'
+    en: 'Choose your mission'
+    pt: 'Escolha sua missão'
   titulo:
     es: 'Siete formas de empezar'
+    en: 'Seven ways to start'
+    pt: 'Sete formas de começar'
   boton:
     es: 'Hablemos de tu caso'
+    en: "Let's talk about your case"
+    pt: 'Vamos falar do seu caso'
 casos:
   eyebrow:
     es: 'Casos'
+    en: 'Case studies'
+    pt: 'Casos'
   titulo:
     es: 'Dos casos recientes'
+    en: 'Two recent cases'
+    pt: 'Dois casos recentes'
   lista:
     - 'utpn'
     - 'glasslake'
 pasos:
   eyebrow:
     es: 'Cómo trabajo'
+    en: 'How I work'
+    pt: 'Como trabalho'
   titulo:
     es: 'Cuatro pasos'
+    en: 'Four steps'
+    pt: 'Quatro passos'
   items:
     - numero: '01'
       titulo:
         es: 'Diagnóstico'
+        en: 'Diagnosis'
+        pt: 'Diagnóstico'
       texto:
         es: 'Reviso tu cuenta y tu facturación con acceso de solo lectura y encuentro dónde está el problema o la oportunidad.'
+        en: 'I review your account and billing with read-only access and find where the problem or the opportunity is.'
+        pt: 'Reviso sua conta e seu faturamento com acesso somente leitura e encontro onde está o problema ou a oportunidade.'
     - numero: '02'
       titulo:
         es: 'Plan'
+        en: 'Plan'
+        pt: 'Plano'
       texto:
         es: 'Te entrego la arquitectura propuesta, la proyección de capacidad y costos, y el orden en que conviene hacer cada cosa.'
+        en: 'I deliver the proposed architecture, the capacity and cost projection, and the order in which it makes sense to do each thing.'
+        pt: 'Entrego a arquitetura proposta, a projeção de capacidade e custos, e a ordem em que convém fazer cada coisa.'
     - numero: '03'
       titulo:
         es: 'Implementación'
+        en: 'Implementation'
+        pt: 'Implementação'
       texto:
         es: 'Ejecuto con tu equipo o lo acompaño mientras ejecuta.'
+        en: 'I execute with your team or support them while they execute.'
+        pt: 'Executo com sua equipe ou a acompanho enquanto ela executa.'
     - numero: '04'
       titulo:
         es: 'Operación'
+        en: 'Operations'
+        pt: 'Operação'
       texto:
         es: 'Si lo necesitas, te acompaño cada mes para sostener y mejorar lo que construimos.'
+        en: 'If you need it, I support you every month to sustain and improve what we built.'
+        pt: 'Se precisar, acompanho você todo mês para sustentar e melhorar o que construímos.'
 formas:
   eyebrow:
     es: 'Formas de trabajar'
+    en: 'Ways of working'
+    pt: 'Formas de trabalhar'
   titulo:
     es: 'Cómo podemos trabajar juntos'
+    en: 'How we can work together'
+    pt: 'Como podemos trabalhar juntos'
   items:
     - nombre:
         es: 'Auditoría de costos cloud'
+        en: 'Cloud cost audit'
+        pt: 'Auditoria de custos cloud'
       texto:
         es: 'Dónde se va el gasto y qué hacer para reducirlo.'
+        en: 'Where the spending goes and what to do to reduce it.'
+        pt: 'Para onde vai o gasto e o que fazer para reduzi-lo.'
     - nombre:
         es: 'Revisión de escalabilidad y capacidad'
+        en: 'Scalability and capacity review'
+        pt: 'Revisão de escalabilidade e capacidade'
       texto:
         es: 'Si tu infraestructura soporta el crecimiento que esperas.'
+        en: 'Whether your infrastructure can handle the growth you expect.'
+        pt: 'Se sua infraestrutura suporta o crescimento que você espera.'
     - nombre:
         es: 'Revisión de arquitectura'
+        en: 'Architecture review'
+        pt: 'Revisão de arquitetura'
       texto:
         es: 'Un informe priorizado con los pilares de Well-Architected.'
+        en: 'A prioritized report based on the Well-Architected pillars.'
+        pt: 'Um relatório priorizado com os pilares do Well-Architected.'
     - nombre:
         es: 'Evaluación de programas y créditos'
+        en: 'Programs and credits assessment'
+        pt: 'Avaliação de programas e créditos'
       texto:
         es: 'Qué programas de la nube te corresponden, incluido MAP.'
+        en: 'Which cloud programs you qualify for, including MAP.'
+        pt: 'Quais programas da nuvem correspondem a você, incluindo o MAP.'
     - nombre:
         es: 'Acompañamiento técnico ISO 27001 y SOC 2'
+        en: 'Technical support for ISO 27001 and SOC 2'
+        pt: 'Acompanhamento técnico ISO 27001 e SOC 2'
       texto:
         es: 'Los controles técnicos en la nube que pide la certificación.'
+        en: 'The cloud technical controls the certification requires.'
+        pt: 'Os controles técnicos na nuvem que a certificação exige.'
     - nombre:
         es: 'Workshop de adopción de IA'
+        en: 'AI adoption workshop'
+        pt: 'Workshop de adoção de IA'
       texto:
         es: 'Tu equipo aprende a trabajar con Claude en su día a día.'
+        en: 'Your team learns to work with Claude day to day.'
+        pt: 'Sua equipe aprende a trabalhar com o Claude no dia a dia.'
     - nombre:
         es: 'Programa de adopción de IA con Claude'
+        en: 'AI adoption program with Claude'
+        pt: 'Programa de adoção de IA com Claude'
       texto:
         es: 'Adopción por equipos, con acompañamiento.'
+        en: 'Team-by-team adoption, with support.'
+        pt: 'Adoção por equipes, com acompanhamento.'
     - nombre:
         es: 'Agentes para trabajos específicos'
+        en: 'Agents for specific jobs'
+        pt: 'Agentes para trabalhos específicos'
       texto:
         es: 'Agentes a la medida cuando un proceso lo justifica.'
+        en: 'Custom agents when a process justifies it.'
+        pt: 'Agentes sob medida quando um processo justifica.'
     - nombre:
         es: 'Acompañamiento mensual'
+        en: 'Monthly support'
+        pt: 'Acompanhamento mensal'
       texto:
         es: 'Un arquitecto de cabecera para tu equipo, con dedicación acordada.'
+        en: 'A go-to architect for your team, with an agreed time commitment.'
+        pt: 'Um arquiteto de confiança para sua equipe, com dedicação acordada.'
   nota:
     es: 'Todo empieza con la sesión de arquitectura: 90 minutos y un memo con recomendaciones en 48 horas, por US$450. Después definimos juntos la forma de trabajo que le sirve a tu caso.'
+    en: 'Everything starts with the architecture session: 90 minutes and a memo with recommendations within 48 hours, for US$450. Then we define together the way of working that fits your case.'
+    pt: 'Tudo começa com a sessão de arquitetura: 90 minutos e um memorando com recomendações em 48 horas, por US$450. Depois definimos juntos a forma de trabalho que serve para o seu caso.'
   enlaces:
     - texto:
         es: 'Cómo funciona la sesión'
+        en: 'How the session works'
+        pt: 'Como funciona a sessão'
       destino:
         ruta: 'sesionArquitectura'
     - texto:
         es: 'Acompañamiento mensual'
+        en: 'Monthly support'
+        pt: 'Acompanhamento mensal'
       destino:
         ruta: 'retainers'
 credenciales:
   eyebrow:
     es: 'Credenciales'
+    en: 'Credentials'
+    pt: 'Credenciais'
   titulo:
     es: 'Con qué respaldo llego'
+    en: 'What backs me up'
+    pt: 'O que me respalda'
   items:
     - es: 'Ganador de categoría · XPRIZE 2026'
+      en: 'Category winner · XPRIZE 2026'
+      pt: 'Vencedor de categoria · XPRIZE 2026'
     - es: 'Alianza con Nexa Connect · AWS MAP'
+      en: 'Partnership with Nexa Connect · AWS MAP'
+      pt: 'Parceria com a Nexa Connect · AWS MAP'
     - es: 'CTO de EvolutecC · 400+ proyectos'
+      en: 'CTO of EvolutecC · 400+ projects'
+      pt: 'CTO da EvolutecC · 400+ projetos'
     - es: '13 años de experiencia'
+      en: '13 years of experience'
+      pt: '13 anos de experiência'
     - es: 'Google Developer Groups'
+      en: 'Google Developer Groups'
+      pt: 'Google Developer Groups'
     - es: 'AI Fluency · Anthropic'
+      en: 'AI Fluency · Anthropic'
+      pt: 'AI Fluency · Anthropic'
     - es: 'Certificaciones cloud en curso'
+      en: 'Cloud certifications in progress'
+      pt: 'Certificações cloud em andamento'
     - es: 'Speaker en Colombia, Ecuador y Perú'
+      en: 'Speaker in Colombia, Ecuador and Peru'
+      pt: 'Palestrante na Colômbia, no Equador e no Peru'
 noSoyParaTi:
   eyebrow:
     es: 'Con franqueza'
+    en: 'To be honest'
+    pt: 'Com franqueza'
   titulo:
     es: 'No soy para ti si…'
+    en: "I'm not for you if…"
+    pt: 'Não sou para você se…'
   items:
     - es: 'Buscas el precio más bajo por hora.'
+      en: "You're looking for the lowest hourly rate."
+      pt: 'Você busca o menor preço por hora.'
     - es: 'Quieres a alguien que solo cierre tickets.'
+      en: 'You want someone who only closes tickets.'
+      pt: 'Você quer alguém que só feche tickets.'
     - es: 'No puedes darme acceso de lectura a tu cuenta o a tu facturación.'
+      en: "You can't give me read access to your account or your billing."
+      pt: 'Você não pode me dar acesso de leitura à sua conta ou ao seu faturamento.'
 faq:
   eyebrow:
     es: 'Preguntas frecuentes'
+    en: 'Frequently asked questions'
+    pt: 'Perguntas frequentes'
   titulo:
     es: 'Antes de agendar'
+    en: 'Before booking'
+    pt: 'Antes de agendar'
   items:
     - pregunta:
         es: '¿Con qué nubes trabajas?'
+        en: 'Which clouds do you work with?'
+        pt: 'Com quais nuvens você trabalha?'
       respuesta:
         es: 'AWS, Google Cloud y Azure.'
+        en: 'AWS, Google Cloud and Azure.'
+        pt: 'AWS, Google Cloud e Azure.'
     - pregunta:
         es: '¿En qué idiomas?'
+        en: 'In which languages?'
+        pt: 'Em quais idiomas?'
       respuesta:
         es: 'Español e inglés.'
+        en: 'Spanish and English.'
+        pt: 'Espanhol e inglês.'
     - pregunta:
         es: '¿Qué es el programa MAP y mi empresa califica?'
+        en: 'What is the MAP program and does my company qualify?'
+        pt: 'O que é o programa MAP e minha empresa se qualifica?'
       respuesta:
         es: 'Es el programa con el que AWS puede invertir en migraciones, previa evaluación y aprobación de tu caso: de on-premise, de otra nube o de cargas nuevas si ya estás en AWS. Lo evaluamos con Nexa Connect, partner de AWS. Todo el detalle está en la página del programa MAP.'
+        en: "It's the program through which AWS can invest in migrations, after evaluating and approving your case: from on-premises, from another cloud or of new workloads if you're already on AWS. We evaluate it with Nexa Connect, an AWS partner. All the details are on the MAP program page."
+        pt: 'É o programa com o qual a AWS pode investir em migrações, após avaliar e aprovar seu caso: de on-premises, de outra nuvem ou de novas cargas se você já está na AWS. Avaliamos com a Nexa Connect, parceira da AWS. Todos os detalhes estão na página do programa MAP.'
     - pregunta:
         es: '¿Cuál es la diferencia con EvolutecC?'
+        en: "What's the difference with EvolutecC?"
+        pt: 'Qual é a diferença em relação à EvolutecC?'
       respuesta:
         es: 'Yo diseño la arquitectura y acompaño a tu equipo. El desarrollo de software a la medida lo hace EvolutecC.'
+        en: 'I design the architecture and support your team. Custom software development is done by EvolutecC.'
+        pt: 'Eu projeto a arquitetura e acompanho sua equipe. O desenvolvimento de software sob medida é feito pela EvolutecC.'
     - pregunta:
         es: '¿Cómo se factura?'
+        en: 'How is it invoiced?'
+        pt: 'Como é faturado?'
       respuesta:
         es: 'Resido en Colombia y emito factura colombiana en la moneda de tu empresa. El pago se hace por transferencia bancaria en esa misma moneda.'
+        en: "I live in Colombia and issue a Colombian invoice in your company's currency. Payment is made by bank transfer in that same currency."
+        pt: 'Moro na Colômbia e emito nota fiscal colombiana na moeda da sua empresa. O pagamento é feito por transferência bancária nessa mesma moeda.'
     - pregunta:
         es: '¿Firmas contrato y acuerdo de confidencialidad?'
+        en: 'Do you sign a contract and a confidentiality agreement?'
+        pt: 'Você assina contrato e acordo de confidencialidade?'
       respuesta:
         es: 'Sí. El acuerdo de confidencialidad protege la información confidencial de tu empresa y no limita mi trabajo con otros clientes. Si necesitas exclusividad, la acordamos entre las partes en el contrato.'
+        en: "Yes. The confidentiality agreement protects your company's confidential information and doesn't limit my work with other clients. If you need exclusivity, we agree on it in the contract."
+        pt: 'Sim. O acordo de confidencialidade protege as informações confidenciais da sua empresa e não limita meu trabalho com outros clientes. Se você precisar de exclusividade, acordamos entre as partes no contrato.'
 map:
   eyebrow:
     es: 'Programa MAP de AWS · con Nexa Connect'
+    en: 'AWS MAP program · with Nexa Connect'
+    pt: 'Programa MAP da AWS · com a Nexa Connect'
   titulo:
     es: 'Si tu consumo crece, AWS puede invertir en tu migración.'
+    en: 'If your usage is growing, AWS can invest in your migration.'
+    pt: 'Se o seu consumo cresce, a AWS pode investir na sua migração.'
   texto:
     es: 'Sujeto a la evaluación y aprobación previa de AWS, según los requisitos de cada programa.'
+    en: "Subject to AWS's prior evaluation and approval, according to each program's requirements."
+    pt: 'Sujeito à avaliação e aprovação prévia da AWS, conforme os requisitos de cada programa.'
   boton:
     es: 'Conoce el programa →'
+    en: 'Learn about the program →'
+    pt: 'Conheça o programa →'
 agenda:
   eyebrow:
     es: 'Agenda'
+    en: 'Booking'
+    pt: 'Agenda'
   titulo:
     es: 'Empecemos por tu caso.'
+    en: "Let's start with your case."
+    pt: 'Vamos começar pelo seu caso.'
   opciones:
     - titulo:
         es: 'Sesión de arquitectura · US$450'
+        en: 'Architecture session · US$450'
+        pt: 'Sessão de arquitetura · US$450'
       texto:
         es: '90 minutos y un memo con recomendaciones en 48 horas. Si después seguimos trabajando juntos, te descuento los US$450 del siguiente servicio.'
+        en: '90 minutes and a memo with recommendations within 48 hours. If we keep working together afterwards, I credit the US$450 toward the next service.'
+        pt: '90 minutos e um memorando com recomendações em 48 horas. Se depois continuarmos trabalhando juntos, desconto os US$450 do próximo serviço.'
       destacada: true
     - titulo:
         es: 'Llamada de 20 minutos · Gratis'
+        en: '20-minute call · Free'
+        pt: 'Chamada de 20 minutos · Grátis'
       texto:
         es: 'Para saber si puedo ayudarte y por dónde conviene empezar.'
+        en: 'To see whether I can help you and where it makes sense to start.'
+        pt: 'Para saber se posso ajudar você e por onde convém começar.'
       destacada: false
   campos:
     tema:
       es: '¿Qué quieres resolver?'
+      en: 'What do you want to solve?'
+      pt: 'O que você quer resolver?'
     nubes:
       es: 'Nube o nubes que usas'
+      en: 'Cloud or clouds you use'
+      pt: 'Nuvem ou nuvens que você usa'
     nubesEjemplo:
       es: 'AWS, Google Cloud, Azure…'
+      en: 'AWS, Google Cloud, Azure…'
+      pt: 'AWS, Google Cloud, Azure…'
     gasto:
       es: 'Gasto mensual aproximado en la nube'
+      en: 'Approximate monthly cloud spend'
+      pt: 'Gasto mensal aproximado na nuvem'
     gastoEjemplo:
       es: 'US$'
+      en: 'US$'
+      pt: 'US$'
     correo:
       es: 'Correo'
+      en: 'Email'
+      pt: 'E-mail'
   temas:
     - valor: 'optimizar-costos'
       texto:
         es: 'Optimizar costos'
+        en: 'Optimize costs'
+        pt: 'Otimizar custos'
     - valor: 'escalar'
       texto:
         es: 'Crecer la infraestructura'
+        en: 'Grow the infrastructure'
+        pt: 'Fazer a infraestrutura crescer'
     - valor: 'programas-aws'
       texto:
         es: 'Programas y créditos'
+        en: 'Programs and credits'
+        pt: 'Programas e créditos'
     - valor: 'migrar'
       texto:
         es: 'Migrar'
+        en: 'Migrate'
+        pt: 'Migrar'
     - valor: 'buenas-practicas'
       texto:
         es: 'Buenas prácticas'
+        en: 'Best practices'
+        pt: 'Boas práticas'
     - valor: 'seguridad'
       texto:
         es: 'Seguridad y cumplimiento'
+        en: 'Security and compliance'
+        pt: 'Segurança e conformidade'
     - valor: 'adopcion-ia'
       texto:
         es: 'Adopción de IA en la empresa'
+        en: 'AI adoption in the company'
+        pt: 'Adoção de IA na empresa'
   enviar:
     es: 'Elegir fecha y hora'
+    en: 'Choose a date and time'
+    pt: 'Escolher data e horário'
   recibido:
     es: 'Recibí tus datos. Te escribo para agendar la fecha.'
+    en: "I got your details. I'll write to you to set the date."
+    pt: 'Recebi seus dados. Escrevo para você para agendar a data.'

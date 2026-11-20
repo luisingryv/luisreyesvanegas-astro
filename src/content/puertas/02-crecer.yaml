@@ -1,12 +1,20 @@
 numero: 2
 etiqueta:
   es: 'Crecer'
+  en: 'Grow'
+  pt: 'Crescer'
 dolor:
   es: '¿Vas a multiplicar usuarios y no sabes si tu infraestructura aguanta?'
+  en: 'About to multiply your users and not sure your infrastructure can handle it?'
+  pt: 'Vai multiplicar seus usuários e não sabe se sua infraestrutura aguenta?'
 oferta:
   es: 'Revisión de escalabilidad y proyección de capacidad.'
+  en: 'Scalability review and capacity projection.'
+  pt: 'Revisão de escalabilidade e projeção de capacidade.'
 prueba:
   es: '≈2.400 → ≈70.000 pedidos al mes'
+  en: '≈2,400 → ≈70,000 orders a month'
+  pt: '≈2.400 → ≈70.000 pedidos por mês'
 destino:
   ruta: escalarInfraestructura
 viz:
@@ -15,4 +23,8 @@ viz:
   despues: 100
   leyenda:
     - es: '≈2.400'
+      en: '≈2,400'
+      pt: '≈2.400'
     - es: '≈70.000 · ×29'
+      en: '≈70,000 · ×29'
+      pt: '≈70.000 · ×29'

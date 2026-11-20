@@ -3,19 +3,33 @@ anio: 2026
 edad: 29
 titulo:
   es: 'Trama AI gana el XPRIZE'
+  en: 'Trama AI wins the XPRIZE'
+  pt: 'A Trama AI vence o XPRIZE'
 texto:
   es: 'Como CEO de Trama AI, con Gianfranco Castro, Johan Burgos y Najem Nabhan, construimos en 90 días agentes de IA para la industria textil y ganamos la categoría Small Business Services del Build with Gemini XPRIZE.'
+  en: 'As CEO of Trama AI, with Gianfranco Castro, Johan Burgos and Najem Nabhan, we built AI agents for the textile industry in 90 days and won the Small Business Services category of the Build with Gemini XPRIZE.'
+  pt: 'Como CEO da Trama AI, com Gianfranco Castro, Johan Burgos e Najem Nabhan, construímos em 90 dias agentes de IA para a indústria têxtil e vencemos a categoria Small Business Services do Build with Gemini XPRIZE.'
 cifra:
   es: 'Top 100 entre 26.449 equipos'
+  en: 'Top 100 among 26,449 teams'
+  pt: 'Top 100 entre 26.449 equipes'
 impacto:
   es: 'Competencia global de Google y XPRIZE.'
+  en: 'A global competition by Google and XPRIZE.'
+  pt: 'Competição global do Google e da XPRIZE.'
 enlace:
   texto:
     es: 'Fuente: gxp.moonshots.com'
+    en: 'Source: gxp.moonshots.com'
+    pt: 'Fonte: gxp.moonshots.com'
   url: 'https://gxp.moonshots.com/'
 # Versión corta para la trayectoria del Home.
 home:
   titulo:
     es: 'Trama AI y el XPRIZE'
+    en: 'Trama AI and the XPRIZE'
+    pt: 'A Trama AI e o XPRIZE'
   texto:
     es: 'Como CEO de Trama AI, ganamos la categoría Small Business Services del Build with Gemini XPRIZE.'
+    en: 'As CEO of Trama AI, we won the Small Business Services category of the Build with Gemini XPRIZE.'
+    pt: 'Como CEO da Trama AI, vencemos a categoria Small Business Services do Build with Gemini XPRIZE.'

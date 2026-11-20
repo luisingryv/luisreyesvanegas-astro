@@ -4,9 +4,17 @@ orden: 1
 edad: 28
 titulo:
   es: 'Cloud Expert de Glasslake'
+  en: "Glasslake's Cloud Expert"
+  pt: 'Cloud Expert da Glasslake'
 texto:
   es: 'Administro la cuenta de AWS de una startup de SAP de San Francisco con presencia global, en pleno crecimiento: centralicé las cuentas con Organizations e IAM Identity Center, construí los entornos multitenant y las redes hacia los entornos de sus clientes con Transit Gateway, VPN y endpoints, y me encargo de la seguridad, los costos, el soporte y la evidencia técnica de sus certificaciones SOC 2 e ISO 27001.'
+  en: "I run the AWS account of a fast-growing San Francisco SAP startup with a global presence: I centralized the accounts with Organizations and IAM Identity Center, built the multitenant environments and the networks to its clients' environments with Transit Gateway, VPN and endpoints, and I handle security, costs, support and the technical evidence for its SOC 2 and ISO 27001 certifications."
+  pt: 'Administro a conta AWS de uma startup de SAP de São Francisco com presença global, em pleno crescimento: centralizei as contas com Organizations e IAM Identity Center, construí os ambientes multitenant e as redes até os ambientes dos clientes com Transit Gateway, VPN e endpoints, e cuido da segurança, dos custos, do suporte e da evidência técnica das certificações SOC 2 e ISO 27001.'
 cifra:
   es: 'US$62.000 en créditos AWS (MAP)'
+  en: 'US$62,000 in AWS credits (MAP)'
+  pt: 'US$62.000 em créditos AWS (MAP)'
 impacto:
   es: 'Créditos otorgados a través del programa MAP, con el aliado Nexa Connect. Además, el tráfico por NAT Gateway bajó entre 75 y 80% al optimizar la red.'
+  en: 'Credits granted through the MAP program, with partner Nexa Connect. NAT Gateway traffic also dropped 75 to 80% after optimizing the network.'
+  pt: 'Créditos concedidos pelo programa MAP, com o parceiro Nexa Connect. Além disso, o tráfego pelo NAT Gateway caiu entre 75 e 80% ao otimizar a rede.'

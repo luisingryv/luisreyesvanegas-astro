@@ -3,94 +3,164 @@
 hero:
   eyebrow:
     es: 'Contacto'
+    en: 'Contact'
+    pt: 'Contato'
   titulo:
     es: '¿Qué necesitas?'
+    en: 'What do you need?'
+    pt: 'Do que você precisa?'
   texto:
     es: 'Elige la opción que más se parece a tu caso y te llevo al lugar indicado. Si ninguna encaja, escríbeme abajo.'
+    en: "Choose the option closest to your case and I'll take you to the right place. If none fits, write to me below."
+    pt: 'Escolha a opção mais parecida com o seu caso e eu levo você ao lugar certo. Se nenhuma servir, escreva abaixo.'
 
 opciones:
   - etiqueta:
       es: 'Consultoría'
+      en: 'Consulting'
+      pt: 'Consultoria'
     titulo:
       es: 'Tengo un problema en mi nube o quiero llevar la IA a mi equipo'
+      en: 'I have a problem in my cloud or I want to bring AI to my team'
+      pt: 'Tenho um problema na minha nuvem ou quero levar a IA para minha equipe'
     texto:
       es: 'Costos, crecimiento, migración, seguridad o adopción de IA. Empezamos con una sesión de arquitectura o una llamada de 20 minutos.'
+      en: 'Costs, growth, migration, security or AI adoption. We start with an architecture session or a 20-minute call.'
+      pt: 'Custos, crescimento, migração, segurança ou adoção de IA. Começamos com uma sessão de arquitetura ou uma chamada de 20 minutos.'
     boton:
       es: 'Agendar'
+      en: 'Book'
+      pt: 'Agendar'
     destino:
       ruta: consultoria
       ancla: agenda
   - etiqueta:
       es: 'Programa MAP de AWS'
+      en: 'AWS MAP program'
+      pt: 'Programa MAP da AWS'
     titulo:
       es: 'Quiero saber si AWS puede invertir en mi migración'
+      en: 'I want to know whether AWS can invest in my migration'
+      pt: 'Quero saber se a AWS pode investir na minha migração'
     texto:
       es: 'Evaluamos tu caso con Nexa Connect, partner de AWS. La inversión está sujeta a la aprobación previa de AWS.'
+      en: "We evaluate your case with Nexa Connect, an AWS partner. The investment is subject to AWS's prior approval."
+      pt: 'Avaliamos seu caso com a Nexa Connect, parceira da AWS. O investimento está sujeito à aprovação prévia da AWS.'
     boton:
       es: 'Evaluar mi elegibilidad'
+      en: 'Check my eligibility'
+      pt: 'Avaliar minha elegibilidade'
     destino:
       ruta: programasAws
   - etiqueta:
       es: 'Desarrollo de software'
+      en: 'Software development'
+      pt: 'Desenvolvimento de software'
     titulo:
       es: 'Necesito desarrollo a la medida'
+      en: 'I need custom development'
+      pt: 'Preciso de desenvolvimento sob medida'
     texto:
       es: 'El desarrollo de software a la medida lo hace mi equipo en EvolutecC.'
+      en: 'Custom software development is done by my team at EvolutecC.'
+      pt: 'O desenvolvimento de software sob medida é feito pela minha equipe na EvolutecC.'
     boton:
       es: 'Ir a EvolutecC'
+      en: 'Go to EvolutecC'
+      pt: 'Ir para a EvolutecC'
     destino:
       evolutecc: true
   - etiqueta:
       es: 'Productos'
+      en: 'Products'
+      pt: 'Produtos'
     titulo:
       es: 'Quiero usar o invertir en Trama AI'
+      en: 'I want to use or invest in Trama AI'
+      pt: 'Quero usar ou investir na Trama AI'
     texto:
       es: 'Te mostramos una demo o te comparto la información de la empresa en privado.'
+      en: "We'll show you a demo or I'll share the company information privately."
+      pt: 'Mostramos uma demo ou compartilho as informações da empresa em particular.'
     boton:
       es: 'Ver productos'
+      en: 'See products'
+      pt: 'Ver produtos'
     destino:
       ruta: productos
   - etiqueta:
       es: 'Charlas'
+      en: 'Talks'
+      pt: 'Palestras'
     titulo:
       es: 'Quiero invitarte a un evento'
+      en: 'I want to invite you to an event'
+      pt: 'Quero convidar você para um evento'
     texto:
       es: 'Keynote, workshop o panel sobre nube e IA.'
+      en: 'Keynote, workshop or panel on cloud and AI.'
+      pt: 'Keynote, workshop ou painel sobre nuvem e IA.'
     boton:
       es: 'Invitarme a hablar'
+      en: 'Invite me to speak'
+      pt: 'Convide-me para falar'
     destino:
       ruta: speaker
       ancla: invitar
   - etiqueta:
       es: 'Otro tema'
+      en: 'Something else'
+      pt: 'Outro assunto'
     titulo:
       es: 'Contratación, prensa o una conversación general'
+      en: 'Hiring, press or a general conversation'
+      pt: 'Contratação, imprensa ou uma conversa geral'
     texto:
       es: 'Escríbeme en el formulario y te respondo.'
+      en: "Write to me in the form and I'll reply."
+      pt: 'Escreva no formulário e eu respondo.'
     boton:
       es: 'Escribir'
+      en: 'Write'
+      pt: 'Escrever'
     destino:
       ancla: general
 
 formulario:
   eyebrow:
     es: 'Escríbeme'
+    en: 'Write to me'
+    pt: 'Escreva para mim'
   titulo:
     es: 'Cuéntame qué estás construyendo.'
+    en: "Tell me what you're building."
+    pt: 'Conte o que você está construindo.'
   textoWhatsapp:
     es: 'Si prefieres, también puedes escribirme por WhatsApp.'
+    en: 'If you prefer, you can also message me on WhatsApp.'
+    pt: 'Se preferir, também pode me escrever pelo WhatsApp.'
   tema:
     es: 'Tema'
+    en: 'Topic'
+    pt: 'Tema'
   temas:
     - valor: conversacion
       texto:
         es: 'Conversación general'
+        en: 'General conversation'
+        pt: 'Conversa geral'
     - valor: contratacion
       texto:
         es: 'Contratación'
+        en: 'Hiring'
+        pt: 'Contratação'
     - valor: prensa
       texto:
         es: 'Prensa'
+        en: 'Press'
+        pt: 'Imprensa'
     - valor: otro
       texto:
         es: 'Otro'
+        en: 'Other'
+        pt: 'Outro'

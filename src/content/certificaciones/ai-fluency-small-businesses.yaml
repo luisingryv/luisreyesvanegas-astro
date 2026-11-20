@@ -1,8 +1,12 @@
 orden: 3
 nombre:
   es: 'AI Fluency for small businesses'
+  en: 'AI Fluency for small businesses'
+  pt: 'AI Fluency for small businesses'
 emisor:
   es: 'Anthropic · Claude Academy'
+  en: 'Anthropic · Claude Academy'
+  pt: 'Anthropic · Claude Academy'
 fecha:
   anio: 2026
   mes: 10

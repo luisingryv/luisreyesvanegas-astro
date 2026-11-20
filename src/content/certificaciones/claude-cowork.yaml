@@ -1,8 +1,12 @@
 orden: 1
 nombre:
   es: 'Introduction to Claude Cowork'
+  en: 'Introduction to Claude Cowork'
+  pt: 'Introduction to Claude Cowork'
 emisor:
   es: 'Anthropic · Claude Academy'
+  en: 'Anthropic · Claude Academy'
+  pt: 'Anthropic · Claude Academy'
 fecha:
   anio: 2026
   mes: 10

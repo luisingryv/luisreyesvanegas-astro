@@ -1,10 +1,18 @@
 etiqueta:
   es: 'Programas y créditos'
+  en: 'Programs and credits'
+  pt: 'Programas e créditos'
 metrica:
   es: 'US$62.000'
+  en: 'US$62,000'
+  pt: 'US$62.000'
 descripcion:
   es: 'En créditos de AWS a través del programa MAP, que gestionamos con nuestro aliado Nexa Connect. Además, 10 usuarios de Kiro con US$8.000 en créditos.'
+  en: 'In AWS credits through the MAP program, which we manage with our partner Nexa Connect. Plus 10 Kiro users with US$8,000 in credits.'
+  pt: 'Em créditos da AWS pelo programa MAP, que gerenciamos com nosso parceiro Nexa Connect. Além disso, 10 usuários do Kiro com US$8.000 em créditos.'
 quien:
   es: 'Glasslake · 2025–2026'
+  en: 'Glasslake · 2025–2026'
+  pt: 'Glasslake · 2025–2026'
 home:
   orden: 4

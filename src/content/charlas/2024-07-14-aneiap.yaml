@@ -2,12 +2,20 @@ fecha: 2024-07-14
 evento: 'Evento de ANEIAP'
 titulo:
   es: 'Cultura digital'
+  en: 'Digital culture'
+  pt: 'Cultura digital'
 detalle:
   es: 'Cultura digital. Más de 200 asistentes.'
+  en: 'Digital culture. More than 200 attendees.'
+  pt: 'Cultura digital. Mais de 200 participantes.'
 tipo: charla
 lugar:
   es: 'Barranquilla'
+  en: 'Barranquilla'
+  pt: 'Barranquilla'
 ciudad: barranquilla
 foto: ../../assets/fotos/charla_2024-07-14_aneiap-cultura-digital_luis-reyes-vanegas_001.jpg
 alt:
   es: 'Luis Reyes con los asistentes del evento de ANEIAP'
+  en: 'Luis Reyes with attendees of the ANEIAP event'
+  pt: 'Luis Reyes com os participantes do evento da ANEIAP'

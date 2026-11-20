@@ -4,9 +4,17 @@ orden: 2
 edad: 21
 titulo:
   es: 'API de integraciones y app en Ionic'
+  en: 'Integrations API and Ionic app'
+  pt: 'API de integrações e app em Ionic'
 texto:
   es: 'Diseñé y construí una API pública para integrar a terceros y migré la app móvil de Cordova a Ionic. Farmacias como Droguería Juliao se integraron para su distribución de última milla.'
+  en: 'I designed and built a public API for third-party integrations and migrated the mobile app from Cordova to Ionic. Pharmacies such as Droguería Juliao integrated for their last-mile distribution.'
+  pt: 'Projetei e construí uma API pública para integrar terceiros e migrei o app móvel de Cordova para Ionic. Farmácias como a Droguería Juliao se integraram para sua distribuição de última milha.'
 cifra:
   es: 'De producto a plataforma'
+  en: 'From product to platform'
+  pt: 'De produto a plataforma'
 impacto:
   es: 'Abrió la puerta a integraciones con grandes clientes.'
+  en: 'It opened the door to integrations with large clients.'
+  pt: 'Abriu a porta para integrações com grandes clientes.'

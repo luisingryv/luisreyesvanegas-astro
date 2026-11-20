@@ -18,9 +18,11 @@ async function yamls(dir) {
   return salida.sort();
 }
 
-// Los textos son cadenas entre comillas simples en una línea: es: '...'.
+// Los textos son cadenas de una línea: es: '...' o, si llevan apóstrofo, es: "..." (Prettier).
 const textos = (yaml, idioma) =>
-  [...yaml.matchAll(new RegExp(`\\b${idioma}: '((?:[^']|'')*)'`, 'g'))].map((m) => m[1]);
+  [
+    ...yaml.matchAll(new RegExp(`\\b${idioma}: (?:'((?:[^']|'')*)'|"((?:[^"\\\\]|\\\\.)*)")`, 'g')),
+  ].map((m) => m[1] ?? m[2]);
 const palabras = (lista) => lista.reduce((n, t) => n + t.split(/\s+/).filter(Boolean).length, 0);
 
 const filas = [];

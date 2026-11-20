@@ -3,15 +3,27 @@ anio: 2016
 edad: 19
 titulo:
   es: 'Clínica del Caribe: el SIGC pasa a la web'
+  en: 'Clínica del Caribe: the SIGC moves to the web'
+  pt: 'Clínica del Caribe: o SIGC vai para a web'
 texto:
   es: 'Lideré la migración del sistema de incidencias clínicas de escritorio (VB.NET) a web (ASP.NET). Un MVP validó la propuesta y abrió paso a la migración completa.'
+  en: 'I led the migration of the clinical incident system from desktop (VB.NET) to web (ASP.NET). An MVP validated the proposal and paved the way for the full migration.'
+  pt: 'Liderei a migração do sistema de incidentes clínicos de desktop (VB.NET) para web (ASP.NET). Um MVP validou a proposta e abriu caminho para a migração completa.'
 cifra:
   es: '≈300 equipos → 1 despliegue'
+  en: '≈300 machines → 1 deployment'
+  pt: '≈300 computadores → 1 implantação'
 impacto:
   es: 'En uso más de 10 años después, con más de 300 usuarios.'
+  en: 'Still in use more than 10 years later, with more than 300 users.'
+  pt: 'Em uso mais de 10 anos depois, com mais de 300 usuários.'
 # Versión corta para la trayectoria del Home.
 home:
   titulo:
     es: 'SIGC, Clínica del Caribe'
+    en: 'SIGC, Clínica del Caribe'
+    pt: 'SIGC, Clínica del Caribe'
   texto:
     es: 'Pasé el sistema de la clínica de escritorio a web. Sigue en uso.'
+    en: "I moved the clinic's system from desktop to web. It is still in use."
+    pt: 'Levei o sistema da clínica do desktop para a web. Continua em uso.'

@@ -3,9 +3,17 @@ anio: 2021
 edad: 24
 titulo:
   es: 'De agencia a fábrica de software'
+  en: 'From agency to software factory'
+  pt: 'De agência a fábrica de software'
 texto:
   es: 'Primer desarrollo a la medida: una plataforma de renta de maquinaria pesada en Angular. Con ella formalizamos Scrum, historias de usuario y entregas validadas con el cliente.'
+  en: 'First custom development: a heavy machinery rental platform in Angular. With it we formalized Scrum, user stories and deliveries validated with the client.'
+  pt: 'Primeiro desenvolvimento sob medida: uma plataforma de aluguel de máquinas pesadas em Angular. Com ela formalizamos Scrum, histórias de usuário e entregas validadas com o cliente.'
 cifra:
   es: 'Primer desarrollo a la medida'
+  en: 'First custom development'
+  pt: 'Primeiro desenvolvimento sob medida'
 impacto:
   es: 'Primeras oficinas y primeros desarrolladores contratados.'
+  en: 'First offices and first developers hired.'
+  pt: 'Primeiros escritórios e primeiros desenvolvedores contratados.'

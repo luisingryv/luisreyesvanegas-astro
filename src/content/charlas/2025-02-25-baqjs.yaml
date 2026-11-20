@@ -2,12 +2,20 @@ fecha: 2025-02-25
 evento: 'BAQ.JS'
 titulo:
   es: 'Infraestructura fintech: el futuro de las integraciones digitales'
+  en: 'Fintech infrastructure: the future of digital integrations'
+  pt: 'Infraestrutura fintech: o futuro das integrações digitais'
 detalle:
   es: 'Infraestructura fintech: el futuro de las integraciones digitales.'
+  en: 'Fintech infrastructure: the future of digital integrations.'
+  pt: 'Infraestrutura fintech: o futuro das integrações digitais.'
 tipo: charla
 lugar:
   es: 'Barranquilla'
+  en: 'Barranquilla'
+  pt: 'Barranquilla'
 ciudad: barranquilla
 foto: ../../assets/fotos/charla_2025-02-25_baqjs-infraestructura-fintech_luis-reyes-vanegas_001.jpg
 alt:
   es: 'Luis Reyes en BAQ.JS con la presentación Infraestructura FinTech'
+  en: 'Luis Reyes at BAQ.JS with the Fintech Infrastructure presentation'
+  pt: 'Luis Reyes no BAQ.JS com a apresentação Infraestrutura FinTech'

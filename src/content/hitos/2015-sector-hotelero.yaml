@@ -3,9 +3,17 @@ anio: 2015
 edad: 18
 titulo:
   es: 'Sitios web para el sector hotelero'
+  en: 'Websites for the hotel industry'
+  pt: 'Sites para o setor hoteleiro'
 texto:
   es: 'Desarrollé y administré sitios web para hoteles de Barranquilla con un modelo de suscripción mensual: hosting, dominios, DNS y soporte.'
+  en: 'I built and managed websites for Barranquilla hotels with a monthly subscription model: hosting, domains, DNS and support.'
+  pt: 'Desenvolvi e administrei sites para hotéis de Barranquilla com um modelo de assinatura mensal: hospedagem, domínios, DNS e suporte.'
 cifra:
   es: 'Primer modelo de ingreso recurrente'
+  en: 'First recurring revenue model'
+  pt: 'Primeiro modelo de receita recorrente'
 impacto:
   es: 'Primeros sistemas en producción para clientes reales.'
+  en: 'First systems in production for real clients.'
+  pt: 'Primeiros sistemas em produção para clientes reais.'

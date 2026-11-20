@@ -4,37 +4,69 @@
 hero:
   eyebrow:
     es: 'Eventos y charlas'
+    en: 'Events and talks'
+    pt: 'Eventos e palestras'
   titulo:
     es: 'Dónde he hablado'
+    en: "Where I've spoken"
+    pt: 'Onde já falei'
   texto:
     es: 'Charlas, talleres y paneles sobre nube, IA y comunidad. Si quieres que vaya a tu evento, cuéntamelo.'
+    en: "Talks, workshops and panels on cloud, AI and community. If you'd like me at your event, tell me about it."
+    pt: 'Palestras, workshops e painéis sobre nuvem, IA e comunidade. Se quiser que eu vá ao seu evento, me conte.'
   foto: ../../assets/fotos/pieza_sin-fecha_banner-eventos_luis-reyes-vanegas_001.png
   fotoAlt:
     es: 'Luis Reyes hablando con micrófono en el escenario'
+    en: 'Luis Reyes speaking with a microphone on stage'
+    pt: 'Luis Reyes falando com microfone no palco'
   pestanas:
     es: 'Eventos'
+    en: 'Events'
+    pt: 'Eventos'
   proximos:
     es: 'Próximos'
+    en: 'Upcoming'
+    pt: 'Próximos'
   pasados:
     es: 'Pasados'
+    en: 'Past'
+    pt: 'Anteriores'
 proximos:
   etiqueta:
     es: 'Próximos eventos'
+    en: 'Upcoming events'
+    pt: 'Próximos eventos'
   vacio:
     es: 'Por ahora no tengo eventos anunciados.'
+    en: 'No events announced for now.'
+    pt: 'Por enquanto não tenho eventos anunciados.'
   invitar:
     es: '¿Organizas uno? Invítame'
+    en: 'Organizing one? Invite me'
+    pt: 'Está organizando um? Convide-me'
 pasados:
   etiqueta:
     es: 'Eventos pasados'
+    en: 'Past events'
+    pt: 'Eventos anteriores'
 tipos:
   charla:
     es: 'Charla'
+    en: 'Talk'
+    pt: 'Palestra'
   charla-y-panel:
     es: 'Charla y panel'
+    en: 'Talk and panel'
+    pt: 'Palestra e painel'
   comunidad:
     es: 'Comunidad'
+    en: 'Community'
+    pt: 'Comunidade'
   podcast:
     es: 'Podcast'
+    en: 'Podcast'
+    pt: 'Podcast'
   webinar:
     es: 'Webinar'
+    en: 'Webinar'
+    pt: 'Webinar'

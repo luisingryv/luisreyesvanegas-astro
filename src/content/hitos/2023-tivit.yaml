@@ -3,9 +3,17 @@ anio: 2023
 edad: 26
 titulo:
   es: 'Arquitecto de soluciones con TIVIT'
+  en: 'Solutions architect with TIVIT'
+  pt: 'Arquiteto de soluções com a TIVIT'
 texto:
   es: 'Como aliado de TIVIT en la capa de aplicaciones, diseñé soluciones en la nube para la Fuerza Aérea Colombiana, el DNP y el SISBÉN, Bancolombia y otras grandes organizaciones.'
+  en: "As TIVIT's partner in the application layer, I designed cloud solutions for the Colombian Air Force, the DNP and SISBÉN, Bancolombia and other large organizations."
+  pt: 'Como parceiro da TIVIT na camada de aplicações, projetei soluções em nuvem para a Força Aérea Colombiana, o DNP e o SISBÉN, o Bancolombia e outras grandes organizações.'
 cifra:
   es: 'Migraciones de hasta 30 M de usuarios'
+  en: 'Migrations of up to 30M users'
+  pt: 'Migrações de até 30 milhões de usuários'
 impacto:
   es: 'Más de 400 proyectos entregados con el equipo de EvolutecC.'
+  en: 'More than 400 projects delivered with the EvolutecC team.'
+  pt: 'Mais de 400 projetos entregues com a equipe da EvolutecC.'

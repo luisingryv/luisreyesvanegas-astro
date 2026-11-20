@@ -1,5 +1,9 @@
 nivel: 4
 nombre:
   es: 'El arquitecto y CEO'
+  en: 'The architect and CEO'
+  pt: 'O arquiteto e CEO'
 periodo:
   es: '2024–hoy'
+  en: '2024–present'
+  pt: '2024–hoje'

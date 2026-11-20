@@ -2,136 +2,250 @@
 ruta: 'optimizarCostos'
 titulo:
   es: 'Optimizar costos cloud'
+  en: 'Optimize cloud costs'
+  pt: 'Otimizar custos cloud'
 hero:
   eyebrow:
     es: '01 / 07 · Optimizar costos'
+    en: '01 / 07 · Optimize costs'
+    pt: '01 / 07 · Otimizar custos'
   titulo:
     es: '¿Tu factura de nube crece más rápido que tu negocio?'
+    en: 'Is your cloud bill growing faster than your business?'
+    pt: 'Sua fatura de nuvem cresce mais rápido que seu negócio?'
   texto:
     es: 'Reviso a fondo tu cuenta de AWS, Google Cloud o Azure, encuentro dónde se va el dinero y te entrego un plan para gastar menos sin poner en riesgo la operación.'
+    en: 'I thoroughly review your AWS, Google Cloud or Azure account, find where the money goes and give you a plan to spend less without putting operations at risk.'
+    pt: 'Reviso a fundo sua conta da AWS, do Google Cloud ou do Azure, encontro para onde vai o dinheiro e entrego um plano para gastar menos sem colocar a operação em risco.'
   agendar:
     es: 'Agendar sesión de arquitectura · US$450'
+    en: 'Book an architecture session · US$450'
+    pt: 'Agendar sessão de arquitetura · US$450'
   llamada:
     es: 'Llamada de 20 min gratis'
+    en: 'Free 20-min call'
+    pt: 'Chamada gratuita de 20 min'
 senales:
   titulo:
     es: 'Señales de que este es tu caso'
+    en: 'Signs this is your case'
+    pt: 'Sinais de que este é o seu caso'
   items:
     - es: 'La factura sube cada mes y nadie sabe explicar por qué.'
+      en: 'The bill goes up every month and no one can explain why.'
+      pt: 'A fatura sobe todo mês e ninguém sabe explicar por quê.'
     - es: 'Pagas por servidores o bases de datos que casi no se usan.'
+      en: 'You pay for servers or databases that are barely used.'
+      pt: 'Você paga por servidores ou bancos de dados que quase não são usados.'
     - es: 'El tráfico de salida o las transferencias pesan mucho en la factura.'
+      en: 'Egress traffic or data transfers weigh heavily on the bill.'
+      pt: 'O tráfego de saída ou as transferências pesam muito na fatura.'
     - es: 'No tienes alertas de presupuesto ni etiquetas por proyecto.'
+      en: 'You have no budget alerts or per-project tags.'
+      pt: 'Você não tem alertas de orçamento nem tags por projeto.'
     - es: 'Compraste capacidad para un pico que ya pasó.'
+      en: 'You bought capacity for a peak that has already passed.'
+      pt: 'Você comprou capacidade para um pico que já passou.'
 entregables:
   eyebrow:
     es: 'Qué recibes'
+    en: 'What you get'
+    pt: 'O que você recebe'
   titulo:
     es: 'Auditoría de costos cloud'
+    en: 'Cloud cost audit'
+    pt: 'Auditoria de custos cloud'
   items:
     - titulo:
         es: 'Mapa del gasto'
+        en: 'Spending map'
+        pt: 'Mapa do gasto'
       texto:
         es: 'Dónde se va cada dólar, por servicio, proyecto y ambiente.'
+        en: 'Where every dollar goes, by service, project and environment.'
+        pt: 'Para onde vai cada dólar, por serviço, projeto e ambiente.'
     - titulo:
         es: 'Lista de ahorros priorizada'
+        en: 'Prioritized savings list'
+        pt: 'Lista de economias priorizada'
       texto:
         es: 'Cada recomendación con su ahorro estimado, su riesgo y su esfuerzo.'
+        en: 'Each recommendation with its estimated savings, risk and effort.'
+        pt: 'Cada recomendação com sua economia estimada, seu risco e seu esforço.'
     - titulo:
         es: 'Cambios de arquitectura'
+        en: 'Architecture changes'
+        pt: 'Mudanças de arquitetura'
       texto:
         es: 'Cuando el ahorro grande está en el diseño y no en apagar recursos.'
+        en: 'When the big savings are in the design, not in turning off resources.'
+        pt: 'Quando a grande economia está no desenho, e não em desligar recursos.'
     - titulo:
         es: 'Control para que no vuelva a pasar'
+        en: "Controls so it doesn't happen again"
+        pt: 'Controle para que não aconteça de novo'
       texto:
         es: 'Alertas, presupuestos y etiquetas para seguir el gasto mes a mes.'
+        en: 'Alerts, budgets and tags to track spending month by month.'
+        pt: 'Alertas, orçamentos e tags para acompanhar o gasto mês a mês.'
 proceso:
   eyebrow:
     es: 'Cómo lo hago'
+    en: 'How I do it'
+    pt: 'Como faço'
   titulo:
     es: 'Proceso'
+    en: 'Process'
+    pt: 'Processo'
   items:
     - numero: '01'
       titulo:
         es: 'Acceso de solo lectura'
+        en: 'Read-only access'
+        pt: 'Acesso somente leitura'
       texto:
         es: 'A tu cuenta y a tu facturación.'
+        en: 'To your account and your billing.'
+        pt: 'À sua conta e ao seu faturamento.'
     - numero: '02'
       titulo:
         es: 'Diagnóstico'
+        en: 'Diagnosis'
+        pt: 'Diagnóstico'
       texto:
         es: 'Reviso el gasto, la arquitectura y el uso real.'
+        en: 'I review the spending, the architecture and actual usage.'
+        pt: 'Reviso o gasto, a arquitetura e o uso real.'
     - numero: '03'
       titulo:
         es: 'Informe y plan'
+        en: 'Report and plan'
+        pt: 'Relatório e plano'
       texto:
         es: 'Te presento los hallazgos y el orden en que conviene actuar.'
+        en: 'I present the findings and the order in which it makes sense to act.'
+        pt: 'Apresento os achados e a ordem em que convém agir.'
     - numero: '04'
       titulo:
         es: 'Implementación'
+        en: 'Implementation'
+        pt: 'Implementação'
       texto:
         es: 'La hace tu equipo con mi acompañamiento, o la hago yo.'
+        en: 'Your team does it with my support, or I do it.'
+        pt: 'Sua equipe faz com meu acompanhamento, ou eu faço.'
   nota:
     es: 'Duración: según el tamaño de la cuenta.'
+    en: 'Duration: depends on the size of the account.'
+    pt: 'Duração: conforme o tamanho da conta.'
 caso:
   eyebrow:
     es: 'Caso · UTPN / KMA · 2025'
+    en: 'Case · UTPN / KMA · 2025'
+    pt: 'Caso · UTPN / KMA · 2025'
   titulo:
     es: 'Una red nacional de peajes baja su factura de Google Cloud'
+    en: 'A national toll network cuts its Google Cloud bill'
+    pt: 'Uma rede nacional de pedágios reduz sua fatura do Google Cloud'
   texto:
     es: 'La videovigilancia 24/7, unos 15 TB diarios, salía a internet como transmisión en vivo. Cambiamos el acceso a las cámaras por escritorio remoto, sin tráfico de salida. La factura pasó de US$10.000 a US$4.000 al mes y el cliente firmó un contrato de soporte de largo plazo.'
+    en: 'The 24/7 video surveillance, about 15 TB a day, went out to the internet as a live stream. We switched camera access to remote desktop, with no egress traffic. The bill went from US$10,000 to US$4,000 a month and the client signed a long-term support contract.'
+    pt: 'A videovigilância 24/7, cerca de 15 TB por dia, saía para a internet como transmissão ao vivo. Mudamos o acesso às câmeras para área de trabalho remota, sem tráfego de saída. A fatura passou de US$10.000 para US$4.000 por mês e o cliente assinou um contrato de suporte de longo prazo.'
   enlace:
     texto:
       es: 'Ver el caso completo'
+      en: 'See the full case'
+      pt: 'Ver o caso completo'
     destino:
       caso: 'utpn'
   metrica:
     es: '−60%'
+    en: '−60%'
+    pt: '−60%'
   leyenda:
     es: 'US$10.000 → US$4.000 al mes'
+    en: 'US$10,000 → US$4,000 a month'
+    pt: 'US$10.000 → US$4.000 por mês'
   barras:
     antes: 100
     despues: 40
 empezar:
   eyebrow:
     es: 'Cómo empezar'
+    en: 'How to start'
+    pt: 'Como começar'
   titulo:
     es: 'Primero, una sesión de arquitectura'
+    en: 'First, an architecture session'
+    pt: 'Primeiro, uma sessão de arquitetura'
   texto:
     es: '90 minutos y un memo con recomendaciones en 48 horas, por US$450. Si después seguimos con la auditoría, te descuento los US$450. El valor de la auditoría depende del tamaño de tu gasto mensual y te lo propongo después de la sesión.'
+    en: "90 minutes and a memo with recommendations within 48 hours, for US$450. If we then continue with the audit, I credit the US$450. The price of the audit depends on the size of your monthly spend and I'll propose it after the session."
+    pt: '90 minutos e um memorando com recomendações em 48 horas, por US$450. Se depois continuarmos com a auditoria, desconto os US$450. O valor da auditoria depende do tamanho do seu gasto mensal e eu proponho depois da sessão.'
   aparte:
     eyebrow:
       es: 'Si vas a migrar'
+      en: "If you're going to migrate"
+      pt: 'Se você vai migrar'
     titulo:
       es: 'AWS puede invertir en tu migración'
+      en: 'AWS can invest in your migration'
+      pt: 'A AWS pode investir na sua migração'
     texto:
       es: 'Si parte del ahorro pasa por cambiar de nube o reorganizar cargas en AWS, el programa MAP puede cofinanciar la migración, previa evaluación y aprobación de AWS.'
+      en: "If part of the savings comes from switching clouds or reorganizing workloads on AWS, the MAP program can co-fund the migration, after AWS's evaluation and approval."
+      pt: 'Se parte da economia passa por mudar de nuvem ou reorganizar cargas na AWS, o programa MAP pode cofinanciar a migração, após avaliação e aprovação da AWS.'
     enlace:
       texto:
         es: 'Conoce el programa MAP'
+        en: 'Learn about the MAP program'
+        pt: 'Conheça o programa MAP'
       destino:
         ruta: 'programasAws'
 faq:
   titulo:
     es: 'Preguntas frecuentes'
+    en: 'Frequently asked questions'
+    pt: 'Perguntas frequentes'
   items:
     - pregunta:
         es: '¿Necesitas acceso de escritura a mi cuenta?'
+        en: 'Do you need write access to my account?'
+        pt: 'Você precisa de acesso de escrita à minha conta?'
       respuesta:
         es: 'No. Para la auditoría basta con acceso de solo lectura a la cuenta y a la facturación.'
+        en: 'No. For the audit, read-only access to the account and billing is enough.'
+        pt: 'Não. Para a auditoria, basta acesso somente leitura à conta e ao faturamento.'
     - pregunta:
         es: '¿Con qué nubes trabajas?'
+        en: 'Which clouds do you work with?'
+        pt: 'Com quais nuvens você trabalha?'
       respuesta:
         es: 'AWS, Google Cloud y Azure.'
+        en: 'AWS, Google Cloud and Azure.'
+        pt: 'AWS, Google Cloud e Azure.'
     - pregunta:
         es: '¿El ahorro está garantizado?'
+        en: 'Are the savings guaranteed?'
+        pt: 'A economia é garantida?'
       respuesta:
         es: 'No. Antes de revisar tu cuenta no puedo prometer un ahorro. En la evaluación, con acceso de solo lectura, identifico las oportunidades de optimización y te digo cuánto podrías ahorrar con cada una.'
+        en: "No. Before reviewing your account I can't promise savings. In the assessment, with read-only access, I identify the optimization opportunities and tell you how much you could save with each one."
+        pt: 'Não. Antes de revisar sua conta não posso prometer uma economia. Na avaliação, com acesso somente leitura, identifico as oportunidades de otimização e digo quanto você poderia economizar com cada uma.'
     - pregunta:
         es: '¿Qué pasa después de la auditoría?'
+        en: 'What happens after the audit?'
+        pt: 'O que acontece depois da auditoria?'
       respuesta:
         es: 'Puedes implementar con tu equipo o seguir conmigo con acompañamiento mensual.'
+        en: 'You can implement with your team or continue with me through monthly support.'
+        pt: 'Você pode implementar com sua equipe ou seguir comigo com acompanhamento mensal.'
 cierre:
   titulo:
     es: 'Revisemos tu factura juntos.'
+    en: "Let's review your bill together."
+    pt: 'Vamos revisar sua fatura juntos.'
   boton:
     es: 'Agendar sesión · Optimizar costos'
+    en: 'Book a session · Optimize costs'
+    pt: 'Agendar sessão · Otimizar custos'

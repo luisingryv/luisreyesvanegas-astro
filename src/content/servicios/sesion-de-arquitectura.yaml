@@ -2,134 +2,248 @@
 ruta: 'sesionArquitectura'
 titulo:
   es: 'Sesión de arquitectura'
+  en: 'Architecture session'
+  pt: 'Sessão de arquitetura'
 hero:
   eyebrow:
     es: 'La puerta de entrada'
+    en: 'The way in'
+    pt: 'A porta de entrada'
   titulo:
     es: '90 minutos para saber qué hacer con tu nube.'
+    en: '90 minutes to know what to do with your cloud.'
+    pt: '90 minutos para saber o que fazer com sua nuvem.'
   texto:
     es: 'Revisamos juntos tu caso, sea cual sea la puerta por la que llegas: costos, crecimiento, programas de AWS, migración, buenas prácticas, seguridad o adopción de IA. En 48 horas recibes un memo con mis recomendaciones.'
+    en: 'We review your case together, whichever door brings you here: costs, growth, AWS programs, migration, best practices, security or AI adoption. Within 48 hours you get a memo with my recommendations.'
+    pt: 'Revisamos juntos seu caso, seja qual for a porta pela qual você chega: custos, crescimento, programas da AWS, migração, boas práticas, segurança ou adoção de IA. Em 48 horas você recebe um memorando com minhas recomendações.'
   agendar:
     es: 'Agendar sesión de arquitectura · US$450'
+    en: 'Book an architecture session · US$450'
+    pt: 'Agendar sessão de arquitetura · US$450'
   llamada:
     es: 'Llamada de 20 min gratis'
+    en: 'Free 20-min call'
+    pt: 'Chamada gratuita de 20 min'
 senales:
   titulo:
     es: 'Para quién es'
+    en: "Who it's for"
+    pt: 'Para quem é'
   items:
     - es: 'CTOs y founders que necesitan una segunda opinión antes de decidir.'
+      en: 'CTOs and founders who need a second opinion before deciding.'
+      pt: 'CTOs e founders que precisam de uma segunda opinião antes de decidir.'
     - es: 'Gerentes de TI con una factura que no cuadra.'
+      en: "IT managers with a bill that doesn't add up."
+      pt: 'Gerentes de TI com uma fatura que não fecha.'
     - es: 'Equipos a punto de migrar o de crecer.'
+      en: 'Teams about to migrate or grow.'
+      pt: 'Equipes prestes a migrar ou crescer.'
     - es: 'Empresas que quieren empezar con IA y no saben por dónde.'
+      en: "Companies that want to start with AI and don't know where."
+      pt: 'Empresas que querem começar com IA e não sabem por onde.'
     - es: 'Quien no está listo para un proyecto, pero sí para una conversación seria.'
+      en: 'Anyone not ready for a project, but ready for a serious conversation.'
+      pt: 'Quem não está pronto para um projeto, mas está para uma conversa séria.'
 entregables:
   eyebrow:
     es: 'Qué recibes'
+    en: 'What you get'
+    pt: 'O que você recebe'
   titulo:
     es: 'Sesión de arquitectura · US$450'
+    en: 'Architecture session · US$450'
+    pt: 'Sessão de arquitetura · US$450'
   items:
     - titulo:
         es: '90 minutos conmigo'
+        en: '90 minutes with me'
+        pt: '90 minutos comigo'
       texto:
         es: 'Por videollamada, con tu equipo técnico si quieres.'
+        en: 'By video call, with your technical team if you like.'
+        pt: 'Por videochamada, com sua equipe técnica se quiser.'
     - titulo:
         es: 'Memo en 48 horas'
+        en: 'Memo within 48 hours'
+        pt: 'Memorando em 48 horas'
       texto:
         es: 'Hallazgos, recomendaciones priorizadas y siguientes pasos.'
+        en: 'Findings, prioritized recommendations and next steps.'
+        pt: 'Achados, recomendações priorizadas e próximos passos.'
     - titulo:
         es: 'Sin compromiso'
+        en: 'No strings attached'
+        pt: 'Sem compromisso'
       texto:
         es: 'Con el memo puedes seguir solo, con tu equipo o conmigo.'
+        en: 'With the memo you can continue on your own, with your team or with me.'
+        pt: 'Com o memorando você pode seguir sozinho, com sua equipe ou comigo.'
     - titulo:
         es: 'Acreditable'
+        en: 'Creditable'
+        pt: 'Abatível'
       texto:
         es: 'Si después seguimos trabajando juntos, te descuento los US$450 del siguiente servicio.'
+        en: 'If we keep working together afterwards, I credit the US$450 toward the next service.'
+        pt: 'Se depois continuarmos trabalhando juntos, desconto os US$450 do próximo serviço.'
 proceso:
   eyebrow:
     es: 'Cómo lo hago'
+    en: 'How I do it'
+    pt: 'Como faço'
   titulo:
     es: 'Proceso'
+    en: 'Process'
+    pt: 'Processo'
   items:
     - numero: '01'
       titulo:
         es: 'Agenda'
+        en: 'Booking'
+        pt: 'Agenda'
       texto:
         es: 'Eliges fecha y hora y respondes unas preguntas sobre tu caso.'
+        en: 'You choose a date and time and answer a few questions about your case.'
+        pt: 'Você escolhe data e horário e responde algumas perguntas sobre seu caso.'
     - numero: '02'
       titulo:
         es: 'Preparación'
+        en: 'Preparation'
+        pt: 'Preparação'
       texto:
         es: 'Reviso lo que me compartes antes de la sesión.'
+        en: 'I review what you share with me before the session.'
+        pt: 'Reviso o que você compartilha comigo antes da sessão.'
     - numero: '03'
       titulo:
         es: 'Sesión'
+        en: 'Session'
+        pt: 'Sessão'
       texto:
         es: '90 minutos para entender el problema y discutir opciones.'
+        en: '90 minutes to understand the problem and discuss options.'
+        pt: '90 minutos para entender o problema e discutir opções.'
     - numero: '04'
       titulo:
         es: 'Memo'
+        en: 'Memo'
+        pt: 'Memorando'
       texto:
         es: 'En 48 horas, con lo que haría en tu lugar.'
+        en: 'Within 48 hours, with what I would do in your place.'
+        pt: 'Em 48 horas, com o que eu faria no seu lugar.'
   nota:
     es: 'El memo llega en las 48 horas siguientes a la sesión.'
+    en: 'The memo arrives within 48 hours after the session.'
+    pt: 'O memorando chega nas 48 horas seguintes à sessão.'
 caso:
   eyebrow:
     es: 'Caso · UTPN / KMA · 2025'
+    en: 'Case · UTPN / KMA · 2025'
+    pt: 'Caso · UTPN / KMA · 2025'
   titulo:
     es: 'Una red nacional de peajes baja su factura de Google Cloud'
+    en: 'A national toll network cuts its Google Cloud bill'
+    pt: 'Uma rede nacional de pedágios reduz sua fatura do Google Cloud'
   texto:
     es: 'Empezó con una revisión de la infraestructura. El hallazgo, la videovigilancia saliendo a internet, cambió la factura y terminó en un contrato de soporte de largo plazo.'
+    en: 'It started with an infrastructure review. The finding, video surveillance going out to the internet, changed the bill and ended in a long-term support contract.'
+    pt: 'Começou com uma revisão da infraestrutura. O achado, a videovigilância saindo para a internet, mudou a fatura e terminou em um contrato de suporte de longo prazo.'
   enlace:
     texto:
       es: 'Ver el caso completo'
+      en: 'See the full case'
+      pt: 'Ver o caso completo'
     destino:
       caso: 'utpn'
   metrica:
     es: '−60%'
+    en: '−60%'
+    pt: '−60%'
   leyenda:
     es: 'De US$10.000 a US$4.000 al mes en Google Cloud.'
+    en: 'From US$10,000 to US$4,000 a month on Google Cloud.'
+    pt: 'De US$10.000 para US$4.000 por mês no Google Cloud.'
 empezar:
   eyebrow:
     es: 'Cómo empezar'
+    en: 'How to start'
+    pt: 'Como começar'
   titulo:
     es: 'Cómo prepararte'
+    en: 'How to prepare'
+    pt: 'Como se preparar'
   texto:
     es: 'Ten a mano tu última factura de nube, un diagrama o una descripción de tu arquitectura y la pregunta que más te importa responder. Si no tienes nada de eso, también sirve: lo armamos en la sesión.'
+    en: "Have your latest cloud bill at hand, a diagram or description of your architecture, and the question you most want answered. If you have none of that, that's fine too: we'll put it together in the session."
+    pt: 'Tenha em mãos sua última fatura de nuvem, um diagrama ou uma descrição da sua arquitetura e a pergunta que você mais quer responder. Se não tiver nada disso, também serve: montamos na sessão.'
   aparte:
     eyebrow:
       es: '¿No estás seguro?'
+      en: 'Not sure?'
+      pt: 'Não tem certeza?'
     titulo:
       es: 'Empieza con una llamada de 20 minutos'
+      en: 'Start with a 20-minute call'
+      pt: 'Comece com uma chamada de 20 minutos'
     texto:
       es: 'Gratis, para saber si puedo ayudarte y si la sesión tiene sentido para tu caso.'
+      en: 'Free, to see whether I can help you and whether the session makes sense for your case.'
+      pt: 'Grátis, para saber se posso ajudar você e se a sessão faz sentido para o seu caso.'
     enlace:
       texto:
         es: 'Agendar llamada'
+        en: 'Book a call'
+        pt: 'Agendar chamada'
       destino:
         ruta: 'consultoria'
         ancla: 'agenda'
 faq:
   titulo:
     es: 'Preguntas frecuentes'
+    en: 'Frequently asked questions'
+    pt: 'Perguntas frequentes'
   items:
     - pregunta:
         es: '¿Qué pasa si después no seguimos trabajando?'
+        en: "What if we don't keep working together afterwards?"
+        pt: 'E se depois não continuarmos trabalhando juntos?'
       respuesta:
         es: 'Te quedas con el memo. Es tuyo.'
+        en: "You keep the memo. It's yours."
+        pt: 'Você fica com o memorando. É seu.'
     - pregunta:
         es: '¿Puedo invitar a mi equipo?'
+        en: 'Can I invite my team?'
+        pt: 'Posso convidar minha equipe?'
       respuesta:
         es: 'Sí, y lo recomiendo.'
+        en: 'Yes, and I recommend it.'
+        pt: 'Sim, e recomendo.'
     - pregunta:
         es: '¿Firmas acuerdo de confidencialidad?'
+        en: 'Do you sign a confidentiality agreement?'
+        pt: 'Você assina acordo de confidencialidade?'
       respuesta:
         es: 'Sí. Protege la información confidencial de tu empresa y no limita mi trabajo con otros clientes. Si necesitas exclusividad, la acordamos entre las partes en el contrato.'
+        en: "Yes. It protects your company's confidential information and doesn't limit my work with other clients. If you need exclusivity, we agree on it in the contract."
+        pt: 'Sim. Ele protege as informações confidenciais da sua empresa e não limita meu trabalho com outros clientes. Se você precisar de exclusividade, acordamos entre as partes no contrato.'
     - pregunta:
         es: '¿Cómo se paga?'
+        en: 'How is it paid?'
+        pt: 'Como se paga?'
       respuesta:
         es: 'Por transferencia bancaria, en la moneda de tu empresa. Resido en Colombia y emito factura colombiana.'
+        en: "By bank transfer, in your company's currency. I live in Colombia and issue a Colombian invoice."
+        pt: 'Por transferência bancária, na moeda da sua empresa. Moro na Colômbia e emito nota fiscal colombiana.'
 cierre:
   titulo:
     es: 'Elige fecha y empecemos por tu caso.'
+    en: "Choose a date and let's start with your case."
+    pt: 'Escolha uma data e vamos começar pelo seu caso.'
   boton:
     es: 'Agendar sesión · US$450'
+    en: 'Book a session · US$450'
+    pt: 'Agendar sessão · US$450'

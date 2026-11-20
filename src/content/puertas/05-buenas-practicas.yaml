@@ -1,12 +1,20 @@
 numero: 5
 etiqueta:
   es: 'Buenas prácticas'
+  en: 'Best practices'
+  pt: 'Boas práticas'
 dolor:
   es: '¿Funciona, pero no sabes si está bien hecho?'
+  en: "It works, but you don't know whether it's done right?"
+  pt: 'Funciona, mas você não sabe se está bem feito?'
 oferta:
   es: 'Revisión de arquitectura con los pilares de Well-Architected.'
+  en: 'Architecture review based on the Well-Architected pillars.'
+  pt: 'Revisão de arquitetura com os pilares do Well-Architected.'
 prueba:
   es: '13 años de sistemas en producción'
+  en: '13 years of systems in production'
+  pt: '13 anos de sistemas em produção'
 # Sin subpágina todavía: lleva a la agenda de Consultoría (prototipo).
 destino:
   ruta: consultoria
@@ -16,4 +24,8 @@ viz:
   cantidad: 13
   leyenda:
     - es: '2013'
+      en: '2013'
+      pt: '2013'
     - es: '2026'
+      en: '2026'
+      pt: '2026'

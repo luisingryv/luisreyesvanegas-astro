@@ -8,111 +8,203 @@ permiso: true
 tarjeta:
   metrica:
     es: '≈70.000'
+    en: '≈70,000'
+    pt: '≈70.000'
   titulo:
     es: 'De unos 2.400 a unos 70.000 pedidos al mes con iFood'
+    en: 'From about 2,400 to about 70,000 orders a month with iFood'
+    pt: 'De cerca de 2.400 para cerca de 70.000 pedidos por mês com o iFood'
   quien:
     es: 'Mandaos / Netivery'
+    en: 'Mandaos / Netivery'
+    pt: 'Mandaos / Netivery'
 pagina:
   titulo:
     es: 'Cómo Mandaos pasó de unos 2.400 a unos 70.000 pedidos al mes con iFood'
+    en: 'How Mandaos went from about 2,400 to about 70,000 orders a month with iFood'
+    pt: 'Como a Mandaos passou de cerca de 2.400 para cerca de 70.000 pedidos por mês com o iFood'
   resumen:
     es: 'Mandaos era una startup de logística de última milla. Como Head of Product, convertí el producto en una plataforma con una API pública. Esa API fue la base de la integración con iFood y de un salto de casi 30 veces en pedidos.'
+    en: 'Mandaos was a last-mile logistics startup. As Head of Product, I turned the product into a platform with a public API. That API was the foundation of the iFood integration and of an almost 30-fold jump in orders.'
+    pt: 'A Mandaos era uma startup de logística de última milha. Como Head of Product, transformei o produto em uma plataforma com uma API pública. Essa API foi a base da integração com o iFood e de um salto de quase 30 vezes nos pedidos.'
   ficha:
     - clave:
         es: 'Empresa'
+        en: 'Company'
+        pt: 'Empresa'
       valor:
         es: 'Mandaos (luego Netivery)'
+        en: 'Mandaos (later Netivery)'
+        pt: 'Mandaos (depois Netivery)'
     - clave:
         es: 'Sector'
+        en: 'Industry'
+        pt: 'Setor'
       valor:
         es: 'Logística de última milla'
+        en: 'Last-mile logistics'
+        pt: 'Logística de última milha'
     - clave:
         es: 'País'
+        en: 'Country'
+        pt: 'País'
       valor:
         es: 'Colombia'
+        en: 'Colombia'
+        pt: 'Colômbia'
     - clave:
         es: 'Mi rol'
+        en: 'My role'
+        pt: 'Meu papel'
       valor:
         es: 'Desarrollador web y luego Head of Product, a cargo del producto y de las decisiones técnicas'
+        en: 'Web developer and then Head of Product, in charge of the product and the technical decisions'
+        pt: 'Desenvolvedor web e depois Head of Product, responsável pelo produto e pelas decisões técnicas'
     - clave:
         es: 'Equipo'
+        en: 'Team'
+        pt: 'Equipe'
       valor:
         es: 'Equipo de producto de 6 personas'
+        en: 'Product team of 6 people'
+        pt: 'Equipe de produto de 6 pessoas'
     - clave:
         es: 'Periodo'
+        en: 'Period'
+        pt: 'Período'
       valor:
         es: '2018–2020'
+        en: '2018–2020'
+        pt: '2018–2020'
     - clave:
         es: 'Tecnología'
+        en: 'Technology'
+        pt: 'Tecnologia'
       valor:
         es: 'API pública de integraciones · app móvil migrada de Cordova a Ionic · AWS'
+        en: 'Public integrations API · mobile app migrated from Cordova to Ionic · AWS'
+        pt: 'API pública de integrações · app móvel migrado de Cordova para Ionic · AWS'
   bloques:
     - clave:
         es: 'Contexto'
+        en: 'Context'
+        pt: 'Contexto'
       texto:
         es: 'Mandaos era una startup de logística de última milla. Entré como desarrollador web y llegué a Head of Product, a cargo del producto y de las decisiones técnicas. El reto era pasar de un servicio de domicilios a una plataforma a la que otros negocios pudieran conectarse.'
+        en: 'Mandaos was a last-mile logistics startup. I joined as a web developer and became Head of Product, in charge of the product and the technical decisions. The challenge was to go from a delivery service to a platform other businesses could connect to.'
+        pt: 'A Mandaos era uma startup de logística de última milha. Entrei como desenvolvedor web e cheguei a Head of Product, responsável pelo produto e pelas decisões técnicas. O desafio era passar de um serviço de entregas para uma plataforma à qual outros negócios pudessem se conectar.'
     - clave:
         es: 'Decisión'
+        en: 'Decision'
+        pt: 'Decisão'
       texto:
         es: 'Diseñamos una API pública para que terceros se integraran por su cuenta y migramos la app móvil a Ionic. Farmacias y otros comercios empezaron a enviar sus pedidos directamente. Un piloto con iFood validó la API y, para soportar su demanda, aceleramos la nueva app, que pasó a llamarse Netivery.'
+        en: 'We designed a public API so third parties could integrate on their own, and we migrated the mobile app to Ionic. Pharmacies and other merchants started sending their orders directly. A pilot with iFood validated the API and, to support its demand, we sped up the new app, which was renamed Netivery.'
+        pt: 'Projetamos uma API pública para que terceiros se integrassem por conta própria e migramos o app móvel para Ionic. Farmácias e outros comércios começaram a enviar seus pedidos diretamente. Um piloto com o iFood validou a API e, para suportar a demanda, aceleramos o novo app, que passou a se chamar Netivery.'
     - clave:
         es: 'Lo que aprendí'
+        en: 'What I learned'
+        pt: 'O que aprendi'
       texto:
         es: 'Fue un resultado de todo el equipo: tecnología, operación y estrategia. Con la pandemia, la salida de iFood nos mostró el riesgo de depender de un solo cliente.'
+        en: "It was a result of the whole team: technology, operations and strategy. With the pandemic, iFood's exit showed us the risk of depending on a single client."
+        pt: 'Foi um resultado de toda a equipe: tecnologia, operação e estratégia. Com a pandemia, a saída do iFood nos mostrou o risco de depender de um único cliente.'
   cifras:
     - metrica:
         es: '≈2.400'
+        en: '≈2,400'
+        pt: '≈2.400'
       texto:
         es: 'Pedidos al mes antes de la integración.'
+        en: 'Orders a month before the integration.'
+        pt: 'Pedidos por mês antes da integração.'
     - metrica:
         es: '≈70.000'
+        en: '≈70,000'
+        pt: '≈70.000'
       texto:
         es: 'Pedidos al mes con la integración con iFood.'
+        en: 'Orders a month with the iFood integration.'
+        pt: 'Pedidos por mês com a integração com o iFood.'
     - metrica:
         es: '×29'
+        en: '×29'
+        pt: '×29'
       texto:
         es: 'Crecimiento en pedidos mensuales.'
+        en: 'Growth in monthly orders.'
+        pt: 'Crescimento nos pedidos mensais.'
   fuente:
     es: 'Fuente: documentación de la API v2 de Mandaos.'
+    en: 'Source: Mandaos API v2 documentation.'
+    pt: 'Fonte: documentação da API v2 da Mandaos.'
   cierre:
     titulo:
       es: '¿Tu plataforma tiene que aguantar un salto así?'
+      en: 'Does your platform have to handle a jump like that?'
+      pt: 'Sua plataforma precisa aguentar um salto assim?'
     texto:
       es: 'Revisemos tu arquitectura antes de que llegue el crecimiento.'
+      en: "Let's review your architecture before the growth arrives."
+      pt: 'Vamos revisar sua arquitetura antes que o crescimento chegue.'
     enlace:
       texto:
         es: 'Agendar sesión de arquitectura'
+        en: 'Book an architecture session'
+        pt: 'Agendar sessão de arquitetura'
       destino:
         ruta: 'consultoria'
         ancla: 'agenda'
 diagrama:
   etiqueta:
     es: 'Pedidos al mes'
+    en: 'Orders a month'
+    pt: 'Pedidos por mês'
   fuente:
     es: 'Mandaos / Netivery · Fuente: documentación de la API v2 de Mandaos.'
+    en: 'Mandaos / Netivery · Source: Mandaos API v2 documentation.'
+    pt: 'Mandaos / Netivery · Fonte: documentação da API v2 da Mandaos.'
   prefijo: '≈'
   antes:
     valor: 2400
     texto:
       es: 'Antes de la integración con iFood.'
+      en: 'Before the iFood integration.'
+      pt: 'Antes da integração com o iFood.'
     nodos:
       - titulo:
           es: 'Comercios'
+          en: 'Merchants'
+          pt: 'Comércios'
         detalle:
           es: 'Envían sus pedidos'
+          en: 'Send their orders'
+          pt: 'Enviam seus pedidos'
       - titulo:
           es: 'API pública de Mandaos'
+          en: 'Mandaos public API'
+          pt: 'API pública da Mandaos'
         detalle:
           es: 'Integración con terceros'
+          en: 'Third-party integration'
+          pt: 'Integração com terceiros'
         clave: true
       - titulo:
           es: 'Plataforma de despachos'
+          en: 'Dispatch platform'
+          pt: 'Plataforma de despachos'
         detalle:
           es: 'Asigna cada pedido'
+          en: 'Assigns each order'
+          pt: 'Atribui cada pedido'
       - titulo:
           es: 'App de mensajeros'
+          en: 'Courier app'
+          pt: 'App de entregadores'
         detalle:
           es: 'Ionic'
+          en: 'Ionic'
+          pt: 'Ionic'
     flujos:
       - [1.2, 7]
       - [1.2, 7]
@@ -121,28 +213,48 @@ diagrama:
     valor: 70000
     delta:
       es: '×29 frente a ≈2.400'
+      en: '×29 vs. ≈2,400'
+      pt: '×29 frente a ≈2.400'
     texto:
       es: 'Con la API pública como puerta de entrada, iFood y otros comercios envían sus pedidos directo a la plataforma.'
+      en: 'With the public API as the front door, iFood and other merchants send their orders straight to the platform.'
+      pt: 'Com a API pública como porta de entrada, o iFood e outros comércios enviam seus pedidos direto para a plataforma.'
     nodos:
       - titulo:
           es: 'Comercios'
+          en: 'Merchants'
+          pt: 'Comércios'
         detalle:
           es: 'Envían sus pedidos'
+          en: 'Send their orders'
+          pt: 'Enviam seus pedidos'
         chips:
           - 'iFood'
       - titulo:
           es: 'API pública de Mandaos'
+          en: 'Mandaos public API'
+          pt: 'API pública da Mandaos'
         detalle:
           es: 'Integración con terceros'
+          en: 'Third-party integration'
+          pt: 'Integração com terceiros'
         clave: true
       - titulo:
           es: 'Plataforma de despachos'
+          en: 'Dispatch platform'
+          pt: 'Plataforma de despachos'
         detalle:
           es: 'Asigna cada pedido'
+          en: 'Assigns each order'
+          pt: 'Atribui cada pedido'
       - titulo:
           es: 'App de mensajeros'
+          en: 'Courier app'
+          pt: 'App de entregadores'
         detalle:
           es: 'Ionic'
+          en: 'Ionic'
+          pt: 'Ionic'
     flujos:
       - [9, 7]
       - [9, 7]

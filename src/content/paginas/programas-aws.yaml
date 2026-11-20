@@ -4,358 +4,682 @@
 hero:
   eyebrow:
     es: 'Migración a AWS · con Nexa Connect'
+    en: 'Migration to AWS · with Nexa Connect'
+    pt: 'Migração para a AWS · com a Nexa Connect'
   titulo:
     es: 'AWS puede invertir en tu migración.'
+    en: 'AWS can invest in your migration.'
+    pt: 'A AWS pode investir na sua migração.'
   texto:
     es: 'Con Nexa Connect, partner de AWS, reviso tu entorno, diseño la arquitectura a la que vas a llegar y armamos el caso para que AWS evalúe cofinanciar la migración con su programa MAP. Lo hicimos con una startup de SAP de San Francisco y hoy lo llevamos a empresas de Latinoamérica y Estados Unidos.'
+    en: "With Nexa Connect, an AWS partner, I review your environment, design the architecture you're heading to, and we build the case so AWS can evaluate co-funding the migration through its MAP program. We did it with a San Francisco SAP startup and now bring it to companies in Latin America and the United States."
+    pt: 'Com a Nexa Connect, parceira da AWS, reviso seu ambiente, projeto a arquitetura à qual você vai chegar e montamos o caso para que a AWS avalie cofinanciar a migração com seu programa MAP. Fizemos isso com uma startup de SAP de São Francisco e hoje levamos para empresas da América Latina e dos Estados Unidos.'
   evaluar:
     es: 'Evaluar mi caso'
+    en: 'Evaluate my case'
+    pt: 'Avaliar meu caso'
   sesion:
     es: 'Agendar sesión de arquitectura'
+    en: 'Book an architecture session'
+    pt: 'Agendar sessão de arquitetura'
   grafica:
     alt:
       es: 'Ilustración: el consumo crece mes a mes; la arquitectura objetivo proyecta el consumo anual y AWS puede invertir un porcentaje en tramos'
+      en: 'Illustration: usage grows month after month; the target architecture projects annual usage and AWS can invest a percentage in tranches'
+      pt: 'Ilustração: o consumo cresce mês a mês; a arquitetura-alvo projeta o consumo anual e a AWS pode investir uma porcentagem em parcelas'
     hoy:
       es: 'Tu consumo hoy'
+      en: 'Your usage today'
+      pt: 'Seu consumo hoje'
     destino:
       es: 'A dónde vas'
+      en: "Where you're heading"
+      pt: 'Para onde você vai'
     inversion:
       es: 'Lo que puede invertir AWS'
+      en: 'What AWS can invest'
+      pt: 'O que a AWS pode investir'
 idea:
   titulo:
     es: 'El crecimiento de tu factura no es solo un problema de costos.'
+    en: "Your growing bill isn't just a cost problem."
+    pt: 'O crescimento da sua fatura não é só um problema de custos.'
   texto:
     es: 'AWS puede cofinanciar la migración de empresas que muestran uso real y en expansión, siempre con su aprobación previa y si cumplen las condiciones del programa. Por eso empezamos revisando tu cuenta, no pidiendo créditos: con el caso técnico en la mano, AWS evalúa si aplica y cuánto invierte.'
+    en: "AWS can co-fund the migration of companies that show real, expanding usage, always with its prior approval and if they meet the program's conditions. That's why we start by reviewing your account, not by asking for credits: with the technical case in hand, AWS evaluates whether it applies and how much it invests."
+    pt: 'A AWS pode cofinanciar a migração de empresas que mostram uso real e em expansão, sempre com sua aprovação prévia e se cumprirem as condições do programa. Por isso começamos revisando sua conta, não pedindo créditos: com o caso técnico em mãos, a AWS avalia se se aplica e quanto investe.'
   tiposTitulo:
     es: 'Qué podemos migrar'
+    en: 'What we can migrate'
+    pt: 'O que podemos migrar'
   tipos:
     - titulo:
         es: 'Lo que corre en tus servidores'
+        en: 'What runs on your servers'
+        pt: 'O que roda nos seus servidores'
       texto:
         es: 'VMware, Windows Server, Linux, bases de datos SQL, ERP y aplicaciones que hoy viven en tu datacenter.'
+        en: 'VMware, Windows Server, Linux, SQL databases, ERP and applications that live in your data center today.'
+        pt: 'VMware, Windows Server, Linux, bancos de dados SQL, ERP e aplicações que hoje vivem no seu datacenter.'
     - titulo:
         es: 'Lo que tienes en otra nube'
+        en: 'What you have in another cloud'
+        pt: 'O que você tem em outra nuvem'
       texto:
         es: 'Si estás en Google Cloud o en Azure. Trama, la empresa que dirijo, hizo este camino hacia AWS.'
+        en: "If you're on Google Cloud or Azure. Trama, the company I run, made this move to AWS."
+        pt: 'Se você está no Google Cloud ou no Azure. A Trama, a empresa que dirijo, fez esse caminho para a AWS.'
     - titulo:
         es: 'Las cargas nuevas de tus clientes'
+        en: "Your clients' new workloads"
+        pt: 'As novas cargas dos seus clientes'
       texto:
         es: 'Si ya estás en AWS y tus clientes llevan sus procesos a tu plataforma, esas cargas también cuentan como migración.'
+        en: "If you're already on AWS and your clients bring their processes to your platform, those workloads also count as migration."
+        pt: 'Se você já está na AWS e seus clientes levam seus processos para a sua plataforma, essas cargas também contam como migração.'
     - titulo:
         es: 'Tus sistemas SAP'
+        en: 'Your SAP systems'
+        pt: 'Seus sistemas SAP'
       texto:
         es: 'SAP HANA, S/4HANA y ECC, en producción, pruebas y recuperación ante desastres.'
+        en: 'SAP HANA, S/4HANA and ECC, in production, testing and disaster recovery.'
+        pt: 'SAP HANA, S/4HANA e ECC, em produção, testes e recuperação de desastres.'
 rutas:
   titulo:
     es: '¿Es para tu empresa?'
+    en: 'Is it for your company?'
+    pt: 'É para a sua empresa?'
   lista:
     - etiqueta:
         es: 'Startups'
+        en: 'Startups'
+        pt: 'Startups'
       titulo:
         es: 'Tu startup crece mes a mes'
+        en: 'Your startup grows month after month'
+        pt: 'Sua startup cresce mês a mês'
       texto:
         es: 'Es donde mejor funciona el programa. Si tu consumo en AWS o en otra nube sube cada mes, vale la pena revisarlo.'
+        en: "This is where the program works best. If your usage on AWS or another cloud goes up every month, it's worth reviewing."
+        pt: 'É onde o programa funciona melhor. Se seu consumo na AWS ou em outra nuvem sobe todo mês, vale a pena revisar.'
       umbral:
         es: 'Desde unos US$50.000 al año'
+        en: 'From about US$50,000 a year'
+        pt: 'A partir de cerca de US$50.000 por ano'
     - etiqueta:
         es: 'Empresas'
+        en: 'Companies'
+        pt: 'Empresas'
       titulo:
         es: 'Vas a mover tu datacenter'
+        en: "You're moving your data center"
+        pt: 'Você vai mover seu datacenter'
       texto:
         es: 'Para AWS, una migración empresarial empieza a ser atractiva cuando el consumo anual supera el medio millón de dólares.'
+        en: 'For AWS, an enterprise migration starts to be attractive when annual usage exceeds half a million dollars.'
+        pt: 'Para a AWS, uma migração empresarial começa a ser atraente quando o consumo anual passa de meio milhão de dólares.'
       umbral:
         es: 'Más de US$500.000 al año'
+        en: 'More than US$500,000 a year'
+        pt: 'Mais de US$500.000 por ano'
     - etiqueta:
         es: 'Ya estás en AWS'
+        en: 'Already on AWS'
+        pt: 'Você já está na AWS'
       titulo:
         es: 'Tus clientes te traen sus cargas'
+        en: 'Your clients bring you their workloads'
+        pt: 'Seus clientes trazem suas cargas'
       texto:
         es: 'Cada cliente que lleva sus procesos a tu plataforma suma consumo nuevo en AWS, y eso también abre la puerta al programa.'
+        en: 'Every client that brings its processes to your platform adds new usage on AWS, and that also opens the door to the program.'
+        pt: 'Cada cliente que leva seus processos para a sua plataforma soma novo consumo na AWS, e isso também abre a porta para o programa.'
       umbral:
         es: 'Crecimiento sostenido'
+        en: 'Sustained growth'
+        pt: 'Crescimento sustentado'
   nota:
     es: 'Los montos son orientativos y hablan de consumo anual. Quien define si tu empresa califica es AWS.'
+    en: 'Amounts are indicative and refer to annual usage. AWS decides whether your company qualifies.'
+    pt: 'Os valores são orientativos e falam de consumo anual. Quem define se sua empresa se qualifica é a AWS.'
 inicio:
   titulo:
     es: 'Dos formas de empezar antes de migrar'
+    en: 'Two ways to start before migrating'
+    pt: 'Duas formas de começar antes de migrar'
   texto:
     es: 'Son programas de AWS que ejecutamos con Nexa Connect. Sirven para tomar la decisión con datos y no con suposiciones.'
+    en: 'These are AWS programs we run with Nexa Connect. They help you make the decision with data, not assumptions.'
+    pt: 'São programas da AWS que executamos com a Nexa Connect. Servem para tomar a decisão com dados, e não com suposições.'
   assessment:
     eyebrow:
       es: 'Empresas con servidores propios o en otra nube'
+      en: 'Companies with their own servers or in another cloud'
+      pt: 'Empresas com servidores próprios ou em outra nuvem'
     titulo:
       es: 'Assessment de infraestructura'
+      en: 'Infrastructure assessment'
+      pt: 'Assessment de infraestrutura'
     texto:
       es: 'Instalamos un agente que mide durante 7 a 15 días el uso real de CPU y memoria de tus servidores. Con esos datos armamos el caso técnico y de negocio de la migración. Todo el proceso toma de 4 a 5 semanas.'
+      en: "We install an agent that measures your servers' real CPU and memory usage for 7 to 15 days. With that data we build the technical and business case for the migration. The whole process takes 4 to 5 weeks."
+      pt: 'Instalamos um agente que mede durante 7 a 15 dias o uso real de CPU e memória dos seus servidores. Com esses dados montamos o caso técnico e de negócio da migração. Todo o processo leva de 4 a 5 semanas.'
     sello:
       es: 'Sin costo para tu empresa'
+      en: 'No cost to your company'
+      pt: 'Sem custo para a sua empresa'
     aplica:
       es: 'Aplica si tienes que decidir sobre tu infraestructura en los próximos 12 meses: renovar servidores o pasar a la nube.'
+      en: 'It applies if you have to decide on your infrastructure in the next 12 months: renew servers or move to the cloud.'
+      pt: 'Aplica-se se você precisa decidir sobre sua infraestrutura nos próximos 12 meses: renovar servidores ou ir para a nuvem.'
   prueba:
     eyebrow:
       es: 'Startups y empresas'
+      en: 'Startups and companies'
+      pt: 'Startups e empresas'
     titulo:
       es: 'Prueba de concepto'
+      en: 'Proof of concept'
+      pt: 'Prova de conceito'
     texto:
       es: 'En unas dos semanas probamos en AWS un caso de uso concreto, de migración o de inteligencia artificial, para validar la solución antes de decidir.'
+      en: 'In about two weeks we test a specific use case on AWS, for migration or artificial intelligence, to validate the solution before deciding.'
+      pt: 'Em cerca de duas semanas testamos na AWS um caso de uso concreto, de migração ou de inteligência artificial, para validar a solução antes de decidir.'
     aplica:
       es: 'Aplica cuando hay una necesidad real de tu empresa detrás de la prueba.'
+      en: "It applies when there's a real business need behind the test."
+      pt: 'Aplica-se quando há uma necessidade real da sua empresa por trás do teste.'
   nota:
     es: 'Ambos programas están sujetos a la evaluación y aprobación previa de AWS.'
+    en: "Both programs are subject to AWS's prior evaluation and approval."
+    pt: 'Ambos os programas estão sujeitos à avaliação e aprovação prévia da AWS.'
 fases:
   titulo:
     es: 'Cómo lo hacemos'
+    en: 'How we do it'
+    pt: 'Como fazemos'
   texto:
     es: 'Seis pasos, desde la primera revisión de tu cuenta hasta que queda acompañada por el equipo de AWS de tu región. Si tu empresa tiene servidores propios, la revisión técnica se hace con el assessment. Si eres una startup, partimos de tu proyección de crecimiento.'
+    en: "Six steps, from the first review of your account until it's supported by the AWS team in your region. If your company has its own servers, the technical review is done with the assessment. If you're a startup, we start from your growth projection."
+    pt: 'Seis passos, desde a primeira revisão da sua conta até ela ficar acompanhada pela equipe da AWS da sua região. Se sua empresa tem servidores próprios, a revisão técnica é feita com o assessment. Se você é uma startup, partimos da sua projeção de crescimento.'
   lista:
     - titulo:
         es: 'Diagnóstico de elegibilidad'
+        en: 'Eligibility diagnosis'
+        pt: 'Diagnóstico de elegibilidade'
       texto:
         es: 'Vemos cómo ha crecido tu consumo, qué cargas vienen en camino y a qué se dedica tu negocio. Si no hay caso, te lo decimos aquí.'
+        en: "We look at how your usage has grown, what workloads are on the way and what your business does. If there's no case, we tell you here."
+        pt: 'Vemos como seu consumo cresceu, quais cargas estão a caminho e com o que seu negócio trabalha. Se não houver caso, dizemos aqui.'
     - titulo:
         es: 'Revisión técnica de solo lectura'
+        en: 'Read-only technical review'
+        pt: 'Revisão técnica somente leitura'
       texto:
         es: 'Con un acceso de solo lectura revisamos la cuenta servicio por servicio, con el marco Well-Architected de AWS: inventario, dependencias, seguridad y costos.'
+        en: 'With read-only access we review the account service by service, using the AWS Well-Architected framework: inventory, dependencies, security and costs.'
+        pt: 'Com um acesso somente leitura revisamos a conta serviço por serviço, com o framework Well-Architected da AWS: inventário, dependências, segurança e custos.'
     - titulo:
         es: 'Arquitectura objetivo y business case'
+        en: 'Target architecture and business case'
+        pt: 'Arquitetura-alvo e business case'
       texto:
         es: 'Diseñamos la plataforma a la que vas a llegar, la costeamos en la calculadora de AWS y la comparamos con lo que pagas hoy.'
+        en: "We design the platform you're heading to, price it in the AWS calculator and compare it with what you pay today."
+        pt: 'Projetamos a plataforma à qual você vai chegar, calculamos o custo na calculadora da AWS e comparamos com o que você paga hoje.'
     - titulo:
         es: 'Registro de la oportunidad'
+        en: 'Opportunity registration'
+        pt: 'Registro da oportunidade'
       texto:
         es: 'Con el caso listo, Nexa Connect registra la oportunidad ante AWS y se asigna tu Account Manager.'
+        en: 'With the case ready, Nexa Connect registers the opportunity with AWS and your Account Manager is assigned.'
+        pt: 'Com o caso pronto, a Nexa Connect registra a oportunidade na AWS e seu Account Manager é designado.'
     - titulo:
         es: 'Plan con hitos medibles'
+        en: 'Plan with measurable milestones'
+        pt: 'Plano com marcos mensuráveis'
       texto:
         es: 'Un plan por etapas con criterios que se pueden verificar. AWS usa esos hitos para liberar cada tramo de la inversión.'
+        en: 'A staged plan with verifiable criteria. AWS uses those milestones to release each tranche of the investment.'
+        pt: 'Um plano por etapas com critérios verificáveis. A AWS usa esses marcos para liberar cada parcela do investimento.'
     - titulo:
         es: 'El equipo de AWS de tu región'
+        en: 'The AWS team in your region'
+        pt: 'A equipe da AWS da sua região'
       texto:
         es: 'La cuenta queda acompañada por el equipo regional de AWS, para nuevos programas, beneficios y soporte técnico.'
+        en: 'The account is supported by the regional AWS team, for new programs, benefits and technical support.'
+        pt: 'A conta fica acompanhada pela equipe regional da AWS, para novos programas, benefícios e suporte técnico.'
   estrategiasTitulo:
     es: 'Y para cada aplicación, la estrategia que le conviene'
+    en: 'And for each application, the strategy that fits it'
+    pt: 'E para cada aplicação, a estratégia que convém'
   estrategias:
     - titulo:
         es: 'Rehost'
+        en: 'Rehost'
+        pt: 'Rehost'
       texto:
         es: 'Llevas la aplicación tal como está, rápido y con poco riesgo, y la modernizas después.'
+        en: 'You move the application as is, quickly and with little risk, and modernize it later.'
+        pt: 'Você leva a aplicação como está, rápido e com pouco risco, e a moderniza depois.'
     - titulo:
         es: 'Replatform'
+        en: 'Replatform'
+        pt: 'Replatform'
       texto:
         es: 'Haces ajustes puntuales para aprovechar servicios administrados, como bases de datos RDS o autoescalado.'
+        en: 'You make targeted adjustments to take advantage of managed services, such as RDS databases or autoscaling.'
+        pt: 'Você faz ajustes pontuais para aproveitar serviços gerenciados, como bancos de dados RDS ou escalonamento automático.'
     - titulo:
         es: 'Refactor'
+        en: 'Refactor'
+        pt: 'Refactor'
       texto:
         es: 'Rediseñas la aplicación para la nube: contenedores, serverless, microservicios o IA generativa.'
+        en: 'You redesign the application for the cloud: containers, serverless, microservices or generative AI.'
+        pt: 'Você redesenha a aplicação para a nuvem: contêineres, serverless, microsserviços ou IA generativa.'
 inversion:
   titulo:
     es: 'La inversión se calcula sobre la plataforma a la que vas.'
+    en: "The investment is calculated on the platform you're moving to."
+    pt: 'O investimento é calculado sobre a plataforma para a qual você vai.'
   texto:
     es: 'Quien solo muestra su factura actual deja dinero sobre la mesa. Por eso modelamos tu arquitectura objetivo en la calculadora de AWS y, con esa proyección anual, AWS evalúa si aprueba la inversión y qué porcentaje cubre. Si la aprueba, la entrega por tramos según el programa y el avance de los hitos del plan, y cada carga nueva puede abrir otra ronda.'
+    en: "Anyone who only shows their current bill leaves money on the table. That's why we model your target architecture in the AWS calculator and, with that annual projection, AWS evaluates whether it approves the investment and what percentage it covers. If it approves it, it delivers it in tranches according to the program and the progress on the plan's milestones, and each new workload can open another round."
+    pt: 'Quem só mostra a fatura atual deixa dinheiro na mesa. Por isso modelamos sua arquitetura-alvo na calculadora da AWS e, com essa projeção anual, a AWS avalia se aprova o investimento e qual porcentagem cobre. Se aprovar, entrega por parcelas conforme o programa e o avanço dos marcos do plano, e cada nova carga pode abrir outra rodada.'
   nota:
     es: 'Los valores son estimados. Las cifras finales las define AWS en su evaluación y pueden ser diferentes.'
+    en: 'The values are estimates. AWS defines the final figures in its evaluation and they may differ.'
+    pt: 'Os valores são estimados. Os números finais são definidos pela AWS na sua avaliação e podem ser diferentes.'
   ejemplo:
     eyebrow:
       es: 'Un ejemplo estimado'
+      en: 'An estimated example'
+      pt: 'Um exemplo estimado'
     consumo:
       es: 'Consumo anual proyectado'
+      en: 'Projected annual usage'
+      pt: 'Consumo anual projetado'
     consumoValor:
       es: 'US$250.000'
+      en: 'US$250,000'
+      pt: 'US$250.000'
     inversion:
       es: 'Inversión estimada de AWS'
+      en: 'Estimated AWS investment'
+      pt: 'Investimento estimado da AWS'
     inversionValor:
       es: '≈US$60.000'
+      en: '≈US$60,000'
+      pt: '≈US$60.000'
     tramos:
       es: 'Entregada por tramos'
+      en: 'Delivered in tranches'
+      pt: 'Entregue em parcelas'
     primerTramo:
       es: 'Primer tramo'
+      en: 'First tranche'
+      pt: 'Primeira parcela'
     siguientes:
       es: 'Tramos siguientes, según los hitos'
+      en: 'Next tranches, according to the milestones'
+      pt: 'Parcelas seguintes, conforme os marcos'
     rondas:
       es: 'Puede haber hasta tres rondas, para que acomodes tu flujo de caja mientras pasas tus cargas a la nube.'
+      en: 'There can be up to three rounds, so you can manage your cash flow while you move your workloads to the cloud.'
+      pt: 'Pode haver até três rodadas, para que você ajuste seu fluxo de caixa enquanto leva suas cargas para a nuvem.'
 caso:
   titulo:
     es: 'Así funcionó con una startup de SAP de San Francisco'
+    en: 'How it worked with a San Francisco SAP startup'
+    pt: 'Como funcionou com uma startup de SAP de São Francisco'
   texto:
     es: 'Ya estaban en AWS y crecían con las cargas que les traían sus clientes, incluidas nuevas cuentas en Europa. Un mes nos dimos cuenta de que, en los primeros nueve días, la factura casi igualaba la del mes anterior. Ahí empezamos a armar el caso con Nexa Connect, y AWS aprobó el programa Incremental Workloads Migrate.'
+    en: "They were already on AWS and growing with the workloads their clients brought them, including new accounts in Europe. One month we noticed that, in the first nine days, the bill almost matched the previous month's. That's when we started building the case with Nexa Connect, and AWS approved the Incremental Workloads Migrate program."
+    pt: 'Já estavam na AWS e cresciam com as cargas que os clientes traziam, incluindo novas contas na Europa. Em um mês percebemos que, nos primeiros nove dias, a fatura quase igualava a do mês anterior. Aí começamos a montar o caso com a Nexa Connect, e a AWS aprovou o programa Incremental Workloads Migrate.'
   cifras:
     - metrica:
         es: 'US$62.000'
+        en: 'US$62,000'
+        pt: 'US$62.000'
       texto:
         es: 'Aprobados por AWS en dos tramos: 25% al aprobar y 75% al cumplir los hitos.'
+        en: 'Approved by AWS in two tranches: 25% on approval and 75% upon meeting the milestones.'
+        pt: 'Aprovados pela AWS em duas parcelas: 25% na aprovação e 75% ao cumprir os marcos.'
       barra: [25, 75]
     - metrica:
         es: '94'
+        en: '94'
+        pt: '94'
       texto:
         es: 'Hallazgos en la revisión técnica: 12 críticos, 25 medios y 57 bajos, ninguno bloqueante.'
+        en: 'Findings in the technical review: 12 critical, 25 medium and 57 low, none blocking.'
+        pt: 'Achados na revisão técnica: 12 críticos, 25 médios e 57 baixos, nenhum bloqueante.'
       barra: [12, 25, 57]
     - metrica:
         es: '84%'
+        en: '84%'
+        pt: '84%'
       texto:
         es: 'Del consumo era transferencia de datos y no cómputo. El problema estaba en la arquitectura.'
+        en: 'Of the usage was data transfer, not compute. The problem was in the architecture.'
+        pt: 'Do consumo era transferência de dados, e não computação. O problema estava na arquitetura.'
     - metrica:
         es: 'AWS LATAM'
+        en: 'AWS LATAM'
+        pt: 'AWS LATAM'
       texto:
         es: 'La cuenta pasó al equipo regional de AWS, con acompañamiento comercial y técnico local.'
+        en: 'The account moved to the regional AWS team, with local commercial and technical support.'
+        pt: 'A conta passou para a equipe regional da AWS, com acompanhamento comercial e técnico local.'
 costo:
   titulo:
     es: 'La implementación de este programa es de costo cero.'
+    en: 'Implementing this program costs you nothing.'
+    pt: 'A implementação deste programa tem custo zero.'
   texto:
     es: 'Esto es lo que cubre y lo que va por aparte.'
+    en: "Here's what it covers and what's separate."
+    pt: 'Isto é o que cobre e o que fica à parte.'
   cubreTitulo:
     es: 'Cubre'
+    en: 'Covers'
+    pt: 'Cobre'
   cubre:
     - es: 'La implementación del programa de migración, con Nexa Connect'
+      en: 'Implementation of the migration program, with Nexa Connect'
+      pt: 'A implementação do programa de migração, com a Nexa Connect'
     - es: 'Servicios nativos de AWS: cómputo, contenedores, bases de datos, redes y almacenamiento'
+      en: 'Native AWS services: compute, containers, databases, networking and storage'
+      pt: 'Serviços nativos da AWS: computação, contêineres, bancos de dados, redes e armazenamento'
     - es: 'Servicios de IA de AWS, como Bedrock y Kiro, según el caso'
+      en: 'AWS AI services, such as Bedrock and Kiro, depending on the case'
+      pt: 'Serviços de IA da AWS, como Bedrock e Kiro, conforme o caso'
     - es: 'Hasta tres posibles rondas de inversión, a medida que crecen tus cargas'
+      en: 'Up to three possible investment rounds, as your workloads grow'
+      pt: 'Até três possíveis rodadas de investimento, à medida que suas cargas crescem'
   aparteTitulo:
     es: 'Va por aparte'
+    en: 'Separate'
+    pt: 'Fica à parte'
   aparte:
     - es: 'Productos de AWS Marketplace, porque son de otros fabricantes'
+      en: 'AWS Marketplace products, because they come from other vendors'
+      pt: 'Produtos do AWS Marketplace, porque são de outros fabricantes'
     - es: 'La administración de tu cuenta'
+      en: 'Managing your account'
+      pt: 'A administração da sua conta'
     - es: 'El acompañamiento mensual'
+      en: 'Monthly support'
+      pt: 'O acompanhamento mensal'
     - es: 'Mi trabajo como arquitecto de soluciones, que acordamos aparte'
+      en: 'My work as a solutions architect, which we agree on separately'
+      pt: 'Meu trabalho como arquiteto de soluções, que acordamos à parte'
   aviso:
     es: 'No gestionamos créditos gratis de Amazon. AWS decide si invierte en tu migración después de validar el caso técnico y comercial.'
+    en: "We don't manage free Amazon credits. AWS decides whether to invest in your migration after validating the technical and business case."
+    pt: 'Não gerenciamos créditos grátis da Amazon. A AWS decide se investe na sua migração depois de validar o caso técnico e comercial.'
   entrada:
     es: 'La puerta de entrada es la sesión de arquitectura, donde identificamos si tu empresa aplica.'
+    en: 'The way in is the architecture session, where we find out whether your company qualifies.'
+    pt: 'A porta de entrada é a sessão de arquitetura, onde identificamos se sua empresa se qualifica.'
 nexa:
   eyebrow:
     es: 'Partner de AWS'
+    en: 'AWS partner'
+    pt: 'Parceiro da AWS'
   titulo:
     es: 'Quién ejecuta la migración'
+    en: 'Who runs the migration'
+    pt: 'Quem executa a migração'
   texto:
     es: 'Nexa Connect es partner de AWS especialista en migración y modernización, con sede en Santiago de Chile y operación en Chile, Perú, Colombia, Ecuador, México, Guatemala y Argentina. Acompaña cada proyecto desde el assessment hasta la operación productiva, incluidas las migraciones SAP más críticas. En Chile, además, factura AWS de forma local.'
+    en: 'Nexa Connect is an AWS partner specializing in migration and modernization, headquartered in Santiago, Chile, and operating in Chile, Peru, Colombia, Ecuador, Mexico, Guatemala and Argentina. It supports each project from the assessment to production operations, including the most critical SAP migrations. In Chile, it also bills AWS locally.'
+    pt: 'A Nexa Connect é parceira da AWS especialista em migração e modernização, com sede em Santiago do Chile e operação no Chile, Peru, Colômbia, Equador, México, Guatemala e Argentina. Acompanha cada projeto desde o assessment até a operação produtiva, incluindo as migrações SAP mais críticas. No Chile, além disso, fatura a AWS localmente.'
   servicios:
     - es: 'Migración y modernización'
+      en: 'Migration and modernization'
+      pt: 'Migração e modernização'
     - es: 'Migraciones SAP'
+      en: 'SAP migrations'
+      pt: 'Migrações SAP'
     - es: 'Recuperación ante desastres'
+      en: 'Disaster recovery'
+      pt: 'Recuperação de desastres'
     - es: 'FinOps'
+      en: 'FinOps'
+      pt: 'FinOps'
     - es: 'Servicios administrados 24/7'
+      en: '24/7 managed services'
+      pt: 'Serviços gerenciados 24/7'
   enlace:
     texto:
       es: 'Conoce Nexa Connect'
+      en: 'Discover Nexa Connect'
+      pt: 'Conheça a Nexa Connect'
     url: 'https://xnexaconnect.cl/migracion-a-aws/'
   nombre: 'Nexa Connect'
 faq:
   titulo:
     es: 'Preguntas frecuentes'
+    en: 'Frequently asked questions'
+    pt: 'Perguntas frequentes'
   lista:
     - pregunta:
         es: '¿Mi empresa califica?'
+        en: 'Does my company qualify?'
+        pt: 'Minha empresa se qualifica?'
       respuesta:
         es: 'Depende de cuánto consumes, cómo viene creciendo y qué vas a migrar. Lo revisamos en la sesión de arquitectura y te damos una respuesta clara.'
+        en: "It depends on how much you use, how it's been growing and what you're going to migrate. We review it in the architecture session and give you a clear answer."
+        pt: 'Depende de quanto você consome, como vem crescendo e o que vai migrar. Revisamos na sessão de arquitetura e damos uma resposta clara.'
     - pregunta:
         es: '¿Cuánto cuesta?'
+        en: 'How much does it cost?'
+        pt: 'Quanto custa?'
       respuesta:
         es: 'La implementación del programa es de costo cero. La sesión de arquitectura cuesta US$450 y es por donde empezamos.'
+        en: "Implementing the program costs you nothing. The architecture session costs US$450 and it's where we start."
+        pt: 'A implementação do programa tem custo zero. A sessão de arquitetura custa US$450 e é por onde começamos.'
     - pregunta:
         es: '¿Y si ya estoy en AWS?'
+        en: "What if I'm already on AWS?"
+        pt: 'E se eu já estiver na AWS?'
       respuesta:
         es: 'También aplica. Las cargas nuevas que te traen tus clientes pueden entrar como migración incremental.'
+        en: 'It applies too. The new workloads your clients bring you can count as an incremental migration.'
+        pt: 'Também se aplica. As novas cargas que seus clientes trazem podem entrar como migração incremental.'
     - pregunta:
         es: '¿Qué pasa si no consumo lo que proyectamos?'
+        en: "What happens if I don't use what we projected?"
+        pt: 'O que acontece se eu não consumir o que projetamos?'
       respuesta:
         es: 'AWS entrega la inversión por tramos justamente para revisar el consumo real. Si no llegas a lo proyectado, no carga los tramos siguientes.'
+        en: "AWS delivers the investment in tranches precisely to review actual usage. If you don't reach the projection, it doesn't release the next tranches."
+        pt: 'A AWS entrega o investimento em parcelas justamente para revisar o consumo real. Se você não chegar ao projetado, ela não libera as parcelas seguintes.'
     - pregunta:
         es: '¿Qué servicios cubre?'
+        en: 'Which services does it cover?'
+        pt: 'Quais serviços cobre?'
       respuesta:
         es: 'Solo servicios nativos de AWS. Los productos de AWS Marketplace no entran, porque son de otros fabricantes.'
+        en: "Only native AWS services. AWS Marketplace products aren't included, because they come from other vendors."
+        pt: 'Só serviços nativos da AWS. Os produtos do AWS Marketplace não entram, porque são de outros fabricantes.'
     - pregunta:
         es: '¿Pueden migrar SAP?'
+        en: 'Can you migrate SAP?'
+        pt: 'Vocês migram SAP?'
       respuesta:
         es: 'Sí. Nexa Connect se especializa en migraciones SAP a AWS, incluidos SAP HANA, S/4HANA y ECC.'
+        en: 'Yes. Nexa Connect specializes in SAP migrations to AWS, including SAP HANA, S/4HANA and ECC.'
+        pt: 'Sim. A Nexa Connect é especializada em migrações SAP para a AWS, incluindo SAP HANA, S/4HANA e ECC.'
     - pregunta:
         es: '¿Funciona desde Latinoamérica?'
+        en: 'Does it work from Latin America?'
+        pt: 'Funciona a partir da América Latina?'
       respuesta:
         es: 'Sí. Nexa Connect opera en siete países de la región y también atendemos empresas de Estados Unidos.'
+        en: 'Yes. Nexa Connect operates in seven countries in the region, and we also serve companies in the United States.'
+        pt: 'Sim. A Nexa Connect opera em sete países da região e também atendemos empresas dos Estados Unidos.'
 evaluar:
   titulo:
     es: 'Cuéntanos de tu empresa.'
+    en: 'Tell us about your company.'
+    pt: 'Conte-nos sobre sua empresa.'
   texto:
     es: 'Con estos datos preparo la sesión y te digo desde el principio si vemos una oportunidad para el programa.'
+    en: 'With this information I prepare the session and tell you from the start whether we see an opportunity for the program.'
+    pt: 'Com esses dados preparo a sessão e digo desde o início se vemos uma oportunidade para o programa.'
   condiciones:
     es: 'Los incentivos, fondos y beneficios de apoyo de Amazon Web Services están sujetos a evaluación, validación y aprobación previa por parte de Amazon Web Services. Su disponibilidad dependerá del cumplimiento de los requisitos y criterios de elegibilidad establecidos por AWS para cada programa y proyecto. La presentación de una solicitud no garantiza la aprobación y asignación.'
+    en: 'Amazon Web Services incentives, funds and support benefits are subject to prior evaluation, validation and approval by Amazon Web Services. Their availability will depend on meeting the requirements and eligibility criteria set by AWS for each program and project. Submitting an application does not guarantee approval and allocation.'
+    pt: 'Os incentivos, fundos e benefícios de apoio da Amazon Web Services estão sujeitos a avaliação, validação e aprovação prévia por parte da Amazon Web Services. Sua disponibilidade dependerá do cumprimento dos requisitos e critérios de elegibilidade estabelecidos pela AWS para cada programa e projeto. A apresentação de uma solicitação não garante a aprovação e a concessão.'
   sesion:
     es: 'Prefiero agendar la sesión (US$450)'
+    en: "I'd rather book the session (US$450)"
+    pt: 'Prefiro agendar a sessão (US$450)'
   campos:
     tipoEmpresa:
       es: 'Tu empresa es'
+      en: 'Your company is'
+      pt: 'Sua empresa é'
     infraestructura:
       es: 'Dónde está hoy tu infraestructura'
+      en: 'Where your infrastructure is today'
+      pt: 'Onde está hoje sua infraestrutura'
     consumo:
       es: 'Consumo actual, promedio mensual'
+      en: 'Current usage, monthly average'
+      pt: 'Consumo atual, média mensal'
     anual:
       es: 'Consumo anual estimado'
+      en: 'Estimated annual usage'
+      pt: 'Consumo anual estimado'
     anualAyuda:
       es: 'Se calcula solo: tu promedio mensual por 12.'
+      en: 'Calculated automatically: your monthly average times 12.'
+      pt: 'Calculado automaticamente: sua média mensal vezes 12.'
     migrar:
       es: '¿Qué quieres migrar o hacer crecer?'
+      en: 'What do you want to migrate or grow?'
+      pt: 'O que você quer migrar ou fazer crescer?'
     decide:
       es: '¿Quién toma la decisión?'
+      en: 'Who makes the decision?'
+      pt: 'Quem toma a decisão?'
     decideEjemplo:
       es: 'Cargo'
+      en: 'Job title'
+      pt: 'Cargo'
     plazo:
       es: '¿Cuándo tienes que tomar la decisión?'
+      en: 'When do you need to make the decision?'
+      pt: 'Quando você precisa tomar a decisão?'
     empresa:
       es: 'Empresa y país'
+      en: 'Company and country'
+      pt: 'Empresa e país'
     correo:
       es: 'Correo'
+      en: 'Email'
+      pt: 'E-mail'
   tiposEmpresa:
     - valor: 'startup'
       texto:
         es: 'Una startup'
+        en: 'A startup'
+        pt: 'Uma startup'
     - valor: 'datacenter'
       texto:
         es: 'Una empresa con datacenter propio'
+        en: 'A company with its own data center'
+        pt: 'Uma empresa com datacenter próprio'
     - valor: 'en-aws'
       texto:
         es: 'Una plataforma que ya está en AWS'
+        en: 'A platform already on AWS'
+        pt: 'Uma plataforma que já está na AWS'
   infraestructuras:
     - valor: 'servidores'
       texto:
         es: 'En mis servidores'
+        en: 'On my own servers'
+        pt: 'Nos meus servidores'
     - valor: 'aws'
       texto:
         es: 'AWS'
+        en: 'AWS'
+        pt: 'AWS'
     - valor: 'google-cloud'
       texto:
         es: 'Google Cloud'
+        en: 'Google Cloud'
+        pt: 'Google Cloud'
     - valor: 'azure'
       texto:
         es: 'Azure'
+        en: 'Azure'
+        pt: 'Azure'
     - valor: 'otra'
       texto:
         es: 'Otra nube'
+        en: 'Another cloud'
+        pt: 'Outra nuvem'
   plazos:
     - valor: 'menos-3'
       texto:
         es: 'En menos de 3 meses'
+        en: 'In less than 3 months'
+        pt: 'Em menos de 3 meses'
     - valor: '3-6'
       texto:
         es: 'Entre 3 y 6 meses'
+        en: 'In 3 to 6 months'
+        pt: 'Entre 3 e 6 meses'
     - valor: '6-12'
       texto:
         es: 'Entre 6 y 12 meses'
+        en: 'In 6 to 12 months'
+        pt: 'Entre 6 e 12 meses'
     - valor: 'mas-12'
       texto:
         es: 'En más de 12 meses'
+        en: 'In more than 12 months'
+        pt: 'Em mais de 12 meses'
   # {monto}: el consumo con formato. "≈US$10.000 al mes" / "Más de US$250.000 al mes".
   consumoAprox:
     es: '≈{monto} al mes'
+    en: '≈{monto} a month'
+    pt: '≈{monto} por mês'
   consumoMas:
     es: 'Más de {monto} al mes'
+    en: 'More than {monto} a month'
+    pt: 'Mais de {monto} por mês'
   anualAprox:
     es: '≈{monto} al año'
+    en: '≈{monto} a year'
+    pt: '≈{monto} por ano'
   anualMas:
     es: 'Más de {monto} al año'
+    en: 'More than {monto} a year'
+    pt: 'Mais de {monto} por ano'
   enviar:
     es: 'Enviar'
+    en: 'Send'
+    pt: 'Enviar'
   recibido:
     es: 'Gracias. Recibí los datos de tu empresa y te escribo para preparar la sesión.'
+    en: "Thank you. I got your company's details and will write to you to prepare the session."
+    pt: 'Obrigado. Recebi os dados da sua empresa e escrevo para você para preparar a sessão.'
 nota:
   texto:
     es: 'Los incentivos y fondos de AWS están sujetos a su evaluación y aprobación previa. Presentar una solicitud no garantiza su asignación.'
+    en: 'AWS incentives and funds are subject to its prior evaluation and approval. Submitting an application does not guarantee allocation.'
+    pt: 'Os incentivos e fundos da AWS estão sujeitos à sua avaliação e aprovação prévia. Apresentar uma solicitação não garante sua concessão.'
   enlace:
     es: 'Ver condiciones'
+    en: 'See conditions'
+    pt: 'Ver condições'

@@ -740,6 +740,8 @@ const speakerPagina = defineCollection({
           titulo: localized,
           /** {paises}, {ciudades} y {eventos} se cuentan de la colección de charlas. */
           resumen: localized,
+          /** Rótulo de la línea ecuatorial (decorativo, dentro del mapa). */
+          ecuador: localized,
           ciudades: z.record(
             z.enum(CIUDADES_CHARLA),
             z.object({ nombre: localized, pais: localized }),

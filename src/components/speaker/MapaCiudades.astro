@@ -14,6 +14,7 @@ interface Props {
     eyebrow: string;
     titulo: string;
     resumen: string;
+    ecuador: string;
     ciudades: Record<CiudadCharla, { nombre: string; pais: string }>;
     masEventos: string;
   };
@@ -69,7 +70,7 @@ const inicial = enOrden[0]?.ciudad;
         <line x1="0" y1="245" x2="600" y2="245" class="mapa-ecuador"></line>
         {/* A la derecha: a la izquierda lo tapa la etiqueta de Quito en pantallas angostas. */}
         <text x="590" y="236" text-anchor="end" class="mapa-ecuador-texto">
-          LÍNEA ECUATORIAL · 0°
+          {textos.ecuador.toUpperCase()}
         </text>
         <path class="mapa-ruta" pathLength="1" d="M340 77 Q 480 250 266 429" data-ruta></path>
         <path class="mapa-ruta" pathLength="1" d="M266 429 Q 150 350 220 247" data-ruta></path>

@@ -5,168 +5,312 @@
 hero:
   eyebrow:
     es: 'Prensa'
+    en: 'Press'
+    pt: 'Imprensa'
   titulo:
     es: 'Kit de prensa'
+    en: 'Press kit'
+    pt: 'Kit de imprensa'
   texto:
     es: 'Aquí encuentras mi bio, fotos oficiales, logos y los datos del XPRIZE para tu nota. Si necesitas una entrevista o algo que no está aquí, escríbeme.'
+    en: "Here you'll find my bio, official photos, logos and the XPRIZE facts for your story. If you need an interview or something that isn't here, write to me."
+    pt: 'Aqui você encontra minha bio, fotos oficiais, logos e os dados do XPRIZE para sua matéria. Se precisar de uma entrevista ou de algo que não está aqui, me escreva.'
   descargar:
     es: 'Descargar el kit completo'
+    en: 'Download the full kit'
+    pt: 'Baixar o kit completo'
   entrevista:
     es: 'Pedir una entrevista'
+    en: 'Request an interview'
+    pt: 'Pedir uma entrevista'
   datos:
     - clave:
         es: 'Nombre'
+        en: 'Name'
+        pt: 'Nome'
       valor:
         es: 'Luis Reyes Vanegas'
+        en: 'Luis Reyes Vanegas'
+        pt: 'Luis Reyes Vanegas'
     - clave:
         es: 'Qué hace'
+        en: 'What he does'
+        pt: 'O que faz'
       valor:
         es: 'Arquitecto de soluciones cloud e IA'
+        en: 'Cloud and AI solutions architect'
+        pt: 'Arquiteto de soluções cloud e IA'
     - clave:
         es: 'Cargos'
+        en: 'Positions'
+        pt: 'Cargos'
       valor:
         es: 'CEO de Trama AI · Cofundador y CTO de EvolutecC'
+        en: 'CEO of Trama AI · Co-founder and CTO of EvolutecC'
+        pt: 'CEO da Trama AI · Cofundador e CTO da EvolutecC'
     - clave:
         es: 'Trayectoria'
+        en: 'Track record'
+        pt: 'Trajetória'
       valor:
         es: '13 años construyendo tecnología, desde 2013'
+        en: '13 years building technology, since 2013'
+        pt: '13 anos construindo tecnologia, desde 2013'
     - clave:
         es: 'Reconocimiento'
+        en: 'Recognition'
+        pt: 'Reconhecimento'
       valor:
         es: 'Ganador de categoría en el Build with Gemini XPRIZE 2026 con Trama AI'
+        en: 'Category winner at the Build with Gemini XPRIZE 2026 with Trama AI'
+        pt: 'Vencedor de categoria no Build with Gemini XPRIZE 2026 com a Trama AI'
 bio:
   eyebrow:
     es: 'Bio'
+    en: 'Bio'
+    pt: 'Bio'
   titulo:
     es: 'Mi bio, en tres largos'
+    en: 'My bio, in three lengths'
+    pt: 'Minha bio, em três tamanhos'
   texto:
     es: 'Escrita en tercera persona para que la uses tal cual. Es la misma que comparto con los organizadores de eventos.'
+    en: "Written in the third person so you can use it as is. It's the same one I share with event organizers."
+    pt: 'Escrita em terceira pessoa para que você a use como está. É a mesma que compartilho com os organizadores de eventos.'
 fotos:
   eyebrow:
     es: 'Fotos oficiales'
+    en: 'Official photos'
+    pt: 'Fotos oficiais'
   titulo:
     es: 'Fotos en alta resolución'
+    en: 'High-resolution photos'
+    pt: 'Fotos em alta resolução'
   texto:
     es: 'Puedes publicarlas en notas sobre mí o sobre mi trabajo.'
+    en: 'You can publish them in stories about me or my work.'
+    pt: 'Você pode publicá-las em matérias sobre mim ou sobre meu trabalho.'
   descargar:
     es: 'Descargar'
+    en: 'Download'
+    pt: 'Baixar'
   lista:
     - titulo:
         es: 'Retrato editorial'
+        en: 'Editorial portrait'
+        pt: 'Retrato editorial'
       archivo: 'retrato_sin-fecha_oficina-camiseta-blanca-sobre-mi_luis-reyes-vanegas_001.jpg'
       alt:
         es: 'Luis Carlos Reyes Vanegas en su oficina'
+        en: 'Luis Carlos Reyes Vanegas in his office'
+        pt: 'Luis Carlos Reyes Vanegas em seu escritório'
     - titulo:
         es: 'En escenario · TechCaribe Fest 2025'
+        en: 'On stage · TechCaribe Fest 2025'
+        pt: 'No palco · TechCaribe Fest 2025'
       archivo: 'charla_2025-09-20_techcaribe-fest-2025_luis-reyes-vanegas_003.jpg'
       alt:
         es: 'Luis Reyes en el escenario de TechCaribe Fest 2025'
+        en: 'Luis Reyes on stage at TechCaribe Fest 2025'
+        pt: 'Luis Reyes no palco da TechCaribe Fest 2025'
     - titulo:
         es: 'En escenario · TechCaribe Expo 2024'
+        en: 'On stage · TechCaribe Expo 2024'
+        pt: 'No palco · TechCaribe Expo 2024'
       archivo: 'charla_2024-07-27_techcaribe-expo-2024-google-io-extended-vertex-ai-cloud-run_luis-reyes-vanegas_013.jpg'
       alt:
         es: 'Luis Reyes en TechCaribe Expo 2024 con su presentación en la pantalla'
+        en: 'Luis Reyes at TechCaribe Expo 2024 with his presentation on screen'
+        pt: 'Luis Reyes na TechCaribe Expo 2024 com sua apresentação na tela'
     - titulo:
         es: 'Presentando · GDG Build with AI 2025'
+        en: 'Presenting · GDG Build with AI 2025'
+        pt: 'Apresentando · GDG Build with AI 2025'
       archivo: 'charla_2025-05-05_gdg-build-with-ai-2025-barranqui-ia_luis-reyes-vanegas_006.jpg'
       alt:
         es: 'Luis Reyes presentando en GDG Build with AI 2025, Barranquilla'
+        en: 'Luis Reyes presenting at GDG Build with AI 2025, Barranquilla'
+        pt: 'Luis Reyes apresentando no GDG Build with AI 2025, Barranquilla'
 logos:
   eyebrow:
     es: 'Logos'
+    en: 'Logos'
+    pt: 'Logos'
   titulo:
     es: 'Mi logo'
+    en: 'My logo'
+    pt: 'Meu logo'
   texto:
     es: 'Usa la versión blanca sobre fondos oscuros y la versión a color sobre fondos claros. No cambies sus colores ni sus proporciones.'
+    en: "Use the white version on dark backgrounds and the color version on light backgrounds. Don't change its colors or proportions."
+    pt: 'Use a versão branca sobre fundos escuros e a versão colorida sobre fundos claros. Não mude suas cores nem suas proporções.'
   lista:
     - etiqueta:
         es: 'Horizontal · blanco'
+        en: 'Horizontal · white'
+        pt: 'Horizontal · branco'
       alt:
         es: 'Logo de Luis Reyes en blanco'
+        en: 'Luis Reyes logo in white'
+        pt: 'Logo de Luis Reyes em branco'
     - etiqueta:
         es: 'Horizontal · color'
+        en: 'Horizontal · color'
+        pt: 'Horizontal · cor'
       alt:
         es: 'Logo de Luis Reyes a color'
+        en: 'Luis Reyes logo in color'
+        pt: 'Logo de Luis Reyes colorido'
     - etiqueta:
         es: 'Monograma · color y blanco'
+        en: 'Monogram · color and white'
+        pt: 'Monograma · cor e branco'
       alt:
         es: 'Monograma LR de Luis Reyes'
+        en: 'Luis Reyes LR monogram'
+        pt: 'Monograma LR de Luis Reyes'
 xprize:
   eyebrow:
     es: 'Datos del XPRIZE'
+    en: 'XPRIZE facts'
+    pt: 'Dados do XPRIZE'
   titulo:
     es: 'Trama AI, ganadora de categoría en el Build with Gemini XPRIZE 2026'
+    en: 'Trama AI, category winner at the Build with Gemini XPRIZE 2026'
+    pt: 'Trama AI, vencedora de categoria no Build with Gemini XPRIZE 2026'
   texto:
     es: 'Trama AI ganó la categoría Small Business Services. El equipo construyó en 90 días agentes de IA que operan el inventario de distribuidores textiles.'
+    en: 'Trama AI won the Small Business Services category. In 90 days the team built AI agents that run the inventory of textile distributors.'
+    pt: 'A Trama AI venceu a categoria Small Business Services. Em 90 dias, a equipe construiu agentes de IA que operam o estoque de distribuidores têxteis.'
   fuente:
     texto:
       es: 'Fuente oficial: gxp.moonshots.com'
+      en: 'Official source: gxp.moonshots.com'
+      pt: 'Fonte oficial: gxp.moonshots.com'
     url: 'https://gxp.moonshots.com/'
   datos:
     - clave:
         es: 'Categoría'
+        en: 'Category'
+        pt: 'Categoria'
       valor:
         es: 'Small Business Services'
+        en: 'Small Business Services'
+        pt: 'Small Business Services'
     - clave:
         es: 'Competencia'
+        en: 'Competition'
+        pt: 'Competição'
       valor:
         es: 'Top 100 entre 26.449 equipos'
+        en: 'Top 100 among 26,449 teams'
+        pt: 'Top 100 entre 26.449 equipes'
     - clave:
         es: 'Equipo'
+        en: 'Team'
+        pt: 'Equipe'
       valor:
         es: 'Luis Reyes Vanegas (CEO), Gianfranco Castro (CTO), Johan Burgos (DevOps) y Najem Nabhan (PM)'
+        en: 'Luis Reyes Vanegas (CEO), Gianfranco Castro (CTO), Johan Burgos (DevOps) and Najem Nabhan (PM)'
+        pt: 'Luis Reyes Vanegas (CEO), Gianfranco Castro (CTO), Johan Burgos (DevOps) e Najem Nabhan (PM)'
     - clave:
         es: 'Tiempo de construcción'
+        en: 'Build time'
+        pt: 'Tempo de construção'
       valor:
         es: '90 días'
+        en: '90 days'
+        pt: '90 dias'
 kit:
   titulo:
     es: 'Todo en un solo archivo'
+    en: 'Everything in one file'
+    pt: 'Tudo em um só arquivo'
   texto:
     es: 'Bio en tres largos, fotos en alta resolución, logos en PNG y SVG y los datos del XPRIZE, en un .zip.'
+    en: 'Bio in three lengths, high-resolution photos, logos in PNG and SVG and the XPRIZE facts, in a .zip.'
+    pt: 'Bio em três tamanhos, fotos em alta resolução, logos em PNG e SVG e os dados do XPRIZE, em um .zip.'
   boton:
     es: 'Descargar kit (.zip)'
+    en: 'Download kit (.zip)'
+    pt: 'Baixar kit (.zip)'
 contacto:
   eyebrow:
     es: 'Contacto de prensa'
+    en: 'Press contact'
+    pt: 'Contato de imprensa'
   titulo:
     es: '¿Preparas una nota?'
+    en: 'Working on a story?'
+    pt: 'Está preparando uma matéria?'
   texto:
     es: 'Cuéntame para qué medio escribes y cuál es tu fecha de cierre. Puedo dar entrevistas sobre nube, adopción de IA en las empresas, el XPRIZE y el ecosistema tech de Latinoamérica.'
+    en: "Tell me which outlet you write for and your deadline. I can give interviews on cloud, AI adoption in companies, the XPRIZE and Latin America's tech ecosystem."
+    pt: 'Conte para qual veículo você escreve e qual é o seu prazo de fechamento. Posso dar entrevistas sobre nuvem, adoção de IA nas empresas, o XPRIZE e o ecossistema tech da América Latina.'
   campos:
     nombre:
       es: 'Nombre'
+      en: 'Name'
+      pt: 'Nome'
     medio:
       es: 'Medio'
+      en: 'Outlet'
+      pt: 'Veículo'
     correo:
       es: 'Correo'
+      en: 'Email'
+      pt: 'E-mail'
     necesidad:
       es: '¿Qué necesitas?'
+      en: 'What do you need?'
+      pt: 'Do que você precisa?'
     cierre:
       es: 'Fecha de cierre'
+      en: 'Deadline'
+      pt: 'Data de fechamento'
     detalles:
       es: 'Detalles'
+      en: 'Details'
+      pt: 'Detalhes'
   necesidades:
     - valor: 'entrevista'
       texto:
         es: 'Entrevista'
+        en: 'Interview'
+        pt: 'Entrevista'
     - valor: 'declaracion'
       texto:
         es: 'Declaración o cita'
+        en: 'Statement or quote'
+        pt: 'Declaração ou citação'
     - valor: 'material'
       texto:
         es: 'Fotos o material'
+        en: 'Photos or materials'
+        pt: 'Fotos ou materiais'
     - valor: 'otro'
       texto:
         es: 'Otro'
+        en: 'Other'
+        pt: 'Outro'
   autorizacion:
     antes:
       es: 'Acepto la'
+      en: 'I accept the'
+      pt: 'Aceito a'
     enlace:
       es: 'política de tratamiento de datos'
+      en: 'data processing policy'
+      pt: 'política de tratamento de dados'
     despues:
       es: '.'
+      en: '.'
+      pt: '.'
   enviar:
     es: 'Enviar'
+    en: 'Send'
+    pt: 'Enviar'
   recibido:
     es: 'Gracias. Recibí tu solicitud y te respondo pronto.'
+    en: 'Thank you. I got your request and will reply soon.'
+    pt: 'Obrigado. Recebi sua solicitação e respondo em breve.'

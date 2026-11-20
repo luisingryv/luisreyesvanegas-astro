@@ -2,12 +2,20 @@ fecha: 2023-07-22
 evento: 'GDG Barranquilla'
 titulo:
   es: 'Cómo iniciar en la nube'
+  en: 'How to get started in the cloud'
+  pt: 'Como começar na nuvem'
 detalle:
   es: 'Cómo iniciar en la nube.'
+  en: 'How to get started in the cloud.'
+  pt: 'Como começar na nuvem.'
 tipo: charla
 lugar:
   es: 'Barranquilla'
+  en: 'Barranquilla'
+  pt: 'Barranquilla'
 ciudad: barranquilla
 foto: ../../assets/fotos/charla_2023-07-22_gdg-barranquilla-como-iniciar-en-la-nube_luis-reyes-vanegas_001.jpg
 alt:
   es: 'Luis Reyes presentando recursos de Google Cloud en GDG Barranquilla'
+  en: 'Luis Reyes presenting Google Cloud resources at GDG Barranquilla'
+  pt: 'Luis Reyes apresentando recursos do Google Cloud no GDG Barranquilla'

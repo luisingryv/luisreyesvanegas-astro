@@ -3,15 +3,27 @@ anio: 2013
 edad: 16
 titulo:
   es: 'R&V Technology, mi primer emprendimiento'
+  en: 'R&V Technology, my first venture'
+  pt: 'R&V Technology, meu primeiro empreendimento'
 texto:
   es: 'Fundé R&V Technology: reparación de computadores y desarrollo de páginas web con Dreamweaver, con clientes formales.'
+  en: 'I founded R&V Technology: computer repair and website development with Dreamweaver, with formal clients.'
+  pt: 'Fundei a R&V Technology: conserto de computadores e desenvolvimento de sites com Dreamweaver, com clientes formais.'
 cifra:
   es: 'Primera empresa a los 16'
+  en: 'First company at 16'
+  pt: 'Primeira empresa aos 16'
 impacto:
   es: 'Primeros clientes y primer contacto con el negocio de la tecnología.'
+  en: 'First clients and first contact with the technology business.'
+  pt: 'Primeiros clientes e primeiro contato com o negócio de tecnologia.'
 # Versión corta para la trayectoria del Home.
 home:
   titulo:
     es: 'R&V Technology'
+    en: 'R&V Technology'
+    pt: 'R&V Technology'
   texto:
     es: 'Fundé mi primer negocio: reparaba computadores y hacía sitios web.'
+    en: 'I founded my first business: I repaired computers and built websites.'
+    pt: 'Fundei meu primeiro negócio: consertava computadores e fazia sites.'

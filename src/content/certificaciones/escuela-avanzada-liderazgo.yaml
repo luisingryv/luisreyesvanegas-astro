@@ -1,8 +1,12 @@
 orden: 5
 nombre:
   es: 'Escuela Avanzada de Liderazgo (48 h)'
+  en: 'Advanced Leadership School (48 h)'
+  pt: 'Escola Avançada de Liderança (48 h)'
 emisor:
   es: 'Naranjo Consulting & Coaching'
+  en: 'Naranjo Consulting & Coaching'
+  pt: 'Naranjo Consulting & Coaching'
 fecha:
   anio: 2025
   mes: 7

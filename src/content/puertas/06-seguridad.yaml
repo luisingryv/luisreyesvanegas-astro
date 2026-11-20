@@ -1,12 +1,20 @@
 numero: 6
 etiqueta:
   es: 'Seguridad y cumplimiento'
+  en: 'Security and compliance'
+  pt: 'Segurança e conformidade'
 dolor:
   es: '¿Quieres certificarte en ISO 27001 o SOC 2 y no sabes por dónde empezar?'
+  en: "Want to get ISO 27001 or SOC 2 certified and don't know where to start?"
+  pt: 'Quer se certificar em ISO 27001 ou SOC 2 e não sabe por onde começar?'
 oferta:
   es: 'Acompañamiento técnico en la nube hacia la certificación.'
+  en: 'Technical cloud support toward certification.'
+  pt: 'Acompanhamento técnico na nuvem rumo à certificação.'
 prueba:
   es: 'ISO 27001 y SOC 2 de un cliente'
+  en: "A client's ISO 27001 and SOC 2"
+  pt: 'ISO 27001 e SOC 2 de um cliente'
 destino:
   ruta: consultoria
   ancla: agenda

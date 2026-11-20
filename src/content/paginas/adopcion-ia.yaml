@@ -3,123 +3,225 @@
 hero:
   eyebrow:
     es: 'Adopción de IA con Claude'
+    en: 'AI adoption with Claude'
+    pt: 'Adoção de IA com Claude'
   titulo:
     es: 'Que tu equipo trabaje con IA todos los días, no solo cuando se acuerda.'
+    en: 'Get your team working with AI every day, not just when they remember.'
+    pt: 'Que sua equipe trabalhe com IA todos os dias, não só quando se lembra.'
   texto:
     es: 'Acompaño a empresas a llevar su trabajo diario a Claude de forma segura: decidir qué delegar, montar proyectos con las instrucciones y los datos correctos, y que las personas se concentren en lo que necesita criterio humano.'
+    en: 'I help companies move their daily work to Claude safely: deciding what to delegate, setting up projects with the right instructions and data, and letting people focus on what needs human judgment.'
+    pt: 'Acompanho empresas a levar seu trabalho diário para o Claude com segurança: decidir o que delegar, montar projetos com as instruções e os dados certos, e fazer com que as pessoas se concentrem no que precisa de critério humano.'
   hablemos:
     es: 'Hablemos de tu equipo'
+    en: "Let's talk about your team"
+    pt: 'Vamos falar da sua equipe'
   comoTrabajo:
     es: 'Cómo trabajo'
+    en: 'How I work'
+    pt: 'Como trabalho'
 cuatroD:
   eyebrow:
     es: 'El método'
+    en: 'The method'
+    pt: 'O método'
   titulo:
     es: 'El framework 4D de Anthropic'
+    en: "Anthropic's 4D framework"
+    pt: 'O framework 4D da Anthropic'
   texto:
     es: 'Es la base de mi certificación en AI Fluency. Lo uso para que la adopción no dependa de una herramienta de moda sino de cómo trabaja tu gente.'
+    en: 'It is the foundation of my AI Fluency certification. I use it so adoption depends not on a trendy tool but on how your people work.'
+    pt: 'É a base da minha certificação em AI Fluency. Uso-o para que a adoção não dependa de uma ferramenta da moda, e sim de como sua equipe trabalha.'
   items:
     - letra: 'D'
       nombre:
         es: 'Delegación'
+        en: 'Delegation'
+        pt: 'Delegação'
       texto:
         es: 'Decidir qué tareas le das a la IA, cuáles haces con ella y cuáles siguen siendo tuyas.'
+        en: 'Deciding which tasks you give to AI, which you do with it and which stay yours.'
+        pt: 'Decidir quais tarefas você entrega à IA, quais faz com ela e quais continuam sendo suas.'
     - letra: 'D'
       nombre:
         es: 'Descripción'
+        en: 'Description'
+        pt: 'Descrição'
       texto:
         es: 'Explicarle a Claude el contexto, el objetivo y el formato, como a un buen colega.'
+        en: 'Explaining the context, the goal and the format to Claude, as you would to a good colleague.'
+        pt: 'Explicar ao Claude o contexto, o objetivo e o formato, como a um bom colega.'
     - letra: 'D'
       nombre:
         es: 'Discernimiento'
+        en: 'Discernment'
+        pt: 'Discernimento'
       texto:
         es: 'Revisar con criterio lo que entrega: qué está bien, qué falta y qué no es cierto.'
+        en: 'Reviewing what it delivers with judgment: what is right, what is missing and what is not true.'
+        pt: 'Revisar com critério o que ele entrega: o que está certo, o que falta e o que não é verdade.'
     - letra: 'D'
       nombre:
         es: 'Diligencia'
+        en: 'Diligence'
+        pt: 'Diligência'
       texto:
         es: 'Usarla con responsabilidad: datos sensibles, transparencia y quién responde por el resultado.'
+        en: 'Using it responsibly: sensitive data, transparency and who is accountable for the result.'
+        pt: 'Usá-la com responsabilidade: dados sensíveis, transparência e quem responde pelo resultado.'
 temas:
   eyebrow:
     es: 'Lo que tu equipo aprende'
+    en: 'What your team learns'
+    pt: 'O que sua equipe aprende'
   titulo:
     es: 'De la primera conversación al trabajo delegado'
+    en: 'From the first conversation to delegated work'
+    pt: 'Da primeira conversa ao trabalho delegado'
   items:
     - nombre:
         es: 'La conversación'
+        en: 'The conversation'
+        pt: 'A conversa'
       texto:
         es: 'Usar a Claude como compañero de pensamiento para decidir, no solo para preguntar.'
+        en: 'Using Claude as a thinking partner to decide, not just to ask.'
+        pt: 'Usar o Claude como parceiro de raciocínio para decidir, não só para perguntar.'
     - nombre:
         es: 'Proyectos'
+        en: 'Projects'
+        pt: 'Projetos'
       texto:
         es: 'Un espacio por tema con sus instrucciones y documentos, para no repetir el contexto cada vez.'
+        en: "One space per topic with its instructions and documents, so you don't repeat the context every time."
+        pt: 'Um espaço por tema com suas instruções e documentos, para não repetir o contexto toda vez.'
     - nombre:
         es: 'Conectores'
+        en: 'Connectors'
+        pt: 'Conectores'
       texto:
         es: 'Claude trabaja con tu correo, tu calendario, tu Drive o tu CRM, con los permisos que tú defines.'
+        en: 'Claude works with your email, calendar, Drive or CRM, with the permissions you set.'
+        pt: 'O Claude trabalha com seu e-mail, sua agenda, seu Drive ou seu CRM, com as permissões que você define.'
     - nombre:
         es: 'Skills'
+        en: 'Skills'
+        pt: 'Skills'
       texto:
         es: 'Los procesos de tu empresa escritos una vez para que Claude los siga siempre igual.'
+        en: "Your company's processes written once so Claude always follows them the same way."
+        pt: 'Os processos da sua empresa escritos uma vez para que o Claude os siga sempre do mesmo jeito.'
     - nombre:
         es: 'Artefactos'
+        en: 'Artifacts'
+        pt: 'Artefatos'
       texto:
         es: 'Documentos, tableros, presentaciones y prototipos que se crean y se comparten desde la conversación.'
+        en: 'Documents, dashboards, presentations and prototypes created and shared from the conversation.'
+        pt: 'Documentos, painéis, apresentações e protótipos criados e compartilhados a partir da conversa.'
     - nombre:
         es: 'Trabajo delegado'
+        en: 'Delegated work'
+        pt: 'Trabalho delegado'
       texto:
         es: 'Tareas de varios pasos que Claude completa por su cuenta mientras tú haces otra cosa.'
+        en: 'Multi-step tasks Claude completes on its own while you do something else.'
+        pt: 'Tarefas de várias etapas que o Claude conclui por conta própria enquanto você faz outra coisa.'
     - nombre:
         es: 'Plugins'
+        en: 'Plugins'
+        pt: 'Plugins'
       texto:
         es: 'Paquetes de skills, conectores y comandos para un área de la empresa.'
+        en: 'Bundles of skills, connectors and commands for one area of the company.'
+        pt: 'Pacotes de skills, conectores e comandos para uma área da empresa.'
     - nombre:
         es: 'Claude Code'
+        en: 'Claude Code'
+        pt: 'Claude Code'
       texto:
         es: 'Para equipos técnicos: desarrollo de software con un agente que trabaja en el código.'
+        en: 'For technical teams: software development with an agent that works in the code.'
+        pt: 'Para equipes técnicas: desenvolvimento de software com um agente que trabalha no código.'
 etapas:
   eyebrow:
     es: 'Cómo avanzamos'
+    en: 'How we move forward'
+    pt: 'Como avançamos'
   titulo:
     es: 'Tres etapas'
+    en: 'Three stages'
+    pt: 'Três etapas'
   items:
     - numero: '01'
       nombre:
         es: 'Workshop 4D'
+        en: '4D Workshop'
+        pt: 'Workshop 4D'
       texto:
         es: 'Una jornada con tu equipo para entender el método y probarlo con sus propias tareas.'
+        en: 'A day with your team to understand the method and try it on their own tasks.'
+        pt: 'Um dia com sua equipe para entender o método e testá-lo nas próprias tarefas.'
     - numero: '02'
       nombre:
         es: 'Programa de adopción'
+        en: 'Adoption program'
+        pt: 'Programa de adoção'
       texto:
         es: 'Por equipos: mapeamos el día a día, decidimos qué delegar y montamos los proyectos, skills y conectores.'
+        en: 'Team by team: we map the day-to-day, decide what to delegate and set up the projects, skills and connectors.'
+        pt: 'Por equipes: mapeamos o dia a dia, decidimos o que delegar e montamos os projetos, skills e conectores.'
     - numero: '03'
       nombre:
         es: 'Acompañamiento'
+        en: 'Ongoing support'
+        pt: 'Acompanhamento'
       texto:
         es: 'Seguimiento mensual para medir el uso, ajustar y sumar nuevos procesos.'
+        en: 'Monthly follow-up to measure usage, adjust and add new processes.'
+        pt: 'Acompanhamento mensal para medir o uso, ajustar e incluir novos processos.'
 prueba:
   eyebrow:
     es: 'Lo aplico conmigo'
+    en: 'I apply it to myself'
+    pt: 'Aplico comigo mesmo'
   titulo:
     es: 'Este sitio se construyó así'
+    en: 'This site was built this way'
+    pt: 'Este site foi construído assim'
   # "este sitio" en lugar de "este prototipo" (Luis, 20 nov 2026).
   texto:
     es: 'La estrategia de mi marca, el contenido y este sitio los trabajé con Claude como compañero de pensamiento: un proyecto con instrucciones, un documento madre como fuente de verdad, skills para registrar cada decisión y conectores a mis herramientas. Es el mismo método que llevo a tu equipo.'
+    en: "I worked on my brand strategy, the content and this site with Claude as a thinking partner: a project with instructions, a master document as the source of truth, skills to record every decision and connectors to my tools. It's the same method I bring to your team."
+    pt: 'A estratégia da minha marca, o conteúdo e este site eu trabalhei com o Claude como parceiro de raciocínio: um projeto com instruções, um documento mestre como fonte da verdade, skills para registrar cada decisão e conectores às minhas ferramentas. É o mesmo método que levo à sua equipe.'
   certificacionesEyebrow:
     es: 'Certificaciones'
+    en: 'Certifications'
+    pt: 'Certificações'
   certificaciones:
     - 'ai-fluency-small-businesses'
     - 'claude-101'
     - 'claude-cowork'
   verificar:
     es: 'Verificar'
+    en: 'Verify'
+    pt: 'Verificar'
 empezar:
   titulo:
     es: 'Empecemos por cómo trabaja tu equipo hoy.'
+    en: "Let's start with how your team works today."
+    pt: 'Vamos começar por como sua equipe trabalha hoje.'
   texto:
     es: 'En la sesión de arquitectura revisamos tus procesos y te digo por dónde conviene empezar.'
+    en: 'In the architecture session we review your processes and I tell you where it makes sense to start.'
+    pt: 'Na sessão de arquitetura revisamos seus processos e digo por onde convém começar.'
   agendar:
     es: 'Agendar sesión · US$450'
+    en: 'Book a session · US$450'
+    pt: 'Agendar sessão · US$450'
   llamada:
     es: 'Llamada de 20 min gratis'
+    en: 'Free 20-min call'
+    pt: 'Chamada gratuita de 20 min'

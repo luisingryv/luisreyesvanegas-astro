@@ -1,15 +1,25 @@
 numero: 3
 etiqueta:
   es: 'Programas de AWS'
+  en: 'AWS programs'
+  pt: 'Programas da AWS'
 dolor:
   es: '¿Tu consumo en la nube crece y no sabes que AWS puede invertir en tu migración?'
+  en: "Is your cloud usage growing and you don't know AWS can invest in your migration?"
+  pt: 'Seu consumo na nuvem cresce e você não sabe que a AWS pode investir na sua migração?'
 oferta:
   es: 'Evaluación para el programa MAP, con Nexa Connect. Sujeta a la aprobación previa de AWS.'
+  en: "Assessment for the MAP program, with Nexa Connect. Subject to AWS's prior approval."
+  pt: 'Avaliação para o programa MAP, com a Nexa Connect. Sujeita à aprovação prévia da AWS.'
 prueba:
   es: 'US$62.000 en créditos AWS (MAP)'
+  en: 'US$62,000 in AWS credits (MAP)'
+  pt: 'US$62.000 em créditos AWS (MAP)'
 destino:
   ruta: programasAws
 viz:
   tipo: anillo
   leyenda:
     es: 'Según elegibilidad · 25% al aprobar, 75% con los hitos'
+    en: 'Subject to eligibility · 25% on approval, 75% with the milestones'
+    pt: 'Conforme a elegibilidade · 25% na aprovação, 75% com os marcos'

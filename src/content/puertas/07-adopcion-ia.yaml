@@ -1,18 +1,34 @@
 numero: 7
 etiqueta:
   es: 'Adopción de IA'
+  en: 'AI adoption'
+  pt: 'Adoção de IA'
 dolor:
   es: '¿Quieres que tu equipo trabaje con IA de verdad y no sabes por dónde empezar?'
+  en: "Want your team to really work with AI and don't know where to start?"
+  pt: 'Quer que sua equipe trabalhe com IA de verdade e não sabe por onde começar?'
 oferta:
   es: 'Programa de adopción de IA con Claude.'
+  en: 'AI adoption program with Claude.'
+  pt: 'Programa de adoção de IA com Claude.'
 prueba:
   es: 'AI Fluency · Trama AI · XPRIZE 2026'
+  en: 'AI Fluency · Trama AI · XPRIZE 2026'
+  pt: 'AI Fluency · Trama AI · XPRIZE 2026'
 destino:
   ruta: adopcionIa
 viz:
   tipo: cuatroD
   nombres:
     - es: 'Delegación'
+      en: 'Delegation'
+      pt: 'Delegação'
     - es: 'Descripción'
+      en: 'Description'
+      pt: 'Descrição'
     - es: 'Discernimiento'
+      en: 'Discernment'
+      pt: 'Discernimento'
     - es: 'Diligencia'
+      en: 'Diligence'
+      pt: 'Diligência'

@@ -3,14 +3,22 @@ fechaFin: 2025-11-12
 evento: 'SENA: I Encuentro de Tecnología e Innovación'
 titulo:
   es: 'Conferencista'
+  en: 'Speaker'
+  pt: 'Palestrante'
 resumen:
   es: 'Conferencista en el evento nacional del Centro Industrial y de Aviación.'
+  en: 'Speaker at the national event of the Industrial and Aviation Center.'
+  pt: 'Palestrante no evento nacional do Centro Industrial e de Aviação.'
 tipo: charla
 lugar:
   es: 'Barranquilla'
+  en: 'Barranquilla'
+  pt: 'Barranquilla'
 ciudad: barranquilla
 foto: ../../assets/fotos/charla_2025-11-11_sena-encuentro-tecnologia-innovacion_luis-reyes-vanegas_001.jpg
 alt:
   es: 'Auditorio lleno en el Encuentro de Tecnología e Innovación del SENA, visto desde el escenario'
+  en: "Full auditorium at SENA's Technology and Innovation Meeting, seen from the stage"
+  pt: 'Auditório lotado no Encontro de Tecnologia e Inovação do SENA, visto do palco'
 speaker:
   orden: 3

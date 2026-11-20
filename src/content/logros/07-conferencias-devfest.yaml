@@ -1,12 +1,20 @@
 # Séptimo logro: decisión del 16 nov 2026 (texto del laboratorio de motion, pieza 02).
 etiqueta:
   es: 'Conferencias'
+  en: 'Conferences'
+  pt: 'Conferências'
 metrica:
   es: '700+'
+  en: '700+'
+  pt: '700+'
 descripcion:
   es: 'Asistentes en DevFest Ecuador 2025, donde fui speaker, en la Universidad San Francisco de Quito.'
+  en: 'Attendees at DevFest Ecuador 2025, where I was a speaker, at Universidad San Francisco de Quito.'
+  pt: 'Participantes do DevFest Ecuador 2025, onde fui palestrante, na Universidad San Francisco de Quito.'
 quien:
   es: 'DevFest Ecuador · Quito · 29 nov 2025'
+  en: 'DevFest Ecuador · Quito · Nov 29, 2025'
+  pt: 'DevFest Ecuador · Quito · 29 nov 2025'
 fuente:
   texto: 'Fuente: quitodevfest.com'
   url: 'https://quitodevfest.com/'

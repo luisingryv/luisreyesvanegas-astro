@@ -1,8 +1,12 @@
 orden: 11
 nombre:
   es: 'Inglés C1'
+  en: 'English C1'
+  pt: 'Inglês C1'
 emisor:
   es: 'Examen de certificación'
+  en: 'Certification exam'
+  pt: 'Exame de certificação'
 # fecha pendiente: Luis la entrega
 insignia: idioma
 estado: en-tramite
