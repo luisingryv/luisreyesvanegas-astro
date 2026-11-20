@@ -103,8 +103,9 @@ prueba:
     es: 'Lo aplico conmigo'
   titulo:
     es: 'Este sitio se construyó así'
+  # "este sitio" en lugar de "este prototipo" (Luis, 20 nov 2026).
   texto:
-    es: 'La estrategia de mi marca, el contenido y este prototipo los trabajé con Claude como compañero de pensamiento: un proyecto con instrucciones, un documento madre como fuente de verdad, skills para registrar cada decisión y conectores a mis herramientas. Es el mismo método que llevo a tu equipo.'
+    es: 'La estrategia de mi marca, el contenido y este sitio los trabajé con Claude como compañero de pensamiento: un proyecto con instrucciones, un documento madre como fuente de verdad, skills para registrar cada decisión y conectores a mis herramientas. Es el mismo método que llevo a tu equipo.'
   certificacionesEyebrow:
     es: 'Certificaciones'
   certificaciones:

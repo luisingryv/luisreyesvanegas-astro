@@ -50,7 +50,7 @@ _fondo `#ffffff`_
 ### 5. Este sitio se construyó así
 - Eyebrow: LO APLICO CONMIGO
 - **H2:** Este sitio se construyó así
-- Texto: La estrategia de mi marca, el contenido y este prototipo los trabajé con Claude como compañero de pensamiento: un proyecto con instrucciones, un documento madre como fuente de verdad, skills para registrar cada decisión y conectores a mis herramientas. Es el mismo método que llevo a tu equipo.
+- Texto (en el sitio dice "este sitio", no "este prototipo": Luis, 20 nov 2026): La estrategia de mi marca, el contenido y este sitio los trabajé con Claude como compañero de pensamiento: un proyecto con instrucciones, un documento madre como fuente de verdad, skills para registrar cada decisión y conectores a mis herramientas. Es el mismo método que llevo a tu equipo.
 - Eyebrow: CERTIFICACIONES
 - Lista repetida `{{certs}}` (ver datos al final) con el patrón:
     - Enlace/botón: "{{c.name}} Anthropic · Claude Academy · oct 2026 Verificar ↗" → `{{c.url}}`
