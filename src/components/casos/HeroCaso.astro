@@ -42,6 +42,8 @@ const temas = caso.temas.map((t) => textos.filtros.temas[t]).join(' · ');
       </h1>
       <p class="text-[18px] text-ink-muted">{caso.pagina.resumen}</p>
     </div>
-    {caso.diagrama && <FlujoCaso diagrama={caso.diagrama} textos={textos.plantilla.diagrama} />}
+    {caso.diagrama && (
+      <FlujoCaso locale={locale} diagrama={caso.diagrama} textos={textos.plantilla.diagrama} />
+    )}
   </div>
 </Section>

@@ -1,4 +1,12 @@
 // Base común de las piezas de motion: el HTML ya trae el estado final; aquí solo se anima.
+import { locales, type Locale } from '../../i18n/config';
+import { formatoNumeros } from '../../lib/content-format';
+
+/** Formato de cifras del idioma de la página (<html lang>). */
+export function formatoDeLaPagina(): Intl.NumberFormat {
+  const lang = document.documentElement.lang as Locale;
+  return formatoNumeros((locales as readonly string[]).includes(lang) ? lang : 'es');
+}
 
 export const prefersReducedMotion = (): boolean =>
   window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -20,11 +28,12 @@ export function onceNearViewport(el: Element, callback: () => void, rootMargin =
   observer.observe(el);
 }
 
-// '70.000' → { antes: '', n: 70000, despues: '' } · 'US$62.000' → 'US$' · '−60%' → '−', '%'
+// '70.000' → { antes: '', n: 70000, despues: '' } · 'US$62.000' → 'US$' · '−60%' → '−', '%'.
+// Punto o coma cuentan como separador de miles (es y pt usan punto; en, coma).
 export function partirCifra(texto: string) {
-  const m = /^(\D*)([\d.]+)(\D*)$/.exec(texto.trim());
+  const m = /^(\D*)(\d[\d.,]*)(\D*)$/.exec(texto.trim());
   if (!m) return null;
-  return { antes: m[1]!, n: Number(m[2]!.replace(/\./g, '')), despues: m[3]! };
+  return { antes: m[1]!, n: Number(m[2]!.replace(/[.,]/g, '')), despues: m[3]! };
 }
 
 let gsapPromise: ReturnType<typeof importGsap> | undefined;

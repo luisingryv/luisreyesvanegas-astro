@@ -8,6 +8,7 @@ import { getDictionary } from '../../i18n';
 import type { PublishedLocale } from '../../i18n/config';
 import { localizedPath } from '../../i18n/routes';
 import type { FormularioGeneral, PaginaProgramasAws } from '../../lib/content';
+import { formatoNumeros } from '../../lib/content-format';
 import { CONSUMO_AWS_INICIAL, CONSUMOS_AWS } from '../../lib/formularios/opciones';
 
 interface Props {
@@ -19,7 +20,7 @@ interface Props {
 
 const { locale, textos, comunes, sesionHref } = Astro.props;
 const t = getDictionary(locale);
-const formato = new Intl.NumberFormat('es-CO');
+const formato = formatoNumeros(locale);
 const usd = (n: number) => `US$${formato.format(n)}`;
 const maximo = CONSUMOS_AWS[CONSUMOS_AWS.length - 1];
 const anual = (mensual: number) =>
@@ -100,7 +101,7 @@ const anual = (mensual: number) =>
 
 <script>
   import { mejorarFormulario } from '../formularios/formulario';
-  import { prefersReducedMotion } from '../motion/motion';
+  import { formatoDeLaPagina, prefersReducedMotion } from '../motion/motion';
 
   for (const form of document.querySelectorAll<HTMLFormElement>('form[data-formulario]')) {
     mejorarFormulario(form);
@@ -116,7 +117,7 @@ const anual = (mensual: number) =>
     const select = caja.querySelector<HTMLSelectElement>('select[name="consumo"]');
     const salida = caja.querySelector<HTMLOutputElement>('[data-anual]');
     if (!select || !salida) continue;
-    const formato = new Intl.NumberFormat('es-CO');
+    const formato = formatoDeLaPagina();
     const escribir = (anual: number, mensual: number) => {
       const plantilla = mensual === maximo ? mas : aprox;
       salida.value = plantilla.replace('{monto}', `US$${formato.format(Math.round(anual))}`);

@@ -3,16 +3,19 @@
 // el "después" completo; motion/flujo.ts arranca en "antes" al verse, pasa solo a "después" y hace
 // viajar paquetes por las conexiones (ilustrativos: la cifra real es la del contador).
 import Eyebrow from '../brand/Eyebrow.astro';
+import type { Locale } from '../../i18n/config';
 import type { Caso, PaginaCasos } from '../../lib/content';
+import { formatoNumeros } from '../../lib/content-format';
 
 interface Props {
+  locale: Locale;
   diagrama: NonNullable<Caso['diagrama']>;
   textos: PaginaCasos['plantilla']['diagrama'];
 }
 
-const { diagrama, textos } = Astro.props;
+const { locale, diagrama, textos } = Astro.props;
 const { despues } = diagrama;
-const formato = new Intl.NumberFormat('es', { useGrouping: 'always' });
+const formato = formatoNumeros(locale);
 const cifra = (valor: number) => `${diagrama.prefijo}${formato.format(valor)}`;
 ---
 

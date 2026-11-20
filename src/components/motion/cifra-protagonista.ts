@@ -1,7 +1,7 @@
 // Pieza 02 como protagonista de una subpágina: la cifra cuenta desde 0 al verse y sus barras
 // crecen. El número final está en el HTML; si la tarjeta ya se ve al cargar, o con "reducir
 // movimiento", queda como está.
-import { isBelowFold, partirCifra, prefersReducedMotion } from './motion';
+import { isBelowFold, partirCifra, prefersReducedMotion, formatoDeLaPagina } from './motion';
 
 const MARCA = 'cubic-bezier(0.22, 1, 0.36, 1)';
 const salida = (t: number) => 1 - Math.pow(1 - t, 4);
@@ -12,7 +12,7 @@ export function iniciarCifraProtagonista(tarjeta: HTMLElement) {
   const barras = [...tarjeta.querySelectorAll<HTMLElement>('[data-barra]')];
   const final = cifra?.textContent?.trim() ?? '';
   const partes = partirCifra(final);
-  const formato = new Intl.NumberFormat('es', { useGrouping: 'always' });
+  const formato = formatoDeLaPagina();
 
   const vista = new IntersectionObserver(
     (entradas) => {

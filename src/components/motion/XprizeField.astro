@@ -3,9 +3,12 @@
 // El HTML trae el estado final: medalla, contador "1 de 26.449" y la fase Ganador.
 // El script dibuja los puntos y, si la pieza llega desde abajo, reproduce la secuencia
 // una vez al verse a la mitad. Con "reducir movimiento" se dibuja quieta.
+import type { Locale } from '../../i18n/config';
 import type { PaginaHome } from '../../lib/content';
+import { formatoNumeros } from '../../lib/content-format';
 
 interface Props {
+  locale: Locale;
   textos: PaginaHome['xprize']['pieza'];
   /** Equipos inscritos y finalistas (cifras oficiales del documento madre). */
   total?: number;
@@ -13,8 +16,8 @@ interface Props {
   class?: string;
 }
 
-const { textos, total = 26449, finalistas = 100, class: className } = Astro.props;
-const formato = new Intl.NumberFormat('es', { useGrouping: 'always' });
+const { locale, textos, total = 26449, finalistas = 100, class: className } = Astro.props;
+const formato = formatoNumeros(locale);
 const final = textos.contador.final.replace('{total}', formato.format(total));
 const fases = [textos.fases.equipos, textos.fases.finalistas, textos.fases.ganador];
 ---

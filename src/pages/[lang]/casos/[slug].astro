@@ -42,7 +42,9 @@ const cierre = resolverEnlace(lang, pagina.cierre.enlace.destino);
     is:inline
     slot="head"
     type="application/ld+json"
-    set:html={serializeJsonLd(caseArticleSchema(url, pagina.titulo, pagina.resumen, caso.cliente))}
+    set:html={serializeJsonLd(
+      caseArticleSchema(url, pagina.titulo, pagina.resumen, caso.cliente, lang),
+    )}
   />
   <HeroCaso locale={lang} caso={casoConPagina} textos={textos} />
   <FichaCaso pagina={pagina} etiquetaFicha={textos.plantilla.ficha} />

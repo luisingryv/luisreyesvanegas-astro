@@ -27,14 +27,20 @@ export function serializeJsonLd(data: unknown): string {
 }
 
 /** schema.org Article para la página de un caso (ficha 05). */
-export function caseArticleSchema(url: string, titulo: string, resumen: string, cliente: string) {
+export function caseArticleSchema(
+  url: string,
+  titulo: string,
+  resumen: string,
+  cliente: string,
+  idioma: string,
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: titulo,
     description: resumen,
     url,
-    inLanguage: 'es',
+    inLanguage: idioma,
     about: { '@type': 'Organization', name: cliente },
     author: {
       '@type': 'Person',

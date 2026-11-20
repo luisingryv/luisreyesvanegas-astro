@@ -35,7 +35,7 @@ const { locale, content } = Astro.props;
       </div>
     </div>
     <div class="min-w-0">
-      <XprizeField textos={content.pieza} />
+      <XprizeField locale={locale} textos={content.pieza} />
       <!-- Las cifras, en texto para lectores de pantalla; la pieza las muestra animadas. -->
       <dl class="sr-only" data-xprize>
         {content.cifras.map((cifra) => (

@@ -33,7 +33,8 @@
     "db:studio": "node --env-file-if-exists=.env node_modules/drizzle-kit/bin.cjs studio",
     "test:db": "node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run --config vitest.db.config.ts",
     "og": "node scripts/og/generar.mjs",
-    "cv:pdf": "node scripts/cv-pdf.mjs"
+    "cv:pdf": "node scripts/cv-pdf.mjs",
+    "i18n:faltantes": "node scripts/i18n/faltantes.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^11.1.14",

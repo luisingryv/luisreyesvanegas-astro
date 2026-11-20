@@ -8,6 +8,7 @@ import {
   onceNearViewport,
   partirCifra,
   prefersReducedMotion,
+  formatoDeLaPagina,
 } from './motion';
 
 export function iniciarLogros(lista: HTMLElement) {
@@ -26,7 +27,7 @@ export function iniciarLogros(lista: HTMLElement) {
       for (const t of tarjetas) t.removeAttribute('data-bloqueado');
       return;
     }
-    const formato = new Intl.NumberFormat('es', { useGrouping: 'always' });
+    const formato = formatoDeLaPagina();
 
     const desbloquear = (tarjeta: HTMLElement, orden: number) => {
       const retraso = orden * 0.12;

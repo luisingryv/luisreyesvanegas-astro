@@ -2,7 +2,7 @@
 // "después" (la cifra cuenta y los nodos que cambian se resaltan) y los paquetes viajan de
 // tarjeta en tarjeta. Los botones Antes/Después permiten comparar. Con "reducir movimiento"
 // se queda en el "después" del HTML, sin paquetes.
-import { prefersReducedMotion } from './motion';
+import { prefersReducedMotion, formatoDeLaPagina } from './motion';
 
 const MARCA = 'cubic-bezier(0.22, 1, 0.36, 1)';
 const VIAJE = 0.9; // segundos que tarda un paquete en recorrer una conexión
@@ -42,7 +42,7 @@ export function iniciarFlujo(figura: HTMLElement) {
   const cables = [...figura.querySelectorAll<HTMLElement>('[data-cable]')];
   if (!datos || !cifra || !delta || !texto || !momentos) return;
 
-  const formato = new Intl.NumberFormat('es', { useGrouping: 'always' });
+  const formato = formatoDeLaPagina();
   const escribir = (v: number) =>
     (cifra.textContent = `${datos.prefijo}${formato.format(Math.round(v))}`);
   const botones = [...momentos.querySelectorAll<HTMLButtonElement>('[data-momento]')];

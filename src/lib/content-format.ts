@@ -94,3 +94,11 @@ export function summarizeYears(years: number[]) {
   const hasta = Math.max(...years);
   return { hitos: years.length, desde, hasta, anios: hasta - desde };
 }
+
+/** Locale de Intl para cifras: los separadores de miles del prototipo (es-CO), en-US y pt-BR. */
+export const LOCALE_NUMEROS: Record<Locale, string> = { es: 'es-CO', en: 'en-US', pt: 'pt-BR' };
+
+/** Cifras con separador de miles siempre (también en 4 dígitos: "2.400"), por idioma. */
+export function formatoNumeros(locale: Locale): Intl.NumberFormat {
+  return new Intl.NumberFormat(LOCALE_NUMEROS[locale], { useGrouping: 'always' });
+}

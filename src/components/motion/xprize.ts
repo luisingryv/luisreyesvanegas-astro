@@ -1,7 +1,7 @@
 // Pieza 01 · Port del laboratorio (canvas). Cada punto representa unos 10 equipos: los
 // 26.449 inscritos se dibujan en espiral, 10 se separan como el Top 100 y uno llega al centro,
 // donde aparece la medalla con una onda y confeti.
-import { isBelowFold, onceNearViewport, prefersReducedMotion } from './motion';
+import { isBelowFold, onceNearViewport, prefersReducedMotion, formatoDeLaPagina } from './motion';
 
 const N = 2645;
 const GA = Math.PI * (3 - Math.sqrt(5));
@@ -33,7 +33,7 @@ export function iniciarXprize(campo: HTMLElement) {
   const d = campo.dataset;
   const total = Number(d.total);
   const finalistas = Number(d.finalistas);
-  const formato = new Intl.NumberFormat('es', { useGrouping: 'always' });
+  const formato = formatoDeLaPagina();
 
   // Colores de los tokens (el canvas no lee variables CSS).
   const estilo = getComputedStyle(campo);
