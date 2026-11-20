@@ -1,6 +1,10 @@
+import { existsSync } from 'node:fs';
 import { defineConfig, devices } from '@playwright/test';
 
 const PORT = 4399;
+
+// Local: lee .env. El servidor de pruebas usa la base de pruebas, nunca la de desarrollo.
+if (existsSync('.env')) process.loadEnvFile('.env');
 
 // Pruebas contra el build de producción, con el Chrome instalado (sin descargar navegadores).
 export default defineConfig({
@@ -18,6 +22,7 @@ export default defineConfig({
   webServer: {
     command: `pnpm build && HOST=127.0.0.1 PORT=${PORT} node dist/server/entry.mjs`,
     url: `http://127.0.0.1:${PORT}/es/sobre-mi`,
+    env: { DATABASE_URL: process.env.DATABASE_URL_TEST ?? '' },
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
   },

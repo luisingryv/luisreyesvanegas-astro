@@ -13,6 +13,16 @@ export default defineConfig({
 
   integrations: [react()],
 
+  // Detrás del proxy de Hostinger: confía en X-Forwarded-Host/Proto solo para el dominio
+  // del sitio, para que la verificación de origen de los formularios vea https://.
+  security: {
+    checkOrigin: true,
+    allowedDomains: [
+      { hostname: 'luisreyesvanegas.com', protocol: 'https' },
+      { hostname: 'www.luisreyesvanegas.com', protocol: 'https' },
+    ],
+  },
+
   env: {
     schema: {
       CALENDAR_BOOKING_URL: envField.string({

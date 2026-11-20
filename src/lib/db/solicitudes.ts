@@ -1,6 +1,6 @@
 // Solicitudes de los formularios. Se guardan primero; el CRM (Notion) y el aviso (Resend)
 // se marcan por separado para poder reintentarlos sin perder el mensaje.
-import { and, asc, eq, isNull, lt, or, sql } from 'drizzle-orm';
+import { and, asc, count, eq, gte, isNull, lt, or, sql } from 'drizzle-orm';
 import { solicitudes, type NuevaSolicitud, type Solicitud } from '../../../db/schema';
 import type { Db } from './cliente';
 
@@ -53,6 +53,15 @@ export async function registrarErrorDeIntegracion(db: Db, id: number, error: unk
     .update(solicitudes)
     .set({ intentos: sql`${solicitudes.intentos} + 1`, ultimoError: mensaje.slice(0, 2000) })
     .where(eq(solicitudes.id, id));
+}
+
+/** Cuántas solicitudes envió este correo desde la fecha dada (freno contra envíos en masa). */
+export async function contarRecientesPorEmail(db: Db, email: string, desde: Date): Promise<number> {
+  const [fila] = await db
+    .select({ total: count() })
+    .from(solicitudes)
+    .where(and(eq(solicitudes.email, normalizarEmail(email)), gte(solicitudes.creadoEn, desde)));
+  return fila?.total ?? 0;
 }
 
 export const normalizarEmail = (email: string) => email.trim().toLowerCase();
