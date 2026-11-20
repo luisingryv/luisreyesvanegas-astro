@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Migración a AWS · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+</style>
+</helmet>
+<div style="background: #090812; color: #ffffff; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #24232c; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 700;">
+        <a href="Consultoria.dc.html" style="color: #33b9ff; text-decoration: none; padding: 10px 0; border-bottom: 2px solid #00a7ff;">Consultoría</a>
+        <a href="Productos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Productos</a>
+        <a href="Casos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Casos</a>
+        
+        <a href="Eventos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Eventos</a>
+        <a href="SobreMi.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Sobre mí</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span style="font-size: 12px; color: #848388;"><span style="color: #ffffff;">ES</span> · EN · PT</span>
+        <a href="#evaluar" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Evaluar mi caso</a>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="m-t" style="position: relative; overflow: hidden; padding: clamp(48px, 7vw, 104px) max(16px, 5vw); background: radial-gradient(120% 90% at 80% 10%, #0a1a3f 0%, #090812 60%);">
+    <svg aria-hidden="true" viewBox="0 0 1200 600" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.35;">
+      <path d="M0 100 H1200 M0 200 H1200 M0 300 H1200 M0 400 H1200 M0 500 H1200" stroke="#1f2a8a" stroke-width="1"></path>
+      <path d="M150 0 V600 M300 0 V600 M450 0 V600 M600 0 V600 M750 0 V600 M900 0 V600 M1050 0 V600" stroke="#1f2a8a" stroke-width="1"></path>
+    </svg>
+    <div style="position: relative; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 48px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 22px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">MIGRACIÓN A AWS · CON NEXA CONNECT</span>
+        <h1 id="m-t" style="margin: 0; font-size: clamp(40px, 5.4vw, 72px); line-height: 1.02; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance;">AWS puede invertir en tu migración.</h1>
+        <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: #c9c8ce; max-width: 56ch;">Con Nexa Connect, partner de AWS, reviso tu entorno, diseño la arquitectura a la que vas a llegar y armamos el caso para que AWS evalúe cofinanciar la migración con su programa MAP. Lo hicimos con una startup de SAP de San Francisco y hoy lo llevamos a empresas de Latinoamérica y Estados Unidos.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+          <a href="#evaluar" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Evaluar mi caso</a>
+          <a href="Consultoria.dc.html#agenda" style="border: 1px solid #3a3941; color: #ffffff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Agendar sesión de arquitectura</a>
+        </div>
+      </div>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 12px; padding: 24px; border-radius: 24px; background: #001531; border: 1px solid #24232c;">
+        <svg role="img" aria-label="Ilustración: el consumo crece mes a mes; la arquitectura objetivo proyecta el consumo anual y AWS puede invertir un porcentaje en tramos" viewBox="0 0 480 280" style="width: 100%; height: auto;">
+          <path d="M20 250 H460" stroke="#24232c" stroke-width="1"></path>
+          <rect x="30" y="232" width="34" height="18" rx="4" fill="#3377ce"></rect>
+          <rect x="74" y="220" width="34" height="30" rx="4" fill="#3377ce"></rect>
+          <rect x="118" y="200" width="34" height="50" rx="4" fill="#3377ce"></rect>
+          <rect x="162" y="168" width="34" height="82" rx="4" fill="#3377ce"></rect>
+          <rect x="206" y="118" width="34" height="132" rx="4" fill="#3377ce"></rect>
+          <path d="M260 110 C 320 90, 380 70, 450 40" fill="none" stroke="#33b9ff" stroke-width="3" stroke-dasharray="7 7"></path>
+          <rect x="300" y="170" width="60" height="80" rx="6" fill="#00a7ff"></rect>
+          <rect x="370" y="110" width="60" height="140" rx="6" fill="#00a7ff" opacity="0.55"></rect>
+          <text x="30" y="272" fill="#a9a8ae" font-family="Human Sans, system-ui, sans-serif" font-size="11">TU CONSUMO HOY</text>
+          <text x="262" y="30" fill="#85d5ff" font-family="Human Sans, system-ui, sans-serif" font-size="11">A DÓNDE VAS</text>
+          <text x="300" y="272" fill="#a9a8ae" font-family="Human Sans, system-ui, sans-serif" font-size="11">LO QUE PUEDE INVERTIR AWS</text>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="idea-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); border-top: 1px solid #24232c;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 820px;">
+        <h2 id="idea-t" style="margin: 0; font-size: clamp(28px, 3.6vw, 46px); line-height: 1.1; font-weight: 700; text-wrap: balance;">El crecimiento de tu factura no es solo un problema de costos.</h2>
+        <p style="margin: 0; color: #c9c8ce; font-size: 17px;">AWS puede cofinanciar la migración de empresas que muestran uso real y en expansión, siempre con su aprobación previa y si cumplen las condiciones del programa. Por eso empezamos revisando tu cuenta, no pidiendo créditos: con el caso técnico en la mano, AWS evalúa si aplica y cuánto invierte.</p>
+      </div>
+      <h3 style="margin: 8px 0 0; font-size: 20px; font-weight: 700;">Qué podemos migrar</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px;">
+        <sc-for list="{{tipos}}" as="t" hint-placeholder-count="4">
+          <article style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 24px; background: #001531; border: 1px solid #24232c; min-width: 0;">
+            <span style="font-size: 20px; font-weight: 700; line-height: 1.25;">{{t.title}}</span>
+            <span style="font-size: 15px; color: #c9c8ce;">{{t.desc}}</span>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="quien-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #001531;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <h2 id="quien-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">¿Es para tu empresa?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
+        <sc-for list="{{rutas}}" as="r" hint-placeholder-count="3">
+          <a href="#evaluar" style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 24px; background: #090812; border: 1px solid #24232c; color: #ffffff; text-decoration: none; min-width: 0;">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">{{r.tag}}</span>
+            <span style="font-size: 24px; font-weight: 700; line-height: 1.2;">{{r.title}}</span>
+            <span style="font-size: 15px; color: #c9c8ce; flex-grow: 1;">{{r.desc}}</span>
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 700; color: #090812; background: #00a7ff; padding: 7px 10px; border-radius: 10px;">{{r.umbral}}</span>
+          </a>
+        </sc-for>
+      </div>
+      <p style="margin: 0; font-size: 14px; color: #a9a8ae;">Los montos son orientativos y hablan de consumo anual. Quien define si tu empresa califica es AWS.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="inicio-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h2 id="inicio-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700; text-wrap: balance;">Dos formas de empezar antes de migrar</h2>
+        <p style="margin: 0; color: #c9c8ce; max-width: 70ch;">Son programas de AWS que ejecutamos con Nexa Connect. Sirven para tomar la decisión con datos y no con suposiciones.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px;">
+        <article style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 24px; background: #001531; border: 1px solid #00a7ff; min-width: 0;">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">EMPRESAS CON SERVIDORES PROPIOS O EN OTRA NUBE</span>
+          <h3 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 700;">Assessment de infraestructura</h3>
+          <p style="margin: 0; font-size: 15px; color: #c9c8ce;">Instalamos un agente que mide durante 7 a 15 días el uso real de CPU y memoria de tus servidores. Con esos datos armamos el caso técnico y de negocio de la migración. Todo el proceso toma de 4 a 5 semanas.</p>
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 700; color: #090812; background: #00a7ff; padding: 7px 10px; border-radius: 10px;">Sin costo para tu empresa</span>
+          <span style="font-size: 14px; color: #a9a8ae;">Aplica si tienes que decidir sobre tu infraestructura en los próximos 12 meses: renovar servidores o pasar a la nube.</span>
+        </article>
+        <article style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 24px; background: #001531; border: 1px solid #24232c; min-width: 0;">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">STARTUPS Y EMPRESAS</span>
+          <h3 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 700;">Prueba de concepto</h3>
+          <p style="margin: 0; font-size: 15px; color: #c9c8ce;">En unas dos semanas probamos en AWS un caso de uso concreto, de migración o de inteligencia artificial, para validar la solución antes de decidir.</p>
+          <span style="font-size: 14px; color: #a9a8ae;">Aplica cuando hay una necesidad real de tu empresa detrás de la prueba.</span>
+        </article>
+      </div>
+      <p style="margin: 0; font-size: 14px; color: #a9a8ae;">Ambos programas están sujetos a la evaluación y aprobación previa de AWS.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="fases-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h2 id="fases-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Cómo lo hacemos</h2>
+        <p style="margin: 0; color: #c9c8ce; max-width: 70ch;">Seis pasos, desde la primera revisión de tu cuenta hasta que queda acompañada por el equipo de AWS de tu región. Si tu empresa tiene servidores propios, la revisión técnica se hace con el assessment. Si eres una startup, partimos de tu proyección de crecimiento.</p>
+      </div>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px;">
+        <sc-for list="{{fases}}" as="f" hint-placeholder-count="6">
+          <li style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; padding: 22px; border-radius: 20px; background: #001531; border: 1px solid #24232c;">
+            <span style="width: 48px; height: 48px; border-radius: 14px; border: 1px solid #00a7ff; display: grid; place-items: center; font-size: 15px; font-weight: 700; color: #33b9ff;">{{f.n}}</span>
+            <span style="display: flex; flex-direction: column; gap: 6px; min-width: 0;"><b style="font-size: 18px; line-height: 1.25;">{{f.title}}</b><span style="font-size: 14px; color: #c9c8ce;">{{f.desc}}</span></span>
+          </li>
+        </sc-for>
+      </ol>
+      <h3 style="margin: 12px 0 0; font-size: 20px; font-weight: 700;">Y para cada aplicación, la estrategia que le conviene</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
+        <sc-for list="{{estrategias}}" as="e" hint-placeholder-count="3">
+          <article style="display: flex; flex-direction: column; gap: 8px; padding: 22px; border-radius: 20px; border: 1px solid #24232c; min-width: 0;">
+            <b style="font-size: 18px;">{{e.title}}</b>
+            <span style="font-size: 14px; color: #c9c8ce;">{{e.desc}}</span>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="calc-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #001531;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 40px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <h2 id="calc-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700; text-wrap: balance;">La inversión se calcula sobre la plataforma a la que vas.</h2>
+        <p style="margin: 0; color: #c9c8ce;">Quien solo muestra su factura actual deja dinero sobre la mesa. Por eso modelamos tu arquitectura objetivo en la calculadora de AWS y, con esa proyección anual, AWS evalúa si aprueba la inversión y qué porcentaje cubre. Si la aprueba, la entrega por tramos según el programa y el avance de los hitos del plan, y cada carga nueva puede abrir otra ronda.</p>
+        <p style="margin: 0; font-size: 14px; color: #a9a8ae;">Los valores son estimados. Las cifras finales las define AWS en su evaluación y pueden ser diferentes.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #090812; border: 1px solid #00a7ff;">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">UN EJEMPLO ESTIMADO</span>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid #24232c; padding-bottom: 12px;">
+          <span style="color: #c9c8ce;">Consumo anual proyectado</span>
+          <span style="font-size: 24px; font-weight: 700;">US$250.000</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1px solid #24232c; padding-bottom: 12px;">
+          <span style="color: #c9c8ce;">Inversión estimada de AWS</span>
+          <span style="font-size: 24px; font-weight: 700; color: #33b9ff;">≈US$60.000</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="color: #c9c8ce;">Entregada por tramos</span>
+          <div style="display: flex; gap: 6px; height: 14px;">
+            <span style="flex: 1; border-radius: 6px; background: #00a7ff;"></span>
+            <span style="flex: 3; border-radius: 6px; background: #3377ce;"></span>
+          </div>
+          <span style="display: flex; justify-content: space-between; font-size: 11px; color: #a9a8ae;"><span>Primer tramo</span><span>Tramos siguientes, según los hitos</span></span>
+        </div>
+        <span style="font-size: 13px; color: #a9a8ae;">Puede haber hasta tres rondas, para que acomodes tu flujo de caja mientras pasas tus cargas a la nube.</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="caso-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <h2 id="caso-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700; text-wrap: balance;">Así funcionó con una startup de SAP de San Francisco</h2>
+        <p style="margin: 0; color: #c9c8ce; max-width: 70ch;">Ya estaban en AWS y crecían con las cargas que les traían sus clientes, incluidas nuevas cuentas en Europa. Un mes nos dimos cuenta de que, en los primeros nueve días, la factura casi igualaba la del mes anterior. Ahí empezamos a armar el caso con Nexa Connect, y AWS aprobó el programa Incremental Workloads Migrate.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px;">
+        <sc-for list="{{caso}}" as="c" hint-placeholder-count="4">
+          <article style="display: flex; flex-direction: column; gap: 8px; padding: 22px; border-radius: 20px; background: #001531; border: 1px solid #24232c; min-width: 0;">
+            <span style="font-size: clamp(26px, 2.6vw, 34px); line-height: 1.1; font-weight: 700;">{{c.metric}}</span>
+            <span style="font-size: 14px; color: #c9c8ce;">{{c.desc}}</span>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="incl-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #ffffff; color: #090812;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <h2 id="incl-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700; text-wrap: balance;">La implementación de este programa es de costo cero.</h2>
+        <p style="margin: 0; font-size: 17px; color: #3a3941;">Esto es lo que cubre y lo que va por aparte.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 24px; background: #e5eef9; min-width: 0;">
+          <h3 style="margin: 0; font-size: 20px; font-weight: 700;">Cubre</h3>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+            <sc-for list="{{incluye}}" as="i" hint-placeholder-count="4">
+              <li style="display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; font-size: 16px;"><svg aria-hidden="true" viewBox="0 0 16 16" style="width: 18px; height: 18px; margin-top: 3px;"><path d="M3 8.5l3 3 7-7" fill="none" stroke="#0055c2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>{{i}}</span></li>
+            </sc-for>
+          </ul>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 24px; border: 1px solid #80aae0; min-width: 0;">
+          <h3 style="margin: 0; font-size: 20px; font-weight: 700;">Va por aparte</h3>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+            <sc-for list="{{noIncluye}}" as="i" hint-placeholder-count="4">
+              <li style="display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; font-size: 16px; color: #3a3941;"><svg aria-hidden="true" viewBox="0 0 16 16" style="width: 18px; height: 18px; margin-top: 3px;"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="#3a3941" stroke-width="2" stroke-linecap="round"></path></svg><span>{{i}}</span></li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px 28px; border-radius: 20px; background: #090812; color: #ffffff;">
+        <p style="margin: 0; font-size: 18px; font-weight: 700;">No gestionamos créditos gratis de Amazon. AWS decide si invierte en tu migración después de validar el caso técnico y comercial.</p>
+        <p style="margin: 0; font-size: 15px; color: #c9c8ce;">La puerta de entrada es la sesión de arquitectura, donde identificamos si tu empresa aplica.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="nexa-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #183154; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #ed8310;">PARTNER DE AWS</span>
+        <h2 id="nexa-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700; text-wrap: balance;">Quién ejecuta la migración</h2>
+        <p style="margin: 0; color: #d4d8de;">Nexa Connect es partner de AWS especialista en migración y modernización, con sede en Santiago de Chile y operación en Chile, Perú, Colombia, Ecuador, México, Guatemala y Argentina. Acompaña cada proyecto desde el assessment hasta la operación productiva, incluidas las migraciones SAP más críticas. En Chile, además, factura AWS de forma local.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <sc-for list="{{nexa}}" as="n" hint-placeholder-count="5">
+            <span style="font-size: 13px; font-weight: 700; border: 1px solid #ed8310; color: #ed8310; border-radius: 999px; padding: 7px 12px;">{{n}}</span>
+          </sc-for>
+        </div>
+        <a href="https://xnexaconnect.cl/migracion-a-aws/" style="align-self: flex-start; background: #ed8310; color: #183154; text-decoration: none; font-weight: 700; padding: 15px 22px; border-radius: 999px;">Conoce Nexa Connect ↗</a>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; align-self: stretch; padding: 40px; border-radius: 24px; background: #ffffff; min-height: 220px; box-sizing: border-box;">
+        <img src="/_blob/a600147f7d9db4f214cb523d1a83bf6d" alt="Nexa Connect" style="width: min(100%, 380px); height: auto; display: block;">
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+      <h2 id="faq-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Preguntas frecuentes</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 8px 40px;">
+        <sc-for list="{{faq}}" as="f" hint-placeholder-count="7">
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-bottom: 1px solid #24232c;">
+            <span style="font-size: 17px; font-weight: 700;">{{f.q}}</span>
+            <span style="font-size: 15px; color: #c9c8ce;">{{f.a}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="eval-t" id="evaluar" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #001531;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <h2 id="eval-t" style="margin: 0; font-size: clamp(30px, 4vw, 50px); line-height: 1.08; font-weight: 700; text-wrap: balance;">Cuéntanos de tu empresa.</h2>
+        <p style="margin: 0; color: #c9c8ce;">Con estos datos preparo la sesión y te digo desde el principio si vemos una oportunidad para el programa.</p>
+        <p id="condiciones" style="margin: 0; font-size: 13px; color: #a9a8ae; padding: 16px; border-radius: 16px; border: 1px solid #24232c;">Los incentivos, fondos y beneficios de apoyo de Amazon Web Services están sujetos a evaluación, validación y aprobación previa por parte de Amazon Web Services. Su disponibilidad dependerá del cumplimiento de los requisitos y criterios de elegibilidad establecidos por AWS para cada programa y proyecto. La presentación de una solicitud no garantiza la aprobación y asignación.</p>
+        <a href="Consultoria.dc.html#agenda" style="align-self: flex-start; border: 1px solid #00a7ff; color: #33b9ff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 999px;">Prefiero agendar la sesión (US$450)</a>
+      </div>
+      <form style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px; padding: 28px; border-radius: 24px; background: #090812; border: 1px solid #24232c;">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Tu empresa es
+          <select style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+            <option>Una startup</option>
+            <option>Una empresa con datacenter propio</option>
+            <option>Una plataforma que ya está en AWS</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Dónde está hoy tu infraestructura
+          <select style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+            <option>En mis servidores</option>
+            <option>AWS</option>
+            <option>Google Cloud</option>
+            <option>Azure</option>
+            <option>Otra nube</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Consumo actual, promedio mensual
+          <select onChange="{{pickConsumo}}" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+            <sc-for list="{{consumos}}" as="c" hint-placeholder-count="9">
+              <option value="{{c.v}}" selected="{{c.sel}}">{{c.label}}</option>
+            </sc-for>
+          </select>
+        </label>
+        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">
+          <span>Consumo anual estimado</span>
+          <output style="font-size: 18px; font-weight: 700; color: #33b9ff; padding: 12px 14px; border-radius: 12px; border: 1px dashed #00a7ff; background: #001531;">{{anual}}</output>
+          <span style="font-weight: 400; font-size: 12px; color: #a9a8ae;">Se calcula solo: tu promedio mensual por 12.</span>
+        </div>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700; grid-column: 1 / -1;">¿Qué quieres migrar o hacer crecer?
+          <textarea rows="3" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff; resize: vertical;"></textarea>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">¿Quién toma la decisión?
+          <input type="text" placeholder="Cargo" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">¿Cuándo tienes que tomar la decisión?
+          <select style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+            <option>En menos de 3 meses</option>
+            <option>Entre 3 y 6 meses</option>
+            <option>Entre 6 y 12 meses</option>
+            <option>En más de 12 meses</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Empresa y país
+          <input type="text" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Correo
+          <input type="email" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+        </label>
+        <button type="button" style="grid-column: 1 / -1; font: inherit; font-weight: 700; background: #0055c2; color: #ffffff; border: 0; border-radius: 999px; padding: 16px 24px; cursor: pointer;">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <div role="note" style="position: sticky; bottom: 0; z-index: 5; padding: 12px max(16px, 5vw); background: #001531; border-top: 1px solid #24232c; font-size: 13px; color: #c9c8ce;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px;">
+      <span>Los incentivos y fondos de AWS están sujetos a su evaluación y aprobación previa. Presentar una solicitud no garantiza su asignación.</span>
+      <a href="#condiciones" style="color: #33b9ff; font-weight: 700;">Ver condiciones</a>
+    </div>
+  </div>
+
+  <footer style="border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a> <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a> <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":8600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var m = (this.state && this.state.m) || 10000;
+    var fmt = function (n) { return 'US$' + n.toLocaleString('es-CO'); };
+    var opts = [1000, 2500, 5000, 10000, 20000, 30000, 50000, 100000, 250000];
+    return {
+      consumos: opts.map(function (v, i) { return { v: v, sel: v === m, label: (i === opts.length - 1 ? 'Más de ' : '≈') + fmt(v) + ' al mes' }; }),
+      anual: (m === 250000 ? 'Más de ' : '≈') + fmt(m * 12) + ' al año',
+      pickConsumo: (e) => this.setState({ m: Number(e.target.value) }),
+      tipos: [
+        { title: 'Lo que corre en tus servidores', desc: 'VMware, Windows Server, Linux, bases de datos SQL, ERP y aplicaciones que hoy viven en tu datacenter.' },
+        { title: 'Lo que tienes en otra nube', desc: 'Si estás en Google Cloud o en Azure. Trama, la empresa que dirijo, hizo este camino hacia AWS.' },
+        { title: 'Las cargas nuevas de tus clientes', desc: 'Si ya estás en AWS y tus clientes llevan sus procesos a tu plataforma, esas cargas también cuentan como migración.' },
+        { title: 'Tus sistemas SAP', desc: 'SAP HANA, S/4HANA y ECC, en producción, pruebas y recuperación ante desastres.' }
+      ],
+      rutas: [
+        { tag: 'STARTUPS', title: 'Tu startup crece mes a mes', desc: 'Es donde mejor funciona el programa. Si tu consumo en AWS o en otra nube sube cada mes, vale la pena revisarlo.', umbral: 'Desde unos US$50.000 al año' },
+        { tag: 'EMPRESAS', title: 'Vas a mover tu datacenter', desc: 'Para AWS, una migración empresarial empieza a ser atractiva cuando el consumo anual supera el medio millón de dólares.', umbral: 'Más de US$500.000 al año' },
+        { tag: 'YA ESTÁS EN AWS', title: 'Tus clientes te traen sus cargas', desc: 'Cada cliente que lleva sus procesos a tu plataforma suma consumo nuevo en AWS, y eso también abre la puerta al programa.', umbral: 'Crecimiento sostenido' }
+      ],
+      fases: [
+        { n: '01', title: 'Diagnóstico de elegibilidad', desc: 'Vemos cómo ha crecido tu consumo, qué cargas vienen en camino y a qué se dedica tu negocio. Si no hay caso, te lo decimos aquí.' },
+        { n: '02', title: 'Revisión técnica de solo lectura', desc: 'Con un acceso de solo lectura revisamos la cuenta servicio por servicio, con el marco Well-Architected de AWS: inventario, dependencias, seguridad y costos.' },
+        { n: '03', title: 'Arquitectura objetivo y business case', desc: 'Diseñamos la plataforma a la que vas a llegar, la costeamos en la calculadora de AWS y la comparamos con lo que pagas hoy.' },
+        { n: '04', title: 'Registro de la oportunidad', desc: 'Con el caso listo, Nexa Connect registra la oportunidad ante AWS y se asigna tu Account Manager.' },
+        { n: '05', title: 'Plan con hitos medibles', desc: 'Un plan por etapas con criterios que se pueden verificar. AWS usa esos hitos para liberar cada tramo de la inversión.' },
+        { n: '06', title: 'El equipo de AWS de tu región', desc: 'La cuenta queda acompañada por el equipo regional de AWS, para nuevos programas, beneficios y soporte técnico.' }
+      ],
+      estrategias: [
+        { title: 'Rehost', desc: 'Llevas la aplicación tal como está, rápido y con poco riesgo, y la modernizas después.' },
+        { title: 'Replatform', desc: 'Haces ajustes puntuales para aprovechar servicios administrados, como bases de datos RDS o autoescalado.' },
+        { title: 'Refactor', desc: 'Rediseñas la aplicación para la nube: contenedores, serverless, microservicios o IA generativa.' }
+      ],
+      caso: [
+        { metric: 'US$62.000', desc: 'Aprobados por AWS en dos tramos: 25% al aprobar y 75% al cumplir los hitos.' },
+        { metric: '94', desc: 'Hallazgos en la revisión técnica: 12 críticos, 25 medios y 57 bajos, ninguno bloqueante.' },
+        { metric: '84%', desc: 'Del consumo era transferencia de datos y no cómputo. El problema estaba en la arquitectura.' },
+        { metric: 'AWS LATAM', desc: 'La cuenta pasó al equipo regional de AWS, con acompañamiento comercial y técnico local.' }
+      ],
+      incluye: ['La implementación del programa de migración, con Nexa Connect', 'Servicios nativos de AWS: cómputo, contenedores, bases de datos, redes y almacenamiento', 'Servicios de IA de AWS, como Bedrock y Kiro, según el caso', 'Hasta tres posibles rondas de inversión, a medida que crecen tus cargas'],
+      noIncluye: ['Productos de AWS Marketplace, porque son de otros fabricantes', 'La administración de tu cuenta', 'El acompañamiento mensual', 'Mi trabajo como arquitecto de soluciones, que acordamos aparte'],
+      nexa: ['Migración y modernización', 'Migraciones SAP', 'Recuperación ante desastres', 'FinOps', 'Servicios administrados 24/7'],
+      faq: [
+        { q: '¿Mi empresa califica?', a: 'Depende de cuánto consumes, cómo viene creciendo y qué vas a migrar. Lo revisamos en la sesión de arquitectura y te damos una respuesta clara.' },
+        { q: '¿Cuánto cuesta?', a: 'La implementación del programa es de costo cero. La sesión de arquitectura cuesta US$450 y es por donde empezamos.' },
+        { q: '¿Y si ya estoy en AWS?', a: 'También aplica. Las cargas nuevas que te traen tus clientes pueden entrar como migración incremental.' },
+        { q: '¿Qué pasa si no consumo lo que proyectamos?', a: 'AWS entrega la inversión por tramos justamente para revisar el consumo real. Si no llegas a lo proyectado, no carga los tramos siguientes.' },
+        { q: '¿Qué servicios cubre?', a: 'Solo servicios nativos de AWS. Los productos de AWS Marketplace no entran, porque son de otros fabricantes.' },
+        { q: '¿Pueden migrar SAP?', a: 'Sí. Nexa Connect se especializa en migraciones SAP a AWS, incluidos SAP HANA, S/4HANA y ECC.' },
+        { q: '¿Funciona desde Latinoamérica?', a: 'Sí. Nexa Connect opera en siete países de la región y también atendemos empresas de Estados Unidos.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

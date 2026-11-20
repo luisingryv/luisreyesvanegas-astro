@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Contacto · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+</style>
+</helmet>
+<div style="background: #090812; color: #ffffff; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #24232c; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 700;">
+        <a href="Consultoria.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Consultoría</a>
+        <a href="Productos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Productos</a>
+        <a href="Casos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Casos</a>
+        <a href="Eventos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Eventos</a>
+        <a href="SobreMi.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Sobre mí</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span style="font-size: 12px; color: #848388;"><span style="color: #ffffff;">ES</span> · EN · PT</span>
+        <a href="Consultoria.dc.html#agenda" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Agendar sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="ct-t" style="padding: clamp(48px, 7vw, 96px) max(16px, 5vw) clamp(32px, 4vw, 56px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">CONTACTO</span>
+      <h1 id="ct-t" style="margin: 0; font-size: clamp(38px, 5vw, 64px); line-height: 1.04; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; max-width: 18ch;">¿Qué necesitas?</h1>
+      <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: #c9c8ce; max-width: 60ch;">Elige la opción que más se parece a tu caso y te llevo al lugar indicado. Si ninguna encaja, escríbeme abajo.</p>
+    </div>
+  </section>
+
+  <section aria-label="Opciones de contacto" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px;">
+      <sc-for list="{{opciones}}" as="o" hint-placeholder-count="6">
+        <a href="{{o.href}}" style="display: flex; flex-direction: column; gap: 12px; min-height: 200px; box-sizing: border-box; padding: 26px; border-radius: 24px; background: #001531; border: 1px solid #24232c; color: #ffffff; text-decoration: none; min-width: 0;">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">{{o.tag}}</span>
+          <span style="font-size: 22px; line-height: 1.22; font-weight: 700; text-wrap: balance;">{{o.title}}</span>
+          <span style="font-size: 15px; color: #a9a8ae; flex-grow: 1;">{{o.desc}}</span>
+          <span style="font-weight: 700; color: #33b9ff;">{{o.cta}}</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section aria-labelledby="form-t" id="general" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #001531;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">ESCRÍBEME</span>
+        <h2 id="form-t" style="margin: 0; font-size: clamp(30px, 4vw, 50px); line-height: 1.08; font-weight: 700; text-wrap: balance;">Cuéntame qué estás construyendo.</h2>
+        <p style="margin: 0; color: #c9c8ce;">Si prefieres, también puedes escribirme por WhatsApp.</p>
+        <span style="font-size: 14px; color: #80aae0;">WhatsApp: [TU NÚMERO]</span>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #090812; border: 1px solid #24232c;">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Nombre
+          <input type="text" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Correo
+          <input type="email" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Tema
+          <select style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff;">
+            <option>Conversación general</option>
+            <option>Contratación</option>
+            <option>Prensa</option>
+            <option>Otro</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Mensaje
+          <textarea rows="5" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #001531; color: #ffffff; resize: vertical;"></textarea>
+        </label>
+        <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #c9c8ce;">
+          <input type="checkbox" style="width: 20px; height: 20px; margin: 2px 0 0; flex: none;">
+          <span>Acepto la <a href="#legal" style="color: #33b9ff;">política de privacidad</a> y el tratamiento de mis datos para responder este mensaje.</span>
+        </label>
+        <button type="button" style="font: inherit; font-weight: 700; background: #0055c2; color: #ffffff; border: 0; border-radius: 999px; padding: 16px 24px; cursor: pointer;">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="legal" style="border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a>
+        <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a>
+        <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      opciones: [
+        { tag: 'CONSULTORÍA', title: 'Tengo un problema en mi nube o quiero llevar la IA a mi equipo', desc: 'Costos, crecimiento, migración, seguridad o adopción de IA. Empezamos con una sesión de arquitectura o una llamada de 20 minutos.', cta: 'Agendar →', href: 'Consultoria.dc.html#agenda' },
+        { tag: 'PROGRAMA MAP DE AWS', title: 'Quiero saber si AWS puede invertir en mi migración', desc: 'Evaluamos tu caso con Nexa Connect, partner de AWS. La inversión está sujeta a la aprobación previa de AWS.', cta: 'Evaluar mi elegibilidad →', href: 'ProgramasAWS.dc.html' },
+        { tag: 'DESARROLLO DE SOFTWARE', title: 'Necesito desarrollo a la medida', desc: 'El desarrollo de software a la medida lo hace mi equipo en EvolutecC.', cta: 'Ir a EvolutecC ↗', href: 'https://evolutecc.com/?utm_source=luisreyesvanegas&utm_medium=referral&utm_campaign=contacto' },
+        { tag: 'PRODUCTOS', title: 'Quiero usar o invertir en Trama AI', desc: 'Te mostramos una demo o te comparto la información de la empresa en privado.', cta: 'Ver productos →', href: 'Productos.dc.html' },
+        { tag: 'CHARLAS', title: 'Quiero invitarte a un evento', desc: 'Keynote, workshop o panel sobre nube e IA.', cta: 'Invitarme a hablar →', href: 'Speaker.dc.html#invitar' },
+        { tag: 'OTRO TEMA', title: 'Contratación, prensa o una conversación general', desc: 'Escríbeme en el formulario y te respondo.', cta: 'Escribir →', href: '#general' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Privacidad y términos · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+</style>
+</helmet>
+<div style="background: #ffffff; color: #090812; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #e5eef9; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/67b71cd0b804f1cde1b218d0b1e2bf80" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 700;">
+        <a href="Consultoria.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Consultoría</a>
+        <a href="Productos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Productos</a>
+        <a href="Casos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Casos</a>
+        <a href="Eventos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Eventos</a>
+        <a href="SobreMi.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Sobre mí</a>
+      </nav>
+      <a href="Consultoria.dc.html#agenda" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Agendar sesión</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="l-t" style="padding: clamp(48px, 7vw, 96px) max(16px, 5vw) 32px;">
+    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">LEGAL</span>
+      <h1 id="l-t" style="margin: 0; font-size: clamp(36px, 4.6vw, 56px); line-height: 1.05; font-weight: 700; letter-spacing: -0.02em;">Privacidad y términos</h1>
+      <p style="margin: 0; font-size: 18px; color: #3a3941;">Cómo trato tus datos personales y las reglas de uso de este sitio. Vigente desde [fecha de publicación].</p>
+      <div role="tablist" aria-label="Documentos legales" style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px;">
+        <a href="#privacidad" role="tab" aria-selected="true" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; padding: 10px 18px; border-radius: 999px;">Política de datos personales</a>
+        <a href="#terminos" role="tab" aria-selected="false" style="border: 1px solid #0055c2; color: #0055c2; text-decoration: none; font-weight: 700; padding: 10px 18px; border-radius: 999px;">Términos de uso</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="priv-t" id="privacidad" style="padding: 24px max(16px, 5vw) clamp(48px, 6vw, 80px);">
+    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px;">
+      <h2 id="priv-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">Política de tratamiento de datos personales</h2>
+      <sc-for list="{{privacidad}}" as="s" hint-placeholder-count="10">
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-bottom: 1px solid #e5eef9;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 700; color: #0055c2;">{{s.t}}</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3a3941;">{{s.d}}</p>
+        </div>
+      </sc-for>
+      <a href="#privacidad" style="align-self: flex-start; margin-top: 12px; color: #0055c2; font-weight: 700;">Descargar la política completa (PDF)</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="ter-t" id="terminos" style="padding: clamp(48px, 6vw, 80px) max(16px, 5vw); background: #f5f8fd;">
+    <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px;">
+      <h2 id="ter-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">Términos de uso</h2>
+      <sc-for list="{{terminos}}" as="s" hint-placeholder-count="8">
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-bottom: 1px solid #d6e3f5;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 700; color: #0055c2;">{{s.t}}</h3>
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3a3941;">{{s.d}}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <footer style="background: #090812; border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a>
+        <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a>
+        <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+  "privacidad": [
+    {
+      "t": "Responsable",
+      "d": "Luis Carlos Reyes Vanegas, persona natural, [documento], con domicilio en [ciudad], Colombia. Correo para asuntos de privacidad: [correo de privacidad]."
+    },
+    {
+      "t": "Qué datos recogemos y para qué",
+      "d": "Los que nos das en los formularios de contacto, agenda, charlas e información de productos, y por WhatsApp, para responderte, agendar sesiones, evaluar invitaciones y enviarte la información que pediste. También datos de navegación para mejorar el sitio."
+    },
+    {
+      "t": "Autorización",
+      "d": "Cada formulario te pide aceptar esta política antes de enviarlo. Guardamos prueba de esa autorización."
+    },
+    {
+      "t": "Quién más accede",
+      "d": "Proveedores que operan el sitio por cuenta nuestra (alojamiento, agenda, CRM, mensajería y analítica), solo con lo necesario. No vendemos tus datos."
+    },
+    {
+      "t": "Datos fuera de Colombia",
+      "d": "Algunos proveedores guardan datos en Estados Unidos o la Unión Europea, países que la SIC reconoce con un nivel adecuado de protección."
+    },
+    {
+      "t": "Tus derechos",
+      "d": "Conocer, actualizar, rectificar y suprimir tus datos, pedir prueba de la autorización, revocarla y presentar quejas ante la Superintendencia de Industria y Comercio."
+    },
+    {
+      "t": "Cómo ejercerlos",
+      "d": "Escribe al correo de privacidad. Respondemos consultas en hasta 10 días hábiles y reclamos en hasta 15, como dice la Ley 1581 de 2012."
+    },
+    {
+      "t": "Cuánto tiempo los guardamos",
+      "d": "Mientras sean necesarios para la finalidad y, sin relación activa, hasta [24 meses] desde el último contacto, salvo obligación legal."
+    },
+    {
+      "t": "Seguridad",
+      "d": "Conexión cifrada, acceso restringido, autenticación de dos factores y proveedores con certificaciones de seguridad."
+    },
+    {
+      "t": "Visitantes de otros países",
+      "d": "Si vives en la Unión Europea o en California, también reconocemos los derechos que te dan sus leyes. Escríbenos al mismo correo."
+    }
+  ],
+  "terminos": [
+    {
+      "t": "Para qué sirve el sitio",
+      "d": "Presenta mi trayectoria, mis servicios, mis charlas y los productos en los que participo. Es informativo y no reemplaza una propuesta firmada."
+    },
+    {
+      "t": "Servicios y precios",
+      "d": "Solo la sesión de arquitectura tiene precio publicado (US$450). Lo demás se cotiza después de conocer tu caso. El desarrollo a la medida lo presta EvolutecC."
+    },
+    {
+      "t": "Resultados y cifras",
+      "d": "Los casos son reales y se publican con permiso. No garantizan el mismo resultado en tu caso. Los incentivos, fondos y beneficios de apoyo de Amazon Web Services están sujetos a evaluación, validación y aprobación previa por parte de Amazon Web Services. Su disponibilidad dependerá del cumplimiento de los requisitos y criterios de elegibilidad establecidos por AWS para cada programa y proyecto. La presentación de una solicitud no garantiza la aprobación y asignación."
+    },
+    {
+      "t": "Productos e inversión",
+      "d": "Nada en el sitio es una oferta pública de valores ni una invitación a invertir."
+    },
+    {
+      "t": "Propiedad intelectual",
+      "d": "El contenido es mío o se usa con autorización. Las marcas de terceros pertenecen a sus dueños y mencionarlas no implica patrocinio."
+    },
+    {
+      "t": "Uso adecuado",
+      "d": "No envíes información falsa, no intentes acceder sin permiso a los sistemas y no uses los formularios para publicidad no solicitada."
+    },
+    {
+      "t": "Enlaces y responsabilidad",
+      "d": "No controlo los sitios de terceros enlazados. El sitio se ofrece tal como está."
+    },
+    {
+      "t": "Ley aplicable",
+      "d": "Estos términos se rigen por las leyes de Colombia. Contacto: [correo de contacto]."
+    }
+  ]
+};
+  }
+}
+</script>
+</body>
+</html>

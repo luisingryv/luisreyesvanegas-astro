@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Caso UTPN / KMA · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+</style>
+</helmet>
+<div style="background: #ffffff; color: #090812; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #e5eef9; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/67b71cd0b804f1cde1b218d0b1e2bf80" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 700;">
+        <a href="Consultoria.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Consultoría</a>
+        <a href="Productos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Productos</a>
+        <a href="Casos.dc.html" aria-current="page" style="color: #0055c2; text-decoration: none; padding: 10px 0; border-bottom: 2px solid #0055c2;">Casos</a>
+        <a href="Eventos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Eventos</a>
+        <a href="SobreMi.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Sobre mí</a>
+      </nav>
+      <a href="Consultoria.dc.html#agenda" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Agendar sesión</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="c-t" style="padding: clamp(40px, 6vw, 88px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 40px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0;">
+        <a href="Casos.dc.html" style="color: #0055c2; font-weight: 700; font-size: 14px;">← Todos los casos</a>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <span style="font-size: 11px; font-weight: 700; color: #ffffff; background: #0055c2; padding: 5px 9px; border-radius: 999px;">CONSULTORÍA PROPIA</span>
+          <span style="font-size: 11px; font-weight: 700; color: #004092; border: 1px solid #0055c2; padding: 5px 9px; border-radius: 999px;">Costos</span>
+        </div>
+        <h1 id="c-t" style="margin: 0; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.06; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance;">Cómo una red nacional de peajes bajó 60% su factura de Google Cloud</h1>
+        <p style="margin: 0; font-size: 18px; color: #3a3941;">La factura de Google Cloud de UTPN crecía y no estaba identificado de dónde venía el sobrecosto. Encontré que la videovigilancia 24/7 salía a internet como transmisión en vivo y cambié la forma de acceder a las cámaras. La factura pasó de US$10.000 a unos US$4.000 al mes.</p>
+      </div>
+      <div role="img" aria-label="Espacio para imagen o diagrama del caso" style="aspect-ratio: 4 / 3; border-radius: 24px; border: 1px dashed #0055c2; background: repeating-linear-gradient(135deg, #d6e3f5 0 14px, #e5eef9 14px 28px); display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box;">
+        <span style="font-size: 12px; color: #004092; background: #ffffff; padding: 8px 10px; border-radius: 8px;">IMAGEN · Diagrama antes y después del acceso a las cámaras</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: clamp(56px, 8vw, 96px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start;">
+      <aside aria-label="Ficha del caso" style="flex: 1 1 280px; display: flex; flex-direction: column; padding: 24px; border-radius: 24px; background: #e5eef9; box-sizing: border-box;">
+        <sc-for list="{{ficha}}" as="f" hint-placeholder-count="7">
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-bottom: 1px solid #80aae0;">
+            <span style="font-size: 11px; font-weight: 700; color: #004092;">{{f.k}}</span>
+            <span style="font-size: 15px;">{{f.v}}</span>
+          </div>
+        </sc-for>
+      </aside>
+      <div style="flex: 2 1 520px; display: flex; flex-direction: column; gap: 32px; min-width: 0;">
+        <sc-for list="{{bloques}}" as="b" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">{{b.k}}</span>
+            <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3a3941;">{{b.v}}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="res-t" style="padding: clamp(56px, 8vw, 96px) max(16px, 5vw); background: #090812; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <h2 id="res-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">Resultado</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px;">
+        <sc-for list="{{cifras}}" as="x" hint-placeholder-count="3">
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 24px; background: #001531; border: 1px solid #24232c;">
+            <span style="font-size: clamp(30px, 3.2vw, 44px); font-weight: 700; line-height: 1;">{{x.metric}}</span>
+            <span style="font-size: 15px; color: #c9c8ce;">{{x.desc}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin: 0; font-size: 12px; color: #848388;">Fuente: Luis Reyes Vanegas, con autorización de UTPN / KMA.</p>
+      <figure style="margin: 0; padding: 24px; border-radius: 24px; border: 1px dashed #33b9ff;">
+        <blockquote style="margin: 0; font-size: 17px; color: #c9c8ce;">[Testimonio real y verificable de UTPN / KMA, con su permiso]</blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="cta-t" style="padding: clamp(48px, 6vw, 80px) max(16px, 5vw); background: #0055c2; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 32px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 60ch;">
+        <h2 id="cta-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">¿Tu factura de nube crece más rápido que tu negocio?</h2>
+        <p style="margin: 0; color: #e5eef9;">Revisemos dónde se va el gasto.</p>
+      </div>
+      <a href="OptimizarCostos.dc.html" style="background: #ffffff; color: #0055c2; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Ver auditoría de costos</a>
+    </div>
+  </section>
+  <footer style="background: #090812; border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a>
+        <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a>
+        <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+  "ficha": [
+    {
+      "k": "CLIENTE",
+      "v": "UTPN / KMA"
+    },
+    {
+      "k": "SECTOR",
+      "v": "Red nacional de peajes"
+    },
+    {
+      "k": "PAÍS",
+      "v": "Colombia"
+    },
+    {
+      "k": "MI ROL",
+      "v": "Consultor de arquitectura cloud"
+    },
+    {
+      "k": "PERIODO",
+      "v": "2025"
+    },
+    {
+      "k": "NUBE",
+      "v": "Google Cloud"
+    },
+    {
+      "k": "VOLUMEN",
+      "v": "Videovigilancia 24/7, unos 15 TB diarios"
+    }
+  ],
+  "bloques": [
+    {
+      "k": "CONTEXTO",
+      "v": "El uso de la plataforma estaba justificado, pero no estaba identificado de dónde venía el sobrecosto de la factura. Además, cerca de la mitad de la capacidad contratada estaba en uso."
+    },
+    {
+      "k": "HALLAZGO",
+      "v": "La videovigilancia 24/7, unos 15 TB diarios, salía a internet como transmisión en vivo. Ese tráfico de salida disparaba la factura."
+    },
+    {
+      "k": "DECISIÓN",
+      "v": "Rediseñé el acceso a las cámaras para que se hiciera de forma remota, sin tráfico de salida, y ajusté la capacidad al uso real."
+    },
+    {
+      "k": "DESPUÉS",
+      "v": "El presupuesto liberado se convirtió en un contrato de soporte de largo plazo para sostener y mejorar la infraestructura."
+    }
+  ],
+  "cifras": [
+    {
+      "metric": "−60%",
+      "desc": "En la factura mensual de Google Cloud."
+    },
+    {
+      "metric": "US$10.000",
+      "desc": "Al mes antes de la auditoría."
+    },
+    {
+      "metric": "US$4.000",
+      "desc": "Al mes después de los cambios."
+    }
+  ]
+};
+  }
+}
+</script>
+</body>
+</html>

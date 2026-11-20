@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Charlas · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@keyframes tm-izq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes tm-der{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.tm-fila{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tm-pista{display:flex;width:max-content;animation:tm-izq 70s linear infinite}
+.tm-pista.tm-der{animation-name:tm-der;animation-duration:80s}
+.tm-fila:hover .tm-pista,.tm-fila:focus-within .tm-pista{animation-play-state:paused}
+.tm-grupo{display:flex;gap:12px;padding-right:12px;margin:0;list-style:none}
+@media (prefers-reduced-motion: reduce){.tm-fila{-webkit-mask-image:none;mask-image:none}.tm-pista{animation:none;width:auto}.tm-grupo{flex-wrap:wrap}.tm-copia{display:none}}
+</style>
+</helmet>
+<div style="background: #090812; color: #ffffff; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #24232c; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 700;">
+        <a href="Consultoria.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Consultoría</a>
+        <a href="Productos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Productos</a>
+        <a href="Casos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Casos</a>
+        <a href="Eventos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Eventos</a>
+        <a href="SobreMi.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Sobre mí</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span style="font-size: 12px; color: #848388;"><span style="color: #ffffff;">ES</span> · EN · PT</span>
+        <a href="#invitar" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Invitarme a hablar</a>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="sp-t" style="padding: clamp(48px, 7vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 48px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 22px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">CHARLAS, TALLERES Y PANELES</span>
+        <h1 id="sp-t" style="margin: 0; font-size: clamp(38px, 5vw, 64px); line-height: 1.04; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance;">Charlas de tecnología, IA y liderazgo, preparadas para tu audiencia.</h1>
+        <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: #c9c8ce; max-width: 54ch;">Hablo de lo que hago todos los días: arquitectura en la nube, seguridad, migración, adopción de IA con Claude y cómo liderar equipos de tecnología. Preparo cada charla según el evento y quién lo escucha, a partir de proyectos reales, para que tu audiencia salga con pasos que pueda aplicar.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+          <a href="#invitar" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Invitarme a hablar</a>
+          <a href="#bio" style="border: 1px solid #3a3941; color: #ffffff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Copiar mi bio</a>
+        </div>
+      </div>
+      <div role="img" aria-label="Espacio para foto de Luis en escenario" style="aspect-ratio: 4 / 5; max-height: 600px; width: 100%; border-radius: 24px; border: 1px dashed #33b9ff; background: repeating-linear-gradient(135deg, #0b1630 0 14px, #0e1c3d 14px 28px); display: flex; align-items: flex-end; padding: 20px; box-sizing: border-box;">
+        <span style="font-size: 12px; color: #33b9ff; background: #090812; padding: 8px 10px; border-radius: 8px;">FOTO · Luis en escenario · 02_Escenario-y-charlas</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="ev-t" style="padding: clamp(56px, 8vw, 96px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 24px;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">EN ESCENARIO</span>
+          <h2 id="ev-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700; text-wrap: balance;">Algunos de los eventos en los que he hablado</h2>
+        </div>
+        <a href="Eventos.dc.html" style="color: #33b9ff; font-weight: 700;">Ver todos los eventos →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px;">
+        <sc-for list="{{eventos}}" as="e" hint-placeholder-count="6">
+          <article style="display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: #001531; border: 1px solid #24232c; min-width: 0;">
+            <div style="position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #001531;">
+              <img src="{{e.foto}}" alt="" aria-hidden="true" style="position: absolute; inset: -24px; width: calc(100% + 48px); height: calc(100% + 48px); object-fit: cover; filter: blur(22px) brightness(0.45); transform: scale(1.05);">
+              <img src="{{e.foto}}" alt="{{e.alt}}" style="position: relative; display: block; width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px;">
+              <span style="font-size: 12px; color: #80aae0;">{{e.when}}</span>
+              <span style="font-weight: 700; font-size: 19px; line-height: 1.25;">{{e.title}}</span>
+              <sc-if value="{{e.desc}}" hint-placeholder-val="{{ true }}">
+                <span style="font-size: 14px; color: #a9a8ae;">{{e.desc}}</span>
+              </sc-if>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="charlas-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #001531;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">TEMÁTICAS</span>
+        <h2 id="charlas-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700; text-wrap: balance;">Preparo cada charla para tu evento.</h2>
+        <p style="margin: 0; color: #c9c8ce; max-width: 64ch;">No llevo una charla de catálogo. Con lo que me cuentes del evento y de tu audiencia elijo el tema y el enfoque. Estas son algunas de las temáticas sobre las que hablo:</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div class="tm-fila">
+          <div class="tm-pista">
+            <ul class="tm-grupo" aria-label="Temáticas de charlas">
+              <sc-for list="{{temasA}}" as="t" hint-placeholder-count="6">
+                <li style="flex: none; font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; padding: 14px 22px; border-radius: 999px; border: 1px solid #00a7ff; background: #090812; color: #ffffff; white-space: nowrap;">{{t}}</li>
+              </sc-for>
+            </ul>
+            <ul class="tm-grupo tm-copia" aria-hidden="true">
+              <sc-for list="{{temasA}}" as="t" hint-placeholder-count="6">
+                <li style="flex: none; font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; padding: 14px 22px; border-radius: 999px; border: 1px solid #00a7ff; background: #090812; color: #ffffff; white-space: nowrap;">{{t}}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+        <div class="tm-fila">
+          <div class="tm-pista tm-der">
+            <ul class="tm-grupo" aria-label="Más temáticas de charlas">
+              <sc-for list="{{temasB}}" as="t" hint-placeholder-count="6">
+                <li style="flex: none; font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; padding: 14px 22px; border-radius: 999px; border: 1px solid #3a3941; background: #0055c2; color: #ffffff; white-space: nowrap;">{{t}}</li>
+              </sc-for>
+            </ul>
+            <ul class="tm-grupo tm-copia" aria-hidden="true">
+              <sc-for list="{{temasB}}" as="t" hint-placeholder-count="6">
+                <li style="flex: none; font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; padding: 14px 22px; border-radius: 999px; border: 1px solid #3a3941; background: #0055c2; color: #ffffff; white-space: nowrap;">{{t}}</li>
+              </sc-for>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
+        <sc-for list="{{pasos}}" as="p" hint-placeholder-count="3">
+          <li style="display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 14px; padding: 22px; border-radius: 20px; background: #090812; border: 1px solid #24232c;">
+            <span style="width: 40px; height: 40px; border-radius: 12px; border: 1px solid #00a7ff; display: grid; place-items: center; font-size: 14px; font-weight: 700; color: #33b9ff;">{{p.n}}</span>
+            <span style="display: flex; flex-direction: column; gap: 4px; min-width: 0;"><b style="font-size: 17px;">{{p.title}}</b><span style="font-size: 14px; color: #c9c8ce;">{{p.desc}}</span></span>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="bio-t" id="bio" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">BIO PARA ORGANIZADORES</span>
+        <h2 id="bio-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Mi bio, en tres largos</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px;">
+        <sc-for list="{{bios}}" as="b" hint-placeholder-count="3">
+          <article style="display: flex; flex-direction: column; gap: 14px; padding: 24px; border-radius: 24px; background: #001531; border: 1px solid #24232c; min-width: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+              <span style="font-size: 12px; font-weight: 700; color: #80aae0;">{{b.label}}</span>
+              <button type="button" style="font: inherit; font-size: 13px; font-weight: 700; background: transparent; color: #33b9ff; border: 1px solid #00a7ff; border-radius: 999px; padding: 8px 14px; cursor: pointer;">Copiar</button>
+            </div>
+            <p style="margin: 0; font-size: 15px; color: #c9c8ce;">{{b.text}}</p>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="fmt-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">FORMATOS</span>
+        <h2 id="fmt-t" style="margin: 0; font-size: clamp(26px, 3vw, 36px); line-height: 1.15; font-weight: 700;">Cómo puedo participar</h2>
+        <sc-for list="{{formatos}}" as="f" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #24232c; padding-top: 12px;">
+            <b style="font-size: 18px;">{{f.name}}</b>
+            <span style="font-size: 15px; color: #c9c8ce;">{{f.desc}}</span>
+          </div>
+        </sc-for>
+        <p style="margin: 0; font-size: 15px; color: #a9a8ae;">Los honorarios dependen del formato, la fecha y la ciudad. Te los comparto cuando me cuentes del evento.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">LO QUE NECESITO</span>
+        <h2 style="margin: 0; font-size: clamp(26px, 3vw, 36px); line-height: 1.15; font-weight: 700;">Rider técnico</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px;">
+          <sc-for list="{{rider}}" as="r" hint-placeholder-count="4">
+            <li style="font-size: 16px; border-top: 1px solid #24232c; padding-top: 10px;">{{r}}</li>
+          </sc-for>
+        </ul>
+        <a href="#invitar" style="align-self: flex-start; border: 1px solid #00a7ff; color: #33b9ff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 999px;">Descargar one-sheet (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="org-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #ffffff; color: #090812;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">ORGANIZADORES</span>
+        <h2 id="org-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Lo que dicen quienes me han invitado</h2>
+        <p style="margin: 0; font-size: 15px; color: #3a3941; max-width: 64ch;">Recomendaciones publicadas en LinkedIn, con enlace a la fuente.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
+        <sc-for list="{{testimonios}}" as="t" hint-placeholder-count="2">
+          <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px; padding: 24px; border-radius: 24px; border: 1px dashed #0055c2;">
+            <span style="align-self: flex-start; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2; border: 1px solid #0055c2; border-radius: 999px; padding: 4px 10px;">EJEMPLO</span>
+            <blockquote style="margin: 0; font-size: 17px; line-height: 1.5; color: #090812;">“{{t.texto}}”</blockquote>
+            <figcaption style="font-size: 14px;"><b>{{t.nombre}}</b> · <span style="color: #3a3941;">{{t.evento}}</span></figcaption>
+          </figure>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="inv-t" id="invitar" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">INVITACIÓN</span>
+        <h2 id="inv-t" style="margin: 0; font-size: clamp(30px, 4vw, 50px); line-height: 1.08; font-weight: 700; text-wrap: balance;">Cuéntame de tu evento.</h2>
+        <p style="margin: 0; color: #c9c8ce;">Con la fecha, la ciudad y el público te digo si puedo ir y qué tema le sirve más a tu audiencia.</p>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #001531; border: 1px solid #24232c;">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Nombre del evento
+          <input type="text" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+        </label>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 14px;">
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Fecha
+            <input type="date" style="font: inherit; font-size: 16px; font-weight: 400; padding: 12px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Ciudad o en línea
+            <input type="text" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+          </label>
+        </div>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Audiencia
+          <input type="text" placeholder="Quiénes asisten y cuántas personas" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Presupuesto para la charla
+          <select style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+            <option>Tenemos presupuesto</option>
+            <option>Cubrimos viaje y alojamiento</option>
+            <option>Evento de comunidad sin presupuesto</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Correo
+          <input type="email" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+        </label>
+        <button type="button" style="font: inherit; font-weight: 700; background: #0055c2; color: #ffffff; border: 0; border-radius: 999px; padding: 16px 24px; cursor: pointer;">Enviar invitación</button>
+      </form>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a>
+        <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a>
+        <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      eventos: [
+        { title: 'DevFest Ecuador 2025', desc: 'Infraestructura estable con Terraform, GCP, Cloud Run y Cloudflare asistida por IA. Más de 700 asistentes.', when: '29 nov 2025 · Quito, Ecuador', foto: '/_blob/78dd3f62adcfc55bdc38a753a8534712', alt: 'Luis Reyes con el equipo de DevFest Ecuador 2025 en la Universidad San Francisco de Quito', pos: 'center 60%' },
+        { title: 'Cursor meetup Quito', desc: 'Infraestructura en la nube: IA + Terraform + AWS.', when: '28 nov 2025 · Quito, Ecuador', foto: '/_blob/6834ceda4b422a24fc9e5a45a1771bbe', alt: 'Asistentes al Cursor meetup en Quito', pos: 'center 45%' },
+        { title: 'SENA: I Encuentro de Tecnología e Innovación', desc: 'Conferencista en el evento nacional del Centro Industrial y de Aviación.', when: '11 y 12 nov 2025 · Barranquilla', foto: '/_blob/a986ff5b6a84ace6b9d5a1f80b154505', alt: 'Auditorio lleno en el Encuentro de Tecnología e Innovación del SENA, visto desde el escenario', pos: 'center 50%' },
+        { title: 'TechCaribe Fest 2025', desc: 'Sácale provecho a la nube en la era de la IA.', when: '20 sep 2025 · Barranquilla', foto: '/_blob/3154fa77821f76effaa674dfbcffbedf', alt: 'Luis Reyes conversando con asistentes en TechCaribe Fest 2025', pos: 'center 40%' },
+        { title: 'Cámara de Comercio de Barranquilla', desc: 'IA en movimiento: revolucionando tu día con Microsoft 365 y Copilot.', when: '19 jun 2025 · Barranquilla', foto: '/_blob/827435755c921f87ba912026d976515c', alt: 'Luis Reyes hablando ante el público en la Cámara de Comercio de Barranquilla', pos: 'center' },
+        { title: 'TechCaribe Expo 2024 · Google I/O Extended', desc: 'Charla: Crea aplicaciones con Vertex AI y Cloud Run. Panel: retos y oportunidades al crecer en una empresa de base tecnológica.', when: '27 jul 2024 · Barranquilla', foto: '/_blob/1773f5d452947a1e674fdbf8158d0cf7', alt: 'Luis Reyes junto a la pantalla de su charla Crea aplicaciones con Vertex AI y Cloud Run en TechCaribe Expo 2024', pos: 'center 40%' }
+      ],
+      temasA: ['Adopción de IA con Claude', 'Seguridad y cumplimiento en la nube', 'Migración a la nube', 'Modernización de aplicaciones', 'Arquitectura en AWS', 'Optimización de costos cloud', 'Agentes de IA'],
+      temasB: ['Liderazgo de equipos de tecnología', 'Escalar la infraestructura', 'Infraestructura como código', 'Desarrollo de software con IA', 'Producto y emprendimiento', 'Google Cloud y multinube', 'Comunidad tecnológica'],
+      pasos: [
+        { n: '01', title: 'Me cuentas del evento', desc: 'Quiénes asisten, qué esperan llevarse y cuánto tiempo tenemos.' },
+        { n: '02', title: 'Te propongo el tema', desc: 'Un título y un enfoque pensados para esa audiencia, que ajustamos juntos.' },
+        { n: '03', title: 'La preparo con casos reales', desc: 'Proyectos en los que he trabajado y pasos concretos para aplicar al salir.' }
+      ],
+      bios: [
+        { label: 'CORTA · 50 PALABRAS', text: 'Luis Reyes Vanegas es arquitecto de soluciones cloud e IA con 13 años de experiencia. Es CEO de Trama AI, ganadora de la categoría Small Business Services del Build with Gemini XPRIZE 2026, y cofundador y CTO de EvolutecC. Ayuda a empresas de Estados Unidos y Latinoamérica a crecer en la nube y a adoptar la IA.' },
+        { label: 'MEDIA · 100 PALABRAS', text: 'Luis Reyes Vanegas es arquitecto de soluciones cloud e IA con 13 años de experiencia. Es CEO de Trama AI, ganadora de la categoría Small Business Services del Build with Gemini XPRIZE 2026, y cofundador y CTO de EvolutecC, donde con su equipo ha entregado más de 400 proyectos de software. Como consultor diseña arquitecturas en AWS, Google Cloud y Azure para optimizar costos, escalar, migrar y cumplir con seguridad, y acompaña a equipos que quieren trabajar con IA. Ha dado charlas en GDG Summit Latam (Lima), DevFest Ecuador (Quito) y la comunidad de Google Developer Groups.' },
+        { label: 'LARGA · 200 PALABRAS', text: 'Luis Reyes Vanegas es arquitecto de soluciones cloud e IA con 13 años de experiencia. Empezó a los 16 con su primer negocio de tecnología y desde entonces ha llevado sistemas a producción para clínicas, startups y grandes organizaciones. Fue Head of Product de Mandaos, una startup de última milla, donde la integración con iFood llevó la operación de unos 2.400 a unos 70.000 pedidos al mes. Es cofundador y CTO de EvolutecC, donde con su equipo ha entregado más de 400 proyectos de software. Como CEO de Trama AI construyó con su equipo, en 90 días, agentes de IA que operan el inventario de distribuidores textiles, y ganaron la categoría Small Business Services del Build with Gemini XPRIZE 2026, entre 26.449 equipos. Como consultor diseña arquitecturas en AWS, Google Cloud y Azure para empresas de Estados Unidos y Latinoamérica, y acompaña a equipos que quieren adoptar la IA con Claude. Tiene certificaciones internacionales en liderazgo transformacional y en comunicación y oratoria. Ha dado charlas en GDG Summit Latam (Lima), DevFest Ecuador (Quito), TechCaribe y la comunidad de Google Developer Groups.' }
+      ],
+      formatos: [
+        { name: 'Keynote', desc: 'La charla principal del evento, de 30 a 45 minutos, para todo el público.' },
+        { name: 'Conferencia', desc: 'Una charla de 30 a 60 minutos dentro de la agenda, sobre un tema técnico o de negocio.' },
+        { name: 'Workshop', desc: 'Sesión práctica de 2 a 4 horas en la que los asistentes construyen algo.' },
+        { name: 'Panel', desc: 'Conversación con otros invitados sobre nube, IA o emprendimiento.' }
+      ],
+      rider: ['Proyector o pantalla con entrada HDMI', 'Micrófono inalámbrico o de solapa', 'Conexión a internet estable para demos', 'Agua en el escenario'],
+      testimonios: [
+        { texto: 'Luis preparó la charla pensando en nuestra comunidad. La gente salió con ideas claras para aplicar en sus proyectos.', nombre: '[Nombre del organizador]', evento: '[Comunidad o evento]' },
+        { texto: 'Explicó temas complejos de nube con ejemplos reales, y al final el público no paró de hacer preguntas.', nombre: '[Nombre del organizador]', evento: '[Comunidad o evento]' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

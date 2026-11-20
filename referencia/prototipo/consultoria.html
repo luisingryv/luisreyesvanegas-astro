@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Consultoría · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+</style>
+</helmet>
+<div style="background: #ffffff; color: #090812; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #e5eef9; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/67b71cd0b804f1cde1b218d0b1e2bf80" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 700;">
+        <a href="Consultoria.dc.html" aria-current="page" style="color: #0055c2; text-decoration: none; padding: 10px 0; border-bottom: 2px solid #0055c2;">Consultoría</a>
+        <a href="Productos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Productos</a>
+        <a href="Casos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Casos</a>
+        
+        <a href="Eventos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Eventos</a>
+        <a href="SobreMi.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Sobre mí</a>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span style="font-size: 12px; color: #3a3941;"><b>ES</b> · EN · PT</span>
+        <a href="#agenda" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Agendar sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="c-t" style="padding: clamp(48px, 7vw, 96px) max(16px, 5vw) clamp(40px, 5vw, 64px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">ARQUITECTURA CLOUD E IA</span>
+      <h1 id="c-t" style="margin: 0; font-size: clamp(38px, 5.4vw, 72px); line-height: 1.02; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; max-width: 16ch;">¿Qué necesitas resolver en tu nube?</h1>
+      <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: #3a3941; max-width: 68ch;">Puede ser una factura que crece más rápido que tu negocio, una infraestructura que tiene que aguantar el doble de usuarios, una migración, una certificación de seguridad o un equipo que quiere trabajar con IA. Reviso tu caso, encuentro dónde está el problema y diseño la solución contigo.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+        <a href="#agenda" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Agendar sesión de arquitectura · US$450</a>
+        <a href="#agenda" style="border: 1px solid #0055c2; color: #0055c2; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Llamada de 20 min gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="puertas-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">ELIGE TU MISIÓN</span>
+        <h2 id="puertas-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Siete formas de empezar</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px;">
+        <sc-for list="{{puertas}}" as="p" hint-placeholder-count="7">
+          <a href="{{p.href}}" style="display: flex; flex-direction: column; gap: 12px; min-height: 250px; box-sizing: border-box; padding: 26px; border-radius: 24px; background: #e5eef9; color: #090812; text-decoration: none; min-width: 0;">
+            <span style="display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #004092;"><span>{{p.tag}}</span><span>{{p.n}} / 07</span></span>
+            <span style="font-size: 22px; line-height: 1.22; font-weight: 700; text-wrap: balance;">{{p.dolor}}</span>
+            <span style="font-size: 15px; color: #3a3941; flex-grow: 1;">{{p.oferta}}</span>
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 700; color: #ffffff; background: #0055c2; padding: 7px 10px; border-radius: 10px;">{{p.prueba}}</span>
+            <span style="font-weight: 700; color: #0055c2;">Hablemos de tu caso →</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="casos-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #090812; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">CASOS</span>
+        <h2 id="casos-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700; text-wrap: balance;">Dos casos recientes</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 16px;">
+        <sc-for list="{{casos}}" as="c" hint-placeholder-count="2">
+          <article style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 24px; background: #001531; border: 1px solid #24232c; min-width: 0;">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">{{c.tag}}</span>
+            <h3 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 700;">{{c.title}}</h3>
+            <span style="font-size: clamp(32px, 3.4vw, 44px); line-height: 1; font-weight: 700;">{{c.metric}}</span>
+            <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px;">
+              <sc-for list="{{c.pasos}}" as="s" hint-placeholder-count="4">
+                <li style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; font-size: 14px; border-top: 1px solid #24232c; padding-top: 10px;">
+                  <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #80aae0;">{{s.k}}</span>
+                  <span style="color: #c9c8ce;">{{s.v}}</span>
+                </li>
+              </sc-for>
+            </ol>
+            <span style="font-size: 12px; color: #848388;">{{c.who}}</span>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="como-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">CÓMO TRABAJO</span>
+        <h2 id="como-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Cuatro pasos</h2>
+      </div>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px;">
+        <sc-for list="{{pasos}}" as="s" hint-placeholder-count="4">
+          <li style="display: flex; flex-direction: column; gap: 10px; border-top: 3px solid #0055c2; padding-top: 16px;">
+            <span style="font-size: 13px; font-weight: 700; color: #0055c2;">{{s.n}}</span>
+            <span style="font-size: 20px; font-weight: 700;">{{s.title}}</span>
+            <span style="font-size: 15px; color: #3a3941;">{{s.desc}}</span>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="precios-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">FORMAS DE TRABAJAR</span>
+        <h2 id="precios-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Cómo podemos trabajar juntos</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 0 40px;">
+        <sc-for list="{{precios}}" as="o" hint-placeholder-count="9">
+          <div style="display: flex; flex-direction: column; gap: 4px; padding: 16px 0; border-bottom: 1px solid #e5eef9;">
+            <span style="font-size: 17px; font-weight: 700;">{{o.name}}</span>
+            <span style="font-size: 15px; color: #3a3941;">{{o.desc}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin: 0; font-size: 15px; color: #3a3941;">Todo empieza con la sesión de arquitectura: 90 minutos y un memo con recomendaciones en 48 horas, por US$450. Después definimos juntos la forma de trabajo que le sirve a tu caso. <a href="SesionArquitectura.dc.html" style="color: #0055c2; font-weight: 700;">Cómo funciona la sesión</a> · <a href="Retainers.dc.html" style="color: #0055c2; font-weight: 700;">Acompañamiento mensual</a></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="cred-t" style="padding: clamp(48px, 6vw, 80px) max(16px, 5vw); background: #e5eef9;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #004092;">CREDENCIALES</span>
+        <h2 id="cred-t" style="margin: 0; font-size: clamp(26px, 3vw, 36px); line-height: 1.15; font-weight: 700;">Con qué respaldo llego</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <sc-for list="{{credenciales}}" as="k" hint-placeholder-count="8">
+            <span style="font-size: 14px; font-weight: 700; background: #ffffff; border: 1px solid #80aae0; border-radius: 999px; padding: 9px 14px;">{{k}}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #004092;">CON FRANQUEZA</span>
+        <h2 style="margin: 0; font-size: clamp(26px, 3vw, 36px); line-height: 1.15; font-weight: 700;">No soy para ti si…</h2>
+        <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 17px;">
+          <li style="border-top: 1px solid #80aae0; padding-top: 10px;">Buscas el precio más bajo por hora.</li>
+          <li style="border-top: 1px solid #80aae0; padding-top: 10px;">Quieres a alguien que solo cierre tickets.</li>
+          <li style="border-top: 1px solid #80aae0; padding-top: 10px;">No puedes darme acceso de lectura a tu cuenta o a tu facturación.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">PREGUNTAS FRECUENTES</span>
+        <h2 id="faq-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Antes de agendar</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 8px 40px;">
+        <sc-for list="{{faq}}" as="f" hint-placeholder-count="6">
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-bottom: 1px solid #e5eef9;">
+            <span style="font-size: 17px; font-weight: 700;">{{f.q}}</span>
+            <span style="font-size: 15px; color: #3a3941;">{{f.a}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="mapcta-t" style="padding: clamp(40px, 5vw, 64px) max(16px, 5vw); background: #0055c2; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 32px;">
+      <div style="display: flex; flex-direction: column; gap: 6px; max-width: 70ch;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #e5eef9;">PROGRAMA MAP DE AWS · CON NEXA CONNECT</span>
+        <h2 id="mapcta-t" style="margin: 0; font-size: clamp(24px, 2.8vw, 34px); line-height: 1.15; font-weight: 700; text-wrap: balance;">Si tu consumo crece, AWS puede invertir en tu migración.</h2>
+        <p style="margin: 0; font-size: 14px; color: #e5eef9;">Sujeto a la evaluación y aprobación previa de AWS, según los requisitos de cada programa.</p>
+      </div>
+      <a href="ProgramasAWS.dc.html" style="background: #ffffff; color: #0055c2; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Conoce el programa →</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="agenda-t" id="agenda" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #090812; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">AGENDA</span>
+        <h2 id="agenda-t" style="margin: 0; font-size: clamp(30px, 4vw, 50px); line-height: 1.08; font-weight: 700; text-wrap: balance;">Empecemos por tu caso.</h2>
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="padding: 18px; border-radius: 18px; border: 1px solid #00a7ff; background: #001531;">
+            <b style="font-size: 18px;">Sesión de arquitectura · US$450</b>
+            <p style="margin: 6px 0 0; font-size: 14px; color: #c9c8ce;">90 minutos y un memo con recomendaciones en 48 horas. Si después seguimos trabajando juntos, te descuento los US$450 del siguiente servicio.</p>
+          </div>
+          <div style="padding: 18px; border-radius: 18px; border: 1px solid #24232c; background: #001531;">
+            <b style="font-size: 18px;">Llamada de 20 minutos · Gratis</b>
+            <p style="margin: 6px 0 0; font-size: 14px; color: #c9c8ce;">Para saber si puedo ayudarte y por dónde conviene empezar.</p>
+          </div>
+        </div>
+      </div>
+      <form style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 24px; background: #001531; border: 1px solid #24232c;">
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">¿Qué quieres resolver?
+          <select style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+            <option>Optimizar costos</option>
+            <option>Crecer la infraestructura</option>
+            <option>Programas y créditos</option>
+            <option>Migrar</option>
+            <option>Buenas prácticas</option>
+            <option>Seguridad y cumplimiento</option>
+            <option>Adopción de IA en la empresa</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Nube o nubes que usas
+          <input type="text" placeholder="AWS, Google Cloud, Azure…" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Gasto mensual aproximado en la nube
+          <input type="text" placeholder="US$" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 700;">Correo
+          <input type="email" style="font: inherit; font-size: 16px; font-weight: 400; padding: 13px 14px; border-radius: 12px; border: 1px solid #3a3941; background: #090812; color: #ffffff;">
+        </label>
+        <button type="button" style="font: inherit; font-weight: 700; background: #0055c2; color: #ffffff; border: 0; border-radius: 999px; padding: 16px 24px; cursor: pointer;">Elegir fecha y hora</button>
+      </form>
+    </div>
+  </section>
+
+  <footer style="background: #090812; border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a> <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a> <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":7600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      puertas: [
+        { n: '01', tag: 'OPTIMIZAR COSTOS', dolor: '¿Quieres optimizar tus costos y no sabes cómo?', oferta: 'Auditoría de costos cloud.', prueba: '−60% en Google Cloud', href: 'OptimizarCostos.dc.html' },
+        { n: '02', tag: 'CRECER', dolor: '¿Vas a multiplicar usuarios y no sabes si tu infraestructura aguanta?', oferta: 'Revisión de escalabilidad y proyección de capacidad.', prueba: '≈2.400 → ≈70.000 pedidos al mes', href: 'EscalarInfraestructura.dc.html' },
+        { n: '03', tag: 'PROGRAMAS DE AWS', dolor: '¿Tu consumo en la nube crece y no sabes que AWS puede invertir en tu migración?', oferta: 'Evaluación para el programa MAP, con Nexa Connect. Sujeta a la aprobación previa de AWS.', prueba: 'US$62.000 en créditos AWS (MAP)', href: 'ProgramasAWS.dc.html' },
+        { n: '04', tag: 'MIGRAR', dolor: '¿Quieres llevar tus sistemas a la nube o cambiar de nube?', oferta: 'Plan de migración con el programa MAP y Nexa Connect.', prueba: 'Trama: Google Cloud → AWS', href: 'ProgramasAWS.dc.html' },
+        { n: '05', tag: 'BUENAS PRÁCTICAS', dolor: '¿Funciona, pero no sabes si está bien hecho?', oferta: 'Revisión de arquitectura con los pilares de Well-Architected.', prueba: '13 años de sistemas en producción', href: '#agenda' },
+        { n: '06', tag: 'SEGURIDAD Y CUMPLIMIENTO', dolor: '¿Quieres certificarte en ISO 27001 o SOC 2 y no sabes por dónde empezar?', oferta: 'Acompañamiento técnico en la nube hacia la certificación.', prueba: 'ISO 27001 y SOC 2 de un cliente', href: '#agenda' },
+        { n: '07', tag: 'ADOPCIÓN DE IA', dolor: '¿Quieres que tu equipo trabaje con IA de verdad y no sabes por dónde empezar?', oferta: 'Programa de adopción de IA con Claude.', prueba: 'AI Fluency · Trama AI · XPRIZE 2026', href: 'AdopcionIA.dc.html' }
+      ],
+      casos: [
+        { tag: 'REDUCIR', title: 'Una red nacional de peajes baja su factura de Google Cloud', metric: '−60%', who: 'UTPN / KMA · 2025', pasos: [
+          { k: 'CONTEXTO', v: 'La factura crecía y no estaba identificado de dónde venía el sobrecosto, aunque el uso de la plataforma estaba justificado.' },
+          { k: 'HALLAZGO', v: 'La videovigilancia 24/7 (≈15 TB diarios) salía a internet como transmisión en vivo.' },
+          { k: 'DECISIÓN', v: 'Acceso remoto a las cámaras, sin tráfico de salida.' },
+          { k: 'RESULTADO', v: 'La factura bajó de US$10.000 a unos US$4.000 al mes, y el cliente firmó un contrato de soporte de largo plazo.' }
+        ]},
+        { tag: 'ESCALAR', title: 'Una startup de SAP escala de forma segura en AWS', metric: 'US$62.000', who: 'Glasslake · 2025–hoy · Cloud Expert y administrador de la cuenta', pasos: [
+          { k: 'CONTEXTO', v: 'Startup de SAP de San Francisco con presencia global, en pleno crecimiento y con experiencia en AWS: una cuenta robusta que tiene que escalar sin perder seguridad.' },
+          { k: 'HALLAZGO', v: 'Había que robustecer la cuenta con buenas prácticas: redes seguras hacia los entornos de sus clientes, orden en los accesos y control de costos.' },
+          { k: 'DECISIÓN', v: 'Organizations e IAM Identity Center para centralizar cuentas, beneficios y pagos; entornos multitenant; Transit Gateway, VPN y endpoints; seguridad con Amazon Inspector y monitoreo; revisión y proyección de costos.' },
+          { k: 'RESULTADO', v: 'La cuenta crece con orden: créditos del programa MAP, tráfico por NAT Gateway 75–80% menor e ISO 27001 y SOC 2 logradas por el cliente, con mi contribución técnica.' }
+        ]}
+      ],
+      pasos: [
+        { n: '01', title: 'Diagnóstico', desc: 'Reviso tu cuenta y tu facturación con acceso de solo lectura y encuentro dónde está el problema o la oportunidad.' },
+        { n: '02', title: 'Plan', desc: 'Te entrego la arquitectura propuesta, la proyección de capacidad y costos, y el orden en que conviene hacer cada cosa.' },
+        { n: '03', title: 'Implementación', desc: 'Ejecuto con tu equipo o lo acompaño mientras ejecuta.' },
+        { n: '04', title: 'Operación', desc: 'Si lo necesitas, te acompaño cada mes para sostener y mejorar lo que construimos.' }
+      ],
+      precios: [
+        { name: 'Auditoría de costos cloud', desc: 'Dónde se va el gasto y qué hacer para reducirlo.' },
+        { name: 'Revisión de escalabilidad y capacidad', desc: 'Si tu infraestructura soporta el crecimiento que esperas.' },
+        { name: 'Revisión de arquitectura', desc: 'Un informe priorizado con los pilares de Well-Architected.' },
+        { name: 'Evaluación de programas y créditos', desc: 'Qué programas de la nube te corresponden, incluido MAP.' },
+        { name: 'Acompañamiento técnico ISO 27001 y SOC 2', desc: 'Los controles técnicos en la nube que pide la certificación.' },
+        { name: 'Workshop de adopción de IA', desc: 'Tu equipo aprende a trabajar con Claude en su día a día.' },
+        { name: 'Programa de adopción de IA con Claude', desc: 'Adopción por equipos, con acompañamiento.' },
+        { name: 'Agentes para trabajos específicos', desc: 'Agentes a la medida cuando un proceso lo justifica.' },
+        { name: 'Acompañamiento mensual', desc: 'Un arquitecto de cabecera para tu equipo, con dedicación acordada.' }
+      ],
+      credenciales: ['Ganador de categoría · XPRIZE 2026', 'Alianza con Nexa Connect · AWS MAP', 'CTO de EvolutecC · 400+ proyectos', '13 años de experiencia', 'Google Developer Groups', 'AI Fluency · Anthropic', 'Certificaciones cloud en curso', 'Speaker en Colombia, Ecuador y Perú'],
+      faq: [
+        { q: '¿Con qué nubes trabajas?', a: 'AWS, Google Cloud y Azure.' },
+        { q: '¿En qué idiomas?', a: 'Español e inglés.' },
+        { q: '¿Qué es el programa MAP y mi empresa califica?', a: 'Es el programa con el que AWS puede invertir en migraciones, previa evaluación y aprobación de tu caso: de on-premise, de otra nube o de cargas nuevas si ya estás en AWS. Lo evaluamos con Nexa Connect, partner de AWS. Todo el detalle está en la página del programa MAP.' },
+        { q: '¿Cuál es la diferencia con EvolutecC?', a: 'Yo diseño la arquitectura y acompaño a tu equipo. El desarrollo de software a la medida lo hace EvolutecC.' },
+        { q: '¿Cómo se factura?', a: 'Resido en Colombia y emito factura colombiana en la moneda de tu empresa. El pago se hace por transferencia bancaria en esa misma moneda.' },
+        { q: '¿Firmas contrato y acuerdo de confidencialidad?', a: 'Sí. El acuerdo de confidencialidad protege la información confidencial de tu empresa y no limita mi trabajo con otros clientes. Si necesitas exclusividad, la acordamos entre las partes en el contrato.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

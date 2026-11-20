@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Sesión de arquitectura · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+</style>
+</helmet>
+<div style="background: #ffffff; color: #090812; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #e5eef9; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/67b71cd0b804f1cde1b218d0b1e2bf80" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 700;">
+        <a href="Consultoria.dc.html" aria-current="page" style="color: #0055c2; text-decoration: none; padding: 10px 0; border-bottom: 2px solid #0055c2;">Consultoría</a>
+        <a href="Productos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Productos</a>
+        <a href="Casos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Casos</a>
+        <a href="Eventos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Eventos</a>
+        <a href="SobreMi.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Sobre mí</a>
+      </nav>
+      <a href="Consultoria.dc.html#agenda" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Agendar sesión</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="sp-t" style="padding: clamp(48px, 7vw, 96px) max(16px, 5vw) clamp(40px, 5vw, 64px);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
+      <a href="Consultoria.dc.html" style="color: #0055c2; font-weight: 700; font-size: 14px;">← Consultoría</a>
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">LA PUERTA DE ENTRADA</span>
+      <h1 id="sp-t" style="margin: 0; font-size: clamp(36px, 5vw, 64px); line-height: 1.04; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; max-width: 20ch;">90 minutos para saber qué hacer con tu nube.</h1>
+      <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); line-height: 1.55; color: #3a3941; max-width: 64ch;">Revisamos juntos tu caso, sea cual sea la puerta por la que llegas: costos, crecimiento, programas de AWS, migración, buenas prácticas, seguridad o adopción de IA. En 48 horas recibes un memo con mis recomendaciones.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 6px;">
+        <a href="Consultoria.dc.html#agenda" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Agendar sesión de arquitectura · US$450</a>
+        <a href="Consultoria.dc.html#agenda" style="border: 1px solid #0055c2; color: #0055c2; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Llamada de 20 min gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="sen-t" style="padding: clamp(48px, 6vw, 80px) max(16px, 5vw); background: #e5eef9;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+      <h2 id="sen-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">Para quién es</h2>
+      <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px;">
+        <sc-for list="{{senales}}" as="x" hint-placeholder-count="5">
+          <li style="padding: 20px; border-radius: 20px; background: #ffffff; font-size: 16px; font-weight: 700;">{{x}}</li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="hago-t" style="padding: clamp(48px, 6vw, 80px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">QUÉ RECIBES</span>
+        <h2 id="hago-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">Sesión de arquitectura · US$450</h2>
+        <sc-for list="{{entregables}}" as="e" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 4px; border-top: 1px solid #e5eef9; padding-top: 12px;">
+            <b style="font-size: 17px;">{{e.t}}</b>
+            <span style="font-size: 15px; color: #3a3941;">{{e.d}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">CÓMO LO HAGO</span>
+        <h2 style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">Proceso</h2>
+        <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+          <sc-for list="{{proceso}}" as="p" hint-placeholder-count="4">
+            <li style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; border-top: 3px solid #0055c2; padding-top: 12px;">
+              <span style="font-weight: 700; color: #0055c2;">{{p.n}}</span>
+              <span style="display: flex; flex-direction: column; gap: 2px;"><b>{{p.t}}</b><span style="font-size: 15px; color: #3a3941;">{{p.d}}</span></span>
+            </li>
+          </sc-for>
+        </ol>
+        <span style="font-size: 14px; color: #3a3941;">El memo llega en las 48 horas siguientes a la sesión.</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="caso-t" style="padding: clamp(56px, 8vw, 96px) max(16px, 5vw); background: #090812; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 14px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">CASO · UTPN / KMA · 2025</span>
+        <h2 id="caso-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">Una red nacional de peajes baja su factura de Google Cloud</h2>
+        <p style="margin: 0; color: #c9c8ce;">Empezó con una revisión de la infraestructura. El hallazgo, la videovigilancia saliendo a internet, cambió la factura y terminó en un contrato de soporte de largo plazo.</p>
+        <a href="CasoUTPN.dc.html" style="align-self: flex-start; color: #33b9ff; font-weight: 700;">Ver el caso completo →</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 24px; background: #001531; border: 1px solid #24232c;">
+        <span style="font-size: clamp(44px, 5.4vw, 72px); font-weight: 700; line-height: 1;">−60%</span>
+        <span style="font-size: 15px; color: #c9c8ce;">De US$10.000 a US$4.000 al mes en Google Cloud.</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="emp-t" style="padding: clamp(48px, 6vw, 80px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">CÓMO EMPEZAR</span>
+        <h2 id="emp-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">Cómo prepararte</h2>
+        <p style="margin: 0; color: #3a3941;">Ten a mano tu última factura de nube, un diagrama o una descripción de tu arquitectura y la pregunta que más te importa responder. Si no tienes nada de eso, también sirve: lo armamos en la sesión.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 24px; border-radius: 24px; border: 1px solid #0055c2;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">¿NO ESTÁS SEGURO?</span>
+        <b style="font-size: 20px;">Empieza con una llamada de 20 minutos</b>
+        <p style="margin: 0; color: #3a3941;">Gratis, para saber si puedo ayudarte y si la sesión tiene sentido para tu caso.</p>
+        <a href="Consultoria.dc.html#agenda" style="align-self: flex-start; color: #0055c2; font-weight: 700;">Agendar llamada →</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq-t" style="padding: clamp(56px, 8vw, 96px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
+      <h2 id="faq-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">Preguntas frecuentes</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 8px 40px;">
+        <sc-for list="{{faq}}" as="f" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 14px 0; border-bottom: 1px solid #e5eef9;">
+            <b style="font-size: 17px;">{{f.q}}</b>
+            <span style="font-size: 15px; color: #3a3941;">{{f.a}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="cta-t" style="padding: clamp(48px, 6vw, 80px) max(16px, 5vw); background: #0055c2; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 32px;">
+      <h2 id="cta-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700; max-width: 28ch;">Elige fecha y empecemos por tu caso.</h2>
+      <a href="Consultoria.dc.html#agenda" style="background: #ffffff; color: #0055c2; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Agendar sesión · US$450</a>
+    </div>
+  </section>
+  <footer style="background: #090812; border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a>
+        <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a>
+        <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+  "senales": [
+    "CTOs y founders que necesitan una segunda opinión antes de decidir.",
+    "Gerentes de TI con una factura que no cuadra.",
+    "Equipos a punto de migrar o de crecer.",
+    "Empresas que quieren empezar con IA y no saben por dónde.",
+    "Quien no está listo para un proyecto, pero sí para una conversación seria."
+  ],
+  "entregables": [
+    {
+      "t": "90 minutos conmigo",
+      "d": "Por videollamada, con tu equipo técnico si quieres."
+    },
+    {
+      "t": "Memo en 48 horas",
+      "d": "Hallazgos, recomendaciones priorizadas y siguientes pasos."
+    },
+    {
+      "t": "Sin compromiso",
+      "d": "Con el memo puedes seguir solo, con tu equipo o conmigo."
+    },
+    {
+      "t": "Acreditable",
+      "d": "Si después seguimos trabajando juntos, te descuento los US$450 del siguiente servicio."
+    }
+  ],
+  "proceso": [
+    {
+      "n": "01",
+      "t": "Agenda",
+      "d": "Eliges fecha y hora y respondes unas preguntas sobre tu caso."
+    },
+    {
+      "n": "02",
+      "t": "Preparación",
+      "d": "Reviso lo que me compartes antes de la sesión."
+    },
+    {
+      "n": "03",
+      "t": "Sesión",
+      "d": "90 minutos para entender el problema y discutir opciones."
+    },
+    {
+      "n": "04",
+      "t": "Memo",
+      "d": "En 48 horas, con lo que haría en tu lugar."
+    }
+  ],
+  "faq": [
+    {
+      "q": "¿Qué pasa si después no seguimos trabajando?",
+      "a": "Te quedas con el memo. Es tuyo."
+    },
+    {
+      "q": "¿Puedo invitar a mi equipo?",
+      "a": "Sí, y lo recomiendo."
+    },
+    {
+      "q": "¿Firmas acuerdo de confidencialidad?",
+      "a": "Sí. Protege la información confidencial de tu empresa y no limita mi trabajo con otros clientes. Si necesitas exclusividad, la acordamos entre las partes en el contrato."
+    },
+    {
+      "q": "¿Cómo se paga?",
+      "a": "Por transferencia bancaria, en la moneda de tu empresa. Resido en Colombia y emito factura colombiana."
+    }
+  ]
+};
+  }
+}
+</script>
+</body>
+</html>

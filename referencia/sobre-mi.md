@@ -2,7 +2,7 @@
 
 Todas las rutas de esta nota son relativas a la carpeta `Desarrollo/`.
 
-Exportada del prototipo aprobado el 19 nov 2026 (canvas "Prototipo luisreyesvanegas.com", página `SobreMi`, versión 1795117625-1f2a). Luis aprobó Sobre mí el 13 nov 2026 y la ajustó el 18 nov. **Los textos van tal cual.** El diseño de abajo describe el prototipo; en el código se construye con tokens y componentes, no con estilos sueltos.
+Exportada del prototipo aprobado el 19 nov 2026 (canvas "Prototipo luisreyesvanegas.com", página `SobreMi`, versión 1795117625-1f2a) y actualizada el 20 nov 2026 con el retrato y el cierre nuevo (versión 1795147005-07ae; HTML exacto en `referencia/prototipo/sobre-mi.html`). Luis aprobó Sobre mí el 13 nov 2026 y la ajustó el 18 nov. **Los textos van tal cual.** El diseño de abajo describe el prototipo; en el código se construye con tokens y componentes, no con estilos sueltos.
 
 Ficha: `../Boveda/02_Sitio-web/Requerimientos-por-pagina/09-SOBRE-MI.md` (del 10 nov; donde difiera del prototipo, manda el prototipo; anota la diferencia y pregúntale a Luis). Historia: HU-4b.1.
 

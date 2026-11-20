@@ -73,4 +73,4 @@ Luis pidió un frontend profesional, por componentes y sin código repetido: lo 
 - No se borra nada en la carpeta del proyecto: lo que sobra va a `../_to_delete/`.
 
 ## 9. Referencia
-Ver `referencia/README.md`: prototipo aprobado, tokens, laboratorio de motion y de dónde sale cada imagen.
+Ver `referencia/README.md`: hay una referencia por página (`referencia/<pagina>.md`), el HTML exacto de las 20 páginas del prototipo (`referencia/prototipo/`), `referencia/componentes-globales.md` (rutas, header, footer, componentes comunes), tokens, laboratorio de motion y de dónde sale cada imagen. Lee `componentes-globales.md` antes de construir cualquier página.

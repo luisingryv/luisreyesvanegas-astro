@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Caso Mandaos · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+</style>
+</helmet>
+<div style="background: #ffffff; color: #090812; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #e5eef9; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/67b71cd0b804f1cde1b218d0b1e2bf80" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 700;">
+        <a href="Consultoria.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Consultoría</a>
+        <a href="Productos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Productos</a>
+        <a href="Casos.dc.html" aria-current="page" style="color: #0055c2; text-decoration: none; padding: 10px 0; border-bottom: 2px solid #0055c2;">Casos</a>
+        <a href="Eventos.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Eventos</a>
+        <a href="SobreMi.dc.html" style="color: #090812; text-decoration: none; padding: 10px 0;">Sobre mí</a>
+      </nav>
+      <a href="Consultoria.dc.html#agenda" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Agendar sesión</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="cm-t" style="padding: clamp(40px, 6vw, 88px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 40px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 18px; min-width: 0;">
+        <a href="Casos.dc.html" style="color: #0055c2; font-weight: 700; font-size: 14px;">← Todos los casos</a>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <span style="font-size: 11px; font-weight: 700; color: #ffffff; background: #0055c2; padding: 5px 9px; border-radius: 999px;">STARTUP O PRODUCTO</span>
+          <span style="font-size: 11px; font-weight: 700; color: #004092; border: 1px solid #0055c2; padding: 5px 9px; border-radius: 999px;">Crecimiento</span>
+        </div>
+        <h1 id="cm-t" style="margin: 0; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.06; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance;">Cómo Mandaos pasó de unos 2.400 a unos 70.000 pedidos al mes con iFood</h1>
+        <p style="margin: 0; font-size: 18px; color: #3a3941;">Mandaos era una startup de logística de última milla. Como Head of Product, convertí el producto en una plataforma con una API pública. Esa API fue la base de la integración con iFood y de un salto de casi 30 veces en pedidos.</p>
+      </div>
+      <div role="img" aria-label="Espacio para imagen o mockup de la app de Mandaos" style="aspect-ratio: 4 / 3; border-radius: 24px; border: 1px dashed #0055c2; background: repeating-linear-gradient(135deg, #d6e3f5 0 14px, #e5eef9 14px 28px); display: flex; align-items: flex-end; padding: 16px; box-sizing: border-box;">
+        <span style="font-size: 12px; color: #004092; background: #ffffff; padding: 8px 10px; border-radius: 8px;">IMAGEN · App de Mandaos / Netivery</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: clamp(56px, 8vw, 96px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start;">
+      <aside aria-label="Ficha del caso" style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 0; padding: 24px; border-radius: 24px; background: #e5eef9; box-sizing: border-box;">
+        <sc-for list="{{ficha}}" as="f" hint-placeholder-count="7">
+          <div style="display: flex; flex-direction: column; gap: 2px; padding: 10px 0; border-bottom: 1px solid #80aae0;">
+            <span style="font-size: 11px; font-weight: 700; color: #004092;">{{f.k}}</span>
+            <span style="font-size: 15px;">{{f.v}}</span>
+          </div>
+        </sc-for>
+      </aside>
+      <div style="flex: 2 1 520px; display: flex; flex-direction: column; gap: 36px; min-width: 0;">
+        <sc-for list="{{bloques}}" as="b" hint-placeholder-count="3">
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">{{b.k}}</span>
+            <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3a3941;">{{b.v}}</p>
+          </div>
+        </sc-for>
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 14px; padding: 24px; border-radius: 24px; border: 1px solid #80aae0;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 14px; font-weight: 700;">
+            <span style="padding: 12px 14px; border-radius: 14px; background: #e5eef9;">iFood y otros comercios</span>
+            <span aria-hidden="true" style="color: #0055c2;">→</span>
+            <span style="padding: 12px 14px; border-radius: 14px; background: #0055c2; color: #ffffff;">API pública de Mandaos</span>
+            <span aria-hidden="true" style="color: #0055c2;">→</span>
+            <span style="padding: 12px 14px; border-radius: 14px; background: #e5eef9;">Plataforma de despachos</span>
+            <span aria-hidden="true" style="color: #0055c2;">→</span>
+            <span style="padding: 12px 14px; border-radius: 14px; background: #e5eef9;">App de mensajeros (Ionic)</span>
+          </div>
+          <figcaption style="font-size: 13px; color: #3a3941;">Diagrama simplificado de la integración. [Diagrama de arquitectura completo por elaborar con Luis]</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="res-t" style="padding: clamp(56px, 8vw, 96px) max(16px, 5vw); background: #090812; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <h2 id="res-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Resultado</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px;">
+        <sc-for list="{{cifras}}" as="c" hint-placeholder-count="3">
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 24px; background: #001531; border: 1px solid #24232c;">
+            <span style="font-size: clamp(32px, 3.4vw, 46px); font-weight: 700; line-height: 1;">{{c.metric}}</span>
+            <span style="font-size: 15px; color: #c9c8ce;">{{c.desc}}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin: 0; font-size: 12px; color: #848388;">Fuente: documentación de la API v2 de Mandaos.</p>
+      <figure style="margin: 0; padding: 24px; border-radius: 24px; border: 1px dashed #33b9ff;">
+        <blockquote style="margin: 0; font-size: 17px; color: #c9c8ce;">[Testimonio real y verificable de alguien del equipo o de un cliente de Mandaos, con su permiso]</blockquote>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="cta-t" style="padding: clamp(48px, 6vw, 80px) max(16px, 5vw); background: #0055c2; color: #ffffff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px 32px;">
+      <div style="display: flex; flex-direction: column; gap: 8px; max-width: 60ch;">
+        <h2 id="cta-t" style="margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; font-weight: 700;">¿Tu plataforma tiene que aguantar un salto así?</h2>
+        <p style="margin: 0; color: #e5eef9;">Revisemos tu arquitectura antes de que llegue el crecimiento.</p>
+      </div>
+      <a href="Consultoria.dc.html#agenda" style="background: #ffffff; color: #0055c2; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Agendar sesión de arquitectura</a>
+    </div>
+  </section>
+  <footer style="background: #090812; border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a>
+        <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a>
+        <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      ficha: [
+        { k: 'EMPRESA', v: 'Mandaos (luego Netivery)' },
+        { k: 'SECTOR', v: 'Logística de última milla' },
+        { k: 'PAÍS', v: 'Colombia' },
+        { k: 'MI ROL', v: 'Desarrollador web y luego Head of Product, a cargo del producto y de las decisiones técnicas' },
+        { k: 'EQUIPO', v: 'Equipo de producto de 6 personas' },
+        { k: 'PERIODO', v: '2018–2020 (año del salto con iFood por confirmar)' },
+        { k: 'TECNOLOGÍA', v: 'API pública de integraciones · app móvil migrada de Cordova a Ionic · AWS' }
+      ],
+      bloques: [
+        { k: 'CONTEXTO', v: 'Mandaos era una startup de logística de última milla. Entré como desarrollador web y llegué a Head of Product, a cargo del producto y de las decisiones técnicas. El reto era pasar de un servicio de domicilios a una plataforma a la que otros negocios pudieran conectarse.' },
+        { k: 'DECISIÓN', v: 'Diseñamos una API pública para que terceros se integraran por su cuenta y migramos la app móvil a Ionic. Farmacias y otros comercios empezaron a enviar sus pedidos directamente. Un piloto con iFood validó la API y, para soportar su demanda, aceleramos la nueva app, que pasó a llamarse Netivery.' },
+        { k: 'LO QUE APRENDÍ', v: 'Fue un resultado de todo el equipo: tecnología, operación y estrategia. Con la pandemia, la salida de iFood nos mostró el riesgo de depender de un solo cliente.' }
+      ],
+      cifras: [
+        { metric: '≈2.400', desc: 'Pedidos al mes antes de la integración.' },
+        { metric: '≈70.000', desc: 'Pedidos al mes con la integración con iFood.' },
+        { metric: '×29', desc: 'Crecimiento en pedidos mensuales.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Eventos y noticias · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+@media (max-width: 720px){
+  .ev-hero{align-items:flex-end !important; min-height:560px !important; padding-top:180px !important}
+  .ev-hero-img{object-position:72% center !important}
+  .ev-hero-glass{background:rgba(9,8,18,0.55); -webkit-backdrop-filter:blur(16px) saturate(140%); backdrop-filter:blur(16px) saturate(140%); border:1px solid rgba(255,255,255,0.14); border-radius:24px; padding:24px 20px; box-shadow:0 12px 40px rgba(0,0,0,0.35)}
+  .ev-hero-glass p{color:#e4e3e8 !important}
+}
+</style>
+</helmet>
+<div style="background: #090812; color: #ffffff; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #24232c; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <nav aria-label="Principal" style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; font-weight: 700;">
+        <a href="Consultoria.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Consultoría</a>
+        <a href="Productos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Productos</a>
+        <a href="Casos.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Casos</a>
+        <a href="Eventos.dc.html" aria-current="page" style="color: #33b9ff; text-decoration: none; padding: 10px 0; border-bottom: 2px solid #00a7ff;">Eventos</a>
+        <a href="SobreMi.dc.html" style="color: #ffffff; text-decoration: none; padding: 10px 0;">Sobre mí</a>
+      </nav>
+      <a href="Speaker.dc.html#invitar" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Invitarme a hablar</a>
+    </div>
+  </header>
+
+  <section class="ev-hero" aria-labelledby="ev-t" style="position: relative; overflow: hidden; min-height: clamp(460px, 42vw, 620px); display: flex; align-items: center; padding: clamp(48px, 7vw, 96px) max(16px, 5vw) clamp(32px, 4vw, 48px); box-sizing: border-box;">
+    <img class="ev-hero-img" src="/_blob/0c55c4499852daea0cedad5f305b6b22" alt="Luis Reyes hablando con micrófono en el escenario" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center;">
+    <div class="ev-hero-glass" style="position: relative; width: 100%; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; box-sizing: border-box;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">EVENTOS Y CHARLAS</span>
+      <h1 id="ev-t" style="margin: 0; font-size: clamp(38px, 5vw, 64px); line-height: 1.04; font-weight: 700; letter-spacing: -0.02em;">Dónde he hablado</h1>
+      <p style="margin: 0; font-size: clamp(17px, 1.6vw, 20px); color: #c9c8ce; max-width: 46ch;">Charlas, talleres y paneles sobre nube, IA y comunidad. Si quieres que vaya a tu evento, cuéntamelo.</p>
+      <div role="tablist" aria-label="Eventos" style="display: flex; gap: 8px; padding-top: 8px;">
+        <button type="button" role="tab" aria-selected="false" style="font: inherit; font-weight: 700; background: transparent; color: #ffffff; border: 1px solid #3a3941; border-radius: 999px; padding: 10px 18px; cursor: pointer;">Próximos</button>
+        <button type="button" role="tab" aria-selected="true" style="font: inherit; font-weight: 700; background: #0055c2; color: #ffffff; border: 1px solid #0055c2; border-radius: 999px; padding: 10px 18px; cursor: pointer;">Pasados</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Próximos eventos" style="padding: 24px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 24px; border-radius: 20px; border: 1px dashed #3a3941;">
+      <span style="color: #c9c8ce;">Por ahora no tengo eventos anunciados.</span>
+      <a href="Speaker.dc.html#invitar" style="color: #33b9ff; font-weight: 700;">¿Organizas uno? Invítame →</a>
+    </div>
+  </section>
+
+  <section aria-label="Eventos pasados" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px;">
+      <sc-for list="{{eventos}}" as="e" hint-placeholder-count="15">
+        <article style="display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: #001531; border: 1px solid #24232c; min-width: 0;">
+          <sc-if value="{{e.foto}}" hint-placeholder-val="{{ true }}">
+            <div style="position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #001531;">
+              <img src="{{e.foto}}" alt="" aria-hidden="true" style="position: absolute; inset: -24px; width: calc(100% + 48px); height: calc(100% + 48px); object-fit: cover; filter: blur(22px) brightness(0.45); transform: scale(1.05);">
+              <img src="{{e.foto}}" alt="{{e.alt}}" style="position: relative; display: block; width: 100%; height: 100%; object-fit: contain;">
+            </div>
+          </sc-if>
+          <sc-if value="{{e.sinFoto}}" hint-placeholder-val="{{ false }}">
+            <div role="img" aria-label="Espacio para foto del evento" style="aspect-ratio: 4 / 3; background: repeating-linear-gradient(135deg, #0b1630 0 14px, #0e1c3d 14px 28px); display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box;">
+              <span style="font-size: 11px; color: #33b9ff; background: #090812; padding: 6px 8px; border-radius: 6px;">FOTO PENDIENTE · {{e.title}}</span>
+            </div>
+          </sc-if>
+          <div style="display: flex; flex-direction: column; gap: 8px; padding: 20px;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px;">
+              <span style="font-size: 12px; color: #80aae0;">{{e.when}}</span>
+              <span style="font-size: 11px; font-weight: 700; color: #090812; background: #00a7ff; padding: 4px 8px; border-radius: 999px;">{{e.tipo}}</span>
+            </div>
+            <span style="font-weight: 700; font-size: 19px; line-height: 1.25;">{{e.title}}</span>
+            <span style="font-size: 14px; color: #a9a8ae;">{{e.desc}}</span>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section aria-labelledby="not-t" id="noticias" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #ffffff; color: #090812;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">NOTICIAS</span>
+        <h2 id="not-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Lo que estoy leyendo y pensando</h2>
+        <p style="margin: 0; color: #3a3941; max-width: 64ch;">Noticias de nube e IA con mi opinión sobre lo que significan para las empresas. Cada una enlaza a su fuente.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+        <sc-for list="{{categorias}}" as="c" hint-placeholder-count="7">
+          <button type="button" style="font: inherit; font-size: 14px; font-weight: 700; background: {{c.bg}}; color: {{c.fg}}; border: 1px solid #0055c2; border-radius: 999px; padding: 8px 14px; cursor: pointer;">{{c.name}}</button>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px;">
+        <sc-for list="{{noticias}}" as="n" hint-placeholder-count="3">
+          <a href="#noticias" style="display: flex; flex-direction: column; gap: 12px; padding: 24px; border-radius: 24px; background: #e5eef9; color: #090812; text-decoration: none; min-height: 200px; box-sizing: border-box;">
+            <span style="align-self: flex-start; font-size: 11px; font-weight: 700; color: #004092; border: 1px solid #0055c2; border-radius: 999px; padding: 6px 10px;">{{n}}</span>
+            <span style="font-weight: 700; font-size: 19px; line-height: 1.25; color: #3a3941;">[Título de la noticia]</span>
+            <span style="font-size: 14px; color: #3a3941;">[Mi opinión en una o dos líneas]</span>
+            <span style="font-size: 13px; color: #004092; margin-top: auto;">Fuente: [medio]</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a>
+        <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a>
+        <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var on = { bg: '#0055c2', fg: '#ffffff' };
+    var off = { bg: '#ffffff', fg: '#0055c2' };
+    var fotos = {
+      devfest: ['/_blob/78dd3f62adcfc55bdc38a753a8534712', 'Luis Reyes con el equipo de DevFest Ecuador 2025 en la Universidad San Francisco de Quito', 'center 60%'],
+      cursor: ['/_blob/6834ceda4b422a24fc9e5a45a1771bbe', 'Asistentes al Cursor meetup en Quito', 'center 45%'],
+      sena: ['/_blob/a986ff5b6a84ace6b9d5a1f80b154505', 'Auditorio lleno en el Encuentro de Tecnología e Innovación del SENA, visto desde el escenario', 'center 50%'],
+      techcaribeFest: ['/_blob/3154fa77821f76effaa674dfbcffbedf', 'Luis Reyes conversando con asistentes en TechCaribe Fest 2025', 'center 40%'],
+      devlokos: ['/_blob/a3f22b259c3007b811fc5a3b92c2afbd', 'Portada del episodio 62 del podcast DevLokos con Luis Reyes', 'center 30%'],
+      gdgSummit: ['/_blob/3a8775cda0e0f143fc3919045181f868', 'Luis Reyes con integrantes de GDG en el GDG Summit Latam 2025, Lima', 'center 35%'],
+      fiveOne: ['/_blob/2b5e98395232a40055b5c4077f87c6db', 'Luis Reyes presentando en Five One Labs', 'center 55%'],
+      camara: ['/_blob/827435755c921f87ba912026d976515c', 'Luis Reyes hablando ante el público en la Cámara de Comercio de Barranquilla', 'center'],
+      buildAI: ['/_blob/1e2753b9abb8a17b98c231f87cf46568', 'Cámara grabando una entrevista a Luis Reyes en GDG Build with AI 2025', 'center 50%'],
+      baqjs2025: ['/_blob/733b6abd8685ba9def8a4753bfea0016', 'Luis Reyes en BAQ.JS con la presentación Infraestructura FinTech', 'center 35%'],
+      techcaribeExpo: ['/_blob/1773f5d452947a1e674fdbf8158d0cf7', 'Luis Reyes junto a la pantalla de su charla Crea aplicaciones con Vertex AI y Cloud Run en TechCaribe Expo 2024', 'center 40%'],
+      baqjs2024: ['/_blob/58dcfb78e919e7174285a4dd08c71b92', 'Cámara grabando a Luis Reyes durante su charla en BAQ.JS', 'center 45%'],
+      aneiap: ['/_blob/90f2280239feb77dae73ef58b195b1af', 'Luis Reyes con los asistentes del evento de ANEIAP', 'center 40%'],
+      gdg2024: ['/_blob/d8fb6dc0f5bc970e08022278c4bdf89b', 'Pieza de la charla Aprende a crear un chatbot con Gemini, Next.js y Firebase, con Luis Reyes', 'center'],
+      gdg2023: ['/_blob/5e9188b9106b730f0aab745471172c63', 'Luis Reyes presentando recursos de Google Cloud en GDG Barranquilla', 'center 30%']
+    };
+    var conFoto = function (e) {
+      var f = fotos[e.f];
+      return Object.assign({}, e, { foto: f ? f[0] : '', alt: f ? f[1] : '', pos: f ? f[2] : 'center', sinFoto: !f });
+    };
+    return {
+      eventos: [
+        { when: '29 nov 2025 · Quito, Ecuador', tipo: 'Charla', title: 'DevFest Ecuador 2025', desc: 'Infraestructura estable con Terraform, GCP, Cloud Run y Cloudflare asistida por IA. Universidad San Francisco de Quito, más de 700 asistentes.', f: 'devfest' },
+        { when: '28 nov 2025 · Quito, Ecuador', tipo: 'Charla', title: 'Cursor meetup Quito', desc: 'Infraestructura en la nube: IA + Terraform + AWS.', f: 'cursor' },
+        { when: '11 y 12 nov 2025 · Barranquilla', tipo: 'Charla', title: 'SENA: I Encuentro de Tecnología e Innovación', desc: 'Conferencista en el evento nacional del Centro Industrial y de Aviación.', f: 'sena' },
+        { when: '20 sep 2025 · Barranquilla', tipo: 'Charla', title: 'TechCaribe Fest 2025', desc: 'Sácale provecho a la nube en la era de la IA.', f: 'techcaribeFest' },
+        { when: '2 sep 2025 · En línea', tipo: 'Podcast', title: 'DevLokos', desc: 'En los zapatos de un arquitecto de soluciones en la nube.', f: 'devlokos' },
+        { when: '29 ago 2025 · Lima, Perú', tipo: 'Comunidad', title: 'GDG Summit Latam 2025', desc: 'Con el equipo de GDG Barranquilla: cómo organizar y hacer crecer una comunidad GDG.', f: 'gdgSummit' },
+        { when: '20 jun 2025 · Barranquilla', tipo: 'Charla', title: 'Five One Labs', desc: 'De la idea al producto.', f: 'fiveOne' },
+        { when: '19 jun 2025 · Barranquilla', tipo: 'Charla', title: 'Cámara de Comercio de Barranquilla', desc: 'IA en movimiento: revolucionando tu día con Microsoft 365 y Copilot.', f: 'camara' },
+        { when: '5 may 2025 · Barranquilla', tipo: 'Charla', title: 'GDG Build with AI 2025 · Barranqui-IA', desc: 'Fullstack IA development multicloud con Gemini.', f: 'buildAI' },
+        { when: '25 feb 2025 · Barranquilla', tipo: 'Charla', title: 'BAQ.JS', desc: 'Infraestructura fintech: el futuro de las integraciones digitales.', f: 'baqjs2025' },
+        { when: '27 jul 2024 · Barranquilla', tipo: 'Charla y panel', title: 'TechCaribe Expo 2024 · Google I/O Extended', desc: 'Charla: Crea aplicaciones con Vertex AI y Cloud Run. Panel: retos y oportunidades al crecer en una empresa de base tecnológica.', f: 'techcaribeExpo' },
+        { when: '22 jul 2024 · Barranquilla', tipo: 'Charla', title: 'BAQ.JS', desc: 'Aprende a crear un chatbot con Gemini, Next.js y Firebase.', f: 'baqjs2024' },
+        { when: '14 jul 2024 · Barranquilla', tipo: 'Charla', title: 'Evento de ANEIAP', desc: 'Cultura digital. Más de 200 asistentes.', f: 'aneiap' },
+        { when: '13 jul 2024 · Barranquilla', tipo: 'Charla', title: 'GDG Barranquilla', desc: 'Aprende a crear un chatbot con Gemini, Next.js y Firebase.', f: 'gdg2024' },
+        { when: '22 jul 2023 · Barranquilla', tipo: 'Charla', title: 'GDG Barranquilla', desc: 'Cómo iniciar en la nube.', f: 'gdg2023' }
+      ].map(conFoto),
+      categorias: [
+        { name: 'Todas', bg: on.bg, fg: on.fg }, { name: 'AWS', bg: off.bg, fg: off.fg }, { name: 'Google Cloud', bg: off.bg, fg: off.fg }, { name: 'IA', bg: off.bg, fg: off.fg },
+        { name: 'Seguridad', bg: off.bg, fg: off.fg }, { name: 'Comunidades', bg: off.bg, fg: off.fg }, { name: 'Noticias', bg: off.bg, fg: off.fg }
+      ],
+      noticias: ['AWS', 'IA', 'Google Cloud']
+    };
+  }
+}
+</script>
+</body>
+</html>

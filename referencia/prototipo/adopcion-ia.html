@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Adopción de IA con Claude · Luis Reyes Vanegas</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+@font-face{font-family:'Human Sans';src:url('/_blob/8d4b876a4e078e4a6af6ed5518ab4151') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/6223aa24ff6c694937bff62dfa93478a') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Human Sans';src:url('/_blob/18700f334382df020dffea67d836cd2a') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+</style>
+</helmet>
+<div style="background: #090812; color: #ffffff; font-family: 'Human Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 16px; line-height: 1.5; min-height: 100vh;">
+
+  <header style="border-bottom: 1px solid #24232c; padding: 16px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px;">
+      <a href="Main.dc.html" aria-label="Luis Reyes, inicio" style="display: flex; align-items: center;">
+        <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 34px; width: auto; display: block;">
+      </a>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <span style="font-size: 12px; color: #848388;"><span style="color: #ffffff;">ES</span> · EN · PT</span>
+        <a href="#empezar" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 14px; padding: 12px 18px; border-radius: 999px;">Hablemos de tu equipo</a>
+      </div>
+    </div>
+  </header>
+
+  <section aria-labelledby="ia-t" style="position: relative; overflow: hidden; padding: clamp(56px, 8vw, 120px) max(16px, 5vw);">
+    <svg aria-hidden="true" viewBox="0 0 600 600" style="position: absolute; right: -140px; top: -60px; width: 680px; height: 680px;">
+      <path d="M60 560 C 60 260, 220 80, 520 60" fill="none" stroke="#1f2a8a" stroke-width="1.2"></path>
+      <path d="M100 580 C 110 300, 260 120, 560 110" fill="none" stroke="#1f2a8a" stroke-width="1.2"></path>
+      <path d="M140 600 C 160 340, 300 170, 600 160" fill="none" stroke="#24232c" stroke-width="1.2"></path>
+    </svg>
+    <div style="position: relative; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px;">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">ADOPCIÓN DE IA CON CLAUDE</span>
+      <h1 id="ia-t" style="margin: 0; font-size: clamp(40px, 5.6vw, 76px); line-height: 1.02; font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; max-width: 18ch;">Que tu equipo trabaje con IA todos los días, no solo cuando se acuerda.</h1>
+      <p style="margin: 0; font-size: clamp(17px, 1.7vw, 21px); line-height: 1.55; color: #c9c8ce; max-width: 62ch;">Acompaño a empresas a llevar su trabajo diario a Claude de forma segura: decidir qué delegar, montar proyectos con las instrucciones y los datos correctos, y que las personas se concentren en lo que necesita criterio humano.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+        <a href="#empezar" style="background: #0055c2; color: #ffffff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Hablemos de tu equipo</a>
+        <a href="#4d" style="border: 1px solid #3a3941; color: #ffffff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Cómo trabajo</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="d-t" id="4d" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #001531;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 10px; max-width: 70ch;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">EL MÉTODO</span>
+        <h2 id="d-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">El framework 4D de Anthropic</h2>
+        <p style="margin: 0; color: #c9c8ce;">Es la base de mi certificación en AI Fluency. Lo uso para que la adopción no dependa de una herramienta de moda sino de cómo trabaja tu gente.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px;">
+        <sc-for list="{{cuatroD}}" as="d" hint-placeholder-count="4">
+          <article style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 24px; background: #090812; border: 1px solid #24232c;">
+            <span style="font-size: 40px; font-weight: 700; color: #00a7ff; line-height: 1;">{{d.l}}</span>
+            <b style="font-size: 20px;">{{d.name}}</b>
+            <span style="font-size: 15px; color: #c9c8ce;">{{d.desc}}</span>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="temas-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">LO QUE TU EQUIPO APRENDE</span>
+        <h2 id="temas-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">De la primera conversación al trabajo delegado</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px;">
+        <sc-for list="{{temas}}" as="t" hint-placeholder-count="8">
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid #24232c;">
+            <b style="font-size: 18px;">{{t.name}}</b>
+            <span style="font-size: 15px; color: #c9c8ce;">{{t.desc}}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="ruta-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #ffffff; color: #090812;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #0055c2;">CÓMO AVANZAMOS</span>
+        <h2 id="ruta-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700;">Tres etapas</h2>
+      </div>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px;">
+        <sc-for list="{{etapas}}" as="e" hint-placeholder-count="3">
+          <li style="display: flex; flex-direction: column; gap: 10px; padding: 26px; border-radius: 24px; background: #e5eef9;">
+            <span style="font-size: 13px; font-weight: 700; color: #0055c2;">{{e.n}}</span>
+            <b style="font-size: 22px;">{{e.name}}</b>
+            <span style="font-size: 15px; color: #3a3941;">{{e.desc}}</span>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="prueba-t" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 14px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">LO APLICO CONMIGO</span>
+        <h2 id="prueba-t" style="margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; font-weight: 700; text-wrap: balance;">Este sitio se construyó así</h2>
+        <p style="margin: 0; color: #c9c8ce;">La estrategia de mi marca, el contenido y este prototipo los trabajé con Claude como compañero de pensamiento: un proyecto con instrucciones, un documento madre como fuente de verdad, skills para registrar cada decisión y conectores a mis herramientas. Es el mismo método que llevo a tu equipo.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0;">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; color: #33b9ff;">CERTIFICACIONES</span>
+        <sc-for list="{{certs}}" as="c" hint-placeholder-count="3">
+          <a href="{{c.url}}" style="display: flex; justify-content: space-between; gap: 12px; padding: 16px 18px; border-radius: 16px; background: #001531; border: 1px solid #24232c; color: #ffffff; text-decoration: none;">
+            <span><b>{{c.name}}</b><br><span style="font-size: 13px; color: #a9a8ae;">Anthropic · Claude Academy · oct 2026</span></span>
+            <span style="color: #33b9ff; font-weight: 700; white-space: nowrap;">Verificar ↗</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="emp-t" id="empezar" style="padding: clamp(56px, 8vw, 104px) max(16px, 5vw); background: #0055c2;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: 12px; min-width: 0;">
+        <h2 id="emp-t" style="margin: 0; font-size: clamp(30px, 4vw, 50px); line-height: 1.08; font-weight: 700; text-wrap: balance;">Empecemos por cómo trabaja tu equipo hoy.</h2>
+        <p style="margin: 0; color: #e5eef9;">En la sesión de arquitectura revisamos tus procesos y te digo por dónde conviene empezar.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <a href="Consultoria.dc.html#agenda" style="background: #ffffff; color: #0055c2; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Agendar sesión · US$450</a>
+        <a href="Consultoria.dc.html#agenda" style="border: 1px solid #ffffff; color: #ffffff; text-decoration: none; font-weight: 700; padding: 16px 24px; border-radius: 999px;">Llamada de 20 min gratis</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top: 1px solid #24232c; padding: 40px max(16px, 5vw);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+      <img src="/_blob/ac63bc5e14f6667a4d0619b96186c97c" alt="Luis Reyes" style="height: 28px; width: auto;">
+      <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px;">
+        <a href="https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/" style="color: #33b9ff;">LinkedIn</a>
+        <a href="Speaker.dc.html" style="color: #33b9ff;">Charlas</a>
+        <a href="Prensa.dc.html" style="color: #33b9ff;">Prensa</a>
+        <a href="Contacto.dc.html" style="color: #33b9ff;">Contacto</a>
+        <a href="https://evolutecc.com/?utm_source=luisreyesvanegas&amp;utm_medium=referral&amp;utm_campaign=footer" style="color: #33b9ff;">Desarrollo a la medida: EvolutecC ↗</a>
+        <a href="Legal.dc.html" style="color: #33b9ff;">Privacidad y términos</a>
+      </div>
+      <span style="font-size: 13px; color: #848388;">© 2026 Luis Reyes Vanegas</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      cuatroD: [
+        { l: 'D', name: 'Delegación', desc: 'Decidir qué tareas le das a la IA, cuáles haces con ella y cuáles siguen siendo tuyas.' },
+        { l: 'D', name: 'Descripción', desc: 'Explicarle a Claude el contexto, el objetivo y el formato, como a un buen colega.' },
+        { l: 'D', name: 'Discernimiento', desc: 'Revisar con criterio lo que entrega: qué está bien, qué falta y qué no es cierto.' },
+        { l: 'D', name: 'Diligencia', desc: 'Usarla con responsabilidad: datos sensibles, transparencia y quién responde por el resultado.' }
+      ],
+      temas: [
+        { name: 'La conversación', desc: 'Usar a Claude como compañero de pensamiento para decidir, no solo para preguntar.' },
+        { name: 'Proyectos', desc: 'Un espacio por tema con sus instrucciones y documentos, para no repetir el contexto cada vez.' },
+        { name: 'Conectores', desc: 'Claude trabaja con tu correo, tu calendario, tu Drive o tu CRM, con los permisos que tú defines.' },
+        { name: 'Skills', desc: 'Los procesos de tu empresa escritos una vez para que Claude los siga siempre igual.' },
+        { name: 'Artefactos', desc: 'Documentos, tableros, presentaciones y prototipos que se crean y se comparten desde la conversación.' },
+        { name: 'Trabajo delegado', desc: 'Tareas de varios pasos que Claude completa por su cuenta mientras tú haces otra cosa.' },
+        { name: 'Plugins', desc: 'Paquetes de skills, conectores y comandos para un área de la empresa.' },
+        { name: 'Claude Code', desc: 'Para equipos técnicos: desarrollo de software con un agente que trabaja en el código.' }
+      ],
+      etapas: [
+        { n: '01', name: 'Workshop 4D', desc: 'Una jornada con tu equipo para entender el método y probarlo con sus propias tareas.' },
+        { n: '02', name: 'Programa de adopción', desc: 'Por equipos: mapeamos el día a día, decidimos qué delegar y montamos los proyectos, skills y conectores.' },
+        { n: '03', name: 'Acompañamiento', desc: 'Seguimiento mensual para medir el uso, ajustar y sumar nuevos procesos.' }
+      ],
+      certs: [
+        { name: 'AI Fluency for small businesses', url: 'https://academy.claude.com/verify/25a6c43b56569653dbd1107817d19cd8' },
+        { name: 'Claude 101', url: 'https://academy.claude.com/verify/2ef58f9fd0d519c601075445741c464b' },
+        { name: 'Introduction to Claude Cowork', url: 'https://academy.claude.com/verify/b56b13366f0e51dfdfe4bb5a66848762' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
