@@ -1,7 +1,7 @@
 # Textos de Productos (prototipo aprobado). La medalla es la pieza 05 (diseño propio, sin logos de
-# terceros). Por aprobar: los mensajes de la conversación (demostración, sin datos de clientes),
-# los textos de la medalla 3D (del laboratorio), "Solicitar demo" hacia Contacto y recibido. El
-# video demo y la foto de Luis y Andrés están pendientes: no se muestran espacios vacíos.
+# terceros). Luis aprobó el 20 nov 2026 los mensajes de la conversación (demostración, sin datos
+# de clientes), "Solicitar demo" hacia Contacto y recibido. El video demo y la foto de Luis y
+# Andrés están pendientes: no se muestran espacios vacíos.
 hero:
   eyebrow:
     es: 'Producto destacado · Trama AI'

@@ -117,11 +117,6 @@ const logos = [
                 </div>
                 <div class="flex flex-1 flex-col gap-1.5 p-5">
                   <h3 class="font-bold">{foto.titulo}</h3>
-                  {foto.credito && (
-                    <p class="text-small text-text-secondary-on-dark">
-                      {textos.fotos.credito} {foto.credito}
-                    </p>
-                  )}
                   <a
                     href={imagen.src}
                     download={foto.archivo}

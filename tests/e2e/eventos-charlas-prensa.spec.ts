@@ -204,8 +204,8 @@ test.describe('Prensa', () => {
     });
     await expect(fotos.locator('li')).toHaveCount(4);
     await expect(fotos.locator('a[download]')).toHaveCount(4);
-    // El crédito de las fotos no se publica hasta que Luis lo confirme.
-    await expect(fotos).not.toContainText('Crédito');
+    // Sin crédito (Luis, 20 nov 2026): la sección tampoco lo promete.
+    await expect(fotos).not.toContainText('rédito');
     const logos = page.locator('section', { has: page.getByRole('heading', { name: 'Mi logo' }) });
     await expect(logos.locator('a[download]')).toHaveCount(8);
     await expect(page.getByRole('link', { name: /gxp\.moonshots\.com/ })).toHaveAttribute(

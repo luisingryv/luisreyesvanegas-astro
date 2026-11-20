@@ -1,7 +1,7 @@
 # Textos de Prensa (kit de prensa, prototipo aprobado). Las fotos son archivos de
-# src/assets/prensa: la página las muestra y el kit (.zip) las incluye en alta resolución. Por aprobar: el retrato editorial (el de
-# Sobre mí; en el prototipo era un espacio reservado), las tres fotos elegidas de cada carpeta y
-# recibido. El crédito de las fotos no se muestra hasta que Luis lo confirme.
+# src/assets/prensa: la página las muestra y el kit (.zip) las incluye en alta resolución.
+# Luis aprobó el 20 nov 2026 el retrato de Sobre mí, las tres fotos de escenario y el mensaje al
+# enviar; las fotos van sin crédito y el texto de la sección ya no lo menciona.
 hero:
   eyebrow:
     es: 'Prensa'
@@ -47,9 +47,7 @@ fotos:
   titulo:
     es: 'Fotos en alta resolución'
   texto:
-    es: 'Puedes publicarlas en notas sobre mí o sobre mi trabajo, con el crédito que aparece en cada una.'
-  credito:
-    es: 'Crédito:'
+    es: 'Puedes publicarlas en notas sobre mí o sobre mi trabajo.'
   descargar:
     es: 'Descargar'
   lista:

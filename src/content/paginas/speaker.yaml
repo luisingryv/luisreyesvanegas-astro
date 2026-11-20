@@ -1,7 +1,7 @@
 # Textos de Charlas (speaker kit, prototipo aprobado). Los eventos salen de la colección de
-# charlas. Por aprobar (no están en el prototipo): la foto del hero (era un espacio reservado),
-# los textos del mapa (pieza 10), masEventos, pausar y recibido. Los testimonios de ejemplo no se
-# publican; el one-sheet en PDF queda pendiente.
+# charlas. Luis aprobó el 20 nov 2026 lo que no estaba en el prototipo: la foto del hero, los
+# textos del mapa (pieza 10, solo Barranquilla, Quito y Lima), masEventos, pausar y recibido.
+# Los testimonios de ejemplo no se publican; el one-sheet en PDF queda pendiente.
 hero:
   eyebrow:
     es: 'Charlas, talleres y paneles'

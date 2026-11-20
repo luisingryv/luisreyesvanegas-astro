@@ -804,7 +804,6 @@ const prensaPagina = defineCollection({
         eyebrow: localized,
         titulo: localized,
         texto: localized,
-        credito: localized,
         descargar: localized,
         lista: z
           .array(
@@ -813,8 +812,6 @@ const prensaPagina = defineCollection({
               /** Archivo de src/assets/prensa (la página lo muestra y el kit lo incluye). */
               archivo: z.string().regex(/^[a-z0-9_.-]+\.(jpg|jpeg|png)$/),
               alt: localized,
-              /** Sin crédito confirmado no se muestra la línea (Luis lo entrega). */
-              credito: localized.optional(),
             }),
           )
           .min(1),

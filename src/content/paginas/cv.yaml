@@ -1,8 +1,9 @@
 # Textos del CV (prototipo aprobado, hero rediagramado el 19 nov 2026). Competencias: niveles de
 # Luis del 18 nov 2026 (Boveda/03_Contenido/Textos/Competencias del CV.md); la escala no se
-# explica. La pieza 12 reemplaza la lista de texto de "Stack y competencias" (por aprobar).
-# No se publican: "Download CV (EN)" (textos en inglés sin aprobar) ni las recomendaciones de
-# ejemplo. Por aprobar: agendar (lleva a Contacto mientras no hay agenda) y los textos de la pieza.
+# explica. Luis aprobó el 20 nov 2026 que la pieza 12 reemplace la lista de texto de "Stack y
+# competencias", sus textos, el PDF generado desde la página y que agendar lleve a Contacto
+# mientras no haya agenda para entrevistas. No se publican "Download CV (EN)" ni las
+# recomendaciones de ejemplo.
 hero:
   eyebrow:
     es: 'Solutions Architect · Head of Cloud & AI'
