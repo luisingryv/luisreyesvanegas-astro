@@ -27,6 +27,14 @@ const [textos, casos] = await Promise.all([getPaginaCasos(lang), getCasos(lang)]
   route="casos"
   tema="light"
 >
+  {/* Sin JavaScript los filtros no funcionan: se ocultan desde el <head>, sin mover nada. */}
+  <noscript slot="head">
+    <style is:inline>
+      [data-filtros] {
+        display: none;
+      }
+    </style>
+  </noscript>
   <Section
     tone="light"
     spacing="hero"

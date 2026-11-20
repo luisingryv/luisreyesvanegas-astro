@@ -3,15 +3,12 @@
 import { loadGsap, prefersReducedMotion } from './motion';
 
 export function iniciarFiltrosCasos(indice: HTMLElement) {
-  const filtros = indice.querySelector<HTMLElement>('[data-filtros]');
   const lista = indice.querySelector<HTMLElement>('[data-lista-casos]');
   const items = [...indice.querySelectorAll<HTMLElement>('[data-lista-casos] > li')];
   const vacio = indice.querySelector<HTMLElement>('[data-vacio]');
   const botones = [...indice.querySelectorAll<HTMLButtonElement>('[data-grupo]')];
-  if (!filtros || !lista || !vacio || items.length === 0) return;
+  if (!lista || !vacio || items.length === 0) return;
 
-  // Los filtros solo existen con JavaScript.
-  filtros.hidden = false;
   const elegido: Record<string, string> = { tema: 'todos', tipo: 'todos' };
 
   const coincide = (item: HTMLElement) =>

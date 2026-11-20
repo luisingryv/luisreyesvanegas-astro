@@ -1,7 +1,8 @@
 ---
-// Índice de casos con filtros por tema y por tipo. Sin JavaScript se ven todos y los filtros no
-// aparecen; con JavaScript, las tarjetas se reacomodan con animación (motion/filtros-casos.ts).
-// Los temas sin casos no se muestran (Luis, 20 nov 2026).
+// Índice de casos con filtros por tema y por tipo. Los filtros están en el HTML desde el primer
+// pintado (si los mostrara el script, empujarían la lista: CLS) y sin JavaScript los oculta el
+// <noscript> de la página. Con JavaScript, las tarjetas se reacomodan con animación
+// (motion/filtros-casos.ts). Los temas sin casos no se muestran (Luis, 20 nov 2026).
 import Container from '../brand/Container.astro';
 import TarjetaCaso from './TarjetaCaso.astro';
 import type { PublishedLocale } from '../../i18n/config';
@@ -28,7 +29,7 @@ const grupos = [
 ---
 
 <div data-casos-indice>
-  <section aria-label={filtros.etiqueta} class="bg-surface py-7" data-filtros hidden>
+  <section aria-label={filtros.etiqueta} class="bg-surface py-7" data-filtros>
     <Container class="flex flex-col gap-3">
       {grupos.map((grupo) => (
         <div
