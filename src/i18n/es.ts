@@ -63,7 +63,7 @@ export const es = {
       'en-tramite': 'En trámite',
     },
   },
-  // Formularios con JavaScript: errores por campo y estados. Pendientes de aprobar por Luis.
+  // Formularios con JavaScript: errores por campo y estados. Aprobados por Luis el 20 nov 2026.
   formulario: {
     enviando: 'Enviando…',
     revisa: 'Revisa los campos marcados.',
