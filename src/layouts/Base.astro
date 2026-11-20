@@ -114,5 +114,11 @@ const og = await getImage({
     </main>
     <Footer locale={locale} />
     <Reveal />
+    <script>
+      // Guarda las UTM con las que llega la visita para enviarlas con el formulario.
+      import { guardarUtmDeLaUrl } from '../lib/utm';
+
+      guardarUtmDeLaUrl();
+    </script>
   </body>
 </html>

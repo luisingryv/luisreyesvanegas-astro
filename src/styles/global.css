@@ -255,7 +255,8 @@ body {
 .formulario-aviso {
   display: none;
 }
-.formulario-aviso:target {
+.formulario-aviso:target,
+.formulario-aviso[data-visible] {
   display: block;
 }
 

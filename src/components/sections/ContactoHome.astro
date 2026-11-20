@@ -2,6 +2,7 @@
 // Cierre del Home: texto a la izquierda y formulario general a la derecha (sin logo 3D,
 // decisión de Luis del 20 nov 2026). id="agenda" como en el prototipo.
 import Eyebrow from '../brand/Eyebrow.astro';
+import { getDictionary } from '../../i18n';
 import Section from '../brand/Section.astro';
 import { FormularioContacto } from '../formularios/FormularioContacto';
 import type { PublishedLocale } from '../../i18n/config';
@@ -16,6 +17,7 @@ interface Props {
 }
 
 const { locale, content, whatsapp } = Astro.props;
+const t = getDictionary(locale);
 ---
 
 <Section tone="dark" id="agenda" aria-labelledby="contacto-titulo">
@@ -41,9 +43,18 @@ const { locale, content, whatsapp } = Astro.props;
         enviado: content.enviado,
         error: content.error,
       }}
+      mensajes={t.formulario}
       idioma={locale}
       pagina={localizedPath(locale, 'home')}
       politicaHref={localizedPath(locale, 'legal')}
     />
   </div>
 </Section>
+
+<script>
+  import { mejorarFormulario } from '../formularios/formulario';
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-formulario]')) {
+    mejorarFormulario(form);
+  }
+</script>

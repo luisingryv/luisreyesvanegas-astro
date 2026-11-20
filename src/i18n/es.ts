@@ -63,6 +63,20 @@ export const es = {
       'en-tramite': 'En trámite',
     },
   },
+  // Formularios con JavaScript: errores por campo y estados. Pendientes de aprobar por Luis.
+  formulario: {
+    enviando: 'Enviando…',
+    revisa: 'Revisa los campos marcados.',
+    demasiadas: 'Ya recibí varios mensajes desde este correo. Vuelve a intentarlo en una hora.',
+    errores: {
+      requerido: 'Completa este campo.',
+      invalido: 'Revisa este dato.',
+      emailInvalido: 'Escribe un correo válido, como nombre@empresa.com.',
+      muyCorto: 'Escribe al menos {min} caracteres.',
+      muyLargo: 'Es demasiado largo.',
+      debeAceptar: 'Para enviar el mensaje, acepta la política de privacidad.',
+    },
+  },
   logros: {
     // Pieza 02: rótulo de la tarjeta antes de desbloquearse.
     bloqueado: 'Bloqueado',
