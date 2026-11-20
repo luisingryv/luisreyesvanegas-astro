@@ -39,6 +39,18 @@ test.describe('Sobre mí · contenido', () => {
     await expect(sena.locator('p')).toHaveText('SENA');
   });
 
+  test('la apertura muestra el retrato en 4:5, optimizado y con alt', async ({ page }) => {
+    await page.goto(PAGE);
+    const retrato = page.getByRole('img', { name: 'Luis Carlos Reyes Vanegas en su oficina' });
+    await expect(retrato).toBeVisible();
+    await expect(retrato).toHaveAttribute('fetchpriority', 'high');
+    const picture = page.locator('picture', { has: retrato });
+    await expect(picture.locator('source[type="image/avif"]')).toHaveCount(1);
+    await expect(picture.locator('source[type="image/webp"]')).toHaveCount(1);
+    const { width, height } = (await retrato.boundingBox())!;
+    expect(width / height).toBeCloseTo(4 / 5, 2);
+  });
+
   test('los enlaces llevan a donde deben', async ({ page }) => {
     await page.goto(PAGE);
     const evolutecc = page.getByRole('link', { name: /Conoce EvolutecC/ });

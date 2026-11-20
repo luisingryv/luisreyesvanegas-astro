@@ -9,10 +9,10 @@ apertura:
     es: 'Hablemos'
   invitarme:
     es: 'Invitarme a hablar'
-  # Retrato editorial pendiente. Cuando llegue, cópialo a src/assets/fotos/ y descomenta:
-  # retrato: ../../assets/fotos/<archivo>.jpg
-  # retratoAlt:
-  #   es: '<descripción del retrato>'
+  # Retrato editorial (llegó el 19 nov 2026); original en Archivos/Fotos/01_Retratos/.
+  retrato: ../../assets/fotos/retrato_sin-fecha_oficina-camiseta-blanca-sobre-mi_luis-reyes-vanegas_001.jpg
+  retratoAlt:
+    es: 'Luis Carlos Reyes Vanegas en su oficina'
 
 historia:
   eyebrow:
