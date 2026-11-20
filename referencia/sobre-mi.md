@@ -18,7 +18,7 @@ Ficha: `../Boveda/02_Sitio-web/Requerimientos-por-pagina/09-SOBRE-MI.md` (del 10
 | 5 | Certificaciones y formación | white | SectionHeader, tarjetas (fondo blue-200) con estado |
 | 6 | Testimonios | white | **Oculta** hasta que haya recomendaciones reales (regla del documento madre) |
 | 7 | En el escenario | night | SectionHeader con Button a la derecha, 4 PhotoCard 4:3 |
-| 8 | Cierre "¿Cómo puedo ayudarte?" | blue-500 | h2, 3 botones blancos, enlace |
+| 8 | Cierre "¿Cómo puedo ayudarte?" | night con resplandor azul (radial #0a1a3f → #060b1c → night) | eyebrow, h2, 3 botones, enlace + logo LR en 3D (pieza 04) |
 | — | Footer global | night, borde superior hairline | logo, enlaces, © |
 
 Medidas del prototipo: contenedor de 1200 px; margen lateral `max(16px, 5vw)`; espacio de sección `clamp(56px, 8vw, 104px)` (hero `clamp(48px, 7vw, 104px)`); grillas `repeat(auto-fit, minmax(min(100%, Npx), 1fr))`; tarjetas con radio de 20 a 24 px.
@@ -35,7 +35,7 @@ Medidas del prototipo: contenedor de 1200 px; margen lateral `max(16px, 5vw)`; e
 - H1: **Llevo 13 años construyendo tecnología.**
 - Bajada: "Fundé mi primer negocio a los 16, reparando computadores y haciendo sitios web. Hoy diseño arquitecturas cloud e IA para empresas de Estados Unidos y Latinoamérica, soy CTO de EvolutecC y CEO de Trama AI."
 - Botones: "Hablemos" (→ #contacto, primario) · "Invitarme a hablar" (→ /speaker, secundario).
-- Imagen: **retrato editorial, pendiente** (Luis no lo tiene aún). Usa un componente de espacio reservado elegante en proporción 4:5, sin texto interno visible en producción, y deja la ruta configurable para cuando llegue el retrato.
+- Imagen: **retrato editorial** (llegó el 19 nov 2026): `Archivos/Fotos/01_Retratos/retrato_sin-fecha_oficina-camiseta-blanca-sobre-mi_luis-reyes-vanegas_001.jpg` (1024 × 1039). Proporción 4:5, `object-fit: cover`, encuadre centrado con el rostro en el tercio superior (`object-position: center 30%`). Optimízalo con `astro:assets` (AVIF/WebP, `srcset`). Alt: "Luis Carlos Reyes Vanegas en su oficina". Reemplaza el espacio reservado.
 
 ### 2. Mi historia
 - Eyebrow: `MI HISTORIA` · H2: **Cómo llegué hasta aquí**
@@ -126,10 +126,11 @@ Los datos pendientes se muestran sin el campo, nunca con corchetes en producció
 
 Las charlas salen de la misma colección que usarán Eventos y Charlas (fuente: `../Boveda/03_Contenido/Eventos-y-charlas/Charlas y eventos.md`). Sobre mí muestra una selección marcada en la colección; no duplica datos.
 
-### 8. Cierre
-- H2: **¿Cómo puedo ayudarte?**
-- Botones blancos: "Consultoría" (→ agenda) · "Conferencia" (→ /speaker#invitar) · "Conversación general" (→ agenda)
-- Enlace: "Otras opciones: desarrollo de software, producto o prensa →" (→ /contacto)
+### 8. Cierre (actualizado el 19 nov 2026, pedido de Luis)
+- Fondo: ya no es azul. Es night con resplandor azul detrás del logo: `radial-gradient(90% 120% at 78% 50%, #0a1a3f 0%, #060b1c 55%, night 100%)`, línea superior hairline.
+- Dos columnas (se apilan en móvil). Izquierda: eyebrow **HABLEMOS** (cyan-300), H2 **¿Cómo puedo ayudarte?**, botones "Consultoría" (primario blue-500, → agenda) · "Conferencia" (secundario con borde, → /speaker#invitar) · "Conversación general" (secundario, → agenda), y el enlace "Otras opciones: desarrollo de software, producto o prensa →" (cyan-300, → /contacto).
+- Derecha: **pieza 04 del laboratorio, logo LR en 3D** (Three.js, el mismo código de `laboratorio-motion.html`), sin el botón "Repetir ensamble" ni el texto de ayuda. Ensambla al entrar en pantalla y sigue el cursor. Carga diferida (solo al acercarse al viewport). Respaldo sin WebGL o con "reducir movimiento": el render estático `Archivos/Fotos/_proceso/web/banners/pieza_sin-fecha_logo-lr-3d-render_luis-reyes-vanegas_001.png` con una flotación suave en CSS. Es decorativo: `aria-hidden`.
+- Este cierre es un componente reutilizable (sección de cierre); la versión 3D puede usarse en otras páginas.
 - La URL de la agenda de Google Calendar va en configuración (variable de entorno); Luis la entrega.
 
 ### Footer (global)
