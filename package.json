@@ -18,10 +18,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "lint": "eslint src tests db",
+    "lint": "eslint src tests db scripts",
     "lint:fix": "eslint src tests --fix",
-    "format": "prettier --write src tests db",
-    "format:check": "prettier --check src tests db",
+    "format": "prettier --write src tests db scripts",
+    "format:check": "prettier --check src tests db scripts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
@@ -31,7 +31,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "node --env-file-if-exists=.env db/migrar.ts",
     "db:studio": "node --env-file-if-exists=.env node_modules/drizzle-kit/bin.cjs studio",
-    "test:db": "node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run --config vitest.db.config.ts"
+    "test:db": "node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run --config vitest.db.config.ts",
+    "og": "node scripts/og/generar.mjs"
   },
   "dependencies": {
     "@astrojs/node": "^11.1.14",

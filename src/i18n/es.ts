@@ -1,6 +1,8 @@
 export const es = {
   meta: {
     siteName: 'Luis Reyes Vanegas',
+    ogImageAlt:
+      'Luis Carlos Reyes Vanegas, arquitecto de soluciones cloud e IA, junto al monograma LR',
   },
   a11y: {
     skipToContent: 'Saltar al contenido',

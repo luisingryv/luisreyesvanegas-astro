@@ -1,0 +1,82 @@
+<!doctype html>
+<!-- Tarjeta para Open Graph (1200 × 630). La genera scripts/og/generar.mjs. -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @font-face {
+        font-family: 'Human Sans';
+        src: url('../../public/fonts/HumanSans-Regular.woff2') format('woff2');
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: 'Human Sans';
+        src: url('../../public/fonts/HumanSans-Bold.woff2') format('woff2');
+        font-weight: 700;
+      }
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        width: 1200px;
+        height: 630px;
+        overflow: hidden;
+        font-family: 'Human Sans', sans-serif;
+        color: #fff;
+        /* Fondo del cierre: night con resplandor azul detrás del logo. */
+        background: radial-gradient(70% 110% at 78% 50%, #0a1a3f 0%, #060b1c 55%, #090812 100%);
+        display: grid;
+        grid-template-columns: 1fr 440px;
+        align-items: center;
+        padding: 0 72px 0 88px;
+        position: relative;
+      }
+      body::before {
+        content: '';
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 6px;
+        background: #0055c2;
+      }
+      .texto {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+      .nombre {
+        font-size: 64px;
+        line-height: 1.04;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+      .rol {
+        font-size: 34px;
+        line-height: 1.25;
+        color: #c9c8ce;
+        max-width: 20ch;
+        text-wrap: balance;
+      }
+      .dominio {
+        font-size: 24px;
+        font-weight: 700;
+        color: #85d5ff;
+        letter-spacing: 0.02em;
+        margin-top: 12px;
+      }
+      img {
+        width: 440px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="texto">
+      <p class="nombre" id="nombre"></p>
+      <p class="rol" id="rol"></p>
+      <p class="dominio">luisreyesvanegas.com</p>
+    </div>
+    <img src="../../src/assets/brand/logo-lr-3d-render.png" alt="" />
+  </body>
+</html>

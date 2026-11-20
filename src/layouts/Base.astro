@@ -1,5 +1,8 @@
 ---
+import type { ImageMetadata } from 'astro';
+import { getImage } from 'astro:assets';
 import '../styles/global.css';
+import ogEs from '../assets/og/og-es.png';
 import Footer from '../components/brand/Footer.astro';
 import Header from '../components/brand/Header.astro';
 import Reveal from '../components/motion/Reveal.astro';
@@ -12,11 +15,30 @@ interface Props {
   title: string;
   description?: string;
   route?: RouteKey;
+  /** Imagen para compartir (1200 × 630). Por defecto, la tarjeta de marca del idioma. */
+  image?: ImageMetadata;
+  imageAlt?: string;
+  /** profile para Sobre mí; article para noticias y casos. */
+  type?: 'website' | 'profile' | 'article';
 }
 
-const { locale, title, description, route } = Astro.props;
+// Tarjetas generadas con scripts/og/generar.mjs (una por idioma publicado).
+const ogPorIdioma: Record<PublishedLocale, ImageMetadata> = { es: ogEs };
+const ogLocale: Record<PublishedLocale, string> = { es: 'es_LA' };
+
+const { locale, title, description, route, image, imageAlt, type = 'website' } = Astro.props;
 const t = getDictionary(locale);
 const absolute = (path: string) => new URL(path, Astro.site).toString();
+const fullTitle = `${title} · ${t.meta.siteName}`;
+const pageUrl = route ? absolute(localizedPath(locale, route)) : undefined;
+const og = await getImage({
+  src: image ?? ogPorIdioma[locale],
+  width: 1200,
+  height: 630,
+  fit: 'cover',
+  format: 'jpg',
+  quality: 85,
+});
 ---
 
 <!doctype html>
@@ -24,8 +46,20 @@ const absolute = (path: string) => new URL(path, Astro.site).toString();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{`${title} · ${t.meta.siteName}`}</title>
+    <title>{fullTitle}</title>
     {description && <meta name="description" content={description} />}
+    <meta property="og:site_name" content={t.meta.siteName} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={fullTitle} />
+    {description && <meta property="og:description" content={description} />}
+    {pageUrl && <meta property="og:url" content={pageUrl} />}
+    <meta property="og:locale" content={ogLocale[locale]} />
+    <meta property="og:image" content={absolute(og.src)} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt ?? t.meta.ogImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       rel="preload"
@@ -43,7 +77,7 @@ const absolute = (path: string) => new URL(path, Astro.site).toString();
     />
     {route && (
       <>
-        <link rel="canonical" href={absolute(localizedPath(locale, route))} />
+        <link rel="canonical" href={pageUrl} />
         {publishedLocales.map((code) => (
           <link rel="alternate" hreflang={code} href={absolute(localizedPath(code, route))} />
         ))}
