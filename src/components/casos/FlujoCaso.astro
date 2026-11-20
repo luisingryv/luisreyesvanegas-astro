@@ -1,0 +1,199 @@
+---
+// Pieza 11 · Diagrama del caso con flujo (laboratorio, animación aprobada por Luis). El HTML trae
+// el "después" completo; motion/flujo.ts arranca en "antes" al verse, pasa solo a "después" y hace
+// viajar paquetes por las conexiones (ilustrativos: la cifra real es la del contador).
+import Eyebrow from '../brand/Eyebrow.astro';
+import type { Caso, PaginaCasos } from '../../lib/content';
+
+interface Props {
+  diagrama: NonNullable<Caso['diagrama']>;
+  textos: PaginaCasos['plantilla']['diagrama'];
+}
+
+const { diagrama, textos } = Astro.props;
+const { despues } = diagrama;
+const formato = new Intl.NumberFormat('es', { useGrouping: 'always' });
+const cifra = (valor: number) => `${diagrama.prefijo}${formato.format(valor)}`;
+---
+
+<figure
+  class="flujo @container grid gap-5 rounded-lg border border-blue-200 bg-surface p-[clamp(18px,3vw,36px)]"
+  data-flujo
+  data-etapas={JSON.stringify({ prefijo: diagrama.prefijo, antes: diagrama.antes, despues })}
+>
+  <div class="flex flex-wrap items-end justify-between gap-3">
+    <div>
+      <Eyebrow as="span">{textos.eyebrow}</Eyebrow>
+      <p class="mt-2 text-title-md font-bold tracking-[-0.02em]">{textos.titulo}</p>
+    </div>
+    <div role="group" aria-label={textos.momento} class="flex gap-2" data-momentos hidden>
+      <button type="button" class="flujo-momento" aria-pressed="false" data-momento="antes">
+        {textos.antes}
+      </button>
+      <button type="button" class="flujo-momento" aria-pressed="true" data-momento="despues">
+        {textos.despues}
+      </button>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1.5">
+    <span class="basis-full text-label font-bold text-blue-600 uppercase">{diagrama.etiqueta}</span>
+    <span
+      class="text-[clamp(36px,5vw,56px)] leading-none font-bold tracking-[-0.02em] tabular-nums"
+      data-cifra
+    >
+      {cifra(despues.valor)}
+    </span>
+    <span
+      class="rounded-sm bg-primary px-2.5 py-1.75 text-[13px] leading-tight font-bold text-on-primary"
+      data-delta
+      hidden={!despues.delta}
+    >
+      {despues.delta}
+    </span>
+  </div>
+
+  <div class="flujo-nodos" data-nodos>
+    {despues.nodos.map((nodo, i) => (
+      <>
+        {i > 0 && <div class="flujo-cable" aria-hidden="true" data-cable />}
+        <div
+          class:list={['flujo-nodo', nodo.clave && 'es-clave', nodo.alerta && 'es-alerta']}
+          data-nodo
+        >
+          <span class="text-[15px] leading-tight font-bold text-balance">{nodo.titulo}</span>
+          <span class="text-[12px] leading-snug text-ink-muted">{nodo.detalle}</span>
+          {nodo.chips && nodo.chips.length > 0 && (
+            <span class="flex flex-wrap gap-1.5" data-chips>
+              {nodo.chips.map((chip) => (
+                <span class="rounded-pill border border-primary px-2 py-1 text-[11px] font-bold text-link">
+                  {chip}
+                </span>
+              ))}
+            </span>
+          )}
+        </div>
+      </>
+    ))}
+  </div>
+
+  <figcaption
+    class="min-h-[2.6em] max-w-[70ch] text-[15px] text-ink-muted"
+    aria-live="polite"
+    data-texto
+  >
+    {despues.texto}
+  </figcaption>
+  <p class="text-[12px] text-ink-muted">{diagrama.fuente}</p>
+</figure>
+
+<style>
+  .flujo-nodos {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .flujo-nodo {
+    flex: 0 1 180px;
+    min-width: 0;
+    min-height: 110px;
+    display: grid;
+    align-content: center;
+    gap: 6px;
+    padding: 16px;
+    border-radius: 18px;
+    background: var(--color-surface-raised);
+    border: 1.5px solid transparent;
+    transition:
+      border-color 300ms ease,
+      background 300ms ease;
+  }
+
+  .flujo-nodo.es-clave {
+    border-color: var(--color-primary);
+    box-shadow: 0 14px 36px -22px var(--color-primary);
+  }
+
+  .flujo-nodo.es-alerta {
+    border-style: dashed;
+    border-color: var(--color-ink-muted);
+  }
+
+  /* Conexión: una línea; los paquetes que viajan los agrega motion/flujo.ts. Sin punta de
+     flecha: el movimiento marca la dirección (Luis, 18 nov 2026). */
+  .flujo-cable {
+    position: relative;
+    flex: 1 1 64px;
+    min-width: 48px;
+    align-self: center;
+    height: 24px;
+  }
+
+  .flujo-cable::before {
+    content: '';
+    position: absolute;
+    inset: 50% 0 auto 0;
+    height: 2px;
+    margin-top: -1px;
+    background: var(--color-line-on-light);
+  }
+
+  .flujo-cable :global(.paquete) {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-radius: 2px;
+    background: var(--color-primary);
+    box-shadow: 0 0 0 1.5px var(--color-surface);
+    will-change: transform, opacity;
+  }
+
+  .flujo-momento {
+    border: 1px solid var(--color-line-on-light);
+    border-radius: var(--radius-pill);
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-ink-muted);
+  }
+
+  .flujo-momento[aria-pressed='true'] {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  /* En contenedores angostos (celular), el flujo va en columna. */
+  @container (max-width: 720px) {
+    .flujo-nodos {
+      flex-direction: column;
+    }
+    .flujo-nodo {
+      flex: none;
+      min-height: 0;
+    }
+    .flujo-cable {
+      flex: none;
+      height: 48px;
+      width: 40px;
+    }
+    .flujo-cable::before {
+      inset: 0 auto 0 50%;
+      height: auto;
+      width: 2px;
+      margin: 0 0 0 -1px;
+    }
+    .flujo-cable :global(.paquete) {
+      left: 50%;
+      top: 0;
+    }
+  }
+</style>
+
+<script>
+  import { iniciarFlujo } from '../motion/flujo';
+
+  for (const flujo of document.querySelectorAll<HTMLElement>('[data-flujo]')) {
+    iniciarFlujo(flujo);
+  }
+</script>

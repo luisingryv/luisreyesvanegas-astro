@@ -1,0 +1,15 @@
+# Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
+orden: 1
+cliente: 'Trama AI'
+tipo: 'startup-producto'
+temas:
+  - 'migracion'
+  - 'programas'
+permiso: true
+tarjeta:
+  metrica:
+    es: '≈US$6.000'
+  titulo:
+    es: 'Trama AI migra de Google Cloud a AWS con el programa MAP'
+  quien:
+    es: 'Trama AI'

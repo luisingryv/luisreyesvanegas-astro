@@ -1,0 +1,103 @@
+---
+// Índice de casos con filtros por tema y por tipo. Sin JavaScript se ven todos y los filtros no
+// aparecen; con JavaScript, las tarjetas se reacomodan con animación (motion/filtros-casos.ts).
+// Los temas sin casos no se muestran (Luis, 20 nov 2026).
+import Container from '../brand/Container.astro';
+import TarjetaCaso from './TarjetaCaso.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import type { Caso, PaginaCasos } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  casos: Caso[];
+  textos: PaginaCasos;
+}
+
+const { locale, casos, textos } = Astro.props;
+const { filtros } = textos;
+const temasConCasos = (Object.keys(filtros.temas) as (keyof typeof filtros.temas)[]).filter((t) =>
+  casos.some((c) => c.temas.includes(t)),
+);
+const tiposConCasos = (Object.keys(filtros.tipos) as (keyof typeof filtros.tipos)[]).filter((t) =>
+  casos.some((c) => c.tipo === t),
+);
+const grupos = [
+  { id: 'tema', etiqueta: filtros.tema, opciones: temasConCasos.map((t) => [t, filtros.temas[t]]) },
+  { id: 'tipo', etiqueta: filtros.tipo, opciones: tiposConCasos.map((t) => [t, filtros.tipos[t]]) },
+] as const;
+---
+
+<div data-casos-indice>
+  <section aria-label={filtros.etiqueta} class="bg-surface py-7" data-filtros hidden>
+    <Container class="flex flex-col gap-3">
+      {grupos.map((grupo) => (
+        <div
+          role="group"
+          aria-labelledby={`filtro-${grupo.id}`}
+          class="flex flex-wrap items-center gap-2"
+        >
+          <span
+            id={`filtro-${grupo.id}`}
+            class="mr-1.5 text-caption font-bold text-blue-600 uppercase"
+          >
+            {grupo.etiqueta}
+          </span>
+          {[['todos', filtros.todos], ...grupo.opciones].map(([valor, texto]) => (
+            <button
+              type="button"
+              class="filtro-caso rounded-pill border border-primary px-3.5 py-2 text-small font-bold transition-colors"
+              aria-pressed={valor === 'todos' ? 'true' : 'false'}
+              data-grupo={grupo.id}
+              data-valor={valor}
+            >
+              {texto}
+            </button>
+          ))}
+        </div>
+      ))}
+    </Container>
+  </section>
+
+  <section aria-label={textos.lista} class="bg-surface pt-6 pb-section-y">
+    <Container>
+      <ul
+        class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-4"
+        data-lista-casos
+      >
+        {casos.map((caso) => (
+          <li class="grid" data-tipo={caso.tipo} data-temas={caso.temas.join(' ')}>
+            <TarjetaCaso locale={locale} caso={caso} textos={textos} />
+          </li>
+        ))}
+      </ul>
+      <p role="status" class="pt-2 text-lead text-ink-muted" data-vacio hidden>
+        {filtros.vacio}
+      </p>
+    </Container>
+  </section>
+</div>
+
+<style>
+  .filtro-caso {
+    background: var(--color-surface);
+    color: var(--color-link);
+  }
+
+  .filtro-caso[aria-pressed='true'] {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+</style>
+
+<script>
+  import { iniciarCifraProtagonista } from '../motion/cifra-protagonista';
+  import { iniciarFiltrosCasos } from '../motion/filtros-casos';
+
+  for (const indice of document.querySelectorAll<HTMLElement>('[data-casos-indice]')) {
+    iniciarFiltrosCasos(indice);
+    // Las cifras de las tarjetas cuentan al verse (mismo contador que la pieza 02).
+    for (const tarjeta of indice.querySelectorAll<HTMLElement>('[data-cifra-protagonista]')) {
+      iniciarCifraProtagonista(tarjeta);
+    }
+  }
+</script>

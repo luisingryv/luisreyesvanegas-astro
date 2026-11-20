@@ -1,0 +1,69 @@
+# Textos del índice de casos y de la plantilla de caso (prototipo aprobado; diagrama: laboratorio,
+# pieza 11). vacio: mensaje de filtros sin resultados (Luis, 20 nov 2026).
+hero:
+  eyebrow:
+    es: 'Casos'
+  titulo:
+    es: 'Casos de éxito'
+  texto:
+    es: 'Proyectos en los que estuve, con el problema que había, lo que decidimos y el resultado medido. Cada caso dice si fue una consultoría mía, un producto o un proyecto que lideré con mi equipo en EvolutecC.'
+filtros:
+  etiqueta:
+    es: 'Filtros'
+  tema:
+    es: 'Tema'
+  tipo:
+    es: 'Tipo'
+  todos:
+    es: 'Todos'
+  temas:
+    costos:
+      es: 'Costos'
+    crecimiento:
+      es: 'Crecimiento'
+    programas:
+      es: 'Programas'
+    migracion:
+      es: 'Migración'
+    buenas-practicas:
+      es: 'Buenas prácticas'
+    seguridad:
+      es: 'Seguridad'
+    ia:
+      es: 'IA'
+  tipos:
+    consultoria-propia:
+      es: 'Consultoría propia'
+    startup-producto:
+      es: 'Startup o producto'
+    evolutecc:
+      es: 'Liderado con mi equipo en EvolutecC'
+  vacio:
+    es: 'No hay casos con esta combinación todavía.'
+lista:
+  es: 'Lista de casos'
+verCaso:
+  es: 'Ver caso'
+cierre:
+  titulo:
+    es: '¿Tienes un problema parecido?'
+  boton:
+    es: 'Agendar sesión de arquitectura'
+plantilla:
+  volver:
+    es: 'Todos los casos'
+  ficha:
+    es: 'Ficha del caso'
+  resultado:
+    es: 'Resultado'
+  diagrama:
+    eyebrow:
+      es: 'Cómo funcionó'
+    titulo:
+      es: 'La arquitectura, antes y después'
+    momento:
+      es: 'Momento'
+    antes:
+      es: 'Antes'
+    despues:
+      es: 'Después'

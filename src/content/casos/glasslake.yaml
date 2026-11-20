@@ -1,29 +1,128 @@
+# Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
+orden: 5
 cliente: 'Glasslake'
-etiqueta:
-  es: 'Escalar'
-titulo:
-  es: 'Una startup de SAP escala de forma segura en AWS'
-metrica:
-  es: 'US$62.000'
-quien:
-  es: 'Glasslake · 2025–hoy · Cloud Expert y administrador de la cuenta'
-pasos:
-  - clave:
-      es: 'Contexto'
+tipo: 'consultoria-propia'
+temas:
+  - 'crecimiento'
+  - 'programas'
+  - 'seguridad'
+permiso: true
+tarjeta:
+  metrica:
+    es: 'US$62.000'
+  titulo:
+    es: 'Una startup de SAP escala de forma segura en AWS'
+  quien:
+    es: 'Glasslake · 2025–hoy'
+consultoria:
+  etiqueta:
+    es: 'Escalar'
+  titulo:
+    es: 'Una startup de SAP escala de forma segura en AWS'
+  metrica:
+    es: 'US$62.000'
+  quien:
+    es: 'Glasslake · 2025–hoy · Cloud Expert y administrador de la cuenta'
+  pasos:
+    - clave:
+        es: 'Contexto'
+      texto:
+        es: 'Startup de SAP de San Francisco con presencia global, en pleno crecimiento y con experiencia en AWS: una cuenta robusta que tiene que escalar sin perder seguridad.'
+    - clave:
+        es: 'Hallazgo'
+      texto:
+        es: 'Había que robustecer la cuenta con buenas prácticas: redes seguras hacia los entornos de sus clientes, orden en los accesos y control de costos.'
+    - clave:
+        es: 'Decisión'
+      texto:
+        es: 'Organizations e IAM Identity Center para centralizar cuentas, beneficios y pagos; entornos multitenant; Transit Gateway, VPN y endpoints; seguridad con Amazon Inspector y monitoreo; revisión y proyección de costos.'
+    - clave:
+        es: 'Resultado'
+      texto:
+        es: 'La cuenta crece con orden: créditos del programa MAP, tráfico por NAT Gateway 75–80% menor e ISO 27001 y SOC 2 logradas por el cliente, con mi contribución técnica.'
+  viz:
+    tipo: 'anillo'
+pagina:
+  titulo:
+    es: 'Cómo Glasslake escala de forma segura en AWS'
+  resumen:
+    es: 'Glasslake es una startup de SAP de San Francisco con presencia global y una cuenta de AWS robusta, en pleno crecimiento. Como su Cloud Expert y administrador de la cuenta, me encargo de la arquitectura, las redes, la seguridad y los costos para que la infraestructura crezca con el negocio.'
+  ficha:
+    - clave:
+        es: 'Cliente'
+      valor:
+        es: 'Glasslake'
+    - clave:
+        es: 'Sector'
+      valor:
+        es: 'Software para SAP'
+    - clave:
+        es: 'País'
+      valor:
+        es: 'Estados Unidos (San Francisco), presencia global'
+    - clave:
+        es: 'Mi rol'
+      valor:
+        es: 'Cloud Expert y administrador de la cuenta: arquitectura, redes, seguridad, costos y soporte'
+    - clave:
+        es: 'Periodo'
+      valor:
+        es: '2025–hoy'
+    - clave:
+        es: 'Nube'
+      valor:
+        es: 'AWS'
+    - clave:
+        es: 'Aliado'
+      valor:
+        es: 'Nexa Connect, para el programa MAP'
+  bloques:
+    - clave:
+        es: 'Contexto'
+      texto:
+        es: 'Glasslake ya tenía experiencia en AWS y una cuenta en pleno crecimiento. Necesitaba robustecerla con buenas prácticas: redes seguras hacia los entornos SAP de sus clientes, orden en los accesos y control de los costos.'
+    - clave:
+        es: 'Decisión'
+      texto:
+        es: 'Centralicé las cuentas con AWS Organizations e IAM Identity Center: desde la cuenta principal se reparten los beneficios y programas y se manejan los pagos. Construí los entornos multitenant y las conexiones de red con Transit Gateway, VPN, endpoints y proxies hacia los clientes, y una infraestructura que crece en proporción a su costo de servicio.'
+    - clave:
+        es: 'Operación'
+      texto:
+        es: 'Administro la cuenta: usuarios y accesos, cumplimiento de la seguridad con Amazon Inspector y monitoreo, revisión y proyección de costos, y soporte de los servicios.'
+    - clave:
+        es: 'Programas'
+      texto:
+        es: 'Con nuestro aliado Nexa Connect, Glasslake accedió al programa MAP de AWS. Además, el equipo recibió 10 usuarios de Kiro con créditos.'
+    - clave:
+        es: 'Seguridad'
+      texto:
+        es: 'Preparé la evidencia técnica en la nube para sus certificaciones. Glasslake obtuvo ISO 27001 y SOC 2: es un logro del cliente, con mi contribución técnica.'
+  cifras:
+    - metrica:
+        es: 'US$62.000'
+      texto:
+        es: 'En créditos de AWS por el programa MAP, con Nexa Connect.'
+    - metrica:
+        es: '−75 a −80%'
+      texto:
+        es: 'En el tráfico por NAT Gateway después de optimizar la red.'
+    - metrica:
+        es: 'US$8.000'
+      texto:
+        es: 'En créditos para 10 usuarios de Kiro.'
+    - metrica:
+        es: 'ISO 27001 · SOC 2'
+      texto:
+        es: 'Certificaciones logradas por Glasslake.'
+  fuente:
+    es: 'Fuente: Luis Reyes Vanegas, con autorización de Glasslake. Montos de programas según elegibilidad.'
+  cierre:
+    titulo:
+      es: '¿Tu empresa está por crecer en la nube?'
     texto:
-      es: 'Startup de SAP de San Francisco con presencia global, en pleno crecimiento y con experiencia en AWS: una cuenta robusta que tiene que escalar sin perder seguridad.'
-  - clave:
-      es: 'Hallazgo'
-    texto:
-      es: 'Había que robustecer la cuenta con buenas prácticas: redes seguras hacia los entornos de sus clientes, orden en los accesos y control de costos.'
-  - clave:
-      es: 'Decisión'
-    texto:
-      es: 'Organizations e IAM Identity Center para centralizar cuentas, beneficios y pagos; entornos multitenant; Transit Gateway, VPN y endpoints; seguridad con Amazon Inspector y monitoreo; revisión y proyección de costos.'
-  - clave:
-      es: 'Resultado'
-    texto:
-      es: 'La cuenta crece con orden: créditos del programa MAP, tráfico por NAT Gateway 75–80% menor e ISO 27001 y SOC 2 logradas por el cliente, con mi contribución técnica.'
-# La cifra con el anillo de la pieza 02.
-viz:
-  tipo: anillo
+      es: 'Revisemos si tu infraestructura aguanta y qué programas te corresponden.'
+    enlace:
+      texto:
+        es: 'Ver revisión de escalabilidad'
+      destino:
+        ruta: 'escalarInfraestructura'

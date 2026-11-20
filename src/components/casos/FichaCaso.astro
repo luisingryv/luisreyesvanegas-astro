@@ -1,0 +1,38 @@
+---
+// Ficha lateral del caso (cliente, sector, país, rol, periodo…) y los bloques del relato.
+import Section from '../brand/Section.astro';
+import type { Caso } from '../../lib/content';
+
+interface Props {
+  pagina: NonNullable<Caso['pagina']>;
+  etiquetaFicha: string;
+}
+
+const { pagina, etiquetaFicha } = Astro.props;
+---
+
+<Section tone="light" reveal aria-label={etiquetaFicha}>
+  <div class="flex flex-wrap items-start gap-12">
+    <aside
+      aria-label={etiquetaFicha}
+      class="flex flex-[1_1_280px] flex-col rounded-lg bg-surface-raised p-6"
+    >
+      <dl>
+        {pagina.ficha.map((dato) => (
+          <div class="flex flex-col gap-0.5 border-b border-blue-300 py-2.5 last:border-b-0">
+            <dt class="text-label font-bold text-blue-600 uppercase">{dato.clave}</dt>
+            <dd class="text-[15px]">{dato.valor}</dd>
+          </div>
+        ))}
+      </dl>
+    </aside>
+    <div class="flex min-w-0 flex-[2_1_520px] flex-col gap-8">
+      {pagina.bloques.map((bloque) => (
+        <div class="flex flex-col gap-2.5">
+          <h2 class="text-eyebrow font-bold text-link uppercase">{bloque.clave}</h2>
+          <p class="text-[18px] leading-[1.6] text-ink-muted">{bloque.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Section>

@@ -330,11 +330,33 @@ export async function getCaso(id: string, locale: PublishedLocale) {
 
 export type Caso = Awaited<ReturnType<typeof getCaso>>;
 
+/** Casos publicados (con permiso), en el orden que definió Luis. */
+export async function getCasos(locale: PublishedLocale) {
+  const casos = await getCollection('casos', (c) => c.data.permiso);
+  return casos
+    .sort((a, b) => a.data.orden - b.data.orden)
+    .map(({ id, data }) => ({ id, ...resolveLocalized(data, locale, `casos/${id}`) }));
+}
+
+export async function getPaginaCasos(locale: PublishedLocale) {
+  const entry = await getEntry('casosPagina', 'casos');
+  if (!entry) throw new Error('Falta src/content/paginas/casos.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/casos');
+}
+
+export type PaginaCasos = Awaited<ReturnType<typeof getPaginaCasos>>;
+
 export async function getPaginaConsultoria(locale: PublishedLocale) {
   const entry = await getEntry('consultoria', 'consultoria');
   if (!entry) throw new Error('Falta src/content/paginas/consultoria.yaml.');
   const pagina = resolveLocalized(entry.data, locale, 'paginas/consultoria');
-  const casos = await Promise.all(entry.data.casos.lista.map((ref) => getCaso(ref.id, locale)));
+  const casos = await Promise.all(
+    entry.data.casos.lista.map(async (ref) => {
+      const caso = await getCaso(ref.id, locale);
+      if (!caso.consultoria) throw new Error(`El caso ${ref.id} necesita su versión con pasos.`);
+      return { id: caso.id, ...caso.consultoria };
+    }),
+  );
   return { ...pagina, casos: { ...pagina.casos, lista: casos } };
 }
 

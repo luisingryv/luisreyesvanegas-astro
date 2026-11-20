@@ -1,0 +1,14 @@
+# Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
+orden: 3
+cliente: 'Clínica del Caribe'
+tipo: 'startup-producto'
+temas:
+  - 'buenas-practicas'
+permiso: true
+tarjeta:
+  metrica:
+    es: '10+ años'
+  titulo:
+    es: 'El sistema de incidencias clínicas pasa a la web y sigue en uso'
+  quien:
+    es: 'Clínica del Caribe · 2016'

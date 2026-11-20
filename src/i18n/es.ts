@@ -108,6 +108,9 @@ export const es = {
     adopcionIa: {
       title: 'Adopción de IA con Claude',
     },
+    casos: {
+      title: 'Casos de éxito',
+    },
     sobreMi: {
       title: 'Sobre mí',
     },

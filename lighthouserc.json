@@ -10,7 +10,9 @@
         "http://127.0.0.1:4399/es/legal/privacidad",
         "http://127.0.0.1:4399/es/consultoria",
         "http://127.0.0.1:4399/es/consultoria/optimizar-costos",
-        "http://127.0.0.1:4399/es/consultoria/adopcion-ia"
+        "http://127.0.0.1:4399/es/consultoria/adopcion-ia",
+        "http://127.0.0.1:4399/es/casos",
+        "http://127.0.0.1:4399/es/casos/utpn"
       ],
       "numberOfRuns": 3,
       "settings": {

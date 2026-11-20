@@ -1,34 +1,182 @@
-# Casos: versión con el recorrido en pasos (Consultoría). El hito 5 suma su página completa.
+# Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
+orden: 4
 cliente: 'UTPN / KMA'
-etiqueta:
-  es: 'Reducir'
-titulo:
-  es: 'Una red nacional de peajes baja su factura de Google Cloud'
-metrica:
-  es: '−60%'
-quien:
-  es: 'UTPN / KMA · 2025'
-pasos:
-  - clave:
-      es: 'Contexto'
+tipo: 'consultoria-propia'
+temas:
+  - 'costos'
+permiso: true
+tarjeta:
+  metrica:
+    es: '−60%'
+  titulo:
+    es: 'Una red nacional de peajes baja su factura de Google Cloud'
+  quien:
+    es: 'UTPN / KMA · 2025'
+consultoria:
+  etiqueta:
+    es: 'Reducir'
+  titulo:
+    es: 'Una red nacional de peajes baja su factura de Google Cloud'
+  metrica:
+    es: '−60%'
+  quien:
+    es: 'UTPN / KMA · 2025'
+  pasos:
+    - clave:
+        es: 'Contexto'
+      texto:
+        es: 'La factura crecía y no estaba identificado de dónde venía el sobrecosto, aunque el uso de la plataforma estaba justificado.'
+    - clave:
+        es: 'Hallazgo'
+      texto:
+        es: 'La videovigilancia 24/7 (≈15 TB diarios) salía a internet como transmisión en vivo.'
+    - clave:
+        es: 'Decisión'
+      texto:
+        es: 'Acceso remoto a las cámaras, sin tráfico de salida.'
+    - clave:
+        es: 'Resultado'
+      texto:
+        es: 'La factura bajó de US$10.000 a unos US$4.000 al mes, y el cliente firmó un contrato de soporte de largo plazo.'
+  viz:
+    tipo: 'barras'
+    antes: 100
+    despues: 40
+    leyenda:
+      - es: 'US$10.000 → US$4.000 al mes'
+pagina:
+  titulo:
+    es: 'Cómo una red nacional de peajes bajó 60% su factura de Google Cloud'
+  resumen:
+    es: 'La factura de Google Cloud de UTPN crecía y no estaba identificado de dónde venía el sobrecosto. Encontré que la videovigilancia 24/7 salía a internet como transmisión en vivo y cambié la forma de acceder a las cámaras. La factura pasó de US$10.000 a unos US$4.000 al mes.'
+  ficha:
+    - clave:
+        es: 'Cliente'
+      valor:
+        es: 'UTPN / KMA'
+    - clave:
+        es: 'Sector'
+      valor:
+        es: 'Red nacional de peajes'
+    - clave:
+        es: 'País'
+      valor:
+        es: 'Colombia'
+    - clave:
+        es: 'Mi rol'
+      valor:
+        es: 'Consultor de arquitectura cloud'
+    - clave:
+        es: 'Periodo'
+      valor:
+        es: '2025'
+    - clave:
+        es: 'Nube'
+      valor:
+        es: 'Google Cloud'
+    - clave:
+        es: 'Volumen'
+      valor:
+        es: 'Videovigilancia 24/7, unos 15 TB diarios'
+  bloques:
+    - clave:
+        es: 'Contexto'
+      texto:
+        es: 'El uso de la plataforma estaba justificado, pero no estaba identificado de dónde venía el sobrecosto de la factura. Además, cerca de la mitad de la capacidad contratada estaba en uso.'
+    - clave:
+        es: 'Hallazgo'
+      texto:
+        es: 'La videovigilancia 24/7, unos 15 TB diarios, salía a internet como transmisión en vivo. Ese tráfico de salida disparaba la factura.'
+    - clave:
+        es: 'Decisión'
+      texto:
+        es: 'Rediseñé el acceso a las cámaras para que se hiciera de forma remota, sin tráfico de salida, y ajusté la capacidad al uso real.'
+    - clave:
+        es: 'Después'
+      texto:
+        es: 'El presupuesto liberado se convirtió en un contrato de soporte de largo plazo para sostener y mejorar la infraestructura.'
+  cifras:
+    - metrica:
+        es: '−60%'
+      texto:
+        es: 'En la factura mensual de Google Cloud.'
+    - metrica:
+        es: 'US$10.000'
+      texto:
+        es: 'Al mes antes de la auditoría.'
+    - metrica:
+        es: 'US$4.000'
+      texto:
+        es: 'Al mes después de los cambios.'
+  fuente:
+    es: 'Fuente: Luis Reyes Vanegas, con autorización de UTPN / KMA.'
+  cierre:
+    titulo:
+      es: '¿Tu factura de nube crece más rápido que tu negocio?'
     texto:
-      es: 'La factura crecía y no estaba identificado de dónde venía el sobrecosto, aunque el uso de la plataforma estaba justificado.'
-  - clave:
-      es: 'Hallazgo'
+      es: 'Revisemos dónde se va el gasto.'
+    enlace:
+      texto:
+        es: 'Ver auditoría de costos'
+      destino:
+        ruta: 'optimizarCostos'
+diagrama:
+  etiqueta:
+    es: 'Factura mensual de Google Cloud'
+  fuente:
+    es: 'UTPN / KMA · 2025 · Se publica con permiso del cliente.'
+  prefijo: 'US$'
+  antes:
+    valor: 10000
     texto:
-      es: 'La videovigilancia 24/7 (≈15 TB diarios) salía a internet como transmisión en vivo.'
-  - clave:
-      es: 'Decisión'
+      es: 'La videovigilancia 24/7, unos 15 TB diarios, salía a internet como transmisión en vivo.'
+    nodos:
+      - titulo:
+          es: 'Cámaras de los peajes'
+        detalle:
+          es: '24/7 · ≈15 TB diarios'
+      - titulo:
+          es: 'Google Cloud'
+        detalle:
+          es: 'Almacenamiento y procesamiento'
+      - titulo:
+          es: 'Transmisión en vivo por internet'
+        detalle:
+          es: 'Tráfico de salida'
+        alerta: true
+      - titulo:
+          es: 'Operadores'
+        detalle:
+          es: 'Monitoreo de los peajes'
+    flujos:
+      - [4, 6]
+      - [4, 11]
+      - [4, 6]
+  despues:
+    valor: 4000
+    delta:
+      es: '−60%'
     texto:
-      es: 'Acceso remoto a las cámaras, sin tráfico de salida.'
-  - clave:
-      es: 'Resultado'
-    texto:
-      es: 'La factura bajó de US$10.000 a unos US$4.000 al mes, y el cliente firmó un contrato de soporte de largo plazo.'
-# La cifra con la barra de la pieza 02 (MOTION-DEL-SITIO, Consultoría).
-viz:
-  tipo: barras
-  antes: 100
-  despues: 40
-  leyenda:
-    - es: 'US$10.000 → US$4.000 al mes'
+      es: 'El acceso a las cámaras pasó a escritorio remoto, sin tráfico de salida.'
+    nodos:
+      - titulo:
+          es: 'Cámaras de los peajes'
+        detalle:
+          es: '24/7 · ≈15 TB diarios'
+      - titulo:
+          es: 'Google Cloud'
+        detalle:
+          es: 'Almacenamiento y procesamiento'
+      - titulo:
+          es: 'Escritorio remoto'
+        detalle:
+          es: 'Sin tráfico de salida'
+        clave: true
+      - titulo:
+          es: 'Operadores'
+        detalle:
+          es: 'Monitoreo de los peajes'
+    flujos:
+      - [4, 6]
+      - [1.5, 4]
+      - [1.5, 4]

@@ -1,0 +1,149 @@
+# Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
+orden: 6
+cliente: 'Mandaos'
+tipo: 'startup-producto'
+temas:
+  - 'crecimiento'
+permiso: true
+tarjeta:
+  metrica:
+    es: '≈70.000'
+  titulo:
+    es: 'De unos 2.400 a unos 70.000 pedidos al mes con iFood'
+  quien:
+    es: 'Mandaos / Netivery'
+pagina:
+  titulo:
+    es: 'Cómo Mandaos pasó de unos 2.400 a unos 70.000 pedidos al mes con iFood'
+  resumen:
+    es: 'Mandaos era una startup de logística de última milla. Como Head of Product, convertí el producto en una plataforma con una API pública. Esa API fue la base de la integración con iFood y de un salto de casi 30 veces en pedidos.'
+  ficha:
+    - clave:
+        es: 'Empresa'
+      valor:
+        es: 'Mandaos (luego Netivery)'
+    - clave:
+        es: 'Sector'
+      valor:
+        es: 'Logística de última milla'
+    - clave:
+        es: 'País'
+      valor:
+        es: 'Colombia'
+    - clave:
+        es: 'Mi rol'
+      valor:
+        es: 'Desarrollador web y luego Head of Product, a cargo del producto y de las decisiones técnicas'
+    - clave:
+        es: 'Equipo'
+      valor:
+        es: 'Equipo de producto de 6 personas'
+    - clave:
+        es: 'Periodo'
+      valor:
+        es: '2018–2020'
+    - clave:
+        es: 'Tecnología'
+      valor:
+        es: 'API pública de integraciones · app móvil migrada de Cordova a Ionic · AWS'
+  bloques:
+    - clave:
+        es: 'Contexto'
+      texto:
+        es: 'Mandaos era una startup de logística de última milla. Entré como desarrollador web y llegué a Head of Product, a cargo del producto y de las decisiones técnicas. El reto era pasar de un servicio de domicilios a una plataforma a la que otros negocios pudieran conectarse.'
+    - clave:
+        es: 'Decisión'
+      texto:
+        es: 'Diseñamos una API pública para que terceros se integraran por su cuenta y migramos la app móvil a Ionic. Farmacias y otros comercios empezaron a enviar sus pedidos directamente. Un piloto con iFood validó la API y, para soportar su demanda, aceleramos la nueva app, que pasó a llamarse Netivery.'
+    - clave:
+        es: 'Lo que aprendí'
+      texto:
+        es: 'Fue un resultado de todo el equipo: tecnología, operación y estrategia. Con la pandemia, la salida de iFood nos mostró el riesgo de depender de un solo cliente.'
+  cifras:
+    - metrica:
+        es: '≈2.400'
+      texto:
+        es: 'Pedidos al mes antes de la integración.'
+    - metrica:
+        es: '≈70.000'
+      texto:
+        es: 'Pedidos al mes con la integración con iFood.'
+    - metrica:
+        es: '×29'
+      texto:
+        es: 'Crecimiento en pedidos mensuales.'
+  fuente:
+    es: 'Fuente: documentación de la API v2 de Mandaos.'
+  cierre:
+    titulo:
+      es: '¿Tu plataforma tiene que aguantar un salto así?'
+    texto:
+      es: 'Revisemos tu arquitectura antes de que llegue el crecimiento.'
+    enlace:
+      texto:
+        es: 'Agendar sesión de arquitectura'
+      destino:
+        ruta: 'consultoria'
+        ancla: 'agenda'
+diagrama:
+  etiqueta:
+    es: 'Pedidos al mes'
+  fuente:
+    es: 'Mandaos / Netivery · Fuente: documentación de la API v2 de Mandaos.'
+  prefijo: '≈'
+  antes:
+    valor: 2400
+    texto:
+      es: 'Antes de la integración con iFood.'
+    nodos:
+      - titulo:
+          es: 'Comercios'
+        detalle:
+          es: 'Envían sus pedidos'
+      - titulo:
+          es: 'API pública de Mandaos'
+        detalle:
+          es: 'Integración con terceros'
+        clave: true
+      - titulo:
+          es: 'Plataforma de despachos'
+        detalle:
+          es: 'Asigna cada pedido'
+      - titulo:
+          es: 'App de mensajeros'
+        detalle:
+          es: 'Ionic'
+    flujos:
+      - [1.2, 7]
+      - [1.2, 7]
+      - [1.2, 7]
+  despues:
+    valor: 70000
+    delta:
+      es: '×29 frente a ≈2.400'
+    texto:
+      es: 'Con la API pública como puerta de entrada, iFood y otros comercios envían sus pedidos directo a la plataforma.'
+    nodos:
+      - titulo:
+          es: 'Comercios'
+        detalle:
+          es: 'Envían sus pedidos'
+        chips:
+          - 'iFood'
+      - titulo:
+          es: 'API pública de Mandaos'
+        detalle:
+          es: 'Integración con terceros'
+        clave: true
+      - titulo:
+          es: 'Plataforma de despachos'
+        detalle:
+          es: 'Asigna cada pedido'
+      - titulo:
+          es: 'App de mensajeros'
+        detalle:
+          es: 'Ionic'
+    flujos:
+      - [9, 7]
+      - [9, 7]
+      - [9, 7]

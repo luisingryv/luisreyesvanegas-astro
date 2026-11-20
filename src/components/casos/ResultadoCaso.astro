@@ -1,0 +1,30 @@
+---
+// Resultado del caso en sección oscura: las cifras con su fuente. Sin testimonio hasta tener uno
+// real y verificable.
+import Section from '../brand/Section.astro';
+import type { Caso } from '../../lib/content';
+
+interface Props {
+  pagina: NonNullable<Caso['pagina']>;
+  titulo: string;
+}
+
+const { pagina, titulo } = Astro.props;
+---
+
+<Section tone="dark" reveal aria-labelledby="resultado-titulo">
+  <div class="flex flex-col gap-7">
+    <h2 id="resultado-titulo" class="text-heading font-bold">
+      {titulo}
+    </h2>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-4">
+      {pagina.cifras.map((c) => (
+        <li class="flex flex-col gap-2 rounded-lg border border-hairline bg-surface-raised p-6">
+          <span class="text-[clamp(30px,3.2vw,44px)] leading-none font-bold">{c.metrica}</span>
+          <span class="text-[15px] text-text-secondary-on-dark">{c.texto}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="text-[12px] text-gray-400">{pagina.fuente}</p>
+  </div>
+</Section>

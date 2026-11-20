@@ -1,0 +1,56 @@
+---
+// Página de un caso (solo los que tienen página propia y permiso de publicación).
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import { getCollection } from 'astro:content';
+import FichaCaso from '../../../components/casos/FichaCaso.astro';
+import HeroCaso from '../../../components/casos/HeroCaso.astro';
+import ResultadoCaso from '../../../components/casos/ResultadoCaso.astro';
+import BandaMarca from '../../../components/consultoria/BandaMarca.astro';
+import { publishedLocales } from '../../../i18n/config';
+import { localizedPath } from '../../../i18n/routes';
+import Base from '../../../layouts/Base.astro';
+import { getCaso, getPaginaCasos } from '../../../lib/content';
+import { resolverEnlace } from '../../../lib/enlaces';
+import { caseArticleSchema, serializeJsonLd } from '../../../lib/structured-data';
+
+export const prerender = true;
+
+export const getStaticPaths = (async () => {
+  const casos = await getCollection('casos', (c) => c.data.permiso && c.data.pagina !== undefined);
+  return publishedLocales.flatMap((lang) =>
+    casos.map(({ id }) => ({ params: { lang, slug: id } })),
+  );
+}) satisfies GetStaticPaths;
+
+const { lang, slug } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const [caso, textos] = await Promise.all([getCaso(slug, lang), getPaginaCasos(lang)]);
+const pagina = caso.pagina!;
+const casoConPagina = { ...caso, pagina };
+const url = new URL(`${localizedPath(lang, 'casos')}/${slug}`, Astro.site).toString();
+const cierre = resolverEnlace(lang, pagina.cierre.enlace.destino);
+---
+
+<Base
+  locale={lang}
+  title={pagina.titulo}
+  description={pagina.resumen}
+  route="casos"
+  tema="light"
+  type="article"
+>
+  <script
+    is:inline
+    slot="head"
+    type="application/ld+json"
+    set:html={serializeJsonLd(caseArticleSchema(url, pagina.titulo, pagina.resumen, caso.cliente))}
+  />
+  <HeroCaso locale={lang} caso={casoConPagina} textos={textos} />
+  <FichaCaso pagina={pagina} etiquetaFicha={textos.plantilla.ficha} />
+  <ResultadoCaso pagina={pagina} titulo={textos.plantilla.resultado} />
+  <BandaMarca
+    id="cierre"
+    titulo={pagina.cierre.titulo}
+    texto={pagina.cierre.texto}
+    botones={[{ texto: pagina.cierre.enlace.texto, href: cierre.href, external: cierre.external }]}
+  />
+</Base>
