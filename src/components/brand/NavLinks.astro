@@ -1,7 +1,7 @@
 ---
 import type { PublishedLocale } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
-import { localizedPath, type RouteKey } from '../../i18n/routes';
+import { localizedPath, seccionDe, type RouteKey } from '../../i18n/routes';
 
 interface Props {
   locale: PublishedLocale;
@@ -9,7 +9,8 @@ interface Props {
   orientation: 'horizontal' | 'vertical';
 }
 
-const { locale, current, orientation } = Astro.props;
+const { locale, current: ruta, orientation } = Astro.props;
+const current = ruta && (seccionDe[ruta] ?? ruta);
 const t = getDictionary(locale);
 
 const items = ['consultoria', 'productos', 'casos', 'eventos', 'sobreMi'] as const;
@@ -30,7 +31,7 @@ const items = ['consultoria', 'productos', 'casos', 'eventos', 'sobreMi'] as con
           class:list={[
             'block border-b-2 py-2.5 transition-colors duration-150',
             key === current
-              ? 'border-accent text-link'
+              ? 'border-current text-link'
               : 'border-transparent text-ink hover:text-link',
           ]}
         >

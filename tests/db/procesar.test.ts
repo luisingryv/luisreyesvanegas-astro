@@ -119,3 +119,26 @@ describe('procesarSolicitud', () => {
     ).toBe(true);
   });
 });
+
+describe('agenda de Consultoría', () => {
+  it('guarda sin nombre, con el tema como puerta y las nubes y el gasto en datos', async () => {
+    const r = await procesarSolicitud(
+      {
+        formulario: 'consultoria',
+        email: 'cto@ejemplo.com',
+        puerta: 'optimizar-costos',
+        nubes: 'AWS',
+        gasto: 'US$8.000',
+        acepta: 'on',
+      },
+      { db, ...desactivadas },
+    );
+    expect(await obtenerSolicitud(db, r.ok ? r.id! : 0)).toMatchObject({
+      formulario: 'consultoria',
+      nombre: null,
+      mensaje: null,
+      puerta: 'optimizar-costos',
+      datos: { nubes: 'AWS', gasto: 'US$8.000' },
+    });
+  });
+});

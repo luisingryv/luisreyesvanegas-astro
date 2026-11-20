@@ -140,6 +140,127 @@ const logros = defineCollection({
     }),
 });
 
+// ─── Consultoría ─────────────────────────────────────────────
+
+// Mini visualización de una cifra (pieza 02 y pieza 07). Decorativa: la cifra va en el texto.
+const viz = z.discriminatedUnion('tipo', [
+  z.object({
+    tipo: z.literal('barras'),
+    antes: z.number().min(0).max(100),
+    despues: z.number().min(0).max(100),
+    leyenda: z.array(localized).min(1).max(2),
+  }),
+  z.object({ tipo: z.literal('anillo'), leyenda: localized.optional() }),
+  z.object({ tipo: z.literal('migrar'), origen: z.string(), destino: z.string() }),
+  z.object({
+    tipo: z.literal('ticks'),
+    cantidad: z.number().int().min(2).max(20),
+    leyenda: z.array(localized).length(2),
+  }),
+  z.object({ tipo: z.literal('sellos'), sellos: z.array(z.string()).min(1) }),
+  z.object({ tipo: z.literal('cuatroD'), nombres: z.array(localized).length(4) }),
+]);
+
+// Rutas internas a las que puede llevar un enlace de Consultoría.
+const rutaConsultoria = z.enum([
+  'consultoria',
+  'sesionArquitectura',
+  'optimizarCostos',
+  'escalarInfraestructura',
+  'retainers',
+  'adopcionIa',
+  'programasAws',
+]);
+const destino = z.union([
+  z.object({ ruta: rutaConsultoria, ancla: z.string().optional() }),
+  z.object({ caso: z.string().regex(/^[a-z0-9-]+$/) }),
+  z.object({ evolutecc: z.string().regex(/^[a-z0-9-]+$/) }),
+]);
+const enlace = z.object({ texto: localized, destino });
+
+// Las 7 puertas de entrada (pieza 07 en Consultoría).
+const puertas = defineCollection({
+  loader: entries('puertas'),
+  schema: z.object({
+    numero: z.number().int().min(1).max(7),
+    etiqueta: localized,
+    dolor: localized,
+    oferta: localized,
+    prueba: localized,
+    destino,
+    viz,
+  }),
+});
+
+// Casos con su recorrido en pasos. El hito 5 (Casos) los amplía con su página propia.
+const casos = defineCollection({
+  loader: entries('casos'),
+  schema: z.object({
+    cliente: z.string().min(1),
+    etiqueta: localized,
+    titulo: localized,
+    metrica: localized,
+    quien: localized,
+    pasos: z.array(z.object({ clave: localized, texto: localized })).length(4),
+    viz: viz.optional(),
+  }),
+});
+
+// Subpáginas de Consultoría con la misma plantilla (sesión, puertas con página y retainers).
+const servicios = defineCollection({
+  loader: entries('servicios'),
+  schema: z.object({
+    ruta: rutaConsultoria,
+    titulo: localized,
+    hero: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      agendar: localized,
+      llamada: localized,
+    }),
+    senales: z.object({ titulo: localized, items: z.array(localized).min(1) }),
+    entregables: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      items: z.array(z.object({ titulo: localized, texto: localized })).min(1),
+    }),
+    proceso: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      items: z.array(z.object({ numero: z.string(), titulo: localized, texto: localized })).min(1),
+      nota: localized.optional(),
+    }),
+    caso: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      enlace,
+      metrica: localized,
+      leyenda: localized,
+      barras: z
+        .object({ antes: z.number().min(0).max(100), despues: z.number().min(0).max(100) })
+        .optional(),
+    }),
+    empezar: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      aparte: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        enlace,
+      }),
+    }),
+    faq: z.object({
+      titulo: localized,
+      items: z.array(z.object({ pregunta: localized, respuesta: localized })).min(1),
+    }),
+    cierre: z.object({ titulo: localized, boton: localized }),
+  }),
+});
+
 // Opciones del campo "tema" de un formulario: su valor se guarda como puerta.
 const temas = z
   .array(z.object({ valor: z.string().regex(/^[a-z0-9-]+$/), texto: localized }))
@@ -202,6 +323,111 @@ const legal = defineCollection({
     titulo: localized,
     navegacion: localized,
     secciones: z.array(z.object({ titulo: localized, texto: localized })).min(1),
+  }),
+});
+
+// Textos propios de Consultoría.
+const consultoria = defineCollection({
+  loader: glob({ pattern: 'consultoria.yaml', base: './src/content/paginas' }),
+  schema: z.object({
+    hero: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      agendar: localized,
+      llamada: localized,
+    }),
+    puertas: z.object({ eyebrow: localized, titulo: localized, boton: localized }),
+    casos: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      lista: z.array(reference('casos')).min(1),
+    }),
+    pasos: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      items: z
+        .array(z.object({ numero: z.string(), titulo: localized, texto: localized }))
+        .length(4),
+    }),
+    formas: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      items: z.array(z.object({ nombre: localized, texto: localized })).min(1),
+      nota: localized,
+      enlaces: z.array(enlace).min(1),
+    }),
+    credenciales: z.object({ eyebrow: localized, titulo: localized, items: z.array(localized) }),
+    noSoyParaTi: z.object({ eyebrow: localized, titulo: localized, items: z.array(localized) }),
+    faq: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      items: z.array(z.object({ pregunta: localized, respuesta: localized })).min(1),
+    }),
+    map: z.object({ eyebrow: localized, titulo: localized, texto: localized, boton: localized }),
+    agenda: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      opciones: z.array(z.object({ titulo: localized, texto: localized, destacada: z.boolean() })),
+      campos: z.object({
+        tema: localized,
+        nubes: localized,
+        nubesEjemplo: localized,
+        gasto: localized,
+        gastoEjemplo: localized,
+        correo: localized,
+      }),
+      temas,
+      enviar: localized,
+      /** Aviso cuando todavía no hay URL de la agenda (Luis, 20 nov 2026). */
+      recibido: localized,
+    }),
+  }),
+});
+
+// Textos de Adopción de IA (landing con header mínimo).
+const adopcionIa = defineCollection({
+  loader: glob({ pattern: 'adopcion-ia.yaml', base: './src/content/paginas' }),
+  schema: z.object({
+    hero: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      hablemos: localized,
+      comoTrabajo: localized,
+    }),
+    cuatroD: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      items: z
+        .array(z.object({ letra: z.string(), nombre: localized, texto: localized }))
+        .length(4),
+    }),
+    temas: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      items: z.array(z.object({ nombre: localized, texto: localized })).min(1),
+    }),
+    etapas: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      items: z.array(z.object({ numero: z.string(), nombre: localized, texto: localized })).min(1),
+    }),
+    prueba: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      certificacionesEyebrow: localized,
+      certificaciones: z.array(reference('certificaciones')).min(1),
+      verificar: localized,
+    }),
+    empezar: z.object({
+      titulo: localized,
+      texto: localized,
+      agendar: localized,
+      llamada: localized,
+    }),
   }),
 });
 
@@ -330,6 +556,11 @@ const sobreMi = defineCollection({
 
 export const collections = {
   home,
+  puertas,
+  casos,
+  servicios,
+  consultoria,
+  adopcionIa,
   contacto,
   formularios,
   legal,

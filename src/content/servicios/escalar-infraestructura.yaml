@@ -1,0 +1,134 @@
+# Subpágina de Consultoría (plantilla común). Textos tal cual el prototipo aprobado.
+ruta: 'escalarInfraestructura'
+titulo:
+  es: 'Escalar la infraestructura'
+hero:
+  eyebrow:
+    es: '02 / 07 · Crecer la infraestructura'
+  titulo:
+    es: '¿Vas a multiplicar usuarios y no sabes si tu infraestructura aguanta?'
+  texto:
+    es: 'Reviso tu arquitectura antes de que llegue el crecimiento: proyecto la capacidad que vas a necesitar, encuentro los cuellos de botella y diseño una infraestructura que crece en proporción a lo que facturas.'
+  agendar:
+    es: 'Agendar sesión de arquitectura · US$450'
+  llamada:
+    es: 'Llamada de 20 min gratis'
+senales:
+  titulo:
+    es: 'Señales de que este es tu caso'
+  items:
+    - es: 'Vas a lanzar en un mercado nuevo o a sumar un cliente grande.'
+    - es: 'Cada pico de tráfico es una noche sin dormir.'
+    - es: 'Escalar significa comprar servidores más grandes.'
+    - es: 'No sabes cuánto te cuesta servir a cada usuario.'
+    - es: 'La base de datos es el primer sospechoso cuando algo falla.'
+entregables:
+  eyebrow:
+    es: 'Qué recibes'
+  titulo:
+    es: 'Revisión de escalabilidad y capacidad'
+  items:
+    - titulo:
+        es: 'Proyección de capacidad'
+      texto:
+        es: 'Usuarios, carga y costo por usuario en los próximos escenarios de crecimiento.'
+    - titulo:
+        es: 'Mapa de cuellos de botella'
+      texto:
+        es: 'Qué se rompe primero y por qué, con evidencia de pruebas de carga.'
+    - titulo:
+        es: 'Arquitectura objetivo'
+      texto:
+        es: 'Autoescalado, servicios administrados y el orden en que conviene migrar cada pieza.'
+    - titulo:
+        es: 'Costo que crece con el negocio'
+      texto:
+        es: 'Una infraestructura cuyo costo sube en proporción a tus ingresos, no antes.'
+proceso:
+  eyebrow:
+    es: 'Cómo lo hago'
+  titulo:
+    es: 'Proceso'
+  items:
+    - numero: '01'
+      titulo:
+        es: 'Acceso de solo lectura'
+      texto:
+        es: 'A tu cuenta, a tus métricas y a tu facturación.'
+    - numero: '02'
+      titulo:
+        es: 'Pruebas y diagnóstico'
+      texto:
+        es: 'Pruebas de carga y revisión de la arquitectura actual.'
+    - numero: '03'
+      titulo:
+        es: 'Plan de crecimiento'
+      texto:
+        es: 'Arquitectura objetivo, proyección de costos y prioridades.'
+    - numero: '04'
+      titulo:
+        es: 'Implementación'
+      texto:
+        es: 'Con tu equipo, con mi acompañamiento o hecha por mí.'
+  nota:
+    es: 'Duración: según el tamaño de la plataforma.'
+caso:
+  eyebrow:
+    es: 'Caso · Glasslake · 2025–2026'
+  titulo:
+    es: 'Una startup de SAP crece de forma segura en AWS'
+  texto:
+    es: 'Glasslake, una startup de SAP de San Francisco con presencia global, estaba dando sus primeros pasos en AWS mientras crecía. Diseñé redes seguras hacia los entornos SAP de sus clientes, ordené los accesos con IAM y optimicé la red: el tráfico por NAT Gateway bajó entre 75 y 80%.'
+  enlace:
+    texto:
+      es: 'Ver el caso completo'
+    destino:
+      caso: 'glasslake'
+  metrica:
+    es: 'US$62.000'
+  leyenda:
+    es: 'En créditos de AWS por el programa MAP, con el aliado Nexa Connect.'
+empezar:
+  eyebrow:
+    es: 'Cómo empezar'
+  titulo:
+    es: 'Primero, una sesión de arquitectura'
+  texto:
+    es: '90 minutos y un memo con recomendaciones en 48 horas, por US$450. Si después seguimos con la revisión de escalabilidad, te descuento los US$450. El valor de la revisión depende del tamaño de tu plataforma y te lo propongo después de la sesión.'
+  aparte:
+    eyebrow:
+      es: 'Si estás en AWS'
+    titulo:
+      es: 'Tu crecimiento puede abrir programas de AWS'
+    texto:
+      es: 'Si tu consumo crece, AWS puede invertir en tu migración o en cargas nuevas con el programa MAP, previa evaluación y aprobación de AWS.'
+    enlace:
+      texto:
+        es: 'Conoce el programa MAP'
+      destino:
+        ruta: 'programasAws'
+faq:
+  titulo:
+    es: 'Preguntas frecuentes'
+  items:
+    - pregunta:
+        es: '¿Trabajas solo con AWS?'
+      respuesta:
+        es: 'No. También con Google Cloud y Azure.'
+    - pregunta:
+        es: '¿Hacen falta pruebas de carga?'
+      respuesta:
+        es: 'Casi siempre. Son la forma de saber qué se rompe antes de que lo descubran tus usuarios.'
+    - pregunta:
+        es: '¿Y si ya estamos en producción con mucho tráfico?'
+      respuesta:
+        es: 'Mejor. Los cambios se planean por etapas para no detener la operación.'
+    - pregunta:
+        es: '¿Qué pasa después de la revisión?'
+      respuesta:
+        es: 'Puedes implementar con tu equipo o seguir conmigo con acompañamiento mensual.'
+cierre:
+  titulo:
+    es: 'Prepara tu plataforma antes de que llegue el crecimiento.'
+  boton:
+    es: 'Agendar sesión · Escalar'

@@ -1,0 +1,154 @@
+---
+// Mini visualización de una cifra (piezas 02 y 07): barras, anillo, migración, años, sellos o
+// las 4D. Es decorativa (aria-hidden): la cifra y su contexto van siempre en el texto.
+// El HTML trae el estado final; motion/viz.ts la anima.
+import type { Puerta } from '../../lib/content';
+
+interface Props {
+  viz: Puerta['viz'];
+  class?: string;
+}
+
+const { viz, class: className } = Astro.props;
+const CIRCUNFERENCIA = 163.4; // 2π · 26
+---
+
+<div
+  class:list={[
+    'viz grid min-h-11.5 content-end gap-1.5 text-[11px] leading-tight text-ink-muted',
+    className,
+  ]}
+  data-viz={viz.tipo}
+  aria-hidden="true"
+>
+  {viz.tipo === 'barras' && (
+    <>
+      <div class="viz-pista h-2 overflow-hidden rounded-pill">
+        <div class="viz-antes h-full origin-left" style={`width: ${viz.antes}%`} data-barra />
+      </div>
+      <div class="viz-pista h-2 overflow-hidden rounded-pill">
+        <div class="viz-despues h-full origin-left" style={`width: ${viz.despues}%`} data-barra />
+      </div>
+      <div class="flex justify-between gap-2">
+        {viz.leyenda.map((l) => (
+          <span>{l}</span>
+        ))}
+      </div>
+    </>
+  )}
+  {viz.tipo === 'anillo' && (
+    <div class="flex items-center gap-3">
+      <svg viewBox="0 0 64 64" class="size-11.5 shrink-0" fill="none" stroke-width="8">
+        <circle cx="32" cy="32" r="26" class="viz-pista-trazo" />
+        <circle
+          cx="32"
+          cy="32"
+          r="26"
+          class="viz-despues-trazo"
+          stroke-linecap="round"
+          transform="rotate(-90 32 32)"
+          stroke-dasharray={CIRCUNFERENCIA}
+          stroke-dashoffset="0"
+          data-anillo
+        />
+      </svg>
+      {viz.leyenda && <span>{viz.leyenda}</span>}
+    </div>
+  )}
+  {viz.tipo === 'migrar' && (
+    <div class="grid grid-cols-[auto_1fr_auto] items-center gap-2">
+      <span class="rounded-pill border border-blue-300 px-2.5 py-1.5 font-bold whitespace-nowrap text-ink">
+        {viz.origen}
+      </span>
+      <span class="viz-pista relative h-0.5 rounded-pill" data-carril>
+        <b class="viz-punto absolute -top-0.75 left-0 size-2 rounded-full" />
+        <b class="viz-punto absolute -top-0.75 left-[calc(50%-4px)] size-2 rounded-full" />
+        <b class="viz-punto absolute -top-0.75 left-[calc(100%-8px)] size-2 rounded-full" />
+      </span>
+      <span
+        class="viz-destino rounded-pill border px-2.5 py-1.5 font-bold whitespace-nowrap"
+        data-destino
+      >
+        {viz.destino}
+      </span>
+    </div>
+  )}
+  {viz.tipo === 'ticks' && (
+    <>
+      <div class="grid gap-0.75" style={`grid-template-columns: repeat(${viz.cantidad}, 1fr)`}>
+        {Array.from({ length: viz.cantidad }, () => (
+          <i class="viz-despues block h-4 rounded-[3px]" data-tick />
+        ))}
+      </div>
+      <div class="flex justify-between gap-2">
+        {viz.leyenda.map((l) => (
+          <span>{l}</span>
+        ))}
+      </div>
+    </>
+  )}
+  {viz.tipo === 'sellos' && (
+    <div class="flex flex-wrap gap-2">
+      {viz.sellos.map((sello) => (
+        <span class="viz-sello rounded-sm border px-2.5 py-2 text-[12px] font-bold" data-sello>
+          {sello}
+        </span>
+      ))}
+    </div>
+  )}
+  {viz.tipo === 'cuatroD' && (
+    <div class="grid grid-cols-4 gap-1.5">
+      {viz.nombres.map((nombre) => (
+        <span class="grid justify-items-center gap-1 text-center text-[10px]">
+          <b class="viz-d grid size-7.5 place-items-center rounded-[9px] text-[15px]" data-d>
+            D
+          </b>
+          {nombre}
+        </span>
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  /* Colores por tema: en claro, pista blanca y cifra en blue-500; en oscuro, pista hairline y
+     cifra en cyan. Todo con tokens. */
+  .viz {
+    --viz-pista: var(--color-white);
+    --viz-antes: var(--color-blue-300);
+    --viz-despues: var(--color-primary);
+    --viz-texto-sobre: var(--color-on-primary);
+  }
+
+  :global([data-theme='dark']) .viz {
+    --viz-pista: var(--color-dark-border);
+    --viz-despues: var(--color-accent);
+    --viz-texto-sobre: var(--color-night);
+  }
+
+  .viz-pista {
+    background: var(--viz-pista);
+  }
+  .viz-pista-trazo {
+    stroke: var(--viz-pista);
+  }
+  .viz-antes {
+    background: var(--viz-antes);
+  }
+  .viz-despues,
+  .viz-punto {
+    background: var(--viz-despues);
+  }
+  .viz-despues-trazo {
+    stroke: var(--viz-despues);
+  }
+  .viz-destino,
+  .viz-sello {
+    border-color: var(--viz-despues);
+    color: var(--color-link);
+  }
+  .viz-d {
+    background: var(--viz-despues);
+    color: var(--viz-texto-sobre);
+  }
+</style>

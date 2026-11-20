@@ -1,0 +1,15 @@
+numero: 4
+etiqueta:
+  es: 'Migrar'
+dolor:
+  es: '¿Quieres llevar tus sistemas a la nube o cambiar de nube?'
+oferta:
+  es: 'Plan de migración con el programa MAP y Nexa Connect.'
+prueba:
+  es: 'Trama: Google Cloud → AWS'
+destino:
+  ruta: programasAws
+viz:
+  tipo: migrar
+  origen: 'Google Cloud'
+  destino: 'AWS'

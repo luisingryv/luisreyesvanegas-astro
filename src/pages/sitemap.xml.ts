@@ -1,12 +1,16 @@
 import type { APIRoute } from 'astro';
+import { getCollection } from 'astro:content';
 import { defaultLocale, publishedLocales } from '../i18n/config';
 import { legalPublicable } from '../config/legal';
 import { sitemapXml, slugsDePaginas } from '../lib/seo/sitemap';
 
 export const prerender = true;
 
+const servicios = await getCollection('servicios');
 const paginas = [
   ...slugsDePaginas(Object.keys(import.meta.glob('/src/pages/**/*.astro'))),
+  // Subpáginas de Consultoría (ruta dinámica con la plantilla común).
+  ...servicios.map(({ id }) => `consultoria/${id}`),
   // Las páginas legales son una ruta dinámica: entran cuando tienen todos sus datos.
   ...(legalPublicable ? ['legal/privacidad', 'legal/terminos'] : []),
 ];

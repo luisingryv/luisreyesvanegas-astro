@@ -1,0 +1,19 @@
+# Puertas de entrada: textos del prototipo de Consultoría; mini visualización del laboratorio
+# (pieza 07, aprobada por Luis el 20 nov 2026).
+numero: 1
+etiqueta:
+  es: 'Optimizar costos'
+dolor:
+  es: '¿Quieres optimizar tus costos y no sabes cómo?'
+oferta:
+  es: 'Auditoría de costos cloud.'
+prueba:
+  es: '−60% en Google Cloud'
+destino:
+  ruta: optimizarCostos
+viz:
+  tipo: barras
+  antes: 100
+  despues: 40
+  leyenda:
+    - es: 'US$10.000 → US$4.000 al mes'

@@ -1,0 +1,41 @@
+---
+import Button from '../brand/Button.astro';
+import Eyebrow from '../brand/Eyebrow.astro';
+import MonogramCurves from '../brand/MonogramCurves.astro';
+import Section from '../brand/Section.astro';
+import type { PaginaAdopcionIa } from '../../lib/content';
+
+interface Props {
+  content: PaginaAdopcionIa['hero'];
+}
+
+const { content } = Astro.props;
+---
+
+<Section
+  tone="dark"
+  class="relative overflow-hidden py-[clamp(56px,8vw,120px)]!"
+  aria-labelledby="hero-titulo"
+>
+  <MonogramCurves class="absolute -top-15 -right-35 size-170" />
+  <div class="relative flex flex-col gap-5.5">
+    <Eyebrow>{content.eyebrow}</Eyebrow>
+    <h1
+      id="hero-titulo"
+      class="max-w-[18ch] text-[clamp(40px,5.6vw,76px)] leading-[1.02] font-bold tracking-[-0.02em] text-balance"
+    >
+      {content.titulo}
+    </h1>
+    <p class="max-w-[62ch] text-[clamp(17px,1.7vw,21px)] leading-[1.55] text-text-secondary-on-dark">
+      {content.texto}
+    </p>
+    <div class="flex flex-wrap gap-3 pt-2">
+      <Button href="#empezar" size="lg">
+        {content.hablemos}
+      </Button>
+      <Button href="#4d" size="lg" variant="secondary">
+        {content.comoTrabajo}
+      </Button>
+    </div>
+  </div>
+</Section>

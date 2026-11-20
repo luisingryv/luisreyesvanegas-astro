@@ -20,8 +20,10 @@ interface Props {
   imageAlt?: string;
   /** profile para Sobre mí; article para noticias y casos. */
   type?: 'website' | 'profile' | 'article';
-  /** Destino de "Agendar sesión" sin URL de la agenda (ver Header). */
-  agendaSinUrl?: string;
+  /** Ancla propia de "Agendar sesión" (ver Header). */
+  agendaLocal?: string;
+  /** Header mínimo de landing (ver Header). */
+  headerMinimo?: { texto: string; href: string };
   /** Tema del header: claro en páginas claras (Legal). */
   tema?: 'dark' | 'light';
 }
@@ -38,7 +40,8 @@ const {
   image,
   imageAlt,
   type = 'website',
-  agendaSinUrl,
+  agendaLocal,
+  headerMinimo,
   tema,
 } = Astro.props;
 const t = getDictionary(locale);
@@ -111,7 +114,13 @@ const og = await getImage({
     >
       {t.a11y.skipToContent}
     </a>
-    <Header locale={locale} route={route} agendaSinUrl={agendaSinUrl} tema={tema} />
+    <Header
+      locale={locale}
+      route={route}
+      agendaLocal={agendaLocal}
+      minimo={headerMinimo}
+      tema={tema}
+    />
     <main id="contenido" class="flex-1">
       <slot />
     </main>

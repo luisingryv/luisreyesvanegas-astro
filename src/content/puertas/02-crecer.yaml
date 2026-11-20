@@ -1,0 +1,18 @@
+numero: 2
+etiqueta:
+  es: 'Crecer'
+dolor:
+  es: '¿Vas a multiplicar usuarios y no sabes si tu infraestructura aguanta?'
+oferta:
+  es: 'Revisión de escalabilidad y proyección de capacidad.'
+prueba:
+  es: '≈2.400 → ≈70.000 pedidos al mes'
+destino:
+  ruta: escalarInfraestructura
+viz:
+  tipo: barras
+  antes: 3.4
+  despues: 100
+  leyenda:
+    - es: '≈2.400'
+    - es: '≈70.000 · ×29'

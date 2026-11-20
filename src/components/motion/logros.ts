@@ -2,14 +2,13 @@
 // Las tarjetas que llegan desde abajo esperan con candado y se desbloquean al verse:
 // el candado se desvanece, la insignia salta, la cifra cuenta, las barras crecen y los
 // sellos se estampan. Las que ya se ven al cargar quedan como están.
-import { isBelowFold, loadGsap, onceNearViewport, prefersReducedMotion } from './motion';
-
-// '70.000' → { antes: '', n: 70000, despues: '' } · 'US$62.000' → 'US$' · '−60%' → '−', '%'
-function partirCifra(texto: string) {
-  const m = /^(\D*)([\d.]+)(\D*)$/.exec(texto.trim());
-  if (!m) return null;
-  return { antes: m[1]!, n: Number(m[2]!.replace(/\./g, '')), despues: m[3]! };
-}
+import {
+  isBelowFold,
+  loadGsap,
+  onceNearViewport,
+  partirCifra,
+  prefersReducedMotion,
+} from './motion';
 
 export function iniciarLogros(lista: HTMLElement) {
   if (prefersReducedMotion()) return;

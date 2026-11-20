@@ -1,0 +1,92 @@
+---
+// Cuerpo de Adopción de IA: el framework 4D, lo que el equipo aprende, las tres etapas y la
+// prueba (este sitio y las certificaciones verificables).
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PaginaAdopcionIa } from '../../lib/content';
+
+interface Props {
+  content: PaginaAdopcionIa;
+}
+
+const { cuatroD, temas, etapas, prueba } = Astro.props.content;
+---
+
+<Section tone="dark-raised" id="4d" reveal aria-labelledby="cuatro-d-titulo">
+  <SectionHeader
+    id="cuatro-d-titulo"
+    eyebrow={cuatroD.eyebrow}
+    title={cuatroD.titulo}
+    lead={cuatroD.texto}
+  />
+  <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,250px),1fr))] gap-4">
+    {cuatroD.items.map((d) => (
+      <li class="flex flex-col gap-2.5 rounded-lg border border-hairline bg-surface p-6">
+        <span class="text-[40px] leading-none font-bold text-accent" aria-hidden="true">
+          {d.letra}
+        </span>
+        <span class="text-[20px] font-bold">{d.nombre}</span>
+        <span class="text-[15px] text-text-secondary-on-dark">{d.texto}</span>
+      </li>
+    ))}
+  </ul>
+</Section>
+
+<Section tone="dark" reveal aria-labelledby="temas-titulo">
+  <SectionHeader id="temas-titulo" eyebrow={temas.eyebrow} title={temas.titulo} />
+  <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-x-4">
+    {temas.items.map((tema) => (
+      <li class="flex flex-col gap-1.5 border-t border-hairline py-5">
+        <span class="text-title-sm font-bold">{tema.nombre}</span>
+        <span class="text-[15px] text-text-secondary-on-dark">{tema.texto}</span>
+      </li>
+    ))}
+  </ul>
+</Section>
+
+<Section tone="light" reveal aria-labelledby="etapas-titulo">
+  <SectionHeader id="etapas-titulo" eyebrow={etapas.eyebrow} title={etapas.titulo} />
+  <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
+    {etapas.items.map((etapa) => (
+      <li class="flex flex-col gap-2.5 rounded-lg bg-surface-raised p-6.5">
+        <span class="text-caption font-bold text-link">{etapa.numero}</span>
+        <span class="text-[22px] font-bold">{etapa.nombre}</span>
+        <span class="text-[15px] text-ink-muted">{etapa.texto}</span>
+      </li>
+    ))}
+  </ol>
+</Section>
+
+<Section tone="dark" reveal aria-labelledby="prueba-titulo">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-start gap-10">
+    <div class="flex min-w-0 flex-col gap-3.5">
+      <Eyebrow>{prueba.eyebrow}</Eyebrow>
+      <h2 id="prueba-titulo" class="text-heading font-bold text-balance">
+        {prueba.titulo}
+      </h2>
+      <p class="text-text-secondary-on-dark">{prueba.texto}</p>
+    </div>
+    <div class="flex min-w-0 flex-col gap-3">
+      <Eyebrow as="span">{prueba.certificacionesEyebrow}</Eyebrow>
+      <ul class="flex flex-col gap-3">
+        {prueba.certificaciones.map((c) => (
+          <li>
+            <a
+              href={c.url}
+              class="flex justify-between gap-3 rounded-[16px] border border-hairline bg-surface-raised px-4.5 py-4 transition-colors hover:border-accent"
+            >
+              <span>
+                <span class="block font-bold">{c.nombre}</span>
+                <span class="text-caption text-text-tertiary-on-dark">{c.detalle}</span>
+              </span>
+              <span class="font-bold whitespace-nowrap text-link">
+                {prueba.verificar} <span aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Section>

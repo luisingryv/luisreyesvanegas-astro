@@ -310,3 +310,60 @@ export async function getPaginaContacto(locale: PublishedLocale) {
 }
 
 export type PaginaContacto = Awaited<ReturnType<typeof getPaginaContacto>>;
+
+// ─── Consultoría ──────────────────────────────────────────────
+
+export async function getPuertas(locale: PublishedLocale) {
+  const puertas = await getCollection('puertas');
+  return puertas
+    .sort((a, b) => a.data.numero - b.data.numero)
+    .map(({ id, data }) => ({ id, ...resolveLocalized(data, locale, `puertas/${id}`) }));
+}
+
+export type Puerta = Awaited<ReturnType<typeof getPuertas>>[number];
+
+export async function getCaso(id: string, locale: PublishedLocale) {
+  const entry = await getEntry('casos', id);
+  if (!entry) throw new Error(`Falta el caso src/content/casos/${id}.yaml.`);
+  return { id, ...resolveLocalized(entry.data, locale, `casos/${id}`) };
+}
+
+export type Caso = Awaited<ReturnType<typeof getCaso>>;
+
+export async function getPaginaConsultoria(locale: PublishedLocale) {
+  const entry = await getEntry('consultoria', 'consultoria');
+  if (!entry) throw new Error('Falta src/content/paginas/consultoria.yaml.');
+  const pagina = resolveLocalized(entry.data, locale, 'paginas/consultoria');
+  const casos = await Promise.all(entry.data.casos.lista.map((ref) => getCaso(ref.id, locale)));
+  return { ...pagina, casos: { ...pagina.casos, lista: casos } };
+}
+
+export type PaginaConsultoria = Awaited<ReturnType<typeof getPaginaConsultoria>>;
+
+export async function getServicio(id: string, locale: PublishedLocale) {
+  const entry = await getEntry('servicios', id);
+  if (!entry) throw new Error(`Falta src/content/servicios/${id}.yaml.`);
+  return { id, ...resolveLocalized(entry.data, locale, `servicios/${id}`) };
+}
+
+export type Servicio = Awaited<ReturnType<typeof getServicio>>;
+
+export async function getPaginaAdopcionIa(locale: PublishedLocale) {
+  const entry = await getEntry('adopcionIa', 'adopcion-ia');
+  if (!entry) throw new Error('Falta src/content/paginas/adopcion-ia.yaml.');
+  const pagina = resolveLocalized(entry.data, locale, 'paginas/adopcion-ia');
+  const todas = await getCertificaciones(locale);
+  const certificaciones = entry.data.prueba.certificaciones.map((ref) => {
+    const cert = todas.find((c) => c.id === ref.id);
+    if (!cert?.verificacion) throw new Error(`La certificación ${ref.id} necesita su enlace.`);
+    return {
+      id: cert.id,
+      nombre: cert.nombre,
+      detalle: [cert.emisor, cert.fecha].filter(Boolean).join(' · '),
+      url: cert.verificacion,
+    };
+  });
+  return { ...pagina, prueba: { ...pagina.prueba, certificaciones } };
+}
+
+export type PaginaAdopcionIa = Awaited<ReturnType<typeof getPaginaAdopcionIa>>;

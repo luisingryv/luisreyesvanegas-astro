@@ -1,0 +1,43 @@
+---
+// Adopción de IA con Claude: landing oscura con header mínimo (Luis la aprobó el 18 nov 2026 y
+// se publica desde el 20 nov 2026).
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import HeroAdopcion from '../../../components/adopcion/HeroAdopcion.astro';
+import SeccionesAdopcion from '../../../components/adopcion/SeccionesAdopcion.astro';
+import BandaMarca from '../../../components/consultoria/BandaMarca.astro';
+import { bookingUrl } from '../../../config/site';
+import { publishedLocales } from '../../../i18n/config';
+import { getDictionary } from '../../../i18n';
+import Base from '../../../layouts/Base.astro';
+import { getPaginaAdopcionIa } from '../../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const pagina = await getPaginaAdopcionIa(lang);
+const agenda = bookingUrl(lang);
+---
+
+<Base
+  locale={lang}
+  title={t.pages.adopcionIa.title}
+  description={pagina.hero.texto}
+  route="adopcionIa"
+  headerMinimo={{ texto: pagina.hero.hablemos, href: '#empezar' }}
+>
+  <HeroAdopcion content={pagina.hero} />
+  <SeccionesAdopcion content={pagina} />
+  <BandaMarca
+    id="empezar"
+    titulo={pagina.empezar.titulo}
+    texto={pagina.empezar.texto}
+    botones={[
+      { texto: pagina.empezar.agendar, href: agenda },
+      { texto: pagina.empezar.llamada, href: agenda, variante: 'outline' },
+    ]}
+  />
+</Base>

@@ -1,2 +1,5 @@
 # Primitivos de shadcn/ui: se mantienen como los genera el CLI para poder actualizarlos.
 src/components/ui/
+
+# Metadatos que genera drizzle-kit en cada migración.
+db/migraciones/meta/

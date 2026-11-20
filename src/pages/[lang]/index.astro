@@ -42,7 +42,7 @@ const [pagina, logros, hitos, charlas, formulario] = await Promise.all([
   title={t.pages.home.title}
   description={pagina.hero.bajada}
   route="home"
-  agendaSinUrl="#agenda"
+  agendaLocal="#agenda"
 >
   <HeroHome locale={lang} content={pagina.hero} />
   <RouterHome locale={lang} content={pagina.router} />

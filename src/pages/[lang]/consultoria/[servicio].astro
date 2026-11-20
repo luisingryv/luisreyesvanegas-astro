@@ -1,0 +1,56 @@
+---
+// Subpáginas de Consultoría con la plantilla común: sesión de arquitectura, optimizar costos,
+// escalar la infraestructura y acompañamiento mensual (colección servicios).
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import { getCollection } from 'astro:content';
+import BandaMarca from '../../../components/consultoria/BandaMarca.astro';
+import HeroServicio from '../../../components/consultoria/HeroServicio.astro';
+import SeccionCasoDestacado from '../../../components/consultoria/SeccionCasoDestacado.astro';
+import SeccionEmpezar from '../../../components/consultoria/SeccionEmpezar.astro';
+import SeccionEntregables from '../../../components/consultoria/SeccionEntregables.astro';
+import SeccionFaq from '../../../components/consultoria/SeccionFaq.astro';
+import SeccionSenales from '../../../components/consultoria/SeccionSenales.astro';
+import { bookingUrl } from '../../../config/site';
+import { publishedLocales } from '../../../i18n/config';
+import { getDictionary } from '../../../i18n';
+import { localizedPath } from '../../../i18n/routes';
+import Base from '../../../layouts/Base.astro';
+import { getServicio } from '../../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (async () => {
+  const servicios = await getCollection('servicios');
+  return publishedLocales.flatMap((lang) =>
+    servicios.map(({ id }) => ({ params: { lang, servicio: id } })),
+  );
+}) satisfies GetStaticPaths;
+
+const { lang, servicio: id } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const servicio = await getServicio(id, lang);
+---
+
+<Base
+  locale={lang}
+  title={servicio.titulo}
+  description={servicio.hero.texto}
+  route={servicio.ruta}
+  tema="light"
+>
+  <HeroServicio
+    locale={lang}
+    volver={{ texto: t.nav.consultoria, href: localizedPath(lang, 'consultoria') }}
+    {...servicio.hero}
+  />
+  <SeccionSenales titulo={servicio.senales.titulo} items={servicio.senales.items} />
+  <SeccionEntregables entregables={servicio.entregables} proceso={servicio.proceso} />
+  <SeccionCasoDestacado locale={lang} caso={servicio.caso} />
+  <SeccionEmpezar locale={lang} content={servicio.empezar} />
+  <SeccionFaq id="faq-titulo" titulo={servicio.faq.titulo} items={servicio.faq.items} />
+  <BandaMarca
+    id="cierre"
+    titulo={servicio.cierre.titulo}
+    botones={[{ texto: servicio.cierre.boton, href: bookingUrl(lang) }]}
+  />
+</Base>

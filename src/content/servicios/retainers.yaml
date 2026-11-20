@@ -1,0 +1,134 @@
+# Subpágina de Consultoría (plantilla común). Textos tal cual el prototipo aprobado.
+ruta: 'retainers'
+titulo:
+  es: 'Acompañamiento mensual'
+hero:
+  eyebrow:
+    es: 'Acompañamiento mensual'
+  titulo:
+    es: 'Un arquitecto de cabecera para tu equipo.'
+  texto:
+    es: 'Después del diagnóstico o de la implementación, sigo con tu equipo cada mes: reviso la arquitectura, los costos y la seguridad, acompaño las decisiones técnicas y estoy disponible cuando algo se complica.'
+  agendar:
+    es: 'Agendar sesión de arquitectura · US$450'
+  llamada:
+    es: 'Llamada de 20 min gratis'
+senales:
+  titulo:
+    es: 'Cuándo tiene sentido'
+  items:
+    - es: 'Tu equipo no tiene un arquitecto cloud de tiempo completo.'
+    - es: 'Ya hiciste una auditoría y quieres que los ahorros se sostengan.'
+    - es: 'Estás en plena migración o en un periodo de crecimiento.'
+    - es: 'Necesitas a alguien que revise las decisiones antes de que lleguen a producción.'
+    - es: 'Te estás preparando para una certificación de seguridad.'
+entregables:
+  eyebrow:
+    es: 'Qué recibes'
+  titulo:
+    es: 'Qué incluye'
+  items:
+    - titulo:
+        es: 'Revisión mensual'
+      texto:
+        es: 'Costos, arquitectura y seguridad, con un informe corto y acciones.'
+    - titulo:
+        es: 'Acompañamiento a las decisiones'
+      texto:
+        es: 'Reviso diseños, cambios y proveedores antes de que tu equipo se comprometa.'
+    - titulo:
+        es: 'Disponibilidad acordada'
+      texto:
+        es: 'Un canal directo y tiempos de respuesta definidos en el acuerdo.'
+    - titulo:
+        es: 'Programas de la nube'
+      texto:
+        es: 'Seguimiento de créditos y programas como MAP cuando aplican.'
+proceso:
+  eyebrow:
+    es: 'Cómo lo hago'
+  titulo:
+    es: 'Proceso'
+  items:
+    - numero: '01'
+      titulo:
+        es: 'Sesión o diagnóstico'
+      texto:
+        es: 'El acompañamiento parte de entender tu caso.'
+    - numero: '02'
+      titulo:
+        es: 'Acuerdo'
+      texto:
+        es: 'Definimos dedicación, canal y prioridades del trimestre.'
+    - numero: '03'
+      titulo:
+        es: 'Ritmo mensual'
+      texto:
+        es: 'Revisión, informe y seguimiento de acciones.'
+    - numero: '04'
+      titulo:
+        es: 'Ajuste trimestral'
+      texto:
+        es: 'Revisamos qué funcionó y ajustamos la dedicación.'
+  nota:
+    es: 'Tres niveles de dedicación, según el tamaño de tu equipo y tu operación.'
+caso:
+  eyebrow:
+    es: 'Caso · UTPN / KMA · 2025'
+  titulo:
+    es: 'De una auditoría a un soporte de largo plazo'
+  texto:
+    es: 'Después de bajar la factura de Google Cloud de una red nacional de peajes, el cliente decidió seguir con un contrato de soporte para sostener y mejorar lo construido.'
+  enlace:
+    texto:
+      es: 'Ver el caso completo'
+    destino:
+      caso: 'utpn'
+  metrica:
+    es: '−60%'
+  leyenda:
+    es: 'En la factura mensual de Google Cloud, sostenido con soporte continuo.'
+empezar:
+  eyebrow:
+    es: 'Cómo empezar'
+  titulo:
+    es: 'Primero, una sesión de arquitectura'
+  texto:
+    es: 'El acompañamiento mensual se define después de la sesión de arquitectura o de un diagnóstico. El valor depende de la dedicación que necesites y te lo propongo con el plan.'
+  aparte:
+    eyebrow:
+      es: 'Desarrollo a la medida'
+    titulo:
+      es: '¿Necesitas un equipo que construya?'
+    texto:
+      es: 'Yo acompaño la arquitectura. Si necesitas desarrollo de software a la medida, lo hace mi equipo en EvolutecC.'
+    enlace:
+      texto:
+        es: 'Conoce EvolutecC'
+      destino:
+        evolutecc: 'retainers'
+faq:
+  titulo:
+    es: 'Preguntas frecuentes'
+  items:
+    - pregunta:
+        es: '¿Hay permanencia mínima?'
+      respuesta:
+        es: 'Sí. El acompañamiento mínimo es de 3 meses.'
+    - pregunta:
+        es: '¿Reemplazas a mi equipo?'
+      respuesta:
+        es: 'No. Lo acompaño para que tome mejores decisiones y aprenda en el camino.'
+    - pregunta:
+        es: '¿Atiendes emergencias?'
+      respuesta:
+        es: 'Sí, según lo que acordemos. Fuera del acuerdo se cobran aparte.'
+    - pregunta:
+        es: '¿Con qué nubes?'
+      respuesta:
+        es: 'AWS, Google Cloud y Azure.'
+cierre:
+  titulo:
+    es: 'Hablemos de cómo trabaja tu equipo hoy.'
+  boton:
+    es: 'Agendar sesión de arquitectura'

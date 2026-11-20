@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'astro/types';
 import Container from './Container.astro';
 
 interface Props extends HTMLAttributes<'section'> {
-  tone?: 'dark' | 'dark-raised' | 'light' | 'brand';
+  tone?: 'dark' | 'dark-raised' | 'light' | 'light-raised' | 'brand';
   spacing?: 'section' | 'hero';
   separator?: boolean;
   /** Aparición suave al entrar en pantalla (no en el hero ni en secciones con pieza propia). */
@@ -23,6 +23,7 @@ const tones = {
   dark: { theme: 'dark', bg: 'bg-surface' },
   'dark-raised': { theme: 'dark', bg: 'bg-surface-raised' },
   light: { theme: undefined, bg: 'bg-surface' },
+  'light-raised': { theme: undefined, bg: 'bg-surface-raised' },
   brand: { theme: 'brand', bg: 'bg-surface' },
 } as const;
 ---

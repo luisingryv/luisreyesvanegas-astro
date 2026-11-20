@@ -1,0 +1,15 @@
+numero: 6
+etiqueta:
+  es: 'Seguridad y cumplimiento'
+dolor:
+  es: '¿Quieres certificarte en ISO 27001 o SOC 2 y no sabes por dónde empezar?'
+oferta:
+  es: 'Acompañamiento técnico en la nube hacia la certificación.'
+prueba:
+  es: 'ISO 27001 y SOC 2 de un cliente'
+destino:
+  ruta: consultoria
+  ancla: agenda
+viz:
+  tipo: sellos
+  sellos: ['ISO 27001', 'SOC 2']

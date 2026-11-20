@@ -65,7 +65,8 @@ export const solicitudes = mysqlTable(
     /** Puerta de entrada de consultoría o etiqueta del router de contacto. */
     puerta: varchar({ length: 60 }),
     idioma: char({ length: 2 }).$type<Idioma>().notNull(),
-    nombre: varchar({ length: 120 }).notNull(),
+    /** Opcional: el formulario de agenda de Consultoría no lo pide (Luis, 20 nov 2026). */
+    nombre: varchar({ length: 120 }),
     email: varchar({ length: 254 }).notNull(),
     whatsapp: varchar({ length: 40 }),
     mensaje: text(),

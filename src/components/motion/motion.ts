@@ -20,6 +20,13 @@ export function onceNearViewport(el: Element, callback: () => void, rootMargin =
   observer.observe(el);
 }
 
+// '70.000' → { antes: '', n: 70000, despues: '' } · 'US$62.000' → 'US$' · '−60%' → '−', '%'
+export function partirCifra(texto: string) {
+  const m = /^(\D*)([\d.]+)(\D*)$/.exec(texto.trim());
+  if (!m) return null;
+  return { antes: m[1]!, n: Number(m[2]!.replace(/\./g, '')), despues: m[3]! };
+}
+
 let gsapPromise: ReturnType<typeof importGsap> | undefined;
 
 async function importGsap() {

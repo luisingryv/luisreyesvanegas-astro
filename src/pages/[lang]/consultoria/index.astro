@@ -1,0 +1,61 @@
+---
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import BandaMarca from '../../../components/consultoria/BandaMarca.astro';
+import HeroServicio from '../../../components/consultoria/HeroServicio.astro';
+import SeccionAgenda from '../../../components/consultoria/SeccionAgenda.astro';
+import SeccionCasos from '../../../components/consultoria/SeccionCasos.astro';
+import SeccionCredenciales from '../../../components/consultoria/SeccionCredenciales.astro';
+import SeccionFaq from '../../../components/consultoria/SeccionFaq.astro';
+import SeccionFormas from '../../../components/consultoria/SeccionFormas.astro';
+import SeccionPasos from '../../../components/consultoria/SeccionPasos.astro';
+import SeccionPuertas from '../../../components/consultoria/SeccionPuertas.astro';
+import { publishedLocales } from '../../../i18n/config';
+import { getDictionary } from '../../../i18n';
+import { localizedPath } from '../../../i18n/routes';
+import Base from '../../../layouts/Base.astro';
+import { getFormularioGeneral, getPaginaConsultoria, getPuertas } from '../../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const [pagina, puertas, formulario] = await Promise.all([
+  getPaginaConsultoria(lang),
+  getPuertas(lang),
+  getFormularioGeneral(lang),
+]);
+---
+
+<Base
+  locale={lang}
+  title={t.pages.consultoria.title}
+  description={pagina.hero.texto}
+  route="consultoria"
+  tema="light"
+  agendaLocal="#agenda"
+>
+  <HeroServicio locale={lang} principal {...pagina.hero} />
+  <SeccionPuertas locale={lang} content={pagina.puertas} puertas={puertas} />
+  <SeccionCasos content={pagina.casos} />
+  <SeccionPasos content={pagina.pasos} />
+  <SeccionFormas locale={lang} content={pagina.formas} />
+  <SeccionCredenciales credenciales={pagina.credenciales} noSoyParaTi={pagina.noSoyParaTi} />
+  <SeccionFaq
+    id="faq-titulo"
+    eyebrow={pagina.faq.eyebrow}
+    titulo={pagina.faq.titulo}
+    items={pagina.faq.items}
+  />
+  <BandaMarca
+    id="map"
+    compacta
+    eyebrow={pagina.map.eyebrow}
+    titulo={pagina.map.titulo}
+    texto={pagina.map.texto}
+    botones={[{ texto: pagina.map.boton, href: localizedPath(lang, 'programasAws') }]}
+  />
+  <SeccionAgenda locale={lang} content={pagina.agenda} comunes={formulario} />
+</Base>

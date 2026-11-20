@@ -1,0 +1,41 @@
+---
+// Formas de trabajar, sin precios (solo se publica el de la sesión, en la nota).
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import type { PaginaConsultoria } from '../../lib/content';
+import { resolverEnlace } from '../../lib/enlaces';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaConsultoria['formas'];
+}
+
+const { locale, content } = Astro.props;
+---
+
+<Section tone="light" aria-labelledby="formas-titulo">
+  <SectionHeader id="formas-titulo" eyebrow={content.eyebrow} title={content.titulo} />
+  <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-x-10">
+    {content.items.map((forma) => (
+      <li class="flex flex-col gap-1 border-b border-blue-200 py-4">
+        <span class="text-[17px] font-bold">{forma.nombre}</span>
+        <span class="text-[15px] text-ink-muted">{forma.texto}</span>
+      </li>
+    ))}
+  </ul>
+  <p class="mt-6 text-[15px] text-ink-muted">
+    {content.nota}{' '}
+    {content.enlaces.map((enlace, i) => (
+      <>
+        {i > 0 && ' · '}
+        <a
+          href={resolverEnlace(locale, enlace.destino).href}
+          class="font-bold text-link hover:underline"
+        >
+          {enlace.texto}
+        </a>
+      </>
+    ))}
+  </p>
+</Section>

@@ -1,0 +1,124 @@
+# Textos de Adopción de IA, tal cual el prototipo (Luis lo aprobó el 18 nov 2026; se publica
+# desde el 20 nov 2026). Las certificaciones salen de su colección.
+hero:
+  eyebrow:
+    es: 'Adopción de IA con Claude'
+  titulo:
+    es: 'Que tu equipo trabaje con IA todos los días, no solo cuando se acuerda.'
+  texto:
+    es: 'Acompaño a empresas a llevar su trabajo diario a Claude de forma segura: decidir qué delegar, montar proyectos con las instrucciones y los datos correctos, y que las personas se concentren en lo que necesita criterio humano.'
+  hablemos:
+    es: 'Hablemos de tu equipo'
+  comoTrabajo:
+    es: 'Cómo trabajo'
+cuatroD:
+  eyebrow:
+    es: 'El método'
+  titulo:
+    es: 'El framework 4D de Anthropic'
+  texto:
+    es: 'Es la base de mi certificación en AI Fluency. Lo uso para que la adopción no dependa de una herramienta de moda sino de cómo trabaja tu gente.'
+  items:
+    - letra: 'D'
+      nombre:
+        es: 'Delegación'
+      texto:
+        es: 'Decidir qué tareas le das a la IA, cuáles haces con ella y cuáles siguen siendo tuyas.'
+    - letra: 'D'
+      nombre:
+        es: 'Descripción'
+      texto:
+        es: 'Explicarle a Claude el contexto, el objetivo y el formato, como a un buen colega.'
+    - letra: 'D'
+      nombre:
+        es: 'Discernimiento'
+      texto:
+        es: 'Revisar con criterio lo que entrega: qué está bien, qué falta y qué no es cierto.'
+    - letra: 'D'
+      nombre:
+        es: 'Diligencia'
+      texto:
+        es: 'Usarla con responsabilidad: datos sensibles, transparencia y quién responde por el resultado.'
+temas:
+  eyebrow:
+    es: 'Lo que tu equipo aprende'
+  titulo:
+    es: 'De la primera conversación al trabajo delegado'
+  items:
+    - nombre:
+        es: 'La conversación'
+      texto:
+        es: 'Usar a Claude como compañero de pensamiento para decidir, no solo para preguntar.'
+    - nombre:
+        es: 'Proyectos'
+      texto:
+        es: 'Un espacio por tema con sus instrucciones y documentos, para no repetir el contexto cada vez.'
+    - nombre:
+        es: 'Conectores'
+      texto:
+        es: 'Claude trabaja con tu correo, tu calendario, tu Drive o tu CRM, con los permisos que tú defines.'
+    - nombre:
+        es: 'Skills'
+      texto:
+        es: 'Los procesos de tu empresa escritos una vez para que Claude los siga siempre igual.'
+    - nombre:
+        es: 'Artefactos'
+      texto:
+        es: 'Documentos, tableros, presentaciones y prototipos que se crean y se comparten desde la conversación.'
+    - nombre:
+        es: 'Trabajo delegado'
+      texto:
+        es: 'Tareas de varios pasos que Claude completa por su cuenta mientras tú haces otra cosa.'
+    - nombre:
+        es: 'Plugins'
+      texto:
+        es: 'Paquetes de skills, conectores y comandos para un área de la empresa.'
+    - nombre:
+        es: 'Claude Code'
+      texto:
+        es: 'Para equipos técnicos: desarrollo de software con un agente que trabaja en el código.'
+etapas:
+  eyebrow:
+    es: 'Cómo avanzamos'
+  titulo:
+    es: 'Tres etapas'
+  items:
+    - numero: '01'
+      nombre:
+        es: 'Workshop 4D'
+      texto:
+        es: 'Una jornada con tu equipo para entender el método y probarlo con sus propias tareas.'
+    - numero: '02'
+      nombre:
+        es: 'Programa de adopción'
+      texto:
+        es: 'Por equipos: mapeamos el día a día, decidimos qué delegar y montamos los proyectos, skills y conectores.'
+    - numero: '03'
+      nombre:
+        es: 'Acompañamiento'
+      texto:
+        es: 'Seguimiento mensual para medir el uso, ajustar y sumar nuevos procesos.'
+prueba:
+  eyebrow:
+    es: 'Lo aplico conmigo'
+  titulo:
+    es: 'Este sitio se construyó así'
+  texto:
+    es: 'La estrategia de mi marca, el contenido y este prototipo los trabajé con Claude como compañero de pensamiento: un proyecto con instrucciones, un documento madre como fuente de verdad, skills para registrar cada decisión y conectores a mis herramientas. Es el mismo método que llevo a tu equipo.'
+  certificacionesEyebrow:
+    es: 'Certificaciones'
+  certificaciones:
+    - 'ai-fluency-small-businesses'
+    - 'claude-101'
+    - 'claude-cowork'
+  verificar:
+    es: 'Verificar'
+empezar:
+  titulo:
+    es: 'Empecemos por cómo trabaja tu equipo hoy.'
+  texto:
+    es: 'En la sesión de arquitectura revisamos tus procesos y te digo por dónde conviene empezar.'
+  agendar:
+    es: 'Agendar sesión · US$450'
+  llamada:
+    es: 'Llamada de 20 min gratis'

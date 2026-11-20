@@ -1,0 +1,39 @@
+---
+// Los cuatro pasos de cómo trabajo, con una línea que avanza con el scroll (riel corto).
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { PaginaConsultoria } from '../../lib/content';
+
+interface Props {
+  content: PaginaConsultoria['pasos'];
+}
+
+const { content } = Astro.props;
+---
+
+<Section tone="light" aria-labelledby="pasos-titulo">
+  <SectionHeader id="pasos-titulo" eyebrow={content.eyebrow} title={content.titulo} />
+  <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-4" data-pasos-linea>
+    {content.items.map((paso) => (
+      <li class="relative flex flex-col gap-2.5 pt-4">
+        <span class="absolute inset-x-0 top-0 h-0.75 bg-blue-200" aria-hidden="true" />
+        <span
+          class="absolute inset-x-0 top-0 h-0.75 origin-left bg-primary"
+          aria-hidden="true"
+          data-tramo
+        />
+        <span class="text-caption font-bold text-link">{paso.numero}</span>
+        <span class="text-[20px] font-bold">{paso.titulo}</span>
+        <span class="text-[15px] text-ink-muted">{paso.texto}</span>
+      </li>
+    ))}
+  </ol>
+</Section>
+
+<script>
+  import { iniciarRielCorto } from '../motion/riel-corto';
+
+  for (const lista of document.querySelectorAll<HTMLElement>('[data-pasos-linea]')) {
+    iniciarRielCorto(lista);
+  }
+</script>

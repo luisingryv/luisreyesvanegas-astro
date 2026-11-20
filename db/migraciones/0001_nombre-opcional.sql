@@ -1,0 +1,1 @@
+ALTER TABLE `solicitudes` MODIFY COLUMN `nombre` varchar(120);

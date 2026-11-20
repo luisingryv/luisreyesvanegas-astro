@@ -1,0 +1,135 @@
+# Subpágina de Consultoría (plantilla común). Textos tal cual el prototipo aprobado.
+ruta: 'sesionArquitectura'
+titulo:
+  es: 'Sesión de arquitectura'
+hero:
+  eyebrow:
+    es: 'La puerta de entrada'
+  titulo:
+    es: '90 minutos para saber qué hacer con tu nube.'
+  texto:
+    es: 'Revisamos juntos tu caso, sea cual sea la puerta por la que llegas: costos, crecimiento, programas de AWS, migración, buenas prácticas, seguridad o adopción de IA. En 48 horas recibes un memo con mis recomendaciones.'
+  agendar:
+    es: 'Agendar sesión de arquitectura · US$450'
+  llamada:
+    es: 'Llamada de 20 min gratis'
+senales:
+  titulo:
+    es: 'Para quién es'
+  items:
+    - es: 'CTOs y founders que necesitan una segunda opinión antes de decidir.'
+    - es: 'Gerentes de TI con una factura que no cuadra.'
+    - es: 'Equipos a punto de migrar o de crecer.'
+    - es: 'Empresas que quieren empezar con IA y no saben por dónde.'
+    - es: 'Quien no está listo para un proyecto, pero sí para una conversación seria.'
+entregables:
+  eyebrow:
+    es: 'Qué recibes'
+  titulo:
+    es: 'Sesión de arquitectura · US$450'
+  items:
+    - titulo:
+        es: '90 minutos conmigo'
+      texto:
+        es: 'Por videollamada, con tu equipo técnico si quieres.'
+    - titulo:
+        es: 'Memo en 48 horas'
+      texto:
+        es: 'Hallazgos, recomendaciones priorizadas y siguientes pasos.'
+    - titulo:
+        es: 'Sin compromiso'
+      texto:
+        es: 'Con el memo puedes seguir solo, con tu equipo o conmigo.'
+    - titulo:
+        es: 'Acreditable'
+      texto:
+        es: 'Si después seguimos trabajando juntos, te descuento los US$450 del siguiente servicio.'
+proceso:
+  eyebrow:
+    es: 'Cómo lo hago'
+  titulo:
+    es: 'Proceso'
+  items:
+    - numero: '01'
+      titulo:
+        es: 'Agenda'
+      texto:
+        es: 'Eliges fecha y hora y respondes unas preguntas sobre tu caso.'
+    - numero: '02'
+      titulo:
+        es: 'Preparación'
+      texto:
+        es: 'Reviso lo que me compartes antes de la sesión.'
+    - numero: '03'
+      titulo:
+        es: 'Sesión'
+      texto:
+        es: '90 minutos para entender el problema y discutir opciones.'
+    - numero: '04'
+      titulo:
+        es: 'Memo'
+      texto:
+        es: 'En 48 horas, con lo que haría en tu lugar.'
+  nota:
+    es: 'El memo llega en las 48 horas siguientes a la sesión.'
+caso:
+  eyebrow:
+    es: 'Caso · UTPN / KMA · 2025'
+  titulo:
+    es: 'Una red nacional de peajes baja su factura de Google Cloud'
+  texto:
+    es: 'Empezó con una revisión de la infraestructura. El hallazgo, la videovigilancia saliendo a internet, cambió la factura y terminó en un contrato de soporte de largo plazo.'
+  enlace:
+    texto:
+      es: 'Ver el caso completo'
+    destino:
+      caso: 'utpn'
+  metrica:
+    es: '−60%'
+  leyenda:
+    es: 'De US$10.000 a US$4.000 al mes en Google Cloud.'
+empezar:
+  eyebrow:
+    es: 'Cómo empezar'
+  titulo:
+    es: 'Cómo prepararte'
+  texto:
+    es: 'Ten a mano tu última factura de nube, un diagrama o una descripción de tu arquitectura y la pregunta que más te importa responder. Si no tienes nada de eso, también sirve: lo armamos en la sesión.'
+  aparte:
+    eyebrow:
+      es: '¿No estás seguro?'
+    titulo:
+      es: 'Empieza con una llamada de 20 minutos'
+    texto:
+      es: 'Gratis, para saber si puedo ayudarte y si la sesión tiene sentido para tu caso.'
+    enlace:
+      texto:
+        es: 'Agendar llamada'
+      destino:
+        ruta: 'consultoria'
+        ancla: 'agenda'
+faq:
+  titulo:
+    es: 'Preguntas frecuentes'
+  items:
+    - pregunta:
+        es: '¿Qué pasa si después no seguimos trabajando?'
+      respuesta:
+        es: 'Te quedas con el memo. Es tuyo.'
+    - pregunta:
+        es: '¿Puedo invitar a mi equipo?'
+      respuesta:
+        es: 'Sí, y lo recomiendo.'
+    - pregunta:
+        es: '¿Firmas acuerdo de confidencialidad?'
+      respuesta:
+        es: 'Sí. Protege la información confidencial de tu empresa y no limita mi trabajo con otros clientes. Si necesitas exclusividad, la acordamos entre las partes en el contrato.'
+    - pregunta:
+        es: '¿Cómo se paga?'
+      respuesta:
+        es: 'Por transferencia bancaria, en la moneda de tu empresa. Resido en Colombia y emito factura colombiana.'
+cierre:
+  titulo:
+    es: 'Elige fecha y empecemos por tu caso.'
+  boton:
+    es: 'Agendar sesión · US$450'

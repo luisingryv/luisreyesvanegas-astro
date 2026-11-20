@@ -1,0 +1,53 @@
+---
+// Qué recibes (entregables) y cómo lo hago (proceso), con su nota.
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import type { Servicio } from '../../lib/content';
+
+interface Props {
+  entregables: Servicio['entregables'];
+  proceso: Servicio['proceso'];
+}
+
+const { entregables, proceso } = Astro.props;
+---
+
+<Section
+  tone="light"
+  class="py-[clamp(48px,6vw,80px)]!"
+  reveal
+  aria-labelledby="entregables-titulo"
+>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-10">
+    <div class="flex min-w-0 flex-col gap-4">
+      <Eyebrow>{entregables.eyebrow}</Eyebrow>
+      <h2 id="entregables-titulo" class="text-heading font-bold">
+        {entregables.titulo}
+      </h2>
+      <ul class="flex flex-col gap-4">
+        {entregables.items.map((e) => (
+          <li class="flex flex-col gap-1 border-t border-blue-200 pt-3">
+            <span class="text-[17px] font-bold">{e.titulo}</span>
+            <span class="text-[15px] text-ink-muted">{e.texto}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="flex min-w-0 flex-col gap-4">
+      <Eyebrow>{proceso.eyebrow}</Eyebrow>
+      <h2 class="text-heading font-bold">{proceso.titulo}</h2>
+      <ol class="flex flex-col gap-3">
+        {proceso.items.map((p) => (
+          <li class="grid grid-cols-[40px_minmax(0,1fr)] gap-3 border-t-3 border-primary pt-3">
+            <span class="font-bold text-link">{p.numero}</span>
+            <span class="flex flex-col gap-0.5">
+              <span class="font-bold">{p.titulo}</span>
+              <span class="text-[15px] text-ink-muted">{p.texto}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+      {proceso.nota && <p class="text-small text-ink-muted">{proceso.nota}</p>}
+    </div>
+  </div>
+</Section>

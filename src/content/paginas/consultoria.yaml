@@ -1,0 +1,224 @@
+# Textos de Consultoría, tal cual el prototipo aprobado. Las 7 puertas y los casos salen de
+# sus colecciones. recibido: aviso sin URL de agenda (Luis, 20 nov 2026).
+hero:
+  eyebrow:
+    es: 'Arquitectura cloud e IA'
+  titulo:
+    es: '¿Qué necesitas resolver en tu nube?'
+  texto:
+    es: 'Puede ser una factura que crece más rápido que tu negocio, una infraestructura que tiene que aguantar el doble de usuarios, una migración, una certificación de seguridad o un equipo que quiere trabajar con IA. Reviso tu caso, encuentro dónde está el problema y diseño la solución contigo.'
+  agendar:
+    es: 'Agendar sesión de arquitectura · US$450'
+  llamada:
+    es: 'Llamada de 20 min gratis'
+puertas:
+  eyebrow:
+    es: 'Elige tu misión'
+  titulo:
+    es: 'Siete formas de empezar'
+  boton:
+    es: 'Hablemos de tu caso'
+casos:
+  eyebrow:
+    es: 'Casos'
+  titulo:
+    es: 'Dos casos recientes'
+  lista:
+    - 'utpn'
+    - 'glasslake'
+pasos:
+  eyebrow:
+    es: 'Cómo trabajo'
+  titulo:
+    es: 'Cuatro pasos'
+  items:
+    - numero: '01'
+      titulo:
+        es: 'Diagnóstico'
+      texto:
+        es: 'Reviso tu cuenta y tu facturación con acceso de solo lectura y encuentro dónde está el problema o la oportunidad.'
+    - numero: '02'
+      titulo:
+        es: 'Plan'
+      texto:
+        es: 'Te entrego la arquitectura propuesta, la proyección de capacidad y costos, y el orden en que conviene hacer cada cosa.'
+    - numero: '03'
+      titulo:
+        es: 'Implementación'
+      texto:
+        es: 'Ejecuto con tu equipo o lo acompaño mientras ejecuta.'
+    - numero: '04'
+      titulo:
+        es: 'Operación'
+      texto:
+        es: 'Si lo necesitas, te acompaño cada mes para sostener y mejorar lo que construimos.'
+formas:
+  eyebrow:
+    es: 'Formas de trabajar'
+  titulo:
+    es: 'Cómo podemos trabajar juntos'
+  items:
+    - nombre:
+        es: 'Auditoría de costos cloud'
+      texto:
+        es: 'Dónde se va el gasto y qué hacer para reducirlo.'
+    - nombre:
+        es: 'Revisión de escalabilidad y capacidad'
+      texto:
+        es: 'Si tu infraestructura soporta el crecimiento que esperas.'
+    - nombre:
+        es: 'Revisión de arquitectura'
+      texto:
+        es: 'Un informe priorizado con los pilares de Well-Architected.'
+    - nombre:
+        es: 'Evaluación de programas y créditos'
+      texto:
+        es: 'Qué programas de la nube te corresponden, incluido MAP.'
+    - nombre:
+        es: 'Acompañamiento técnico ISO 27001 y SOC 2'
+      texto:
+        es: 'Los controles técnicos en la nube que pide la certificación.'
+    - nombre:
+        es: 'Workshop de adopción de IA'
+      texto:
+        es: 'Tu equipo aprende a trabajar con Claude en su día a día.'
+    - nombre:
+        es: 'Programa de adopción de IA con Claude'
+      texto:
+        es: 'Adopción por equipos, con acompañamiento.'
+    - nombre:
+        es: 'Agentes para trabajos específicos'
+      texto:
+        es: 'Agentes a la medida cuando un proceso lo justifica.'
+    - nombre:
+        es: 'Acompañamiento mensual'
+      texto:
+        es: 'Un arquitecto de cabecera para tu equipo, con dedicación acordada.'
+  nota:
+    es: 'Todo empieza con la sesión de arquitectura: 90 minutos y un memo con recomendaciones en 48 horas, por US$450. Después definimos juntos la forma de trabajo que le sirve a tu caso.'
+  enlaces:
+    - texto:
+        es: 'Cómo funciona la sesión'
+      destino:
+        ruta: 'sesionArquitectura'
+    - texto:
+        es: 'Acompañamiento mensual'
+      destino:
+        ruta: 'retainers'
+credenciales:
+  eyebrow:
+    es: 'Credenciales'
+  titulo:
+    es: 'Con qué respaldo llego'
+  items:
+    - es: 'Ganador de categoría · XPRIZE 2026'
+    - es: 'Alianza con Nexa Connect · AWS MAP'
+    - es: 'CTO de EvolutecC · 400+ proyectos'
+    - es: '13 años de experiencia'
+    - es: 'Google Developer Groups'
+    - es: 'AI Fluency · Anthropic'
+    - es: 'Certificaciones cloud en curso'
+    - es: 'Speaker en Colombia, Ecuador y Perú'
+noSoyParaTi:
+  eyebrow:
+    es: 'Con franqueza'
+  titulo:
+    es: 'No soy para ti si…'
+  items:
+    - es: 'Buscas el precio más bajo por hora.'
+    - es: 'Quieres a alguien que solo cierre tickets.'
+    - es: 'No puedes darme acceso de lectura a tu cuenta o a tu facturación.'
+faq:
+  eyebrow:
+    es: 'Preguntas frecuentes'
+  titulo:
+    es: 'Antes de agendar'
+  items:
+    - pregunta:
+        es: '¿Con qué nubes trabajas?'
+      respuesta:
+        es: 'AWS, Google Cloud y Azure.'
+    - pregunta:
+        es: '¿En qué idiomas?'
+      respuesta:
+        es: 'Español e inglés.'
+    - pregunta:
+        es: '¿Qué es el programa MAP y mi empresa califica?'
+      respuesta:
+        es: 'Es el programa con el que AWS puede invertir en migraciones, previa evaluación y aprobación de tu caso: de on-premise, de otra nube o de cargas nuevas si ya estás en AWS. Lo evaluamos con Nexa Connect, partner de AWS. Todo el detalle está en la página del programa MAP.'
+    - pregunta:
+        es: '¿Cuál es la diferencia con EvolutecC?'
+      respuesta:
+        es: 'Yo diseño la arquitectura y acompaño a tu equipo. El desarrollo de software a la medida lo hace EvolutecC.'
+    - pregunta:
+        es: '¿Cómo se factura?'
+      respuesta:
+        es: 'Resido en Colombia y emito factura colombiana en la moneda de tu empresa. El pago se hace por transferencia bancaria en esa misma moneda.'
+    - pregunta:
+        es: '¿Firmas contrato y acuerdo de confidencialidad?'
+      respuesta:
+        es: 'Sí. El acuerdo de confidencialidad protege la información confidencial de tu empresa y no limita mi trabajo con otros clientes. Si necesitas exclusividad, la acordamos entre las partes en el contrato.'
+map:
+  eyebrow:
+    es: 'Programa MAP de AWS · con Nexa Connect'
+  titulo:
+    es: 'Si tu consumo crece, AWS puede invertir en tu migración.'
+  texto:
+    es: 'Sujeto a la evaluación y aprobación previa de AWS, según los requisitos de cada programa.'
+  boton:
+    es: 'Conoce el programa →'
+agenda:
+  eyebrow:
+    es: 'Agenda'
+  titulo:
+    es: 'Empecemos por tu caso.'
+  opciones:
+    - titulo:
+        es: 'Sesión de arquitectura · US$450'
+      texto:
+        es: '90 minutos y un memo con recomendaciones en 48 horas. Si después seguimos trabajando juntos, te descuento los US$450 del siguiente servicio.'
+      destacada: true
+    - titulo:
+        es: 'Llamada de 20 minutos · Gratis'
+      texto:
+        es: 'Para saber si puedo ayudarte y por dónde conviene empezar.'
+      destacada: false
+  campos:
+    tema:
+      es: '¿Qué quieres resolver?'
+    nubes:
+      es: 'Nube o nubes que usas'
+    nubesEjemplo:
+      es: 'AWS, Google Cloud, Azure…'
+    gasto:
+      es: 'Gasto mensual aproximado en la nube'
+    gastoEjemplo:
+      es: 'US$'
+    correo:
+      es: 'Correo'
+  temas:
+    - valor: 'optimizar-costos'
+      texto:
+        es: 'Optimizar costos'
+    - valor: 'escalar'
+      texto:
+        es: 'Crecer la infraestructura'
+    - valor: 'programas-aws'
+      texto:
+        es: 'Programas y créditos'
+    - valor: 'migrar'
+      texto:
+        es: 'Migrar'
+    - valor: 'buenas-practicas'
+      texto:
+        es: 'Buenas prácticas'
+    - valor: 'seguridad'
+      texto:
+        es: 'Seguridad y cumplimiento'
+    - valor: 'adopcion-ia'
+      texto:
+        es: 'Adopción de IA en la empresa'
+  enviar:
+    es: 'Elegir fecha y hora'
+  recibido:
+    es: 'Recibí tus datos. Te escribo para agendar la fecha.'

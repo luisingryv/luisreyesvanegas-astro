@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { erroresPorCampo, solicitud } from '../../src/lib/formularios/esquemas';
+import { erroresPorCampo, formularioGeneral, solicitud } from '../../src/lib/formularios/esquemas';
 
 const valida = {
   formulario: 'general',
@@ -16,7 +16,12 @@ const errores = (entrada: unknown) => {
 
 describe('formulario general', () => {
   it('acepta lo que manda un formulario HTML y deja los vacíos como ausentes', () => {
-    const r = solicitud.parse({ ...valida, whatsapp: '', utm_source: '', pagina: '/es/contacto' });
+    const r = formularioGeneral.parse({
+      ...valida,
+      whatsapp: '',
+      utm_source: '',
+      pagina: '/es/contacto',
+    });
     expect(r).toMatchObject({ idioma: 'es', acepta: true, pagina: '/es/contacto' });
     expect(r.whatsapp).toBeUndefined();
     expect(r.utm_source).toBeUndefined();
@@ -43,7 +48,7 @@ describe('formulario general', () => {
   });
 
   it('valida WhatsApp, puerta, idioma y formulario', () => {
-    expect(solicitud.parse({ ...valida, whatsapp: '+57 300 123 4567' }).whatsapp).toBe(
+    expect(formularioGeneral.parse({ ...valida, whatsapp: '+57 300 123 4567' }).whatsapp).toBe(
       '+57 300 123 4567',
     );
     expect(errores({ ...valida, whatsapp: 'llámame' })).toEqual({ whatsapp: 'invalido' });
@@ -56,5 +61,30 @@ describe('formulario general', () => {
     expect(errores({ ...valida, pagina: 'https://otro.com' })).toEqual({ pagina: 'invalido' });
     expect(errores({ ...valida, pagina: '//otro.com/x' })).toEqual({ pagina: 'invalido' });
     expect(errores({ ...valida, pagina: '/\\otro.com' })).toEqual({ pagina: 'invalido' });
+  });
+});
+
+describe('agenda de Consultoría', () => {
+  const agenda = {
+    formulario: 'consultoria',
+    email: 'cto@ejemplo.com',
+    puerta: 'optimizar-costos',
+    nubes: 'AWS, Google Cloud',
+    gasto: 'US$8.000',
+    acepta: 'on',
+  };
+
+  it('no pide nombre ni mensaje; nubes y gasto son opcionales', () => {
+    expect(solicitud.safeParse(agenda).success).toBe(true);
+    expect(solicitud.safeParse({ ...agenda, nubes: '', gasto: '' }).success).toBe(true);
+  });
+
+  it('exige el tema, el correo y la autorización', () => {
+    expect(errores({ formulario: 'consultoria' })).toEqual({
+      email: 'requerido',
+      puerta: 'requerido',
+      acepta: 'debe-aceptar',
+    });
+    expect(errores({ ...agenda, gasto: 'x'.repeat(61) })).toEqual({ gasto: 'muy-largo' });
   });
 });

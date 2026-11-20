@@ -1,4 +1,4 @@
-import { CALENDAR_BOOKING_URL, WHATSAPP_NUMERO } from 'astro:env/server';
+import { WHATSAPP_NUMERO } from 'astro:env/server';
 import type { Locale } from '../i18n/config';
 import { localizedPath } from '../i18n/routes';
 
@@ -19,10 +19,11 @@ export function evoluteccUrl(campaign: string): string {
   return url.toString();
 }
 
-// Mientras Luis no entregue la URL de la agenda, se va a Contacto (o al formulario de la
-// misma página, si lo tiene).
-export function bookingUrl(locale: Locale, sinAgenda?: string): string {
-  return CALENDAR_BOOKING_URL ?? sinAgenda ?? localizedPath(locale, 'contacto');
+// "Agendar" lleva al formulario de agenda de Consultoría: guarda las preguntas previas y abre
+// la página de reservas de Google Calendar (CALENDAR_BOOKING_URL). El Home usa su propio
+// formulario (#agenda), como en el prototipo.
+export function bookingUrl(locale: Locale, local?: string): string {
+  return local ?? localizedPath(locale, 'consultoria', 'agenda');
 }
 
 /** WhatsApp corporativo: número para mostrar y enlace de wa.me. undefined hasta que Luis lo entregue. */

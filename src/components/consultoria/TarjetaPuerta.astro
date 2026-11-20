@@ -1,0 +1,86 @@
+---
+// Pieza 07 · Tarjeta de una puerta de entrada: dolor, oferta y prueba siempre en el HTML; la
+// mini visualización y la inclinación son efectos (motion/misiones.ts).
+import Viz from '../brand/Viz.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import type { Puerta } from '../../lib/content';
+import { resolverEnlace } from '../../lib/enlaces';
+
+interface Props {
+  locale: PublishedLocale;
+  puerta: Puerta;
+  total: number;
+  boton: string;
+}
+
+const { locale, puerta, total, boton } = Astro.props;
+const { href } = resolverEnlace(locale, puerta.destino);
+const dos = (n: number) => String(n).padStart(2, '0');
+---
+
+<a
+  href={href}
+  class="mision group relative flex h-full min-h-62.5 min-w-0 flex-col gap-3 overflow-hidden rounded-lg border border-transparent bg-surface-raised p-6.5 text-ink"
+  data-mision
+>
+  <span class="mision-luz pointer-events-none absolute inset-0" aria-hidden="true"></span>
+  <span class="relative flex items-center justify-between gap-2 text-label font-bold text-blue-600 uppercase">
+    <span>{puerta.etiqueta}</span>
+    <span>
+      {dos(puerta.numero)} / {dos(total)}
+    </span>
+  </span>
+  <h3 class="relative text-[22px] leading-[1.22] font-bold text-balance">{puerta.dolor}</h3>
+  <p class="relative grow text-[15px] text-ink-muted">{puerta.oferta}</p>
+  <div class="relative grid gap-2.5 border-t border-blue-300 pt-3">
+    <Viz viz={puerta.viz} />
+    <span class="justify-self-start rounded-sm bg-primary px-2.5 py-1.75 text-[12px] leading-tight font-bold text-on-primary">
+      {puerta.prueba}
+    </span>
+  </div>
+  <span class="relative font-bold text-link">
+    {boton}
+    <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">
+      →
+    </span>
+  </span>
+</a>
+
+<style>
+  .mision {
+    --mx: 50%;
+    --my: 0%;
+    transform-style: preserve-3d;
+    transition:
+      border-color 250ms ease,
+      box-shadow 250ms ease;
+  }
+
+  .mision:hover,
+  .mision:focus-visible {
+    border-color: var(--color-primary);
+    box-shadow: 0 18px 40px -22px var(--color-primary);
+  }
+
+  /* Luz que sigue al cursor (solo con puntero fino). */
+  .mision-luz {
+    opacity: 0;
+    transition: opacity 250ms ease;
+    background: radial-gradient(
+      260px circle at var(--mx) var(--my),
+      color-mix(in oklab, var(--color-primary) 14%, transparent),
+      transparent 70%
+    );
+  }
+
+  .mision:hover .mision-luz,
+  .mision:focus-visible .mision-luz {
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    .mision-luz {
+      display: none;
+    }
+  }
+</style>

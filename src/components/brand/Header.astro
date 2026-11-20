@@ -12,16 +12,19 @@ import { localizedPath, type RouteKey } from '../../i18n/routes';
 interface Props {
   locale: PublishedLocale;
   route?: RouteKey;
-  /** A dónde lleva "Agendar sesión" mientras no haya URL de la agenda (p. ej. '#agenda'). */
-  agendaSinUrl?: string;
+  /** Ancla propia para "Agendar sesión" (el Home usa '#agenda'). */
+  agendaLocal?: string;
+  /** Header mínimo de landing: solo logo, idiomas y este botón (Adopción de IA, CV). */
+  minimo?: { texto: string; href: string };
   /** Fondo night con logo blanco, o blanco con logo azul en páginas claras. */
   tema?: 'dark' | 'light';
 }
 
-const { locale, route, agendaSinUrl, tema = 'dark' } = Astro.props;
+const { locale, route, agendaLocal, tema = 'dark', minimo } = Astro.props;
 const claro = tema === 'light';
 const t = getDictionary(locale);
-const ctaHref = bookingUrl(locale, agendaSinUrl);
+const ctaHref = minimo?.href ?? bookingUrl(locale, agendaLocal);
+const ctaTexto = minimo?.texto ?? t.header.cta;
 ---
 
 <header
@@ -36,35 +39,46 @@ const ctaHref = bookingUrl(locale, agendaSinUrl);
       <Logo alt={t.meta.siteName} version={claro ? 'color' : 'blanco'} />
     </a>
 
-    <div class="hidden xl:block">
-      <NavLinks locale={locale} current={route} orientation="horizontal" />
-    </div>
-
-    <div class="hidden items-center gap-4 xl:flex">
-      <LanguageSwitcher locale={locale} route={route} />
-      <Button href={ctaHref} size="sm">
-        {t.header.cta}
-      </Button>
-    </div>
-
-    <details class="xl:hidden">
-      <summary class="cursor-pointer list-none rounded-pill border border-gray-700 px-4.5 py-3 text-small leading-none font-bold [&::-webkit-details-marker]:hidden">
-        {t.a11y.menu}
-      </summary>
-      <div
-        class:list={[
-          'absolute inset-x-0 top-full z-40 border-b bg-surface',
-          claro ? 'border-blue-200' : 'border-hairline',
-        ]}
-      >
-        <Container class="flex flex-col gap-6 py-6">
-          <NavLinks locale={locale} current={route} orientation="vertical" />
-          <LanguageSwitcher locale={locale} route={route} />
-          <Button href={ctaHref} size="sm" class="self-start">
-            {t.header.cta}
-          </Button>
-        </Container>
+    {minimo ? (
+      <div class="flex items-center gap-4">
+        <LanguageSwitcher locale={locale} route={route} />
+        <Button href={ctaHref} size="sm">
+          {ctaTexto}
+        </Button>
       </div>
-    </details>
+    ) : (
+      <>
+        <div class="hidden xl:block">
+          <NavLinks locale={locale} current={route} orientation="horizontal" />
+        </div>
+
+        <div class="hidden items-center gap-4 xl:flex">
+          <LanguageSwitcher locale={locale} route={route} />
+          <Button href={ctaHref} size="sm">
+            {ctaTexto}
+          </Button>
+        </div>
+
+        <details class="xl:hidden">
+          <summary class="cursor-pointer list-none rounded-pill border border-gray-700 px-4.5 py-3 text-small leading-none font-bold [&::-webkit-details-marker]:hidden">
+            {t.a11y.menu}
+          </summary>
+          <div
+            class:list={[
+              'absolute inset-x-0 top-full z-40 border-b bg-surface',
+              claro ? 'border-blue-200' : 'border-hairline',
+            ]}
+          >
+            <Container class="flex flex-col gap-6 py-6">
+              <NavLinks locale={locale} current={route} orientation="vertical" />
+              <LanguageSwitcher locale={locale} route={route} />
+              <Button href={ctaHref} size="sm" class="self-start">
+                {ctaTexto}
+              </Button>
+            </Container>
+          </div>
+        </details>
+      </>
+    )}
   </Container>
 </header>

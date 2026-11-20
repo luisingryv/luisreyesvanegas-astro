@@ -1,0 +1,137 @@
+# Subpágina de Consultoría (plantilla común). Textos tal cual el prototipo aprobado.
+ruta: 'optimizarCostos'
+titulo:
+  es: 'Optimizar costos cloud'
+hero:
+  eyebrow:
+    es: '01 / 07 · Optimizar costos'
+  titulo:
+    es: '¿Tu factura de nube crece más rápido que tu negocio?'
+  texto:
+    es: 'Reviso a fondo tu cuenta de AWS, Google Cloud o Azure, encuentro dónde se va el dinero y te entrego un plan para gastar menos sin poner en riesgo la operación.'
+  agendar:
+    es: 'Agendar sesión de arquitectura · US$450'
+  llamada:
+    es: 'Llamada de 20 min gratis'
+senales:
+  titulo:
+    es: 'Señales de que este es tu caso'
+  items:
+    - es: 'La factura sube cada mes y nadie sabe explicar por qué.'
+    - es: 'Pagas por servidores o bases de datos que casi no se usan.'
+    - es: 'El tráfico de salida o las transferencias pesan mucho en la factura.'
+    - es: 'No tienes alertas de presupuesto ni etiquetas por proyecto.'
+    - es: 'Compraste capacidad para un pico que ya pasó.'
+entregables:
+  eyebrow:
+    es: 'Qué recibes'
+  titulo:
+    es: 'Auditoría de costos cloud'
+  items:
+    - titulo:
+        es: 'Mapa del gasto'
+      texto:
+        es: 'Dónde se va cada dólar, por servicio, proyecto y ambiente.'
+    - titulo:
+        es: 'Lista de ahorros priorizada'
+      texto:
+        es: 'Cada recomendación con su ahorro estimado, su riesgo y su esfuerzo.'
+    - titulo:
+        es: 'Cambios de arquitectura'
+      texto:
+        es: 'Cuando el ahorro grande está en el diseño y no en apagar recursos.'
+    - titulo:
+        es: 'Control para que no vuelva a pasar'
+      texto:
+        es: 'Alertas, presupuestos y etiquetas para seguir el gasto mes a mes.'
+proceso:
+  eyebrow:
+    es: 'Cómo lo hago'
+  titulo:
+    es: 'Proceso'
+  items:
+    - numero: '01'
+      titulo:
+        es: 'Acceso de solo lectura'
+      texto:
+        es: 'A tu cuenta y a tu facturación.'
+    - numero: '02'
+      titulo:
+        es: 'Diagnóstico'
+      texto:
+        es: 'Reviso el gasto, la arquitectura y el uso real.'
+    - numero: '03'
+      titulo:
+        es: 'Informe y plan'
+      texto:
+        es: 'Te presento los hallazgos y el orden en que conviene actuar.'
+    - numero: '04'
+      titulo:
+        es: 'Implementación'
+      texto:
+        es: 'La hace tu equipo con mi acompañamiento, o la hago yo.'
+  nota:
+    es: 'Duración: según el tamaño de la cuenta.'
+caso:
+  eyebrow:
+    es: 'Caso · UTPN / KMA · 2025'
+  titulo:
+    es: 'Una red nacional de peajes baja su factura de Google Cloud'
+  texto:
+    es: 'La videovigilancia 24/7, unos 15 TB diarios, salía a internet como transmisión en vivo. Cambiamos el acceso a las cámaras por escritorio remoto, sin tráfico de salida. La factura pasó de US$10.000 a US$4.000 al mes y el cliente firmó un contrato de soporte de largo plazo.'
+  enlace:
+    texto:
+      es: 'Ver el caso completo'
+    destino:
+      caso: 'utpn'
+  metrica:
+    es: '−60%'
+  leyenda:
+    es: 'US$10.000 → US$4.000 al mes'
+  barras:
+    antes: 100
+    despues: 40
+empezar:
+  eyebrow:
+    es: 'Cómo empezar'
+  titulo:
+    es: 'Primero, una sesión de arquitectura'
+  texto:
+    es: '90 minutos y un memo con recomendaciones en 48 horas, por US$450. Si después seguimos con la auditoría, te descuento los US$450. El valor de la auditoría depende del tamaño de tu gasto mensual y te lo propongo después de la sesión.'
+  aparte:
+    eyebrow:
+      es: 'Si vas a migrar'
+    titulo:
+      es: 'AWS puede invertir en tu migración'
+    texto:
+      es: 'Si parte del ahorro pasa por cambiar de nube o reorganizar cargas en AWS, el programa MAP puede cofinanciar la migración, previa evaluación y aprobación de AWS.'
+    enlace:
+      texto:
+        es: 'Conoce el programa MAP'
+      destino:
+        ruta: 'programasAws'
+faq:
+  titulo:
+    es: 'Preguntas frecuentes'
+  items:
+    - pregunta:
+        es: '¿Necesitas acceso de escritura a mi cuenta?'
+      respuesta:
+        es: 'No. Para la auditoría basta con acceso de solo lectura a la cuenta y a la facturación.'
+    - pregunta:
+        es: '¿Con qué nubes trabajas?'
+      respuesta:
+        es: 'AWS, Google Cloud y Azure.'
+    - pregunta:
+        es: '¿El ahorro está garantizado?'
+      respuesta:
+        es: 'No. Antes de revisar tu cuenta no puedo prometer un ahorro. En la evaluación, con acceso de solo lectura, identifico las oportunidades de optimización y te digo cuánto podrías ahorrar con cada una.'
+    - pregunta:
+        es: '¿Qué pasa después de la auditoría?'
+      respuesta:
+        es: 'Puedes implementar con tu equipo o seguir conmigo con acompañamiento mensual.'
+cierre:
+  titulo:
+    es: 'Revisemos tu factura juntos.'
+  boton:
+    es: 'Agendar sesión · Optimizar costos'

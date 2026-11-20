@@ -1,0 +1,19 @@
+---
+import ListaFaq from '../brand/ListaFaq.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+
+interface Props {
+  id: string;
+  eyebrow?: string;
+  titulo: string;
+  items: { pregunta: string; respuesta: string }[];
+}
+
+const { id, eyebrow, titulo, items } = Astro.props;
+---
+
+<Section tone="light" aria-labelledby={id}>
+  <SectionHeader id={id} eyebrow={eyebrow} title={titulo} />
+  <ListaFaq items={items} />
+</Section>

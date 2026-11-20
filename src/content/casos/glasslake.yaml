@@ -1,0 +1,29 @@
+cliente: 'Glasslake'
+etiqueta:
+  es: 'Escalar'
+titulo:
+  es: 'Una startup de SAP escala de forma segura en AWS'
+metrica:
+  es: 'US$62.000'
+quien:
+  es: 'Glasslake · 2025–hoy · Cloud Expert y administrador de la cuenta'
+pasos:
+  - clave:
+      es: 'Contexto'
+    texto:
+      es: 'Startup de SAP de San Francisco con presencia global, en pleno crecimiento y con experiencia en AWS: una cuenta robusta que tiene que escalar sin perder seguridad.'
+  - clave:
+      es: 'Hallazgo'
+    texto:
+      es: 'Había que robustecer la cuenta con buenas prácticas: redes seguras hacia los entornos de sus clientes, orden en los accesos y control de costos.'
+  - clave:
+      es: 'Decisión'
+    texto:
+      es: 'Organizations e IAM Identity Center para centralizar cuentas, beneficios y pagos; entornos multitenant; Transit Gateway, VPN y endpoints; seguridad con Amazon Inspector y monitoreo; revisión y proyección de costos.'
+  - clave:
+      es: 'Resultado'
+    texto:
+      es: 'La cuenta crece con orden: créditos del programa MAP, tráfico por NAT Gateway 75–80% menor e ISO 27001 y SOC 2 logradas por el cliente, con mi contribución técnica.'
+# La cifra con el anillo de la pieza 02.
+viz:
+  tipo: anillo

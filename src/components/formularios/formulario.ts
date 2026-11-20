@@ -2,7 +2,7 @@
 // página vuelve con el resultado. Con JavaScript: validación antes de enviar, errores por
 // campo sin recargar, envío con fetch, estado "Enviando…" y UTM de la visita.
 import { guardarUtmDeLaUrl } from '../../lib/utm';
-import type { MensajesFormulario } from './FormularioContacto';
+import type { MensajesFormulario } from './partes';
 
 type Codigo = 'requerido' | 'invalido' | 'muy-corto' | 'muy-largo' | 'debe-aceptar';
 type Control = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
@@ -135,8 +135,14 @@ export function mejorarFormulario(form: HTMLFormElement) {
         ok?: boolean;
         motivo?: string;
         errores?: Record<string, Codigo>;
+        /** Agenda de Consultoría: página de reservas que se abre después de guardar. */
+        agenda?: string;
       };
 
+      if (respuesta.ok && cuerpo.ok && cuerpo.agenda) {
+        window.location.assign(cuerpo.agenda);
+        return;
+      }
       if (respuesta.ok && cuerpo.ok) {
         form.reset();
         controles().forEach((c) => mostrarError(c, null));

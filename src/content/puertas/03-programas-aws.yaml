@@ -1,0 +1,15 @@
+numero: 3
+etiqueta:
+  es: 'Programas de AWS'
+dolor:
+  es: '¿Tu consumo en la nube crece y no sabes que AWS puede invertir en tu migración?'
+oferta:
+  es: 'Evaluación para el programa MAP, con Nexa Connect. Sujeta a la aprobación previa de AWS.'
+prueba:
+  es: 'US$62.000 en créditos AWS (MAP)'
+destino:
+  ruta: programasAws
+viz:
+  tipo: anillo
+  leyenda:
+    es: 'Según elegibilidad · 25% al aprobar, 75% con los hitos'

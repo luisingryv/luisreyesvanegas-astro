@@ -1,0 +1,19 @@
+numero: 5
+etiqueta:
+  es: 'Buenas prácticas'
+dolor:
+  es: '¿Funciona, pero no sabes si está bien hecho?'
+oferta:
+  es: 'Revisión de arquitectura con los pilares de Well-Architected.'
+prueba:
+  es: '13 años de sistemas en producción'
+# Sin subpágina todavía: lleva a la agenda de Consultoría (prototipo).
+destino:
+  ruta: consultoria
+  ancla: agenda
+viz:
+  tipo: ticks
+  cantidad: 13
+  leyenda:
+    - es: '2013'
+    - es: '2026'

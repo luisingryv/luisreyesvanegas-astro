@@ -1,0 +1,54 @@
+---
+// Banda azul (tono brand) con título, texto opcional y botones: banda del programa MAP y
+// cierres de las subpáginas y de Adopción de IA.
+import Button from '../brand/Button.astro';
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+
+interface Props {
+  id: string;
+  eyebrow?: string;
+  titulo: string;
+  texto?: string;
+  botones: { texto: string; href: string; variante?: 'primary' | 'outline'; external?: boolean }[];
+  /** compacta: la banda del programa MAP (menos alto). */
+  compacta?: boolean;
+}
+
+const { id, eyebrow, titulo, texto, botones, compacta = false } = Astro.props;
+---
+
+<Section
+  tone="brand"
+  id={id}
+  aria-labelledby={`${id}-titulo`}
+  class={compacta ? 'py-[clamp(40px,5vw,64px)]!' : 'py-[clamp(48px,6vw,80px)]!'}
+>
+  <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-5">
+    <div class="flex max-w-[70ch] flex-col gap-1.5">
+      {eyebrow && <Eyebrow class="text-blue-200!">{eyebrow}</Eyebrow>}
+      <h2
+        id={`${id}-titulo`}
+        class:list={[
+          'font-bold text-balance',
+          compacta ? 'text-[clamp(24px,2.8vw,34px)] leading-[1.15]' : 'text-heading',
+        ]}
+      >
+        {titulo}
+      </h2>
+      {texto && <p class:list={[compacta ? 'text-small' : '', 'text-blue-200']}>{texto}</p>}
+    </div>
+    <div class="flex flex-wrap gap-3">
+      {botones.map((boton) => (
+        <Button
+          href={boton.href}
+          size="lg"
+          variant={boton.variante ?? 'primary'}
+          external={boton.external}
+        >
+          {boton.texto}
+        </Button>
+      ))}
+    </div>
+  </div>
+</Section>

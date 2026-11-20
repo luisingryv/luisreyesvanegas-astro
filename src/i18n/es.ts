@@ -102,6 +102,12 @@ export const es = {
     contacto: {
       title: 'Contacto',
     },
+    consultoria: {
+      title: 'Consultoría en arquitectura cloud e IA',
+    },
+    adopcionIa: {
+      title: 'Adopción de IA con Claude',
+    },
     sobreMi: {
       title: 'Sobre mí',
     },

@@ -1,0 +1,67 @@
+---
+// Caso de la subpágina, en sección oscura. La tarjeta de la cifra es la protagonista (pieza 02):
+// cuenta al verse y sus barras crecen (motion/cifra-protagonista.ts).
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import type { PublishedLocale } from '../../i18n/config';
+import type { Servicio } from '../../lib/content';
+import { resolverEnlace } from '../../lib/enlaces';
+
+interface Props {
+  locale: PublishedLocale;
+  caso: Servicio['caso'];
+}
+
+const { locale, caso } = Astro.props;
+const { href } = resolverEnlace(locale, caso.enlace.destino);
+---
+
+<Section tone="dark" aria-labelledby="caso-titulo">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-10">
+    <div class="flex min-w-0 flex-col gap-3.5">
+      <Eyebrow>{caso.eyebrow}</Eyebrow>
+      <h2 id="caso-titulo" class="text-heading font-bold">
+        {caso.titulo}
+      </h2>
+      <p class="text-text-secondary-on-dark">{caso.texto}</p>
+      <a href={href} class="self-start font-bold text-link hover:underline">
+        {caso.enlace.texto} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div
+      class="flex flex-col gap-2.5 rounded-lg border border-hairline bg-surface-raised p-7"
+      data-cifra-protagonista
+    >
+      <p class="text-[clamp(48px,6vw,80px)] leading-none font-bold tabular-nums" data-metrica>
+        {caso.metrica}
+      </p>
+      {caso.barras && (
+        <div class="flex flex-col gap-2.5" aria-hidden="true">
+          <div class="h-2 overflow-hidden rounded-pill bg-dark-border">
+            <div
+              class="h-full origin-left bg-blue-300"
+              style={`width: ${caso.barras.antes}%`}
+              data-barra
+            />
+          </div>
+          <div class="h-2 overflow-hidden rounded-pill bg-dark-border">
+            <div
+              class="h-full origin-left bg-accent"
+              style={`width: ${caso.barras.despues}%`}
+              data-barra
+            />
+          </div>
+        </div>
+      )}
+      <p class="text-[12px] text-gray-400">{caso.leyenda}</p>
+    </div>
+  </div>
+</Section>
+
+<script>
+  import { iniciarCifraProtagonista } from '../motion/cifra-protagonista';
+
+  for (const tarjeta of document.querySelectorAll<HTMLElement>('[data-cifra-protagonista]')) {
+    iniciarCifraProtagonista(tarjeta);
+  }
+</script>

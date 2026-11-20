@@ -4,6 +4,11 @@ import type { Locale } from './config';
 export const routes = {
   home: '',
   consultoria: 'consultoria',
+  sesionArquitectura: 'consultoria/sesion-de-arquitectura',
+  optimizarCostos: 'consultoria/optimizar-costos',
+  escalarInfraestructura: 'consultoria/escalar-infraestructura',
+  retainers: 'consultoria/retainers',
+  adopcionIa: 'consultoria/adopcion-ia',
   productos: 'productos',
   programasAws: 'programas-aws',
   casos: 'casos',
@@ -18,6 +23,15 @@ export const routes = {
 } as const;
 
 export type RouteKey = keyof typeof routes;
+
+/** Sección del menú a la que pertenece cada subpágina (para marcarla como actual). */
+export const seccionDe: Partial<Record<RouteKey, RouteKey>> = {
+  sesionArquitectura: 'consultoria',
+  optimizarCostos: 'consultoria',
+  escalarInfraestructura: 'consultoria',
+  retainers: 'consultoria',
+  adopcionIa: 'consultoria',
+};
 
 export function localizedPath(locale: Locale, route: RouteKey, hash?: string): string {
   const slug = routes[route];

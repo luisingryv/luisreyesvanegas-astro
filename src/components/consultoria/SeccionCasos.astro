@@ -1,0 +1,57 @@
+---
+// Casos con su recorrido: los pasos aparecen uno a uno y la cifra usa la barra o el anillo de
+// la pieza 02 (motion/pasos-caso.ts). Sección oscura, como el prototipo.
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import Viz from '../brand/Viz.astro';
+import type { PaginaConsultoria } from '../../lib/content';
+
+interface Props {
+  content: PaginaConsultoria['casos'];
+}
+
+const { content } = Astro.props;
+---
+
+<Section tone="dark" aria-labelledby="casos-titulo">
+  <SectionHeader id="casos-titulo" eyebrow={content.eyebrow} title={content.titulo} />
+  <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] gap-4">
+    {content.lista.map((caso) => (
+      <li class="grid">
+        <article
+          class="flex min-w-0 flex-col gap-4 rounded-lg border border-hairline bg-surface-raised p-7"
+          data-caso={caso.id}
+        >
+          <span class="text-label font-bold text-link uppercase">{caso.etiqueta}</span>
+          <h3 class="text-[24px] leading-tight font-bold">{caso.titulo}</h3>
+          <p class="text-[clamp(32px,3.4vw,44px)] leading-none font-bold tabular-nums">
+            {caso.metrica}
+          </p>
+          {caso.viz && <Viz viz={caso.viz} class="max-w-90" />}
+          <ol class="flex flex-col gap-2.5">
+            {caso.pasos.map((paso) => (
+              <li
+                class="grid grid-cols-[96px_minmax(0,1fr)] gap-3 border-t border-hairline pt-2.5 text-small"
+                data-paso
+              >
+                <span class="text-label font-bold tracking-[0.1em] text-blue-300 uppercase">
+                  {paso.clave}
+                </span>
+                <span class="text-text-secondary-on-dark">{paso.texto}</span>
+              </li>
+            ))}
+          </ol>
+          <p class="text-[12px] text-gray-400">{caso.quien}</p>
+        </article>
+      </li>
+    ))}
+  </ul>
+</Section>
+
+<script>
+  import { iniciarPasosCaso } from '../motion/pasos-caso';
+
+  for (const caso of document.querySelectorAll<HTMLElement>('[data-caso]')) {
+    iniciarPasosCaso(caso);
+  }
+</script>

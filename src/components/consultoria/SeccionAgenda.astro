@@ -1,0 +1,65 @@
+---
+// Agenda de Consultoría (#agenda): las dos formas de empezar y las preguntas previas.
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import { FormularioAgenda } from '../formularios/FormularioAgenda';
+import { getDictionary } from '../../i18n';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { FormularioGeneral, PaginaConsultoria } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  content: PaginaConsultoria['agenda'];
+  comunes: FormularioGeneral;
+}
+
+const { locale, content, comunes } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<Section tone="dark" id="agenda" aria-labelledby="agenda-titulo">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-12">
+    <div class="flex min-w-0 flex-col gap-4">
+      <Eyebrow>{content.eyebrow}</Eyebrow>
+      <h2 id="agenda-titulo" class="text-heading-lg font-bold text-balance">
+        {content.titulo}
+      </h2>
+      <ul class="flex flex-col gap-3">
+        {content.opciones.map((opcion) => (
+          <li
+            class:list={[
+              'rounded-[18px] border bg-surface-raised p-4.5',
+              opcion.destacada ? 'border-accent' : 'border-hairline',
+            ]}
+          >
+            <p class="text-title-sm font-bold">{opcion.titulo}</p>
+            <p class="mt-1.5 text-small text-text-secondary-on-dark">{opcion.texto}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <FormularioAgenda
+      textos={{
+        ...content.campos,
+        temas: content.temas,
+        autorizacion: comunes.autorizacion,
+        enviar: content.enviar,
+        recibido: content.recibido,
+        error: comunes.error,
+      }}
+      mensajes={t.formulario}
+      idioma={locale}
+      pagina={localizedPath(locale, 'consultoria')}
+      politicaHref={localizedPath(locale, 'privacidad')}
+    />
+  </div>
+</Section>
+
+<script>
+  import { mejorarFormulario } from '../formularios/formulario';
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-formulario]')) {
+    mejorarFormulario(form);
+  }
+</script>

@@ -1,8 +1,10 @@
 // POST /api/solicitudes: recibe los formularios del sitio.
 // - Con JavaScript (fetch y JSON): responde JSON con el resultado y los errores por campo.
 // - Sin JavaScript (formulario HTML): guarda y vuelve a la página con ?formulario=enviado|error.
+// - Agenda de Consultoría: después de guardar abre la página de reservas, si está configurada.
 // Astro rechaza los formularios enviados desde otros dominios (security.checkOrigin).
 import type { APIRoute } from 'astro';
+import { CALENDAR_BOOKING_URL } from 'astro:env/server';
 import { getDb } from '../../lib/db';
 import { procesarSolicitud, type ResultadoSolicitud } from '../../lib/formularios/procesar';
 import { getIntegraciones } from '../../lib/servicios';
@@ -51,9 +53,16 @@ export const POST: APIRoute = async ({ request }) => {
       : volverALaPagina(entrada.pagina, 'error', request.url);
   }
 
-  if (!esJson)
+  // Agenda de Consultoría: después de guardar las preguntas previas se abre la página de
+  // reservas de Google Calendar (si Luis ya configuró su URL).
+  const agenda =
+    resultado.ok && entrada.formulario === 'consultoria' ? CALENDAR_BOOKING_URL : undefined;
+
+  if (!esJson) {
+    if (agenda) return new Response(null, { status: 303, headers: { Location: agenda } });
     return volverALaPagina(entrada.pagina, resultado.ok ? 'enviado' : 'error', request.url);
+  }
   // El id interno no sale del servidor.
-  const cuerpo = resultado.ok ? { ok: true } : resultado;
+  const cuerpo = resultado.ok ? { ok: true, ...(agenda && { agenda }) } : resultado;
   return Response.json(cuerpo, { status: estadoHttp(resultado) });
 };

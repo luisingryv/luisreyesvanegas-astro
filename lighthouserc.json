@@ -7,7 +7,10 @@
         "http://127.0.0.1:4399/es",
         "http://127.0.0.1:4399/es/sobre-mi",
         "http://127.0.0.1:4399/es/contacto",
-        "http://127.0.0.1:4399/es/legal/privacidad"
+        "http://127.0.0.1:4399/es/legal/privacidad",
+        "http://127.0.0.1:4399/es/consultoria",
+        "http://127.0.0.1:4399/es/consultoria/optimizar-costos",
+        "http://127.0.0.1:4399/es/consultoria/adopcion-ia"
       ],
       "numberOfRuns": 3,
       "settings": {

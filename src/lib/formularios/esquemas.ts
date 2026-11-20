@@ -26,31 +26,18 @@ const autorizacion = z.preprocess(
   z.literal(true, { error: 'debe-aceptar' }),
 );
 
-const campos = {
+const slug = z.string().regex(/^[a-z0-9-]{1,60}$/, { error: 'invalido' });
+
+// Campos que comparten todos los formularios.
+const comunes = {
   idioma: z.preprocess(vacioAusente, z.enum(IDIOMAS, { error: 'invalido' }).default('es')),
-  nombre: requerido(2, 120),
   email: z.preprocess(
     (v) => (typeof v === 'string' ? v.trim() : v),
     z
       .email({ error: (i) => (i.input === undefined || i.input === '' ? 'requerido' : 'invalido') })
       .max(254, { error: 'muy-largo' }),
   ),
-  // Números con indicativo, espacios, guiones o paréntesis (WhatsApp).
-  whatsapp: z.preprocess(
-    vacioAusente,
-    z
-      .string()
-      .trim()
-      .regex(/^\+?[0-9][0-9 ()-]{6,19}$/, { error: 'invalido' })
-      .optional(),
-  ),
-  puerta: z.preprocess(
-    vacioAusente,
-    z
-      .string()
-      .regex(/^[a-z0-9-]{1,60}$/, { error: 'invalido' })
-      .optional(),
-  ),
+  puerta: z.preprocess(vacioAusente, slug.optional()),
   // Solo rutas del propio sitio: se usa para volver a la página sin JavaScript.
   pagina: z.preprocess(
     vacioAusente,
@@ -68,18 +55,43 @@ const campos = {
   acepta: autorizacion,
 };
 
-/** Formulario general de /contacto: nombre, email, detalles, WhatsApp opcional y autorización. */
+/** Formulario general (Home y Contacto): nombre, email, tema, mensaje y autorización. */
 export const formularioGeneral = z.object({
   formulario: z.literal('general', { error: 'invalido' }),
-  ...campos,
+  ...comunes,
+  nombre: requerido(2, 120),
+  // Números con indicativo, espacios, guiones o paréntesis (WhatsApp).
+  whatsapp: z.preprocess(
+    vacioAusente,
+    z
+      .string()
+      .trim()
+      .regex(/^\+?[0-9][0-9 ()-]{6,19}$/, { error: 'invalido' })
+      .optional(),
+  ),
   mensaje: requerido(10, 5000),
+});
+
+/** Agenda de Consultoría: preguntas previas a elegir fecha (sin nombre, como el prototipo). */
+export const formularioConsultoria = z.object({
+  formulario: z.literal('consultoria', { error: 'invalido' }),
+  ...comunes,
+  // Qué quiere resolver: obligatorio en la agenda.
+  puerta: z.preprocess(
+    vacioAusente,
+    z.string({ error: 'requerido' }).regex(/^[a-z0-9-]{1,60}$/, { error: 'invalido' }),
+  ),
+  nubes: opcional(200),
+  gasto: opcional(60),
 });
 
 // Los demás formularios (speaker, prensa, productos, programas AWS) se agregan aquí
 // con sus campos propios cuando se construyan sus páginas.
-export const solicitud = z.discriminatedUnion('formulario', [formularioGeneral], {
-  error: 'invalido',
-});
+export const solicitud = z.discriminatedUnion(
+  'formulario',
+  [formularioGeneral, formularioConsultoria],
+  { error: 'invalido' },
+);
 
 export type EntradaSolicitud = z.infer<typeof solicitud>;
 

@@ -1,0 +1,18 @@
+numero: 7
+etiqueta:
+  es: 'Adopción de IA'
+dolor:
+  es: '¿Quieres que tu equipo trabaje con IA de verdad y no sabes por dónde empezar?'
+oferta:
+  es: 'Programa de adopción de IA con Claude.'
+prueba:
+  es: 'AI Fluency · Trama AI · XPRIZE 2026'
+destino:
+  ruta: adopcionIa
+viz:
+  tipo: cuatroD
+  nombres:
+    - es: 'Delegación'
+    - es: 'Descripción'
+    - es: 'Discernimiento'
+    - es: 'Diligencia'

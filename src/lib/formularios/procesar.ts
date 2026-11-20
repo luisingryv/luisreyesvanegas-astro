@@ -14,6 +14,11 @@ import {
 import type { Integraciones } from '../servicios/integraciones';
 import { CAMPO_TRAMPA, erroresPorCampo, solicitud, type CodigoError } from './esquemas';
 
+const quitarVacios = (objeto: Record<string, string | undefined>) => {
+  const lleno = Object.fromEntries(Object.entries(objeto).filter(([, v]) => v !== undefined));
+  return Object.keys(lleno).length > 0 ? (lleno as Record<string, string>) : null;
+};
+
 /** Máximo de solicitudes por correo en una hora. */
 export const LIMITE_POR_HORA = 3;
 
@@ -42,13 +47,18 @@ export async function procesarSolicitud(
     return { ok: false, motivo: 'demasiadas' };
   }
 
+  // Lo propio de cada formulario: el general trae nombre y mensaje; la agenda de Consultoría,
+  // las nubes y el gasto (van en datos).
+  const propios =
+    datos.formulario === 'general'
+      ? { nombre: datos.nombre, whatsapp: datos.whatsapp, mensaje: datos.mensaje }
+      : { datos: quitarVacios({ nubes: datos.nubes, gasto: datos.gasto }) };
+
   const id = await guardarSolicitud(db, {
     formulario: datos.formulario,
     idioma: datos.idioma,
-    nombre: datos.nombre,
     email: datos.email,
-    whatsapp: datos.whatsapp,
-    mensaje: datos.mensaje,
+    ...propios,
     puerta: datos.puerta,
     pagina: datos.pagina,
     utmSource: datos.utm_source,
