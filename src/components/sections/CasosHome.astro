@@ -16,7 +16,12 @@ const { locale, content } = Astro.props;
 const indice = localizedPath(locale, 'casos');
 ---
 
-<Section tone="light" reveal id="casos" aria-labelledby="casos-titulo">
+<Section tone="light" id="casos" class="relative" aria-labelledby="casos-titulo">
+  <canvas
+    class="pointer-events-none absolute inset-x-0 top-0 h-(--spacing-section-y) w-full"
+    aria-hidden="true"
+    data-particulas
+  ></canvas>
   <SectionHeader id="casos-titulo" eyebrow={content.eyebrow} title={content.titulo}>
     <a slot="action" href={indice} class="font-bold text-link hover:underline">
       {content.verTodos}
@@ -114,6 +119,11 @@ const indice = localizedPath(locale, 'casos');
 
 <script>
   import { iniciarBurbujas } from '../motion/burbujas';
+  import { iniciarParticulas } from '../motion/particulas';
+
+  for (const canvas of document.querySelectorAll<HTMLCanvasElement>('[data-particulas]')) {
+    iniciarParticulas(canvas);
+  }
 
   for (const campo of document.querySelectorAll<HTMLElement>('[data-casos]')) {
     iniciarBurbujas(campo);

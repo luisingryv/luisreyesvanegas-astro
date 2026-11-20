@@ -63,6 +63,10 @@ export const es = {
       'en-tramite': 'En trámite',
     },
   },
+  logros: {
+    // Pieza 02: rótulo de la tarjeta antes de desbloquearse.
+    bloqueado: 'Bloqueado',
+  },
   testimonios: {
     verFuente: 'Ver en LinkedIn',
   },

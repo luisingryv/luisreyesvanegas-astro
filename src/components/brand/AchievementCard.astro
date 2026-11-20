@@ -7,18 +7,20 @@ import type { Logro } from '../../lib/content';
 interface Props {
   logro: Logro;
   as?: 'article' | 'li';
+  /** Rótulo del candado de la pieza 02; sin él, la tarjeta no se bloquea. */
+  bloqueado?: string;
 }
 
-const { logro, as: Tag = 'article' } = Astro.props;
+const { logro, as: Tag = 'article', bloqueado } = Astro.props;
 ---
 
 <Tag
-  class="flex min-w-0 flex-col gap-3 rounded-lg border border-hairline bg-surface-raised p-6"
+  class="relative flex min-w-0 flex-col gap-3 overflow-hidden rounded-lg border border-hairline bg-surface-raised p-6"
   data-logro={logro.id}
 >
   <div class="flex items-center justify-between gap-3">
     <span class="text-label font-bold text-link uppercase">{logro.etiqueta}</span>
-    <CheckMark />
+    <CheckMark class="logro-insignia" />
   </div>
   <p
     class="text-[clamp(36px,3.6vw,46px)] leading-none font-bold tracking-[-0.02em] tabular-nums"
@@ -30,10 +32,18 @@ const { logro, as: Tag = 'article' } = Astro.props;
   {logro.barras && (
     <div class="flex flex-col gap-1.5" data-barras>
       <div class="h-1.5 overflow-hidden rounded-pill bg-dark-border">
-        <div class="h-full bg-blue-300" style={`width: ${logro.barras.antes}%`} />
+        <div
+          class="h-full origin-left bg-blue-300"
+          style={`width: ${logro.barras.antes}%`}
+          data-barra
+        />
       </div>
       <div class="h-1.5 overflow-hidden rounded-pill bg-dark-border">
-        <div class="h-full bg-accent" style={`width: ${logro.barras.despues}%`} />
+        <div
+          class="h-full origin-left bg-accent"
+          style={`width: ${logro.barras.despues}%`}
+          data-barra
+        />
       </div>
       <span class="text-label text-gray-400 normal-case tracking-normal">
         {logro.barras.leyenda}
@@ -43,7 +53,10 @@ const { logro, as: Tag = 'article' } = Astro.props;
   {logro.sellos && (
     <ul class="flex flex-wrap gap-2">
       {logro.sellos.map((sello) => (
-        <li class="rounded-sm border border-accent px-3 py-2 text-[12px] font-bold text-link">
+        <li
+          class="rounded-sm border border-accent px-3 py-2 text-[12px] font-bold text-link"
+          data-sello
+        >
           {sello}
         </li>
       ))}
@@ -60,4 +73,35 @@ const { logro, as: Tag = 'article' } = Astro.props;
       </>
     )}
   </p>
+  {bloqueado && (
+    <div
+      class="logro-candado pointer-events-none absolute inset-0 flex flex-col items-center justify-center gap-2.5 text-label font-bold text-gray-400 uppercase"
+      aria-hidden="true"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        class="size-6.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+      >
+        <rect x="5" y="11" width="14" height="9" rx="2" />
+        <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+      </svg>
+      {bloqueado}
+    </div>
+  )}
 </Tag>
+
+<style>
+  /* Candado de la pieza 02: solo se ve mientras la tarjeta espera fuera de pantalla. */
+  .logro-candado {
+    opacity: 0;
+    background: color-mix(in oklab, var(--color-blue-800) 72%, transparent);
+    backdrop-filter: blur(5px);
+  }
+
+  [data-bloqueado] .logro-candado {
+    opacity: 1;
+  }
+</style>

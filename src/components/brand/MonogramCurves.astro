@@ -1,9 +1,26 @@
 ---
+// Líneas finas del monograma LR. Opcionalmente se dibujan al cargar (trazo, solo CSS) y se
+// mueven más lento que la página al hacer scroll (parallax). Decorativas.
 interface Props {
   class?: string;
+  /** 4 en el hero del Home (prototipo); 3 en el resto. */
+  lineas?: 3 | 4;
+  /** Las líneas se dibujan al cargar. */
+  trazo?: boolean;
+  /** Fracción del alto de su sección que se desplazan al pasarla (p. ej. 0.25). */
+  parallax?: number;
 }
 
-const { class: className } = Astro.props;
+const { class: className, lineas = 3, trazo = false, parallax } = Astro.props;
+const paths = [
+  { d: 'M60 560 C 60 260, 220 80, 520 60', clase: 'stroke-hairline-light' },
+  { d: 'M100 580 C 110 300, 260 120, 560 110', clase: 'stroke-hairline-light' },
+  {
+    d: 'M140 600 C 160 340, 300 170, 600 160',
+    clase: lineas === 4 ? 'stroke-hairline-light' : 'stroke-dark-border',
+  },
+  { d: 'M180 620 C 210 380, 340 220, 640 210', clase: 'stroke-dark-border' },
+].slice(0, lineas);
 ---
 
 <svg
@@ -12,9 +29,44 @@ const { class: className } = Astro.props;
   viewBox="0 0 600 600"
   fill="none"
   stroke-width="1.2"
-  class:list={['pointer-events-none', className]}
+  class:list={['pointer-events-none', trazo && 'curvas-trazo', className]}
+  data-parallax={parallax}
 >
-  <path d="M60 560 C 60 260, 220 80, 520 60" class="stroke-hairline-light"></path>
-  <path d="M100 580 C 110 300, 260 120, 560 110" class="stroke-hairline-light"></path>
-  <path d="M140 600 C 160 340, 300 170, 600 160" class="stroke-dark-border"></path>
+  {paths.map((p) => (
+    <path d={p.d} class={p.clase} pathLength={trazo ? 1 : undefined} />
+  ))}
 </svg>
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .curvas-trazo path {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: curva-trazo 1.8s var(--ease-brand) 0.2s forwards;
+    }
+
+    .curvas-trazo path:nth-child(2) {
+      animation-delay: 0.35s;
+    }
+
+    .curvas-trazo path:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+
+    .curvas-trazo path:nth-child(4) {
+      animation-delay: 0.65s;
+    }
+  }
+
+  @keyframes curva-trazo {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
+
+<script>
+  import { iniciarParallax } from '../motion/parallax';
+
+  iniciarParallax();
+</script>

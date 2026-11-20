@@ -44,7 +44,7 @@ const [pagina, logros, hitos, charlas] = await Promise.all([
 >
   <HeroHome locale={lang} content={pagina.hero} />
   <RouterHome locale={lang} content={pagina.router} />
-  <LogrosHome content={pagina.logros} logros={logros} />
+  <LogrosHome locale={lang} content={pagina.logros} logros={logros} />
   <XprizeHome locale={lang} content={pagina.xprize} />
   <TrayectoriaHome locale={lang} content={pagina.trayectoria} hitos={hitos} />
   <CharlasRecientes locale={lang} content={pagina.charlas} charlas={charlas} />

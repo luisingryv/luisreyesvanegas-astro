@@ -52,7 +52,7 @@ test.describe('Home · contenido', () => {
   test('XPRIZE, trayectoria de 5 hitos y las 3 charlas más recientes', async ({ page }) => {
     await page.goto(PAGE);
     await expect(page.locator('[data-xprize] dd')).toHaveText(['26.449', 'Top 100', '1.º']);
-    await expect(page.locator('[data-trayectoria] li > span:first-child')).toHaveText([
+    await expect(page.locator('[data-trayectoria] [data-anio]')).toHaveText([
       '2013',
       '2016',
       '2018',

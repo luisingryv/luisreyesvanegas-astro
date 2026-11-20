@@ -2,21 +2,33 @@
 import AchievementCard from '../brand/AchievementCard.astro';
 import Section from '../brand/Section.astro';
 import SectionHeader from '../brand/SectionHeader.astro';
+import { getDictionary } from '../../i18n';
+import type { PublishedLocale } from '../../i18n/config';
 import type { Logro, PaginaHome } from '../../lib/content';
 
 interface Props {
+  locale: PublishedLocale;
   content: PaginaHome['logros'];
   logros: Logro[];
 }
 
-const { content, logros } = Astro.props;
+const { locale, content, logros } = Astro.props;
+const t = getDictionary(locale);
 ---
 
 <Section tone="dark" separator class="border-b border-hairline" aria-labelledby="logros-titulo">
   <SectionHeader id="logros-titulo" eyebrow={content.eyebrow} title={content.titulo} />
   <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-4" data-logros>
     {logros.map((logro) => (
-      <AchievementCard logro={logro} as="li" />
+      <AchievementCard logro={logro} as="li" bloqueado={t.logros.bloqueado} />
     ))}
   </ul>
 </Section>
+
+<script>
+  import { iniciarLogros } from '../motion/logros';
+
+  for (const lista of document.querySelectorAll<HTMLElement>('[data-logros]')) {
+    iniciarLogros(lista);
+  }
+</script>

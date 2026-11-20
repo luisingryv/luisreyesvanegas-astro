@@ -23,11 +23,28 @@ const { locale, content, hitos } = Astro.props;
   </SectionHeader>
   <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,190px),1fr))] gap-4" data-trayectoria>
     {hitos.map((hito) => (
-      <li class="flex flex-col gap-2.5 border-t-2 border-accent pt-4">
-        <span class="text-[24px] font-bold">{hito.anio}</span>
+      <li class="relative flex flex-col gap-2.5 pt-4">
+        {/* Riel corto (versión de la pieza 03): base gris y tramo cyan que se dibuja. */}
+        <span class="absolute inset-x-0 top-0 h-0.5 bg-dark-border" aria-hidden="true" />
+        <span
+          class="absolute inset-x-0 top-0 h-0.5 origin-left bg-accent"
+          aria-hidden="true"
+          data-tramo
+        />
+        <span class="text-[24px] font-bold" data-anio>
+          {hito.anio}
+        </span>
         <span class="text-[17px] leading-tight font-bold">{hito.titulo}</span>
         <span class="text-small text-text-tertiary-on-dark">{hito.texto}</span>
       </li>
     ))}
   </ol>
 </Section>
+
+<script>
+  import { iniciarRielCorto } from '../motion/riel-corto';
+
+  for (const lista of document.querySelectorAll<HTMLElement>('[data-trayectoria]')) {
+    iniciarRielCorto(lista);
+  }
+</script>
