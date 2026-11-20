@@ -16,12 +16,12 @@ El código del sitio vive en esta carpeta (`Desarrollo/`). La documentación viv
 - **Astro** con salida en servidor (adaptador Node) y prerender donde no haya datos dinámicos. **TypeScript estricto.**
 - **shadcn/ui** (React, como islas) + **Tailwind CSS v4**.
 - **Motion:** GSAP + ScrollTrigger, Motion para microinteracciones, Three.js solo en piezas 3D con carga diferida.
-- **Datos:** contenido estable en Content Collections tipadas con Zod; datos dinámicos (formularios, suscriptores) en **MySQL** de Hostinger, con ORM tipado y migraciones.
+- **Datos:** contenido estable en Content Collections tipadas con Zod; datos dinámicos (formularios, suscriptores) en **MariaDB** de Hostinger (compatible con MySQL), con Drizzle ORM y migraciones SQL versionadas en `db/migraciones` (decisión del 19 nov 2026: `../Boveda/07_Decisiones/2026-11-19-mariadb-y-drizzle.md`).
 - **Servicios:** Resend (correo), API de Notion (CRM), página de reservas de Google Calendar (agenda). Sin pagos y sin analítica.
 - **Hosting:** Hostinger, apps web, plan Cloud Startup, con despliegue desde GitHub.
 - **Idiomas:** ES, EN y PT con rutas `/es`, `/en`, `/pt` y hreflang.
 - Gestor de paquetes: **pnpm**. Node LTS.
-- **Docker** está instalado en el Mac de Luis. Úsalo para los servicios locales (MySQL con la misma versión que Hostinger, con `docker compose`), no para correr el sitio: Hostinger despliega la app de Node directamente, así que en local el sitio corre con `pnpm dev`.
+- **Docker** está instalado en el Mac de Luis. Úsalo para los servicios locales (MariaDB 10.11, la versión que Hostinger usa como mínimo, con `docker compose`; credenciales en `.env`), no para correr el sitio: Hostinger despliega la app de Node directamente, así que en local el sitio corre con `pnpm dev`.
 
 No cambies el stack ni agregues dependencias grandes sin preguntarle a Luis. Antes de instalar algo, verifica la versión estable vigente en la documentación oficial.
 

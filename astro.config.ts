@@ -21,6 +21,12 @@ export default defineConfig({
         optional: true,
         url: true,
       }),
+      // Opcional: las páginas estáticas no la necesitan; getDb() avisa si falta.
+      DATABASE_URL: envField.string({
+        context: 'server',
+        access: 'secret',
+        optional: true,
+      }),
     },
   },
 

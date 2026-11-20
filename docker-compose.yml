@@ -1,15 +1,30 @@
+# Servicios locales. El sitio corre con `pnpm dev`; aquí solo va la base de datos.
+# Hostinger (planes Cloud) usa MariaDB: 10.11 LTS es la versión más baja probable, así que
+# lo que funciona aquí funciona allá. Confirmar con `SELECT VERSION();` al crear la base en hPanel.
 services:
   db:
-    image: mysql:8.0
+    image: mariadb:10.11
     container_name: luisreyes_db
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: luisreyes
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:?Falta DB_ROOT_PASSWORD en .env}
+      MARIADB_DATABASE: luisreyes
+      MARIADB_USER: luisreyes
+      MARIADB_PASSWORD: ${DB_PASSWORD:?Falta DB_PASSWORD en .env}
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
     ports:
-      - "3306:3306"
+      - '127.0.0.1:3306:3306'
     volumes:
       - db_data:/var/lib/mysql
+      # Crea también la base de pruebas (luisreyes_test) para el mismo usuario.
+      - ./db/docker:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
 volumes:
   db_data:

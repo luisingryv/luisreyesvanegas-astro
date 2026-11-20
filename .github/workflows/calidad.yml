@@ -17,6 +17,22 @@ jobs:
   calidad:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    # Misma base que Hostinger (MariaDB 10.11) solo para las pruebas de integración.
+    services:
+      mariadb:
+        image: mariadb:10.11
+        env:
+          MARIADB_ROOT_PASSWORD: ci
+          MARIADB_DATABASE: luisreyes_test
+          MARIADB_USER: luisreyes
+          MARIADB_PASSWORD: ci
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=5s --health-timeout=5s --health-retries=20
+    env:
+      DATABASE_URL_TEST: mysql://luisreyes:ci@127.0.0.1:3306/luisreyes_test
     steps:
       - uses: actions/checkout@v7
 
@@ -41,6 +57,11 @@ jobs:
 
       - name: Pruebas unitarias
         run: pnpm test
+
+      - name: Migraciones y pruebas de la base de datos
+        run: |
+          pnpm db:migrate -- --pruebas
+          pnpm test:db
 
       # Usa el Chrome que trae ubuntu-latest; incluye axe (WCAG 2.2 AA).
       - name: Pruebas de flujos y accesibilidad
