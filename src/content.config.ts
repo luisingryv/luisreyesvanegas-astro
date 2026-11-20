@@ -142,6 +142,7 @@ const sobreMi = defineCollection({
       testimonios: encabezado,
       escenario: encabezado.extend({ boton: localized }),
       cierre: z.object({
+        eyebrow: localized,
         titulo: localized,
         consultoria: localized,
         conferencia: localized,

@@ -65,6 +65,8 @@ escenario:
     es: 'Invitarme a una conferencia'
 
 cierre:
+  eyebrow:
+    es: 'Hablemos'
   titulo:
     es: '¿Cómo puedo ayudarte?'
   consultoria:

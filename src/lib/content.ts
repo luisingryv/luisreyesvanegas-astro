@@ -10,6 +10,8 @@ export async function getPaginaSobreMi(locale: PublishedLocale) {
 }
 
 export type PaginaSobreMi = Awaited<ReturnType<typeof getPaginaSobreMi>>;
+/** Textos del cierre de contacto; otras páginas pueden traer el mismo bloque. */
+export type CierreContenido = PaginaSobreMi['cierre'];
 
 export type EstadoCertificacion = CollectionEntry<'certificaciones'>['data']['estado'];
 

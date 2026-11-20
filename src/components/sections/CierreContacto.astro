@@ -1,38 +1,93 @@
 ---
+// Cierre de contacto reutilizable: texto y botones a la izquierda, logo LR en 3D a la derecha
+// (debajo en móvil). Cualquier página puede usarlo con el mismo bloque de textos `cierre`.
 import Button from '../brand/Button.astro';
-import Section from '../brand/Section.astro';
+import Container from '../brand/Container.astro';
+import Eyebrow from '../brand/Eyebrow.astro';
+import Logo3D from '../motion/Logo3D.astro';
 import { bookingUrl } from '../../config/site';
 import type { PublishedLocale } from '../../i18n/config';
 import { localizedPath } from '../../i18n/routes';
-import type { PaginaSobreMi } from '../../lib/content';
+import type { CierreContenido } from '../../lib/content';
 
 interface Props {
   locale: PublishedLocale;
-  content: PaginaSobreMi['cierre'];
+  content: CierreContenido;
+  /** logo3d: pieza 04 del laboratorio; none: solo el texto. */
+  visual?: 'logo3d' | 'none';
 }
 
-const { locale, content } = Astro.props;
+const { locale, content, visual = 'logo3d' } = Astro.props;
 const agenda = bookingUrl(locale);
 ---
 
-<Section tone="brand" reveal id="contacto" aria-labelledby="cierre-titulo">
-  <div class="flex flex-col items-start gap-6">
-    <h2 id="cierre-titulo" class="text-heading-lg font-bold text-balance">
-      {content.titulo}
-    </h2>
-    <div class="flex flex-wrap gap-3">
-      <Button href={agenda} size="lg">
-        {content.consultoria}
-      </Button>
-      <Button href={localizedPath(locale, 'speaker', 'invitar')} size="lg">
-        {content.conferencia}
-      </Button>
-      <Button href={agenda} size="lg">
-        {content.conversacion}
-      </Button>
+<section
+  id="contacto"
+  data-theme="dark"
+  aria-labelledby="cierre-titulo"
+  class="cierre border-t border-hairline bg-surface py-section-y"
+>
+  <Container
+    data-reveal
+    class:list={[
+      'grid items-center gap-10',
+      visual === 'logo3d' && 'md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] md:gap-12',
+    ]}
+  >
+    <div class="flex flex-col items-start gap-6">
+      <div class="flex flex-col gap-3">
+        <Eyebrow>{content.eyebrow}</Eyebrow>
+        <h2 id="cierre-titulo" class="text-heading-lg font-bold text-balance">
+          {content.titulo}
+        </h2>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <Button href={agenda} size="lg">
+          {content.consultoria}
+        </Button>
+        <Button href={localizedPath(locale, 'speaker', 'invitar')} size="lg" variant="secondary">
+          {content.conferencia}
+        </Button>
+        <Button href={agenda} size="lg" variant="secondary">
+          {content.conversacion}
+        </Button>
+      </div>
+      <a
+        href={localizedPath(locale, 'contacto')}
+        class="font-bold text-link underline-offset-4 hover:underline"
+      >
+        {content.otrasOpciones}
+      </a>
     </div>
-    <a href={localizedPath(locale, 'contacto')} class="font-bold text-link underline">
-      {content.otrasOpciones}
-    </a>
-  </div>
-</Section>
+    {visual === 'logo3d' && (
+      <Logo3D
+        class="-my-6 aspect-square w-full max-w-[min(100%,520px)] justify-self-center md:my-0"
+        sizes="(min-width: 768px) 30vw, 60vw"
+      />
+    )}
+  </Container>
+</section>
+
+<style>
+  /* Fondo night con resplandor azul detrás del logo (referencia/sobre-mi.md, sección 8). */
+  .cierre {
+    --color-link: var(--color-cyan-300);
+    background-image: radial-gradient(
+      120% 70% at 50% 85%,
+      #0a1a3f 0%,
+      #060b1c 55%,
+      var(--color-night) 100%
+    );
+  }
+
+  @media (min-width: 48rem) {
+    .cierre {
+      background-image: radial-gradient(
+        90% 120% at 78% 50%,
+        #0a1a3f 0%,
+        #060b1c 55%,
+        var(--color-night) 100%
+      );
+    }
+  }
+</style>

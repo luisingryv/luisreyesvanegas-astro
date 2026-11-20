@@ -1,0 +1,102 @@
+---
+// Pieza 04 · Logo LR en 3D (laboratorio). Decorativo y reutilizable: el contenedor define el tamaño.
+// El HTML trae el render estático; Three.js se descarga solo cuando el logo se acerca a la pantalla,
+// si hay WebGL y no está activado "reducir movimiento". Si algo falla, queda el render.
+import { Image } from 'astro:assets';
+import render from '../../assets/brand/logo-lr-3d-render.png';
+
+interface Props {
+  class?: string;
+  /** Ensamblar las cinco piezas la primera vez que entra en pantalla. */
+  assemble?: boolean;
+  /** Ancho que ocupa en la página, para el srcset del respaldo. */
+  sizes?: string;
+}
+
+const { class: className, assemble = true, sizes = '(min-width: 768px) 40vw, 80vw' } = Astro.props;
+---
+
+<div
+  class:list={['logo3d relative', className]}
+  data-logo3d
+  data-assemble={assemble ? undefined : 'false'}
+  aria-hidden="true"
+>
+  <Image
+    src={render}
+    alt=""
+    widths={[320, 480, 640, 960]}
+    sizes={sizes}
+    loading="lazy"
+    decoding="async"
+    class="logo3d-fallback pointer-events-none absolute inset-0 m-auto h-auto w-[66%] select-none"
+  />
+</div>
+
+<style>
+  .logo3d {
+    /* El dedo puede girar el logo sin bloquear el scroll vertical. */
+    touch-action: pan-y;
+  }
+
+  .logo3d :global(canvas) {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logo3d-fallback {
+    transition: opacity 400ms var(--ease-brand);
+  }
+
+  .logo3d[data-live] .logo3d-fallback {
+    opacity: 0;
+  }
+
+  /* Sin WebGL, el render flota. Con "reducir movimiento" queda quieto. */
+  @media (prefers-reduced-motion: no-preference) {
+    .logo3d:not([data-live]) .logo3d-fallback {
+      animation: logo3d-float 6s ease-in-out infinite;
+    }
+  }
+
+  @keyframes logo3d-float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(-1.5deg);
+    }
+  }
+</style>
+
+<script>
+  import { onceNearViewport, prefersReducedMotion } from './motion';
+
+  const hasWebGL = () => {
+    try {
+      const canvas = document.createElement('canvas');
+      return Boolean(canvas.getContext('webgl2') ?? canvas.getContext('webgl'));
+    } catch {
+      return false;
+    }
+  };
+
+  for (const host of document.querySelectorAll<HTMLElement>('[data-logo3d]')) {
+    if (prefersReducedMotion()) continue;
+    onceNearViewport(host, () => {
+      // Sin WebGL no se descarga Three.js: queda el render estático.
+      if (!hasWebGL()) return;
+      import('./logo3d/scene')
+        .then(({ mountLogo3D }) =>
+          mountLogo3D(host, { assemble: host.dataset.assemble !== 'false' }),
+        )
+        .catch(() => {
+          // Falló la descarga o la escena: el respaldo sigue visible.
+        });
+    });
+  }
+</script>
