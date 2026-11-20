@@ -5,8 +5,11 @@ titulo:
 resumen:
   es: 'Infraestructura estable con Terraform, GCP, Cloud Run y Cloudflare asistida por IA. Más de 700 asistentes.'
 tipo: charla
+detalle:
+  es: 'Infraestructura estable con Terraform, GCP, Cloud Run y Cloudflare asistida por IA. Universidad San Francisco de Quito, más de 700 asistentes.'
 lugar:
   es: 'Quito, Ecuador'
+ciudad: quito
 foto: ../../assets/fotos/charla_2025-11-29_devfest-ecuador-2025_luis-reyes-vanegas_001.jpg
 alt:
   es: 'Luis Reyes con el equipo de DevFest Ecuador 2025 en la Universidad San Francisco de Quito'
@@ -14,3 +17,5 @@ sobreMi:
   orden: 3
   titulo:
     es: 'DevFest Ecuador 2025: infraestructura estable con Terraform y Cloud Run asistida por IA'
+speaker:
+  orden: 1

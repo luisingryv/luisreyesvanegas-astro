@@ -2,6 +2,7 @@
 // códigos; la interfaz los traduce. Un campo vacío de un formulario HTML cuenta como ausente.
 import { z } from 'astro/zod';
 import { IDIOMAS } from '../../../db/schema';
+import { NECESIDADES_PRENSA, PRESUPUESTOS_SPEAKER } from './opciones';
 
 export type CodigoError = 'requerido' | 'invalido' | 'muy-corto' | 'muy-largo' | 'debe-aceptar';
 
@@ -85,11 +86,43 @@ export const formularioConsultoria = z.object({
   gasto: opcional(60),
 });
 
-// Los demás formularios (speaker, prensa, productos, programas AWS) se agregan aquí
-// con sus campos propios cuando se construyan sus páginas.
+// Fecha de un <input type="date">: AAAA-MM-DD.
+const fecha = z.string({ error: 'requerido' }).regex(/^\d{4}-\d{2}-\d{2}$/, { error: 'invalido' });
+
+/** Invitación a una charla (Charlas, #invitar). */
+export const formularioSpeaker = z.object({
+  formulario: z.literal('speaker', { error: 'invalido' }),
+  ...comunes,
+  evento: requerido(2, 160),
+  fecha: z.preprocess(vacioAusente, fecha),
+  ciudad: requerido(2, 120),
+  audiencia: opcional(300),
+  presupuesto: z.preprocess(
+    vacioAusente,
+    z.enum(PRESUPUESTOS_SPEAKER, { error: 'invalido' }).optional(),
+  ),
+});
+
+/** Contacto de prensa (Prensa, #contacto-prensa). Los detalles van en el mensaje. */
+export const formularioPrensa = z.object({
+  formulario: z.literal('prensa', { error: 'invalido' }),
+  ...comunes,
+  nombre: requerido(2, 120),
+  medio: requerido(2, 160),
+  necesidad: z.preprocess(
+    vacioAusente,
+    z.enum(NECESIDADES_PRENSA, {
+      error: (i) => (i.input === undefined ? 'requerido' : 'invalido'),
+    }),
+  ),
+  cierre: z.preprocess(vacioAusente, fecha.optional()),
+  mensaje: opcional(5000),
+});
+
+// Los de Productos y Programas AWS se agregan aquí cuando se construyan sus páginas.
 export const solicitud = z.discriminatedUnion(
   'formulario',
-  [formularioGeneral, formularioConsultoria],
+  [formularioGeneral, formularioConsultoria, formularioSpeaker, formularioPrensa],
   { error: 'invalido' },
 );
 

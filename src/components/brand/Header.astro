@@ -16,15 +16,17 @@ interface Props {
   agendaLocal?: string;
   /** Header mínimo de landing: solo logo, idiomas y este botón (Adopción de IA, CV). */
   minimo?: { texto: string; href: string };
+  /** Botón de la derecha propio de la página (Eventos y Charlas, Prensa, Programas AWS). */
+  cta?: { texto: string; href: string };
   /** Fondo night con logo blanco, o blanco con logo azul en páginas claras. */
   tema?: 'dark' | 'light';
 }
 
-const { locale, route, agendaLocal, tema = 'dark', minimo } = Astro.props;
+const { locale, route, agendaLocal, tema = 'dark', minimo, cta } = Astro.props;
 const claro = tema === 'light';
 const t = getDictionary(locale);
-const ctaHref = minimo?.href ?? bookingUrl(locale, agendaLocal);
-const ctaTexto = minimo?.texto ?? t.header.cta;
+const ctaHref = minimo?.href ?? cta?.href ?? bookingUrl(locale, agendaLocal);
+const ctaTexto = minimo?.texto ?? cta?.texto ?? t.header.cta;
 ---
 
 <header

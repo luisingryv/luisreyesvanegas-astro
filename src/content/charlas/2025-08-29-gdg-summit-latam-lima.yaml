@@ -3,8 +3,11 @@ evento: 'GDG Summit Latam 2025'
 titulo:
   es: 'Con el equipo de GDG Barranquilla'
 tipo: comunidad
+detalle:
+  es: 'Con el equipo de GDG Barranquilla: cómo organizar y hacer crecer una comunidad GDG.'
 lugar:
   es: 'Lima, Perú'
+ciudad: lima
 foto: ../../assets/fotos/evento_2025-08-29_gdg-summit-latam-2025-lima_luis-reyes-vanegas_001.jpg
 alt:
   es: 'Luis Reyes con integrantes de GDG en el GDG Summit Latam 2025, Lima'

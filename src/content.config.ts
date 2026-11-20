@@ -1,6 +1,7 @@
 import { defineCollection, reference } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { NECESIDADES_PRENSA, PRESUPUESTOS_SPEAKER } from './lib/formularios/opciones';
 
 // Un archivo YAML por entrada; los que empiezan por _ son plantillas y no se cargan.
 const entries = (collection: string) =>
@@ -12,6 +13,16 @@ const localized = z.object({
   en: z.string().min(1).optional(),
   pt: z.string().min(1).optional(),
 });
+
+export const TIPOS_CHARLA = [
+  'charla',
+  'charla-y-panel',
+  'comunidad',
+  'podcast',
+  'webinar',
+] as const;
+// Ciudades confirmadas para el mapa (Los Ángeles, pendiente de Luis).
+export const CIUDADES_CHARLA = ['barranquilla', 'quito', 'lima'] as const;
 
 const capitulos = defineCollection({
   loader: entries('capitulos'),
@@ -78,21 +89,27 @@ const charlas = defineCollection({
         titulo: localized,
         /** Texto de la tarjeta cuando no basta el título de la charla. */
         resumen: localized.optional(),
-        tipo: z.enum(['charla', 'charla-y-panel', 'comunidad', 'podcast', 'webinar']),
+        /** Texto de la tarjeta en Eventos (y en Charlas si no hay resumen), tal cual el prototipo. */
+        detalle: localized.optional(),
+        tipo: z.enum(TIPOS_CHARLA),
         lugar: localized,
+        /** Ciudad en el mapa de Charlas (pieza 10). Sin ciudad: en línea. */
+        ciudad: z.enum(CIUDADES_CHARLA).optional(),
         foto: image().optional(),
         alt: localized.optional(),
         sobreMi: z.object({ orden: z.number().int(), titulo: localized }).optional(),
+        /** Selección de "Algunos de los eventos en los que he hablado" (Charlas). */
+        speaker: z.object({ orden: z.number().int() }).optional(),
       })
       .superRefine((charla, ctx) => {
         if (charla.foto && !charla.alt) {
           ctx.addIssue({ code: 'custom', path: ['alt'], message: 'Una foto necesita su alt.' });
         }
-        if (charla.sobreMi && !charla.foto) {
+        if ((charla.sobreMi || charla.speaker) && !charla.foto) {
           ctx.addIssue({
             code: 'custom',
             path: ['foto'],
-            message: 'Las charlas de Sobre mí se muestran con foto.',
+            message: 'Las charlas de Sobre mí y de Charlas se muestran con foto.',
           });
         }
       }),
@@ -659,7 +676,253 @@ const sobreMi = defineCollection({
   },
 });
 
+// Bio en tres largos: la misma en Charlas y en Prensa (prototipo aprobado).
+const bio = defineCollection({
+  loader: glob({ pattern: 'bio.yaml', base: './src/content/paginas' }),
+  schema: z.object({
+    largos: z.array(z.object({ etiqueta: localized, texto: localized })).length(3),
+    copiar: localized,
+    /** Confirmación visible al copiar (no está en el prototipo). */
+    copiada: localized,
+  }),
+});
+
+// Opciones de los formularios de Charlas y Prensa: el valor lo valida también el servidor.
+const opcion = <T extends readonly [string, ...string[]]>(valores: T) =>
+  z.object({ valor: z.enum(valores), texto: localized });
+
+const eventosPagina = defineCollection({
+  loader: glob({ pattern: 'eventos.yaml', base: './src/content/paginas' }),
+  schema: ({ image }) =>
+    z.object({
+      hero: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        foto: image(),
+        fotoAlt: localized,
+        pestanas: localized,
+        proximos: localized,
+        pasados: localized,
+      }),
+      proximos: z.object({ etiqueta: localized, vacio: localized, invitar: localized }),
+      pasados: z.object({ etiqueta: localized }),
+      tipos: z.record(z.enum(TIPOS_CHARLA), localized),
+    }),
+});
+
+const speakerPagina = defineCollection({
+  loader: glob({ pattern: 'speaker.yaml', base: './src/content/paginas' }),
+  schema: ({ image }) =>
+    z.object({
+      hero: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        invitar: localized,
+        copiarBio: localized,
+        foto: image(),
+        fotoAlt: localized,
+      }),
+      escenario: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        verTodos: localized,
+        mapa: z.object({
+          eyebrow: localized,
+          titulo: localized,
+          /** {paises}, {ciudades} y {eventos} se cuentan de la colección de charlas. */
+          resumen: localized,
+          ciudades: z.record(
+            z.enum(CIUDADES_CHARLA),
+            z.object({ nombre: localized, pais: localized }),
+          ),
+          masEventos: localized,
+        }),
+      }),
+      tematicas: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        filaA: z.array(localized).min(1),
+        filaB: z.array(localized).min(1),
+        pasos: z.array(z.object({ titulo: localized, texto: localized })).length(3),
+        /** Botón para pausar la cinta (WCAG 2.2.2; no está en el prototipo). */
+        pausar: localized,
+      }),
+      bio: z.object({ eyebrow: localized, titulo: localized }),
+      formatos: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        lista: z.array(z.object({ nombre: localized, texto: localized })).min(1),
+        honorarios: localized,
+        riderEyebrow: localized,
+        riderTitulo: localized,
+        rider: z.array(localized).min(1),
+      }),
+      invitar: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        campos: z.object({
+          evento: localized,
+          fecha: localized,
+          ciudad: localized,
+          audiencia: localized,
+          audienciaEjemplo: localized,
+          presupuesto: localized,
+          correo: localized,
+        }),
+        presupuestos: z.array(opcion(PRESUPUESTOS_SPEAKER)).min(1),
+        enviar: localized,
+        recibido: localized,
+      }),
+    }),
+});
+
+const prensaPagina = defineCollection({
+  loader: glob({ pattern: 'prensa.yaml', base: './src/content/paginas' }),
+  schema: () =>
+    z.object({
+      hero: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        descargar: localized,
+        entrevista: localized,
+        datos: z.array(z.object({ clave: localized, valor: localized })).min(1),
+      }),
+      bio: z.object({ eyebrow: localized, titulo: localized, texto: localized }),
+      fotos: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        credito: localized,
+        descargar: localized,
+        lista: z
+          .array(
+            z.object({
+              titulo: localized,
+              /** Archivo de src/assets/prensa (la página lo muestra y el kit lo incluye). */
+              archivo: z.string().regex(/^[a-z0-9_.-]+\.(jpg|jpeg|png)$/),
+              alt: localized,
+              /** Sin crédito confirmado no se muestra la línea (Luis lo entrega). */
+              credito: localized.optional(),
+            }),
+          )
+          .min(1),
+      }),
+      logos: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        lista: z.array(z.object({ etiqueta: localized, alt: localized })).length(3),
+      }),
+      xprize: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        fuente: z.object({ texto: localized, url: z.url() }),
+        datos: z.array(z.object({ clave: localized, valor: localized })).min(1),
+      }),
+      kit: z.object({ titulo: localized, texto: localized, boton: localized }),
+      contacto: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        campos: z.object({
+          nombre: localized,
+          medio: localized,
+          correo: localized,
+          necesidad: localized,
+          cierre: localized,
+          detalles: localized,
+        }),
+        necesidades: z.array(opcion(NECESIDADES_PRENSA)).min(1),
+        autorizacion: z.object({ antes: localized, enlace: localized, despues: localized }),
+        enviar: localized,
+        recibido: localized,
+      }),
+    }),
+});
+
+const cvPagina = defineCollection({
+  loader: glob({ pattern: 'cv.yaml', base: './src/content/paginas' }),
+  schema: z.object({
+    hero: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      texto: localized,
+      descargar: localized,
+      descargarCorto: localized,
+      entrevista: localized,
+      linkedin: localized,
+      datos: z
+        .array(
+          z.object({
+            clave: localized,
+            valor: localized,
+            fuente: z.object({ texto: localized, url: z.url() }).optional(),
+          }),
+        )
+        .min(1),
+      fotoAlt: localized,
+    }),
+    logros: z.object({
+      titulo: localized,
+      lista: z.array(z.object({ metrica: localized, texto: localized, quien: localized })).min(1),
+    }),
+    experiencia: z.object({
+      titulo: localized,
+      lista: z
+        .array(z.object({ anios: localized, rol: localized, org: localized, texto: localized }))
+        .min(1),
+      historia: localized,
+    }),
+    // Pieza 12: niveles de 1 a 5 que dio Luis (la escala no se explica en el sitio).
+    competencias: z.object({
+      titulo: localized,
+      subtitulo: localized,
+      filtrar: localized,
+      todo: localized,
+      resaltar: localized,
+      /** "Nivel {n}" (leyenda) y "nivel {n} de 5" (lectores de pantalla). */
+      nivel: localized,
+      nivelDe: localized,
+      grupos: z
+        .array(
+          z.object({
+            id: z.string().regex(/^[a-z-]+$/),
+            nombre: localized,
+            items: z
+              .array(z.object({ nombre: localized, nivel: z.number().int().min(1).max(5) }))
+              .min(1),
+          }),
+        )
+        .min(1),
+    }),
+    formacion: z.object({
+      titulo: localized,
+      lista: z
+        .array(z.object({ nombre: localized, emisor: localized, fecha: localized.optional() }))
+        .min(1),
+    }),
+    comunidad: z.object({ titulo: localized, texto: localized, enlace: localized }),
+    cierre: z.object({
+      titulo: localized,
+      texto: localized,
+      agendar: localized,
+      linkedin: localized,
+    }),
+  }),
+});
+
 export const collections = {
+  cvPagina,
+  bio,
+  eventosPagina,
+  speakerPagina,
+  prensaPagina,
   home,
   casosPagina,
   puertas,

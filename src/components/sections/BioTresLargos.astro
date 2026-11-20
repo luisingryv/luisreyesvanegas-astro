@@ -1,0 +1,100 @@
+---
+// "Mi bio, en tres largos" (#bio): la misma en Charlas y en Prensa. Cada largo se copia con un
+// botón que confirma a la vista y a los lectores de pantalla (motion/copiar.ts). Sin JavaScript
+// los botones no aparecen (lo resuelve el <noscript> de cada página) y el texto se selecciona.
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import type { Bio } from '../../lib/content';
+
+interface Props {
+  bio: Bio;
+  eyebrow: string;
+  titulo: string;
+  texto?: string;
+  /** Prensa pone el botón debajo del texto; Charlas, junto a la etiqueta (prototipo). */
+  botonAbajo?: boolean;
+}
+
+const { bio, eyebrow, titulo, texto, botonAbajo = false } = Astro.props;
+---
+
+<Section tone="dark" id="bio" aria-labelledby="bio-titulo">
+  <div class="flex flex-col gap-7">
+    <div class="flex flex-col gap-2.5">
+      <Eyebrow>{eyebrow}</Eyebrow>
+      <h2 id="bio-titulo" class="text-heading font-bold text-balance">
+        {titulo}
+      </h2>
+      {texto && <p class="max-w-[64ch] text-text-secondary-on-dark">{texto}</p>}
+    </div>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-4">
+      {bio.largos.map((largo, i) => (
+        <li
+          class="flex min-w-0 flex-col gap-3.5 rounded-lg border border-hairline bg-surface-raised p-6"
+          data-reveal
+        >
+          <div class="flex items-center justify-between gap-3">
+            <h3 id={`bio-etiqueta-${i}`} class="text-[12px] font-bold text-blue-300 uppercase">
+              {largo.etiqueta}
+            </h3>
+            {!botonAbajo && (
+              <button
+                type="button"
+                class="copiar"
+                aria-describedby={`bio-etiqueta-${i}`}
+                data-copiar={`bio-${i}`}
+                data-copiada={bio.copiada}
+              >
+                {bio.copiar}
+              </button>
+            )}
+          </div>
+          <p id={`bio-${i}`} class="text-[15px] text-text-secondary-on-dark">
+            {largo.texto}
+          </p>
+          {botonAbajo && (
+            <button
+              type="button"
+              class="copiar self-start"
+              aria-describedby={`bio-etiqueta-${i}`}
+              data-copiar={`bio-${i}`}
+              data-copiada={bio.copiada}
+            >
+              {bio.copiar}
+            </button>
+          )}
+        </li>
+      ))}
+    </ul>
+    <p class="sr-only" aria-live="polite" data-copiar-anuncio></p>
+  </div>
+</Section>
+
+<style>
+  .copiar {
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-pill);
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-link);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .copiar:hover {
+    background: color-mix(in oklab, var(--color-accent) 12%, transparent);
+  }
+
+  .copiar[data-hecho] {
+    background: var(--color-accent);
+    color: var(--color-night);
+  }
+</style>
+
+<script>
+  import { iniciarCopiar } from '../motion/copiar';
+
+  iniciarCopiar(document);
+</script>

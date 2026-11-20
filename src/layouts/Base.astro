@@ -24,6 +24,8 @@ interface Props {
   agendaLocal?: string;
   /** Header mínimo de landing (ver Header). */
   headerMinimo?: { texto: string; href: string };
+  /** Botón de la derecha del header propio de la página (ver Header). */
+  headerCta?: { texto: string; href: string };
   /** Tema del header: claro en páginas claras (Legal). */
   tema?: 'dark' | 'light';
 }
@@ -42,6 +44,7 @@ const {
   type = 'website',
   agendaLocal,
   headerMinimo,
+  headerCta,
   tema,
 } = Astro.props;
 const t = getDictionary(locale);
@@ -119,6 +122,7 @@ const og = await getImage({
       route={route}
       agendaLocal={agendaLocal}
       minimo={headerMinimo}
+      cta={headerCta}
       tema={tema}
     />
     <main id="contenido" class="flex-1">

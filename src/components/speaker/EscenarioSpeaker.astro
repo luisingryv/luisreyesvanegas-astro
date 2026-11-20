@@ -1,0 +1,47 @@
+---
+// "Algunos de los eventos en los que he hablado": el mapa de ciudades (pieza 10, en "He hablado
+// en") y la selección de eventos en PhotoCard 4:3, con enlace a Eventos.
+import PhotoCard from '../brand/PhotoCard.astro';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import MapaCiudades from './MapaCiudades.astro';
+import type { CiudadMapa, Evento, PaginaSpeaker } from '../../lib/content';
+
+interface Props {
+  textos: PaginaSpeaker['escenario'];
+  eventos: Evento[];
+  ciudades: CiudadMapa[];
+  eventosHref: string;
+}
+
+const { textos, eventos, ciudades, eventosHref } = Astro.props;
+---
+
+<Section tone="dark" aria-labelledby="escenario-titulo">
+  <SectionHeader id="escenario-titulo" eyebrow={textos.eyebrow} title={textos.titulo}>
+    <a slot="action" href={eventosHref} class="font-bold text-link hover:underline">
+      {textos.verTodos} <span aria-hidden="true">→</span>
+    </a>
+  </SectionHeader>
+  <div class="flex flex-col gap-7">
+    <MapaCiudades ciudades={ciudades} textos={textos.mapa} eventosHref={eventosHref} />
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-4">
+      {eventos.map((evento) =>
+        evento.foto && evento.alt ? (
+          <li class="grid" data-reveal>
+            <PhotoCard
+              image={evento.foto}
+              alt={evento.alt}
+              meta={evento.cuando}
+              title={evento.evento}
+              titleAs="h3"
+              description={evento.texto}
+              variant="card"
+              sizes="(min-width: 1200px) 400px, (min-width: 768px) 50vw, 100vw"
+            />
+          </li>
+        ) : null,
+      )}
+    </ul>
+  </div>
+</Section>

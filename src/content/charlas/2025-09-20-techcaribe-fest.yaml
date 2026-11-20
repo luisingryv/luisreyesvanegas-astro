@@ -1,0 +1,15 @@
+fecha: 2025-09-20
+evento: 'TechCaribe Fest 2025'
+titulo:
+  es: 'Sácale provecho a la nube en la era de la IA'
+detalle:
+  es: 'Sácale provecho a la nube en la era de la IA.'
+tipo: charla
+lugar:
+  es: 'Barranquilla'
+ciudad: barranquilla
+foto: ../../assets/fotos/charla_2025-09-20_techcaribe-fest-2025_luis-reyes-vanegas_001.jpg
+alt:
+  es: 'Luis Reyes conversando con asistentes en TechCaribe Fest 2025'
+speaker:
+  orden: 4

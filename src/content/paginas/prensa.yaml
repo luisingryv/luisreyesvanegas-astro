@@ -1,0 +1,174 @@
+# Textos de Prensa (kit de prensa, prototipo aprobado). Las fotos son archivos de
+# src/assets/prensa: la página las muestra y el kit (.zip) las incluye en alta resolución. Por aprobar: el retrato editorial (el de
+# Sobre mí; en el prototipo era un espacio reservado), las tres fotos elegidas de cada carpeta y
+# recibido. El crédito de las fotos no se muestra hasta que Luis lo confirme.
+hero:
+  eyebrow:
+    es: 'Prensa'
+  titulo:
+    es: 'Kit de prensa'
+  texto:
+    es: 'Aquí encuentras mi bio, fotos oficiales, logos y los datos del XPRIZE para tu nota. Si necesitas una entrevista o algo que no está aquí, escríbeme.'
+  descargar:
+    es: 'Descargar el kit completo'
+  entrevista:
+    es: 'Pedir una entrevista'
+  datos:
+    - clave:
+        es: 'Nombre'
+      valor:
+        es: 'Luis Reyes Vanegas'
+    - clave:
+        es: 'Qué hace'
+      valor:
+        es: 'Arquitecto de soluciones cloud e IA'
+    - clave:
+        es: 'Cargos'
+      valor:
+        es: 'CEO de Trama AI · Cofundador y CTO de EvolutecC'
+    - clave:
+        es: 'Trayectoria'
+      valor:
+        es: '13 años construyendo tecnología, desde 2013'
+    - clave:
+        es: 'Reconocimiento'
+      valor:
+        es: 'Ganador de categoría en el Build with Gemini XPRIZE 2026 con Trama AI'
+bio:
+  eyebrow:
+    es: 'Bio'
+  titulo:
+    es: 'Mi bio, en tres largos'
+  texto:
+    es: 'Escrita en tercera persona para que la uses tal cual. Es la misma que comparto con los organizadores de eventos.'
+fotos:
+  eyebrow:
+    es: 'Fotos oficiales'
+  titulo:
+    es: 'Fotos en alta resolución'
+  texto:
+    es: 'Puedes publicarlas en notas sobre mí o sobre mi trabajo, con el crédito que aparece en cada una.'
+  credito:
+    es: 'Crédito:'
+  descargar:
+    es: 'Descargar'
+  lista:
+    - titulo:
+        es: 'Retrato editorial'
+      archivo: 'retrato_sin-fecha_oficina-camiseta-blanca-sobre-mi_luis-reyes-vanegas_001.jpg'
+      alt:
+        es: 'Luis Carlos Reyes Vanegas en su oficina'
+    - titulo:
+        es: 'En escenario · TechCaribe Fest 2025'
+      archivo: 'charla_2025-09-20_techcaribe-fest-2025_luis-reyes-vanegas_003.jpg'
+      alt:
+        es: 'Luis Reyes en el escenario de TechCaribe Fest 2025'
+    - titulo:
+        es: 'En escenario · TechCaribe Expo 2024'
+      archivo: 'charla_2024-07-27_techcaribe-expo-2024-google-io-extended-vertex-ai-cloud-run_luis-reyes-vanegas_013.jpg'
+      alt:
+        es: 'Luis Reyes en TechCaribe Expo 2024 con su presentación en la pantalla'
+    - titulo:
+        es: 'Presentando · GDG Build with AI 2025'
+      archivo: 'charla_2025-05-05_gdg-build-with-ai-2025-barranqui-ia_luis-reyes-vanegas_006.jpg'
+      alt:
+        es: 'Luis Reyes presentando en GDG Build with AI 2025, Barranquilla'
+logos:
+  eyebrow:
+    es: 'Logos'
+  titulo:
+    es: 'Mi logo'
+  texto:
+    es: 'Usa la versión blanca sobre fondos oscuros y la versión a color sobre fondos claros. No cambies sus colores ni sus proporciones.'
+  lista:
+    - etiqueta:
+        es: 'Horizontal · blanco'
+      alt:
+        es: 'Logo de Luis Reyes en blanco'
+    - etiqueta:
+        es: 'Horizontal · color'
+      alt:
+        es: 'Logo de Luis Reyes a color'
+    - etiqueta:
+        es: 'Monograma · color y blanco'
+      alt:
+        es: 'Monograma LR de Luis Reyes'
+xprize:
+  eyebrow:
+    es: 'Datos del XPRIZE'
+  titulo:
+    es: 'Trama AI, ganadora de categoría en el Build with Gemini XPRIZE 2026'
+  texto:
+    es: 'Trama AI ganó la categoría Small Business Services. El equipo construyó en 90 días agentes de IA que operan el inventario de distribuidores textiles.'
+  fuente:
+    texto:
+      es: 'Fuente oficial: gxp.moonshots.com'
+    url: 'https://gxp.moonshots.com/'
+  datos:
+    - clave:
+        es: 'Categoría'
+      valor:
+        es: 'Small Business Services'
+    - clave:
+        es: 'Competencia'
+      valor:
+        es: 'Top 100 entre 26.449 equipos'
+    - clave:
+        es: 'Equipo'
+      valor:
+        es: 'Luis Reyes Vanegas (CEO), Gianfranco Castro (CTO), Johan Burgos (DevOps) y Najem Nabhan (PM)'
+    - clave:
+        es: 'Tiempo de construcción'
+      valor:
+        es: '90 días'
+kit:
+  titulo:
+    es: 'Todo en un solo archivo'
+  texto:
+    es: 'Bio en tres largos, fotos en alta resolución, logos en PNG y SVG y los datos del XPRIZE, en un .zip.'
+  boton:
+    es: 'Descargar kit (.zip)'
+contacto:
+  eyebrow:
+    es: 'Contacto de prensa'
+  titulo:
+    es: '¿Preparas una nota?'
+  texto:
+    es: 'Cuéntame para qué medio escribes y cuál es tu fecha de cierre. Puedo dar entrevistas sobre nube, adopción de IA en las empresas, el XPRIZE y el ecosistema tech de Latinoamérica.'
+  campos:
+    nombre:
+      es: 'Nombre'
+    medio:
+      es: 'Medio'
+    correo:
+      es: 'Correo'
+    necesidad:
+      es: '¿Qué necesitas?'
+    cierre:
+      es: 'Fecha de cierre'
+    detalles:
+      es: 'Detalles'
+  necesidades:
+    - valor: 'entrevista'
+      texto:
+        es: 'Entrevista'
+    - valor: 'declaracion'
+      texto:
+        es: 'Declaración o cita'
+    - valor: 'material'
+      texto:
+        es: 'Fotos o material'
+    - valor: 'otro'
+      texto:
+        es: 'Otro'
+  autorizacion:
+    antes:
+      es: 'Acepto la'
+    enlace:
+      es: 'política de tratamiento de datos'
+    despues:
+      es: '.'
+  enviar:
+    es: 'Enviar'
+  recibido:
+    es: 'Gracias. Recibí tu solicitud y te respondo pronto.'

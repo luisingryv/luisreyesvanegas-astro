@@ -1,0 +1,293 @@
+# Textos del CV (prototipo aprobado, hero rediagramado el 19 nov 2026). Competencias: niveles de
+# Luis del 18 nov 2026 (Boveda/03_Contenido/Textos/Competencias del CV.md); la escala no se
+# explica. La pieza 12 reemplaza la lista de texto de "Stack y competencias" (por aprobar).
+# No se publican: "Download CV (EN)" (textos en inglés sin aprobar) ni las recomendaciones de
+# ejemplo. Por aprobar: agendar (lleva a Contacto mientras no hay agenda) y los textos de la pieza.
+hero:
+  eyebrow:
+    es: 'Solutions Architect · Head of Cloud & AI'
+  titulo:
+    es: 'Luis Carlos Reyes Vanegas'
+  texto:
+    es: 'Arquitecto de soluciones cloud e IA con 13 años llevando sistemas a producción. CEO de Trama AI y cofundador y CTO de EvolutecC. Abierto a roles remotos de arquitectura cloud e IA.'
+  descargar:
+    es: 'Descargar CV (ES)'
+  descargarCorto:
+    es: 'Descargar CV'
+  entrevista:
+    es: 'Agendar entrevista'
+  linkedin:
+    es: 'LinkedIn'
+  datos:
+    - clave:
+        es: 'Modalidad'
+      valor:
+        es: 'Remoto · UTC-5 (Colombia)'
+    - clave:
+        es: 'Nubes'
+      valor:
+        es: 'AWS · Google Cloud · Azure'
+    - clave:
+        es: 'Idiomas'
+      valor:
+        es: 'Español nativo · Inglés C1 (certificación en trámite) · Portugués en aprendizaje'
+    - clave:
+        es: 'Destacado'
+      valor:
+        es: 'Ganador de categoría, Build with Gemini XPRIZE 2026'
+      fuente:
+        texto:
+          es: 'fuente'
+        url: 'https://gxp.moonshots.com/'
+  fotoAlt:
+    es: 'Retrato de Luis Carlos Reyes Vanegas'
+logros:
+  titulo:
+    es: 'Logros con cifra y fuente'
+  lista:
+    - metrica:
+        es: '−60%'
+      texto:
+        es: 'En la factura de Google Cloud de una red nacional de peajes: de US$10.000 a US$4.000 al mes.'
+      quien:
+        es: 'UTPN / KMA · 2025'
+    - metrica:
+        es: 'US$62.000'
+      texto:
+        es: 'En créditos de AWS por el programa MAP, con el aliado Nexa Connect, y 10 usuarios de Kiro con US$8.000 en créditos. El cliente logró ISO 27001 y SOC 2 con mi acompañamiento como Cloud Expert.'
+      quien:
+        es: 'Glasslake · 2025–2026'
+    - metrica:
+        es: '≈70.000'
+      texto:
+        es: 'Pedidos al mes tras la integración con iFood, frente a unos 2.400 antes, como Head of Product.'
+      quien:
+        es: 'Mandaos / Netivery'
+    - metrica:
+        es: '10+ años'
+      texto:
+        es: 'En producción del SIGC, el sistema que migré de escritorio a web. Más de 300 usuarios.'
+      quien:
+        es: 'Clínica del Caribe'
+    - metrica:
+        es: '4 días'
+      texto:
+        es: 'Para poner en línea un e-commerce conectado a SAP Business One.'
+      quien:
+        es: 'Ara · 2020'
+    - metrica:
+        es: '400+'
+      texto:
+        es: 'Proyectos de software entregados con mi equipo como cofundador y CTO.'
+      quien:
+        es: 'EvolutecC · 2020–hoy'
+experiencia:
+  titulo:
+    es: 'Experiencia'
+  lista:
+    - anios:
+        es: 'Actual'
+      rol:
+        es: 'CEO'
+      org:
+        es: 'Trama AI'
+      texto:
+        es: 'Agentes de IA que operan el inventario de empresas con inventario físico. Ganador de categoría en el Build with Gemini XPRIZE 2026.'
+    - anios:
+        es: '2025–hoy'
+      rol:
+        es: 'Cloud Expert y administrador de la cuenta de AWS (consultor)'
+      org:
+        es: 'Glasslake'
+      texto:
+        es: 'Startup de SAP de San Francisco en pleno crecimiento: Organizations e IAM Identity Center, entornos multitenant, Transit Gateway, VPN y endpoints hacia sus clientes, seguridad con Amazon Inspector y monitoreo, costos y soporte, y evidencia técnica para SOC 2 e ISO 27001.'
+    - anios:
+        es: '2025–hoy'
+      rol:
+        es: 'Consultor de arquitectura cloud'
+      org:
+        es: 'UTPN / KMA'
+      texto:
+        es: 'Auditoría y rediseño de Google Cloud para una red nacional de peajes; hoy, soporte de largo plazo.'
+    - anios:
+        es: '2020–hoy'
+      rol:
+        es: 'Cofundador y CTO'
+      org:
+        es: 'EvolutecC'
+      texto:
+        es: 'Producto, tecnología y arquitectura de una empresa de desarrollo de software. Como aliado de TIVIT (2023) diseñé soluciones en la nube para la Fuerza Aérea Colombiana, el DNP y el SISBÉN y Bancolombia.'
+    - anios:
+        es: '2018–2020'
+      rol:
+        es: 'Desarrollador web → Head of Product'
+      org:
+        es: 'Mandaos / Netivery'
+      texto:
+        es: 'Startup de última milla. Equipo de producto de 6 personas, API pública de integraciones e integración con iFood.'
+    - anios:
+        es: '2016'
+      rol:
+        es: 'Desarrollador'
+      org:
+        es: 'Clínica del Caribe'
+      texto:
+        es: 'Lideré la migración del SIGC de escritorio (VB.NET) a web (ASP.NET).'
+    - anios:
+        es: '2015'
+      rol:
+        es: 'Desarrollador independiente'
+      org:
+        es: 'Sector hotelero'
+      texto:
+        es: 'Sitios web para hoteles con suscripción mensual: hosting, dominios, DNS y soporte.'
+    - anios:
+        es: '2013'
+      rol:
+        es: 'Fundador'
+      org:
+        es: 'R&V Technology'
+      texto:
+        es: 'Reparación de computadores y desarrollo web.'
+  historia:
+    es: 'La historia completa está en Sobre mí'
+competencias:
+  titulo:
+    es: 'Stack y competencias'
+  subtitulo:
+    es: 'Lo que domino, en una escala de 1 a 5'
+  filtrar:
+    es: 'Filtrar por grupo'
+  todo:
+    es: 'Todo'
+  resaltar:
+    es: 'Resaltar por nivel'
+  nivel:
+    es: 'Nivel {n}'
+  nivelDe:
+    es: 'nivel {n} de 5'
+  grupos:
+    - id: 'nube'
+      nombre:
+        es: 'Nube'
+      items:
+        - { nombre: { es: 'AWS' }, nivel: 5 }
+        - { nombre: { es: 'Google Cloud' }, nivel: 5 }
+        - { nombre: { es: 'Azure' }, nivel: 4 }
+        - { nombre: { es: 'Terraform' }, nivel: 5 }
+        - { nombre: { es: 'FinOps' }, nivel: 4 }
+        - { nombre: { es: 'Redes y seguridad en AWS' }, nivel: 4 }
+        - { nombre: { es: 'AWS Organizations e IAM Identity Center' }, nivel: 5 }
+        - { nombre: { es: 'Migraciones a la nube' }, nivel: 5 }
+        - { nombre: { es: 'Programas de AWS (MAP y créditos)' }, nivel: 4 }
+        - { nombre: { es: 'Seguridad y cumplimiento (ISO 27001, SOC 2)' }, nivel: 4 }
+    - id: 'ia'
+      nombre:
+        es: 'IA'
+      items:
+        - { nombre: { es: 'Adopción de IA con Claude' }, nivel: 5 }
+        - { nombre: { es: 'Agentes de IA' }, nivel: 5 }
+        - { nombre: { es: 'OpenAI' }, nivel: 4 }
+        - { nombre: { es: 'Gemini' }, nivel: 5 }
+    - id: 'desarrollo'
+      nombre:
+        es: 'Desarrollo'
+      items:
+        - { nombre: { es: '.NET' }, nivel: 4 }
+        - { nombre: { es: 'PHP' }, nivel: 5 }
+        - { nombre: { es: 'Node.js' }, nivel: 5 }
+        - { nombre: { es: 'Python' }, nivel: 4 }
+        - { nombre: { es: 'Angular' }, nivel: 3 }
+        - { nombre: { es: 'React' }, nivel: 5 }
+        - { nombre: { es: 'Next.js' }, nivel: 5 }
+        - { nombre: { es: 'Ionic' }, nivel: 5 }
+        - { nombre: { es: 'Drupal' }, nivel: 4 }
+        - { nombre: { es: 'WordPress' }, nivel: 5 }
+        - { nombre: { es: 'Integraciones con SAP' }, nivel: 3 }
+    - id: 'metodo'
+      nombre:
+        es: 'Método y liderazgo'
+      items:
+        - { nombre: { es: 'Scrum y Kanban' }, nivel: 5 }
+        - { nombre: { es: 'Liderazgo de equipos' }, nivel: 5 }
+        - { nombre: { es: 'Gestión de producto' }, nivel: 5 }
+        - { nombre: { es: 'Comunicación y oratoria' }, nivel: 5 }
+formacion:
+  titulo:
+    es: 'Formación y certificaciones'
+  lista:
+    - nombre:
+        es: 'AI Fluency for small businesses'
+      emisor:
+        es: 'Anthropic · Claude Academy'
+      fecha:
+        es: 'oct 2026'
+    - nombre:
+        es: 'Claude 101'
+      emisor:
+        es: 'Anthropic · Claude Academy'
+      fecha:
+        es: 'oct 2026'
+    - nombre:
+        es: 'Introduction to Claude Cowork'
+      emisor:
+        es: 'Anthropic · Claude Academy'
+      fecha:
+        es: 'oct 2026'
+    - nombre:
+        es: 'Certificación Internacional en Liderazgo Transformacional'
+      emisor:
+        es: 'Naranjo Consulting & Coaching'
+      fecha:
+        es: 'jul 2025'
+    - nombre:
+        es: 'Escuela Avanzada de Liderazgo'
+      emisor:
+        es: 'Naranjo Consulting & Coaching'
+      fecha:
+        es: 'jul 2025'
+    - nombre:
+        es: 'Escuela Básica de Liderazgo'
+      emisor:
+        es: 'Naranjo Consulting & Coaching'
+      fecha:
+        es: 'feb 2025'
+    - nombre:
+        es: 'Certificación Internacional en Comunicación y Oratoria'
+      emisor:
+        es: 'Naranjo Consulting & Coaching'
+      fecha:
+        es: 'nov 2025'
+    - nombre:
+        es: 'Coaching Ejecutivo y de Equipos · Coaching Personal'
+      emisor:
+        es: 'Naranjo Consulting & Coaching'
+      fecha:
+        es: 'En proceso'
+    - nombre:
+        es: 'Certificaciones de arquitectura cloud'
+      emisor:
+        es: 'AWS · Google Cloud'
+      fecha:
+        es: 'En curso'
+    # Sin año hasta que Luis lo confirme (en el prototipo, "[año]").
+    - nombre:
+        es: 'Tecnólogo en Análisis y Desarrollo de Sistemas de Información'
+      emisor:
+        es: 'SENA'
+comunidad:
+  titulo:
+    es: 'Charlas y comunidad'
+  texto:
+    es: 'Speaker en GDG Summit Latam (Lima), DevFest Ecuador (Quito), TechCaribe y la comunidad de Google Developer Groups en Barranquilla.'
+  enlace:
+    es: 'Ver eventos y charlas'
+cierre:
+  titulo:
+    es: '¿Hablamos del rol?'
+  texto:
+    es: 'Elige un espacio en mi agenda o escríbeme por LinkedIn.'
+  agendar:
+    es: 'Agendar entrevista'
+  linkedin:
+    es: 'LinkedIn'

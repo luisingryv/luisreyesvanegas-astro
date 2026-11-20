@@ -164,8 +164,9 @@ export function Autorizacion({
           {textos.antes}{' '}
           <a href={politicaHref} className="font-bold text-link underline underline-offset-2">
             {textos.enlace}
-          </a>{' '}
-          {textos.despues}
+          </a>
+          {/* Sin espacio antes de un signo ("…de datos."). */}
+          {/^[.,;:]/.test(textos.despues) ? textos.despues : ` ${textos.despues}`}
         </label>
       </div>
       <p id={`${id}-error`} className="text-small font-bold text-error" data-error-de={id} hidden />

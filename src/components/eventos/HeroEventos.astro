@@ -1,0 +1,129 @@
+---
+// Hero de Eventos: el banner con transparencia se funde con el night. En celular (≤ 720 px) el
+// texto baja a un panel de vidrio y la foto se corre a 72 % (prototipo, clases .ev-hero*).
+// Las pestañas Próximos y Pasados controlan los paneles de ListaEventos.
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import Eyebrow from '../brand/Eyebrow.astro';
+
+interface Props {
+  eyebrow: string;
+  titulo: string;
+  texto: string;
+  foto: ImageMetadata;
+  fotoAlt: string;
+  pestanas: string;
+  proximos: string;
+  pasados: string;
+}
+
+const { eyebrow, titulo, texto, foto, fotoAlt, pestanas, proximos, pasados } = Astro.props;
+---
+
+<section
+  data-theme="dark"
+  class="ev-hero relative flex items-center overflow-hidden bg-surface px-gutter"
+  aria-labelledby="eventos-titulo"
+>
+  <Image
+    src={foto}
+    alt={fotoAlt}
+    widths={[640, 768, 1024, 1513]}
+    sizes="100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="ev-hero-foto absolute inset-0 size-full object-cover"
+  />
+  <div class="ev-hero-vidrio relative mx-auto flex w-full max-w-(--width-container) flex-col gap-4.5">
+    <Eyebrow as="span" class="text-accent">
+      {eyebrow}
+    </Eyebrow>
+    <h1
+      id="eventos-titulo"
+      class="text-[clamp(38px,5vw,64px)] leading-[1.04] font-bold tracking-[-0.02em]"
+    >
+      {titulo}
+    </h1>
+    <p class="max-w-[46ch] text-[clamp(17px,1.6vw,20px)] text-text-secondary-on-dark">{texto}</p>
+    <div role="tablist" aria-label={pestanas} class="flex gap-2 pt-2" data-pestanas>
+      <button
+        type="button"
+        role="tab"
+        id="pestana-proximos"
+        aria-selected="false"
+        aria-controls="panel-proximos"
+        tabindex="-1"
+        class="pestana"
+      >
+        {proximos}
+      </button>
+      <button
+        type="button"
+        role="tab"
+        id="pestana-pasados"
+        aria-selected="true"
+        aria-controls="panel-pasados"
+        class="pestana"
+      >
+        {pasados}
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ev-hero {
+    min-height: clamp(460px, 42vw, 620px);
+    padding-block: clamp(48px, 7vw, 96px) clamp(32px, 4vw, 48px);
+  }
+
+  .ev-hero-foto {
+    object-position: right center;
+  }
+
+  .pestana {
+    border: 1px solid var(--color-gray-700);
+    border-radius: var(--radius-pill);
+    padding: 10px 18px;
+    font-weight: 700;
+    color: var(--color-ink);
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .pestana[aria-selected='true'] {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  @media (max-width: 720px) {
+    .ev-hero {
+      align-items: flex-end;
+      min-height: 560px;
+      padding-top: 180px;
+    }
+
+    .ev-hero-foto {
+      object-position: 72% center;
+    }
+
+    .ev-hero-vidrio {
+      padding: 24px 20px;
+      border: 1px solid color-mix(in oklab, var(--color-white) 14%, transparent);
+      border-radius: 24px;
+      background: color-mix(in oklab, var(--color-night) 55%, transparent);
+      box-shadow: 0 12px 40px color-mix(in oklab, black 35%, transparent);
+      backdrop-filter: blur(16px) saturate(140%);
+    }
+  }
+</style>
+
+<script>
+  import { iniciarPestanas } from '../motion/pestanas';
+
+  for (const lista of document.querySelectorAll<HTMLElement>('[data-pestanas]')) {
+    iniciarPestanas(lista);
+  }
+</script>

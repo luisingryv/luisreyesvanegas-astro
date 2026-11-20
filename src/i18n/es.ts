@@ -21,6 +21,10 @@ export const es = {
   },
   header: {
     cta: 'Agendar sesión',
+    // El botón cambia en algunas páginas (componentes globales del prototipo).
+    charlas: 'Invitarme a hablar',
+    prensa: 'Pedir una entrevista',
+    programas: 'Evaluar mi caso',
   },
   footer: {
     linkedin: 'LinkedIn',
@@ -110,6 +114,18 @@ export const es = {
     },
     casos: {
       title: 'Casos de éxito',
+    },
+    eventos: {
+      title: 'Eventos y charlas',
+    },
+    speaker: {
+      title: 'Charlas',
+    },
+    prensa: {
+      title: 'Kit de prensa',
+    },
+    cv: {
+      title: 'CV · Arquitecto de soluciones cloud e IA',
     },
     sobreMi: {
       title: 'Sobre mí',

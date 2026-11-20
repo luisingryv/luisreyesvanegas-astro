@@ -17,6 +17,7 @@ export const routes = {
   speaker: 'speaker',
   prensa: 'prensa',
   contacto: 'contacto',
+  cv: 'cv',
   // Dos páginas legales (Luis, 20 nov 2026).
   privacidad: 'legal/privacidad',
   terminos: 'legal/terminos',

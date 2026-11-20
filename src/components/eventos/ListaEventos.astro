@@ -1,0 +1,92 @@
+---
+// Paneles de las pestañas de Eventos: próximos (por ahora, ninguno anunciado) y pasados, con
+// todas las charlas de la colección en PhotoCard 4:3 sin recorte. Las tarjetas aparecen al
+// entrar en pantalla.
+import Container from '../brand/Container.astro';
+import PhotoCard from '../brand/PhotoCard.astro';
+import type { Evento, TipoCharla } from '../../lib/content';
+
+interface Props {
+  eventos: Evento[];
+  tipos: Record<TipoCharla, string>;
+  textos: {
+    proximos: { etiqueta: string; vacio: string; invitar: string };
+    pasados: { etiqueta: string };
+  };
+  invitarHref: string;
+}
+
+const { eventos, tipos, textos, invitarHref } = Astro.props;
+---
+
+<div data-theme="dark" class="bg-surface">
+  <section
+    id="panel-proximos"
+    role="tabpanel"
+    aria-labelledby="pestana-proximos"
+    class="py-section-y"
+    data-panel-eventos
+    hidden
+  >
+    <Container>
+      <div class="flex flex-wrap items-center justify-between gap-4 rounded-md border border-dashed border-gray-700 px-6 py-5.5">
+        <p class="text-text-secondary-on-dark">{textos.proximos.vacio}</p>
+        <a href={invitarHref} class="font-bold text-link hover:underline">
+          {textos.proximos.invitar} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </Container>
+  </section>
+
+  <section
+    id="panel-pasados"
+    role="tabpanel"
+    aria-labelledby="pestana-pasados"
+    class="py-section-y"
+    data-panel-eventos
+  >
+    <Container>
+      <h2 class="sr-only">{textos.pasados.etiqueta}</h2>
+      <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-4">
+        {eventos.map((evento) => (
+          <li class="evento grid" data-reveal>
+            {evento.foto && evento.alt && (
+              <PhotoCard
+                image={evento.foto}
+                alt={evento.alt}
+                meta={evento.cuando}
+                etiqueta={tipos[evento.tipo]}
+                title={evento.evento}
+                titleAs="h3"
+                description={evento.texto}
+                variant="card"
+                sizes="(min-width: 1200px) 400px, (min-width: 768px) 50vw, 100vw"
+              />
+            )}
+          </li>
+        ))}
+      </ul>
+    </Container>
+  </section>
+</div>
+
+<style>
+  .evento :global(figure) {
+    transition:
+      border-color 0.25s ease,
+      transform 0.35s var(--ease-brand);
+  }
+
+  @media (hover: hover) {
+    .evento:hover :global(figure) {
+      border-color: var(--color-accent);
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .evento:hover :global(figure) {
+      transform: none;
+    }
+  }
+</style>

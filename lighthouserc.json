@@ -12,7 +12,11 @@
         "http://127.0.0.1:4399/es/consultoria/optimizar-costos",
         "http://127.0.0.1:4399/es/consultoria/adopcion-ia",
         "http://127.0.0.1:4399/es/casos",
-        "http://127.0.0.1:4399/es/casos/utpn"
+        "http://127.0.0.1:4399/es/casos/utpn",
+        "http://127.0.0.1:4399/es/eventos",
+        "http://127.0.0.1:4399/es/speaker",
+        "http://127.0.0.1:4399/es/prensa",
+        "http://127.0.0.1:4399/es/cv"
       ],
       "numberOfRuns": 3,
       "settings": {

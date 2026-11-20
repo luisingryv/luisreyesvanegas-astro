@@ -1,0 +1,50 @@
+---
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import HeroEventos from '../../components/eventos/HeroEventos.astro';
+import ListaEventos from '../../components/eventos/ListaEventos.astro';
+import { publishedLocales } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import { localizedPath } from '../../i18n/routes';
+import Base from '../../layouts/Base.astro';
+import { getEventos, getPaginaEventos } from '../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const [textos, eventos] = await Promise.all([getPaginaEventos(lang), getEventos(lang)]);
+const invitarHref = localizedPath(lang, 'speaker', 'invitar');
+---
+
+<Base
+  locale={lang}
+  title={t.pages.eventos.title}
+  description={textos.hero.texto}
+  route="eventos"
+  headerCta={{ texto: t.header.charlas, href: invitarHref }}
+>
+  {/* Sin JavaScript no hay pestañas: se ven los dos paneles, sin mover nada al cargar. */}
+  <noscript slot="head">
+    <style is:inline>
+      [data-pestanas] {
+        display: none;
+      }
+      /* Tailwind oculta [hidden] con !important en @layer base: misma capa, más específica. */
+      @layer base {
+        [data-panel-eventos][hidden] {
+          display: block !important;
+        }
+      }
+    </style>
+  </noscript>
+  <HeroEventos {...textos.hero} />
+  <ListaEventos
+    eventos={eventos}
+    tipos={textos.tipos}
+    textos={{ proximos: textos.proximos, pasados: textos.pasados }}
+    invitarHref={invitarHref}
+  />
+</Base>

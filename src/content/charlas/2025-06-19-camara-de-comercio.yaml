@@ -1,0 +1,15 @@
+fecha: 2025-06-19
+evento: 'Cámara de Comercio de Barranquilla'
+titulo:
+  es: 'IA en movimiento: revolucionando tu día con Microsoft 365 y Copilot'
+detalle:
+  es: 'IA en movimiento: revolucionando tu día con Microsoft 365 y Copilot.'
+tipo: charla
+lugar:
+  es: 'Barranquilla'
+ciudad: barranquilla
+foto: ../../assets/fotos/charla_2025-06-19_camara-de-comercio-ia-copilot_luis-reyes-vanegas_001.jpg
+alt:
+  es: 'Luis Reyes hablando ante el público en la Cámara de Comercio de Barranquilla'
+speaker:
+  orden: 5

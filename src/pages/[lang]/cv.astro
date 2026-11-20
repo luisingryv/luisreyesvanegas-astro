@@ -1,0 +1,100 @@
+---
+// CV: página de aterrizaje con header mínimo ("Descargar CV"). El PDF en español se genera de esta
+// misma página con scripts/cv-pdf.mjs (pnpm cv:pdf); el de inglés espera textos aprobados.
+// "Agendar entrevista" lleva a Contacto mientras no esté la agenda de Google Calendar.
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import retrato from '../../assets/fotos/retrato_sin-fecha_oficina-camisa-blanca-cv_luis-reyes-vanegas_001.jpg';
+import BandaMarca from '../../components/consultoria/BandaMarca.astro';
+import HeroCv from '../../components/cv/HeroCv.astro';
+import SeccionesCv from '../../components/cv/SeccionesCv.astro';
+import { site } from '../../config/site';
+import { publishedLocales } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import { localizedPath } from '../../i18n/routes';
+import Base from '../../layouts/Base.astro';
+import { getPaginaCv } from '../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const textos = await getPaginaCv(lang);
+const pdfHref = `/cv/luis-carlos-reyes-vanegas-cv-${lang}.pdf`;
+---
+
+<Base
+  locale={lang}
+  title={t.pages.cv.title}
+  description={textos.hero.texto}
+  route="cv"
+  tema="light"
+  type="profile"
+  headerMinimo={{ texto: textos.hero.descargarCorto, href: pdfHref }}
+>
+  {/* Sin JavaScript, los filtros y la leyenda de la pieza 12 no harían nada. */}
+  <noscript slot="head">
+    <style is:inline>
+      [data-filtro-grupos],
+      [data-niveles] {
+        display: none;
+      }
+    </style>
+  </noscript>
+  <HeroCv textos={textos.hero} foto={retrato} pdfHref={pdfHref} linkedin={site.linkedin} />
+  <SeccionesCv
+    textos={textos}
+    sobreMiHref={localizedPath(lang, 'sobreMi')}
+    eventosHref={localizedPath(lang, 'eventos')}
+  />
+  <BandaMarca
+    id="entrevista"
+    titulo={textos.cierre.titulo}
+    texto={textos.cierre.texto}
+    botones={[
+      { texto: textos.cierre.agendar, href: localizedPath(lang, 'contacto', 'general') },
+      {
+        texto: `${textos.cierre.linkedin} ↗`,
+        href: site.linkedin,
+        variante: 'outline',
+        external: true,
+      },
+    ]}
+  />
+</Base>
+
+<style is:global>
+  /* El CV se lee e imprime igual: sin header, pie ni botones, y con todo el motion terminado. */
+  @media print {
+    header,
+    footer,
+    .cv-acciones,
+    #entrevista {
+      display: none !important;
+    }
+    [data-reveal],
+    .segmentos i,
+    .valor {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    /* Más específico que las clases py-…! de cada sección. */
+    section[class] {
+      padding-block: 14px !important;
+    }
+    h2,
+    h3 {
+      break-after: avoid;
+    }
+    .cv-retrato {
+      max-width: 220px;
+      justify-self: end;
+    }
+    .experiencia,
+    li {
+      break-inside: avoid;
+    }
+  }
+</style>

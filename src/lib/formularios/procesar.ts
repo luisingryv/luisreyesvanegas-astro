@@ -47,12 +47,35 @@ export async function procesarSolicitud(
     return { ok: false, motivo: 'demasiadas' };
   }
 
-  // Lo propio de cada formulario: el general trae nombre y mensaje; la agenda de Consultoría,
-  // las nubes y el gasto (van en datos).
-  const propios =
-    datos.formulario === 'general'
-      ? { nombre: datos.nombre, whatsapp: datos.whatsapp, mensaje: datos.mensaje }
-      : { datos: quitarVacios({ nubes: datos.nubes, gasto: datos.gasto }) };
+  // Lo propio de cada formulario: nombre y mensaje van en sus columnas; lo demás, en datos.
+  const propios = (() => {
+    switch (datos.formulario) {
+      case 'general':
+        return { nombre: datos.nombre, whatsapp: datos.whatsapp, mensaje: datos.mensaje };
+      case 'consultoria':
+        return { datos: quitarVacios({ nubes: datos.nubes, gasto: datos.gasto }) };
+      case 'speaker':
+        return {
+          datos: quitarVacios({
+            evento: datos.evento,
+            fecha: datos.fecha,
+            ciudad: datos.ciudad,
+            audiencia: datos.audiencia,
+            presupuesto: datos.presupuesto,
+          }),
+        };
+      case 'prensa':
+        return {
+          nombre: datos.nombre,
+          mensaje: datos.mensaje,
+          datos: quitarVacios({
+            medio: datos.medio,
+            necesidad: datos.necesidad,
+            cierre: datos.cierre,
+          }),
+        };
+    }
+  })();
 
   const id = await guardarSolicitud(db, {
     formulario: datos.formulario,

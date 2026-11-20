@@ -1,0 +1,56 @@
+---
+// "Cuéntame de tu evento." (#invitar): la invitación se guarda como solicitud "speaker".
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import { FormularioSpeaker } from '../formularios/FormularioSpeaker';
+import { getDictionary } from '../../i18n';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { FormularioGeneral, PaginaSpeaker } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  textos: PaginaSpeaker['invitar'];
+  comunes: FormularioGeneral;
+}
+
+const { locale, textos, comunes } = Astro.props;
+const t = getDictionary(locale);
+---
+
+<Section tone="dark" id="invitar" aria-labelledby="invitar-titulo">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-12">
+    <div class="flex min-w-0 flex-col gap-4">
+      <Eyebrow>{textos.eyebrow}</Eyebrow>
+      <h2
+        id="invitar-titulo"
+        class="text-[clamp(30px,4vw,50px)] leading-[1.08] font-bold text-balance"
+      >
+        {textos.titulo}
+      </h2>
+      <p class="text-text-secondary-on-dark">{textos.texto}</p>
+    </div>
+    <FormularioSpeaker
+      textos={{
+        ...textos.campos,
+        presupuestos: textos.presupuestos,
+        autorizacion: comunes.autorizacion,
+        enviar: textos.enviar,
+        recibido: textos.recibido,
+        error: comunes.error,
+      }}
+      mensajes={t.formulario}
+      idioma={locale}
+      pagina={localizedPath(locale, 'speaker')}
+      politicaHref={localizedPath(locale, 'privacidad')}
+    />
+  </div>
+</Section>
+
+<script>
+  import { mejorarFormulario } from '../formularios/formulario';
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-formulario]')) {
+    mejorarFormulario(form);
+  }
+</script>

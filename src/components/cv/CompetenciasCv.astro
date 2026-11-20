@@ -1,0 +1,171 @@
+---
+// Pieza 12 · Competencias con nivel (aprobada el 18 nov 2026, T-307). Barras de 5 segmentos que
+// se llenan grupo por grupo, leyenda que resalta las competencias de un nivel y filtros por grupo.
+// Sobria: el HTML trae cada nivel completo, así que se lee e imprime igual sin animación
+// (motion/competencias.ts). Sin JavaScript no aparecen los filtros ni la leyenda.
+import type { PaginaCv } from '../../lib/content';
+
+interface Props {
+  textos: PaginaCv['competencias'];
+}
+
+const { textos } = Astro.props;
+const niveles = [...new Set(textos.grupos.flatMap((g) => g.items.map((i) => i.nivel)))].sort(
+  (a, b) => b - a,
+);
+---
+
+<div class="competencias grid gap-5" data-competencias>
+  <p class="text-[clamp(20px,2.4vw,28px)] leading-[1.15] font-bold tracking-[-0.02em]">
+    {textos.subtitulo}
+  </p>
+  <div class="competencias-controles flex flex-wrap justify-between gap-x-4 gap-y-2.5">
+    <div role="group" aria-label={textos.filtrar} class="flex flex-wrap gap-1.5" data-filtro-grupos>
+      {[{ id: 'todo', nombre: textos.todo }, ...textos.grupos].map((grupo) => (
+        <button
+          type="button"
+          class="chip"
+          aria-pressed={grupo.id === 'todo' ? 'true' : 'false'}
+          data-grupo={grupo.id}
+        >
+          {grupo.nombre}
+        </button>
+      ))}
+    </div>
+    <div role="group" aria-label={textos.resaltar} class="flex flex-wrap gap-1.5" data-niveles>
+      {niveles.map((n) => (
+        <button type="button" class="chip" aria-pressed="false" data-nivel={n}>
+          {textos.nivel.replace('{n}', String(n))}
+        </button>
+      ))}
+    </div>
+  </div>
+  <div
+    class="grid grid-cols-[repeat(auto-fill,minmax(min(100%,330px),1fr))] items-start gap-3.5"
+    data-grupos-competencias
+  >
+    {textos.grupos.map((grupo) => (
+      <section
+        class="grupo rounded-md bg-blue-100 px-4.5 pt-4.5 pb-2.5"
+        aria-labelledby={`grupo-${grupo.id}`}
+        data-grupo-competencias={grupo.id}
+      >
+        <h3 id={`grupo-${grupo.id}`} class="mb-1.5 flex items-baseline justify-between font-bold">
+          {grupo.nombre}
+          <small class="text-[12px] font-normal text-ink-muted">{grupo.items.length}</small>
+        </h3>
+        <ul>
+          {grupo.items.map((item) => (
+            <li class="competencia" data-nivel={item.nivel}>
+              <span class="text-[15px]">{item.nombre}</span>
+              <span class="segmentos" aria-hidden="true">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <i class:list={[i < item.nivel && 'lleno']} />
+                ))}
+              </span>
+              <span class="valor" aria-hidden="true">
+                {item.nivel}
+                <small>/5</small>
+              </span>
+              <span class="sr-only">{textos.nivelDe.replace('{n}', String(item.nivel))}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</div>
+
+<style>
+  .chip {
+    border: 1px solid var(--color-line-on-light);
+    border-radius: var(--radius-pill);
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-ink-muted);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .chip:hover {
+    border-color: var(--color-primary);
+  }
+
+  .chip[aria-pressed='true'] {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+
+  .competencia {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto 46px;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+    border-top: 1px solid var(--color-line-on-light);
+    transition: opacity 0.25s ease;
+  }
+
+  .competencia:first-child {
+    border-top: 0;
+  }
+
+  .segmentos {
+    display: grid;
+    grid-template-columns: repeat(5, 16px);
+    gap: 3px;
+  }
+
+  .segmentos i {
+    height: 10px;
+    border-radius: 3px;
+    background: color-mix(in oklab, var(--color-blue-300) 30%, var(--color-white));
+    transform-origin: left;
+  }
+
+  .segmentos i.lleno {
+    background: var(--color-primary);
+  }
+
+  .valor {
+    text-align: right;
+    font-size: 15px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .valor small {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--color-ink-muted);
+  }
+
+  [data-grupos-competencias].resaltando .competencia {
+    opacity: 0.28;
+  }
+
+  [data-grupos-competencias].resaltando .competencia.activa {
+    opacity: 1;
+  }
+
+  @media print {
+    .competencias-controles {
+      display: none;
+    }
+    .grupo {
+      break-inside: avoid;
+    }
+  }
+</style>
+
+<script>
+  import { iniciarCompetencias } from '../motion/competencias';
+
+  for (const pieza of document.querySelectorAll<HTMLElement>('[data-competencias]')) {
+    iniciarCompetencias(pieza);
+  }
+</script>

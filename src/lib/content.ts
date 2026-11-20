@@ -7,6 +7,7 @@ import {
   localize,
   resolveLocalized,
   summarizeYears,
+  type Localized,
 } from './content-format';
 
 export async function getPaginaSobreMi(locale: PublishedLocale) {
@@ -275,6 +276,119 @@ export async function getCharlasRecientes(
       ];
     });
 }
+
+// ─── Eventos, Charlas y Prensa ────────────────────────────────
+
+export type TipoCharla = CollectionEntry<'charlas'>['data']['tipo'];
+export type CiudadCharla = NonNullable<CollectionEntry<'charlas'>['data']['ciudad']>;
+
+export interface Evento {
+  id: string;
+  evento: string;
+  tipo: TipoCharla;
+  /** "29 nov 2025 · Quito, Ecuador". */
+  cuando: string;
+  texto: string;
+  foto?: ImageMetadata;
+  alt?: string;
+}
+
+const aEvento = (
+  { id, data }: CollectionEntry<'charlas'>,
+  locale: PublishedLocale,
+  texto: (d: CollectionEntry<'charlas'>['data']) => Localized,
+): Evento => {
+  const where = `charlas/${id}`;
+  return {
+    id,
+    evento: data.evento,
+    tipo: data.tipo,
+    cuando: `${formatEventDate(data.fecha, data.fechaFin, locale)} · ${localize(data.lugar, locale, where)}`,
+    texto: localize(texto(data), locale, where),
+    foto: data.foto,
+    alt: data.alt ? localize(data.alt, locale, where) : undefined,
+  };
+};
+
+const masReciente = (a: CollectionEntry<'charlas'>, b: CollectionEntry<'charlas'>) =>
+  b.data.fecha.getTime() - a.data.fecha.getTime();
+
+/** Todos los eventos pasados, del más reciente al más antiguo (página de Eventos). */
+export async function getEventos(locale: PublishedLocale): Promise<Evento[]> {
+  const charlas = await getCollection('charlas');
+  return charlas
+    .sort(masReciente)
+    .map((c) => aEvento(c, locale, (d) => d.detalle ?? d.resumen ?? d.titulo));
+}
+
+/** La selección de "Algunos de los eventos en los que he hablado" (Charlas). */
+export async function getEventosSpeaker(locale: PublishedLocale): Promise<Evento[]> {
+  const charlas = await getCollection('charlas', (c) => c.data.speaker !== undefined);
+  return charlas
+    .sort((a, b) => (a.data.speaker?.orden ?? 0) - (b.data.speaker?.orden ?? 0))
+    .map((c) => aEvento(c, locale, (d) => d.resumen ?? d.detalle ?? d.titulo));
+}
+
+export interface CiudadMapa {
+  ciudad: CiudadCharla;
+  eventos: { id: string; evento: string; fecha: string }[];
+}
+
+/** Eventos presenciales por ciudad, para el mapa de Charlas (pieza 10). */
+export async function getMapaCharlas(locale: PublishedLocale): Promise<CiudadMapa[]> {
+  const charlas = (await getCollection('charlas', (c) => c.data.ciudad !== undefined)).sort(
+    masReciente,
+  );
+  const ciudades = [...new Set(charlas.map((c) => c.data.ciudad!))];
+  return ciudades.map((ciudad) => ({
+    ciudad,
+    eventos: charlas
+      .filter((c) => c.data.ciudad === ciudad)
+      .map(({ id, data }) => ({
+        id,
+        evento: data.evento,
+        fecha: formatEventDate(data.fecha, data.fechaFin, locale),
+      })),
+  }));
+}
+
+export async function getBio(locale: PublishedLocale) {
+  const entry = await getEntry('bio', 'bio');
+  if (!entry) throw new Error('Falta src/content/paginas/bio.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/bio');
+}
+
+export type Bio = Awaited<ReturnType<typeof getBio>>;
+
+export async function getPaginaEventos(locale: PublishedLocale) {
+  const entry = await getEntry('eventosPagina', 'eventos');
+  if (!entry) throw new Error('Falta src/content/paginas/eventos.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/eventos');
+}
+
+export async function getPaginaSpeaker(locale: PublishedLocale) {
+  const entry = await getEntry('speakerPagina', 'speaker');
+  if (!entry) throw new Error('Falta src/content/paginas/speaker.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/speaker');
+}
+
+export type PaginaSpeaker = Awaited<ReturnType<typeof getPaginaSpeaker>>;
+
+export async function getPaginaPrensa(locale: PublishedLocale) {
+  const entry = await getEntry('prensaPagina', 'prensa');
+  if (!entry) throw new Error('Falta src/content/paginas/prensa.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/prensa');
+}
+
+export type PaginaPrensa = Awaited<ReturnType<typeof getPaginaPrensa>>;
+
+export async function getPaginaCv(locale: PublishedLocale) {
+  const entry = await getEntry('cvPagina', 'cv');
+  if (!entry) throw new Error('Falta src/content/paginas/cv.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/cv');
+}
+
+export type PaginaCv = Awaited<ReturnType<typeof getPaginaCv>>;
 
 // ─── Legal ────────────────────────────────────────────────────
 

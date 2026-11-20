@@ -70,20 +70,22 @@ const DIA = 24 * 60 * 60 * 1000;
 
 /** '29 nov 2025'; con fecha final, '11 y 12 nov 2025' o '3 al 5 dic 2025' (como el prototipo). */
 export function formatEventDate(inicio: Date, fin: Date | undefined, locale: Locale): string {
-  const formato = new Intl.DateTimeFormat(locale, {
+  const intl = new Intl.DateTimeFormat(locale, {
     day: 'numeric',
     month: 'short',
     year: 'numeric',
     timeZone: 'UTC',
   });
-  if (!fin || fin.getTime() === inicio.getTime()) return formato.format(inicio);
+  // En español, el prototipo abrevia septiembre "sep" (Intl escribe "sept").
+  const mes = (texto: string) => (locale === 'es' ? texto.replace(/\bsept\b/g, 'sep') : texto);
+  if (!fin || fin.getTime() === inicio.getTime()) return mes(intl.format(inicio));
   const mismoMes =
     inicio.getUTCFullYear() === fin.getUTCFullYear() && inicio.getUTCMonth() === fin.getUTCMonth();
   if (locale === 'es' && mismoMes) {
     const union = fin.getTime() - inicio.getTime() === DIA ? 'y' : 'al';
-    return `${inicio.getUTCDate()} ${union} ${formato.format(fin)}`;
+    return mes(`${inicio.getUTCDate()} ${union} ${intl.format(fin)}`);
   }
-  return formato.formatRange(inicio, fin);
+  return mes(intl.formatRange(inicio, fin));
 }
 
 export function summarizeYears(years: number[]) {

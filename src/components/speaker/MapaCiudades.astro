@@ -1,0 +1,277 @@
+---
+// Pieza 10 · Mapa de ciudades (laboratorio, por aprobar en el sitio). Posiciones con la
+// geografía real, sin dibujar el mapa: los puntos de fondo son decorativos y Quito queda sobre la
+// línea ecuatorial. Las rutas siguen el orden de las charlas (Barranquilla, Lima, Quito). Solo
+// ciudades confirmadas; Los Ángeles, pendiente de Luis. Cada ciudad abre su panel con los eventos
+// de la colección. motion/mapa.ts anima la entrada y el pulso; sin JavaScript se ven los tres
+// paneles.
+import Eyebrow from '../brand/Eyebrow.astro';
+import type { CiudadCharla, CiudadMapa } from '../../lib/content';
+
+interface Props {
+  ciudades: CiudadMapa[];
+  textos: {
+    eyebrow: string;
+    titulo: string;
+    resumen: string;
+    ciudades: Record<CiudadCharla, { nombre: string; pais: string }>;
+    masEventos: string;
+  };
+  eventosHref: string;
+}
+
+const { ciudades, textos, eventosHref } = Astro.props;
+
+// Coordenadas en el lienzo de 600 × 520 (latitud y longitud proyectadas, como el laboratorio).
+const POSICION: Record<CiudadCharla, { x: number; y: number; izquierda?: boolean }> = {
+  barranquilla: { x: 340, y: 77 },
+  quito: { x: 220, y: 247, izquierda: true },
+  lima: { x: 266, y: 429 },
+};
+const ORDEN: CiudadCharla[] = ['barranquilla', 'lima', 'quito'];
+const MAX_EVENTOS = 4;
+
+const paises = new Set(ciudades.map((c) => textos.ciudades[c.ciudad].pais)).size;
+const totalEventos = ciudades.reduce((n, c) => n + c.eventos.length, 0);
+const resumen = textos.resumen
+  .replace('{paises}', String(paises))
+  .replace('{ciudades}', String(ciudades.length))
+  .replace('{eventos}', String(totalEventos));
+const enOrden = ORDEN.flatMap((codigo) => ciudades.filter((c) => c.ciudad === codigo));
+const inicial = enOrden[0]?.ciudad;
+---
+
+<div
+  class="mapa grid gap-5.5 rounded-lg border border-hairline bg-surface-raised p-[clamp(18px,3vw,36px)]"
+  data-mapa
+>
+  <div>
+    <Eyebrow as="span" class="text-[11px] tracking-[0.12em] text-cyan-300">
+      {textos.eyebrow}
+    </Eyebrow>
+    <p class="mt-2 text-[clamp(24px,3.2vw,36px)] leading-[1.1] font-bold tracking-[-0.02em]">
+      {textos.titulo}
+    </p>
+  </div>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-center gap-6">
+    <div class="mapa-lienzo relative aspect-600/520 w-full max-w-140 justify-self-center">
+      <svg
+        viewBox="0 0 600 520"
+        class="absolute inset-0 size-full overflow-visible"
+        aria-hidden="true"
+      >
+        <defs>
+          <pattern id="mapa-puntos" width="24" height="24" patternUnits="userSpaceOnUse">
+            <circle cx="20" cy="20" r="1.6" class="mapa-punto"></circle>
+          </pattern>
+        </defs>
+        <rect width="600" height="520" fill="url(#mapa-puntos)"></rect>
+        <line x1="0" y1="245" x2="600" y2="245" class="mapa-ecuador"></line>
+        {/* A la derecha: a la izquierda lo tapa la etiqueta de Quito en pantallas angostas. */}
+        <text x="590" y="236" text-anchor="end" class="mapa-ecuador-texto">
+          LÍNEA ECUATORIAL · 0°
+        </text>
+        <path class="mapa-ruta" pathLength="1" d="M340 77 Q 480 250 266 429" data-ruta></path>
+        <path class="mapa-ruta" pathLength="1" d="M266 429 Q 150 350 220 247" data-ruta></path>
+        <circle class="mapa-pulso" r="4.5" cx="0" cy="0" data-pulso></circle>
+      </svg>
+      {enOrden.map(({ ciudad, eventos }) => (
+        <button
+          type="button"
+          class:list={['ciudad', POSICION[ciudad].izquierda && 'ciudad-izquierda']}
+          style={`left: ${((POSICION[ciudad].x / 600) * 100).toFixed(2)}%; top: ${((POSICION[ciudad].y / 520) * 100).toFixed(2)}%`}
+          aria-pressed={ciudad === inicial ? 'true' : 'false'}
+          aria-controls={`mapa-${ciudad}`}
+          data-ciudad={ciudad}
+        >
+          <span class="ciudad-pin" aria-hidden="true" />
+          <span class="ciudad-nombre">
+            {textos.ciudades[ciudad].nombre}
+            <small>{eventos.length}</small>
+          </span>
+        </button>
+      ))}
+    </div>
+    <div class="grid min-h-60 content-start gap-3.5 rounded-lg bg-surface p-6" aria-live="polite">
+      <p class="text-[12px] leading-snug font-bold tracking-[0.06em] text-cyan-300 uppercase">
+        {resumen}
+      </p>
+      {enOrden.map(({ ciudad, eventos }) => (
+        <div
+          id={`mapa-${ciudad}`}
+          class="mapa-panel grid gap-3"
+          data-panel-ciudad={ciudad}
+          hidden={ciudad !== inicial}
+        >
+          <span class="text-[11px] leading-none font-bold tracking-[0.12em] text-cyan-300 uppercase">
+            {textos.ciudades[ciudad].pais}
+          </span>
+          <p class="text-[28px] leading-[1.1] font-bold">{textos.ciudades[ciudad].nombre}</p>
+          <ul class="grid gap-2.5">
+            {eventos.slice(0, MAX_EVENTOS).map((evento) => (
+              <li class="grid gap-0.75 border-t border-hairline pt-3">
+                <span class="text-[12px] leading-tight text-cyan-300">{evento.fecha}</span>
+                <span class="leading-snug font-bold">{evento.evento}</span>
+              </li>
+            ))}
+          </ul>
+          {eventos.length > MAX_EVENTOS && (
+            <a href={eventosHref} class="text-small font-bold text-link hover:underline">
+              {textos.masEventos.replace('{n}', String(eventos.length - MAX_EVENTOS))}{' '}
+              <span aria-hidden="true">→</span>
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .mapa-punto {
+    fill: color-mix(in oklab, var(--color-blue-300) 20%, transparent);
+  }
+
+  .mapa-ecuador {
+    stroke: var(--color-hairline);
+    stroke-dasharray: 4 6;
+  }
+
+  .mapa-ecuador-texto {
+    fill: var(--color-text-secondary-on-dark);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .mapa-ruta {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    opacity: 0.75;
+  }
+
+  .mapa-pulso {
+    fill: var(--color-accent);
+    opacity: 0;
+  }
+
+  .ciudad {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translate(-9px, -9px);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-ink);
+  }
+
+  .ciudad-izquierda {
+    flex-direction: row-reverse;
+    transform: translate(calc(-100% + 9px), -9px);
+  }
+
+  .ciudad-pin {
+    position: relative;
+    flex: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    background: var(--color-night);
+    transition: transform 0.25s ease;
+  }
+
+  .ciudad-pin::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  .ciudad-pin::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    opacity: 0;
+    animation: ping 2.4s ease-out infinite;
+  }
+
+  .ciudad-nombre {
+    padding: 6px 10px;
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-pill);
+    background: var(--color-night);
+    white-space: nowrap;
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+  .ciudad-nombre small {
+    margin-left: 6px;
+    font-size: 11px;
+    color: var(--color-text-secondary-on-dark);
+  }
+
+  .ciudad:hover .ciudad-pin,
+  .ciudad:focus-visible .ciudad-pin,
+  .ciudad[aria-pressed='true'] .ciudad-pin {
+    transform: scale(1.25);
+  }
+
+  .ciudad[aria-pressed='true'] .ciudad-nombre {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-night);
+  }
+
+  .ciudad[aria-pressed='true'] .ciudad-nombre small {
+    color: var(--color-night);
+  }
+
+  .ciudad:focus-visible {
+    outline: none;
+  }
+
+  .ciudad:focus-visible .ciudad-nombre {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  @keyframes ping {
+    from {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    to {
+      transform: scale(2.6);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ciudad-pin::after {
+      animation: none;
+    }
+    .ciudad-pin {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { iniciarMapa } from '../motion/mapa';
+
+  for (const mapa of document.querySelectorAll<HTMLElement>('[data-mapa]')) {
+    iniciarMapa(mapa);
+  }
+</script>

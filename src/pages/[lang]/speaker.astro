@@ -1,0 +1,72 @@
+---
+// Charlas (speaker kit). Los testimonios de organizadores no se publican hasta tener reales, y
+// el one-sheet en PDF queda pendiente.
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import BioTresLargos from '../../components/sections/BioTresLargos.astro';
+import EscenarioSpeaker from '../../components/speaker/EscenarioSpeaker.astro';
+import FormatosSpeaker from '../../components/speaker/FormatosSpeaker.astro';
+import HeroSpeaker from '../../components/speaker/HeroSpeaker.astro';
+import InvitarSpeaker from '../../components/speaker/InvitarSpeaker.astro';
+import TematicasSpeaker from '../../components/speaker/TematicasSpeaker.astro';
+import { publishedLocales } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import { localizedPath } from '../../i18n/routes';
+import Base from '../../layouts/Base.astro';
+import {
+  getBio,
+  getEventosSpeaker,
+  getFormularioGeneral,
+  getMapaCharlas,
+  getPaginaSpeaker,
+} from '../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const [textos, eventos, ciudades, bio, formulario] = await Promise.all([
+  getPaginaSpeaker(lang),
+  getEventosSpeaker(lang),
+  getMapaCharlas(lang),
+  getBio(lang),
+  getFormularioGeneral(lang),
+]);
+---
+
+<Base
+  locale={lang}
+  title={t.pages.speaker.title}
+  description={textos.hero.texto}
+  route="speaker"
+  headerCta={{ texto: t.header.charlas, href: '#invitar' }}
+>
+  {/* Sin JavaScript: se ven los tres paneles del mapa y no aparecen los botones que no harían nada. */}
+  <noscript slot="head">
+    <style is:inline>
+      [data-copiar],
+      [data-pausar-cinta] {
+        display: none;
+      }
+      /* Tailwind oculta [hidden] con !important en @layer base: misma capa, más específica. */
+      @layer base {
+        [data-panel-ciudad][hidden] {
+          display: grid !important;
+        }
+      }
+    </style>
+  </noscript>
+  <HeroSpeaker {...textos.hero} />
+  <EscenarioSpeaker
+    textos={textos.escenario}
+    eventos={eventos}
+    ciudades={ciudades}
+    eventosHref={localizedPath(lang, 'eventos')}
+  />
+  <TematicasSpeaker textos={textos.tematicas} pausar={textos.tematicas.pausar} />
+  <BioTresLargos bio={bio} eyebrow={textos.bio.eyebrow} titulo={textos.bio.titulo} />
+  <FormatosSpeaker textos={textos.formatos} />
+  <InvitarSpeaker locale={lang} textos={textos.invitar} comunes={formulario} />
+</Base>

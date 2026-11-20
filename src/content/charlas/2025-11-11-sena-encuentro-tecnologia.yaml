@@ -8,6 +8,9 @@ resumen:
 tipo: charla
 lugar:
   es: 'Barranquilla'
+ciudad: barranquilla
 foto: ../../assets/fotos/charla_2025-11-11_sena-encuentro-tecnologia-innovacion_luis-reyes-vanegas_001.jpg
 alt:
   es: 'Auditorio lleno en el Encuentro de Tecnología e Innovación del SENA, visto desde el escenario'
+speaker:
+  orden: 3

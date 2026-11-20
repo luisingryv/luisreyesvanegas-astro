@@ -88,3 +88,60 @@ describe('agenda de Consultoría', () => {
     expect(errores({ ...agenda, gasto: 'x'.repeat(61) })).toEqual({ gasto: 'muy-largo' });
   });
 });
+
+describe('invitación a una charla', () => {
+  const invitacion = {
+    formulario: 'speaker',
+    evento: 'DevFest Barranquilla',
+    fecha: '2026-11-28',
+    ciudad: 'Barranquilla',
+    email: 'organizacion@ejemplo.com',
+    acepta: 'on',
+  };
+
+  it('pide evento, fecha, ciudad, correo y autorización; audiencia y presupuesto son opcionales', () => {
+    expect(solicitud.safeParse({ ...invitacion, audiencia: '', presupuesto: '' }).success).toBe(
+      true,
+    );
+    expect(errores({ formulario: 'speaker' })).toEqual({
+      evento: 'requerido',
+      fecha: 'requerido',
+      ciudad: 'requerido',
+      email: 'requerido',
+      acepta: 'debe-aceptar',
+    });
+  });
+
+  it('valida la fecha y el presupuesto', () => {
+    expect(errores({ ...invitacion, fecha: '28/11/2026' })).toEqual({ fecha: 'invalido' });
+    expect(errores({ ...invitacion, presupuesto: 'mucho' })).toEqual({ presupuesto: 'invalido' });
+    expect(solicitud.safeParse({ ...invitacion, presupuesto: 'comunidad' }).success).toBe(true);
+  });
+});
+
+describe('contacto de prensa', () => {
+  const prensa = {
+    formulario: 'prensa',
+    nombre: 'Laura Gómez',
+    medio: 'El Heraldo',
+    necesidad: 'entrevista',
+    email: 'laura@ejemplo.com',
+    acepta: 'on',
+  };
+
+  it('pide nombre, medio, necesidad, correo y autorización; cierre y detalles son opcionales', () => {
+    expect(solicitud.safeParse({ ...prensa, cierre: '', mensaje: '' }).success).toBe(true);
+    expect(errores({ formulario: 'prensa' })).toEqual({
+      nombre: 'requerido',
+      medio: 'requerido',
+      necesidad: 'requerido',
+      email: 'requerido',
+      acepta: 'debe-aceptar',
+    });
+  });
+
+  it('valida la necesidad y la fecha de cierre', () => {
+    expect(errores({ ...prensa, necesidad: 'todo' })).toEqual({ necesidad: 'invalido' });
+    expect(errores({ ...prensa, cierre: 'mañana' })).toEqual({ cierre: 'invalido' });
+  });
+});

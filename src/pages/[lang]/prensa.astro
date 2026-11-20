@@ -1,0 +1,55 @@
+---
+// Prensa (kit de prensa): datos rápidos, bio, fotos oficiales, logos, datos del XPRIZE, el kit
+// completo en .zip y el contacto de prensa.
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import ContactoPrensa from '../../components/prensa/ContactoPrensa.astro';
+import SeccionesPrensa from '../../components/prensa/SeccionesPrensa.astro';
+import BioTresLargos from '../../components/sections/BioTresLargos.astro';
+import { publishedLocales } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import { localizedPath } from '../../i18n/routes';
+import Base from '../../layouts/Base.astro';
+import { getBio, getFormularioGeneral, getPaginaPrensa } from '../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const [textos, bio, formulario] = await Promise.all([
+  getPaginaPrensa(lang),
+  getBio(lang),
+  getFormularioGeneral(lang),
+]);
+const kitHref = `${localizedPath(lang, 'prensa')}/kit.zip`;
+---
+
+<Base
+  locale={lang}
+  title={t.pages.prensa.title}
+  description={textos.hero.texto}
+  route="prensa"
+  headerCta={{ texto: t.header.prensa, href: '#contacto-prensa' }}
+>
+  {/* Sin JavaScript, los botones "Copiar" no harían nada: el texto se selecciona a mano. */}
+  <noscript slot="head">
+    <style is:inline>
+      [data-copiar] {
+        display: none;
+      }
+    </style>
+  </noscript>
+  <SeccionesPrensa textos={textos} kitHref={kitHref} seccion="hero" />
+  <BioTresLargos
+    bio={bio}
+    eyebrow={textos.bio.eyebrow}
+    titulo={textos.bio.titulo}
+    texto={textos.bio.texto}
+    botonAbajo
+  />
+  <SeccionesPrensa textos={textos} kitHref={kitHref} seccion="fotos" />
+  <SeccionesPrensa textos={textos} kitHref={kitHref} seccion="xprize" />
+  <ContactoPrensa locale={lang} textos={textos.contacto} comunes={formulario} />
+</Base>

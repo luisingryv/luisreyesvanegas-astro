@@ -6,6 +6,8 @@ interface Props {
   image: ImageMetadata;
   alt: string;
   meta?: string;
+  /** Pastilla a la derecha de meta (tipo de evento). */
+  etiqueta?: string;
   title?: string;
   description?: string;
   titleAs?: 'h3' | 'p';
@@ -18,6 +20,7 @@ const {
   image,
   alt,
   meta,
+  etiqueta,
   title,
   description,
   titleAs: Title = 'p',
@@ -27,6 +30,21 @@ const {
 } = Astro.props;
 
 const isCard = variant === 'card';
+
+// La foto va completa (contain) en un marco 4:3: una foto vertical se ve más angosta que el marco.
+// sizes describe el ancho del marco; se escala al ancho real para no bajar píxeles de más.
+const proporcion = image.width / image.height / (4 / 3);
+const sizesReales =
+  proporcion >= 1
+    ? sizes
+    : sizes
+        .split(',')
+        .map((parte) => {
+          const trozos = parte.trim().split(/\s+/);
+          const ancho = trozos.pop()!;
+          return [...trozos, `calc(${ancho} * ${proporcion.toFixed(3)})`].join(' ');
+        })
+        .join(', ');
 ---
 
 <figure
@@ -48,15 +66,24 @@ const isCard = variant === 'card';
     <Image
       src={image}
       alt={alt}
-      widths={[400, 800, 1200]}
-      sizes={sizes}
+      widths={[320, 480, 640, 800, 1200]}
+      sizes={sizesReales}
       loading={loading}
+      quality={isCard ? 70 : undefined}
       class="relative size-full object-contain"
     />
   </div>
   {(meta || title) && (
     <figcaption class:list={['flex flex-col gap-1.5', isCard && 'p-5']}>
-      {meta && <span class="text-caption text-blue-300">{meta}</span>}
+      {meta && !etiqueta && <span class="text-caption text-blue-300">{meta}</span>}
+      {meta && etiqueta && (
+        <span class="flex flex-wrap items-center justify-between gap-2">
+          <span class="text-caption text-blue-300">{meta}</span>
+          <span class="rounded-pill bg-accent px-2 py-1 text-[11px] leading-none font-bold text-night">
+            {etiqueta}
+          </span>
+        </span>
+      )}
       {title && <Title class="text-title-sm font-bold text-ink">{title}</Title>}
       {description && <p class="text-small text-ink-muted">{description}</p>}
     </figcaption>

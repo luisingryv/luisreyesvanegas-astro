@@ -1,0 +1,13 @@
+fecha: 2024-07-22
+evento: 'BAQ.JS'
+titulo:
+  es: 'Aprende a crear un chatbot con Gemini, Next.js y Firebase'
+detalle:
+  es: 'Aprende a crear un chatbot con Gemini, Next.js y Firebase.'
+tipo: charla
+lugar:
+  es: 'Barranquilla'
+ciudad: barranquilla
+foto: ../../assets/fotos/evento_2024-07-22_baqjs-chatbot-gemini-detras-de-camaras_luis-reyes-vanegas_001.jpg
+alt:
+  es: 'Cámara grabando a Luis Reyes durante su charla en BAQ.JS'

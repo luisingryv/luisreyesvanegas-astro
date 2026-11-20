@@ -1,0 +1,109 @@
+---
+// Secciones del CV tal cual el prototipo: logros con cifra y fuente, experiencia, stack y
+// competencias (pieza 12) con formación y certificaciones, y charlas y comunidad. Las
+// recomendaciones de ejemplo no se publican.
+import Section from '../brand/Section.astro';
+import CompetenciasCv from './CompetenciasCv.astro';
+import type { PaginaCv } from '../../lib/content';
+
+interface Props {
+  textos: PaginaCv;
+  sobreMiHref: string;
+  eventosHref: string;
+}
+
+const { textos, sobreMiHref, eventosHref } = Astro.props;
+const h2 = 'text-[clamp(26px,3vw,36px)] leading-[1.15] font-bold';
+---
+
+<Section tone="light" class="py-[clamp(48px,6vw,80px)]!" aria-labelledby="logros-titulo" reveal>
+  <div class="flex flex-col gap-6">
+    <h2 id="logros-titulo" class={h2}>
+      {textos.logros.titulo}
+    </h2>
+    <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3.5">
+      {textos.logros.lista.map((logro) => (
+        <li class="flex min-w-0 flex-col gap-2 rounded-md border border-blue-300 p-5.5">
+          <span class="text-[clamp(26px,2.6vw,32px)] leading-[1.1] font-bold text-link">
+            {logro.metrica}
+          </span>
+          <span class="text-[15px] text-ink-muted">{logro.texto}</span>
+          <span class="mt-auto text-[12px] text-blue-600">{logro.quien}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Section>
+
+<Section
+  tone="light"
+  class="bg-blue-100! py-[clamp(48px,6vw,80px)]!"
+  aria-labelledby="experiencia-titulo"
+  reveal
+>
+  <div class="flex flex-col gap-6">
+    <h2 id="experiencia-titulo" class={h2}>
+      {textos.experiencia.titulo}
+    </h2>
+    <ol>
+      {textos.experiencia.lista.map((puesto) => (
+        <li class="experiencia grid grid-cols-[minmax(110px,160px)_minmax(0,1fr)] gap-x-6 gap-y-2 border-t border-blue-300 py-5">
+          <span class="text-[14px] font-bold text-blue-600">{puesto.anios}</span>
+          <div class="flex min-w-0 flex-col gap-1">
+            <h3 class="text-[18px] font-bold">{puesto.rol}</h3>
+            <span class="text-[15px] font-bold text-link">{puesto.org}</span>
+            <p class="text-[15px] text-ink-muted">{puesto.texto}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <a href={sobreMiHref} class="self-start font-bold text-link hover:underline">
+      {textos.experiencia.historia} <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</Section>
+
+<Section tone="light" class="py-[clamp(48px,6vw,80px)]!" aria-labelledby="stack-titulo">
+  <div class="flex flex-col gap-12">
+    <div class="flex flex-col gap-4">
+      <h2 id="stack-titulo" class={h2}>
+        {textos.competencias.titulo}
+      </h2>
+      <CompetenciasCv textos={textos.competencias} />
+    </div>
+    <div class="flex flex-col gap-4">
+      <h2 class={h2}>{textos.formacion.titulo}</h2>
+      <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-x-10">
+        {textos.formacion.lista.map((item) => (
+          <li class="flex justify-between gap-3 border-t border-blue-200 py-2.5 text-[15px]">
+            <span>
+              <b>{item.nombre}</b>
+              <br />
+              <span class="text-ink-muted">{item.emisor}</span>
+            </span>
+            {item.fecha && (
+              <span class="text-[12px] whitespace-nowrap text-blue-600">{item.fecha}</span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Section>
+
+<Section
+  tone="light"
+  class="bg-blue-100! py-[clamp(48px,6vw,80px)]!"
+  aria-labelledby="comunidad-titulo"
+  reveal
+>
+  <div class="flex max-w-[64ch] flex-col gap-3.5">
+    <h2 id="comunidad-titulo" class={h2}>
+      {textos.comunidad.titulo}
+    </h2>
+    <p class="text-ink-muted">{textos.comunidad.texto}</p>
+    <a href={eventosHref} class="self-start font-bold text-link hover:underline">
+      {textos.comunidad.enlace} <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</Section>

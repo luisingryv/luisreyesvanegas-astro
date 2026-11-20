@@ -1,0 +1,40 @@
+# Textos de Eventos (prototipo aprobado). Los eventos salen de la colección de charlas.
+# La sección "Lo que estoy leyendo y pensando" (noticias) no se publica: en el prototipo solo
+# tiene textos de ejemplo entre corchetes.
+hero:
+  eyebrow:
+    es: 'Eventos y charlas'
+  titulo:
+    es: 'Dónde he hablado'
+  texto:
+    es: 'Charlas, talleres y paneles sobre nube, IA y comunidad. Si quieres que vaya a tu evento, cuéntamelo.'
+  foto: ../../assets/fotos/pieza_sin-fecha_banner-eventos_luis-reyes-vanegas_001.png
+  fotoAlt:
+    es: 'Luis Reyes hablando con micrófono en el escenario'
+  pestanas:
+    es: 'Eventos'
+  proximos:
+    es: 'Próximos'
+  pasados:
+    es: 'Pasados'
+proximos:
+  etiqueta:
+    es: 'Próximos eventos'
+  vacio:
+    es: 'Por ahora no tengo eventos anunciados.'
+  invitar:
+    es: '¿Organizas uno? Invítame'
+pasados:
+  etiqueta:
+    es: 'Eventos pasados'
+tipos:
+  charla:
+    es: 'Charla'
+  charla-y-panel:
+    es: 'Charla y panel'
+  comunidad:
+    es: 'Comunidad'
+  podcast:
+    es: 'Podcast'
+  webinar:
+    es: 'Webinar'

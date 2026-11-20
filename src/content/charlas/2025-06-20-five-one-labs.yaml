@@ -1,0 +1,13 @@
+fecha: 2025-06-20
+evento: 'Five One Labs'
+titulo:
+  es: 'De la idea al producto'
+detalle:
+  es: 'De la idea al producto.'
+tipo: charla
+lugar:
+  es: 'Barranquilla'
+ciudad: barranquilla
+foto: ../../assets/fotos/charla_2025-06-20_five-one-labs-de-la-idea-al-producto_luis-reyes-vanegas_001.jpg
+alt:
+  es: 'Luis Reyes presentando en Five One Labs'
