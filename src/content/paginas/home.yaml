@@ -169,7 +169,7 @@ contacto:
       es: 'y el tratamiento de mis datos para responder este mensaje.'
   enviar:
     es: 'Enviar'
-  # Mensajes después de enviar sin JavaScript. No están en el prototipo: pendientes de aprobar.
+  # Mensajes después de enviar. No están en el prototipo; Luis los aprobó el 20 nov 2026.
   enviado:
     es: 'Gracias. Recibí tu mensaje y te respondo pronto.'
   error:
