@@ -1,5 +1,5 @@
 # Política de tratamiento de datos personales (prototipo aprobado, Legal). Sin las menciones a
-# analítica y datos de navegación (Luis, 20 nov 2026). {clave}: dato de src/config/legal.ts.
+# analítica y datos de navegación ni el documento de identidad (Luis, 20 nov 2026). {clave}: dato de src/config/legal.ts.
 orden: 1
 eyebrow:
   es: 'Legal'
@@ -11,7 +11,7 @@ secciones:
   - titulo:
       es: 'Responsable'
     texto:
-      es: 'Luis Carlos Reyes Vanegas, persona natural, {documento}, con domicilio en {ciudad}, Colombia. Correo para asuntos de privacidad: {correoPrivacidad}.'
+      es: 'Luis Carlos Reyes Vanegas, persona natural, con domicilio en {ciudad}, Colombia. Correo para asuntos de privacidad: {correoPrivacidad}.'
   - titulo:
       es: 'Qué datos recogemos y para qué'
     texto:

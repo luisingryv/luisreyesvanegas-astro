@@ -72,20 +72,47 @@ test.describe('Contacto', () => {
 test.describe('Legal y tareas', () => {
   test.skip(({ isMobile }) => isMobile, 'solo escritorio');
 
-  test('las páginas legales no se publican mientras falten datos del responsable', async ({
-    request,
+  test('las dos páginas legales están publicadas, completas y en el sitemap', async ({
     page,
+    request,
   }) => {
-    for (const ruta of ['/es/legal/privacidad', '/es/legal/terminos']) {
-      expect((await request.get(ruta)).status()).toBe(404);
-    }
-    expect(await (await request.get('/sitemap.xml')).text()).not.toContain('/legal/');
-    // El pie y los formularios ya enlazan a la política.
-    await page.goto('/es');
-    await expect(page.getByRole('link', { name: 'Privacidad y términos' })).toHaveAttribute(
-      'href',
-      '/es/legal/privacidad',
+    await page.goto('/es/legal/privacidad');
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+      'Política de tratamiento de datos personales',
     );
+    await expect(page.getByText('Vigente desde 20 de noviembre de 2026.')).toBeVisible();
+    await expect(
+      page.getByText(/persona natural, con domicilio en Barranquilla, Colombia/),
+    ).toBeVisible();
+    await expect(page.getByRole('link', { name: 'legal@luisreyesvanegas.com' })).toHaveAttribute(
+      'href',
+      'mailto:legal@luisreyesvanegas.com',
+    );
+    await expect(page.getByText(/hasta 24 meses desde el último contacto/)).toBeVisible();
+    // Sin datos pendientes, sin corchetes y sin menciones a analítica.
+    await expect(page.locator('[data-dato-pendiente]')).toHaveCount(0);
+    await expect(page.locator('main')).not.toContainText('[');
+    await expect(page.locator('main')).not.toContainText(/analítica|navegación/);
+    await expect(page.getByRole('link', { name: 'Política de datos personales' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+
+    await page.getByRole('link', { name: 'Términos de uso' }).click();
+    await expect(page).toHaveURL(/\/es\/legal\/terminos$/);
+    await expect(page.getByText(/Contacto: legal@luisreyesvanegas\.com\./)).toBeVisible();
+
+    const sitemap = await (await request.get('/sitemap.xml')).text();
+    expect(sitemap).toContain('<loc>https://luisreyesvanegas.com/es/legal/privacidad</loc>');
+    expect(sitemap).toContain('<loc>https://luisreyesvanegas.com/es/legal/terminos</loc>');
+  });
+
+  test('las páginas legales no tienen errores de accesibilidad', async ({ page }) => {
+    for (const ruta of ['/es/legal/privacidad', '/es/legal/terminos']) {
+      await page.goto(ruta);
+      const { violations } = await new AxeBuilder({ page }).withTags(WCAG_AA).analyze();
+      expect(violations.map((v) => `${ruta} ${v.id}: ${v.help}`)).toEqual([]);
+    }
   });
 
   test('la tarea de sincronización exige su token', async ({ request }) => {

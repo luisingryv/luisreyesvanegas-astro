@@ -6,7 +6,8 @@
       "url": [
         "http://127.0.0.1:4399/es",
         "http://127.0.0.1:4399/es/sobre-mi",
-        "http://127.0.0.1:4399/es/contacto"
+        "http://127.0.0.1:4399/es/contacto",
+        "http://127.0.0.1:4399/es/legal/privacidad"
       ],
       "numberOfRuns": 3,
       "settings": {
