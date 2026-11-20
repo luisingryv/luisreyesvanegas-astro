@@ -14,17 +14,26 @@ interface Props {
   route?: RouteKey;
   /** A dónde lleva "Agendar sesión" mientras no haya URL de la agenda (p. ej. '#agenda'). */
   agendaSinUrl?: string;
+  /** Fondo night con logo blanco, o blanco con logo azul en páginas claras. */
+  tema?: 'dark' | 'light';
 }
 
-const { locale, route, agendaSinUrl } = Astro.props;
+const { locale, route, agendaSinUrl, tema = 'dark' } = Astro.props;
+const claro = tema === 'light';
 const t = getDictionary(locale);
 const ctaHref = bookingUrl(locale, agendaSinUrl);
 ---
 
-<header data-theme="dark" class="relative border-b border-hairline bg-surface text-ink">
+<header
+  data-theme={claro ? undefined : 'dark'}
+  class:list={[
+    'relative border-b bg-surface text-ink',
+    claro ? 'border-blue-200' : 'border-hairline',
+  ]}
+>
   <Container class="flex items-center justify-between gap-6 py-4">
     <a href={localizedPath(locale, 'home')} class="shrink-0">
-      <Logo alt={t.meta.siteName} />
+      <Logo alt={t.meta.siteName} version={claro ? 'color' : 'blanco'} />
     </a>
 
     <div class="hidden xl:block">
@@ -42,7 +51,12 @@ const ctaHref = bookingUrl(locale, agendaSinUrl);
       <summary class="cursor-pointer list-none rounded-pill border border-gray-700 px-4.5 py-3 text-small leading-none font-bold [&::-webkit-details-marker]:hidden">
         {t.a11y.menu}
       </summary>
-      <div class="absolute inset-x-0 top-full z-40 border-b border-hairline bg-surface">
+      <div
+        class:list={[
+          'absolute inset-x-0 top-full z-40 border-b bg-surface',
+          claro ? 'border-blue-200' : 'border-hairline',
+        ]}
+      >
         <Container class="flex flex-col gap-6 py-6">
           <NavLinks locale={locale} current={route} orientation="vertical" />
           <LanguageSwitcher locale={locale} route={route} />

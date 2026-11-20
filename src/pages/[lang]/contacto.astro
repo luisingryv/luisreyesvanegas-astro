@@ -1,0 +1,89 @@
+---
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import Eyebrow from '../../components/brand/Eyebrow.astro';
+import RouterCard from '../../components/brand/RouterCard.astro';
+import Section from '../../components/brand/Section.astro';
+import SeccionFormulario from '../../components/sections/SeccionFormulario.astro';
+import { evoluteccUrl } from '../../config/site';
+import { publishedLocales } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import { localizedPath } from '../../i18n/routes';
+import Base from '../../layouts/Base.astro';
+import { getFormularioGeneral, getPaginaContacto, type PaginaContacto } from '../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const [pagina, formulario] = await Promise.all([
+  getPaginaContacto(lang),
+  getFormularioGeneral(lang),
+]);
+
+const destino = (d: PaginaContacto['opciones'][number]['destino']) => {
+  if ('evolutecc' in d) return { href: evoluteccUrl('contacto'), external: true };
+  if ('ruta' in d) return { href: localizedPath(lang, d.ruta, d.ancla), external: false };
+  return { href: `#${d.ancla}`, external: false };
+};
+---
+
+<Base
+  locale={lang}
+  title={t.pages.contacto.title}
+  description={pagina.hero.texto}
+  route="contacto"
+  agendaSinUrl="#general"
+>
+  <Section
+    tone="dark"
+    spacing="hero"
+    class="pb-[clamp(32px,4vw,56px)]!"
+    aria-labelledby="contacto-titulo"
+  >
+    <div class="flex flex-col gap-4.5">
+      <Eyebrow>{pagina.hero.eyebrow}</Eyebrow>
+      <h1 id="contacto-titulo" class="max-w-[18ch] text-display font-bold text-balance">
+        {pagina.hero.titulo}
+      </h1>
+      <p class="max-w-[60ch] text-lead text-text-secondary-on-dark">{pagina.hero.texto}</p>
+    </div>
+  </Section>
+
+  <Section tone="dark" reveal aria-label={t.contacto.opciones}>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-4">
+      {pagina.opciones.map((opcion) => {
+        const { href, external } = destino(opcion.destino);
+        return (
+          <li class="grid">
+            <RouterCard
+              href={href}
+              external={external}
+              size="sm"
+              tag={opcion.etiqueta}
+              title={opcion.titulo}
+              text={opcion.texto}
+              cta={opcion.boton}
+            />
+          </li>
+        );
+      })}
+    </ul>
+  </Section>
+
+  <SeccionFormulario
+    locale={lang}
+    id="general"
+    ruta="contacto"
+    tono="dark-raised"
+    eyebrow={pagina.formulario.eyebrow}
+    titulo={pagina.formulario.titulo}
+    textoWhatsapp={pagina.formulario.textoWhatsapp}
+    tema={pagina.formulario.tema}
+    temas={pagina.formulario.temas}
+    comunes={formulario}
+    filasMensaje={5}
+  />
+</Base>

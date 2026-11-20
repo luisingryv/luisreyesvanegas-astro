@@ -22,6 +22,8 @@ interface Props {
   type?: 'website' | 'profile' | 'article';
   /** Destino de "Agendar sesión" sin URL de la agenda (ver Header). */
   agendaSinUrl?: string;
+  /** Tema del header: claro en páginas claras (Legal). */
+  tema?: 'dark' | 'light';
 }
 
 // Tarjetas generadas con scripts/og/generar.mjs (una por idioma publicado).
@@ -37,6 +39,7 @@ const {
   imageAlt,
   type = 'website',
   agendaSinUrl,
+  tema,
 } = Astro.props;
 const t = getDictionary(locale);
 const absolute = (path: string) => new URL(path, Astro.site).toString();
@@ -108,7 +111,7 @@ const og = await getImage({
     >
       {t.a11y.skipToContent}
     </a>
-    <Header locale={locale} route={route} agendaSinUrl={agendaSinUrl} />
+    <Header locale={locale} route={route} agendaSinUrl={agendaSinUrl} tema={tema} />
     <main id="contenido" class="flex-1">
       <slot />
     </main>

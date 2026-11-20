@@ -1,0 +1,41 @@
+# Términos de uso (prototipo aprobado, Legal). {clave}: dato de src/config/legal.ts.
+orden: 2
+eyebrow:
+  es: 'Legal'
+titulo:
+  es: 'Términos de uso'
+navegacion:
+  es: 'Términos de uso'
+secciones:
+  - titulo:
+      es: 'Para qué sirve el sitio'
+    texto:
+      es: 'Presenta mi trayectoria, mis servicios, mis charlas y los productos en los que participo. Es informativo y no reemplaza una propuesta firmada.'
+  - titulo:
+      es: 'Servicios y precios'
+    texto:
+      es: 'Solo la sesión de arquitectura tiene precio publicado (US$450). Lo demás se cotiza después de conocer tu caso. El desarrollo a la medida lo presta EvolutecC.'
+  - titulo:
+      es: 'Resultados y cifras'
+    texto:
+      es: 'Los casos son reales y se publican con permiso. No garantizan el mismo resultado en tu caso. Los incentivos, fondos y beneficios de apoyo de Amazon Web Services están sujetos a evaluación, validación y aprobación previa por parte de Amazon Web Services. Su disponibilidad dependerá del cumplimiento de los requisitos y criterios de elegibilidad establecidos por AWS para cada programa y proyecto. La presentación de una solicitud no garantiza la aprobación y asignación.'
+  - titulo:
+      es: 'Productos e inversión'
+    texto:
+      es: 'Nada en el sitio es una oferta pública de valores ni una invitación a invertir.'
+  - titulo:
+      es: 'Propiedad intelectual'
+    texto:
+      es: 'El contenido es mío o se usa con autorización. Las marcas de terceros pertenecen a sus dueños y mencionarlas no implica patrocinio.'
+  - titulo:
+      es: 'Uso adecuado'
+    texto:
+      es: 'No envíes información falsa, no intentes acceder sin permiso a los sistemas y no uses los formularios para publicidad no solicitada.'
+  - titulo:
+      es: 'Enlaces y responsabilidad'
+    texto:
+      es: 'No controlo los sitios de terceros enlazados. El sitio se ofrece tal como está.'
+  - titulo:
+      es: 'Ley aplicable'
+    texto:
+      es: 'Estos términos se rigen por las leyes de Colombia. Contacto: {correoContacto}.'

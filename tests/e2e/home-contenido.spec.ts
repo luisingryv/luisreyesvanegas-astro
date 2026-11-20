@@ -110,7 +110,7 @@ test.describe('Home · formulario', () => {
     );
     await expect(form.getByRole('link', { name: 'política de privacidad' })).toHaveAttribute(
       'href',
-      '/es/legal',
+      '/es/legal/privacidad',
     );
     await expect(page.locator('#formulario-enviado')).toBeHidden();
   });

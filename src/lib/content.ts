@@ -275,3 +275,38 @@ export async function getCharlasRecientes(
       ];
     });
 }
+
+// ─── Legal ────────────────────────────────────────────────────
+
+export const DOCUMENTOS_LEGALES = ['privacidad', 'terminos'] as const;
+export type DocumentoLegalId = (typeof DOCUMENTOS_LEGALES)[number];
+
+export async function getDocumentosLegales(locale: PublishedLocale) {
+  const documentos = await getCollection('legal');
+  return documentos
+    .sort((a, b) => a.data.orden - b.data.orden)
+    .map(({ id, data }) => ({
+      id: id as DocumentoLegalId,
+      ...resolveLocalized(data, locale, `legal/${id}`),
+    }));
+}
+
+export type DocumentoLegal = Awaited<ReturnType<typeof getDocumentosLegales>>[number];
+
+// ─── Formularios y Contacto ───────────────────────────────────
+
+export async function getFormularioGeneral(locale: PublishedLocale) {
+  const entry = await getEntry('formularios', 'general');
+  if (!entry) throw new Error('Falta src/content/formularios/general.yaml.');
+  return resolveLocalized(entry.data, locale, 'formularios/general');
+}
+
+export type FormularioGeneral = Awaited<ReturnType<typeof getFormularioGeneral>>;
+
+export async function getPaginaContacto(locale: PublishedLocale) {
+  const entry = await getEntry('contacto', 'contacto');
+  if (!entry) throw new Error('Falta src/content/paginas/contacto.yaml.');
+  return resolveLocalized(entry.data, locale, 'paginas/contacto');
+}
+
+export type PaginaContacto = Awaited<ReturnType<typeof getPaginaContacto>>;

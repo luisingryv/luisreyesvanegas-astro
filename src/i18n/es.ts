@@ -77,6 +77,16 @@ export const es = {
       debeAceptar: 'Para enviar el mensaje, acepta la política de privacidad.',
     },
   },
+  contacto: {
+    opciones: 'Opciones de contacto',
+  },
+  legal: {
+    bajada:
+      'Cómo trato tus datos personales y las reglas de uso de este sitio. Vigente desde {vigencia}.',
+    navegacion: 'Documentos legales',
+    // Solo en local, mientras falte el dato (nunca se publica).
+    pendiente: 'pendiente',
+  },
   logros: {
     // Pieza 02: rótulo de la tarjeta antes de desbloquearse.
     bloqueado: 'Bloqueado',
@@ -88,6 +98,9 @@ export const es = {
     // Posicionamiento del documento madre (sección 2).
     home: {
       title: 'Arquitecto de soluciones cloud e IA',
+    },
+    contacto: {
+      title: 'Contacto',
     },
     sobreMi: {
       title: 'Sobre mí',

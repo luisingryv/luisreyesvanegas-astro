@@ -5,7 +5,7 @@
 import type { APIRoute } from 'astro';
 import { getDb } from '../../lib/db';
 import { procesarSolicitud, type ResultadoSolicitud } from '../../lib/formularios/procesar';
-import { getIntegraciones } from '../../lib/servicios/integraciones';
+import { getIntegraciones } from '../../lib/servicios';
 
 export const prerender = false;
 

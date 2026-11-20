@@ -140,6 +140,71 @@ const logros = defineCollection({
     }),
 });
 
+// Opciones del campo "tema" de un formulario: su valor se guarda como puerta.
+const temas = z
+  .array(z.object({ valor: z.string().regex(/^[a-z0-9-]+$/), texto: localized }))
+  .min(1);
+
+// Textos comunes del formulario general (Home y Contacto).
+const formularios = defineCollection({
+  loader: entries('formularios'),
+  schema: z.object({
+    whatsapp: localized,
+    campos: z.object({ nombre: localized, correo: localized, mensaje: localized }),
+    autorizacion: z.object({ antes: localized, enlace: localized, despues: localized }),
+    enviar: localized,
+    enviado: localized,
+    error: localized,
+  }),
+});
+
+// Textos propios de Contacto.
+const contacto = defineCollection({
+  loader: glob({ pattern: 'contacto.yaml', base: './src/content/paginas' }),
+  schema: z.object({
+    hero: z.object({ eyebrow: localized, titulo: localized, texto: localized }),
+    opciones: z
+      .array(
+        z.object({
+          etiqueta: localized,
+          titulo: localized,
+          texto: localized,
+          boton: localized,
+          /** Página del sitio, ancla de esta página o EvolutecC (con UTM). */
+          destino: z.union([
+            z.object({
+              ruta: z.enum(['consultoria', 'programasAws', 'productos', 'speaker']),
+              ancla: z.string().optional(),
+            }),
+            z.object({ ancla: z.string() }),
+            z.object({ evolutecc: z.literal(true) }),
+          ]),
+        }),
+      )
+      .min(1),
+    formulario: z.object({
+      eyebrow: localized,
+      titulo: localized,
+      /** Se muestra solo si hay número de WhatsApp. */
+      textoWhatsapp: localized,
+      tema: localized,
+      temas,
+    }),
+  }),
+});
+
+// Documentos legales: política de datos y términos de uso (dos páginas, Luis 20 nov 2026).
+const legal = defineCollection({
+  loader: entries('legal'),
+  schema: z.object({
+    orden: z.number().int(),
+    eyebrow: localized,
+    titulo: localized,
+    navegacion: localized,
+    secciones: z.array(z.object({ titulo: localized, texto: localized })).min(1),
+  }),
+});
+
 // Textos propios del Home.
 const home = defineCollection({
   loader: glob({ pattern: 'home.yaml', base: './src/content/paginas' }),
@@ -212,18 +277,8 @@ const home = defineCollection({
       contacto: z.object({
         ...encabezado,
         texto: localized,
-        whatsapp: localized,
-        campos: z.object({
-          nombre: localized,
-          correo: localized,
-          tema: localized,
-          mensaje: localized,
-        }),
-        temas: z.array(z.object({ valor: z.string().regex(/^[a-z0-9-]+$/), texto: localized })),
-        autorizacion: z.object({ antes: localized, enlace: localized, despues: localized }),
-        enviar: localized,
-        enviado: localized,
-        error: localized,
+        tema: localized,
+        temas,
       }),
     });
   },
@@ -275,6 +330,9 @@ const sobreMi = defineCollection({
 
 export const collections = {
   home,
+  contacto,
+  formularios,
+  legal,
   logros,
   sobreMi,
   capitulos,

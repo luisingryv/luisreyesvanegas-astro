@@ -1,17 +1,20 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '../../assets/brand/marca-h-color-blanco.svg';
+import logoBlanco from '../../assets/brand/marca-h-color-blanco.svg';
+import logoColor from '../../assets/brand/marca-h-color.svg';
 
 interface Props {
   alt: string;
   size?: 'md' | 'sm';
+  /** blanco sobre fondos oscuros; color (azul) sobre fondos claros. */
+  version?: 'blanco' | 'color';
 }
 
-const { alt, size = 'md' } = Astro.props;
+const { alt, size = 'md', version = 'blanco' } = Astro.props;
 ---
 
 <Image
-  src={logo}
+  src={version === 'color' ? logoColor : logoBlanco}
   alt={alt}
   loading="eager"
   class:list={['block w-auto', size === 'md' ? 'h-8.5' : 'h-7']}

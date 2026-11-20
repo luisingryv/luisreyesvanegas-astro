@@ -1,4 +1,4 @@
-import { CALENDAR_BOOKING_URL } from 'astro:env/server';
+import { CALENDAR_BOOKING_URL, WHATSAPP_NUMERO } from 'astro:env/server';
 import type { Locale } from '../i18n/config';
 import { localizedPath } from '../i18n/routes';
 
@@ -24,3 +24,8 @@ export function evoluteccUrl(campaign: string): string {
 export function bookingUrl(locale: Locale, sinAgenda?: string): string {
   return CALENDAR_BOOKING_URL ?? sinAgenda ?? localizedPath(locale, 'contacto');
 }
+
+/** WhatsApp corporativo: número para mostrar y enlace de wa.me. undefined hasta que Luis lo entregue. */
+export const whatsapp = WHATSAPP_NUMERO
+  ? { numero: WHATSAPP_NUMERO, url: `https://wa.me/${WHATSAPP_NUMERO.replace(/\D/g, '')}` }
+  : undefined;

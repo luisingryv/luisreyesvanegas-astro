@@ -5,13 +5,16 @@ export const routes = {
   home: '',
   consultoria: 'consultoria',
   productos: 'productos',
+  programasAws: 'programas-aws',
   casos: 'casos',
   eventos: 'eventos',
   sobreMi: 'sobre-mi',
   speaker: 'speaker',
   prensa: 'prensa',
   contacto: 'contacto',
-  legal: 'legal',
+  // Dos páginas legales (Luis, 20 nov 2026).
+  privacidad: 'legal/privacidad',
+  terminos: 'legal/terminos',
 } as const;
 
 export type RouteKey = keyof typeof routes;

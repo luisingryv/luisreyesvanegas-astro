@@ -1,0 +1,96 @@
+---
+// Sección con texto a la izquierda y el formulario general a la derecha. La usan el Home
+// (#agenda, sobre night) y Contacto (#general, sobre blue-800 con la tarjeta en night).
+import Eyebrow from '../brand/Eyebrow.astro';
+import Section from '../brand/Section.astro';
+import { FormularioContacto } from '../formularios/FormularioContacto';
+import { whatsapp } from '../../config/site';
+import { getDictionary } from '../../i18n';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath, type RouteKey } from '../../i18n/routes';
+import type { FormularioGeneral } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  id: string;
+  /** Ruta de la página, para volver a ella al enviar sin JavaScript. */
+  ruta: RouteKey;
+  tono?: 'dark' | 'dark-raised';
+  eyebrow: string;
+  titulo: string;
+  texto?: string;
+  /** Frase que acompaña al WhatsApp; solo aparece si hay número. */
+  textoWhatsapp?: string;
+  tema: string;
+  temas: { valor: string; texto: string }[];
+  comunes: FormularioGeneral;
+  filasMensaje?: number;
+}
+
+const {
+  locale,
+  id,
+  ruta,
+  tono = 'dark',
+  eyebrow,
+  titulo,
+  texto,
+  textoWhatsapp,
+  tema,
+  temas,
+  comunes,
+  filasMensaje,
+} = Astro.props;
+const t = getDictionary(locale);
+const tituloId = `${id}-titulo`;
+---
+
+<Section tone={tono} id={id} aria-labelledby={tituloId}>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-12">
+    <div class="flex min-w-0 flex-col gap-4">
+      <Eyebrow>{eyebrow}</Eyebrow>
+      <h2 id={tituloId} class="text-heading-lg font-bold text-balance">
+        {titulo}
+      </h2>
+      {texto && <p class="text-text-secondary-on-dark">{texto}</p>}
+      {whatsapp && (
+        <>
+          {textoWhatsapp && <p class="text-text-secondary-on-dark">{textoWhatsapp}</p>}
+          <p class="text-small text-blue-300">
+            {comunes.whatsapp}{' '}
+            <a href={whatsapp.url} class="font-bold text-link underline underline-offset-2">
+              {whatsapp.numero}
+            </a>
+          </p>
+        </>
+      )}
+    </div>
+    <FormularioContacto
+      textos={{
+        nombre: comunes.campos.nombre,
+        correo: comunes.campos.correo,
+        mensaje: comunes.campos.mensaje,
+        tema,
+        temas,
+        autorizacion: comunes.autorizacion,
+        enviar: comunes.enviar,
+        enviado: comunes.enviado,
+        error: comunes.error,
+      }}
+      mensajes={t.formulario}
+      idioma={locale}
+      pagina={localizedPath(locale, ruta)}
+      politicaHref={localizedPath(locale, 'privacidad')}
+      variante={tono === 'dark-raised' ? 'base' : 'raised'}
+      filasMensaje={filasMensaje}
+    />
+  </div>
+</Section>
+
+<script>
+  import { mejorarFormulario } from '../formularios/formulario';
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('form[data-formulario]')) {
+    mejorarFormulario(form);
+  }
+</script>

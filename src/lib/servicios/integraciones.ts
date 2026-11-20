@@ -21,7 +21,7 @@ export interface Integraciones {
   aviso: Aviso;
 }
 
-export function getIntegraciones(): Integraciones {
-  // Notion (NOTION_API_KEY) y Resend (RESEND_API_KEY) se conectan en T-407.
-  return { crm: crmDesactivado, aviso: avisoDesactivado };
-}
+export const integracionesDesactivadas: Integraciones = {
+  crm: crmDesactivado,
+  aviso: avisoDesactivado,
+};

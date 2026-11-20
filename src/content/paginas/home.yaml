@@ -164,18 +164,9 @@ contacto:
     es: 'Cuéntame qué estás construyendo.'
   texto:
     es: 'Si tu factura de nube crece más rápido que tu negocio, si vas a migrar o si quieres que tu equipo trabaje con IA, escríbeme y lo revisamos juntos. También acepto invitaciones para dar charlas.'
-  # La línea de WhatsApp aparece cuando Luis entregue el número corporativo (configuración).
-  whatsapp:
-    es: 'WhatsApp:'
-  campos:
-    nombre:
-      es: 'Nombre'
-    correo:
-      es: 'Correo'
-    tema:
-      es: '¿En qué te ayudo?'
-    mensaje:
-      es: 'Mensaje'
+  # Pregunta de tema propia del Home; el resto del formulario está en formularios/general.yaml.
+  tema:
+    es: '¿En qué te ayudo?'
   temas:
     - valor: consultoria
       texto:
@@ -189,18 +180,3 @@ contacto:
     - valor: conversacion
       texto:
         es: 'Conversación general'
-  # Casilla de autorización (Luis, 20 nov 2026): texto del prototipo de Contacto.
-  autorizacion:
-    antes:
-      es: 'Acepto la'
-    enlace:
-      es: 'política de privacidad'
-    despues:
-      es: 'y el tratamiento de mis datos para responder este mensaje.'
-  enviar:
-    es: 'Enviar'
-  # Mensajes después de enviar. No están en el prototipo; Luis los aprobó el 20 nov 2026.
-  enviado:
-    es: 'Gracias. Recibí tu mensaje y te respondo pronto.'
-  error:
-    es: 'No se pudo enviar. Revisa los campos e inténtalo de nuevo.'

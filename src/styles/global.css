@@ -32,7 +32,8 @@
 /* ─── Tokens de color (tokens-luis-reyes.json) ────────────── */
 /* static: publica todas las variables aunque Tailwind no detecte su uso */
 @theme static {
-  /* Escala azul */
+  /* Escala azul (blue-100: fondo de Términos, 20 nov 2026) */
+  --color-blue-100: #f5f8fd;
   --color-blue-200: #e5eef9;
   --color-blue-300: #80aae0;
   --color-blue-400: #3377ce;

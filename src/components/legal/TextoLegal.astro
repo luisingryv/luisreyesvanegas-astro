@@ -1,0 +1,35 @@
+---
+// Texto legal con datos del responsable: {documento}, {correoPrivacidad}… Los correos van
+// como enlace. Un dato que falta se marca como pendiente (solo pasa en local: en producción
+// la página no se genera mientras falte alguno).
+import { datosLegales, type DatoLegal } from '../../config/legal';
+
+interface Props {
+  texto: string;
+  pendiente: string;
+}
+
+const { texto, pendiente } = Astro.props;
+const partes = texto.split(/\{(\w+)\}/);
+const esDato = (clave: string): clave is DatoLegal => clave in datosLegales;
+---
+
+{partes.map((parte, i) => {
+  if (i % 2 === 0) return parte;
+  if (!esDato(parte)) throw new Error(`Dato legal desconocido: {${parte}}`);
+  const valor = datosLegales[parte];
+  if (!valor) {
+    return (
+      <mark class="rounded-sm bg-red-600 px-1 text-white" data-dato-pendiente={parte}>
+        {pendiente}: {parte}
+      </mark>
+    );
+  }
+  return parte.startsWith('correo') ? (
+    <a href={`mailto:${valor}`} class="font-bold text-link underline underline-offset-2">
+      {valor}
+    </a>
+  ) : (
+    valor
+  );
+})}

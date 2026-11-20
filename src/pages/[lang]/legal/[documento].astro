@@ -1,0 +1,90 @@
+---
+// Páginas legales: /legal/privacidad y /legal/terminos (tema claro, sin motion).
+// Mientras falten datos del responsable (src/config/legal.ts) solo existen en local.
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import Container from '../../../components/brand/Container.astro';
+import Eyebrow from '../../../components/brand/Eyebrow.astro';
+import TextoLegal from '../../../components/legal/TextoLegal.astro';
+import { legalPublicable } from '../../../config/legal';
+import { publishedLocales } from '../../../i18n/config';
+import { getDictionary } from '../../../i18n';
+import { localizedPath } from '../../../i18n/routes';
+import Base from '../../../layouts/Base.astro';
+import { DOCUMENTOS_LEGALES, getDocumentosLegales } from '../../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() => {
+  if (import.meta.env.PROD && !legalPublicable) return [];
+  return publishedLocales.flatMap((lang) =>
+    DOCUMENTOS_LEGALES.map((documento) => ({ params: { lang, documento } })),
+  );
+}) satisfies GetStaticPaths;
+
+const { lang, documento } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const documentos = await getDocumentosLegales(lang);
+const actual = documentos.find((d) => d.id === documento)!;
+// Para la meta descripción, solo la primera frase (sin la fecha de vigencia).
+const descripcion = `${t.legal.bajada.split('. ')[0]}.`;
+---
+
+<Base locale={lang} title={actual.titulo} description={descripcion} route={documento} tema="light">
+  <section aria-labelledby="legal-titulo" class="bg-surface pt-hero-y pb-8">
+    <Container class="max-w-225">
+      <div class="flex flex-col gap-4.5">
+        <Eyebrow>{actual.eyebrow}</Eyebrow>
+        <h1
+          id="legal-titulo"
+          class="text-[clamp(36px,4.6vw,56px)] leading-[1.05] font-bold tracking-[-0.02em]"
+        >
+          {actual.titulo}
+        </h1>
+        <p class="text-[18px] text-ink-muted">
+          <TextoLegal texto={t.legal.bajada} pendiente={t.legal.pendiente} />
+        </p>
+        <nav aria-label={t.legal.navegacion}>
+          <ul class="flex flex-wrap gap-2 pt-1.5">
+            {documentos.map((d) => (
+              <li>
+                <a
+                  href={localizedPath(lang, d.id)}
+                  aria-current={d.id === documento ? 'page' : undefined}
+                  class:list={[
+                    'inline-block rounded-pill border border-primary px-4.5 py-2.5 font-bold transition-colors',
+                    d.id === documento
+                      ? 'bg-primary text-on-primary'
+                      : 'text-link hover:bg-surface-raised',
+                  ]}
+                >
+                  {d.navegacion}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </Container>
+  </section>
+
+  <section
+    aria-label={actual.titulo}
+    class:list={[
+      'pb-[clamp(48px,6vw,80px)]',
+      documento === 'terminos' ? 'bg-blue-100 pt-[clamp(48px,6vw,80px)]' : 'bg-surface pt-6',
+    ]}
+  >
+    <Container class="max-w-225">
+      <div class="flex flex-col gap-7">
+        {actual.secciones.map((seccion) => (
+          <div class="flex flex-col gap-2">
+            <h2 class="text-[19px] font-bold text-link">{seccion.titulo}</h2>
+            <p class="text-body text-ink">
+              <TextoLegal texto={seccion.texto} pendiente={t.legal.pendiente} />
+            </p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+</Base>

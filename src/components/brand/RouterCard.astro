@@ -1,5 +1,6 @@
 ---
 // Tarjeta del router de audiencias: toda la tarjeta es el enlace.
+// md: router del Home; sm: opciones de Contacto (un poco más compactas, como el prototipo).
 import Eyebrow from './Eyebrow.astro';
 
 interface Props {
@@ -8,22 +9,37 @@ interface Props {
   title: string;
   text: string;
   cta: string;
+  size?: 'md' | 'sm';
+  /** Enlace a otro sitio: flecha ↗ en lugar de →. */
+  external?: boolean;
 }
 
-const { href, tag, title, text, cta } = Astro.props;
+const { href, tag, title, text, cta, size = 'md', external = false } = Astro.props;
+const sm = size === 'sm';
 ---
 
 <a
   href={href}
-  class="group flex min-h-55 flex-col gap-3.5 rounded-lg border border-hairline bg-surface-raised p-7 text-ink transition-colors hover:border-accent"
+  class:list={[
+    'group flex flex-col rounded-lg border border-hairline bg-surface-raised text-ink transition-colors hover:border-accent',
+    sm ? 'min-h-50 gap-3 p-6.5' : 'min-h-55 gap-3.5 p-7',
+  ]}
 >
   <Eyebrow as="span">{tag}</Eyebrow>
-  <span class="text-[24px] leading-[1.2] font-bold text-balance">{title}</span>
+  <span class:list={['leading-[1.2] font-bold text-balance', sm ? 'text-[22px]' : 'text-[24px]']}>
+    {title}
+  </span>
   <span class="grow text-[15px] text-text-tertiary-on-dark">{text}</span>
   <span class="font-bold text-link">
     {cta}{' '}
-    <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">
-      →
+    <span
+      aria-hidden="true"
+      class:list={[
+        'inline-block transition-transform',
+        external ? 'group-hover:-translate-y-0.5' : 'group-hover:translate-x-1',
+      ]}
+    >
+      {external ? '↗' : '→'}
     </span>
   </span>
 </a>

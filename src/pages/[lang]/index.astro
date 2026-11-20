@@ -2,11 +2,11 @@
 import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
 import CasosHome from '../../components/sections/CasosHome.astro';
 import CharlasRecientes from '../../components/sections/CharlasRecientes.astro';
-import ContactoHome from '../../components/sections/ContactoHome.astro';
 import EvoluteccFranja from '../../components/sections/EvoluteccFranja.astro';
 import HeroHome from '../../components/sections/HeroHome.astro';
 import LogrosHome from '../../components/sections/LogrosHome.astro';
 import RouterHome from '../../components/sections/RouterHome.astro';
+import SeccionFormulario from '../../components/sections/SeccionFormulario.astro';
 import TrayectoriaHome from '../../components/sections/TrayectoriaHome.astro';
 import XprizeHome from '../../components/sections/XprizeHome.astro';
 import Base from '../../layouts/Base.astro';
@@ -14,6 +14,7 @@ import { publishedLocales } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
 import {
   getCharlasRecientes,
+  getFormularioGeneral,
   getLogrosHome,
   getPaginaHome,
   getTrayectoriaHome,
@@ -27,11 +28,12 @@ export const getStaticPaths = (() =>
 const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
 const t = getDictionary(lang);
 
-const [pagina, logros, hitos, charlas] = await Promise.all([
+const [pagina, logros, hitos, charlas, formulario] = await Promise.all([
   getPaginaHome(lang),
   getLogrosHome(lang),
   getTrayectoriaHome(lang),
   getCharlasRecientes(lang),
+  getFormularioGeneral(lang),
 ]);
 ---
 
@@ -50,5 +52,15 @@ const [pagina, logros, hitos, charlas] = await Promise.all([
   <CharlasRecientes locale={lang} content={pagina.charlas} charlas={charlas} />
   <CasosHome locale={lang} content={pagina.casos} />
   <EvoluteccFranja content={pagina.evolutecc} campaign="home" />
-  <ContactoHome locale={lang} content={pagina.contacto} />
+  <SeccionFormulario
+    locale={lang}
+    id="agenda"
+    ruta="home"
+    eyebrow={pagina.contacto.eyebrow}
+    titulo={pagina.contacto.titulo}
+    texto={pagina.contacto.texto}
+    tema={pagina.contacto.tema}
+    temas={pagina.contacto.temas}
+    comunes={formulario}
+  />
 </Base>

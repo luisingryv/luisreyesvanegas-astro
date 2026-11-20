@@ -1,0 +1,96 @@
+# Textos de Contacto, tal cual el prototipo aprobado (referencia/prototipo/contacto.html).
+# El formulario usa además los textos comunes de formularios/general.yaml.
+hero:
+  eyebrow:
+    es: 'Contacto'
+  titulo:
+    es: '¿Qué necesitas?'
+  texto:
+    es: 'Elige la opción que más se parece a tu caso y te llevo al lugar indicado. Si ninguna encaja, escríbeme abajo.'
+
+opciones:
+  - etiqueta:
+      es: 'Consultoría'
+    titulo:
+      es: 'Tengo un problema en mi nube o quiero llevar la IA a mi equipo'
+    texto:
+      es: 'Costos, crecimiento, migración, seguridad o adopción de IA. Empezamos con una sesión de arquitectura o una llamada de 20 minutos.'
+    boton:
+      es: 'Agendar'
+    destino:
+      ruta: consultoria
+      ancla: agenda
+  - etiqueta:
+      es: 'Programa MAP de AWS'
+    titulo:
+      es: 'Quiero saber si AWS puede invertir en mi migración'
+    texto:
+      es: 'Evaluamos tu caso con Nexa Connect, partner de AWS. La inversión está sujeta a la aprobación previa de AWS.'
+    boton:
+      es: 'Evaluar mi elegibilidad'
+    destino:
+      ruta: programasAws
+  - etiqueta:
+      es: 'Desarrollo de software'
+    titulo:
+      es: 'Necesito desarrollo a la medida'
+    texto:
+      es: 'El desarrollo de software a la medida lo hace mi equipo en EvolutecC.'
+    boton:
+      es: 'Ir a EvolutecC'
+    destino:
+      evolutecc: true
+  - etiqueta:
+      es: 'Productos'
+    titulo:
+      es: 'Quiero usar o invertir en Trama AI'
+    texto:
+      es: 'Te mostramos una demo o te comparto la información de la empresa en privado.'
+    boton:
+      es: 'Ver productos'
+    destino:
+      ruta: productos
+  - etiqueta:
+      es: 'Charlas'
+    titulo:
+      es: 'Quiero invitarte a un evento'
+    texto:
+      es: 'Keynote, workshop o panel sobre nube e IA.'
+    boton:
+      es: 'Invitarme a hablar'
+    destino:
+      ruta: speaker
+      ancla: invitar
+  - etiqueta:
+      es: 'Otro tema'
+    titulo:
+      es: 'Contratación, prensa o una conversación general'
+    texto:
+      es: 'Escríbeme en el formulario y te respondo.'
+    boton:
+      es: 'Escribir'
+    destino:
+      ancla: general
+
+formulario:
+  eyebrow:
+    es: 'Escríbeme'
+  titulo:
+    es: 'Cuéntame qué estás construyendo.'
+  textoWhatsapp:
+    es: 'Si prefieres, también puedes escribirme por WhatsApp.'
+  tema:
+    es: 'Tema'
+  temas:
+    - valor: conversacion
+      texto:
+        es: 'Conversación general'
+    - valor: contratacion
+      texto:
+        es: 'Contratación'
+    - valor: prensa
+      texto:
+        es: 'Prensa'
+    - valor: otro
+      texto:
+        es: 'Otro'

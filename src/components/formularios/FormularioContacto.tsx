@@ -43,11 +43,14 @@ interface Props {
   /** Ruta de la página, para volver a ella después de enviar sin JavaScript. */
   pagina: string;
   politicaHref: string;
+  /** raised: tarjeta blue-800 sobre night (Home); base: tarjeta night sobre blue-800 (Contacto). */
+  variante?: 'raised' | 'base';
+  filasMensaje?: number;
   className?: string;
 }
 
-const control =
-  'h-12 rounded-[12px] border-gray-700 bg-surface px-3.5 text-body aria-invalid:border-error aria-invalid:ring-0';
+const base =
+  'rounded-[12px] border-gray-700 text-body aria-invalid:border-error aria-invalid:ring-0';
 
 // Etiqueta, control y su mensaje de error (vacío hasta que haga falta).
 function Campo({ id, etiqueta, children }: { id: string; etiqueta: string; children: ReactNode }) {
@@ -68,14 +71,20 @@ export function FormularioContacto({
   idioma,
   pagina,
   politicaHref,
+  variante = 'raised',
+  filasMensaje = 4,
   className,
 }: Props) {
+  // Los campos van en el tono contrario a la tarjeta.
+  const fondoCampo = variante === 'raised' ? 'bg-surface' : 'bg-surface-raised';
+  const control = cn('h-12 px-3.5', base, fondoCampo);
   return (
     <form
       method="post"
       action="/api/solicitudes"
       className={cn(
-        'relative flex flex-col gap-3.5 rounded-lg border border-hairline bg-surface-raised p-7',
+        'relative flex flex-col gap-3.5 rounded-lg border border-hairline p-7',
+        variante === 'raised' ? 'bg-surface-raised' : 'bg-surface',
         className,
       )}
       data-formulario="general"
@@ -140,7 +149,10 @@ export function FormularioContacto({
         <NativeSelect
           id="contacto-tema"
           name="puerta"
-          className="w-full [&_select]:h-12 [&_select]:rounded-[12px] [&_select]:border-gray-700 [&_select]:bg-surface [&_select]:pl-3.5 [&_select]:text-body"
+          className={cn(
+            'w-full [&_select]:h-12 [&_select]:rounded-[12px] [&_select]:border-gray-700 [&_select]:pl-3.5 [&_select]:text-body',
+            variante === 'raised' ? '[&_select]:bg-surface' : '[&_select]:bg-surface-raised',
+          )}
         >
           {textos.temas.map((tema) => (
             <NativeSelectOption key={tema.valor} value={tema.valor}>
@@ -153,11 +165,11 @@ export function FormularioContacto({
         <Textarea
           id="contacto-mensaje"
           name="mensaje"
-          rows={4}
+          rows={filasMensaje}
           required
           minLength={10}
           maxLength={5000}
-          className="min-h-28 resize-y rounded-[12px] border-gray-700 bg-surface px-3.5 py-3 text-body aria-invalid:border-error aria-invalid:ring-0"
+          className={cn('min-h-28 resize-y px-3.5 py-3', base, fondoCampo)}
         />
       </Campo>
       <div className="flex flex-col gap-1.5">

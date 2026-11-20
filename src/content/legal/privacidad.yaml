@@ -1,0 +1,50 @@
+# Política de tratamiento de datos personales (prototipo aprobado, Legal). Sin las menciones a
+# analítica y datos de navegación (Luis, 20 nov 2026). {clave}: dato de src/config/legal.ts.
+orden: 1
+eyebrow:
+  es: 'Legal'
+titulo:
+  es: 'Política de tratamiento de datos personales'
+navegacion:
+  es: 'Política de datos personales'
+secciones:
+  - titulo:
+      es: 'Responsable'
+    texto:
+      es: 'Luis Carlos Reyes Vanegas, persona natural, {documento}, con domicilio en {ciudad}, Colombia. Correo para asuntos de privacidad: {correoPrivacidad}.'
+  - titulo:
+      es: 'Qué datos recogemos y para qué'
+    texto:
+      es: 'Los que nos das en los formularios de contacto, agenda, charlas e información de productos, y por WhatsApp, para responderte, agendar sesiones, evaluar invitaciones y enviarte la información que pediste.'
+  - titulo:
+      es: 'Autorización'
+    texto:
+      es: 'Cada formulario te pide aceptar esta política antes de enviarlo. Guardamos prueba de esa autorización.'
+  - titulo:
+      es: 'Quién más accede'
+    texto:
+      es: 'Proveedores que operan el sitio por cuenta nuestra (alojamiento, agenda, CRM y mensajería), solo con lo necesario. No vendemos tus datos.'
+  - titulo:
+      es: 'Datos fuera de Colombia'
+    texto:
+      es: 'Algunos proveedores guardan datos en Estados Unidos o la Unión Europea, países que la SIC reconoce con un nivel adecuado de protección.'
+  - titulo:
+      es: 'Tus derechos'
+    texto:
+      es: 'Conocer, actualizar, rectificar y suprimir tus datos, pedir prueba de la autorización, revocarla y presentar quejas ante la Superintendencia de Industria y Comercio.'
+  - titulo:
+      es: 'Cómo ejercerlos'
+    texto:
+      es: 'Escribe al correo de privacidad. Respondemos consultas en hasta 10 días hábiles y reclamos en hasta 15, como dice la Ley 1581 de 2012.'
+  - titulo:
+      es: 'Cuánto tiempo los guardamos'
+    texto:
+      es: 'Mientras sean necesarios para la finalidad y, sin relación activa, hasta {conservacion} desde el último contacto, salvo obligación legal.'
+  - titulo:
+      es: 'Seguridad'
+    texto:
+      es: 'Conexión cifrada, acceso restringido, autenticación de dos factores y proveedores con certificaciones de seguridad.'
+  - titulo:
+      es: 'Visitantes de otros países'
+    texto:
+      es: 'Si vives en la Unión Europea o en California, también reconocemos los derechos que te dan sus leyes. Escríbenos al mismo correo.'

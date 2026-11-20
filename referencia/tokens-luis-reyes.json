@@ -18,6 +18,11 @@
     ],
     "tokens": [
       {
+        "name": "blue-100",
+        "value": "#f5f8fd",
+        "usage": "Fondo alterno muy claro (sección de Términos). Luis, 20 nov 2026."
+      },
+      {
         "name": "blue-200",
         "value": "#e5eef9",
         "usage": "Azul corporativo, tinte más claro. Fondos suaves, tarjetas y zonas destacadas sobre blanco."
