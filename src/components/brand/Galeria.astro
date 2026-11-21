@@ -1,0 +1,399 @@
+---
+// Visor de fotos (decisión del 21 nov 2026): lo abren los niveles de "Mi historia" en Sobre mí
+// y las tarjetas de Eventos. Es un carrusel con scroll-snap: sin JavaScript el enlace abre el
+// visor con :target y las fotos se deslizan; con JavaScript se abre como diálogo modal, con
+// flechas, teclado y contador. Las fotos van completas, sin recorte.
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  /** id del <dialog>; el enlace que lo abre lleva `${id}-abrir`. */
+  id: string;
+  titulo: string;
+  sub?: string;
+  fotos: { foto: ImageMetadata; alt: string; pie?: string }[];
+  textos: { cerrar: string; anterior: string; siguiente: string; posicion: string };
+}
+
+const { id, titulo, sub, fotos, textos } = Astro.props;
+const total = fotos.length;
+// Anchos del srcset sin pasarse del original (máximo 1800 px).
+const anchos = (ancho: number) => [
+  ...[480, 800, 1200].filter((w) => w < ancho),
+  Math.min(ancho, 1800),
+];
+---
+
+<dialog
+  id={id}
+  class="galeria"
+  data-theme="dark"
+  aria-labelledby={`${id}-titulo`}
+  data-galeria
+  data-posicion={textos.posicion}
+>
+  <div class="marco">
+    <header class="cab">
+      <div class="min-w-0">
+        <p id={`${id}-titulo`} class="truncate text-title-sm font-bold text-ink">
+          {titulo}
+        </p>
+        {sub && <p class="truncate text-caption text-blue-300">{sub}</p>}
+      </div>
+      <p class="contador text-caption text-ink-muted" aria-live="polite" data-contador>
+        {textos.posicion.replace('{i}', '1').replace('{n}', String(total))}
+      </p>
+      <a href={`#${id}-abrir`} class="cerrar" data-cerrar>
+        <span class="sr-only">{textos.cerrar}</span>
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"></path>
+        </svg>
+      </a>
+    </header>
+
+    <ul class="pista" data-pista tabindex="-1">
+      {fotos.map((f, i) => (
+        <li class="diapositiva" data-foto={i}>
+          <figure class="contenido">
+            <Image
+              src={f.foto}
+              alt={f.alt}
+              widths={anchos(f.foto.width)}
+              sizes="(min-width: 1024px) 80vw, 100vw"
+              loading="lazy"
+              decoding="async"
+              class="imagen"
+            />
+            {f.pie && (
+              <figcaption class="pie text-small text-text-secondary-on-dark">{f.pie}</figcaption>
+            )}
+          </figure>
+        </li>
+      ))}
+    </ul>
+
+    <button type="button" class="flecha anterior" data-anterior aria-label={textos.anterior} hidden>
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+    <button
+      type="button"
+      class="flecha siguiente"
+      data-siguiente
+      aria-label={textos.siguiente}
+      hidden
+    >
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </button>
+  </div>
+</dialog>
+
+<style>
+  .galeria {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: var(--color-night);
+    color: var(--color-ink);
+    overscroll-behavior: contain;
+  }
+  /* Sin JavaScript: el enlace lleva a #id y el visor se muestra con :target. */
+  .galeria:target {
+    display: block;
+    z-index: 60;
+  }
+  .galeria::backdrop {
+    background: transparent;
+  }
+  .galeria[open] {
+    opacity: 1;
+    transition:
+      opacity 0.25s var(--ease-brand),
+      overlay 0.25s allow-discrete,
+      display 0.25s allow-discrete;
+  }
+  @starting-style {
+    .galeria[open] {
+      opacity: 0;
+    }
+  }
+  :global(html:has(.galeria[open])),
+  :global(html:has(.galeria:target)) {
+    overflow: hidden;
+  }
+
+  .marco {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    height: 100%;
+  }
+  .cab {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.875rem clamp(1rem, 3vw, 2rem);
+    border-bottom: 1px solid var(--color-hairline);
+  }
+  .contador {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .cerrar {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: var(--radius-pill);
+    color: var(--color-ink);
+    background: color-mix(in oklab, var(--color-white) 8%, transparent);
+    transition: background-color 0.2s;
+  }
+  .cerrar svg,
+  .flecha svg {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+  .cerrar:hover {
+    background: color-mix(in oklab, var(--color-white) 18%, transparent);
+  }
+  .cerrar:focus-visible,
+  .flecha:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Carrusel: cada foto ocupa el ancho del visor y encaja al deslizar. */
+  .pista {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .pista::-webkit-scrollbar {
+    display: none;
+  }
+  .pista:focus {
+    outline: none;
+  }
+  .diapositiva {
+    flex: 0 0 100%;
+    display: grid;
+    place-items: center;
+    padding: clamp(0.75rem, 2.5vw, 2rem) clamp(0.75rem, 6vw, 5.5rem);
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+  .contenido {
+    display: grid;
+    justify-items: center;
+    gap: 0.75rem;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+  }
+  .imagen {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100dvh - 10.5rem);
+    object-fit: contain;
+    border-radius: 12px;
+    background: var(--color-surface-raised);
+  }
+  .pie {
+    max-width: 60ch;
+    text-align: center;
+  }
+
+  .flecha {
+    position: absolute;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-pill);
+    color: var(--color-ink);
+    background: color-mix(in oklab, var(--color-white) 10%, transparent);
+    transform: translateY(-50%);
+    transition:
+      background-color 0.2s,
+      opacity 0.2s;
+  }
+  .flecha:hover:not(:disabled) {
+    background: var(--color-accent);
+    color: var(--color-night);
+  }
+  .flecha:disabled {
+    opacity: 0.25;
+    cursor: default;
+  }
+  .anterior {
+    left: clamp(0.5rem, 2vw, 1.5rem);
+  }
+  .siguiente {
+    right: clamp(0.5rem, 2vw, 1.5rem);
+  }
+  @media (max-width: 40rem) {
+    .flecha {
+      top: auto;
+      bottom: 1rem;
+      transform: none;
+    }
+    .imagen {
+      max-height: calc(100dvh - 12rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .galeria[open] {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { prefersReducedMotion } from '../motion/motion';
+
+  interface Visor {
+    abrir: (desde?: number) => void;
+  }
+
+  const visores = new Map<string, Visor>();
+
+  function preparar(dialogo: HTMLDialogElement) {
+    const pista = dialogo.querySelector<HTMLElement>('[data-pista]')!;
+    const fotos = [...dialogo.querySelectorAll<HTMLElement>('[data-foto]')];
+    const contador = dialogo.querySelector<HTMLElement>('[data-contador]')!;
+    const anterior = dialogo.querySelector<HTMLButtonElement>('[data-anterior]')!;
+    const siguiente = dialogo.querySelector<HTMLButtonElement>('[data-siguiente]')!;
+    const plantilla = dialogo.dataset.posicion ?? '{i} / {n}';
+    let actual = 0;
+
+    if (fotos.length > 1) {
+      anterior.hidden = false;
+      siguiente.hidden = false;
+    }
+
+    const pintar = () => {
+      contador.textContent = plantilla
+        .replace('{i}', String(actual + 1))
+        .replace('{n}', String(fotos.length));
+      anterior.disabled = actual === 0;
+      siguiente.disabled = actual === fotos.length - 1;
+      // Precarga la foto siguiente y la anterior para que el cambio no muestre un vacío.
+      [actual - 1, actual + 1].forEach((i) => {
+        const img = fotos[i]?.querySelector('img');
+        if (img) img.loading = 'eager';
+      });
+    };
+
+    const ir = (i: number, suave = true) => {
+      const destino = Math.min(Math.max(i, 0), fotos.length - 1);
+      pista.scrollTo({
+        left: fotos[destino]!.offsetLeft,
+        behavior: suave && !prefersReducedMotion() ? 'smooth' : 'instant',
+      });
+      actual = destino;
+      pintar();
+    };
+
+    // La foto visible manda (también al deslizar con el dedo o el trackpad).
+    const observador = new IntersectionObserver(
+      (entradas) => {
+        for (const e of entradas) {
+          if (e.isIntersecting) {
+            actual = Number((e.target as HTMLElement).dataset.foto);
+            pintar();
+          }
+        }
+      },
+      { root: pista, threshold: 0.6 },
+    );
+    fotos.forEach((f) => observador.observe(f));
+
+    anterior.addEventListener('click', () => ir(actual - 1));
+    siguiente.addEventListener('click', () => ir(actual + 1));
+    dialogo.querySelector('[data-cerrar]')!.addEventListener('click', (e) => {
+      e.preventDefault();
+      dialogo.close();
+    });
+    dialogo.addEventListener('keydown', (e) => {
+      const teclas: Record<string, () => void> = {
+        ArrowRight: () => ir(actual + 1),
+        ArrowLeft: () => ir(actual - 1),
+        Home: () => ir(0),
+        End: () => ir(fotos.length - 1),
+      };
+      const accion = teclas[e.key];
+      if (accion) {
+        e.preventDefault();
+        accion();
+      }
+    });
+    dialogo.addEventListener('close', () => {
+      if (location.hash === `#${dialogo.id}`) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    });
+
+    visores.set(dialogo.id, {
+      abrir: (desde = 0) => {
+        if (!dialogo.open) dialogo.showModal();
+        const img = fotos[desde]?.querySelector('img');
+        if (img) img.loading = 'eager';
+        ir(desde, false);
+        pista.focus({ preventScroll: true });
+      },
+    });
+  }
+
+  document.querySelectorAll<HTMLDialogElement>('dialog[data-galeria]').forEach(preparar);
+
+  document.addEventListener('click', (e) => {
+    const enlace = (e.target as Element).closest<HTMLAnchorElement>('a[data-abrir-galeria]');
+    const visor = enlace && visores.get(enlace.dataset.abrirGaleria ?? '');
+    if (!visor) return;
+    e.preventDefault();
+    visor.abrir();
+  });
+
+  // Un enlace directo a #galeria-… abre el visor como diálogo.
+  const desdeHash = visores.get(location.hash.slice(1));
+  if (desdeHash) desdeHash.abrir();
+</script>

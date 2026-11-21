@@ -1,0 +1,25 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2024-07-13-gdg-barranquilla
+fotos:
+  - foto: ../../assets/fotos/galerias/2024-07-13-gdg-barranquilla/charla_2024-07-13_gdg-barranquilla-chatbot-gemini_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Luis Reyes, de pie, escucha la pregunta de un asistente sentado'
+      en: 'Luis Reyes, standing, listens to a question from a seated attendee'
+      pt: 'Luis Reyes, de pé, ouve a pergunta de um participante sentado'
+  - foto: ../../assets/fotos/galerias/2024-07-13-gdg-barranquilla/charla_2024-07-13_gdg-barranquilla-chatbot-gemini_luis-reyes-vanegas_004.jpg
+    alt:
+      es: 'Luis Reyes habla de pie ante un grupo de asistentes sentados en círculo'
+      en: 'Luis Reyes speaks standing before a group of attendees seated in a circle'
+      pt: 'Luis Reyes fala de pé diante de um grupo de participantes sentados em círculo'
+  - foto: ../../assets/fotos/galerias/2024-07-13-gdg-barranquilla/charla_2024-07-13_gdg-barranquilla-chatbot-gemini_luis-reyes-vanegas_006.jpg
+    alt:
+      es: 'Sala llena de asistentes durante la charla de Luis Reyes en GDG Barranquilla'
+      en: 'Room full of attendees during Luis Reyes''s talk at GDG Barranquilla'
+      pt: 'Sala cheia de participantes durante a palestra de Luis Reyes no GDG Barranquilla'
+  - foto: ../../assets/fotos/galerias/2024-07-13-gdg-barranquilla/charla_2024-07-13_gdg-barranquilla-chatbot-gemini_luis-reyes-vanegas_007.jpg
+    alt:
+      es: 'Luis Reyes presenta junto a una pantalla de Google Developer Groups'
+      en: 'Luis Reyes presents next to a Google Developer Groups screen'
+      pt: 'Luis Reyes apresenta ao lado de uma tela do Google Developer Groups'

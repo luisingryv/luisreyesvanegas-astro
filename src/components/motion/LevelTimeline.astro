@@ -1,21 +1,27 @@
 ---
 // Pieza 03 · Línea de tiempo por niveles (laboratorio de motion).
 import Button from '../brand/Button.astro';
+import Galeria from '../brand/Galeria.astro';
 import LevelCard from '../brand/LevelCard.astro';
 import MilestoneCard from '../brand/MilestoneCard.astro';
 import type { PublishedLocale } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
-import type { Historia } from '../../lib/content';
+import type { FotoGaleria, Historia } from '../../lib/content';
 
 interface Props {
   locale: PublishedLocale;
   historia: Historia;
   cta: { label: string; href: string };
+  /** Fotos de cada nivel (por id de capítulo); el nivel sin fotos va sin galería. */
+  galerias?: Record<string, FotoGaleria[]>;
 }
 
-const { locale, historia, cta } = Astro.props;
-const t = getDictionary(locale).historia;
+const { locale, historia, cta, galerias = {} } = Astro.props;
+const dict = getDictionary(locale);
+const t = dict.historia;
+const tg = dict.galeria;
 const { niveles, resumen } = historia;
+const idGaleria = (capitulo: string) => `galeria-nivel-${capitulo}`;
 
 const lockIcon = 'M8 11V8a4 4 0 0 1 8 0v3';
 const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
@@ -49,6 +55,28 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
           <p class="text-label font-bold text-cyan-300 uppercase">{t.nivel(n.nivel)}</p>
           <h3 class="text-title-md font-bold text-balance">{n.nombre}</h3>
           <p class="text-caption text-blue-300">{n.periodo}</p>
+          {galerias[n.id]?.length ? (
+            <a
+              href={`#${idGaleria(n.id)}`}
+              id={`${idGaleria(n.id)}-abrir`}
+              data-abrir-galeria={idGaleria(n.id)}
+              class="ver-fotos inline-flex items-center gap-2 self-center rounded-pill border px-3.5 py-2 text-caption font-bold sm:ml-auto"
+            >
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                class="size-4"
+              >
+                <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                <circle cx="9" cy="10" r="1.6" />
+                <path d="M21 16l-5-5-8 8" stroke-linejoin="round" />
+              </svg>
+              {tg.ver(galerias[n.id]!.length)}
+            </a>
+          ) : null}
           {n.rotulo && <p class="basis-full text-caption text-text-tertiary-on-dark">{n.rotulo}</p>}
         </div>
 
@@ -165,9 +193,39 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
       </div>
     );
   })}
+
+  {niveles.map((n) =>
+    galerias[n.id]?.length ? (
+      <Galeria
+        id={idGaleria(n.id)}
+        titulo={`${t.nivel(n.nivel)} · ${n.nombre}`}
+        sub={n.periodo}
+        fotos={galerias[n.id]!}
+        textos={tg}
+      />
+    ) : null,
+  )}
 </div>
 
 <style>
+  .ver-fotos {
+    border-color: color-mix(in oklab, var(--color-accent) 60%, transparent);
+    color: var(--color-link);
+    transition:
+      background-color 0.2s,
+      color 0.2s,
+      border-color 0.2s;
+  }
+  .ver-fotos:hover {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-night);
+  }
+  .ver-fotos:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
   /* Riel y nodos: 56 px de margen en escritorio, 40 px en celular (laboratorio). */
   .path {
     padding-left: 2.5rem;

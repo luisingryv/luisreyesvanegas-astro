@@ -1,0 +1,45 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2025-05-05-gdg-build-with-ai
+fotos:
+  - foto: ../../assets/fotos/galerias/2025-05-05-gdg-build-with-ai/charla_2025-05-05_gdg-build-with-ai-2025-barranqui-ia_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Un organizador ajusta el micrófono de Luis Reyes antes de la entrevista'
+      en: 'An organizer adjusts Luis Reyes''s microphone before the interview'
+      pt: 'Um organizador ajusta o microfone de Luis Reyes antes da entrevista'
+  - foto: ../../assets/fotos/galerias/2025-05-05-gdg-build-with-ai/charla_2025-05-05_gdg-build-with-ai-2025-barranqui-ia_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Auditorio con asistentes durante la charla de Luis Reyes en Build with AI'
+      en: 'Auditorium with attendees during Luis Reyes''s talk at Build with AI'
+      pt: 'Auditório com participantes durante a palestra de Luis Reyes no Build with AI'
+  - foto: ../../assets/fotos/galerias/2025-05-05-gdg-build-with-ai/charla_2025-05-05_gdg-build-with-ai-2025-barranqui-ia_luis-reyes-vanegas_005.jpg
+    alt:
+      es: 'Luis Reyes presenta junto a la diapositiva de Google AutoML'
+      en: 'Luis Reyes presents next to the Google AutoML slide'
+      pt: 'Luis Reyes apresenta ao lado do slide do Google AutoML'
+  - foto: ../../assets/prensa/charla_2025-05-05_gdg-build-with-ai-2025-barranqui-ia_luis-reyes-vanegas_006.jpg
+    alt:
+      es: 'Luis Reyes presentando en GDG Build with AI 2025, Barranquilla'
+      en: 'Luis Reyes presenting at GDG Build with AI 2025, Barranquilla'
+      pt: 'Luis Reyes apresentando no GDG Build with AI 2025, Barranquilla'
+  - foto: ../../assets/fotos/galerias/2025-05-05-gdg-build-with-ai/evento_2025-05-05_gdg-build-with-ai-2025-barranqui-ia-entrevista-construyendo-con-ia_luis-reyes-vanegas_007.jpg
+    alt:
+      es: 'Cámara que graba la entrevista a Luis Reyes'
+      en: 'Camera recording the interview with Luis Reyes'
+      pt: 'Câmera que grava a entrevista com Luis Reyes'
+  - foto: ../../assets/fotos/galerias/2025-05-05-gdg-build-with-ai/evento_2025-05-05_gdg-build-with-ai-2025-barranqui-ia-mentoria_luis-reyes-vanegas_009.jpg
+    alt:
+      es: 'Luis Reyes con diadema trabaja en un computador durante la mentoría'
+      en: 'Luis Reyes, wearing a headset, works at a computer during the mentoring session'
+      pt: 'Luis Reyes, com headset, trabalha em um computador durante a mentoria'
+  - foto: ../../assets/fotos/galerias/2025-05-05-gdg-build-with-ai/evento_2025-05-05_gdg-build-with-ai-2025-barranqui-ia-mentoria_luis-reyes-vanegas_010.jpg
+    alt:
+      es: 'Luis Reyes de pie conversa con participantes sentados frente a sus portátiles'
+      en: 'Luis Reyes, standing, talks with participants seated at their laptops'
+      pt: 'Luis Reyes, de pé, conversa com participantes sentados diante dos seus notebooks'
+  - foto: ../../assets/fotos/galerias/2025-05-05-gdg-build-with-ai/evento_2025-05-05_gdg-build-with-ai-2025-barranqui-ia-entrevista-construyendo-con-ia_luis-reyes-vanegas_011.jpg
+    alt:
+      es: 'Un camarógrafo graba la entrevista a Luis Reyes frente a la pantalla Construyendo desde el Caribe'
+      en: 'A camera operator records the interview with Luis Reyes in front of the "Construyendo desde el Caribe" screen'
+      pt: 'Um cinegrafista grava a entrevista com Luis Reyes diante da tela "Construyendo desde el Caribe"'

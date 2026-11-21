@@ -122,6 +122,31 @@ const charlas = defineCollection({
       }),
 });
 
+// Galerías del visor de fotos (decisión del 21 nov 2026): una por nivel de "Mi historia" en
+// Sobre mí y una por evento. Solo las fotos que Luis aprobó en la hoja de revisión.
+const galerias = defineCollection({
+  loader: entries('galerias'),
+  schema: ({ image }) =>
+    z
+      .object({
+        capitulo: reference('capitulos').optional(),
+        charla: reference('charlas').optional(),
+        fotos: z
+          .array(
+            z.object({
+              foto: image(),
+              alt: localized,
+              /** Pie con hechos (qué era · ciudad · fecha); solo en Sobre mí. */
+              pie: localized.optional(),
+            }),
+          )
+          .min(1),
+      })
+      .refine((g) => Boolean(g.capitulo) !== Boolean(g.charla), {
+        message: 'Una galería va con un capítulo o con una charla, no con ambos.',
+      }),
+});
+
 const testimonios = defineCollection({
   loader: entries('testimonios'),
   schema: ({ image }) =>
@@ -1139,5 +1164,6 @@ export const collections = {
   principios,
   certificaciones,
   charlas,
+  galerias,
   testimonios,
 };

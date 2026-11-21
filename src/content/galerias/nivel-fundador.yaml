@@ -1,0 +1,76 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+capitulo: fundador
+fotos:
+  - foto: ../../assets/fotos/galerias/sobre-mi/equipo_2022-12-22_evolutecc-navidad-2022-compartir-oficina_008.jpg
+    alt:
+      es: 'Equipo de EvolutecC con gorros navideños alrededor de una mesa, bajo el logo de la empresa'
+      en: 'EvolutecC team in Christmas hats around a table, under the company logo'
+      pt: 'Equipe da EvolutecC com gorros natalinos ao redor de uma mesa, sob o logo da empresa'
+    pie:
+      es: 'Navidad en EvolutecC · dic 2022'
+      en: 'Christmas at EvolutecC · Dec 2022'
+      pt: 'Natal na EvolutecC · dez 2022'
+  - foto: ../../assets/fotos/galerias/sobre-mi/evento_2023-09-05_fuerza-aerea-colombiana-cartagena_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Selfi de Luis Reyes con escarapela en el TIVIT Digital Innovation Day, con asistentes al fondo'
+      en: 'Selfie of Luis Reyes wearing a badge at TIVIT Digital Innovation Day, with attendees in the background'
+      pt: 'Selfie de Luis Reyes com crachá no TIVIT Digital Innovation Day, com participantes ao fundo'
+    pie:
+      es: 'TIVIT Digital Innovation Day con la Fuerza Aérea Colombiana · Cartagena · sep 2023'
+      en: 'TIVIT Digital Innovation Day with the Colombian Air Force · Cartagena · Sep 2023'
+      pt: 'TIVIT Digital Innovation Day com a Força Aérea Colombiana · Cartagena · set 2023'
+  - foto: ../../assets/fotos/galerias/sobre-mi/evento_2023-09-05_fuerza-aerea-colombiana-cartagena_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Escenario del TIVIT Digital Innovation Day 2023 con el logo de la Fuerza Aérea Colombiana en la pantalla'
+      en: 'TIVIT Digital Innovation Day 2023 stage with the Colombian Air Force logo on the screen'
+      pt: 'Palco do TIVIT Digital Innovation Day 2023 com o logo da Força Aérea Colombiana na tela'
+    pie:
+      es: 'TIVIT Digital Innovation Day con la Fuerza Aérea Colombiana · Cartagena · sep 2023'
+      en: 'TIVIT Digital Innovation Day with the Colombian Air Force · Cartagena · Sep 2023'
+      pt: 'TIVIT Digital Innovation Day com a Força Aérea Colombiana · Cartagena · set 2023'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2023-10-03_bogota-oficina_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Selfi de Luis Reyes en una oficina de TIVIT'
+      en: 'Selfie of Luis Reyes in a TIVIT office'
+      pt: 'Selfie de Luis Reyes em um escritório da TIVIT'
+    pie:
+      es: 'En la oficina de TIVIT · Bogotá · oct 2023'
+      en: 'At the TIVIT office · Bogotá · Oct 2023'
+      pt: 'No escritório da TIVIT · Bogotá · out 2023'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2023-10-03_bogota-oficina_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Selfi de Luis Reyes con un acompañante frente al logo de IBM'
+      en: 'Selfie of Luis Reyes with a companion in front of the IBM logo'
+      pt: 'Selfie de Luis Reyes com um acompanhante diante do logo da IBM'
+    pie:
+      es: 'En Bogotá · oct 2023'
+      en: 'In Bogotá · Oct 2023'
+      pt: 'Em Bogotá · out 2023'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2023-10-03_bogota-oficina_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Selfi de Luis Reyes frente a un edificio de IBM'
+      en: 'Selfie of Luis Reyes in front of an IBM building'
+      pt: 'Selfie de Luis Reyes diante de um prédio da IBM'
+    pie:
+      es: 'Frente a un edificio de IBM · Bogotá · oct 2023'
+      en: 'In front of an IBM building · Bogotá · Oct 2023'
+      pt: 'Diante de um prédio da IBM · Bogotá · out 2023'
+  - foto: ../../assets/fotos/galerias/sobre-mi/equipo_2023-12-21_evolutecc-navidad-2023-oficina_012.jpg
+    alt:
+      es: 'Equipo de EvolutecC en la oficina decorada para Navidad, junto a una mesa con comida'
+      en: 'EvolutecC team in the office decorated for Christmas, next to a table with food'
+      pt: 'Equipe da EvolutecC no escritório decorado para o Natal, ao lado de uma mesa com comida'
+    pie:
+      es: 'Navidad en EvolutecC · dic 2023'
+      en: 'Christmas at EvolutecC · Dec 2023'
+      pt: 'Natal na EvolutecC · dez 2023'
+  - foto: ../../assets/fotos/galerias/sobre-mi/equipo_sin-fecha_evolutecc-aniversario-2_013.jpg
+    alt:
+      es: 'Equipo de EvolutecC con camisetas negras y la placa del segundo aniversario en un restaurante'
+      en: 'EvolutecC team in black shirts with the second-anniversary plaque at a restaurant'
+      pt: 'Equipe da EvolutecC com camisetas pretas e a placa do segundo aniversário em um restaurante'
+    pie:
+      es: 'Segundo aniversario de EvolutecC · 2022'
+      en: 'EvolutecC''s second anniversary · 2022'
+      pt: 'Segundo aniversário da EvolutecC · 2022'

@@ -1,0 +1,20 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2025-02-25-baqjs
+fotos:
+  - foto: ../../assets/fotos/galerias/2025-02-25-baqjs/charla_2025-02-25_baqjs-infraestructura-fintech_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Luis Reyes habla con micrófono junto a la diapositiva Infraestructura FinTech: el futuro de las integraciones digitales'
+      en: 'Luis Reyes speaks into a microphone next to the slide "Infraestructura FinTech: el futuro de las integraciones digitales"'
+      pt: 'Luis Reyes fala ao microfone ao lado do slide "Infraestructura FinTech: el futuro de las integraciones digitales"'
+  - foto: ../../assets/fotos/galerias/2025-02-25-baqjs/charla_2025-02-25_baqjs-infraestructura-fintech_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Luis Reyes saluda de mano al anfitrión en el escenario de la IUB'
+      en: 'Luis Reyes shakes hands with the host on the IUB stage'
+      pt: 'Luis Reyes cumprimenta o anfitrião com um aperto de mão no palco da IUB'
+  - foto: ../../assets/fotos/galerias/2025-02-25-baqjs/charla_2025-02-25_baqjs-infraestructura-fintech_luis-reyes-vanegas_004.jpg
+    alt:
+      es: 'Luis Reyes en el escenario frente a la pantalla amarilla de su charla'
+      en: 'Luis Reyes on stage in front of the yellow screen of his talk'
+      pt: 'Luis Reyes no palco diante da tela amarela da sua palestra'

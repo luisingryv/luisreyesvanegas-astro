@@ -6,7 +6,7 @@ import { publishedLocales } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
 import { localizedPath } from '../../i18n/routes';
 import Base from '../../layouts/Base.astro';
-import { getEventos, getPaginaEventos } from '../../lib/content';
+import { getEventos, getGalerias, getPaginaEventos } from '../../lib/content';
 
 export const prerender = true;
 
@@ -15,7 +15,11 @@ export const getStaticPaths = (() =>
 
 const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
 const t = getDictionary(lang);
-const [textos, eventos] = await Promise.all([getPaginaEventos(lang), getEventos(lang)]);
+const [textos, eventos, galerias] = await Promise.all([
+  getPaginaEventos(lang),
+  getEventos(lang),
+  getGalerias(lang),
+]);
 const invitarHref = localizedPath(lang, 'speaker', 'invitar');
 ---
 
@@ -46,5 +50,7 @@ const invitarHref = localizedPath(lang, 'speaker', 'invitar');
     tipos={textos.tipos}
     textos={{ proximos: textos.proximos, pasados: textos.pasados }}
     invitarHref={invitarHref}
+    galerias={galerias.charlas}
+    textosGaleria={t.galeria}
   />
 </Base>

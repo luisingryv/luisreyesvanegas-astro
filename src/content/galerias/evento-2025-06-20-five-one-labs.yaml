@@ -1,0 +1,30 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2025-06-20-five-one-labs
+fotos:
+  - foto: ../../assets/fotos/galerias/2025-06-20-five-one-labs/charla_2025-06-20_five-one-labs-de-la-idea-al-producto-taller-cual-es-tu-gran-idea_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Participantes con portátiles en el taller ¿Cuál es tu gran idea?'
+      en: 'Participants with laptops at the "¿Cuál es tu gran idea?" workshop'
+      pt: 'Participantes com notebooks na oficina "¿Cuál es tu gran idea?"'
+  - foto: ../../assets/fotos/galerias/2025-06-20-five-one-labs/charla_2025-06-20_five-one-labs-de-la-idea-al-producto-taller-cual-es-tu-gran-idea_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Participantes con portátiles en el taller ¿Cuál es tu gran idea?, con Luis Reyes al frente'
+      en: 'Participants with laptops at the "¿Cuál es tu gran idea?" workshop, with Luis Reyes at the front'
+      pt: 'Participantes com notebooks na oficina "¿Cuál es tu gran idea?", com Luis Reyes à frente'
+  - foto: ../../assets/fotos/galerias/2025-06-20-five-one-labs/charla_2025-06-20_five-one-labs-de-la-idea-al-producto-taller-cual-es-tu-gran-idea_luis-reyes-vanegas_004.jpg
+    alt:
+      es: 'Taller ¿Cuál es tu gran idea? visto desde el fondo del salón'
+      en: 'The "¿Cuál es tu gran idea?" workshop seen from the back of the room'
+      pt: 'Oficina "¿Cuál es tu gran idea?" vista do fundo da sala'
+  - foto: ../../assets/fotos/galerias/2025-06-20-five-one-labs/charla_2025-06-20_five-one-labs-de-la-idea-al-producto-taller-cual-es-tu-gran-idea_luis-reyes-vanegas_005.jpg
+    alt:
+      es: 'Luis Reyes al frente del taller ¿Cuál es tu gran idea?'
+      en: 'Luis Reyes at the front of the "¿Cuál es tu gran idea?" workshop'
+      pt: 'Luis Reyes à frente da oficina "¿Cuál es tu gran idea?"'
+  - foto: ../../assets/fotos/galerias/2025-06-20-five-one-labs/charla_2025-06-20_five-one-labs-de-la-idea-al-producto-taller-cual-es-tu-gran-idea_luis-reyes-vanegas_006.jpg
+    alt:
+      es: 'Luis Reyes de pie al frente del salón durante el taller de Five One Labs'
+      en: 'Luis Reyes standing at the front of the room during the Five One Labs workshop'
+      pt: 'Luis Reyes de pé à frente da sala durante a oficina da Five One Labs'

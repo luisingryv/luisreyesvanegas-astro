@@ -321,6 +321,53 @@ export async function getEventos(locale: PublishedLocale): Promise<Evento[]> {
     .map((c) => aEvento(c, locale, (d) => d.detalle ?? d.resumen ?? d.titulo));
 }
 
+// ─── Galerías del visor de fotos ──────────────────────────────
+
+export interface FotoGaleria {
+  foto: ImageMetadata;
+  alt: string;
+  /** Pie con hechos; solo en las galerías de Sobre mí. */
+  pie?: string;
+}
+
+export interface Galerias {
+  /** Por id de capítulo (niveles de "Mi historia"). */
+  capitulos: Record<string, FotoGaleria[]>;
+  /** Por id de charla; la portada del evento abre la galería. */
+  charlas: Record<string, FotoGaleria[]>;
+}
+
+export async function getGalerias(locale: PublishedLocale): Promise<Galerias> {
+  const [galerias, charlas] = await Promise.all([
+    getCollection('galerias'),
+    getCollection('charlas'),
+  ]);
+  const resultado: Galerias = { capitulos: {}, charlas: {} };
+  for (const g of galerias) {
+    const where = `galerias/${g.id}`;
+    const fotos = g.data.fotos.map((f) => ({
+      foto: f.foto,
+      alt: localize(f.alt, locale, where),
+      pie: f.pie ? localize(f.pie, locale, where) : undefined,
+    }));
+    if (g.data.capitulo) resultado.capitulos[g.data.capitulo.id] = fotos;
+    if (g.data.charla) {
+      const charla = charlas.find((c) => c.id === g.data.charla?.id);
+      const portada =
+        charla?.data.foto && charla.data.alt
+          ? [
+              {
+                foto: charla.data.foto,
+                alt: localize(charla.data.alt, locale, `charlas/${charla.id}`),
+              },
+            ]
+          : [];
+      resultado.charlas[g.data.charla.id] = [...portada, ...fotos];
+    }
+  }
+  return resultado;
+}
+
 /** La selección de "Algunos de los eventos en los que he hablado" (Charlas). */
 export async function getEventosSpeaker(locale: PublishedLocale): Promise<Evento[]> {
   const charlas = await getCollection('charlas', (c) => c.data.speaker !== undefined);

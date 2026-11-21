@@ -15,6 +15,7 @@ import { localizedPath } from '../../i18n/routes';
 import {
   getCertificaciones,
   getCharlasSobreMi,
+  getGalerias,
   getHistoria,
   getPaginaSobreMi,
   getPrincipios,
@@ -30,14 +31,16 @@ export const getStaticPaths = (() =>
 const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
 const t = getDictionary(lang);
 
-const [pagina, historia, principios, certificaciones, charlas, testimonios] = await Promise.all([
-  getPaginaSobreMi(lang),
-  getHistoria(lang),
-  getPrincipios(lang),
-  getCertificaciones(lang),
-  getCharlasSobreMi(lang),
-  getTestimonios(lang),
-]);
+const [pagina, historia, principios, certificaciones, charlas, testimonios, galerias] =
+  await Promise.all([
+    getPaginaSobreMi(lang),
+    getHistoria(lang),
+    getPrincipios(lang),
+    getCertificaciones(lang),
+    getCharlasSobreMi(lang),
+    getTestimonios(lang),
+    getGalerias(lang),
+  ]);
 
 const url = new URL(localizedPath(lang, 'sobreMi'), Astro.site).toString();
 ---
@@ -56,7 +59,12 @@ const url = new URL(localizedPath(lang, 'sobreMi'), Astro.site).toString();
     set:html={serializeJsonLd(personSchema(url, certificaciones))}
   />
   <AperturaSobreMi locale={lang} content={pagina.apertura} />
-  <Historia locale={lang} content={pagina.historia} historia={historia} />
+  <Historia
+    locale={lang}
+    content={pagina.historia}
+    historia={historia}
+    galerias={galerias.capitulos}
+  />
   <Principios content={pagina.principios} principios={principios} />
   <EvolutecC content={pagina.evolutecc} campaign="sobre-mi" />
   <Certificaciones

@@ -1,0 +1,30 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2025-11-29-devfest-ecuador
+fotos:
+  - foto: ../../assets/fotos/galerias/2025-11-29-devfest-ecuador/charla_2025-11-29_devfest-ecuador-2025-charla-auditorio_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Luis Reyes en el atril del auditorio durante su charla en DevFest Ecuador 2025'
+      en: 'Luis Reyes at the auditorium podium during his talk at DevFest Ecuador 2025'
+      pt: 'Luis Reyes no púlpito do auditório durante sua palestra no DevFest Ecuador 2025'
+  - foto: ../../assets/fotos/galerias/2025-11-29-devfest-ecuador/charla_2025-11-29_devfest-ecuador-2025-charla-auditorio_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Luis Reyes presenta de pie junto a la pantalla ante el auditorio'
+      en: 'Luis Reyes presents standing next to the screen before the auditorium'
+      pt: 'Luis Reyes apresenta de pé ao lado da tela diante do auditório'
+  - foto: ../../assets/fotos/galerias/2025-11-29-devfest-ecuador/evento_2025-11-29_devfest-ecuador-2025-charla-auditorio-publico_luis-reyes-vanegas_004.jpg
+    alt:
+      es: 'Auditorio de DevFest Ecuador 2025 durante la charla de Luis Reyes'
+      en: 'DevFest Ecuador 2025 auditorium during Luis Reyes''s talk'
+      pt: 'Auditório do DevFest Ecuador 2025 durante a palestra de Luis Reyes'
+  - foto: ../../assets/fotos/galerias/2025-11-29-devfest-ecuador/evento_2025-11-29_devfest-ecuador-2025-charla-auditorio-publico_luis-reyes-vanegas_005.jpg
+    alt:
+      es: 'Pantalla con el nombre de Luis Carlos Reyes Vanegas al inicio de su charla en DevFest Ecuador 2025'
+      en: 'Screen with the name Luis Carlos Reyes Vanegas at the start of his talk at DevFest Ecuador 2025'
+      pt: 'Tela com o nome de Luis Carlos Reyes Vanegas no início da sua palestra no DevFest Ecuador 2025'
+  - foto: ../../assets/fotos/galerias/2025-11-29-devfest-ecuador/evento_2025-11-29_devfest-ecuador-2025-comunidad-tech-grupo-gdg_luis-reyes-vanegas_006.jpg
+    alt:
+      es: 'Foto grupal de la comunidad de DevFest Ecuador 2025 frente a la Universidad San Francisco de Quito'
+      en: 'Group photo of the DevFest Ecuador 2025 community in front of Universidad San Francisco de Quito'
+      pt: 'Foto em grupo da comunidade do DevFest Ecuador 2025 diante da Universidad San Francisco de Quito'

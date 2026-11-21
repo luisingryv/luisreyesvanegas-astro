@@ -1,0 +1,15 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2024-07-14-aneiap
+fotos:
+  - foto: ../../assets/fotos/galerias/2024-07-14-aneiap/charla_2024-07-14_aneiap-cultura-digital-stand-evolutecc_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Luis Reyes habla con micrófono junto al banner de EvolutecC'
+      en: 'Luis Reyes speaks into a microphone next to the EvolutecC banner'
+      pt: 'Luis Reyes fala ao microfone ao lado do banner da EvolutecC'
+  - foto: ../../assets/fotos/galerias/2024-07-14-aneiap/evento_2024-07-14_aneiap-cultura-digital-stand-evolutecc-entrega-certificado_luis-reyes-vanegas_004.jpg
+    alt:
+      es: 'Luis Reyes con su certificado y dos organizadores de ANEIAP frente al banner de bienvenida'
+      en: 'Luis Reyes with his certificate and two ANEIAP organizers in front of the welcome banner'
+      pt: 'Luis Reyes com seu certificado e dois organizadores da ANEIAP diante do banner de boas-vindas'

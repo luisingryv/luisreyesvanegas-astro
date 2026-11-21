@@ -38,6 +38,14 @@ export const en: Dictionary = {
     legal: 'Privacy and terms',
     copyright: '© 2026 Luis Reyes Vanegas',
   },
+  galeria: {
+    ver: (n: number) => `See ${n} photos`,
+    verDe: (n: number, titulo: string) => `See all ${n} photos from ${titulo}`,
+    cerrar: 'Close',
+    anterior: 'Previous photo',
+    siguiente: 'Next photo',
+    posicion: '{i} of {n}',
+  },
   historia: {
     nivel: (n: number) => `Level ${n}`,
     completado: 'Completed',

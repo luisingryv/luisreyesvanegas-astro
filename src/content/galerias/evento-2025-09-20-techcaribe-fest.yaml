@@ -1,0 +1,25 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2025-09-20-techcaribe-fest
+fotos:
+  - foto: ../../assets/fotos/galerias/2025-09-20-techcaribe-fest/equipo_2025-09-20_techcaribe-fest-2025-stand-evolutecc_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Luis Reyes con el equipo de EvolutecC, de camisetas naranjas, en el stand de la empresa en TechCaribe Fest 2025'
+      en: 'Luis Reyes with the EvolutecC team, in orange shirts, at the company booth at TechCaribe Fest 2025'
+      pt: 'Luis Reyes com a equipe da EvolutecC, de camisetas laranja, no estande da empresa na TechCaribe Fest 2025'
+  - foto: ../../assets/fotos/galerias/2025-09-20-techcaribe-fest/charla_2025-09-20_techcaribe-fest-2025_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Luis Reyes habla con micrófono frente a la pantalla de su charla sobre la nube y la IA'
+      en: 'Luis Reyes speaks into a microphone in front of the screen for his talk on cloud and AI'
+      pt: 'Luis Reyes fala ao microfone diante da tela da sua palestra sobre nuvem e IA'
+  - foto: ../../assets/prensa/charla_2025-09-20_techcaribe-fest-2025_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Luis Reyes en el escenario de TechCaribe Fest 2025'
+      en: 'Luis Reyes on stage at TechCaribe Fest 2025'
+      pt: 'Luis Reyes no palco da TechCaribe Fest 2025'
+  - foto: ../../assets/fotos/galerias/2025-09-20-techcaribe-fest/charla_2025-09-20_techcaribe-fest-2025_luis-reyes-vanegas_004.jpg
+    alt:
+      es: 'Luis Reyes habla con micrófono, con la camiseta de TechCaribe, ante el público'
+      en: 'Luis Reyes, in a TechCaribe shirt, speaks into a microphone before the audience'
+      pt: 'Luis Reyes, com a camiseta da TechCaribe, fala ao microfone diante do público'

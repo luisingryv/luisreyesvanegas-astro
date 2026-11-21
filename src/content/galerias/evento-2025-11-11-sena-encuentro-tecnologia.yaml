@@ -1,0 +1,15 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2025-11-11-sena-encuentro-tecnologia
+fotos:
+  - foto: ../../assets/fotos/galerias/2025-11-11-sena-encuentro-tecnologia/charla_2025-11-11_sena-encuentro-tecnologia-innovacion_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Auditorio lleno visto desde el escenario, con el portátil de la charla de Luis Reyes en primer plano'
+      en: 'Full auditorium seen from the stage, with the laptop for Luis Reyes''s talk in the foreground'
+      pt: 'Auditório cheio visto do palco, com o notebook da palestra de Luis Reyes em primeiro plano'
+  - foto: ../../assets/fotos/galerias/2025-11-11-sena-encuentro-tecnologia/charla_2025-11-11_sena-encuentro-tecnologia-innovacion_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Certificado del SENA a nombre de Luis Carlos Reyes Vanegas del Encuentro de Tecnología e Innovación'
+      en: 'SENA certificate issued to Luis Carlos Reyes Vanegas for the Encuentro de Tecnología e Innovación'
+      pt: 'Certificado do SENA em nome de Luis Carlos Reyes Vanegas do Encuentro de Tecnología e Innovación'

@@ -1,0 +1,22 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+capitulo: cimientos
+fotos:
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2018-02-17_inicios-uniforme-clinico_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Luis Reyes con uniforme quirúrgico, gorro y tapabocas en un vestidor'
+      en: 'Luis Reyes in surgical scrubs, cap and face mask in a locker room'
+      pt: 'Luis Reyes com roupa cirúrgica, touca e máscara em um vestiário'
+    pie:
+      es: 'En la Clínica del Caribe · feb 2018'
+      en: 'At Clínica del Caribe · Feb 2018'
+      pt: 'Na Clínica del Caribe · fev 2018'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2018-02-19_inicios-oficina-equipo_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Luis Reyes con la camiseta de la Clínica del Caribe en una oficina, con dos compañeros trabajando al fondo'
+      en: 'Luis Reyes wearing a Clínica del Caribe shirt in an office, with two coworkers working in the background'
+      pt: 'Luis Reyes com a camisa da Clínica del Caribe em um escritório, com dois colegas trabalhando ao fundo'
+    pie:
+      es: 'En la oficina de la Clínica del Caribe · feb 2018'
+      en: 'At the Clínica del Caribe office · Feb 2018'
+      pt: 'No escritório da Clínica del Caribe · fev 2018'

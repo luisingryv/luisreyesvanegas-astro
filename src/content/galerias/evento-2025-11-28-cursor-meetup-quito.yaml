@@ -1,0 +1,20 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2025-11-28-cursor-meetup-quito
+fotos:
+  - foto: ../../assets/fotos/galerias/2025-11-28-cursor-meetup-quito/evento_2025-11-28_cursor-meetup-quito_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Luis Reyes presenta de pie ante los asistentes sentados en mesas del Cursor meetup en Quito'
+      en: 'Luis Reyes presents standing before attendees seated at tables at the Cursor meetup in Quito'
+      pt: 'Luis Reyes apresenta de pé diante dos participantes sentados em mesas no Cursor meetup em Quito'
+  - foto: ../../assets/fotos/galerias/2025-11-28-cursor-meetup-quito/evento_2025-11-28_cursor-meetup-quito_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Asistentes del Cursor meetup en Quito sentados en mesas'
+      en: 'Cursor meetup attendees in Quito seated at tables'
+      pt: 'Participantes do Cursor meetup em Quito sentados em mesas'
+  - foto: ../../assets/fotos/galerias/2025-11-28-cursor-meetup-quito/evento_2025-11-28_cursor-meetup-quito_luis-reyes-vanegas_004.jpg
+    alt:
+      es: 'Cursor meetup en Quito con los asistentes frente a la pantalla'
+      en: 'Cursor meetup in Quito with attendees facing the screen'
+      pt: 'Cursor meetup em Quito com os participantes diante da tela'

@@ -1,0 +1,25 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2024-07-22-baqjs
+fotos:
+  - foto: ../../assets/fotos/galerias/2024-07-22-baqjs/charla_2024-07-22_baqjs-chatbot-gemini_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Luis Reyes en el escenario junto a la pantalla de su charla IA Chatbot con Gemini, Next.js y Firebase'
+      en: 'Luis Reyes on stage next to the screen for his talk "IA Chatbot con Gemini, Next.js y Firebase"'
+      pt: 'Luis Reyes no palco ao lado da tela da sua palestra "IA Chatbot con Gemini, Next.js y Firebase"'
+  - foto: ../../assets/fotos/galerias/2024-07-22-baqjs/charla_2024-07-22_baqjs-chatbot-gemini_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Luis Reyes habla con micrófono en el escenario'
+      en: 'Luis Reyes speaks into a microphone on stage'
+      pt: 'Luis Reyes fala ao microfone no palco'
+  - foto: ../../assets/fotos/galerias/2024-07-22-baqjs/charla_2024-07-22_baqjs-chatbot-gemini_luis-reyes-vanegas_004.jpg
+    alt:
+      es: 'Luis Reyes presenta la diapositiva Beneficios de implementar chatbots, con una cámara grabando en primer plano'
+      en: 'Luis Reyes presents the slide "Beneficios de implementar chatbots", with a camera recording in the foreground'
+      pt: 'Luis Reyes apresenta o slide "Beneficios de implementar chatbots", com uma câmera gravando em primeiro plano'
+  - foto: ../../assets/fotos/galerias/2024-07-22-baqjs/evento_2024-07-22_baqjs-chatbot-gemini-detras-de-camaras_luis-reyes-vanegas_006.jpg
+    alt:
+      es: 'Pantalla de una cámara que graba a Luis Reyes durante su charla'
+      en: 'Camera screen recording Luis Reyes during his talk'
+      pt: 'Tela de uma câmera que grava Luis Reyes durante sua palestra'

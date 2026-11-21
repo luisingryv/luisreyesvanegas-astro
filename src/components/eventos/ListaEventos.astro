@@ -1,10 +1,12 @@
 ---
 // Paneles de las pestañas de Eventos: próximos (por ahora, ninguno anunciado) y pasados, con
 // todas las charlas de la colección en PhotoCard 4:3 sin recorte. Las tarjetas aparecen al
-// entrar en pantalla.
+// entrar en pantalla. La tarjeta con galería abre el visor de fotos del evento (21 nov 2026).
 import Container from '../brand/Container.astro';
+import Galeria from '../brand/Galeria.astro';
 import PhotoCard from '../brand/PhotoCard.astro';
-import type { Evento, TipoCharla } from '../../lib/content';
+import type { Dictionary } from '../../i18n/es';
+import type { Evento, FotoGaleria, TipoCharla } from '../../lib/content';
 
 interface Props {
   eventos: Evento[];
@@ -14,9 +16,15 @@ interface Props {
     pasados: { etiqueta: string };
   };
   invitarHref: string;
+  /** Fotos de cada evento (por id de charla), con la portada primero. */
+  galerias?: Record<string, FotoGaleria[]>;
+  textosGaleria: Dictionary['galeria'];
 }
 
-const { eventos, tipos, textos, invitarHref } = Astro.props;
+const { eventos, tipos, textos, invitarHref, galerias = {}, textosGaleria } = Astro.props;
+// Solo hay visor si hay más fotos que la portada.
+const fotosDe = (id: string) => ((galerias[id]?.length ?? 0) > 1 ? galerias[id]! : null);
+const idGaleria = (id: string) => `galeria-evento-${id}`;
 ---
 
 <div data-theme="dark" class="bg-surface">
@@ -48,26 +56,70 @@ const { eventos, tipos, textos, invitarHref } = Astro.props;
     <Container>
       <h2 class="sr-only">{textos.pasados.etiqueta}</h2>
       <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-4">
-        {eventos.map((evento) => (
-          <li class="evento grid" data-reveal>
-            {evento.foto && evento.alt && (
-              <PhotoCard
-                image={evento.foto}
-                alt={evento.alt}
-                meta={evento.cuando}
-                etiqueta={tipos[evento.tipo]}
-                title={evento.evento}
-                titleAs="h3"
-                description={evento.texto}
-                variant="card"
-                sizes="(min-width: 1200px) 400px, (min-width: 768px) 50vw, 100vw"
-              />
-            )}
-          </li>
-        ))}
+        {eventos.map((evento) => {
+          const fotos = fotosDe(evento.id);
+          return (
+            <li class="evento relative grid" data-reveal>
+              {evento.foto && evento.alt && (
+                <PhotoCard
+                  image={evento.foto}
+                  alt={evento.alt}
+                  meta={evento.cuando}
+                  etiqueta={tipos[evento.tipo]}
+                  title={evento.evento}
+                  titleAs="h3"
+                  description={evento.texto}
+                  variant="card"
+                  sizes="(min-width: 1200px) 400px, (min-width: 768px) 50vw, 100vw"
+                />
+              )}
+              {fotos && (
+                <>
+                  <span
+                    class="insignia pointer-events-none absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 rounded-pill px-3 py-1.5 text-caption font-bold"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      class="size-4"
+                    >
+                      <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                      <circle cx="9" cy="10" r="1.6" />
+                      <path d="M21 16l-5-5-8 8" stroke-linejoin="round" />
+                    </svg>
+                    {textosGaleria.ver(fotos.length)}
+                  </span>
+                  <a
+                    href={`#${idGaleria(evento.id)}`}
+                    id={`${idGaleria(evento.id)}-abrir`}
+                    data-abrir-galeria={idGaleria(evento.id)}
+                    class="abrir absolute inset-0 z-20 rounded-lg"
+                    aria-label={textosGaleria.verDe(fotos.length, evento.evento)}
+                  />
+                </>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </Container>
   </section>
+
+  {eventos.map((evento) => {
+    const fotos = fotosDe(evento.id);
+    return fotos ? (
+      <Galeria
+        id={idGaleria(evento.id)}
+        titulo={evento.evento}
+        sub={evento.cuando}
+        fotos={fotos}
+        textos={textosGaleria}
+      />
+    ) : null;
+  })}
 </div>
 
 <style>
@@ -84,8 +136,34 @@ const { eventos, tipos, textos, invitarHref } = Astro.props;
     }
   }
 
+  /* La insignia de fotos acompaña la tarjeta al levantarse y se enciende al pasar el cursor. */
+  .insignia {
+    background: color-mix(in oklab, var(--color-night) 78%, transparent);
+    color: var(--color-white);
+    backdrop-filter: blur(6px);
+    transition:
+      transform 0.35s var(--ease-brand),
+      background-color 0.25s,
+      color 0.25s;
+  }
+  @media (hover: hover) {
+    .evento:hover .insignia {
+      transform: translateY(-4px);
+      background: var(--color-accent);
+      color: var(--color-night);
+    }
+  }
+  .abrir:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  .evento:has(.abrir:focus-visible) :global(figure) {
+    border-color: var(--color-accent);
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .evento:hover :global(figure) {
+    .evento:hover :global(figure),
+    .evento:hover .insignia {
       transform: none;
     }
   }

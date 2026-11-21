@@ -3,15 +3,16 @@ import Section from '../brand/Section.astro';
 import SectionHeader from '../brand/SectionHeader.astro';
 import LevelTimeline from '../motion/LevelTimeline.astro';
 import type { PublishedLocale } from '../../i18n/config';
-import type { Historia, PaginaSobreMi } from '../../lib/content';
+import type { FotoGaleria, Historia, PaginaSobreMi } from '../../lib/content';
 
 interface Props {
   locale: PublishedLocale;
   content: PaginaSobreMi['historia'];
   historia: Historia;
+  galerias?: Record<string, FotoGaleria[]>;
 }
 
-const { locale, content, historia } = Astro.props;
+const { locale, content, historia, galerias } = Astro.props;
 ---
 
 <Section tone="dark" separator aria-labelledby="historia-titulo">
@@ -19,6 +20,7 @@ const { locale, content, historia } = Astro.props;
   <LevelTimeline
     locale={locale}
     historia={historia}
+    galerias={galerias}
     cta={{ label: content.siguienteNivel, href: '#contacto' }}
   />
 </Section>

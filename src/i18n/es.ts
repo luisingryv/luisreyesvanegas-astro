@@ -35,6 +35,15 @@ export const es = {
     legal: 'Privacidad y términos',
     copyright: '© 2026 Luis Reyes Vanegas',
   },
+  galeria: {
+    ver: (n: number) => `Ver ${n} fotos`,
+    verDe: (n: number, titulo: string) => `Ver las ${n} fotos de ${titulo}`,
+    cerrar: 'Cerrar',
+    anterior: 'Foto anterior',
+    siguiente: 'Foto siguiente',
+    /** {i} y {n} se reemplazan en el navegador. */
+    posicion: '{i} de {n}',
+  },
   historia: {
     nivel: (n: number) => `Nivel ${n}`,
     completado: 'Completado',

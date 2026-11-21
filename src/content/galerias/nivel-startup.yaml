@@ -1,0 +1,85 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+capitulo: startup
+fotos:
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2018-10-30_inicios-oficina_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Oficina con escritorios separados por paneles azules'
+      en: 'Office with desks separated by blue panels'
+      pt: 'Escritório com mesas separadas por painéis azuis'
+    pie:
+      es: 'Oficina de Mandaos · Barranquilla · oct 2018'
+      en: 'Mandaos office · Barranquilla · Oct 2018'
+      pt: 'Escritório da Mandaos · Barranquilla · out 2018'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2018-10-30_inicios-trabajo-remoto_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Luis Reyes con audífonos de diadema durante una llamada de trabajo, junto a una ventana'
+      en: 'Luis Reyes wearing a headset during a work call, next to a window'
+      pt: 'Luis Reyes com headset durante uma chamada de trabalho, ao lado de uma janela'
+    pie:
+      es: 'Trabajando en remoto · oct 2018'
+      en: 'Working remotely · Oct 2018'
+      pt: 'Trabalhando remotamente · out 2018'
+  - foto: ../../assets/fotos/galerias/sobre-mi/personal_2018-11-14_selfie_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Selfi nocturna de Luis Reyes con la camiseta de Mandaos frente a edificios iluminados'
+      en: 'Night selfie of Luis Reyes in a Mandaos shirt in front of lit buildings'
+      pt: 'Selfie noturna de Luis Reyes com a camisa da Mandaos diante de prédios iluminados'
+    pie:
+      es: 'Con la camiseta de Mandaos · nov 2018'
+      en: 'Wearing the Mandaos shirt · Nov 2018'
+      pt: 'Com a camisa da Mandaos · nov 2018'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2018-12-01_inicios-capacitacion-equipo_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Luis Reyes presenta frente a una pantalla a un grupo de mensajeros con chaquetas de Mandaos, sentados de espaldas'
+      en: 'Luis Reyes presents in front of a screen to a group of couriers in Mandaos jackets, seated with their backs to the camera'
+      pt: 'Luis Reyes apresenta diante de uma tela para um grupo de entregadores com jaquetas da Mandaos, sentados de costas'
+    pie:
+      es: 'Capacitación a mensajeros de Mandaos · dic 2018'
+      en: 'Training Mandaos couriers · Dec 2018'
+      pt: 'Treinamento de entregadores da Mandaos · dez 2018'
+  - foto: ../../assets/fotos/galerias/sobre-mi/personal_2018-12-18_selfie_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Selfi de Luis Reyes con la camiseta de Mandaos junto a un árbol de Navidad al aire libre'
+      en: 'Selfie of Luis Reyes in a Mandaos shirt next to an outdoor Christmas tree'
+      pt: 'Selfie de Luis Reyes com a camisa da Mandaos ao lado de uma árvore de Natal ao ar livre'
+    pie:
+      es: 'Con la camiseta de Mandaos · dic 2018'
+      en: 'Wearing the Mandaos shirt · Dec 2018'
+      pt: 'Com a camisa da Mandaos · dez 2018'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2019-01-30_inicios-oficina_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Dos personas trabajan en computadores en una oficina con paneles azules'
+      en: 'Two people working at computers in an office with blue panels'
+      pt: 'Duas pessoas trabalham em computadores em um escritório com painéis azuis'
+    pie:
+      es: 'Oficina de Mandaos · Barranquilla · ene 2019'
+      en: 'Mandaos office · Barranquilla · Jan 2019'
+      pt: 'Escritório da Mandaos · Barranquilla · jan 2019'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2019-05-07_red-mensajeros-chaqueta_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Luis Reyes de pie con una chaqueta negra de Red Mensajeros en una oficina'
+      en: 'Luis Reyes standing in a black Red Mensajeros jacket in an office'
+      pt: 'Luis Reyes de pé com uma jaqueta preta da Red Mensajeros em um escritório'
+    pie:
+      es: 'Con la chaqueta de Red Mensajeros · Barranquilla · may 2019'
+      en: 'Wearing the Red Mensajeros jacket · Barranquilla · May 2019'
+      pt: 'Com a jaqueta da Red Mensajeros · Barranquilla · mai 2019'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2019-05-07_red-mensajeros-chaqueta_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Espalda de la chaqueta de Red Mensajeros, con los logos de App Store y Google Play'
+      en: 'Back of the Red Mensajeros jacket, with the App Store and Google Play logos'
+      pt: 'Costas da jaqueta da Red Mensajeros, com os logos da App Store e do Google Play'
+    pie:
+      es: 'Con la chaqueta de Red Mensajeros · Barranquilla · may 2019'
+      en: 'Wearing the Red Mensajeros jacket · Barranquilla · May 2019'
+      pt: 'Com a jaqueta da Red Mensajeros · Barranquilla · mai 2019'
+  - foto: ../../assets/fotos/galerias/sobre-mi/historia_2019-05-11_inicios-oficina_luis-reyes-vanegas_001.jpg
+    alt:
+      es: 'Luis Reyes trabaja en su portátil en un escritorio de oficina'
+      en: 'Luis Reyes working on his laptop at an office desk'
+      pt: 'Luis Reyes trabalha no seu notebook em uma mesa de escritório'
+    pie:
+      es: 'En la oficina · may 2019'
+      en: 'At the office · May 2019'
+      pt: 'No escritório · mai 2019'

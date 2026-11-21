@@ -1,0 +1,25 @@
+# Galería aprobada por Luis el 21 nov 2026 (decisión 2026-11-21-galerias-sobre-mi-y-eventos).
+# EN y PT son borradores: no se publican hasta que Luis los apruebe.
+# La portada del evento abre la galería; no se repite aquí.
+charla: 2023-07-22-gdg-barranquilla
+fotos:
+  - foto: ../../assets/fotos/galerias/2023-07-22-gdg-barranquilla/charla_2023-07-22_gdg-barranquilla-como-iniciar-en-la-nube_luis-reyes-vanegas_002.jpg
+    alt:
+      es: 'Asistentes de espaldas frente a la pantalla con el logo de Google Cloud durante la charla de Luis Reyes'
+      en: 'Attendees seen from behind facing the screen with the Google Cloud logo during Luis Reyes''s talk'
+      pt: 'Participantes de costas diante da tela com o logo do Google Cloud durante a palestra de Luis Reyes'
+  - foto: ../../assets/fotos/galerias/2023-07-22-gdg-barranquilla/charla_2023-07-22_gdg-barranquilla-como-iniciar-en-la-nube_luis-reyes-vanegas_003.jpg
+    alt:
+      es: 'Luis Reyes, de espaldas, habla a los asistentes sentados en mesas'
+      en: 'Luis Reyes, seen from behind, speaks to attendees seated at tables'
+      pt: 'Luis Reyes, de costas, fala aos participantes sentados em mesas'
+  - foto: ../../assets/fotos/galerias/2023-07-22-gdg-barranquilla/charla_2023-07-22_gdg-barranquilla-como-iniciar-en-la-nube_luis-reyes-vanegas_004.jpg
+    alt:
+      es: 'Luis Reyes explica junto a la diapositiva ¿Cómo identificar estos recursos?'
+      en: 'Luis Reyes explains next to the slide "¿Cómo identificar estos recursos?"'
+      pt: 'Luis Reyes explica ao lado do slide "¿Cómo identificar estos recursos?"'
+  - foto: ../../assets/fotos/galerias/2023-07-22-gdg-barranquilla/charla_2023-07-22_gdg-barranquilla-como-iniciar-en-la-nube_luis-reyes-vanegas_005.jpg
+    alt:
+      es: 'Sala de la charla con la presentación proyectada y asistentes al fondo'
+      en: 'Talk room with the presentation projected and attendees in the back'
+      pt: 'Sala da palestra com a apresentação projetada e participantes ao fundo'
