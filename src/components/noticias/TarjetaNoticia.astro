@@ -1,0 +1,71 @@
+---
+// Tarjeta de una noticia: fecha, medio, título, resumen y "Leer". Toda la tarjeta es el enlace.
+// En desarrollo los borradores llevan su marca; en producción no existen.
+import { Image } from 'astro:assets';
+import type { Noticia } from '../../lib/content';
+
+interface Props {
+  noticia: Noticia;
+  href: string;
+  textos: { borrador: string };
+  titleAs?: 'h2' | 'h3';
+}
+
+const { noticia, href, textos, titleAs: Titulo = 'h3' } = Astro.props;
+---
+
+<article class="tarjeta group relative flex min-w-0 flex-col overflow-hidden rounded-lg border border-hairline bg-surface-raised">
+  {noticia.imagen && noticia.imagenAlt && (
+    <Image
+      src={noticia.imagen}
+      alt={noticia.imagenAlt}
+      widths={[400, 640, 800]}
+      sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
+      class="aspect-video w-full object-cover"
+    />
+  )}
+  <div class="flex grow flex-col gap-2.5 p-6">
+    <p class="flex flex-wrap items-center gap-x-2 gap-y-1 text-caption text-blue-300">
+      <time datetime={noticia.fecha.toISOString().slice(0, 10)}>{noticia.cuando}</time>
+      <span aria-hidden="true">·</span>
+      <span>{noticia.fuente.nombre}</span>
+      {noticia.borrador && (
+        <span class="rounded-pill bg-accent px-2 py-0.5 text-[11px] font-bold text-night">
+          {textos.borrador}
+        </span>
+      )}
+    </p>
+    <Titulo class="text-title-sm leading-snug font-bold text-balance">
+      <a href={href} class="enlace after:absolute after:inset-0">
+        {noticia.titulo}
+      </a>
+    </Titulo>
+    <p class="text-small text-ink-muted">{noticia.resumen}</p>
+  </div>
+</article>
+
+<style>
+  .tarjeta {
+    transition:
+      border-color 0.25s ease,
+      transform 0.35s var(--ease-brand);
+  }
+  .tarjeta:hover,
+  .tarjeta:has(.enlace:focus-visible) {
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+  }
+  .enlace:focus-visible {
+    outline: none;
+  }
+  .tarjeta:has(.enlace:focus-visible) {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tarjeta:hover,
+    .tarjeta:has(.enlace:focus-visible) {
+      transform: none;
+    }
+  }
+</style>

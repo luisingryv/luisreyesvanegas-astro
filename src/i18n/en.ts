@@ -22,6 +22,7 @@ export const en: Dictionary = {
     casos: 'Case studies',
     eventos: 'Events',
     sobreMi: 'About me',
+    noticias: 'News',
   },
   header: {
     cta: 'Book a session',
@@ -37,6 +38,28 @@ export const en: Dictionary = {
     evolutecc: 'Custom development: EvolutecC',
     legal: 'Privacy and terms',
     copyright: '© 2026 Luis Reyes Vanegas',
+  },
+  noticias: {
+    eyebrow: 'News',
+    titulo: "What I'm reading about cloud and AI",
+    bajada:
+      'Tech news with my take: what changes and what it means for companies building in the cloud.',
+    verTodas: 'See all news',
+    leer: (titulo: string) => `Read: ${titulo}`,
+    fuente: 'Source',
+    leerFuente: (medio: string) => `Read the original story on ${medio}`,
+    relacionada: 'If this hits close to home',
+    volver: 'All news',
+    borrador: 'Draft',
+    vacio: "I'll soon publish here the news I'm following.",
+    paginas: {
+      optimizarCostos: 'Cut cloud costs',
+      escalarInfraestructura: 'Scale your infrastructure',
+      sesionArquitectura: 'Architecture session',
+      adopcionIa: 'AI adoption with Claude',
+      programasAws: 'AWS MAP program',
+      productos: 'Trama AI',
+    },
   },
   galeria: {
     ver: (n: number) => `See ${n} photos`,
@@ -143,6 +166,9 @@ export const en: Dictionary = {
     },
     sobreMi: {
       title: 'About me',
+    },
+    noticias: {
+      title: 'Cloud and AI news',
     },
   },
 };

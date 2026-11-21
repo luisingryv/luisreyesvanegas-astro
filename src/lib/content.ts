@@ -1,6 +1,7 @@
 import type { ImageMetadata } from 'astro';
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import type { PublishedLocale } from '../i18n/config';
+import type { PaginaRelacionada } from './noticias';
 import {
   formatEventDate,
   formatMonthYear,
@@ -319,6 +320,46 @@ export async function getEventos(locale: PublishedLocale): Promise<Evento[]> {
   return charlas
     .sort(masReciente)
     .map((c) => aEvento(c, locale, (d) => d.detalle ?? d.resumen ?? d.titulo));
+}
+
+// ─── Noticias ─────────────────────────────────────────────────
+
+export interface Noticia {
+  id: string;
+  titulo: string;
+  resumen: string;
+  fecha: Date;
+  /** "21 nov 2026". */
+  cuando: string;
+  borrador: boolean;
+  fuente: { nombre: string; url: string };
+  imagen?: ImageMetadata;
+  imagenAlt?: string;
+  etiquetas: string[];
+  relacionada?: PaginaRelacionada;
+}
+
+/** Noticias del idioma, de la más reciente a la más antigua. Borradores solo en desarrollo. */
+export async function getNoticias(locale: PublishedLocale): Promise<Noticia[]> {
+  const entradas = await getCollection(
+    'noticias',
+    (n) => n.data.idioma === locale && (n.data.estado === 'publicada' || import.meta.env.DEV),
+  );
+  return entradas
+    .sort((a, b) => b.data.fecha.getTime() - a.data.fecha.getTime())
+    .map(({ id, data }) => ({
+      id,
+      titulo: data.titulo,
+      resumen: data.resumen,
+      fecha: data.fecha,
+      cuando: formatEventDate(data.fecha, undefined, locale),
+      borrador: data.estado === 'borrador',
+      fuente: data.fuente,
+      imagen: data.imagen,
+      imagenAlt: data.imagenAlt,
+      etiquetas: data.etiquetas,
+      relacionada: data.relacionada,
+    }));
 }
 
 // ─── Clientes (logos con permiso) ─────────────────────────────

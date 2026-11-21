@@ -1,0 +1,38 @@
+---
+// Noticias en el Home (pedido de Luis, 21 nov 2026): las tres más recientes. Sin noticias
+// publicadas la sección no aparece.
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import TarjetaNoticia from '../noticias/TarjetaNoticia.astro';
+import { getDictionary } from '../../i18n';
+import type { PublishedLocale } from '../../i18n/config';
+import { localizedPath } from '../../i18n/routes';
+import type { Noticia } from '../../lib/content';
+
+interface Props {
+  locale: PublishedLocale;
+  noticias: Noticia[];
+}
+
+const { locale, noticias } = Astro.props;
+const t = getDictionary(locale).noticias;
+const base = localizedPath(locale, 'noticias');
+const recientes = noticias.slice(0, 3);
+---
+
+{recientes.length > 0 && (
+  <Section tone="dark" reveal aria-labelledby="noticias-home-titulo">
+    <SectionHeader id="noticias-home-titulo" eyebrow={t.eyebrow} title={t.titulo}>
+      <a slot="action" href={base} class="font-bold text-link hover:underline">
+        {t.verTodas}
+      </a>
+    </SectionHeader>
+    <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">
+      {recientes.map((noticia) => (
+        <li class="grid">
+          <TarjetaNoticia noticia={noticia} href={`${base}/${noticia.id}`} textos={t} />
+        </li>
+      ))}
+    </ul>
+  </Section>
+)}

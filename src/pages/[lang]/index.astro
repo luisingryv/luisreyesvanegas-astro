@@ -6,6 +6,7 @@ import ClientesHome from '../../components/sections/ClientesHome.astro';
 import EvoluteccFranja from '../../components/sections/EvoluteccFranja.astro';
 import HeroHome from '../../components/sections/HeroHome.astro';
 import LogrosHome from '../../components/sections/LogrosHome.astro';
+import NoticiasHome from '../../components/sections/NoticiasHome.astro';
 import RouterHome from '../../components/sections/RouterHome.astro';
 import SeccionFormulario from '../../components/sections/SeccionFormulario.astro';
 import TrayectoriaHome from '../../components/sections/TrayectoriaHome.astro';
@@ -18,6 +19,7 @@ import {
   getClientes,
   getFormularioGeneral,
   getLogrosHome,
+  getNoticias,
   getPaginaHome,
   getTrayectoriaHome,
 } from '../../lib/content';
@@ -30,13 +32,14 @@ export const getStaticPaths = (() =>
 const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
 const t = getDictionary(lang);
 
-const [pagina, logros, hitos, charlas, formulario, clientes] = await Promise.all([
+const [pagina, logros, hitos, charlas, formulario, clientes, noticias] = await Promise.all([
   getPaginaHome(lang),
   getLogrosHome(lang),
   getTrayectoriaHome(lang),
   getCharlasRecientes(lang),
   getFormularioGeneral(lang),
   getClientes(),
+  getNoticias(lang),
 ]);
 ---
 
@@ -53,6 +56,7 @@ const [pagina, logros, hitos, charlas, formulario, clientes] = await Promise.all
   <XprizeHome locale={lang} content={pagina.xprize} />
   <TrayectoriaHome locale={lang} content={pagina.trayectoria} hitos={hitos} />
   <CharlasRecientes locale={lang} content={pagina.charlas} charlas={charlas} />
+  <NoticiasHome locale={lang} noticias={noticias} />
   <CasosHome locale={lang} content={pagina.casos} />
   <ClientesHome content={pagina.clientes} clientes={clientes} />
   <EvoluteccFranja content={pagina.evolutecc} campaign="home" />

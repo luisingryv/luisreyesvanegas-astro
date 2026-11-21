@@ -15,6 +15,13 @@ interface Props {
   title: string;
   description?: string;
   route?: RouteKey;
+  /**
+   * Ruta propia sin idioma ("casos/mandaos", "noticias/x") para las páginas dinámicas: manda en
+   * canonical, og:url y hreflang. `route` sigue marcando la sección del menú (21 nov 2026).
+   */
+  ruta?: string;
+  /** Página que no debe indexarse (borradores, listas vacías). */
+  noindex?: boolean;
   /** Imagen para compartir (1200 × 630). Por defecto, la tarjeta de marca del idioma. */
   image?: ImageMetadata;
   imageAlt?: string;
@@ -40,6 +47,8 @@ const {
   title,
   description,
   route,
+  ruta,
+  noindex = false,
   image,
   imageAlt,
   type = 'website',
@@ -51,7 +60,8 @@ const {
 const t = getDictionary(locale);
 const absolute = (path: string) => new URL(path, Astro.site).toString();
 const fullTitle = `${title} · ${t.meta.siteName}`;
-const pageUrl = route ? absolute(localizedPath(locale, route)) : undefined;
+const rutaDe = (code: Locale) => (ruta ? `/${code}/${ruta}` : route && localizedPath(code, route));
+const pageUrl = rutaDe(locale) ? absolute(rutaDe(locale)!) : undefined;
 const og = await getImage({
   src: image ?? ogPorIdioma[locale],
   width: 1200,
@@ -96,17 +106,14 @@ const og = await getImage({
       type="font/woff2"
       crossorigin
     />
-    {route && (
+    {noindex && <meta name="robots" content="noindex" />}
+    {pageUrl && !noindex && (
       <>
         <link rel="canonical" href={pageUrl} />
         {publishedLocales.map((code) => (
-          <link rel="alternate" hreflang={code} href={absolute(localizedPath(code, route))} />
+          <link rel="alternate" hreflang={code} href={absolute(rutaDe(code)!)} />
         ))}
-        <link
-          rel="alternate"
-          hreflang="x-default"
-          href={absolute(localizedPath(defaultLocale, route))}
-        />
+        <link rel="alternate" hreflang="x-default" href={absolute(rutaDe(defaultLocale)!)} />
       </>
     )}
     <slot name="head" />

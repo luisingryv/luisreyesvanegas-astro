@@ -1,0 +1,68 @@
+---
+// Noticias (21 nov 2026): la lectura de Luis sobre noticias de nube e IA, de la más reciente a
+// la más antigua. Sin noticias publicadas la página no se indexa y no está en el menú.
+import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import Eyebrow from '../../../components/brand/Eyebrow.astro';
+import Section from '../../../components/brand/Section.astro';
+import TarjetaNoticia from '../../../components/noticias/TarjetaNoticia.astro';
+import { publishedLocales } from '../../../i18n/config';
+import { getDictionary } from '../../../i18n';
+import { localizedPath } from '../../../i18n/routes';
+import Base from '../../../layouts/Base.astro';
+import { getNoticias } from '../../../lib/content';
+
+export const prerender = true;
+
+export const getStaticPaths = (() =>
+  publishedLocales.map((lang) => ({ params: { lang } }))) satisfies GetStaticPaths;
+
+const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
+const t = getDictionary(lang);
+const noticias = await getNoticias(lang);
+const base = localizedPath(lang, 'noticias');
+---
+
+<Base
+  locale={lang}
+  title={t.pages.noticias.title}
+  description={t.noticias.bajada}
+  route="noticias"
+  noindex={noticias.length === 0}
+>
+  <link
+    slot="head"
+    rel="alternate"
+    type="application/rss+xml"
+    title={t.pages.noticias.title}
+    href={`${base}/rss.xml`}
+  />
+  <Section tone="dark" spacing="hero" aria-labelledby="noticias-titulo">
+    <div class="flex max-w-[60ch] flex-col gap-4">
+      <Eyebrow>{t.noticias.eyebrow}</Eyebrow>
+      <h1 id="noticias-titulo" class="text-display font-bold text-balance">
+        {t.noticias.titulo}
+      </h1>
+      <p class="text-[clamp(17px,1.6vw,19px)] text-text-secondary-on-dark">{t.noticias.bajada}</p>
+    </div>
+  </Section>
+  <Section tone="dark" class="pt-0!" aria-label={t.noticias.eyebrow}>
+    {noticias.length > 0 ? (
+      <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-4">
+        {noticias.map((noticia) => (
+          <li class="grid">
+            <TarjetaNoticia
+              noticia={noticia}
+              href={`${base}/${noticia.id}`}
+              textos={t.noticias}
+              titleAs="h2"
+            />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="rounded-md border border-dashed border-gray-700 px-6 py-5.5 text-text-secondary-on-dark">
+        {t.noticias.vacio}
+      </p>
+    )}
+  </Section>
+</Base>

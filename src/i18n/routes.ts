@@ -18,6 +18,8 @@ export const routes = {
   prensa: 'prensa',
   contacto: 'contacto',
   cv: 'cv',
+  // Noticias (21 nov 2026): índice; cada noticia vive en noticias/<id>.
+  noticias: 'noticias',
   // Dos páginas legales (Luis, 20 nov 2026).
   privacidad: 'legal/privacidad',
   terminos: 'legal/terminos',

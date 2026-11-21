@@ -22,6 +22,7 @@ export const pt: Dictionary = {
     casos: 'Casos',
     eventos: 'Eventos',
     sobreMi: 'Sobre mim',
+    noticias: 'Notícias',
   },
   header: {
     cta: 'Agendar sessão',
@@ -37,6 +38,28 @@ export const pt: Dictionary = {
     evolutecc: 'Desenvolvimento sob medida: EvolutecC',
     legal: 'Privacidade e termos',
     copyright: '© 2026 Luis Reyes Vanegas',
+  },
+  noticias: {
+    eyebrow: 'Notícias',
+    titulo: 'O que estou lendo sobre nuvem e IA',
+    bajada:
+      'Notícias de tecnologia com a minha leitura: o que muda e o que significa para as empresas que constroem na nuvem.',
+    verTodas: 'Ver todas as notícias',
+    leer: (titulo: string) => `Ler: ${titulo}`,
+    fuente: 'Fonte',
+    leerFuente: (medio: string) => `Ler a notícia original em ${medio}`,
+    relacionada: 'Se isso toca você de perto',
+    volver: 'Todas as notícias',
+    borrador: 'Rascunho',
+    vacio: 'Em breve vou publicar aqui as notícias que estou acompanhando.',
+    paginas: {
+      optimizarCostos: 'Otimizar custos de nuvem',
+      escalarInfraestructura: 'Escalar sua infraestrutura',
+      sesionArquitectura: 'Sessão de arquitetura',
+      adopcionIa: 'Adoção de IA com Claude',
+      programasAws: 'Programa MAP da AWS',
+      productos: 'Trama AI',
+    },
   },
   galeria: {
     ver: (n: number) => `Ver ${n} fotos`,
@@ -143,6 +166,9 @@ export const pt: Dictionary = {
     },
     sobreMi: {
       title: 'Sobre mim',
+    },
+    noticias: {
+      title: 'Notícias de nuvem e IA',
     },
   },
 };

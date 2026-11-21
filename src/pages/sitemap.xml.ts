@@ -9,8 +9,13 @@ export const prerender = true;
 const servicios = await getCollection('servicios');
 // Casos con página propia y permiso de publicación.
 const casos = await getCollection('casos', (c) => c.data.permiso && c.data.pagina !== undefined);
+// Noticias publicadas (21 nov 2026); sin ninguna, el índice de Noticias tampoco entra.
+const noticias = await getCollection('noticias', (n) => n.data.estado === 'publicada');
 const paginas = [
-  ...slugsDePaginas(Object.keys(import.meta.glob('/src/pages/**/*.astro'))),
+  ...slugsDePaginas(Object.keys(import.meta.glob('/src/pages/**/*.astro'))).filter(
+    (slug) => slug !== 'noticias' || noticias.length > 0,
+  ),
+  ...noticias.map(({ id }) => `noticias/${id}`),
   // Subpáginas de Consultoría (ruta dinámica con la plantilla común).
   ...servicios.map(({ id }) => `consultoria/${id}`),
   ...casos.map(({ id }) => `casos/${id}`),

@@ -10,6 +10,7 @@ import {
   TIPOS_EMPRESA_AWS,
   TIPOS_INVERSIONISTA,
 } from './lib/formularios/opciones';
+import { PAGINAS_RELACIONADAS } from './lib/noticias';
 
 // Un archivo YAML por entrada; los que empiezan por _ son plantillas y no se cargan.
 const entries = (collection: string) =>
@@ -120,6 +121,34 @@ const charlas = defineCollection({
             message: 'Las charlas de Sobre mí y de Charlas se muestran con foto.',
           });
         }
+      }),
+});
+
+// Noticias (decisiones del 12 y 21 nov 2026): una diaria si la hay, siempre con aprobación de
+// Luis. Los borradores no salen en producción; en desarrollo se ven marcados. Cada noticia es
+// una lectura propia que cita y enlaza su fuente: no se copia el texto de otros medios.
+const noticias = defineCollection({
+  loader: glob({ pattern: '**/[!_]*.md', base: './src/content/noticias' }),
+  schema: ({ image }) =>
+    z
+      .object({
+        titulo: z.string().min(1).max(110),
+        /** Bajada y meta description: 50 a 170 caracteres. */
+        resumen: z.string().min(50).max(170),
+        fecha: z.coerce.date(),
+        idioma: z.enum(['es', 'en', 'pt']).default('es'),
+        estado: z.enum(['borrador', 'publicada']),
+        fuente: z.object({ nombre: z.string().min(1), url: z.url() }),
+        /** Imagen propia o con licencia (nunca la foto de otro medio). */
+        imagen: image().optional(),
+        imagenAlt: z.string().optional(),
+        etiquetas: z.array(z.string().min(1)).max(5).default([]),
+        /** Página del sitio relacionada: enlace interno para SEO. */
+        relacionada: z.enum(PAGINAS_RELACIONADAS).optional(),
+      })
+      .refine((n) => !n.imagen || Boolean(n.imagenAlt), {
+        message: 'Una imagen necesita su alt.',
+        path: ['imagenAlt'],
       }),
 });
 
@@ -1201,5 +1230,6 @@ export const collections = {
   charlas,
   clientes,
   galerias,
+  noticias,
   testimonios,
 };

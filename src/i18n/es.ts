@@ -18,6 +18,8 @@ export const es = {
     casos: 'Casos',
     eventos: 'Eventos',
     sobreMi: 'Sobre mí',
+    // Aparece en el menú cuando hay al menos una noticia publicada (21 nov 2026).
+    noticias: 'Noticias',
   },
   header: {
     cta: 'Agendar sesión',
@@ -34,6 +36,28 @@ export const es = {
     evolutecc: 'Desarrollo a la medida: EvolutecC',
     legal: 'Privacidad y términos',
     copyright: '© 2026 Luis Reyes Vanegas',
+  },
+  noticias: {
+    eyebrow: 'Noticias',
+    titulo: 'Lo que estoy leyendo sobre nube e IA',
+    bajada:
+      'Noticias de tecnología con mi lectura: qué cambia y qué significa para las empresas que construyen en la nube.',
+    verTodas: 'Ver todas las noticias',
+    leer: (titulo: string) => `Leer: ${titulo}`,
+    fuente: 'Fuente',
+    leerFuente: (medio: string) => `Leer la noticia original en ${medio}`,
+    relacionada: 'Si esto te toca de cerca',
+    volver: 'Todas las noticias',
+    borrador: 'Borrador',
+    vacio: 'Pronto publicaré aquí las noticias que estoy siguiendo.',
+    paginas: {
+      optimizarCostos: 'Optimizar costos de nube',
+      escalarInfraestructura: 'Escalar tu infraestructura',
+      sesionArquitectura: 'Sesión de arquitectura',
+      adopcionIa: 'Adopción de IA con Claude',
+      programasAws: 'Programa MAP de AWS',
+      productos: 'Trama AI',
+    },
   },
   galeria: {
     ver: (n: number) => `Ver ${n} fotos`,
@@ -145,6 +169,9 @@ export const es = {
     },
     sobreMi: {
       title: 'Sobre mí',
+    },
+    noticias: {
+      title: 'Noticias de nube e IA',
     },
   },
 };
