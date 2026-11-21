@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import GaleriaVisor from '../../components/brand/GaleriaVisor.astro';
 import AperturaSobreMi from '../../components/sections/AperturaSobreMi.astro';
 import Certificaciones from '../../components/sections/Certificaciones.astro';
 import CierreContacto from '../../components/sections/CierreContacto.astro';
@@ -75,4 +76,5 @@ const url = new URL(localizedPath(lang, 'sobreMi'), Astro.site).toString();
   <Testimonios locale={lang} content={pagina.testimonios} testimonios={testimonios} />
   <Escenario locale={lang} content={pagina.escenario} charlas={charlas} />
   <CierreContacto locale={lang} content={pagina.cierre} />
+  <GaleriaVisor textos={t.galeria} />
 </Base>

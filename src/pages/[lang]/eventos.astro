@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
+import GaleriaVisor from '../../components/brand/GaleriaVisor.astro';
 import HeroEventos from '../../components/eventos/HeroEventos.astro';
 import ListaEventos from '../../components/eventos/ListaEventos.astro';
 import { publishedLocales } from '../../i18n/config';
@@ -54,7 +55,9 @@ const invitarHref = localizedPath(lang, 'speaker', 'invitar');
     invitarHref={invitarHref}
     galerias={galerias.charlas}
     textosGaleria={t.galeria}
+    galeriasBase={localizedPath(lang, 'galerias')}
   />
+  <GaleriaVisor textos={t.galeria} />
   {/* Mismo cierre de Sobre mí, con el logo 3D (pedido de Luis, 21 nov 2026). */}
   <CierreContacto locale={lang} content={sobreMi.cierre} />
 </Base>

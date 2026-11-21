@@ -3,7 +3,6 @@
 // todas las charlas de la colección en PhotoCard 4:3 sin recorte. Las tarjetas aparecen al
 // entrar en pantalla. La tarjeta con galería abre el visor de fotos del evento (21 nov 2026).
 import Container from '../brand/Container.astro';
-import Galeria from '../brand/Galeria.astro';
 import PhotoCard from '../brand/PhotoCard.astro';
 import type { Dictionary } from '../../i18n/es';
 import type { Evento, FotoGaleria, TipoCharla } from '../../lib/content';
@@ -19,12 +18,21 @@ interface Props {
   /** Fotos de cada evento (por id de charla), con la portada primero. */
   galerias?: Record<string, FotoGaleria[]>;
   textosGaleria: Dictionary['galeria'];
+  /** Ruta base de las páginas de galería ("/es/galerias"); el visor de la página las abre. */
+  galeriasBase: string;
 }
 
-const { eventos, tipos, textos, invitarHref, galerias = {}, textosGaleria } = Astro.props;
+const {
+  eventos,
+  tipos,
+  textos,
+  invitarHref,
+  galerias = {},
+  textosGaleria,
+  galeriasBase,
+} = Astro.props;
 // Solo hay visor si hay más fotos que la portada.
 const fotosDe = (id: string) => ((galerias[id]?.length ?? 0) > 1 ? galerias[id]! : null);
-const idGaleria = (id: string) => `galeria-evento-${id}`;
 ---
 
 <div data-theme="dark" class="bg-surface">
@@ -93,9 +101,10 @@ const idGaleria = (id: string) => `galeria-evento-${id}`;
                     {textosGaleria.ver(fotos.length)}
                   </span>
                   <a
-                    href={`#${idGaleria(evento.id)}`}
-                    id={`${idGaleria(evento.id)}-abrir`}
-                    data-abrir-galeria={idGaleria(evento.id)}
+                    href={`${galeriasBase}/evento-${evento.id}`}
+                    data-abrir-galeria
+                    data-titulo={evento.evento}
+                    data-sub={evento.cuando}
                     class="abrir absolute inset-0 z-20 rounded-lg"
                     aria-label={textosGaleria.verDe(fotos.length, evento.evento)}
                   />
@@ -107,19 +116,6 @@ const idGaleria = (id: string) => `galeria-evento-${id}`;
       </ul>
     </Container>
   </section>
-
-  {eventos.map((evento) => {
-    const fotos = fotosDe(evento.id);
-    return fotos ? (
-      <Galeria
-        id={idGaleria(evento.id)}
-        titulo={evento.evento}
-        sub={evento.cuando}
-        fotos={fotos}
-        textos={textosGaleria}
-      />
-    ) : null;
-  })}
 </div>
 
 <style>

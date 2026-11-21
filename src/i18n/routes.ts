@@ -20,6 +20,8 @@ export const routes = {
   cv: 'cv',
   // Noticias (21 nov 2026): índice; cada noticia vive en noticias/<id>.
   noticias: 'noticias',
+  // Páginas de las galerías de fotos (galerias/<id>): las abre el visor; sin índice propio.
+  galerias: 'galerias',
   // Dos páginas legales (Luis, 20 nov 2026).
   privacidad: 'legal/privacidad',
   terminos: 'legal/terminos',

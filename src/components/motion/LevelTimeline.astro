@@ -1,11 +1,11 @@
 ---
 // Pieza 03 · Línea de tiempo por niveles (laboratorio de motion).
 import Button from '../brand/Button.astro';
-import Galeria from '../brand/Galeria.astro';
 import LevelCard from '../brand/LevelCard.astro';
 import MilestoneCard from '../brand/MilestoneCard.astro';
 import type { PublishedLocale } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
+import { localizedPath } from '../../i18n/routes';
 import type { FotoGaleria, Historia } from '../../lib/content';
 
 interface Props {
@@ -21,7 +21,8 @@ const dict = getDictionary(locale);
 const t = dict.historia;
 const tg = dict.galeria;
 const { niveles, resumen } = historia;
-const idGaleria = (capitulo: string) => `galeria-nivel-${capitulo}`;
+// Cada nivel con fotos enlaza a la página de su galería; el visor de la página la abre.
+const rutaGaleria = (capitulo: string) => `${localizedPath(locale, 'galerias')}/nivel-${capitulo}`;
 
 const lockIcon = 'M8 11V8a4 4 0 0 1 8 0v3';
 const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
@@ -57,9 +58,10 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
           <p class="text-caption text-blue-300">{n.periodo}</p>
           {galerias[n.id]?.length ? (
             <a
-              href={`#${idGaleria(n.id)}`}
-              id={`${idGaleria(n.id)}-abrir`}
-              data-abrir-galeria={idGaleria(n.id)}
+              href={rutaGaleria(n.id)}
+              data-abrir-galeria
+              data-titulo={`${t.nivel(n.nivel)} · ${n.nombre}`}
+              data-sub={n.periodo}
               class="ver-fotos inline-flex items-center gap-2 self-center rounded-pill border px-3.5 py-2 text-caption font-bold sm:ml-auto"
             >
               <svg
@@ -193,18 +195,6 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
       </div>
     );
   })}
-
-  {niveles.map((n) =>
-    galerias[n.id]?.length ? (
-      <Galeria
-        id={idGaleria(n.id)}
-        titulo={`${t.nivel(n.nivel)} · ${n.nombre}`}
-        sub={n.periodo}
-        fotos={galerias[n.id]!}
-        textos={tg}
-      />
-    ) : null,
-  )}
 </div>
 
 <style>
