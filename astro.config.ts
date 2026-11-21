@@ -73,5 +73,12 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      // Astro incrusta en el HTML las hojas de estilo menores a este límite (inlineStylesheets:
+      // 'auto'). Con 10 KiB, los CSS pequeños de cada página y de los componentes compartidos
+      // (cierre con logo 3D, galerías) van dentro del HTML y no suman peticiones que bloquean
+      // la primera pintura; el CSS común sigue aparte, en caché (21 nov 2026, Lighthouse).
+      assetsInlineLimit: 10 * 1024,
+    },
   },
 });
