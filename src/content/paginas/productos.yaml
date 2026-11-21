@@ -248,6 +248,52 @@ caminos:
       es: 'Solicitar demo'
       en: 'Request a demo'
       pt: 'Solicitar demo'
+    # 21 nov 2026 (Luis): la demo es un formulario y la persona elige el producto.
+    campos:
+      producto:
+        es: '¿Qué producto quieres conocer?'
+        en: 'Which product do you want to see?'
+        pt: 'Qual produto você quer conhecer?'
+      nombre:
+        es: 'Nombre'
+        en: 'Name'
+        pt: 'Nome'
+      empresa:
+        es: 'Empresa'
+        en: 'Company'
+        pt: 'Empresa'
+      correo:
+        es: 'Correo'
+        en: 'Email'
+        pt: 'E-mail'
+      telefono:
+        es: 'Teléfono (opcional)'
+        en: 'Phone (optional)'
+        pt: 'Telefone (opcional)'
+      mensaje:
+        es: 'Qué quieres resolver (opcional)'
+        en: 'What you want to solve (optional)'
+        pt: 'O que você quer resolver (opcional)'
+    productos:
+      - valor: 'trama'
+        texto:
+          es: 'Trama AI'
+          en: 'Trama AI'
+          pt: 'Trama AI'
+      - valor: 'ofilix'
+        texto:
+          es: 'Ofilix'
+          en: 'Ofilix'
+          pt: 'Ofilix'
+      - valor: 'otro'
+        texto:
+          es: 'Otro producto o no estoy seguro'
+          en: 'Another product, or not sure'
+          pt: 'Outro produto ou não tenho certeza'
+    recibido:
+      es: 'Gracias. Recibí tu solicitud y te escribo para agendar la demo.'
+      en: 'Thank you. I got your request and will write to you to schedule the demo.'
+      pt: 'Obrigado. Recebi sua solicitação e escrevo para você para agendar a demo.'
   inversionistas:
     eyebrow:
       es: 'Para inversionistas'
@@ -266,6 +312,15 @@ caminos:
         es: 'Tipo de inversionista'
         en: 'Investor type'
         pt: 'Tipo de investidor'
+      # 21 nov 2026 (Luis): nombre y teléfono para validar a la persona.
+      nombre:
+        es: 'Nombre'
+        en: 'Name'
+        pt: 'Nome'
+      telefono:
+        es: 'Teléfono'
+        en: 'Phone'
+        pt: 'Telefone'
       pais:
         es: 'País'
         en: 'Country'

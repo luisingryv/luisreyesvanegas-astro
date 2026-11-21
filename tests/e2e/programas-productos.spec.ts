@@ -94,9 +94,13 @@ test.describe('Productos', () => {
     );
     await expect(page.locator('[data-conversacion]')).toContainText('Demostración');
     await expect(page.locator('[data-logros] > li')).toHaveCount(4);
+    // 21 nov 2026: la demo es un formulario con el producto (Trama, Ofilix u otro).
     await expect(
-      page.locator('#usar').getByRole('link', { name: 'Solicitar demo' }),
-    ).toHaveAttribute('href', '/es/contacto#general');
+      page.locator('#usar').getByLabel('¿Qué producto quieres conocer?').locator('option'),
+    ).toHaveText(['Trama AI', 'Ofilix', 'Otro producto o no estoy seguro']);
+    await expect(
+      page.locator('#usar').getByRole('button', { name: 'Solicitar demo' }),
+    ).toBeVisible();
     await expect(page.locator('#invertir')).toContainText('no constituye una oferta de valores');
     await expect(page.locator('main')).toContainText('Ofilix');
     await expect(page.locator('main')).not.toContainText('[');
@@ -130,15 +134,19 @@ test.describe('Productos', () => {
     await page.goto('/es/productos');
     const form = page.locator('#invertir form');
     await form.getByLabel('Tipo de inversionista').selectOption('fondo');
+    await form.getByLabel('Nombre').fill('Ana Pérez');
     await form.getByLabel('País').fill('Estados Unidos');
     await form.getByLabel('Correo').fill(`fondo-${randomUUID()}@ejemplo.com`);
+    await form.getByLabel('Teléfono').fill('+1 305 555 0100');
     await form.getByLabel(/Acepto la/).check();
     const peticion = page.waitForRequest((r) => r.url().endsWith('/api/solicitudes'));
     await form.getByRole('button', { name: 'Solicitar información' }).click();
     expect((await peticion).postDataJSON()).toMatchObject({
       formulario: 'productos',
       inversionista: 'fondo',
+      nombre: 'Ana Pérez',
       pais: 'Estados Unidos',
+      telefono: '+1 305 555 0100',
     });
     await expect(page.locator('#formulario-enviado')).toHaveText(
       'Gracias. Recibí tu solicitud y te escribo para agendar la conversación.',

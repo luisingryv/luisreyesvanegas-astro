@@ -15,6 +15,10 @@ export const CONSUMOS_AWS = [1000, 2500, 5000, 10000, 20000, 30000, 50000, 10000
 /** Opción elegida por defecto (prototipo). */
 export const CONSUMO_AWS_INICIAL = 10000;
 
+// Productos (#usar, 21 nov 2026): de qué producto quiere saber. "otro" cubre la plataforma
+// que Luis confirme y los próximos productos.
+export const PRODUCTOS_DEMO = ['trama', 'ofilix', 'otro'] as const;
+
 // Productos (#invertir): tipo de inversionista.
 export const TIPOS_INVERSIONISTA = [
   'angel',

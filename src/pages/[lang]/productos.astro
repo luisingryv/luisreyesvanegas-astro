@@ -1,11 +1,10 @@
 ---
-// Productos: Trama AI con la medalla 3D (pieza 05) y el portafolio con aliados. "Solicitar demo"
-// lleva a Contacto mientras no haya un canal propio para demos (Luis, 20 nov 2026).
+// Productos: Trama AI con la medalla 3D (pieza 05) y el portafolio con aliados. Desde el 21 nov
+// 2026 "Solicitar demo" es un formulario propio en la página (Trama, Ofilix u otro producto).
 import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
 import SeccionesProductos from '../../components/productos/SeccionesProductos.astro';
 import { publishedLocales } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
-import { localizedPath } from '../../i18n/routes';
 import Base from '../../layouts/Base.astro';
 import { getFormularioGeneral, getPaginaProductos } from '../../lib/content';
 
@@ -28,10 +27,5 @@ const [textos, formulario] = await Promise.all([
   description={textos.hero.texto}
   route="productos"
 >
-  <SeccionesProductos
-    locale={lang}
-    textos={textos}
-    comunes={formulario}
-    demoHref={localizedPath(lang, 'contacto', 'general')}
-  />
+  <SeccionesProductos locale={lang} textos={textos} comunes={formulario} />
 </Base>

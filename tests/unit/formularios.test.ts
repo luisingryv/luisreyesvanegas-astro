@@ -181,19 +181,45 @@ describe('evaluación de Programas AWS', () => {
 });
 
 describe('inversionistas de Trama', () => {
-  it('pide tipo de inversionista, país, correo y autorización', () => {
+  it('pide tipo de inversionista, nombre, país, correo, teléfono y autorización', () => {
     expect(
       solicitud.safeParse({
         formulario: 'productos',
         inversionista: 'angel',
+        nombre: 'Ana Pérez',
         pais: 'Colombia',
         email: 'inversion@ejemplo.com',
+        telefono: '+57 300 123 4567',
         acepta: 'on',
       }).success,
     ).toBe(true);
-    expect(errores({ formulario: 'productos', inversionista: 'banco' })).toEqual({
+    expect(errores({ formulario: 'productos', inversionista: 'banco', telefono: 'abc' })).toEqual({
       inversionista: 'invalido',
+      nombre: 'requerido',
       pais: 'requerido',
+      email: 'requerido',
+      telefono: 'invalido',
+      acepta: 'debe-aceptar',
+    });
+  });
+});
+
+describe('demo de productos', () => {
+  it('pide el producto, nombre, empresa, correo y autorización; teléfono y mensaje opcionales', () => {
+    expect(
+      solicitud.safeParse({
+        formulario: 'demo',
+        producto: 'ofilix',
+        nombre: 'Carlos Gómez',
+        empresa: 'Textiles del Caribe',
+        email: 'carlos@ejemplo.com',
+        acepta: 'on',
+      }).success,
+    ).toBe(true);
+    expect(errores({ formulario: 'demo', producto: 'otra-cosa' })).toEqual({
+      producto: 'invalido',
+      nombre: 'requerido',
+      empresa: 'requerido',
       email: 'requerido',
       acepta: 'debe-aceptar',
     });

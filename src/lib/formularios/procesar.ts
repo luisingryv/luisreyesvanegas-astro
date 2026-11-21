@@ -89,7 +89,22 @@ export async function procesarSolicitud(
         };
       case 'productos':
         return {
-          datos: quitarVacios({ inversionista: datos.inversionista, pais: datos.pais }),
+          nombre: datos.nombre,
+          datos: quitarVacios({
+            inversionista: datos.inversionista,
+            pais: datos.pais,
+            telefono: datos.telefono,
+          }),
+        };
+      case 'demo':
+        return {
+          nombre: datos.nombre,
+          mensaje: datos.mensaje,
+          datos: quitarVacios({
+            producto: datos.producto,
+            empresa: datos.empresa,
+            telefono: datos.telefono,
+          }),
         };
     }
   })();

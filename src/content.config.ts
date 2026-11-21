@@ -6,6 +6,7 @@ import {
   NECESIDADES_PRENSA,
   PLAZOS_AWS,
   PRESUPUESTOS_SPEAKER,
+  PRODUCTOS_DEMO,
   TIPOS_EMPRESA_AWS,
   TIPOS_INVERSIONISTA,
 } from './lib/formularios/opciones';
@@ -1121,10 +1122,31 @@ const productosPagina = defineCollection({
     }),
     caminos: z.object({
       titulo: localized,
-      empresas: tituloTexto.extend({ eyebrow: localized, boton: localized }),
+      // 21 nov 2026: la demo es un formulario con el producto (Trama, Ofilix u otro); `boton`
+      // es el texto del botón de enviar.
+      empresas: tituloTexto.extend({
+        eyebrow: localized,
+        boton: localized,
+        campos: z.object({
+          producto: localized,
+          nombre: localized,
+          empresa: localized,
+          correo: localized,
+          telefono: localized,
+          mensaje: localized,
+        }),
+        productos: z.array(z.object({ valor: z.enum(PRODUCTOS_DEMO), texto: localized })),
+        recibido: localized,
+      }),
       inversionistas: tituloTexto.extend({
         eyebrow: localized,
-        campos: z.object({ tipo: localized, pais: localized, correo: localized }),
+        campos: z.object({
+          tipo: localized,
+          nombre: localized,
+          pais: localized,
+          correo: localized,
+          telefono: localized,
+        }),
         tipos: z.array(z.object({ valor: z.enum(TIPOS_INVERSIONISTA), texto: localized })),
         enviar: localized,
         aviso: localized,

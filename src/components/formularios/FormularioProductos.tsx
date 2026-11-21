@@ -1,5 +1,6 @@
-// Inversionistas de Trama (Productos, #invertir): tipo de inversionista, país, correo y la casilla
-// de autorización. El aviso de que no es una oferta de valores va debajo del botón.
+// Inversionistas de Trama (Productos, #invertir): tipo de inversionista, nombre, país, correo,
+// teléfono y la casilla de autorización. El aviso de que no es una oferta de valores va debajo
+// del botón. Nombre y teléfono desde el 21 nov 2026, para validar a la persona (Luis).
 import { Input } from '@/components/ui/input';
 import { NativeSelect, NativeSelectOption } from '@/components/ui/native-select';
 import {
@@ -18,8 +19,10 @@ export interface TextosProductos {
   texto: string;
   tipo: string;
   tipos: { valor: string; texto: string }[];
+  nombre: string;
   pais: string;
   correo: string;
+  telefono: string;
   autorizacion: TextosAutorizacion;
   enviar: string;
   aviso: string;
@@ -62,6 +65,18 @@ export function FormularioProductos({ textos, mensajes, idioma, pagina, politica
           ))}
         </NativeSelect>
       </Campo>
+      <Campo id="invertir-nombre" etiqueta={textos.nombre}>
+        <Input
+          id="invertir-nombre"
+          name="nombre"
+          type="text"
+          autoComplete="name"
+          required
+          minLength={2}
+          maxLength={120}
+          className={clases.input}
+        />
+      </Campo>
       <Campo id="invertir-pais" etiqueta={textos.pais}>
         <Input
           id="invertir-pais"
@@ -82,6 +97,18 @@ export function FormularioProductos({ textos, mensajes, idioma, pagina, politica
           autoComplete="email"
           required
           maxLength={254}
+          className={clases.input}
+        />
+      </Campo>
+      <Campo id="invertir-telefono" etiqueta={textos.telefono}>
+        <Input
+          id="invertir-telefono"
+          name="telefono"
+          type="tel"
+          autoComplete="tel"
+          required
+          pattern="\+?[0-9][0-9 ()\-]{6,19}"
+          maxLength={20}
           className={clases.input}
         />
       </Campo>

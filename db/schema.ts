@@ -23,6 +23,8 @@ export const FORMULARIOS = [
   'productos',
   'programas-aws',
   'consultoria',
+  // Productos, #usar (21 nov 2026): demo de Trama, Ofilix u otro producto.
+  'demo',
 ] as const;
 export type Formulario = (typeof FORMULARIOS)[number];
 

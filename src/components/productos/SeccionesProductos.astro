@@ -6,6 +6,7 @@ import AchievementCard from '../brand/AchievementCard.astro';
 import Button from '../brand/Button.astro';
 import Eyebrow from '../brand/Eyebrow.astro';
 import Section from '../brand/Section.astro';
+import { FormularioDemo } from '../formularios/FormularioDemo';
 import { FormularioProductos } from '../formularios/FormularioProductos';
 import Medalla3D from '../motion/Medalla3D.astro';
 import ConversacionTrama from './ConversacionTrama.astro';
@@ -18,10 +19,9 @@ interface Props {
   locale: PublishedLocale;
   textos: PaginaProductos;
   comunes: FormularioGeneral;
-  demoHref: string;
 }
 
-const { locale, textos, comunes, demoHref } = Astro.props;
+const { locale, textos, comunes } = Astro.props;
 const t = getDictionary(locale);
 const h2 = 'text-[clamp(28px,3.4vw,42px)] leading-[1.1] font-bold text-balance';
 const { medalla } = textos.hero;
@@ -140,18 +140,30 @@ const { medalla } = textos.hero;
       {textos.caminos.titulo}
     </h2>
     <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-start gap-4">
-      <div
-        id="usar"
-        class="flex min-w-0 flex-col gap-4 rounded-lg border border-hairline bg-surface-raised p-8"
-      >
-        <span class="text-[12px] font-bold tracking-[0.12em] text-link uppercase">
-          {textos.caminos.empresas.eyebrow}
-        </span>
-        <h3 class="text-[26px] leading-[1.2] font-bold">{textos.caminos.empresas.titulo}</h3>
-        <p class="text-text-secondary-on-dark">{textos.caminos.empresas.texto}</p>
-        <Button href={demoHref} class="mt-auto self-start">
-          {textos.caminos.empresas.boton}
-        </Button>
+      {/* 21 nov 2026 (Luis): la demo es un formulario y la persona elige el producto. */}
+      <div id="usar">
+        <FormularioDemo
+          textos={{
+            eyebrow: textos.caminos.empresas.eyebrow,
+            titulo: textos.caminos.empresas.titulo,
+            texto: textos.caminos.empresas.texto,
+            producto: textos.caminos.empresas.campos.producto,
+            productos: textos.caminos.empresas.productos,
+            nombre: textos.caminos.empresas.campos.nombre,
+            empresa: textos.caminos.empresas.campos.empresa,
+            correo: textos.caminos.empresas.campos.correo,
+            telefono: textos.caminos.empresas.campos.telefono,
+            mensaje: textos.caminos.empresas.campos.mensaje,
+            autorizacion: comunes.autorizacion,
+            enviar: textos.caminos.empresas.boton,
+            recibido: textos.caminos.empresas.recibido,
+            error: comunes.error,
+          }}
+          mensajes={t.formulario}
+          idioma={locale}
+          pagina={localizedPath(locale, 'productos')}
+          politicaHref={localizedPath(locale, 'privacidad')}
+        />
       </div>
       <div id="invertir">
         <FormularioProductos
@@ -161,8 +173,10 @@ const { medalla } = textos.hero;
             texto: textos.caminos.inversionistas.texto,
             tipo: textos.caminos.inversionistas.campos.tipo,
             tipos: textos.caminos.inversionistas.tipos,
+            nombre: textos.caminos.inversionistas.campos.nombre,
             pais: textos.caminos.inversionistas.campos.pais,
             correo: textos.caminos.inversionistas.campos.correo,
+            telefono: textos.caminos.inversionistas.campos.telefono,
             autorizacion: comunes.autorizacion,
             enviar: textos.caminos.inversionistas.enviar,
             aviso: textos.caminos.inversionistas.aviso,

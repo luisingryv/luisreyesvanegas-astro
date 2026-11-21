@@ -8,6 +8,7 @@ import {
   NECESIDADES_PRENSA,
   PLAZOS_AWS,
   PRESUPUESTOS_SPEAKER,
+  PRODUCTOS_DEMO,
   TIPOS_EMPRESA_AWS,
   TIPOS_INVERSIONISTA,
 } from './opciones';
@@ -36,6 +37,17 @@ const autorizacion = z.preprocess(
 );
 
 const slug = z.string().regex(/^[a-z0-9-]{1,60}$/, { error: 'invalido' });
+
+// Teléfono con indicativo, espacios, guiones o paréntesis (WhatsApp o fijo).
+const TELEFONO = /^\+?[0-9][0-9 ()-]{6,19}$/;
+const telefonoRequerido = z.preprocess(
+  vacioAusente,
+  z.string({ error: 'requerido' }).trim().regex(TELEFONO, { error: 'invalido' }),
+);
+const telefonoOpcional = z.preprocess(
+  vacioAusente,
+  z.string().trim().regex(TELEFONO, { error: 'invalido' }).optional(),
+);
 
 // Campos que comparten todos los formularios.
 const comunes = {
@@ -69,15 +81,7 @@ export const formularioGeneral = z.object({
   formulario: z.literal('general', { error: 'invalido' }),
   ...comunes,
   nombre: requerido(2, 120),
-  // Números con indicativo, espacios, guiones o paréntesis (WhatsApp).
-  whatsapp: z.preprocess(
-    vacioAusente,
-    z
-      .string()
-      .trim()
-      .regex(/^\+?[0-9][0-9 ()-]{6,19}$/, { error: 'invalido' })
-      .optional(),
-  ),
+  whatsapp: telefonoOpcional,
   mensaje: requerido(10, 5000),
 });
 
@@ -151,12 +155,28 @@ export const formularioProgramasAws = z.object({
   empresa: requerido(2, 160),
 });
 
-/** Inversionistas de Trama (Productos, #invertir). */
+/**
+ * Inversionistas de Trama (Productos, #invertir). Desde el 21 nov 2026 pide también nombre y
+ * teléfono, para validar a la persona antes de responder (pedido de Luis).
+ */
 export const formularioProductos = z.object({
   formulario: z.literal('productos', { error: 'invalido' }),
   ...comunes,
   inversionista: opcionDe(TIPOS_INVERSIONISTA),
+  nombre: requerido(2, 120),
   pais: requerido(2, 80),
+  telefono: telefonoRequerido,
+});
+
+/** Demo de un producto (Productos, #usar, 21 nov 2026): Trama, Ofilix u otro. */
+export const formularioDemo = z.object({
+  formulario: z.literal('demo', { error: 'invalido' }),
+  ...comunes,
+  producto: opcionDe(PRODUCTOS_DEMO),
+  nombre: requerido(2, 120),
+  empresa: requerido(2, 160),
+  telefono: telefonoOpcional,
+  mensaje: opcional(3000),
 });
 
 export const solicitud = z.discriminatedUnion(
@@ -168,6 +188,7 @@ export const solicitud = z.discriminatedUnion(
     formularioPrensa,
     formularioProgramasAws,
     formularioProductos,
+    formularioDemo,
   ],
   { error: 'invalido' },
 );
