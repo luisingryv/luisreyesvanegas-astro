@@ -6,7 +6,8 @@ import { publishedLocales } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
 import { localizedPath } from '../../i18n/routes';
 import Base from '../../layouts/Base.astro';
-import { getEventos, getGalerias, getPaginaEventos } from '../../lib/content';
+import CierreContacto from '../../components/sections/CierreContacto.astro';
+import { getEventos, getGalerias, getPaginaEventos, getPaginaSobreMi } from '../../lib/content';
 
 export const prerender = true;
 
@@ -15,10 +16,11 @@ export const getStaticPaths = (() =>
 
 const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
 const t = getDictionary(lang);
-const [textos, eventos, galerias] = await Promise.all([
+const [textos, eventos, galerias, sobreMi] = await Promise.all([
   getPaginaEventos(lang),
   getEventos(lang),
   getGalerias(lang),
+  getPaginaSobreMi(lang),
 ]);
 const invitarHref = localizedPath(lang, 'speaker', 'invitar');
 ---
@@ -53,4 +55,6 @@ const invitarHref = localizedPath(lang, 'speaker', 'invitar');
     galerias={galerias.charlas}
     textosGaleria={t.galeria}
   />
+  {/* Mismo cierre de Sobre mí, con el logo 3D (pedido de Luis, 21 nov 2026). */}
+  <CierreContacto locale={lang} content={sobreMi.cierre} />
 </Base>

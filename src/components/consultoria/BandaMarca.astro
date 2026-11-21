@@ -1,9 +1,14 @@
 ---
-// Banda azul (tono brand) con título, texto opcional y botones: banda del programa MAP y
-// cierres de las subpáginas y de Adopción de IA.
+// Banda con título, texto opcional y botones: banda del programa MAP y cierres de Casos, de cada
+// caso, de las subpáginas, de Adopción de IA y del CV.
+// 21 nov 2026 (Luis): en este tipo de secciones los botones van debajo del texto y al lado va
+// el logo LR en 3D (pieza 04), sobre fondo night con resplandor azul, como el cierre de Sobre mí.
+// El logo es azul: sobre la banda azul se perdía, por eso estas bandas pasan a night.
 import Button from '../brand/Button.astro';
+import Container from '../brand/Container.astro';
 import Eyebrow from '../brand/Eyebrow.astro';
 import Section from '../brand/Section.astro';
+import Logo3D from '../motion/Logo3D.astro';
 
 interface Props {
   id: string;
@@ -13,55 +18,141 @@ interface Props {
   botones: { texto: string; href: string; variante?: 'primary' | 'outline'; external?: boolean }[];
   /** compacta: la banda del programa MAP (menos alto). */
   compacta?: boolean;
-  /** brand (azul) o dark (night, como el cierre del índice de casos). */
+  /** Sin logo 3D: brand (azul) o dark (night). */
   tono?: 'brand' | 'dark';
+  /** logo3d (por defecto): texto y botones a la izquierda, logo a la derecha. */
+  visual?: 'logo3d' | 'none';
 }
 
-const { id, eyebrow, titulo, texto, botones, compacta = false, tono = 'brand' } = Astro.props;
+const {
+  id,
+  eyebrow,
+  titulo,
+  texto,
+  botones,
+  compacta = false,
+  tono = 'brand',
+  visual = 'logo3d',
+} = Astro.props;
+const conLogo = visual === 'logo3d';
 ---
 
-<Section
-  tone={tono}
-  id={id}
-  aria-labelledby={`${id}-titulo`}
-  class={compacta ? 'py-[clamp(40px,5vw,64px)]!' : 'py-[clamp(48px,6vw,80px)]!'}
->
-  <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-5">
-    <div class="flex max-w-[70ch] flex-col gap-1.5">
-      {eyebrow && (
-        <Eyebrow class={tono === 'brand' ? 'text-blue-200!' : undefined}>{eyebrow}</Eyebrow>
-      )}
-      <h2
-        id={`${id}-titulo`}
-        class:list={[
-          'font-bold text-balance',
-          compacta ? 'text-[clamp(24px,2.8vw,34px)] leading-[1.15]' : 'text-heading',
-        ]}
-      >
-        {titulo}
-      </h2>
-      {texto && (
-        <p
+{conLogo ? (
+  <section
+    id={id}
+    data-theme="dark"
+    aria-labelledby={`${id}-titulo`}
+    class="banda-3d bg-surface py-[clamp(48px,6vw,88px)]"
+  >
+    <Container
+      data-reveal
+      class="grid items-center gap-8 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] md:gap-12"
+    >
+      <div class="flex flex-col items-start gap-6">
+        <div class="flex max-w-[60ch] flex-col gap-3">
+          {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+          <h2
+            id={`${id}-titulo`}
+            class:list={[
+              'font-bold text-balance',
+              compacta ? 'text-[clamp(26px,3vw,36px)] leading-[1.15]' : 'text-heading-lg',
+            ]}
+          >
+            {titulo}
+          </h2>
+          {texto && <p class="text-text-secondary-on-dark">{texto}</p>}
+        </div>
+        <div class="botones flex flex-wrap gap-3">
+          {botones.map((boton) => (
+            <Button
+              href={boton.href}
+              size="lg"
+              variant={boton.variante ?? 'primary'}
+              external={boton.external}
+            >
+              {boton.texto}
+            </Button>
+          ))}
+        </div>
+      </div>
+      <Logo3D
+        class="-my-4 aspect-square w-full max-w-[min(100%,420px)] justify-self-center md:my-0"
+        sizes="(min-width: 768px) 28vw, 60vw"
+      />
+    </Container>
+  </section>
+) : (
+  <Section
+    tone={tono}
+    id={id}
+    aria-labelledby={`${id}-titulo`}
+    class={compacta ? 'py-[clamp(40px,5vw,64px)]!' : 'py-[clamp(48px,6vw,80px)]!'}
+  >
+    <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-5">
+      <div class="flex max-w-[70ch] flex-col gap-1.5">
+        {eyebrow && (
+          <Eyebrow class={tono === 'brand' ? 'text-blue-200!' : undefined}>{eyebrow}</Eyebrow>
+        )}
+        <h2
+          id={`${id}-titulo`}
           class:list={[
-            compacta && 'text-small',
-            tono === 'brand' ? 'text-blue-200' : 'text-text-secondary-on-dark',
+            'font-bold text-balance',
+            compacta ? 'text-[clamp(24px,2.8vw,34px)] leading-[1.15]' : 'text-heading',
           ]}
         >
-          {texto}
-        </p>
-      )}
+          {titulo}
+        </h2>
+        {texto && (
+          <p
+            class:list={[
+              compacta && 'text-small',
+              tono === 'brand' ? 'text-blue-200' : 'text-text-secondary-on-dark',
+            ]}
+          >
+            {texto}
+          </p>
+        )}
+      </div>
+      <div class="flex flex-wrap gap-3">
+        {botones.map((boton) => (
+          <Button
+            href={boton.href}
+            size="lg"
+            variant={boton.variante ?? 'primary'}
+            external={boton.external}
+          >
+            {boton.texto}
+          </Button>
+        ))}
+      </div>
     </div>
-    <div class="flex flex-wrap gap-3">
-      {botones.map((boton) => (
-        <Button
-          href={boton.href}
-          size="lg"
-          variant={boton.variante ?? 'primary'}
-          external={boton.external}
-        >
-          {boton.texto}
-        </Button>
-      ))}
-    </div>
-  </div>
-</Section>
+  </Section>
+)}
+
+<style>
+  /* Mismo fondo que el cierre de Sobre mí: night con resplandor azul detrás del logo. */
+  .banda-3d {
+    --color-link: var(--color-cyan-300);
+    background-image: radial-gradient(
+      120% 70% at 50% 85%,
+      var(--color-glow-core) 0%,
+      var(--color-glow-edge) 55%,
+      var(--color-night) 100%
+    );
+  }
+  @media (min-width: 48rem) {
+    .banda-3d {
+      background-image: radial-gradient(
+        90% 120% at 78% 50%,
+        var(--color-glow-core) 0%,
+        var(--color-glow-edge) 55%,
+        var(--color-night) 100%
+      );
+    }
+  }
+  @media print {
+    .banda-3d :global([data-logo3d]) {
+      display: none;
+    }
+  }
+</style>
