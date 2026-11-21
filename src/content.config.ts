@@ -949,12 +949,8 @@ const cvPagina = defineCollection({
         )
         .min(1),
     }),
-    formacion: z.object({
-      titulo: localized,
-      lista: z
-        .array(z.object({ nombre: localized, emisor: localized, fecha: localized.optional() }))
-        .min(1),
-    }),
+    // 21 nov 2026: la lista sale de la colección de certificaciones (insignias de Sobre mí).
+    formacion: z.object({ titulo: localized }),
     comunidad: z.object({ titulo: localized, texto: localized, enlace: localized }),
     cierre: z.object({
       titulo: localized,

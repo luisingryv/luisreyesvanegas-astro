@@ -23,7 +23,8 @@ await new Promise((listo, falla) => {
 
 const browser = await chromium.launch({ channel: 'chrome' });
 try {
-  const page = await browser.newPage();
+  // Sin animaciones: el PDF sale con los logros, las insignias y las competencias completos.
+  const page = await browser.newPage({ reducedMotion: 'reduce' });
   for (const idioma of IDIOMAS) {
     await page.goto(`http://127.0.0.1:${PUERTO}/${idioma}/cv`, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);

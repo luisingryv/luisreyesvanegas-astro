@@ -185,6 +185,8 @@ const filters = [
         f.setAttribute('transform', `translate(0 ${cards[i]!.dataset.badge === 'ok' ? 0 : 55})`),
       );
     };
+    // Al imprimir (el CV se imprime), las insignias salen completas aunque no se hayan visto.
+    window.addEventListener('beforeprint', restoreFinalState, { once: true });
 
     onceNearViewport(root, async () => {
       try {

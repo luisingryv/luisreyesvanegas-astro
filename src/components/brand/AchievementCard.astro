@@ -1,6 +1,8 @@
 ---
 // Pieza 02 · Tarjeta de logro. La cifra final va escrita en el HTML; el contador (motion)
 // solo la anima. Cada logro lleva cliente y periodo, y la fuente cuando la hay.
+// tono claro (21 nov 2026): el CV usa el mismo efecto del Home sobre fondo blanco, para que
+// se lea e imprima igual.
 import CheckMark from './CheckMark.astro';
 import type { Logro } from '../../lib/content';
 
@@ -9,13 +11,18 @@ interface Props {
   as?: 'article' | 'li';
   /** Rótulo del candado de la pieza 02; sin él, la tarjeta no se bloquea. */
   bloqueado?: string;
+  tono?: 'oscuro' | 'claro';
 }
 
-const { logro, as: Tag = 'article', bloqueado } = Astro.props;
+const { logro, as: Tag = 'article', bloqueado, tono = 'oscuro' } = Astro.props;
+const claro = tono === 'claro';
 ---
 
 <Tag
-  class="relative flex min-w-0 flex-col gap-3 overflow-hidden rounded-lg border border-hairline bg-surface-raised p-6"
+  class:list={[
+    'relative flex min-w-0 flex-col gap-3 overflow-hidden rounded-lg border p-6',
+    claro ? 'logro-claro border-blue-300 bg-white' : 'border-hairline bg-surface-raised',
+  ]}
   data-logro={logro.id}
 >
   <div class="flex items-center justify-between gap-3">
@@ -25,12 +32,17 @@ const { logro, as: Tag = 'article', bloqueado } = Astro.props;
     <CheckMark class="logro-insignia ml-auto" />
   </div>
   <p
-    class="text-[clamp(36px,3.6vw,46px)] leading-none font-bold tracking-[-0.02em] tabular-nums"
+    class:list={[
+      'text-[clamp(36px,3.6vw,46px)] leading-none font-bold tracking-[-0.02em] tabular-nums',
+      claro && 'text-link',
+    ]}
     data-metrica
   >
     {logro.metrica}
   </p>
-  <p class="text-[15px] text-text-secondary-on-dark">{logro.descripcion}</p>
+  <p class:list={['text-[15px]', claro ? 'text-ink-muted' : 'text-text-secondary-on-dark']}>
+    {logro.descripcion}
+  </p>
   {logro.barras && (
     <div class="flex flex-col gap-1.5" data-barras>
       <div class="h-1.5 overflow-hidden rounded-pill bg-dark-border">
@@ -64,7 +76,13 @@ const { logro, as: Tag = 'article', bloqueado } = Astro.props;
       ))}
     </ul>
   )}
-  <p class:list={['mt-auto text-[12px] text-blue-300', !logro.quien && !logro.fuente && 'hidden']}>
+  <p
+    class:list={[
+      'mt-auto text-[12px]',
+      claro ? 'text-blue-600' : 'text-blue-300',
+      !logro.quien && !logro.fuente && 'hidden',
+    ]}
+  >
     {logro.quien}
     {logro.fuente && (
       <>
@@ -105,5 +123,16 @@ const { logro, as: Tag = 'article', bloqueado } = Astro.props;
 
   [data-bloqueado] .logro-candado {
     opacity: 1;
+  }
+
+  .logro-claro .logro-candado {
+    background: color-mix(in oklab, var(--color-white) 70%, transparent);
+    color: var(--color-gray-700);
+  }
+
+  @media print {
+    .logro-candado {
+      display: none;
+    }
   }
 </style>

@@ -2,18 +2,33 @@
 // Secciones del CV tal cual el prototipo: logros con cifra y fuente, experiencia, stack y
 // competencias (pieza 12) con formación y certificaciones, y charlas y comunidad. Las
 // recomendaciones de ejemplo no se publican.
+// 21 nov 2026 (Luis): los logros usan el mismo motion del Home (pieza 02, en claro) y la
+// formación y certificaciones, las insignias coleccionables de Sobre mí (pieza 09).
+import AchievementCard from '../brand/AchievementCard.astro';
 import Section from '../brand/Section.astro';
+import CollectibleBadges from '../motion/CollectibleBadges.astro';
 import CompetenciasCv from './CompetenciasCv.astro';
-import type { PaginaCv } from '../../lib/content';
+import type { PublishedLocale } from '../../i18n/config';
+import { getDictionary } from '../../i18n';
+import type { Certificacion, Logro, PaginaCv } from '../../lib/content';
 
 interface Props {
+  locale: PublishedLocale;
   textos: PaginaCv;
+  certificaciones: Certificacion[];
   sobreMiHref: string;
   eventosHref: string;
 }
 
-const { textos, sobreMiHref, eventosHref } = Astro.props;
+const { locale, textos, certificaciones, sobreMiHref, eventosHref } = Astro.props;
+const t = getDictionary(locale);
 const h2 = 'text-[clamp(26px,3vw,36px)] leading-[1.15] font-bold';
+const logros: Logro[] = textos.logros.lista.map((l, i) => ({
+  id: `cv-${i + 1}`,
+  metrica: l.metrica,
+  descripcion: l.texto,
+  quien: l.quien,
+}));
 ---
 
 <Section tone="light" class="py-[clamp(48px,6vw,80px)]!" aria-labelledby="logros-titulo" reveal>
@@ -21,15 +36,9 @@ const h2 = 'text-[clamp(26px,3vw,36px)] leading-[1.15] font-bold';
     <h2 id="logros-titulo" class={h2}>
       {textos.logros.titulo}
     </h2>
-    <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3.5">
-      {textos.logros.lista.map((logro) => (
-        <li class="flex min-w-0 flex-col gap-2 rounded-md border border-blue-300 p-5.5">
-          <span class="text-[clamp(26px,2.6vw,32px)] leading-[1.1] font-bold text-link">
-            {logro.metrica}
-          </span>
-          <span class="text-[15px] text-ink-muted">{logro.texto}</span>
-          <span class="mt-auto text-[12px] text-blue-600">{logro.quien}</span>
-        </li>
+    <ol class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-3.5" data-logros>
+      {logros.map((logro) => (
+        <AchievementCard logro={logro} as="li" tono="claro" bloqueado={t.logros.bloqueado} />
       ))}
     </ol>
   </div>
@@ -73,20 +82,7 @@ const h2 = 'text-[clamp(26px,3vw,36px)] leading-[1.15] font-bold';
     </div>
     <div class="flex flex-col gap-4">
       <h2 class={h2}>{textos.formacion.titulo}</h2>
-      <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-x-10">
-        {textos.formacion.lista.map((item) => (
-          <li class="flex justify-between gap-3 border-t border-blue-200 py-2.5 text-[15px]">
-            <span>
-              <b>{item.nombre}</b>
-              <br />
-              <span class="text-ink-muted">{item.emisor}</span>
-            </span>
-            {item.fecha && (
-              <span class="text-[12px] whitespace-nowrap text-blue-600">{item.fecha}</span>
-            )}
-          </li>
-        ))}
-      </ul>
+      <CollectibleBadges locale={locale} certificaciones={certificaciones} />
     </div>
   </div>
 </Section>
@@ -107,3 +103,11 @@ const h2 = 'text-[clamp(26px,3vw,36px)] leading-[1.15] font-bold';
     </a>
   </div>
 </Section>
+
+<script>
+  import { iniciarLogros } from '../motion/logros';
+
+  for (const lista of document.querySelectorAll<HTMLElement>('[data-logros]')) {
+    iniciarLogros(lista);
+  }
+</script>

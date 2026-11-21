@@ -12,7 +12,7 @@ import { publishedLocales } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
 import { localizedPath } from '../../i18n/routes';
 import Base from '../../layouts/Base.astro';
-import { getPaginaCv } from '../../lib/content';
+import { getCertificaciones, getPaginaCv } from '../../lib/content';
 
 export const prerender = true;
 
@@ -21,7 +21,7 @@ export const getStaticPaths = (() =>
 
 const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
 const t = getDictionary(lang);
-const textos = await getPaginaCv(lang);
+const [textos, certificaciones] = await Promise.all([getPaginaCv(lang), getCertificaciones(lang)]);
 const pdfHref = `/cv/luis-carlos-reyes-vanegas-cv-${lang}.pdf`;
 ---
 
@@ -45,7 +45,9 @@ const pdfHref = `/cv/luis-carlos-reyes-vanegas-cv-${lang}.pdf`;
   </noscript>
   <HeroCv textos={textos.hero} foto={retrato} pdfHref={pdfHref} linkedin={site.linkedin} />
   <SeccionesCv
+    locale={lang}
     textos={textos}
+    certificaciones={certificaciones}
     sobreMiHref={localizedPath(lang, 'sobreMi')}
     eventosHref={localizedPath(lang, 'eventos')}
   />

@@ -27,13 +27,17 @@ test.describe('CV', () => {
       'Idiomas',
       'Destacado',
     ]);
+    // 21 nov 2026: logros con la pieza 02 del Home y formación con las insignias de Sobre mí.
     await expect(
-      page.locator('section', { hasText: 'Logros con cifra y fuente' }).locator('li'),
+      page.locator('section', { hasText: 'Logros con cifra y fuente' }).locator('[data-logro]'),
     ).toHaveCount(6);
     await expect(page.locator('.experiencia')).toHaveCount(8);
-    await expect(page.locator('h2:has-text("Formación y certificaciones") + ul > li')).toHaveCount(
-      10,
-    );
+    await expect(
+      page
+        .locator('div', { has: page.locator('h2', { hasText: 'Formación y certificaciones' }) })
+        .locator('[data-badge]')
+        .first(),
+    ).toBeVisible();
     // Lo que no está aprobado no se publica.
     await expect(page.locator('main')).not.toContainText('Download CV (EN)');
     await expect(page.locator('main')).not.toContainText('Recomendaciones');
