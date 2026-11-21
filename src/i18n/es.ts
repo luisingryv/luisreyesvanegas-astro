@@ -81,6 +81,7 @@ export const es = {
     enviando: 'Enviando…',
     revisa: 'Revisa los campos marcados.',
     demasiadas: 'Ya recibí varios mensajes desde este correo. Vuelve a intentarlo en una hora.',
+    verificacion: 'No pudimos verificar el envío. Vuelve a intentarlo en unos segundos.',
     errores: {
       requerido: 'Completa este campo.',
       invalido: 'Revisa este dato.',

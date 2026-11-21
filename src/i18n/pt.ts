@@ -82,6 +82,7 @@ export const pt: Dictionary = {
     enviando: 'Enviando…',
     revisa: 'Revise os campos marcados.',
     demasiadas: 'Já recebi várias mensagens deste e-mail. Tente novamente em uma hora.',
+    verificacion: 'Não conseguimos verificar o envio. Tente novamente em alguns segundos.',
     errores: {
       requerido: 'Preencha este campo.',
       invalido: 'Revise este dado.',

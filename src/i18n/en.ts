@@ -82,6 +82,7 @@ export const en: Dictionary = {
     enviando: 'Sending…',
     revisa: 'Check the highlighted fields.',
     demasiadas: 'I already got several messages from this email. Try again in an hour.',
+    verificacion: "We couldn't verify the submission. Try again in a few seconds.",
     errores: {
       requerido: 'Fill in this field.',
       invalido: 'Check this entry.',

@@ -54,6 +54,14 @@ export default defineConfig({
       }),
       // Token del cron de Hostinger para /api/tareas/sincronizar.
       TAREAS_TOKEN: envField.string({ context: 'server', access: 'secret', optional: true }),
+      // Cloudflare Turnstile, antispam de los formularios (pedido de Luis, 21 nov 2026). Sin
+      // las dos llaves queda apagado: siguen el campo trampa y el límite por correo.
+      TURNSTILE_SITE_KEY: envField.string({ context: 'client', access: 'public', optional: true }),
+      TURNSTILE_SECRET_KEY: envField.string({
+        context: 'server',
+        access: 'secret',
+        optional: true,
+      }),
       // Opcional: las páginas estáticas no la necesitan; getDb() avisa si falta.
       DATABASE_URL: envField.string({
         context: 'server',

@@ -11,6 +11,8 @@ export interface MensajesFormulario {
   enviando: string;
   revisa: string;
   demasiadas: string;
+  /** Turnstile no validó el envío (21 nov 2026). */
+  verificacion: string;
   errores: {
     requerido: string;
     invalido: string;
@@ -176,11 +178,15 @@ export function Autorizacion({
 
 export function BotonEnviar({ texto }: { texto: string }) {
   return (
-    <button
-      type="submit"
-      className="mt-1 rounded-pill bg-primary px-6 py-4 font-bold text-on-primary transition-colors hover:bg-primary-hover disabled:cursor-wait disabled:opacity-80"
-    >
-      {texto}
-    </button>
+    <>
+      {/* Cloudflare Turnstile se dibuja aquí solo si está configurado y hace falta. */}
+      <div data-turnstile className="empty:hidden" />
+      <button
+        type="submit"
+        className="mt-1 rounded-pill bg-primary px-6 py-4 font-bold text-on-primary transition-colors hover:bg-primary-hover disabled:cursor-wait disabled:opacity-80"
+      >
+        {texto}
+      </button>
+    </>
   );
 }

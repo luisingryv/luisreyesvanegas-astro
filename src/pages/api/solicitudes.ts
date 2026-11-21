@@ -3,10 +3,13 @@
 // - Sin JavaScript (formulario HTML): guarda y vuelve a la página con ?formulario=enviado|error.
 // - Agenda de Consultoría: después de guardar abre la página de reservas, si está configurada.
 // Astro rechaza los formularios enviados desde otros dominios (security.checkOrigin).
+// - Con las llaves de Cloudflare Turnstile configuradas, cada envío trae su token y se verifica
+//   antes de guardar (21 nov 2026).
 import type { APIRoute } from 'astro';
-import { CALENDAR_BOOKING_URL } from 'astro:env/server';
+import { CALENDAR_BOOKING_URL, TURNSTILE_SECRET_KEY } from 'astro:env/server';
 import { getDb } from '../../lib/db';
 import { procesarSolicitud, type ResultadoSolicitud } from '../../lib/formularios/procesar';
+import { CAMPO_TURNSTILE, verificarTurnstile } from '../../lib/formularios/turnstile';
 import { getIntegraciones } from '../../lib/servicios';
 
 export const prerender = false;
@@ -27,7 +30,7 @@ function volverALaPagina(pagina: unknown, resultado: 'enviado' | 'error', base: 
   });
 }
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (Number(request.headers.get('content-length') ?? 0) > TAMANO_MAXIMO) {
     return Response.json({ ok: false, motivo: 'muy-grande' }, { status: 413 });
   }
@@ -41,6 +44,20 @@ export const POST: APIRoute = async ({ request }) => {
   } catch {
     return Response.json({ ok: false, motivo: 'formato' }, { status: 400 });
   }
+
+  if (TURNSTILE_SECRET_KEY) {
+    const verificacion = await verificarTurnstile(entrada[CAMPO_TURNSTILE], TURNSTILE_SECRET_KEY, {
+      ip: clientAddress,
+    });
+    if (verificacion === 'sin-respuesta') {
+      console.warn('[solicitudes] Turnstile no respondió; se deja pasar la solicitud.');
+    } else if (verificacion === 'invalido') {
+      return esJson
+        ? Response.json({ ok: false, motivo: 'verificacion' }, { status: 400 })
+        : volverALaPagina(entrada.pagina, 'error', request.url);
+    }
+  }
+  delete entrada[CAMPO_TURNSTILE];
 
   let resultado: ResultadoSolicitud;
   try {

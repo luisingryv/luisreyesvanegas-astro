@@ -1,11 +1,38 @@
 // Mejora progresiva de los formularios: sin JavaScript se envían con POST normal y la
 // página vuelve con el resultado. Con JavaScript: validación antes de enviar, errores por
 // campo sin recargar, envío con fetch, estado "Enviando…" y UTM de la visita.
+// Antispam (21 nov 2026): con TURNSTILE_SITE_KEY, el script de Cloudflare Turnstile se descarga
+// solo cuando la persona entra al formulario, para no pesar en la carga de la página.
+import { TURNSTILE_SITE_KEY } from 'astro:env/client';
 import { guardarUtmDeLaUrl } from '../../lib/utm';
 import type { MensajesFormulario } from './partes';
 
 type Codigo = 'requerido' | 'invalido' | 'muy-corto' | 'muy-largo' | 'debe-aceptar';
 type Control = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+
+interface Turnstile {
+  render: (contenedor: HTMLElement, opciones: Record<string, unknown>) => string;
+  reset: (widget?: string) => void;
+}
+declare global {
+  interface Window {
+    turnstile?: Turnstile;
+  }
+}
+
+let cargaTurnstile: Promise<Turnstile> | undefined;
+function cargarTurnstile(): Promise<Turnstile> {
+  cargaTurnstile ??= new Promise<Turnstile>((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+    script.async = true;
+    script.onload = () =>
+      window.turnstile ? resolve(window.turnstile) : reject(new Error('turnstile'));
+    script.onerror = () => reject(new Error('turnstile'));
+    document.head.append(script);
+  });
+  return cargaTurnstile;
+}
 
 export function mejorarFormulario(form: HTMLFormElement) {
   const mensajes = JSON.parse(form.dataset.mensajes ?? '{}') as MensajesFormulario;
@@ -17,6 +44,47 @@ export function mejorarFormulario(form: HTMLFormElement) {
 
   // Nosotros mostramos los errores, no las burbujas del navegador.
   form.noValidate = true;
+
+  // Turnstile: se prepara al entrar al formulario; el token llega por callback.
+  const contenedor = form.querySelector<HTMLElement>('[data-turnstile]');
+  const conTurnstile = Boolean(TURNSTILE_SITE_KEY && contenedor);
+  let widget: string | undefined;
+  let token = '';
+  let alLlegarToken: ((valor: string) => void) | undefined;
+  const prepararTurnstile = async () => {
+    if (!conTurnstile || widget !== undefined) return;
+    try {
+      const turnstile = await cargarTurnstile();
+      widget ??= turnstile.render(contenedor!, {
+        sitekey: TURNSTILE_SITE_KEY,
+        theme: form.closest('[data-theme="dark"]') ? 'dark' : 'light',
+        size: 'flexible',
+        appearance: 'interaction-only',
+        language: 'auto',
+        callback: (valor: string) => {
+          token = valor;
+          alLlegarToken?.(valor);
+        },
+        'expired-callback': () => (token = ''),
+        'error-callback': () => (token = ''),
+      });
+    } catch {
+      // Sin Turnstile (bloqueado o caído): el servidor decide.
+    }
+  };
+  const reiniciarTurnstile = () => {
+    token = '';
+    if (widget !== undefined) window.turnstile?.reset(widget);
+  };
+  const esperarToken = () =>
+    token || widget === undefined
+      ? Promise.resolve(token)
+      : new Promise<string>((resolve) => {
+          alLlegarToken = resolve;
+          setTimeout(() => resolve(token), 10_000);
+        });
+  if (conTurnstile)
+    form.addEventListener('focusin', () => void prepararTurnstile(), { once: true });
 
   const utm = guardarUtmDeLaUrl();
   for (const [nombre, valor] of Object.entries(utm)) {
@@ -125,7 +193,13 @@ export function mejorarFormulario(form: HTMLFormElement) {
     boton.textContent = mensajes.enviando;
     form.setAttribute('aria-busy', 'true');
     try {
+      if (conTurnstile) {
+        await prepararTurnstile();
+        await esperarToken();
+        alLlegarToken = undefined;
+      }
       const datos = Object.fromEntries(new FormData(form));
+      if (conTurnstile && token) datos['cf-turnstile-response'] = token;
       const respuesta = await fetch(form.action, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -139,6 +213,8 @@ export function mejorarFormulario(form: HTMLFormElement) {
         agenda?: string;
       };
 
+      // El token de Turnstile sirve una sola vez: el próximo envío pide uno nuevo.
+      if (conTurnstile) reiniciarTurnstile();
       if (respuesta.ok && cuerpo.ok && cuerpo.agenda) {
         window.location.assign(cuerpo.agenda);
         return;
@@ -160,7 +236,13 @@ export function mejorarFormulario(form: HTMLFormElement) {
           return;
         }
       }
-      mostrarFalla(cuerpo.motivo === 'demasiadas' ? mensajes.demasiadas : undefined);
+      mostrarFalla(
+        cuerpo.motivo === 'demasiadas'
+          ? mensajes.demasiadas
+          : cuerpo.motivo === 'verificacion'
+            ? mensajes.verificacion
+            : undefined,
+      );
     } catch {
       mostrarFalla();
     } finally {
