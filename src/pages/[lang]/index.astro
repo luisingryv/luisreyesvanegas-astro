@@ -2,6 +2,7 @@
 import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
 import CasosHome from '../../components/sections/CasosHome.astro';
 import CharlasRecientes from '../../components/sections/CharlasRecientes.astro';
+import ClientesHome from '../../components/sections/ClientesHome.astro';
 import EvoluteccFranja from '../../components/sections/EvoluteccFranja.astro';
 import HeroHome from '../../components/sections/HeroHome.astro';
 import LogrosHome from '../../components/sections/LogrosHome.astro';
@@ -14,6 +15,7 @@ import { publishedLocales } from '../../i18n/config';
 import { getDictionary } from '../../i18n';
 import {
   getCharlasRecientes,
+  getClientes,
   getFormularioGeneral,
   getLogrosHome,
   getPaginaHome,
@@ -28,12 +30,13 @@ export const getStaticPaths = (() =>
 const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
 const t = getDictionary(lang);
 
-const [pagina, logros, hitos, charlas, formulario] = await Promise.all([
+const [pagina, logros, hitos, charlas, formulario, clientes] = await Promise.all([
   getPaginaHome(lang),
   getLogrosHome(lang),
   getTrayectoriaHome(lang),
   getCharlasRecientes(lang),
   getFormularioGeneral(lang),
+  getClientes(),
 ]);
 ---
 
@@ -51,6 +54,7 @@ const [pagina, logros, hitos, charlas, formulario] = await Promise.all([
   <TrayectoriaHome locale={lang} content={pagina.trayectoria} hitos={hitos} />
   <CharlasRecientes locale={lang} content={pagina.charlas} charlas={charlas} />
   <CasosHome locale={lang} content={pagina.casos} />
+  <ClientesHome content={pagina.clientes} clientes={clientes} />
   <EvoluteccFranja content={pagina.evolutecc} campaign="home" />
   <SeccionFormulario
     locale={lang}

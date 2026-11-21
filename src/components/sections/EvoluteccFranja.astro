@@ -1,6 +1,8 @@
 ---
 // Franja breve hacia EvolutecC (desarrollo a la medida), con UTM por página.
-import Button from '../brand/Button.astro';
+// 21 nov 2026 (Luis): con los colores de EvolutecC (azul y naranja de evolutecc.com) para que
+// se distinga de las secciones oscuras sin una línea de división. Sin el logo de EvolutecC
+// hasta que esté su permiso (pendiente 5 del documento madre).
 import Container from '../brand/Container.astro';
 import { evoluteccUrl } from '../../config/site';
 import type { PaginaHome } from '../../lib/content';
@@ -14,19 +16,78 @@ const { content, campaign } = Astro.props;
 ---
 
 <section
-  data-theme="dark"
   aria-labelledby="evolutecc-franja-titulo"
-  class="border-b border-hairline bg-surface py-[clamp(40px,5vw,64px)]"
+  class="franja relative overflow-hidden text-white"
 >
-  <Container class="flex flex-wrap items-center justify-between gap-x-8 gap-y-5">
-    <div class="flex max-w-[70ch] flex-col gap-1.5">
-      <h2 id="evolutecc-franja-titulo" class="text-[20px] font-bold">
+  <span class="barra absolute inset-x-0 top-0 h-1.5" aria-hidden="true"></span>
+  <Container
+    data-reveal
+    class="relative flex flex-wrap items-center justify-between gap-x-8 gap-y-6 py-[clamp(48px,6vw,80px)]"
+  >
+    <div class="flex max-w-[64ch] flex-col gap-2">
+      <h2
+        id="evolutecc-franja-titulo"
+        class="text-[clamp(22px,2.4vw,28px)] leading-tight font-bold"
+      >
         {content.titulo}
       </h2>
-      <p class="text-text-secondary-on-dark">{content.texto}</p>
+      <p class="text-white/85">{content.texto}</p>
     </div>
-    <Button href={evoluteccUrl(campaign)} variant="accent" external>
+    <a
+      href={evoluteccUrl(campaign)}
+      class="boton group inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-bold"
+    >
       {content.boton}
-    </Button>
+      <span aria-hidden="true" class="flecha inline-block">
+        ↗
+      </span>
+    </a>
   </Container>
 </section>
+
+<style>
+  .franja {
+    background:
+      radial-gradient(
+        70% 140% at 100% 0%,
+        color-mix(in oklab, var(--color-evolutecc-orange) 28%, transparent),
+        transparent 60%
+      ),
+      linear-gradient(120deg, var(--color-evolutecc-blue) 0%, var(--color-evolutecc-blue-deep) 100%);
+  }
+  .barra {
+    background: linear-gradient(90deg, var(--color-evolutecc-blue), var(--color-evolutecc-orange));
+    filter: brightness(1.15);
+  }
+  /* Naranja de EvolutecC con texto oscuro: contraste AA (blanco sobre naranja no alcanza). */
+  .boton {
+    background: var(--color-evolutecc-orange);
+    color: var(--color-evolutecc-night);
+    transition:
+      transform 0.3s var(--ease-brand),
+      box-shadow 0.3s var(--ease-brand),
+      background-color 0.2s;
+  }
+  .boton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px color-mix(in oklab, var(--color-evolutecc-orange) 45%, transparent);
+  }
+  .boton:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 3px;
+  }
+  .flecha {
+    transition: transform 0.3s var(--ease-brand);
+  }
+  .boton:hover .flecha {
+    transform: translate(2px, -2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .boton,
+    .boton:hover,
+    .boton:hover .flecha {
+      transform: none;
+      transition: none;
+    }
+  }
+</style>

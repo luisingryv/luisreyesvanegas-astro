@@ -1,0 +1,14 @@
+# Plantilla: los archivos que empiezan por _ no se cargan.
+# Copia este archivo sin el _ inicial para agregar un cliente al Home (sección Clientes).
+# Ningún logo se publica sin permiso escrito (guía de Logos de la bóveda): anota quién lo
+# autorizó y cuándo. El logo va en src/assets/clientes, en versión clara para fondo oscuro
+# (SVG o PNG transparente de al menos 1000 px de ancho).
+nombre: 'Empresa'
+orden: 1
+# consultoria: consultoría propia · evolutecc: liderado con el equipo de EvolutecC · alianza
+grupo: consultoria
+logo: ../../assets/clientes/empresa_blanco.svg
+url: 'https://empresa.com'
+permiso:
+  quien: 'Nombre de quien autorizó'
+  fecha: 2026-11-18

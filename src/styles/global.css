@@ -77,6 +77,13 @@
   --color-nexa-orange: #ed8310;
   --color-nexa-text: #d4d8de;
 
+  /* Colores de EvolutecC (de evolutecc.com), solo en su franja del Home. Pedido de Luis,
+     21 nov 2026: que la sección se distinga de las oscuras sin una línea de división. */
+  --color-evolutecc-blue: #1446e1;
+  --color-evolutecc-blue-deep: #0d2f9e;
+  --color-evolutecc-orange: #ff6300;
+  --color-evolutecc-night: #1c1c30;
+
   /* Semánticos, tema claro; el oscuro los redefine con [data-theme="dark"] */
   --color-surface: var(--color-white);
   --color-surface-raised: var(--color-blue-200);

@@ -321,6 +321,23 @@ export async function getEventos(locale: PublishedLocale): Promise<Evento[]> {
     .map((c) => aEvento(c, locale, (d) => d.detalle ?? d.resumen ?? d.titulo));
 }
 
+// ─── Clientes (logos con permiso) ─────────────────────────────
+
+export interface Cliente {
+  id: string;
+  nombre: string;
+  logo: ImageMetadata;
+  url?: string;
+}
+
+/** Logos de clientes del Home, en orden; la colección exige el permiso de cada uno. */
+export async function getClientes(): Promise<Cliente[]> {
+  const clientes = await getCollection('clientes');
+  return clientes
+    .sort((a, b) => a.data.orden - b.data.orden)
+    .map((c) => ({ id: c.id, nombre: c.data.nombre, logo: c.data.logo, url: c.data.url }));
+}
+
 // ─── Galerías del visor de fotos ──────────────────────────────
 
 export interface FotoGaleria {

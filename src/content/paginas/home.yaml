@@ -267,6 +267,22 @@ evolutecc:
     en: 'Discover EvolutecC'
     pt: 'Conheça a EvolutecC'
 
+# Logos de clientes (pedido de Luis, 21 nov 2026). La sección aparece cuando hay logos con
+# permiso en src/content/clientes.
+clientes:
+  eyebrow:
+    es: 'Clientes'
+    en: 'Clients'
+    pt: 'Clientes'
+  titulo:
+    es: 'Empresas con las que he trabajado'
+    en: "Companies I've worked with"
+    pt: 'Empresas com as quais trabalhei'
+  nota:
+    es: 'Algunos proyectos son de consultoría propia y otros los lideré con mi equipo en EvolutecC.'
+    en: 'Some projects are my own consulting work, and others I led with my team at EvolutecC.'
+    pt: 'Alguns projetos são de consultoria própria e outros eu liderei com minha equipe na EvolutecC.'
+
 contacto:
   eyebrow:
     es: 'Contacto'

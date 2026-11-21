@@ -1,0 +1,98 @@
+---
+// Logos de clientes del Home (pedido de Luis, 21 nov 2026). Solo logos con permiso escrito
+// (colección clientes). Sin logos, la sección no aparece. Con seis o más, los logos desfilan
+// en una franja continua que se detiene al pasar el cursor; con menos, van quietos y centrados.
+// Con "reducir movimiento" tampoco se mueven.
+import { Image } from 'astro:assets';
+import Section from '../brand/Section.astro';
+import SectionHeader from '../brand/SectionHeader.astro';
+import type { Cliente, PaginaHome } from '../../lib/content';
+
+interface Props {
+  content: PaginaHome['clientes'];
+  clientes: Cliente[];
+}
+
+const { content, clientes } = Astro.props;
+const desfile = clientes.length >= 6;
+// En el desfile la lista va dos veces para que el giro no tenga corte; la copia es decorativa.
+const lista = desfile ? [...clientes, ...clientes] : clientes;
+---
+
+{clientes.length > 0 && (
+  <Section tone="dark" reveal aria-labelledby="clientes-titulo">
+    <SectionHeader id="clientes-titulo" eyebrow={content.eyebrow} title={content.titulo} />
+    <div class:list={['marco', desfile && 'desfile']}>
+      <ul class="pista">
+        {lista.map((cliente, i) => {
+          const copia = i >= clientes.length;
+          return (
+            <li class="logo" aria-hidden={copia ? 'true' : undefined}>
+              <Image
+                src={cliente.logo}
+                alt={copia ? '' : cliente.nombre}
+                height={44}
+                class="h-11 w-auto max-w-[180px] object-contain"
+              />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+    <p class="mt-8 text-caption text-text-tertiary-on-dark">{content.nota}</p>
+  </Section>
+)}
+
+<style>
+  .marco {
+    overflow: hidden;
+  }
+  .pista {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(2.5rem, 6vw, 4.5rem);
+    margin: 0;
+    padding: 0.5rem 0;
+    list-style: none;
+  }
+  .logo {
+    opacity: 0.72;
+    transition: opacity 0.25s ease;
+  }
+  .logo:hover {
+    opacity: 1;
+  }
+  .desfile {
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+  .desfile .pista {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: max-content;
+    animation: desfile 45s linear infinite;
+  }
+  .desfile:hover .pista {
+    animation-play-state: paused;
+  }
+  @keyframes desfile {
+    to {
+      transform: translateX(calc(-50% - clamp(2.5rem, 6vw, 4.5rem) / 2));
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .desfile {
+      mask-image: none;
+    }
+    .desfile .pista {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: auto;
+      animation: none;
+    }
+    .desfile .logo[aria-hidden='true'] {
+      display: none;
+    }
+  }
+</style>

@@ -1,6 +1,8 @@
 ---
 // Tarjeta del router de audiencias: toda la tarjeta es el enlace.
 // md: router del Home; sm: opciones de Contacto (un poco más compactas, como el prototipo).
+// 21 nov 2026 (Luis): la flecha no se ve en reposo; entra al pasar el cursor o al enfocar,
+// y la tarjeta se levanta con el borde encendido.
 import Eyebrow from './Eyebrow.astro';
 
 interface Props {
@@ -21,7 +23,7 @@ const sm = size === 'sm';
 <a
   href={href}
   class:list={[
-    'group flex flex-col rounded-lg border border-hairline bg-surface-raised text-ink transition-colors hover:border-accent',
+    'tarjeta group flex flex-col rounded-lg border border-hairline bg-surface-raised text-ink',
     sm ? 'min-h-50 gap-3 p-6.5' : 'min-h-55 gap-3.5 p-7',
   ]}
 >
@@ -30,16 +32,62 @@ const sm = size === 'sm';
     {title}
   </span>
   <span class="grow text-[15px] text-text-tertiary-on-dark">{text}</span>
-  <span class="font-bold text-link">
-    {cta}{' '}
-    <span
-      aria-hidden="true"
-      class:list={[
-        'inline-block transition-transform',
-        external ? 'group-hover:-translate-y-0.5' : 'group-hover:translate-x-1',
-      ]}
-    >
+  <span class="cta font-bold text-link">
+    {cta}
+    <span aria-hidden="true" class:list={['flecha', external && 'externa']}>
       {external ? '↗' : '→'}
     </span>
   </span>
 </a>
+
+<style>
+  .tarjeta {
+    transition:
+      border-color 0.25s ease,
+      transform 0.35s var(--ease-brand),
+      box-shadow 0.35s var(--ease-brand);
+  }
+  .tarjeta:hover,
+  .tarjeta:focus-visible {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-glow-ring);
+    transform: translateY(-4px);
+  }
+  .tarjeta:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  .cta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35em;
+  }
+  .flecha {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.35s var(--ease-brand);
+  }
+  .flecha.externa {
+    transform: translate(-6px, 6px);
+  }
+  .tarjeta:hover .flecha,
+  .tarjeta:focus-visible .flecha {
+    opacity: 1;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tarjeta,
+    .flecha {
+      transition: opacity 0.2s ease;
+    }
+    .tarjeta:hover,
+    .tarjeta:focus-visible,
+    .flecha,
+    .flecha.externa {
+      transform: none;
+    }
+  }
+</style>

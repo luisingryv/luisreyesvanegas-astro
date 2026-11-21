@@ -122,6 +122,22 @@ const charlas = defineCollection({
       }),
 });
 
+// Logos de clientes del Home (21 nov 2026). Ningún logo se publica sin permiso escrito (guía de
+// Logos de la bóveda): el permiso es obligatorio. Logo en versión clara, para fondo oscuro.
+export const GRUPOS_CLIENTE = ['consultoria', 'evolutecc', 'alianza'] as const;
+const clientes = defineCollection({
+  loader: entries('clientes'),
+  schema: ({ image }) =>
+    z.object({
+      nombre: z.string().min(1),
+      orden: z.number().int(),
+      grupo: z.enum(GRUPOS_CLIENTE),
+      logo: image(),
+      url: z.url().optional(),
+      permiso: z.object({ quien: z.string().min(1), fecha: z.coerce.date() }),
+    }),
+});
+
 // Galerías del visor de fotos (decisión del 21 nov 2026): una por nivel de "Mi historia" en
 // Sobre mí y una por evento. Solo las fotos que Luis aprobó en la hoja de revisión.
 const galerias = defineCollection({
@@ -654,6 +670,8 @@ const home = defineCollection({
         ),
       }),
       evolutecc: z.object({ titulo: localized, texto: localized, boton: localized }),
+      // Logos de clientes (pedido de Luis, 21 nov 2026); la sección sale cuando hay logos.
+      clientes: z.object({ ...encabezado, nota: localized }),
       contacto: z.object({
         ...encabezado,
         texto: localized,
@@ -1163,6 +1181,7 @@ export const collections = {
   principios,
   certificaciones,
   charlas,
+  clientes,
   galerias,
   testimonios,
 };

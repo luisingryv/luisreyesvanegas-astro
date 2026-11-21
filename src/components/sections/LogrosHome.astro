@@ -16,7 +16,8 @@ const { locale, content, logros } = Astro.props;
 const t = getDictionary(locale);
 ---
 
-<Section tone="dark" separator class="border-b border-hairline" aria-labelledby="logros-titulo">
+{/* 21 nov 2026: sin líneas arriba ni abajo; de oscuro a oscuro no hacían falta (Luis). */}
+<Section tone="dark" aria-labelledby="logros-titulo">
   <SectionHeader id="logros-titulo" eyebrow={content.eyebrow} title={content.titulo} />
   <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-4" data-logros>
     {logros.map((logro) => (
