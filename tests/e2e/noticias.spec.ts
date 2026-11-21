@@ -26,7 +26,8 @@ test.describe('Noticias sin publicaciones', () => {
     const sitemap = await (await request.get('/sitemap.xml')).text();
     expect(sitemap).not.toContain('/es/noticias');
     const rss = await request.get('/es/noticias/rss.xml');
-    expect(rss.headers()['content-type']).toContain('application/rss+xml');
+    // El servidor sirve el archivo estático como XML (application/xml o application/rss+xml).
+    expect(rss.headers()['content-type']).toMatch(/xml/);
     const xml = await rss.text();
     expect(xml).toContain('<channel>');
     expect(xml).not.toContain('<item>');

@@ -153,6 +153,30 @@ test.describe('Productos', () => {
     );
   });
 
+  test('la demo se guarda como "demo" con el producto elegido', async ({ page, isMobile }) => {
+    test.skip(isMobile, 'solo escritorio');
+    await page.goto('/es/productos');
+    const form = page.locator('#usar form');
+    await form.getByLabel('¿Qué producto quieres conocer?').selectOption('ofilix');
+    await form.getByLabel('Nombre').fill('Carlos Gómez');
+    await form.getByLabel('Empresa').fill('Textiles del Caribe');
+    await form.getByLabel('Correo').fill(`demo-${randomUUID()}@ejemplo.com`);
+    await form.getByLabel(/Acepto la/).check();
+    const peticion = page.waitForRequest((r) => r.url().endsWith('/api/solicitudes'));
+    await form.getByRole('button', { name: 'Solicitar demo' }).click();
+    expect((await peticion).postDataJSON()).toMatchObject({
+      formulario: 'demo',
+      producto: 'ofilix',
+      nombre: 'Carlos Gómez',
+      empresa: 'Textiles del Caribe',
+    });
+    // Dos formularios en la página: cada uno con su propio aviso.
+    await expect(page.locator('#formulario-demo-enviado')).toHaveText(
+      'Gracias. Recibí tu solicitud y te escribo para agendar la demo.',
+    );
+    await expect(page.locator('#formulario-enviado')).toBeHidden();
+  });
+
   test('sin errores de accesibilidad', async ({ page }) => {
     await page.goto('/es/productos');
     await sinViolaciones(page, '/es/productos');

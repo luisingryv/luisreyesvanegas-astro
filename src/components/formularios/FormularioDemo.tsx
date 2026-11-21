@@ -50,6 +50,7 @@ export function FormularioDemo({ textos, mensajes, idioma, pagina, politicaHref 
       error={textos.error}
       variante="raised"
       className="p-8"
+      avisos="formulario-demo"
     >
       <span className="text-[12px] font-bold tracking-[0.12em] text-link uppercase">
         {textos.eyebrow}

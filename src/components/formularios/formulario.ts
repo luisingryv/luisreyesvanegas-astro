@@ -38,7 +38,7 @@ export function mejorarFormulario(form: HTMLFormElement) {
   const mensajes = JSON.parse(form.dataset.mensajes ?? '{}') as MensajesFormulario;
   const boton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
   const anuncio = form.querySelector<HTMLElement>('[data-anuncio]');
-  const avisoEnviado = form.querySelector<HTMLElement>('#formulario-enviado');
+  const avisoEnviado = form.querySelector<HTMLElement>('[data-aviso-enviado]');
   const avisoError = form.querySelector<HTMLElement>('[data-aviso-error]');
   if (!boton || !anuncio || !avisoEnviado || !avisoError) return;
 

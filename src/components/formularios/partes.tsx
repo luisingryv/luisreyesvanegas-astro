@@ -57,6 +57,8 @@ interface PropsTarjeta {
   error: string;
   variante: VarianteFormulario;
   className?: string;
+  /** Prefijo de los ids de los avisos; cambia solo si hay dos formularios en la página. */
+  avisos?: string;
   children: ReactNode;
 }
 
@@ -70,6 +72,7 @@ export function TarjetaFormulario({
   error,
   variante,
   className,
+  avisos = 'formulario',
   children,
 }: PropsTarjeta) {
   return (
@@ -84,22 +87,25 @@ export function TarjetaFormulario({
       data-formulario={formulario}
       data-mensajes={JSON.stringify(mensajes)}
     >
-      {/* El endpoint vuelve a #formulario-enviado o #formulario-error (se ven con :target). */}
+      {/* El endpoint vuelve a #formulario-enviado o #formulario-error (se ven con :target).
+          Con dos formularios en la página, el segundo usa otro prefijo (`avisos`). */}
       <p
-        id="formulario-enviado"
+        id={`${avisos}-enviado`}
         tabIndex={-1}
         className="formulario-aviso font-bold text-link outline-none"
+        data-aviso-enviado
       >
         {enviado}
       </p>
       <p
-        id="formulario-error"
+        id={`${avisos}-error`}
         tabIndex={-1}
         className="formulario-aviso font-bold text-error outline-none"
         data-aviso-error
       >
         {error}
       </p>
+      {avisos !== 'formulario' && <input type="hidden" name="avisos" value={avisos} />}
       {/* Lo que cambia sin recargar se anuncia aquí a los lectores de pantalla. */}
       <p className="sr-only" aria-live="polite" data-anuncio />
 

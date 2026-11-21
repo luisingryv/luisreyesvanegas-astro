@@ -57,7 +57,8 @@ const anchos = (ancho: number) => [
       </a>
     </header>
 
-    <ul class="pista" data-pista tabindex="-1">
+    {/* Enfocable con teclado (región con scroll, WCAG 2.1.1): las flechas también la mueven. */}
+    <ul class="pista" data-pista tabindex="0" aria-label={titulo}>
       {fotos.map((f, i) => (
         <li class="diapositiva" data-foto={i}>
           <figure class="contenido">
@@ -208,6 +209,10 @@ const anchos = (ancho: number) => [
   }
   .pista:focus {
     outline: none;
+  }
+  .pista:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: -4px;
   }
   .diapositiva {
     flex: 0 0 100%;
