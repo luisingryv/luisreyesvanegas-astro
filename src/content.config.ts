@@ -696,13 +696,12 @@ const sobreMi = defineCollection({
       certificaciones: encabezado,
       testimonios: encabezado,
       escenario: encabezado.extend({ boton: localized }),
+      // 21 nov 2026: sin "Conversación general" ni el enlace "Otras opciones" (pedido de Luis).
       cierre: z.object({
         eyebrow: localized,
         titulo: localized,
         consultoria: localized,
         conferencia: localized,
-        conversacion: localized,
-        otrasOpciones: localized,
       }),
     });
   },

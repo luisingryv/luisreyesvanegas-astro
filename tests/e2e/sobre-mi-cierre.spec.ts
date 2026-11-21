@@ -23,11 +23,9 @@ test.describe('cierre · ¿Cómo puedo ayudarte?', () => {
       '/es/speaker#invitar',
     );
     await expect(cierre.getByRole('link', { name: 'Consultoría' })).toBeVisible();
-    await expect(cierre.getByRole('link', { name: 'Conversación general' })).toBeVisible();
-    await expect(cierre.getByRole('link', { name: /^Otras opciones/ })).toHaveAttribute(
-      'href',
-      '/es/contacto',
-    );
+    // 21 nov 2026: Luis quitó "Conversación general" y el enlace "Otras opciones".
+    await expect(cierre.getByRole('link', { name: 'Conversación general' })).toHaveCount(0);
+    await expect(cierre.getByRole('link', { name: /^Otras opciones/ })).toHaveCount(0);
 
     const logo = cierre.locator('[data-logo3d]');
     await expect(logo).toHaveAttribute('aria-hidden', 'true');

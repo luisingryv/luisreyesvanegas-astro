@@ -1,6 +1,7 @@
 ---
 // Cierre de contacto reutilizable: texto y botones a la izquierda, logo LR en 3D a la derecha
 // (debajo en móvil). Cualquier página puede usarlo con el mismo bloque de textos `cierre`.
+// 21 nov 2026: solo Consultoría y Conferencia; sin "Conversación general" ni "Otras opciones".
 import Button from '../brand/Button.astro';
 import Container from '../brand/Container.astro';
 import Eyebrow from '../brand/Eyebrow.astro';
@@ -48,16 +49,7 @@ const agenda = bookingUrl(locale);
         <Button href={localizedPath(locale, 'speaker', 'invitar')} size="lg" variant="secondary">
           {content.conferencia}
         </Button>
-        <Button href={agenda} size="lg" variant="secondary">
-          {content.conversacion}
-        </Button>
       </div>
-      <a
-        href={localizedPath(locale, 'contacto')}
-        class="font-bold text-link underline-offset-4 hover:underline"
-      >
-        {content.otrasOpciones}
-      </a>
     </div>
     {visual === 'logo3d' && (
       <Logo3D

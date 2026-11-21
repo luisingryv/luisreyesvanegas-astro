@@ -131,11 +131,3 @@ cierre:
     es: 'Conferencia'
     en: 'Conference'
     pt: 'Conferência'
-  conversacion:
-    es: 'Conversación general'
-    en: 'General conversation'
-    pt: 'Conversa geral'
-  otrasOpciones:
-    es: 'Otras opciones: desarrollo de software, producto o prensa →'
-    en: 'Other options: software development, product or press →'
-    pt: 'Outras opções: desenvolvimento de software, produto ou imprensa →'
