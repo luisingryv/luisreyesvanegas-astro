@@ -33,6 +33,7 @@ Sin prototipo todavía (no construir sin preguntar): `/productos/trama` (Luis la
 ## Header
 - Fondo según el tema de la página: night con logo blanco (`marca-h-color-blanco.svg`) o white con logo azul (`marca-h-color.svg`). Borde inferior hairline (`#24232c` en oscuro, `#e5eef9` en claro).
 - Navegación: Consultoría · Productos · Casos · Eventos · Sobre mí. La página actual va en cyan-400 (oscuro) o blue-500 (claro), con subrayado de 2 px y `aria-current="page"`.
+  - Desde el 21 nov 2026, **Noticias** entra entre Eventos y Sobre mí cuando hay al menos una noticia publicada (decisión 2026-11-21-correcciones-del-sitio).
 - Selector de idioma ES · EN · PT.
 - **El botón de la derecha cambia según la página** (prop del Header):
 
