@@ -49,6 +49,7 @@ export const es = {
     relacionada: 'Si esto te toca de cerca',
     volver: 'Todas las noticias',
     borrador: 'Borrador',
+    imagen: 'Imagen',
     vacio: 'Pronto publicaré aquí las noticias que estoy siguiendo.',
     paginas: {
       optimizarCostos: 'Optimizar costos de nube',

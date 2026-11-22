@@ -51,6 +51,7 @@ export const en: Dictionary = {
     relacionada: 'If this hits close to home',
     volver: 'All news',
     borrador: 'Draft',
+    imagen: 'Image',
     vacio: "I'll soon publish here the news I'm following.",
     paginas: {
       optimizarCostos: 'Cut cloud costs',

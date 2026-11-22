@@ -335,6 +335,9 @@ export interface Noticia {
   fuente: { nombre: string; url: string };
   imagen?: ImageMetadata;
   imagenAlt?: string;
+  /** Solo en imágenes ajenas: quién la hizo y con qué permiso. */
+  imagenCredito?: string;
+  imagenCreditoUrl?: string;
   etiquetas: string[];
   relacionada?: PaginaRelacionada;
 }
@@ -357,6 +360,8 @@ export async function getNoticias(locale: PublishedLocale): Promise<Noticia[]> {
       fuente: data.fuente,
       imagen: data.imagen,
       imagenAlt: data.imagenAlt,
+      imagenCredito: data.imagenCredito,
+      imagenCreditoUrl: data.imagenCreditoUrl,
       etiquetas: data.etiquetas,
       relacionada: data.relacionada,
     }));

@@ -51,6 +51,7 @@ export const pt: Dictionary = {
     relacionada: 'Se isso toca você de perto',
     volver: 'Todas as notícias',
     borrador: 'Rascunho',
+    imagen: 'Imagem',
     vacio: 'Em breve vou publicar aqui as notícias que estou acompanhando.',
     paginas: {
       optimizarCostos: 'Otimizar custos de nuvem',

@@ -37,6 +37,9 @@ test.describe('Noticias publicadas', () => {
       'href',
       'https://luisreyesvanegas.com/es/noticias/2026-11-22-costos-ia-bedrock',
     );
+    // Portada (22 nov): una ilustración de la noticia, con su alt; sin crédito porque es propia.
+    await expect(page.locator('article figure img')).toHaveAttribute('alt', /^Ilustración: /);
+    await expect(page.locator('article figure figcaption')).toHaveCount(0);
     const jsonLd = JSON.parse(
       (await page.locator('script[type="application/ld+json"]').first().textContent()) ?? '{}',
     );

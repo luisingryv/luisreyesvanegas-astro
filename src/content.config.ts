@@ -139,9 +139,16 @@ const noticias = defineCollection({
         idioma: z.enum(['es', 'en', 'pt']).default('es'),
         estado: z.enum(['borrador', 'publicada']),
         fuente: z.object({ nombre: z.string().min(1), url: z.url() }),
-        /** Imagen propia o con licencia (nunca la foto de otro medio). */
+        /**
+         * Portada (22 nov 2026): la imagen de la propia noticia cuando su dueño permite reutilizarla
+         * (kit de prensa con permiso, dominio público o licencia abierta), con su crédito. Si no,
+         * una ilustración hecha para la noticia, sin los colores ni el logo de Luis.
+         */
         imagen: image().optional(),
         imagenAlt: z.string().optional(),
+        /** Crédito de una imagen ajena, por ejemplo "NASA (dominio público)". */
+        imagenCredito: z.string().min(1).optional(),
+        imagenCreditoUrl: z.url().optional(),
         etiquetas: z.array(z.string().min(1)).max(5).default([]),
         /** Página del sitio relacionada: enlace interno para SEO. */
         relacionada: z.enum(PAGINAS_RELACIONADAS).optional(),
@@ -149,6 +156,10 @@ const noticias = defineCollection({
       .refine((n) => !n.imagen || Boolean(n.imagenAlt), {
         message: 'Una imagen necesita su alt.',
         path: ['imagenAlt'],
+      })
+      .refine((n) => !n.imagenCreditoUrl || Boolean(n.imagenCredito), {
+        message: 'El enlace del crédito necesita el crédito.',
+        path: ['imagenCredito'],
       }),
 });
 

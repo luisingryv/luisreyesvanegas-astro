@@ -5,7 +5,10 @@
 # - Solo se publica lo que Luis aprueba: nace como borrador y Luis lo pasa a publicada.
 # - Es una lectura propia de la noticia, con redacción humana: no se copia el texto del medio
 #   y la fuente va citada y enlazada.
-# - La imagen es propia o con licencia, nunca la foto de otro medio.
+# - Portada (22 nov 2026): la imagen de la propia noticia solo si su dueño permite reutilizarla
+#   (kit de prensa con permiso, dominio público o licencia abierta), con imagenCredito. Si no, una
+#   ilustración hecha para la noticia, sin los colores ni el logo de Luis.
+#   Se genera con scripts/noticias/portada.mjs, que agrega imagen, imagenAlt y el crédito.
 titulo: 'Título claro, de hasta 110 caracteres'
 resumen: 'Qué pasó y por qué importa, en una frase de 50 a 170 caracteres para la bajada y buscadores.'
 fecha: 2026-11-21

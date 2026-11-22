@@ -86,14 +86,28 @@ const imagenOg =
         </p>
       </header>
       {noticia.imagen && noticia.imagenAlt && (
-        <Image
-          src={noticia.imagen}
-          alt={noticia.imagenAlt}
-          widths={[480, 800, 1200]}
-          sizes="(min-width: 768px) 72ch, 100vw"
-          loading="eager"
-          class="aspect-video w-full rounded-lg object-cover"
-        />
+        <figure class="flex flex-col gap-2">
+          <Image
+            src={noticia.imagen}
+            alt={noticia.imagenAlt}
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 768px) 72ch, 100vw"
+            loading="eager"
+            class="aspect-video w-full rounded-lg object-cover"
+          />
+          {noticia.imagenCredito && (
+            <figcaption class="text-caption text-text-secondary-on-dark">
+              {t.noticias.imagen}:{' '}
+              {noticia.imagenCreditoUrl ? (
+                <a href={noticia.imagenCreditoUrl} rel="noopener" class="underline">
+                  {noticia.imagenCredito}
+                </a>
+              ) : (
+                noticia.imagenCredito
+              )}
+            </figcaption>
+          )}
+        </figure>
       )}
       <div class="cuerpo flex flex-col gap-4 text-[17px] leading-relaxed text-ink">
         <Content />
