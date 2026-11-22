@@ -1,6 +1,9 @@
 # Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
 orden: 4
 cliente: 'UTPN / KMA'
+logo: ../../assets/casos/utpn_color.svg
+caja:
+  fondo: '#ffffff'
 tipo: 'consultoria-propia'
 temas:
   - 'costos'

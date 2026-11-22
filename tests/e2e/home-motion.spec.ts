@@ -68,7 +68,9 @@ test.describe('pieza 08 · burbujas de casos', () => {
     await expect(glasslake.locator('.burbuja-interior')).toHaveCSS('opacity', '0');
 
     await casos.scrollIntoViewIfNeeded();
-    await expect(glasslake.locator('.burbuja-interior')).toHaveCSS('opacity', '1', { timeout: 3000 });
+    await expect(glasslake.locator('.burbuja-interior')).toHaveCSS('opacity', '1', {
+      timeout: 3000,
+    });
     const antes = await glasslake.evaluate((el) => el.style.transform);
     await page.waitForTimeout(400);
     expect(await glasslake.evaluate((el) => el.style.transform)).not.toBe(antes);

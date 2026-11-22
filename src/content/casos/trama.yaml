@@ -1,6 +1,11 @@
 # Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
 orden: 1
 cliente: 'Trama AI'
+logo: ../../assets/casos/trama_oscuro.svg
+# Trama en blanco sobre su azul noche.
+caja:
+  fondo: '#0b1020'
+  logo: ../../assets/brand/trama_blanco.svg
 tipo: 'startup-producto'
 temas:
   - 'migracion'

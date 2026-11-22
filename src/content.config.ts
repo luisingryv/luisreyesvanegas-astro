@@ -332,58 +332,70 @@ const etapaDiagrama = z.object({
 });
 const casos = defineCollection({
   loader: entries('casos'),
-  schema: z
-    .object({
-      orden: z.number().int(),
-      cliente: z.string().min(1),
-      tipo: z.enum(TIPOS_CASO),
-      temas: z.array(z.enum(TEMAS_CASO)).min(1),
-      /** Permiso de publicación del cliente (o caso propio). Sin permiso, no se publica. */
-      permiso: z.boolean(),
-      tarjeta: z.object({
-        metrica: localized.optional(),
-        titulo: localized,
-        quien: localized,
-      }),
-      /** Versión con pasos para Consultoría. */
-      consultoria: z
-        .object({
-          etiqueta: localized,
+  schema: ({ image }) =>
+    z
+      .object({
+        orden: z.number().int(),
+        cliente: z.string().min(1),
+        /** Logo del cliente a color, para fondo claro (Luis, 22 nov 2026). Permiso en la guía de Logos. */
+        logo: image().optional(),
+        /** Texto alternativo si el logo no es el del cliente (Fuerza Aérea usa el de TIVIT). */
+        logoAlt: z.string().min(1).optional(),
+        /**
+         * Caja del logo en la tarjeta del índice (Luis, 22 nov 2026): el color que favorece al logo y,
+         * si hace falta, otra versión del logo para ese fondo (por ejemplo, la blanca sobre su color).
+         */
+        caja: z
+          .object({ fondo: z.string().regex(/^#[0-9a-f]{6}$/i), logo: image().optional() })
+          .optional(),
+        tipo: z.enum(TIPOS_CASO),
+        temas: z.array(z.enum(TEMAS_CASO)).min(1),
+        /** Permiso de publicación del cliente (o caso propio). Sin permiso, no se publica. */
+        permiso: z.boolean(),
+        tarjeta: z.object({
+          metrica: localized.optional(),
           titulo: localized,
-          metrica: localized,
           quien: localized,
-          pasos: z.array(z.object({ clave: localized, texto: localized })).length(4),
-          viz: viz.optional(),
-        })
-        .optional(),
-      /** Página propia del caso. */
-      pagina: z
-        .object({
-          titulo: localized,
-          resumen: localized,
-          ficha: z.array(z.object({ clave: localized, valor: localized })).min(1),
-          bloques: z.array(z.object({ clave: localized, texto: localized })).min(1),
-          cifras: z.array(z.object({ metrica: localized, texto: localized })).min(1),
-          fuente: localized,
-          cierre: z.object({ titulo: localized, texto: localized, enlace }),
-        })
-        .optional(),
-      /** Pieza 11: diagrama del caso, antes y después. */
-      diagrama: z
-        .object({
-          etiqueta: localized,
-          fuente: localized,
-          /** Lo que va antes de la cifra: '≈' o 'US$'. */
-          prefijo: z.string().default(''),
-          antes: etapaDiagrama,
-          despues: etapaDiagrama,
-        })
-        .optional(),
-    })
-    .refine((c) => !c.pagina || c.permiso, {
-      message: 'Un caso con página necesita permiso de publicación.',
-    })
-    .refine((c) => !c.diagrama || c.pagina, { message: 'El diagrama va en la página del caso.' }),
+        }),
+        /** Versión con pasos para Consultoría. */
+        consultoria: z
+          .object({
+            etiqueta: localized,
+            titulo: localized,
+            metrica: localized,
+            quien: localized,
+            pasos: z.array(z.object({ clave: localized, texto: localized })).length(4),
+            viz: viz.optional(),
+          })
+          .optional(),
+        /** Página propia del caso. */
+        pagina: z
+          .object({
+            titulo: localized,
+            resumen: localized,
+            ficha: z.array(z.object({ clave: localized, valor: localized })).min(1),
+            bloques: z.array(z.object({ clave: localized, texto: localized })).min(1),
+            cifras: z.array(z.object({ metrica: localized, texto: localized })).min(1),
+            fuente: localized,
+            cierre: z.object({ titulo: localized, texto: localized, enlace }),
+          })
+          .optional(),
+        /** Pieza 11: diagrama del caso, antes y después. */
+        diagrama: z
+          .object({
+            etiqueta: localized,
+            fuente: localized,
+            /** Lo que va antes de la cifra: '≈' o 'US$'. */
+            prefijo: z.string().default(''),
+            antes: etapaDiagrama,
+            despues: etapaDiagrama,
+          })
+          .optional(),
+      })
+      .refine((c) => !c.pagina || c.permiso, {
+        message: 'Un caso con página necesita permiso de publicación.',
+      })
+      .refine((c) => !c.diagrama || c.pagina, { message: 'El diagrama va en la página del caso.' }),
 });
 
 // Subpáginas de Consultoría con la misma plantilla (sesión, puertas con página y retainers).

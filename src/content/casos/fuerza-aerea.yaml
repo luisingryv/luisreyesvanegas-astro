@@ -1,6 +1,11 @@
 # Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
 orden: 2
 cliente: 'Fuerza Aérea Colombiana'
+# Logo de TIVIT: el caso de la Fuerza Aérea se hizo con TIVIT; no hay logo de la Fuerza Aérea.
+logo: ../../assets/casos/tivit-almaviva_color.svg
+logoAlt: 'TIVIT'
+caja:
+  fondo: '#ffffff'
 tipo: 'evolutecc'
 temas:
   - 'migracion'

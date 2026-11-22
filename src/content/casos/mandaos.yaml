@@ -1,6 +1,11 @@
 # Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
 orden: 6
 cliente: 'Mandaos'
+logo: ../../assets/casos/mandaos_color.png
+# Mandaos en blanco sobre su azul, como su logo original.
+caja:
+  fondo: '#21bbef'
+  logo: ../../assets/clientes/mandaos_blanco.png
 tipo: 'startup-producto'
 temas:
   - 'crecimiento'

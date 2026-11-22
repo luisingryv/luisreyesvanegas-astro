@@ -1,6 +1,8 @@
 ---
 // Cabecera del caso: volver, tipo y temas, título y resumen. La pieza 11 va debajo, a todo el
-// ancho (en el espacio "imagen o diagrama" del prototipo; Luis, 20 nov 2026).
+// ancho (en el espacio "imagen o diagrama" del prototipo; Luis, 20 nov 2026). Desde el 22 nov
+// 2026 lleva el logo del cliente sobre las etiquetas.
+import { Image } from 'astro:assets';
 import Section from '../brand/Section.astro';
 import FlujoCaso from './FlujoCaso.astro';
 import type { PublishedLocale } from '../../i18n/config';
@@ -26,6 +28,15 @@ const temas = caso.temas.map((t) => textos.filtros.temas[t]).join(' · ');
       >
         <span aria-hidden="true">←</span> {textos.plantilla.volver}
       </a>
+      {caso.logo && (
+        <Image
+          src={caso.logo}
+          alt={caso.logoAlt ?? caso.cliente}
+          height={56}
+          densities={[1, 2]}
+          class="h-auto max-h-14 w-auto max-w-56 self-start object-contain"
+        />
+      )}
       <div class="flex flex-wrap gap-1.5">
         <span class="rounded-pill bg-primary px-2.25 py-1.25 text-label font-bold text-on-primary uppercase">
           {textos.filtros.tipos[caso.tipo]}

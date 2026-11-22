@@ -35,6 +35,16 @@ test.describe('Casos · índice', () => {
     await page.goto('/es/casos');
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Casos de éxito');
     await expect(page.locator('[data-lista-casos] > li')).toHaveCount(6);
+    // Cada tarjeta lleva el logo del cliente; Fuerza Aérea, el de TIVIT (22 nov 2026).
+    const logos = page.locator('[data-lista-casos] > li img');
+    expect(await logos.evaluateAll((imgs) => imgs.map((i) => i.getAttribute('alt')))).toEqual([
+      'Trama AI',
+      'TIVIT',
+      'Clínica del Caribe',
+      'UTPN / KMA',
+      'Glasslake',
+      'Mandaos',
+    ]);
     await expect(page.locator('[data-lista-casos] > li').first()).toContainText(
       'Trama AI migra de Google Cloud a AWS con el programa MAP',
     );
@@ -109,6 +119,8 @@ test.describe('Casos · páginas', () => {
     test(`${ruta} usa la plantilla de caso`, async ({ page }) => {
       await page.goto(ruta);
       await expect(page.getByRole('heading', { level: 1 })).toHaveText(titulo);
+      // Logo del cliente en la cabecera (22 nov 2026).
+      await expect(page.locator('main section').first().locator('img').first()).toBeVisible();
       // La flecha es decorativa: el enlace se llama "Todos los casos".
       await expect(
         page.locator('main').getByRole('link', { name: 'Todos los casos', exact: true }),

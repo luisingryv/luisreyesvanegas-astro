@@ -1,6 +1,11 @@
 # Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
 orden: 5
 cliente: 'Glasslake'
+logo: ../../assets/casos/glasslake_oscuro.png
+# Glasslake en su versión blanca sobre azul oscuro.
+caja:
+  fondo: '#0f1b2d'
+  logo: ../../assets/clientes/glasslake_blanco.png
 tipo: 'consultoria-propia'
 temas:
   - 'crecimiento'

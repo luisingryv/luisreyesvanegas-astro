@@ -1,6 +1,9 @@
 # Caso: textos del prototipo aprobado (Casos y su página); diagrama de la pieza 11 del laboratorio.
 orden: 3
 cliente: 'Clínica del Caribe'
+logo: ../../assets/casos/clinica-del-caribe_color.png
+caja:
+  fondo: '#ffffff'
 tipo: 'startup-producto'
 temas:
   - 'buenas-practicas'
