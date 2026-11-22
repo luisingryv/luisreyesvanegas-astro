@@ -30,4 +30,19 @@ describe('sitemap', () => {
     );
     expect(xml.startsWith('<?xml version="1.0" encoding="UTF-8"?>')).toBe(true);
   });
+
+  it('una página que existe en un solo idioma solo aparece en ese idioma', () => {
+    const xml = sitemapXml(
+      new URL('https://luisreyesvanegas.com'),
+      [{ slug: 'noticias/una', idiomas: ['es'] }],
+      ['es', 'en', 'pt'],
+      'es',
+    );
+    expect(xml.match(/<url>/g)).toHaveLength(1);
+    expect(xml).toContain('<loc>https://luisreyesvanegas.com/es/noticias/una</loc>');
+    expect(xml).not.toContain('/en/noticias');
+    expect(xml).toContain(
+      '<xhtml:link rel="alternate" hreflang="x-default" href="https://luisreyesvanegas.com/es/noticias/una"/>',
+    );
+  });
 });

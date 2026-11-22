@@ -3,8 +3,8 @@ export type Locale = (typeof locales)[number];
 
 export const defaultLocale = 'es' satisfies Locale;
 
-// Un idioma se publica solo cuando Luis aprueba todos sus textos.
-export const publishedLocales = ['es'] as const satisfies readonly Locale[];
+// Un idioma se publica solo cuando Luis aprueba todos sus textos. EN y PT: publicados el 22 nov 2026.
+export const publishedLocales = ['es', 'en', 'pt'] as const satisfies readonly Locale[];
 export type PublishedLocale = (typeof publishedLocales)[number];
 
 export const localeLabels: Record<Locale, string> = { es: 'ES', en: 'EN', pt: 'PT' };

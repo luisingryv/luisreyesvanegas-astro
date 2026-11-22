@@ -10,7 +10,7 @@ export const es = {
     footerNav: 'Enlaces del pie de página',
     languageNav: 'Idioma',
     menu: 'Menú',
-    languageUnavailable: 'próximamente',
+    cambiarIdioma: 'Cambiar idioma',
   },
   nav: {
     consultoria: 'Consultoría',

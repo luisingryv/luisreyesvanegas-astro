@@ -20,9 +20,11 @@ interface Props {
   cta?: { texto: string; href: string };
   /** Fondo night con logo blanco, o blanco con logo azul en páginas claras. */
   tema?: 'dark' | 'light';
+  /** Enlace de cada idioma a esta misma página (lo calcula Base). */
+  alternos?: Partial<Record<PublishedLocale, string>>;
 }
 
-const { locale, route, agendaLocal, tema = 'dark', minimo, cta } = Astro.props;
+const { locale, route, agendaLocal, tema = 'dark', minimo, cta, alternos } = Astro.props;
 const claro = tema === 'light';
 const t = getDictionary(locale);
 const ctaHref = minimo?.href ?? cta?.href ?? bookingUrl(locale, agendaLocal);
@@ -43,7 +45,7 @@ const ctaTexto = minimo?.texto ?? cta?.texto ?? t.header.cta;
 
     {minimo ? (
       <div class="flex items-center gap-4">
-        <LanguageSwitcher locale={locale} route={route} />
+        <LanguageSwitcher locale={locale} route={route} alternos={alternos} />
         <Button href={ctaHref} size="sm">
           {ctaTexto}
         </Button>
@@ -55,7 +57,7 @@ const ctaTexto = minimo?.texto ?? cta?.texto ?? t.header.cta;
         </div>
 
         <div class="hidden items-center gap-4 xl:flex">
-          <LanguageSwitcher locale={locale} route={route} />
+          <LanguageSwitcher locale={locale} route={route} alternos={alternos} />
           <Button href={ctaHref} size="sm">
             {ctaTexto}
           </Button>
@@ -73,7 +75,12 @@ const ctaTexto = minimo?.texto ?? cta?.texto ?? t.header.cta;
           >
             <Container class="flex flex-col gap-6 py-6">
               <NavLinks locale={locale} current={route} orientation="vertical" />
-              <LanguageSwitcher locale={locale} route={route} />
+              <LanguageSwitcher
+                locale={locale}
+                route={route}
+                alternos={alternos}
+                variante="lista"
+              />
               <Button href={ctaHref} size="sm" class="self-start">
                 {ctaTexto}
               </Button>

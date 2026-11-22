@@ -61,6 +61,28 @@ test.describe('Noticias publicadas', () => {
   });
 });
 
+test.describe('noticias en otros idiomas', () => {
+  // Las noticias están en español: inglés y portugués no las anuncian (22 nov 2026).
+  test('una noticia en español solo se anuncia en español', async ({ page }) => {
+    await page.goto('/es/noticias/2026-11-22-costos-ia-bedrock');
+    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(0);
+    const idiomas = page.locator('nav[aria-label="Idioma"]').first();
+    await expect(idiomas.locator('a[hreflang="en"]')).toHaveAttribute('href', '/en');
+    await expect(idiomas.locator('a[hreflang="pt"]')).toHaveAttribute('href', '/pt');
+  });
+
+  test('sin noticias en inglés, Noticias no está en su menú ni en su sitemap', async ({
+    page,
+    request,
+  }) => {
+    await page.goto('/en');
+    await expect(page.locator('header a[href="/en/noticias"]')).toHaveCount(0);
+    const sitemap = await (await request.get('/sitemap.xml')).text();
+    expect(sitemap).not.toContain('/en/noticias');
+    expect(sitemap).not.toContain('/pt/noticias');
+  });
+});
+
 test.describe('canonical de las páginas dinámicas', () => {
   test('cada caso apunta a su propia URL', async ({ page }) => {
     await page.goto('/es/casos/mandaos');

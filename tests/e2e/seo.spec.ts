@@ -36,8 +36,9 @@ test.describe('SEO base', () => {
     const xml = await r.text();
     expect(xml).toContain('<loc>https://luisreyesvanegas.com/es/sobre-mi</loc>');
     expect(xml).toContain('hreflang="x-default"');
-    // EN y PT no se publican hasta que Luis apruebe los textos; tampoco páginas internas.
-    expect(xml).not.toContain('/en/');
+    // EN y PT: publicados el 22 nov 2026. Las páginas internas no entran.
+    expect(xml).toContain('<loc>https://luisreyesvanegas.com/en/sobre-mi</loc>');
+    expect(xml).toContain('<loc>https://luisreyesvanegas.com/pt/sobre-mi</loc>');
     expect(xml).not.toContain('design-system');
   });
 

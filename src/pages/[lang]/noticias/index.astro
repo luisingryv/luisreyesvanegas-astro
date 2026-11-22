@@ -9,7 +9,7 @@ import { publishedLocales } from '../../../i18n/config';
 import { getDictionary } from '../../../i18n';
 import { localizedPath } from '../../../i18n/routes';
 import Base from '../../../layouts/Base.astro';
-import { getNoticias } from '../../../lib/content';
+import { getIdiomasConNoticias, getNoticias } from '../../../lib/content';
 
 export const prerender = true;
 
@@ -19,6 +19,8 @@ export const getStaticPaths = (() =>
 const { lang } = Astro.params as InferGetStaticParamsType<typeof getStaticPaths>;
 const t = getDictionary(lang);
 const noticias = await getNoticias(lang);
+// El índice existe donde hay noticias: en los otros idiomas el selector lleva al inicio.
+const idiomas = await getIdiomasConNoticias();
 const base = localizedPath(lang, 'noticias');
 ---
 
@@ -27,6 +29,7 @@ const base = localizedPath(lang, 'noticias');
   title={t.pages.noticias.title}
   description={t.noticias.bajada}
   route="noticias"
+  idiomas={idiomas.length > 0 ? idiomas : undefined}
   noindex={noticias.length === 0}
 >
   <link

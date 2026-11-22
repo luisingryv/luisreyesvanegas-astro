@@ -6,6 +6,9 @@ import { chromium } from '@playwright/test';
 
 const textos = {
   es: { nombre: 'Luis Carlos Reyes Vanegas', rol: 'Arquitecto de soluciones cloud e IA' },
+  // EN y PT (22 nov 2026): el mismo rol que el título del Home en cada diccionario.
+  en: { nombre: 'Luis Carlos Reyes Vanegas', rol: 'Cloud and AI solutions architect' },
+  pt: { nombre: 'Luis Carlos Reyes Vanegas', rol: 'Arquiteto de soluções cloud e IA' },
 };
 
 const plantilla = new URL('./tarjeta.html', import.meta.url).href;

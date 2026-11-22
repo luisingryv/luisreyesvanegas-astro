@@ -6,8 +6,8 @@ import { mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 
-// Solo los idiomas con CV aprobado (EN espera textos de Luis).
-const IDIOMAS = ['es'];
+// Los tres idiomas publicados (EN y PT desde el 22 nov 2026).
+const IDIOMAS = ['es', 'en', 'pt'];
 const PUERTO = 4398;
 
 const servidor = spawn('node', ['dist/server/entry.mjs'], {

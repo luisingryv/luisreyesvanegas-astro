@@ -99,9 +99,12 @@ test.describe('rutas e idiomas', () => {
     await expect(page).toHaveURL(/\/es$/);
   });
 
-  test('EN y PT no se publican todavía', async ({ request }) => {
-    for (const path of ['/en/sobre-mi', '/pt/sobre-mi']) {
-      expect((await request.get(path)).status()).toBe(404);
+  // EN y PT: publicados el 22 nov 2026.
+  test('EN y PT están publicados, cada uno con su idioma', async ({ page }) => {
+    for (const idioma of ['en', 'pt']) {
+      const respuesta = await page.goto(`/${idioma}/sobre-mi`);
+      expect(respuesta?.status()).toBe(200);
+      await expect(page.locator('html')).toHaveAttribute('lang', idioma);
     }
   });
 
@@ -109,12 +112,32 @@ test.describe('rutas e idiomas', () => {
     expect((await request.get('/design-system')).status()).toBe(404);
   });
 
-  test('el selector de idioma marca ES y deja EN y PT sin enlace', async ({ page }) => {
+  test('el selector de idioma lleva a la misma página en cada idioma', async ({ page }) => {
     await page.goto(PAGE);
     // En celular el selector vive dentro del menú cerrado: se revisa en el DOM.
     const idiomas = page.locator('nav[aria-label="Idioma"]').first();
-    await expect(idiomas.locator('a')).toHaveCount(0);
-    await expect(idiomas).toContainText('Español');
-    await expect(idiomas).toContainText('English, próximamente');
+    await expect(idiomas.locator('a[hreflang="en"]')).toHaveAttribute('href', '/en/sobre-mi');
+    await expect(idiomas.locator('a[hreflang="pt"]')).toHaveAttribute('href', '/pt/sobre-mi');
+    await expect(idiomas.locator('a[aria-current="true"]')).toHaveAttribute('hreflang', 'es');
+    await expect(idiomas).toContainText('English');
+    await expect(idiomas).toContainText('Português');
+  });
+
+  test('en escritorio el selector se abre con un clic y se cierra con Escape', async ({
+    page,
+    isMobile,
+  }) => {
+    test.skip(isMobile, 'en celular los idiomas van a la vista dentro del menú');
+    await page.goto(PAGE);
+    const selector = page.locator('header details[data-selector-idioma]:visible');
+    const ingles = selector.locator('a[hreflang="en"]');
+    await expect(ingles).toBeHidden();
+    await selector.locator('summary').click();
+    await expect(ingles).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(ingles).toBeHidden();
+    await selector.locator('summary').click();
+    await ingles.click();
+    await expect(page).toHaveURL(/\/en\/sobre-mi$/);
   });
 });

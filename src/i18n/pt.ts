@@ -1,7 +1,7 @@
 import type { Dictionary } from './es';
 
-// Borrador en portugués de Brasil (20 nov 2026), traducido del español a pedido de Luis. No se
-// publica hasta que Luis apruebe los textos (CLAUDE.md); está completo para poder revisarlo entero.
+// Portugués de Brasil (20 nov 2026), traducido del español a pedido de Luis. Luis lo mandó publicar
+// el 22 nov 2026.
 export const pt: Dictionary = {
   meta: {
     siteName: 'Luis Reyes Vanegas',
@@ -14,7 +14,7 @@ export const pt: Dictionary = {
     footerNav: 'Links do rodapé',
     languageNav: 'Idioma',
     menu: 'Menu',
-    languageUnavailable: 'em breve',
+    cambiarIdioma: 'Mudar idioma',
   },
   nav: {
     consultoria: 'Consultoria',

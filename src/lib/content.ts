@@ -1,6 +1,6 @@
 import type { ImageMetadata } from 'astro';
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
-import type { PublishedLocale } from '../i18n/config';
+import { publishedLocales, type PublishedLocale } from '../i18n/config';
 import type { PaginaRelacionada } from './noticias';
 import {
   formatEventDate,
@@ -340,6 +340,15 @@ export interface Noticia {
   imagenCreditoUrl?: string;
   etiquetas: string[];
   relacionada?: PaginaRelacionada;
+}
+
+/** Idiomas con al menos una noticia publicada (en desarrollo cuentan también los borradores). */
+export async function getIdiomasConNoticias(): Promise<PublishedLocale[]> {
+  const entradas = await getCollection(
+    'noticias',
+    (n) => n.data.estado === 'publicada' || import.meta.env.DEV,
+  );
+  return publishedLocales.filter((lang) => entradas.some((n) => n.data.idioma === lang));
 }
 
 /** Noticias del idioma, de la más reciente a la más antigua. Borradores solo en desarrollo. */

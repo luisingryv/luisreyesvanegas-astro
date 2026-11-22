@@ -1,7 +1,7 @@
 import type { Dictionary } from './es';
 
-// Borrador en inglés (20 nov 2026), traducido del español a pedido de Luis. No se publica hasta
-// que Luis apruebe los textos (CLAUDE.md); está completo para poder revisarlo entero.
+// Inglés (20 nov 2026), traducido del español a pedido de Luis. Luis lo mandó publicar el
+// 22 nov 2026.
 export const en: Dictionary = {
   meta: {
     siteName: 'Luis Reyes Vanegas',
@@ -14,7 +14,7 @@ export const en: Dictionary = {
     footerNav: 'Footer links',
     languageNav: 'Language',
     menu: 'Menu',
-    languageUnavailable: 'coming soon',
+    cambiarIdioma: 'Change language',
   },
   nav: {
     consultoria: 'Consulting',
