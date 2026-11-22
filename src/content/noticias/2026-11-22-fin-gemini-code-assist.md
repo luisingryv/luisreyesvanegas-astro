@@ -3,7 +3,7 @@ titulo: 'Google deja de vender Gemini Code Assist: qué pasa con las licencias q
 resumen: 'Ya no hay suscripciones nuevas, y el beneficio incluido en Gemini Enterprise termina el 31 de marzo de 2027. Toca planear el cambio a Antigravity.'
 fecha: 2026-11-22T10:30:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'Google Cloud'
   url: 'https://docs.cloud.google.com/gemini/docs/codeassist/sunset'

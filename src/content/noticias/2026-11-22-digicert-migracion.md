@@ -3,7 +3,7 @@ titulo: 'DigiCert: una migración de 2025 dejó un sistema interno abierto a int
 resumen: 'Un sistema que solo se veía por VPN quedó en una red alcanzable desde internet. La lección: toda migración también es un cambio de seguridad.'
 fecha: 2026-11-22T11:00:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'BleepingComputer'
   url: 'https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/'

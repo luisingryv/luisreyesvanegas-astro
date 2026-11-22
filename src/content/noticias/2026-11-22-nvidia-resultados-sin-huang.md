@@ -3,7 +3,7 @@ titulo: 'Nvidia vende 115.800 millones en su primer trimestre sin Jensen Huang a
 resumen: 'Ingresos récord, una directora ejecutiva interina y una investigación interna abierta. Lo que deja para las empresas que dependen de GPU en la nube.'
 fecha: 2026-11-22T12:00:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'NVIDIA Newsroom'
   url: 'https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027'

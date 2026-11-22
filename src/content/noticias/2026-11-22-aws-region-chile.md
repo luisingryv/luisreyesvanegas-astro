@@ -3,7 +3,7 @@ titulo: 'AWS abre su región en Chile, la tercera de Latinoamérica, con más de
 resumen: 'Arranca con clientes seleccionados y servicios base; Bedrock llegará dentro del primer año. Qué cambia para las empresas de la región.'
 fecha: 2026-11-22T10:50:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'About Amazon'
   url: 'https://www.aboutamazon.com/news/aws/aws-south-america-chile-region-launch'

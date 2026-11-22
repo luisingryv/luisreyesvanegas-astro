@@ -3,7 +3,7 @@ titulo: 'Claude Fable 5.2: más rápido y más barato, y con 30 días de retenci
 resumen: 'Anthropic lanzó Fable 5.2 y Mythos 5.2, el mismo modelo con distintos controles. Antes de adoptarlo, conviene revisar qué pasa con tus datos.'
 fecha: 2026-11-22T11:30:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'Anthropic'
   url: 'https://www.anthropic.com/claude-fable-and-mythos-5-2'

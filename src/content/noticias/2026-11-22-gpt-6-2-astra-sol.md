@@ -3,7 +3,7 @@ titulo: 'GPT-6.2 Astra y Sol: OpenAI baja precios y su modelo barato se acerca a
 resumen: 'Astra cuesta 20 % menos que su antecesor y, según OpenAI, Sol queda cerca en código por una quinta parte del costo. Eso cambia cómo conviene elegir modelo.'
 fecha: 2026-11-22T11:40:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'OpenAI'
   url: 'https://openai.com/index/introducing-gpt-6-2-astra-sol/'

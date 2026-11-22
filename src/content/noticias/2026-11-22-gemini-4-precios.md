@@ -3,7 +3,7 @@ titulo: 'Gemini 4 Carbon duplica su precio el 1 de diciembre: lo que conviene re
 resumen: 'Google lanzó cuatro modelos Gemini 4 en cinco semanas. El precio de lanzamiento de Carbon y Argon en la API termina el 30 de noviembre.'
 fecha: 2026-11-22T11:20:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'Google'
   url: 'https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/'

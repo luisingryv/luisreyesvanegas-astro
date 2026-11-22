@@ -3,7 +3,7 @@ titulo: 'Microsoft Ignite 2026: los agentes ya pueden crear y cambiar recursos e
 resumen: 'Azure Catalyst promete migrar y modernizar con agentes, y el servidor MCP de Azure ya escribe. Bien gobernado acelera; sin reglas, es un riesgo.'
 fecha: 2026-11-22T10:40:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'Microsoft Azure Blog'
   url: 'https://azure.microsoft.com/en-us/blog/microsoft-ignite-2026-whats-new-in-azure-the-platform-purpose-built-for-ai/'

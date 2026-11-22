@@ -3,7 +3,7 @@ titulo: 'Una llave filtrada en un proveedor terminó en una extensión falsa de 
 resumen: 'Hasta 5.000 usuarios pudieron instalar la copia maliciosa. La lección para quien usa agentes de IA: sus registros también guardan secretos.'
 fecha: 2026-11-22T11:10:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'Cursor'
   url: 'https://cursor.com/blog/security-incident-update'

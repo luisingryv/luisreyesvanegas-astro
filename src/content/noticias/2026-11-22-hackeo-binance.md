@@ -3,7 +3,7 @@ titulo: 'El hackeo a Binance: 6.300 millones de dólares en unos 20 minutos'
 resumen: 'Es el robo de criptomonedas más grande registrado. Binance cubrió las pérdidas, pero la lección sirve para cualquier empresa con accesos privilegiados.'
 fecha: 2026-11-22T11:50:00-05:00
 idioma: es
-estado: borrador
+estado: publicada
 fuente:
   nombre: 'CNBC'
   url: 'https://www.cnbc.com/2026/10/30/billions-in-crypto-frozen-in-binance-hack-heres-what-happens-next-.html'
