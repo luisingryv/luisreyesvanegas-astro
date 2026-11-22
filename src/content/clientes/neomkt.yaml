@@ -1,0 +1,9 @@
+# Logo del Home (sección Clientes). Versión original para fondo oscuro, entregada por Luis el
+# 22 nov 2026.
+nombre: 'NeoMKT'
+orden: 4
+grupo: consultoria
+logo: ../../assets/clientes/neomkt_blanco.png
+permiso:
+  quien: 'Luis Carlos Reyes Vanegas: entregó el logo para el sitio'
+  fecha: 2026-11-22

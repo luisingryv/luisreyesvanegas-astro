@@ -65,10 +65,10 @@ test.describe('pieza 08 · burbujas de casos', () => {
     await page.goto(PAGE);
     const casos = page.locator('[data-casos]');
     const glasslake = casos.getByRole('link', { name: 'Glasslake' });
-    await expect(glasslake.locator('span')).toHaveCSS('opacity', '0');
+    await expect(glasslake.locator('.burbuja-interior')).toHaveCSS('opacity', '0');
 
     await casos.scrollIntoViewIfNeeded();
-    await expect(glasslake.locator('span')).toHaveCSS('opacity', '1', { timeout: 3000 });
+    await expect(glasslake.locator('.burbuja-interior')).toHaveCSS('opacity', '1', { timeout: 3000 });
     const antes = await glasslake.evaluate((el) => el.style.transform);
     await page.waitForTimeout(400);
     expect(await glasslake.evaluate((el) => el.style.transform)).not.toBe(antes);
@@ -88,7 +88,7 @@ test.describe('pieza 08 · burbujas de casos', () => {
     await glasslake.scrollIntoViewIfNeeded();
     await page.waitForTimeout(400);
     expect(await glasslake.evaluate((el) => el.style.transform)).toBe('');
-    await expect(glasslake.locator('span')).toHaveCSS('opacity', '1');
+    await expect(glasslake.locator('.burbuja-interior')).toHaveCSS('opacity', '1');
     await expect(glasslake).toHaveAttribute('href', '/es/casos/glasslake');
     await context.close();
   });

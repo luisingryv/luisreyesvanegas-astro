@@ -236,12 +236,16 @@ casos:
         en: 'My products and my consulting'
         pt: 'Meus produtos e minha consultoria'
       destacado: true
+      # Logos a color en las burbujas (Luis, 22 nov 2026).
       casos:
         - nombre: 'Trama AI'
+          logo: ../../assets/casos/trama_oscuro.svg
         - nombre: 'UTPN / KMA'
           slug: utpn
+          logo: ../../assets/casos/utpn_color.svg
         - nombre: 'Glasslake'
           slug: glasslake
+          logo: ../../assets/casos/glasslake_oscuro.png
     - titulo:
         es: 'Trayectoria'
         en: 'Track record'
@@ -249,9 +253,13 @@ casos:
       destacado: false
       casos:
         - nombre: 'Fuerza Aérea · TIVIT'
+          logo: ../../assets/casos/tivit-almaviva_color.svg
+          pie: 'Fuerza Aérea'
         - nombre: 'Clínica del Caribe'
+          logo: ../../assets/casos/clinica-del-caribe_color.png
         - nombre: 'Mandaos'
           slug: mandaos
+          logo: ../../assets/casos/mandaos_color.png
 
 evolutecc:
   eyebrow:

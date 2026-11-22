@@ -1,6 +1,8 @@
 ---
-// Pieza 08 · Casos como burbujas con el nombre del cliente.
-// Sin logos hasta tener permisos; cada burbuja enlaza a su caso o al índice de casos.
+// Pieza 08 · Casos como burbujas. Desde el 22 nov 2026 llevan el logo a color del cliente (Luis
+// entregó los logos); el nombre queda para lectores de pantalla y como respaldo si falta el logo.
+// Cada burbuja enlaza a su caso o al índice de casos.
+import { Image } from 'astro:assets';
 import Section from '../brand/Section.astro';
 import SectionHeader from '../brand/SectionHeader.astro';
 import type { PublishedLocale } from '../../i18n/config';
@@ -48,7 +50,25 @@ const indice = localizedPath(locale, 'casos');
                     grupo.destacado ? 'bg-surface-raised' : 'bg-surface',
                   ]}
                 >
-                  {caso.nombre}
+                  {caso.logo ? (
+                    <span class="flex flex-col items-center gap-1.5">
+                      <Image
+                        src={caso.logo}
+                        alt=""
+                        height={44}
+                        densities={[1, 2]}
+                        class="logo h-auto max-h-11 w-20 object-contain"
+                      />
+                      {caso.pie && (
+                        <span aria-hidden="true" class="text-[11px] leading-none text-ink-muted">
+                          {caso.pie}
+                        </span>
+                      )}
+                      <span class="sr-only">{caso.nombre}</span>
+                    </span>
+                  ) : (
+                    caso.nombre
+                  )}
                 </span>
               </a>
             </li>

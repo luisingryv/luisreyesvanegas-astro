@@ -1,6 +1,6 @@
 # Logo del Home (sección Clientes). Versión clara: el texto negro pasa a blanco; el ícono azul queda igual.
 nombre: 'NewNet'
-orden: 5
+orden: 6
 grupo: empresa
 logo: ../../assets/clientes/newnet_claro.png
 permiso:

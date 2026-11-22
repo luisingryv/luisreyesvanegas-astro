@@ -2,6 +2,8 @@
 // Programas AWS, del hero a las preguntas frecuentes (prototipo aprobado). El formulario va en
 // EvaluarProgramas. Narrativa: los seis pasos aparecen en orden y las barras de tramos y de
 // hallazgos crecen al verse.
+import { Image } from 'astro:assets';
+import logoNexa from '../../assets/brand/nexa-connect_color.svg';
 import BotonMarca from '../brand/BotonMarca.astro';
 import Button from '../brand/Button.astro';
 import CheckMark from '../brand/CheckMark.astro';
@@ -330,9 +332,9 @@ const COLORES_BARRA = ['bg-accent', 'bg-blue-400', 'bg-blue-300'];
         {textos.nexa.enlace.texto}
       </BotonMarca>
     </div>
-    {/* Logo pendiente: Luis entrega el archivo. Mientras tanto, el nombre en texto. */}
+    {/* Logo de Nexa Connect (Luis lo entregó el 22 nov 2026). */}
     <div class="grid min-h-55 place-items-center self-stretch rounded-lg bg-white p-10">
-      <span class="text-[clamp(28px,3vw,40px)] font-bold text-nexa-navy">{textos.nexa.nombre}</span>
+      <Image src={logoNexa} alt={textos.nexa.nombre} width={300} class="h-auto w-full max-w-75" />
     </div>
   </div>
 </section>

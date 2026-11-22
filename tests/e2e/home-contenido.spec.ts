@@ -107,12 +107,13 @@ test.describe('Home · clientes', () => {
     const logos = page.locator(
       'section[aria-labelledby="clientes-titulo"] li:not([aria-hidden]) img',
     );
-    await expect(logos).toHaveCount(7);
+    await expect(logos).toHaveCount(8);
     const nombres = await logos.evaluateAll((imgs) => imgs.map((img) => img.getAttribute('alt')));
     expect(nombres).toEqual([
       'Glasslake',
       'Peajes Nacionales (UTPN)',
       'Dappsco',
+      'NeoMKT',
       'TIVIT',
       'NewNet',
       'Clínica del Caribe',

@@ -706,6 +706,10 @@ const home = defineCollection({
                   .string()
                   .regex(/^[a-z0-9-]+$/)
                   .optional(),
+                // Logo a color para el fondo claro (22 nov 2026) y un pie corto si el logo no
+                // nombra todo el caso (Fuerza Aérea, con el logo de TIVIT).
+                logo: image().optional(),
+                pie: z.string().min(1).optional(),
               }),
             ),
           }),

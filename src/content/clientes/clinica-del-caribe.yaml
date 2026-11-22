@@ -1,6 +1,6 @@
 # Logo del Home (sección Clientes). Versión clara: el lema gris pasa a blanco.
 nombre: 'Clínica del Caribe'
-orden: 6
+orden: 7
 grupo: consultoria
 logo: ../../assets/clientes/clinica-del-caribe_claro.png
 permiso:

@@ -1,6 +1,6 @@
 # Logo del Home (sección Clientes). Versión en blanco, sin el cuadro azul del archivo original.
 nombre: 'Mandaos'
-orden: 7
+orden: 8
 grupo: empresa
 logo: ../../assets/clientes/mandaos_blanco.png
 permiso:
