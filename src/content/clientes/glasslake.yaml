@@ -1,0 +1,8 @@
+# Logo del Home (sección Clientes). Versión original para fondo oscuro, entregada por Luis el 22 nov 2026.
+nombre: 'Glasslake'
+orden: 1
+grupo: consultoria
+logo: ../../assets/clientes/glasslake_blanco.png
+permiso:
+  quien: 'Autorizado según el documento madre (pendiente 5)'
+  fecha: 2026-11-18

@@ -89,10 +89,35 @@ test.describe('Home · contenido', () => {
       'href',
       /utm_campaign=home/,
     );
+    // Logo de EvolutecC en su franja (22 nov 2026).
+    await expect(
+      page.locator('section[aria-labelledby="evolutecc-franja-titulo"] img'),
+    ).toHaveAttribute('alt', 'EvolutecC');
     // Sin entradas de blog ni número de WhatsApp todavía; nada entre corchetes.
     await expect(page.locator('#blog')).toHaveCount(0);
     await expect(page.getByText('WhatsApp')).toHaveCount(0);
     await expect(page.locator('body')).not.toContainText('[');
+  });
+});
+
+test.describe('Home · clientes', () => {
+  // Logos con permiso (guía de Logos de la bóveda), en el orden de la colección (22 nov 2026).
+  test('los logos de las empresas con las que Luis ha trabajado', async ({ page }) => {
+    await page.goto(PAGE);
+    const logos = page.locator(
+      'section[aria-labelledby="clientes-titulo"] li:not([aria-hidden]) img',
+    );
+    await expect(logos).toHaveCount(7);
+    const nombres = await logos.evaluateAll((imgs) => imgs.map((img) => img.getAttribute('alt')));
+    expect(nombres).toEqual([
+      'Glasslake',
+      'Peajes Nacionales (UTPN)',
+      'Dappsco',
+      'TIVIT',
+      'NewNet',
+      'Clínica del Caribe',
+      'Mandaos',
+    ]);
   });
 });
 

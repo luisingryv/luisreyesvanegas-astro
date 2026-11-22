@@ -1,0 +1,8 @@
+# Logo del Home (sección Clientes). Versión clara: el lema gris pasa a blanco.
+nombre: 'Clínica del Caribe'
+orden: 6
+grupo: consultoria
+logo: ../../assets/clientes/clinica-del-caribe_claro.png
+permiso:
+  quien: 'Luis Carlos Reyes Vanegas: entregó el logo para el sitio'
+  fecha: 2026-11-22

@@ -1,0 +1,8 @@
+# Logo del Home (sección Clientes). Versión clara: el texto gris oscuro pasa a gris claro para el fondo oscuro.
+nombre: 'Peajes Nacionales (UTPN)'
+orden: 2
+grupo: consultoria
+logo: ../../assets/clientes/utpn_claro.svg
+permiso:
+  quien: 'Autorizado según el documento madre (pendiente 5)'
+  fecha: 2026-11-18

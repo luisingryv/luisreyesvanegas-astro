@@ -254,6 +254,10 @@ casos:
           slug: mandaos
 
 evolutecc:
+  eyebrow:
+    es: 'Empresa de desarrollo de software'
+    en: 'Software development company'
+    pt: 'Empresa de desenvolvimento de software'
   titulo:
     es: '¿Necesitas desarrollo a la medida?'
     en: 'Need custom development?'
@@ -262,6 +266,17 @@ evolutecc:
     es: 'En EvolutecC, donde soy CTO, desarrollamos software a la medida para empresas. Llevamos más de 400 proyectos entregados.'
     en: "At EvolutecC, where I'm CTO, we build custom software for companies. We have delivered more than 400 projects."
     pt: 'Na EvolutecC, onde sou CTO, desenvolvemos software sob medida para empresas. Já entregamos mais de 400 projetos.'
+  # Cifras públicas de evolutecc.com (documento madre, sección de cifras): logro del equipo.
+  cifras:
+    - es: '+400 proyectos'
+      en: '400+ projects'
+      pt: '+400 projetos'
+    - es: '90 % de recompra'
+      en: '90% repeat business'
+      pt: '90% de recompra'
+    - es: '+20 especialistas'
+      en: '20+ specialists'
+      pt: '+20 especialistas'
   boton:
     es: 'Conoce EvolutecC'
     en: 'Discover EvolutecC'

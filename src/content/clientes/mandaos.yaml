@@ -1,0 +1,8 @@
+# Logo del Home (sección Clientes). Versión en blanco, sin el cuadro azul del archivo original.
+nombre: 'Mandaos'
+orden: 7
+grupo: empresa
+logo: ../../assets/clientes/mandaos_blanco.png
+permiso:
+  quien: 'Luis Carlos Reyes Vanegas: entregó el logo para el sitio'
+  fecha: 2026-11-22

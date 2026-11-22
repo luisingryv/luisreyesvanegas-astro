@@ -6,6 +6,7 @@
 nombre: 'Empresa'
 orden: 1
 # consultoria: consultoría propia · evolutecc: liderado con el equipo de EvolutecC · alianza
+# · empresa: una empresa en cuyo equipo trabajó Luis
 grupo: consultoria
 logo: ../../assets/clientes/empresa_blanco.svg
 url: 'https://empresa.com'

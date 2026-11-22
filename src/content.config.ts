@@ -165,7 +165,8 @@ const noticias = defineCollection({
 
 // Logos de clientes del Home (21 nov 2026). Ningún logo se publica sin permiso escrito (guía de
 // Logos de la bóveda): el permiso es obligatorio. Logo en versión clara, para fondo oscuro.
-export const GRUPOS_CLIENTE = ['consultoria', 'evolutecc', 'alianza'] as const;
+// empresa: una empresa en cuyo equipo trabajó Luis (Mandaos, 22 nov 2026).
+export const GRUPOS_CLIENTE = ['consultoria', 'evolutecc', 'alianza', 'empresa'] as const;
 const clientes = defineCollection({
   loader: entries('clientes'),
   schema: ({ image }) =>
@@ -710,7 +711,14 @@ const home = defineCollection({
           }),
         ),
       }),
-      evolutecc: z.object({ titulo: localized, texto: localized, boton: localized }),
+      // Franja de EvolutecC (22 nov 2026: como la de Nexa, con sus cifras públicas de evolutecc.com).
+      evolutecc: z.object({
+        eyebrow: localized,
+        titulo: localized,
+        texto: localized,
+        cifras: z.array(localized).max(4),
+        boton: localized,
+      }),
       // Logos de clientes (pedido de Luis, 21 nov 2026); la sección sale cuando hay logos.
       clientes: z.object({ ...encabezado, nota: localized }),
       contacto: z.object({

@@ -1,8 +1,13 @@
 ---
-// Franja breve hacia EvolutecC (desarrollo a la medida), con UTM por página.
-// 21 nov 2026 (Luis): con los colores de EvolutecC (azul y naranja de evolutecc.com) para que
-// se distinga de las secciones oscuras sin una línea de división. Sin el logo de EvolutecC
-// hasta que esté su permiso (pendiente 5 del documento madre).
+// Franja hacia EvolutecC (desarrollo a la medida), con UTM por página.
+// 21 nov 2026 (Luis): con los colores de EvolutecC (azul y naranja de evolutecc.com) para que se
+// distinga de las secciones oscuras sin una línea de división.
+// 22 nov 2026 (Luis): como la sección de Nexa en Programas AWS. A la izquierda el antetítulo,
+// el texto, las cifras públicas de evolutecc.com y el botón; a la derecha el logo de EvolutecC
+// a color en una tarjeta blanca. Luis, su CTO, entregó el logo para el sitio.
+import { Image } from 'astro:assets';
+import logoEvolutecc from '../../assets/brand/evolutecc_color.jpg';
+import BotonMarca from '../brand/BotonMarca.astro';
 import Container from '../brand/Container.astro';
 import { evoluteccUrl } from '../../config/site';
 import type { PaginaHome } from '../../lib/content';
@@ -17,31 +22,47 @@ const { content, campaign } = Astro.props;
 
 <section
   aria-labelledby="evolutecc-franja-titulo"
-  class="franja relative overflow-hidden text-white"
+  class="franja relative overflow-hidden py-section-y text-white"
 >
   <span class="barra absolute inset-x-0 top-0 h-1.5" aria-hidden="true"></span>
   <Container
     data-reveal
-    class="relative flex flex-wrap items-center justify-between gap-x-8 gap-y-6 py-[clamp(48px,6vw,80px)]"
+    class="relative grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-10"
   >
-    <div class="flex max-w-[64ch] flex-col gap-2">
+    <div class="flex min-w-0 flex-col gap-4">
+      <span class="text-eyebrow font-bold text-white/80 uppercase">{content.eyebrow}</span>
       <h2
         id="evolutecc-franja-titulo"
-        class="text-[clamp(22px,2.4vw,28px)] leading-tight font-bold"
+        class="text-[clamp(28px,3.4vw,42px)] leading-[1.1] font-bold text-balance"
       >
         {content.titulo}
       </h2>
-      <p class="text-white/85">{content.texto}</p>
+      <p class="max-w-[56ch] text-white/85">{content.texto}</p>
+      <ul class="flex flex-wrap gap-2">
+        {content.cifras.map((cifra) => (
+          <li class="rounded-pill border border-white/55 px-3 py-1.75 text-[13px] font-bold">
+            {cifra}
+          </li>
+        ))}
+      </ul>
+      <BotonMarca
+        href={evoluteccUrl(campaign)}
+        fondo="var(--color-evolutecc-orange-boton)"
+        fondoHover="var(--color-evolutecc-orange-boton-hover)"
+        class="mt-1 self-start"
+      >
+        {content.boton}
+      </BotonMarca>
     </div>
-    <a
-      href={evoluteccUrl(campaign)}
-      class="boton group inline-flex items-center gap-2 rounded-pill px-6 py-3.5 font-bold"
-    >
-      {content.boton}
-      <span aria-hidden="true" class="flecha inline-block">
-        ↗
-      </span>
-    </a>
+    <div class="logo grid min-h-55 place-items-center self-stretch rounded-lg bg-white p-10">
+      <Image
+        src={logoEvolutecc}
+        alt="EvolutecC"
+        widths={[360, 720]}
+        sizes="360px"
+        class="h-auto w-full max-w-90"
+      />
+    </div>
   </Container>
 </section>
 
@@ -59,35 +80,7 @@ const { content, campaign } = Astro.props;
     background: linear-gradient(90deg, var(--color-evolutecc-blue), var(--color-evolutecc-orange));
     filter: brightness(1.15);
   }
-  /* Naranja de EvolutecC con texto oscuro: contraste AA (blanco sobre naranja no alcanza). */
-  .boton {
-    background: var(--color-evolutecc-orange);
-    color: var(--color-evolutecc-night);
-    transition:
-      transform 0.3s var(--ease-brand),
-      box-shadow 0.3s var(--ease-brand),
-      background-color 0.2s;
-  }
-  .boton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px color-mix(in oklab, var(--color-evolutecc-orange) 45%, transparent);
-  }
-  .boton:focus-visible {
-    outline: 2px solid var(--color-white);
-    outline-offset: 3px;
-  }
-  .flecha {
-    transition: transform 0.3s var(--ease-brand);
-  }
-  .boton:hover .flecha {
-    transform: translate(2px, -2px);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .boton,
-    .boton:hover,
-    .boton:hover .flecha {
-      transform: none;
-      transition: none;
-    }
+  .logo {
+    box-shadow: 0 24px 60px color-mix(in oklab, var(--color-evolutecc-night) 35%, transparent);
   }
 </style>

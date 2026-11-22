@@ -2,6 +2,7 @@
 // Programas AWS, del hero a las preguntas frecuentes (prototipo aprobado). El formulario va en
 // EvaluarProgramas. Narrativa: los seis pasos aparecen en orden y las barras de tramos y de
 // hallazgos crecen al verse.
+import BotonMarca from '../brand/BotonMarca.astro';
 import Button from '../brand/Button.astro';
 import CheckMark from '../brand/CheckMark.astro';
 import Eyebrow from '../brand/Eyebrow.astro';
@@ -320,14 +321,14 @@ const COLORES_BARRA = ['bg-accent', 'bg-blue-400', 'bg-blue-300'];
           </li>
         ))}
       </ul>
-      <a
+      <BotonMarca
         href={textos.nexa.enlace.url}
-        target="_blank"
-        rel="noopener"
-        class="self-start rounded-pill bg-nexa-orange px-5.5 py-3.75 font-bold text-nexa-navy"
+        fondo="var(--color-nexa-orange-boton)"
+        fondoHover="var(--color-nexa-orange-boton-hover)"
+        class="mt-1 self-start"
       >
-        {textos.nexa.enlace.texto} <span aria-hidden="true">↗</span>
-      </a>
+        {textos.nexa.enlace.texto}
+      </BotonMarca>
     </div>
     {/* Logo pendiente: Luis entrega el archivo. Mientras tanto, el nombre en texto. */}
     <div class="grid min-h-55 place-items-center self-stretch rounded-lg bg-white p-10">

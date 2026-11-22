@@ -85,6 +85,7 @@ test.describe('Productos', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
       'Agentes de IA que operan el inventario de tu empresa.',
     );
+    await expect(page.getByRole('img', { name: 'Trama', exact: true })).toBeVisible();
     await expect(
       page.getByRole('img', { name: /ganador de categoría, Small Business Services/ }),
     ).toBeVisible();

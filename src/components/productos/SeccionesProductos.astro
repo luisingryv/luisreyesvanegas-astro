@@ -2,6 +2,8 @@
 // Productos (prototipo aprobado): Trama AI con la medalla 3D (pieza 05), cómo funciona (con la
 // conversación de demostración), sus logros (pieza 02), las dos formas de acercarse, el
 // portafolio con Ofilix y "Ya escalamos un producto antes". Andrés Martínez solo se nombra aquí.
+import { Image } from 'astro:assets';
+import logoTrama from '../../assets/brand/trama_blanco.svg';
 import AchievementCard from '../brand/AchievementCard.astro';
 import Button from '../brand/Button.astro';
 import Eyebrow from '../brand/Eyebrow.astro';
@@ -30,6 +32,7 @@ const { medalla } = textos.hero;
 <Section tone="dark" spacing="hero" aria-labelledby="productos-titulo">
   <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-12">
     <div class="flex min-w-0 flex-col gap-5.5">
+      <Image src={logoTrama} alt="Trama" height={34} class="h-[34px] w-auto self-start" />
       <Eyebrow>{textos.hero.eyebrow}</Eyebrow>
       <h1
         id="productos-titulo"

@@ -1,0 +1,8 @@
+# Logo del Home (sección Clientes). Versión clara: el texto negro pasa a blanco; el ícono azul queda igual.
+nombre: 'NewNet'
+orden: 5
+grupo: empresa
+logo: ../../assets/clientes/newnet_claro.png
+permiso:
+  quien: 'Luis Carlos Reyes Vanegas: entregó el logo para el sitio'
+  fecha: 2026-11-22
