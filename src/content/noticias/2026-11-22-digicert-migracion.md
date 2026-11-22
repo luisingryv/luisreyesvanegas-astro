@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['Seguridad', 'Migración', 'DigiCert']
 relacionada: sesionArquitectura
 imagen: ../../assets/noticias/2026-11-22-digicert-migracion.jpg
-imagenAlt: 'Ilustración: un rack de servidores en una carretilla sale de un cuarto cerrado por una puerta con el candado abierto, hacia un espacio con señal de internet.'
+imagenAlt: 'Un candado en el cerrojo de una puerta de madera, en dos tonos rojos, con el texto: DigiCert. +16 meses con un sistema expuesto a internet, por una migración de 2025.'
+imagenCredito: 'Foto editada de Estormiz (CC0), vía Wikimedia Commons'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:Padlock_Valimokatu_Oulu_20250307_01.jpg'
 ---
 
 DigiCert, una de las autoridades de certificados más grandes del mundo, empezó a notificar a sus clientes a comienzos de noviembre por un incidente que nació en una migración. En febrero de 2025 movió un sistema interno de archivo, que antes solo era accesible por VPN, a una red alcanzable desde internet. En el cambio quedó expuesta una función de autorregistro pensada para otras aplicaciones: cualquiera podía crearse una cuenta sin el segundo factor que se les exige a los empleados.

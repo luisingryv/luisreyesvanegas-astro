@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['Seguridad', 'Hackeos', 'Binance', 'Cripto']
 relacionada: sesionArquitectura
 imagen: ../../assets/noticias/2026-11-22-hackeo-binance.jpg
-imagenAlt: 'Ilustración: la puerta abierta de una bóveda de la que salen monedas por diez caminos; algunas quedan atrapadas en cubos de hielo y un cronómetro marca 20 minutos.'
+imagenAlt: 'Una moneda de bitcoin sobre el teclado de un portátil, en dos tonos ámbar, con el texto: Hackeo a Binance. 6.300 millones de dólares en unos 20 minutos.'
+imagenCredito: 'Foto editada de Satheesh Sankaran (CC BY 2.0), vía Wikimedia Commons'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:Bitcoin_on_Laptop_Keyboard.jpg'
 ---
 
 La noche del 29 de octubre, alguien sacó cerca de 6.300 millones de dólares en criptomonedas de Binance, uno de los exchanges más grandes del mundo. Según la firma de análisis [TRM Labs](https://www.trmlabs.com/resources/blog/north-korea-steals-usd-6-36-billion-from-binance-in-the-largest-hack-in-history), los fondos salieron por diez blockchains distintas y la mayor parte se movió en unos 20 minutos. Es cerca de cuatro veces el hackeo a Bybit de febrero de 2025, que con 1.500 millones era el récord.

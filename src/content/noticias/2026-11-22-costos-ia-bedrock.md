@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['AWS', 'IA', 'Costos', 'FinOps', 'Bedrock']
 relacionada: optimizarCostos
 imagen: ../../assets/noticias/2026-11-22-costos-ia-bedrock.jpg
-imagenAlt: 'Ilustración: fichas que caen en un embudo y salen en menor cantidad, junto a un medidor y un tablero con seis palancas.'
+imagenAlt: 'Pasillo de servidores de un centro de datos en dos tonos naranja, con el texto: IA en Amazon Bedrock. −85 % de gasto en tokens en un caso real, seis palancas en tres fases.'
+imagenCredito: 'Foto editada de BalticServers.com (CC BY-SA 3.0), vía Wikimedia Commons; esta portada se comparte con la misma licencia'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:BalticServers_data_center.jpg'
 ---
 
 El 19 de noviembre, AWS publicó con Accenture una guía para controlar el gasto en tokens en Amazon Bedrock. Proponen seis palancas en tres fases. Primero, solo configuración: caché de prompts y procesamiento por lotes. Después, cambios de arquitectura: enrutar cada tarea al modelo adecuado y afinar la recuperación en RAG. Al final, inversión: caché semántica y destilación de modelos. Accenture las aplicó en cuatro clientes. Una operadora de telecomunicaciones pasó de 12 millones de dólares al año en tokens a 3,8 millones. En otra empresa grande, el costo mensual bajó 85 %. Una aseguradora y una minera, con una sola capa de caché cada una, bajaron cerca de 40 %. Los autores aclaran que los resultados dependen de cada carga de trabajo.

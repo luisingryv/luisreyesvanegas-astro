@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['Seguridad', 'Cursor', 'Claude Code', 'Agentes']
 relacionada: adopcionIa
 imagen: ../../assets/noticias/2026-11-22-extension-maliciosa-cursor.jpg
-imagenAlt: 'Ilustración: una llave sale de una caja abierta y un camino punteado la lleva hasta una extensión marcada en rojo dentro de un editor de código.'
+imagenAlt: 'Código en la pantalla de un computador, en dos tonos rojos, con el texto: Extensión falsa en Cursor. 5.000 usuarios pudieron instalarla, disponible unas 11 horas.'
+imagenCredito: 'Foto editada de Markus Spiske (CC0), vía Wikimedia Commons'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:Code_on_computer_monitor_%28Unsplash%29.jpg'
 ---
 
 El 13 de noviembre, Cursor publicó el informe completo de un incidente que empezó lejos de su producto. Alguien obtuvo una llave de acceso que Cursor le había dado a Fireworks AI, uno de sus proveedores de inferencia, para compartir datos. Con esa llave copió registros de sesiones de agentes de programación, en su mayoría de 2025 y de usuarios sin el modo de privacidad activado.

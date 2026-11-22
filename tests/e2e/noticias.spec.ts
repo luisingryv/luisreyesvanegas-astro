@@ -37,9 +37,14 @@ test.describe('Noticias publicadas', () => {
       'href',
       'https://luisreyesvanegas.com/es/noticias/2026-11-22-costos-ia-bedrock',
     );
-    // Portada (22 nov): una ilustración de la noticia, con su alt; sin crédito porque es propia.
-    await expect(page.locator('article figure img')).toHaveAttribute('alt', /^Ilustración: /);
-    await expect(page.locator('article figure figcaption')).toHaveCount(0);
+    // Portada (estilo C, 22 nov): foto en duotono con su texto en el alt y el crédito debajo.
+    await expect(page.locator('article figure img')).toHaveAttribute('alt', /con el texto: /);
+    const credito = page.locator('article figure figcaption');
+    await expect(credito).toContainText('Wikimedia Commons');
+    await expect(credito.locator('a')).toHaveAttribute(
+      'href',
+      /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/,
+    );
     const jsonLd = JSON.parse(
       (await page.locator('script[type="application/ld+json"]').first().textContent()) ?? '{}',
     );

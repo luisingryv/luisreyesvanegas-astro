@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['Anthropic', 'Claude', 'IA', 'Seguridad']
 relacionada: adopcionIa
 imagen: ../../assets/noticias/2026-11-22-claude-fable-5-2.jpg
-imagenAlt: 'Ilustración: un libro abierto del que salen pájaros de papel, junto a un calendario que marca 30 y un escudo con cerradura.'
+imagenAlt: 'Estantes de una biblioteca en dos tonos naranja, con el texto: Claude Fable 5.2. 30 días de retención por seguridad, hasta 30 % más rápido.'
+imagenCredito: 'Foto editada de Micheal Kaluba (CC BY-SA 4.0), vía Wikimedia Commons; esta portada se comparte con la misma licencia'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:Books_and_Bookshelves_in_Mansueto_Library.jpg'
 ---
 
 El 9 de noviembre, Anthropic presentó Claude Fable 5.2 y Claude Mythos 5.2. Son el mismo modelo. Fable trae protecciones fuertes contra el mal uso en ciberseguridad y biología, y por eso está disponible para todos. Mythos tiene menos restricciones y solo lo usan organizaciones verificadas que trabajan en ciberseguridad o en investigación biomédica.

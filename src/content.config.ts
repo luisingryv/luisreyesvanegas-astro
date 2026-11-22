@@ -140,9 +140,9 @@ const noticias = defineCollection({
         estado: z.enum(['borrador', 'publicada']),
         fuente: z.object({ nombre: z.string().min(1), url: z.url() }),
         /**
-         * Portada (22 nov 2026): la imagen de la propia noticia cuando su dueño permite reutilizarla
-         * (kit de prensa con permiso, dominio público o licencia abierta), con su crédito. Si no,
-         * una ilustración hecha para la noticia, sin los colores ni el logo de Luis.
+         * Portada (estilo C, 22 nov 2026): foto de la noticia en dos tonos con la cifra en grande. La
+         * foto necesita permiso de reutilización (kit de prensa, dominio público o licencia abierta)
+         * y lleva crédito; sin foto con permiso, el fondo es una ilustración propia.
          */
         imagen: image().optional(),
         imagenAlt: z.string().optional(),

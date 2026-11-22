@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['Azure', 'Microsoft', 'Agentes', 'Migración']
 relacionada: sesionArquitectura
 imagen: ../../assets/noticias/2026-11-22-ignite-agentes-azure.jpg
-imagenAlt: 'Ilustración: robots que cargan bloques por un puente desde un edificio de servidores hasta una nube, con una barrera de control en la mitad.'
+imagenAlt: 'Un edificio del campus de Microsoft en Redmond, en dos tonos violeta, con el texto: Microsoft Ignite 2026. +3.500 tipos de recursos de Azure, ahora los agentes también los cambian.'
+imagenCredito: 'Foto editada de Jiaqian AirplaneFan (CC BY 3.0), vía Wikimedia Commons'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:Building_92_of_Microsoft_Redmond_Campus_-_panoramio.jpg'
 ---
 
 Microsoft hizo su conferencia Ignite del 17 al 20 de noviembre en San Francisco, y el mensaje fue uno: los agentes pasan de sugerir a actuar. "Agents are only as useful as the systems they can act on", escribió Arun Ulag, vicepresidente ejecutivo de Azure: los agentes solo son tan útiles como los sistemas sobre los que pueden actuar.

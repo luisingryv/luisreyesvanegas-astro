@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['Google', 'Gemini', 'IA', 'Costos', 'FinOps']
 relacionada: optimizarCostos
 imagen: ../../assets/noticias/2026-11-22-gemini-4-precios.jpg
-imagenAlt: 'Ilustración: cuatro fichas como de tabla periódica, Ar, C, H y Ne, con una etiqueta de precio ×2 colgada de la C y un calendario en el 1 de diciembre.'
+imagenAlt: 'El letrero de la sede de Google en dos tonos rosa, con el texto: Gemini 4 Carbon. ×2 su precio desde el 1 de diciembre, de 2 a 4 dólares por millón.'
+imagenCredito: 'Foto editada de Håkan Dahlström (CC BY 2.0), vía Wikimedia Commons'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:Google_1600_Amphitheatre_%284136750386%29.jpg'
 ---
 
 Google completó la familia Gemini 4 en cinco semanas. Argon llegó el 13 de octubre. Carbon, que Google llama su modelo más fuerte, el 10 de noviembre. Hydrogen, pensado para agentes que necesitan rapidez, el 12. Y Neon, un punto medio entre profundidad y eficiencia, el 18. "Neon balances depth and efficiency", escribió Koray Kavukcuoglu, de Google DeepMind: Neon equilibra profundidad y eficiencia.

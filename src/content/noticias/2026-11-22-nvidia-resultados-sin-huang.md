@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['Nvidia', 'IA', 'GPU', 'Infraestructura']
 relacionada: escalarInfraestructura
 imagen: ../../assets/noticias/2026-11-22-nvidia-resultados-sin-huang.jpg
-imagenAlt: 'Ilustración: un chip de computador enorme que brilla en verde sobre una placa de circuitos y, a su lado, una silla de oficina vacía bajo un foco.'
+imagenAlt: 'Tarjetas gráficas Nvidia H100 en dos tonos verdes, con el texto: Nvidia sin Jensen Huang. 115.800 millones de dólares en un trimestre, +103 % en un año.'
+imagenCredito: 'Foto editada de 极客湾Geekerwan (CC BY 3.0), vía Wikimedia Commons'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:NVIDIA_H100_%28%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan%29_004.png'
 ---
 
 El 12 de noviembre, Nvidia [anunció](https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000082/nvidiaannouncesceotransiti.htm) que Jensen Huang renunciaba como presidente, director ejecutivo y miembro de la junta, con efecto inmediato. Colette Kress, la directora financiera, quedó como directora ejecutiva interina sin dejar su cargo financiero. La junta busca un reemplazo permanente, dentro o fuera de la empresa, y nombró por primera vez a un presidente de la junta: Harvey C. Jones. La compañía menciona una investigación de un comité independiente de su junta, pero no ha dicho de qué se trata.

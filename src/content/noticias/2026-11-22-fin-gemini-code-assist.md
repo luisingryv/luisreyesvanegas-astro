@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['Google Cloud', 'Gemini', 'Licencias', 'FinOps']
 relacionada: optimizarCostos
 imagen: ../../assets/noticias/2026-11-22-fin-gemini-code-assist.jpg
-imagenAlt: 'Ilustración: una tarjeta de licencia con el símbolo de código que se deshace en cuadritos, junto a un reloj de arena y un calendario en el 31 de marzo.'
+imagenAlt: 'Una persona programa en un portátil, en dos tonos verdes, con el texto: Gemini Code Assist. 2027, fin del beneficio en Gemini Enterprise, 31 de marzo.'
+imagenCredito: 'Foto editada de Crew (CC0), vía Wikimedia Commons'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:Programmer_at_work_%28Unsplash%29.jpg'
 ---
 
 El 6 de noviembre, Google publicó en las [notas de versión de Gemini Enterprise](https://docs.cloud.google.com/gemini/enterprise/docs/release-notes) un aviso que muchos equipos de desarrollo van a tener que leer: Gemini Code Assist se va.

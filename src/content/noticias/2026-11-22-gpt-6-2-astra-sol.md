@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['OpenAI', 'IA', 'Modelos', 'Costos']
 relacionada: adopcionIa
 imagen: ../../assets/noticias/2026-11-22-gpt-6-2-astra-sol.jpg
-imagenAlt: 'Ilustración: una estrella y un sol en un cielo que pasa de la noche al atardecer, sobre una balanza casi nivelada con más monedas en un plato que en el otro.'
+imagenAlt: 'Una balanza antigua de dos platos en dos tonos violeta, con el texto: OpenAI GPT-6.2. −20 % en el precio de GPT-6.2 Astra. Sol, a medio punto en código.'
+imagenCredito: 'Foto editada de Nikodem Nijaki (CC BY-SA 3.0), vía Wikimedia Commons; esta portada se comparte con la misma licencia'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:Balance_scale_IMGP9722.jpg'
 ---
 
 El 17 de noviembre, OpenAI lanzó dos modelos. GPT-6.2 Astra es el de frontera, pensado para proyectos largos y difíciles. GPT-6.2 Sol es el eficiente, para el trabajo de todos los días. Los dos están en ChatGPT para los planes Plus, Pro, Enterprise y Edu, en Codex y en la API.

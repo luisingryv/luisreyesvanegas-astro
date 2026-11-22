@@ -10,7 +10,9 @@ fuente:
 etiquetas: ['AWS', 'Chile', 'Latinoamérica', 'Infraestructura']
 relacionada: escalarInfraestructura
 imagen: ../../assets/noticias/2026-11-22-aws-region-chile.jpg
-imagenAlt: 'Ilustración: la cordillera de los Andes al atardecer y, al pie, tres centros de datos conectados entre sí, con una nube encima.'
+imagenAlt: 'Santiago de Chile al atardecer, con la cordillera nevada detrás, en dos tonos naranja, con el texto: AWS en Chile. +4.000 millones de dólares de inversión, tercera región en Latinoamérica.'
+imagenCredito: 'Foto editada de javier (CC BY 2.0), vía Wikimedia Commons'
+imagenCreditoUrl: 'https://commons.wikimedia.org/wiki/File:Costanera_Center_at_evening.jpg'
 ---
 
 El 11 de noviembre, AWS abrió su región de Sudamérica (Chile). Por ahora funciona en acceso anticipado para un grupo de clientes, y la disponibilidad general se espera en las próximas semanas. Es la tercera región de AWS en Latinoamérica, después de São Paulo y México.
