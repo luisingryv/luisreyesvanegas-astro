@@ -42,12 +42,24 @@ test.describe('SEO base', () => {
     expect(xml).not.toContain('design-system');
   });
 
-  test('robots.txt deja fuera la API y la página de muestra y apunta al sitemap', async ({
+  test('robots.txt deja fuera la API y la página de muestra, incluye crawlers de IA y apunta al sitemap y llms.txt', async ({
     request,
   }) => {
     const texto = await (await request.get('/robots.txt')).text();
     expect(texto).toContain('Disallow: /api/');
     expect(texto).toContain('Disallow: /design-system');
+    expect(texto).toContain('User-agent: GPTBot');
+    expect(texto).toContain('User-agent: ClaudeBot');
     expect(texto).toContain('Sitemap: https://luisreyesvanegas.com/sitemap.xml');
+    expect(texto).toContain('# AI Documentation: https://luisreyesvanegas.com/llms.txt');
+  });
+
+  test('llms.txt está disponible para agentes y modelos de IA', async ({ request }) => {
+    const r = await request.get('/llms.txt');
+    expect(r.ok()).toBe(true);
+    expect(r.headers()['content-type']).toContain('text/plain');
+    const texto = await r.text();
+    expect(texto).toContain('# Luis Carlos Reyes Vanegas');
+    expect(texto).toContain('Especialista en AWS e Inteligencia Artificial');
   });
 });
