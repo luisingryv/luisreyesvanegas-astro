@@ -1,6 +1,4 @@
-// Elige las integraciones según las variables de entorno. Mientras Luis no conecte Notion y
-// Resend (T-407), quedan desactivadas: cada solicitud se guarda en la base como pendiente y
-// la tarea /api/tareas/sincronizar la enviará cuando estén activas.
+// Elige las integraciones según las variables de entorno.
 import {
   AVISO_CORREO_DESTINO,
   AVISO_CORREO_REMITENTE,
@@ -8,15 +6,22 @@ import {
   NOTION_DATABASE_ID_CONTACTS,
   RESEND_API_KEY,
 } from 'astro:env/server';
-import { integracionesDesactivadas, type Integraciones } from './integraciones';
+import { avisoDesactivado, crmDesactivado, type Integraciones } from './integraciones';
+import { crearAvisoResend } from './resend';
 
 export function getIntegraciones(): Integraciones {
   const notionLista = Boolean(NOTION_API_KEY && NOTION_DATABASE_ID_CONTACTS);
   const resendLista = Boolean(RESEND_API_KEY && AVISO_CORREO_DESTINO && AVISO_CORREO_REMITENTE);
-  // Aquí se conectarán crearCrmNotion(...) y crearAvisoResend(...) cuando se integren.
+
+  const crm = crmDesactivado;
+  const aviso = resendLista
+    ? crearAvisoResend(RESEND_API_KEY!, AVISO_CORREO_REMITENTE!, AVISO_CORREO_DESTINO!)
+    : avisoDesactivado;
+
   void notionLista;
-  void resendLista;
-  return integracionesDesactivadas;
+
+  return { crm, aviso };
 }
 
 export * from './integraciones';
+export * from './resend';
