@@ -10,9 +10,6 @@ export function crearDb(url: string) {
     // Las fechas se guardan y leen en UTC, sin importar la zona del servidor de Hostinger.
     timezone: 'Z',
   });
-  pool.pool.on('connection', (conexion) => {
-    conexion.query("SET time_zone = '+00:00'");
-  });
   const db = drizzle(pool, { schema, mode: 'default', casing: 'snake_case' });
   return { db, cerrar: () => pool.end() };
 }

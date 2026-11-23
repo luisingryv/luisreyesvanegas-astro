@@ -71,10 +71,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
     resultado = await procesarSolicitud(entrada, { db: getDb(), ...getIntegraciones() });
   } catch (error) {
-    // Sin datos personales en el registro: solo el tipo de falla.
-    console.error('[solicitudes] no se pudo guardar:', (error as Error).message);
+    const err = error as Error & { cause?: { message?: string; code?: string } };
+    const detalle = err.cause?.message || err.message;
+    console.error('[solicitudes] no se pudo guardar:', err.message, '| Causa:', detalle);
     return esJson
-      ? Response.json({ ok: false, motivo: 'no-disponible' }, { status: 503 })
+      ? Response.json({ ok: false, motivo: 'no-disponible', error: detalle }, { status: 503 })
       : volverALaPagina(entrada, 'error', request.url);
   }
 
