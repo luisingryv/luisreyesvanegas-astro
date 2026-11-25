@@ -2,43 +2,19 @@ import type { APIRoute } from 'astro';
 
 export const prerender = true;
 
-// Buscadores y asistentes de IA pueden leer todo el sitio público (SEO y GEO).
-export const GET: APIRoute = ({ site }) => {
-  const base = site ? site.toString().replace(/\/$/, '') : 'https://luisreyesvanegas.com';
-  const sitemapUrl = `${base}/sitemap.xml`;
-  const llmsUrl = `${base}/llms.txt`;
-
-  const lines = [
-    'User-agent: *',
-    'Allow: /',
-    'Disallow: /api/',
-    'Disallow: /design-system',
-    '',
-    '# AI Crawlers y Motores de Búsqueda de IA',
-    'User-agent: GPTBot',
-    'Allow: /',
-    '',
-    'User-agent: ClaudeBot',
-    'Allow: /',
-    '',
-    'User-agent: PerplexityBot',
-    'Allow: /',
-    '',
-    'User-agent: Google-Extended',
-    'Allow: /',
-    '',
-    'User-agent: Applebot-Extended',
-    'Allow: /',
-    '',
-    'User-agent: CCBot',
-    'Allow: /',
-    '',
-    `Sitemap: ${sitemapUrl}`,
-    `# AI Documentation: ${llmsUrl}`,
-    '',
-  ];
-
-  return new Response(lines.join('\n'), {
-    headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-  });
-};
+// Buscadores y asistentes de IA (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…) pueden leer
+// todo el sitio público (SEO y GEO). Un solo grupo para todos: si un robot tiene su propio grupo,
+// ignora el general y con él los Disallow (25 nov 2026).
+export const GET: APIRoute = ({ site }) =>
+  new Response(
+    [
+      'User-agent: *',
+      'Disallow: /api/',
+      'Disallow: /design-system',
+      '',
+      `Sitemap: ${new URL('/sitemap.xml', site).toString()}`,
+      `# Resumen para asistentes de IA: ${new URL('/llms.txt', site).toString()}`,
+      '',
+    ].join('\n'),
+    { headers: { 'Content-Type': 'text/plain; charset=utf-8' } },
+  );

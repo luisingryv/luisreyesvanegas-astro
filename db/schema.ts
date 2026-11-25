@@ -37,10 +37,13 @@ export type EstadoSuscriptor = (typeof ESTADOS_SUSCRIPTOR)[number];
 // MariaDB no acepta `serial AUTO_INCREMENT` (lo que genera serial() de Drizzle): clave explícita.
 const clave = () => bigint({ mode: 'number', unsigned: true }).autoincrement().primaryKey();
 
+// La fecha la pone la app, en UTC (25 nov 2026). El DEFAULT de la base queda solo como respaldo:
+// CURRENT_TIMESTAMP usa la zona horaria de la sesión, y en Hostinger puede no ser UTC.
 const ahora = () =>
   datetime('creado_en', { fsp: 3 })
     .notNull()
-    .default(sql`CURRENT_TIMESTAMP(3)`);
+    .default(sql`CURRENT_TIMESTAMP(3)`)
+    .$defaultFn(() => new Date());
 
 // UTM persistidas hasta el formulario (HU-0.4) y página de origen.
 const origen = {

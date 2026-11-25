@@ -47,6 +47,8 @@ describe('crearAvisoResend', () => {
         'Content-Type': 'application/json',
       },
       body: expect.stringContaining('Juan Perez'),
+      // Con tiempo límite: si Resend tarda, el formulario no se queda esperando.
+      signal: expect.any(AbortSignal),
     });
 
     vi.unstubAllGlobals();

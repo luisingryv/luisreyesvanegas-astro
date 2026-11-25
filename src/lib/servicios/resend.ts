@@ -52,7 +52,10 @@ export function crearAvisoResend(apiKey: string, remitente: string, destinatario
       const cuerpo = lineas.join('\n');
 
       try {
+        // El aviso se envía dentro de la solicitud del formulario: si Resend tarda, no se queda
+        // esperando. La solicitud ya está guardada y la tarea de sincronización lo reintenta.
         const respuesta = await fetch('https://api.resend.com/emails', {
+          signal: AbortSignal.timeout(8_000),
           method: 'POST',
           headers: {
             Authorization: `Bearer ${apiKey}`,

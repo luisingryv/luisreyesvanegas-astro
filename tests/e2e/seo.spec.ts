@@ -42,24 +42,30 @@ test.describe('SEO base', () => {
     expect(xml).not.toContain('design-system');
   });
 
-  test('robots.txt deja fuera la API y la página de muestra, incluye crawlers de IA y apunta al sitemap y llms.txt', async ({
+  test('robots.txt deja fuera la API y la página de muestra para todos los robots, apunta al sitemap y a llms.txt', async ({
     request,
   }) => {
     const texto = await (await request.get('/robots.txt')).text();
     expect(texto).toContain('Disallow: /api/');
     expect(texto).toContain('Disallow: /design-system');
-    expect(texto).toContain('User-agent: GPTBot');
-    expect(texto).toContain('User-agent: ClaudeBot');
+    // Un solo grupo: un grupo propio de un robot de IA haría que ignore los Disallow generales.
+    expect(texto.match(/User-agent:/g)).toHaveLength(1);
+    expect(texto).toContain('User-agent: *');
     expect(texto).toContain('Sitemap: https://luisreyesvanegas.com/sitemap.xml');
-    expect(texto).toContain('# AI Documentation: https://luisreyesvanegas.com/llms.txt');
+    expect(texto).toContain('https://luisreyesvanegas.com/llms.txt');
   });
 
-  test('llms.txt está disponible para agentes y modelos de IA', async ({ request }) => {
+  test('llms.txt resume el sitio solo con textos aprobados', async ({ request }) => {
     const r = await request.get('/llms.txt');
     expect(r.ok()).toBe(true);
     expect(r.headers()['content-type']).toContain('text/plain');
     const texto = await r.text();
     expect(texto).toContain('# Luis Carlos Reyes Vanegas');
-    expect(texto).toContain('Especialista en AWS e Inteligencia Artificial');
+    expect(texto).toContain('Arquitecto de soluciones cloud e IA');
+    // Trama es propio; Ofilix es de un aliado; NeoMKT es un cliente, no un producto.
+    expect(texto).toContain('Trama AI (Propio');
+    expect(texto).toContain('Ofilix (Aliado');
+    expect(texto).not.toContain('NeoMKT');
+    expect(texto).toContain('https://luisreyesvanegas.com/es/casos/glasslake');
   });
 });
