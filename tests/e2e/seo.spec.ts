@@ -132,12 +132,6 @@ test.describe('Listo para agentes de IA', () => {
     expect(html.status()).toBe(302);
     expect(html.headers()['location']).toBe('/es');
     expect(html.headers()['link']).toContain('<https://luisreyesvanegas.com/llms.txt>');
-
-    // /es es estática: su Link sale de dist/_headers.json.
-    const es = await request.get('/es');
-    expect(es.headers()['link']).toContain(
-      '<https://luisreyesvanegas.com/es.md>; rel="alternate"; type="text/markdown"',
-    );
   });
 
   test('registra herramientas WebMCP que leen el Home y abren páginas', async ({ page }) => {

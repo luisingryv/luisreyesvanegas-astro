@@ -1,6 +1,7 @@
 // Funciones puras para agentes de IA (26 nov 2026): negociación de Markdown y cabecera Link
-// (RFC 8288) del Home. Las usan el middleware (la raíz /) y astro.config (las páginas /es, /en
-// y /pt, que son estáticas).
+// (RFC 8288) de la raíz /, que usa el middleware. /es, /en y /pt son estáticas y no pasan por el
+// middleware: anuncian lo mismo con <link> en el head. En Hostinger tampoco sirve la opción
+// staticHeaders de @astrojs/node, porque el sitio se construye en una carpeta y corre en otra.
 
 /**
  * true cuando el cliente pide Markdown (Accept: text/markdown) y no prefiere HTML. Los

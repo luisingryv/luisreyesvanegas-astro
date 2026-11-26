@@ -1,6 +1,6 @@
 // La raíz / (26 nov 2026, para agentes de IA): con Accept: text/markdown entrega el Home en
 // Markdown en vez de redirigir a /es; siempre lleva la cabecera Link. Las demás páginas pasan sin
-// cambios. Las páginas estáticas de cada idioma reciben su Link desde astro.config.
+// cambios.
 import { defineMiddleware } from 'astro:middleware';
 import { defaultLocale } from './i18n/config';
 import { cabeceraLink, prefiereMarkdown } from './lib/seo/agentes';
