@@ -1,7 +1,37 @@
+import { readFile, writeFile } from 'node:fs/promises';
 import { defineConfig, envField } from 'astro/config';
+import type { AstroConfig, AstroIntegration } from 'astro';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import node from '@astrojs/node';
+import { publishedLocales } from './src/i18n/config';
+import { cabeceraLink } from './src/lib/seo/agentes';
+
+// Cabecera Link en /es, /en y /pt (26 nov 2026, para agentes de IA). Son páginas estáticas: el
+// servidor de @astrojs/node les pone las cabeceras de dist/_headers.json (opción staticHeaders).
+// Se agregan a las que haya escrito el adaptador, que corre antes.
+function cabecerasDelInicio(): AstroIntegration {
+  let config: AstroConfig;
+  return {
+    name: 'cabeceras-del-inicio',
+    hooks: {
+      'astro:config:done': ({ config: c }) => {
+        config = c;
+      },
+      'astro:build:done': async () => {
+        const archivo = new URL('_headers.json', config.outDir);
+        const previas: unknown[] = await readFile(archivo, 'utf8')
+          .then((texto) => JSON.parse(texto) as unknown[])
+          .catch(() => []);
+        const propias = publishedLocales.map((idioma) => ({
+          pathname: `/${idioma}`,
+          headers: [{ key: 'Link', value: cabeceraLink(new URL(config.site!), idioma) }],
+        }));
+        await writeFile(archivo, JSON.stringify([...propias, ...previas]));
+      },
+    },
+  };
+}
 
 export default defineConfig({
   site: 'https://luisreyesvanegas.com',
@@ -9,9 +39,10 @@ export default defineConfig({
 
   adapter: node({
     mode: 'standalone',
+    staticHeaders: true,
   }),
 
-  integrations: [react()],
+  integrations: [react(), cabecerasDelInicio()],
 
   // Detrás del proxy de Hostinger: confía en X-Forwarded-Host/Proto solo para el dominio
   // del sitio, para que la verificación de origen de los formularios vea https://.

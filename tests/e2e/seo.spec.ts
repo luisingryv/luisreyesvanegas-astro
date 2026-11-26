@@ -40,6 +40,10 @@ test.describe('SEO base', () => {
     expect(xml).toContain('<loc>https://luisreyesvanegas.com/en/sobre-mi</loc>');
     expect(xml).toContain('<loc>https://luisreyesvanegas.com/pt/sobre-mi</loc>');
     expect(xml).not.toContain('design-system');
+    // Cada URL lleva su fecha de último cambio (26 nov 2026).
+    expect(xml.match(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g)?.length).toBe(
+      xml.match(/<url>/g)?.length,
+    );
   });
 
   test('robots.txt deja fuera la API y la página de muestra para todos los robots, apunta al sitemap y a llms.txt', async ({
@@ -67,5 +71,95 @@ test.describe('SEO base', () => {
     expect(texto).toContain('Ofilix (Aliado');
     expect(texto).not.toContain('NeoMKT');
     expect(texto).toContain('https://luisreyesvanegas.com/es/casos/glasslake');
+  });
+});
+
+// Agentes de IA (26 nov 2026): datos estructurados, Markdown, cabecera Link y WebMCP.
+test.describe('Listo para agentes de IA', () => {
+  test('el Home describe a Luis, EvolutecC, el contacto y el precio de la sesión en JSON-LD', async ({
+    page,
+  }) => {
+    await page.goto('/es');
+    const bloques = await page.locator('script[type="application/ld+json"]').allTextContents();
+    const grafo = bloques
+      .map((b) => JSON.parse(b) as { '@graph'?: Record<string, unknown>[] })
+      .flatMap((b) => b['@graph'] ?? []);
+    const tipo = (t: string) => grafo.find((n) => n['@type'] === t)!;
+    expect(tipo('WebSite').url).toBe('https://luisreyesvanegas.com/');
+    const luis = tipo('Person');
+    expect(luis.sameAs).toContain(
+      'https://www.linkedin.com/in/luis-carlos-reyes-vanegas-803306170/',
+    );
+    expect(JSON.stringify(luis.contactPoint)).toContain('legal@luisreyesvanegas.com');
+    expect(luis.makesOffer).toMatchObject({ price: 450, priceCurrency: 'USD' });
+    expect(tipo('Organization')).toMatchObject({ name: 'EvolutecC', foundingDate: '2020-08-28' });
+    expect(tipo('AboutPage').url).toBe('https://luisreyesvanegas.com/es/sobre-mi');
+    await expect(page.locator('link[rel="author"]')).toHaveAttribute(
+      'href',
+      'https://luisreyesvanegas.com/es/sobre-mi',
+    );
+    await expect(page.locator('link[rel="alternate"][type="text/markdown"]')).toHaveAttribute(
+      'href',
+      'https://luisreyesvanegas.com/es.md',
+    );
+  });
+
+  test('el Home existe en Markdown en cada idioma, con sus textos', async ({ request }) => {
+    for (const [idioma, frase] of [
+      ['es', 'Innovación y escalabilidad en la nube'],
+      ['en', '## '],
+      ['pt', '## '],
+    ] as const) {
+      const r = await request.get(`/${idioma}.md`);
+      expect(r.ok()).toBe(true);
+      expect(r.headers()['content-type']).toContain('text/markdown');
+      const texto = await r.text();
+      expect(texto).toContain(frase);
+      expect(texto).toContain(`https://luisreyesvanegas.com/${idioma}/sobre-mi`);
+      expect(texto).not.toContain('undefined');
+    }
+  });
+
+  test('la raíz entrega Markdown a quien lo pide y siempre anuncia sus recursos con Link', async ({
+    request,
+  }) => {
+    const md = await request.get('/', { headers: { Accept: 'text/markdown' }, maxRedirects: 0 });
+    expect(md.status()).toBe(200);
+    expect(md.headers()['content-type']).toContain('text/markdown');
+    expect(await md.text()).toContain('# Innovación y escalabilidad en la nube');
+
+    const html = await request.get('/', { headers: { Accept: 'text/html' }, maxRedirects: 0 });
+    expect(html.status()).toBe(302);
+    expect(html.headers()['location']).toBe('/es');
+    expect(html.headers()['link']).toContain('<https://luisreyesvanegas.com/llms.txt>');
+
+    // /es es estática: su Link sale de dist/_headers.json.
+    const es = await request.get('/es');
+    expect(es.headers()['link']).toContain(
+      '<https://luisreyesvanegas.com/es.md>; rel="alternate"; type="text/markdown"',
+    );
+  });
+
+  test('registra herramientas WebMCP que leen el Home y abren páginas', async ({ page }) => {
+    await page.addInitScript(() => {
+      const registradas: { name: string; execute: (e: object) => Promise<unknown> }[] = [];
+      Object.defineProperty(navigator, 'modelContext', {
+        value: { registerTool: (h: (typeof registradas)[number]) => registradas.push(h) },
+      });
+      (window as unknown as { registradas: typeof registradas }).registradas = registradas;
+    });
+    await page.goto('/en');
+    const nombres = await page.evaluate(() =>
+      (window as unknown as { registradas: { name: string }[] }).registradas.map((h) => h.name),
+    );
+    expect(nombres).toEqual(['leer_inicio', 'abrir_pagina']);
+    const resultado = await page.evaluate(() =>
+      (
+        window as unknown as {
+          registradas: { execute: (e: object) => Promise<{ content: { text: string }[] }> }[];
+        }
+      ).registradas[0]!.execute({}),
+    );
+    expect(resultado.content[0]!.text).toContain('https://luisreyesvanegas.com/en/sobre-mi');
   });
 });

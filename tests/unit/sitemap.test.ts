@@ -45,4 +45,23 @@ describe('sitemap', () => {
       '<xhtml:link rel="alternate" hreflang="x-default" href="https://luisreyesvanegas.com/es/noticias/una"/>',
     );
   });
+
+  it('pone <lastmod>: la fecha propia de la página o, si no tiene, la del build', () => {
+    const xml = sitemapXml(
+      new URL('https://luisreyesvanegas.com'),
+      [
+        'sobre-mi',
+        { slug: 'noticias/una', idiomas: ['es'], lastmod: new Date('2026-11-20T12:00:00Z') },
+      ],
+      ['es'],
+      'es',
+      new Date('2026-11-26T05:00:00Z'),
+    );
+    expect(xml).toContain(
+      '<loc>https://luisreyesvanegas.com/es/sobre-mi</loc><lastmod>2026-11-26</lastmod>',
+    );
+    expect(xml).toContain(
+      '<loc>https://luisreyesvanegas.com/es/noticias/una</loc><lastmod>2026-11-20</lastmod>',
+    );
+  });
 });

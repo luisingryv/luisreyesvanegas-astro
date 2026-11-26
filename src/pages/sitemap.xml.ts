@@ -15,12 +15,22 @@ const noticias = await getCollection('noticias', (n) => n.data.estado === 'publi
 const idiomasConNoticias = publishedLocales.filter((l) =>
   noticias.some((n) => n.data.idioma === l),
 );
+const ultimaNoticia = noticias.reduce<Date | undefined>(
+  (ultima, n) => (!ultima || n.data.fecha > ultima ? n.data.fecha : ultima),
+  undefined,
+);
 const paginas: PaginaSitemap[] = [
   ...slugsDePaginas(Object.keys(import.meta.glob('/src/pages/**/*.astro'))).filter(
     (slug) => slug !== 'noticias',
   ),
-  ...(idiomasConNoticias.length > 0 ? [{ slug: 'noticias', idiomas: idiomasConNoticias }] : []),
-  ...noticias.map(({ id, data }) => ({ slug: `noticias/${id}`, idiomas: [data.idioma] })),
+  ...(idiomasConNoticias.length > 0
+    ? [{ slug: 'noticias', idiomas: idiomasConNoticias, lastmod: ultimaNoticia }]
+    : []),
+  ...noticias.map(({ id, data }) => ({
+    slug: `noticias/${id}`,
+    idiomas: [data.idioma],
+    lastmod: data.fecha,
+  })),
   // Subpáginas de Consultoría (ruta dinámica con la plantilla común).
   ...servicios.map(({ id }) => `consultoria/${id}`),
   ...casos.map(({ id }) => `casos/${id}`),
@@ -29,6 +39,6 @@ const paginas: PaginaSitemap[] = [
 ];
 
 export const GET: APIRoute = ({ site }) =>
-  new Response(sitemapXml(site!, paginas, publishedLocales, defaultLocale), {
+  new Response(sitemapXml(site!, paginas, publishedLocales, defaultLocale, new Date()), {
     headers: { 'Content-Type': 'application/xml; charset=utf-8' },
   });

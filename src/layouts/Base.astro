@@ -8,9 +8,13 @@ import ogPt from '../assets/og/og-pt.png';
 import Footer from '../components/brand/Footer.astro';
 import Header from '../components/brand/Header.astro';
 import Reveal from '../components/motion/Reveal.astro';
+import { datosLegales, legalPublicable } from '../config/legal';
+import { whatsapp } from '../config/site';
 import { defaultLocale, publishedLocales, type Locale, type PublishedLocale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 import { localizedPath, type RouteKey } from '../i18n/routes';
+import { getServicio } from '../lib/content';
+import { grafoDelSitio, serializeJsonLd } from '../lib/structured-data';
 
 interface Props {
   locale: PublishedLocale;
@@ -78,6 +82,52 @@ const alternos = Object.fromEntries(
   }),
 ) as Record<PublishedLocale, string>;
 const porDefecto = idiomas.includes(defaultLocale) ? defaultLocale : locale;
+// Datos estructurados y enlaces para buscadores y agentes de IA (26 nov 2026).
+const enlace = (ruta: RouteKey) => absolute(localizedPath(locale, ruta));
+const sesion = await getServicio('sesion-de-arquitectura', locale);
+const grafo = grafoDelSitio({
+  sitio: Astro.site!,
+  idioma: locale,
+  idiomas: publishedLocales,
+  nombreDelSitio: t.meta.siteName,
+  cargo: t.pages.home.title,
+  urls: {
+    inicio: enlace('home'),
+    sobreMi: enlace('sobreMi'),
+    contacto: enlace('contacto'),
+    sesion: enlace('sesionArquitectura'),
+  },
+  nombres: { sobreMi: t.nav.sobreMi, contacto: t.pages.contacto.title },
+  sesion: {
+    nombre: sesion.titulo,
+    descripcion: sesion.hero.texto,
+    textoConPrecio: sesion.entregables.titulo,
+  },
+  telefono: whatsapp && `+${whatsapp.numero.replace(/\D/g, '')}`,
+  correoLegal: legalPublicable ? datosLegales.correoContacto : undefined,
+});
+const esInicio = route === 'home' && !ruta;
+// Herramientas WebMCP (ver script al final): el Home en Markdown y las páginas que se pueden abrir.
+const paginasParaAgentes: RouteKey[] = [
+  'home',
+  'consultoria',
+  'sesionArquitectura',
+  'adopcionIa',
+  'programasAws',
+  'productos',
+  'casos',
+  'eventos',
+  'speaker',
+  'prensa',
+  'sobreMi',
+  'cv',
+  'contacto',
+];
+const datosAgentes = {
+  idioma: locale,
+  idiomas: publishedLocales,
+  paginas: Object.fromEntries(paginasParaAgentes.map((r) => [r, localizedPath(locale, r)])),
+};
 const og = await getImage({
   src: image ?? ogPorIdioma[locale],
   width: 1200,
@@ -123,6 +173,15 @@ const og = await getImage({
       crossorigin
     />
     {noindex && <meta name="robots" content="noindex" />}
+    <link rel="author" href={enlace('sobreMi')} />
+    {legalPublicable && (
+      <>
+        <link rel="privacy-policy" href={enlace('privacidad')} />
+        <link rel="terms-of-service" href={enlace('terminos')} />
+      </>
+    )}
+    {esInicio && <link rel="alternate" type="text/markdown" href={absolute(`/${locale}.md`)} />}
+    <script type="application/ld+json" set:html={serializeJsonLd(grafo)} />
     {pageUrl && !noindex && (
       <>
         <link rel="canonical" href={pageUrl} />
@@ -160,6 +219,12 @@ const og = await getImage({
       import { guardarUtmDeLaUrl } from '../lib/utm';
 
       guardarUtmDeLaUrl();
+    </script>
+    <script type="application/json" id="datos-agentes" set:html={serializeJsonLd(datosAgentes)} />
+    <script>
+      import { registrarHerramientas } from '../lib/webmcp';
+
+      registrarHerramientas();
     </script>
   </body>
 </html>

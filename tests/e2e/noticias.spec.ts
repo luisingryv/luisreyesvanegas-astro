@@ -45,9 +45,11 @@ test.describe('Noticias publicadas', () => {
       'href',
       /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/,
     );
-    const jsonLd = JSON.parse(
-      (await page.locator('script[type="application/ld+json"]').first().textContent()) ?? '{}',
-    );
+    // Además del grafo de todas las páginas (26 nov 2026), la noticia trae su BlogPosting.
+    const bloques = await page
+      .locator('script[type="application/ld+json"]')
+      .evaluateAll((scripts) => scripts.map((s) => JSON.parse(s.textContent ?? '{}')));
+    const jsonLd = bloques.find((b) => b['@type'] === 'BlogPosting');
     expect(jsonLd['@type']).toBe('BlogPosting');
     expect(jsonLd.citation).toMatch(/^https:\/\/aws\.amazon\.com\//);
   });

@@ -85,9 +85,14 @@ test.describe('Sobre mí · contenido', () => {
       'https://luisreyesvanegas.com/es/sobre-mi',
     );
     await expect(page.locator('link[hreflang="x-default"]')).toHaveCount(1);
-    const jsonLd = await page.locator('script[type="application/ld+json"]').textContent();
-    const person = JSON.parse(jsonLd ?? '{}');
+    // Además del grafo de todas las páginas (26 nov 2026), Sobre mí trae la persona completa,
+    // con el mismo @id.
+    const bloques = await page
+      .locator('script[type="application/ld+json"]')
+      .evaluateAll((scripts) => scripts.map((s) => JSON.parse(s.textContent ?? '{}')));
+    const person = bloques.find((b) => b['@type'] === 'Person');
     expect(person['@type']).toBe('Person');
+    expect(person['@id']).toBe('https://luisreyesvanegas.com/#luis');
     expect(person.worksFor.map((o: { name: string }) => o.name)).toEqual(['EvolutecC', 'Trama AI']);
     expect(person.hasCredential).toHaveLength(8);
   });
