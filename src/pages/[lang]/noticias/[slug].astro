@@ -1,6 +1,7 @@
 ---
 // Una noticia (21 nov 2026): la lectura de Luis, con la fuente citada y enlazada, y un enlace a
 // la página del sitio relacionada. Los borradores solo existen en desarrollo, sin indexar.
+import Flecha from '../../../components/brand/Flecha.astro';
 import type { GetStaticPaths, InferGetStaticParamsType } from 'astro';
 import { getCollection, render } from 'astro:content';
 import { getImage, Image } from 'astro:assets';
@@ -119,7 +120,7 @@ const imagenOg =
         class="fuente flex items-center justify-between gap-4 rounded-md border border-hairline bg-surface-raised px-5 py-4 font-bold text-link"
       >
         {t.noticias.leerFuente(noticia.fuente.nombre)}
-        <span aria-hidden="true">↗</span>
+        <Flecha externa />
       </a>
       {noticia.relacionada && (
         <p class="text-text-secondary-on-dark">

@@ -1,4 +1,5 @@
 ---
+import Flecha from '../brand/Flecha.astro';
 import { Image } from 'astro:assets';
 import Card from '../brand/Card.astro';
 import Section from '../brand/Section.astro';
@@ -44,7 +45,7 @@ const t = getDictionary(locale).testimonios;
           </figure>
           <a href={testimonio.fuente} class="text-small font-bold text-link hover:underline">
             {t.verFuente}
-            <span aria-hidden="true"> ↗</span>
+            <Flecha externa />
           </a>
         </Card>
       ))}

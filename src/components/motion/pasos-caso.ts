@@ -23,12 +23,12 @@ export function iniciarPasosCaso(caso: HTMLElement) {
             { opacity: 0, transform: 'translateY(10px)' },
             { opacity: 1, transform: 'translateY(0)' },
           ],
-          { duration: 500, delay: 250 + i * 220, easing: MARCA, fill: 'backwards' },
+          { duration: 500, delay: 100 + i * 150, easing: MARCA, fill: 'backwards' },
         );
         p.style.opacity = '';
       });
     },
-    { threshold: 0.4 },
+    { threshold: 0.25 },
   );
   vista.observe(caso);
 }

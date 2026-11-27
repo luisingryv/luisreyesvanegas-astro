@@ -337,7 +337,8 @@ const { textos } = Astro.props;
       pintar();
     };
 
-    const montar = (nodos: Element[]) => {
+    /** inicio: la foto con la que abre (las fotos al lado de la línea de tiempo, 27 nov 2026). */
+    const montar = (nodos: Element[], inicio = 0) => {
       observador?.disconnect();
       pista.replaceChildren(...nodos.map((n) => document.importNode(n, true)));
       fotos = [...pista.querySelectorAll<HTMLElement>('[data-foto]')];
@@ -355,9 +356,9 @@ const { textos } = Astro.props;
         { root: pista, threshold: 0.6 },
       );
       fotos.forEach((f) => observador!.observe(f));
-      const primera = fotos[0]?.querySelector('img');
+      const primera = fotos[Math.min(inicio, fotos.length - 1)]?.querySelector('img');
       if (primera) primera.loading = 'eager';
-      ir(0, false);
+      ir(inicio, false);
     };
 
     const abrir = async (enlace: HTMLAnchorElement) => {
@@ -374,7 +375,7 @@ const { textos } = Astro.props;
         const nodos = await descargar(enlace.href);
         if (esta !== apertura || !dialogo.open) return;
         if (!nodos.length) throw new Error('sin fotos');
-        montar(nodos);
+        montar(nodos, Number(enlace.dataset.indice ?? 0) || 0);
         pista.focus({ preventScroll: true });
       } catch {
         // Si no se pudo descargar, se abre la página de la galería.

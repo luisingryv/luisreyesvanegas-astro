@@ -1,6 +1,7 @@
 ---
 // Cómo empezar: texto a la izquierda y una tarjeta aparte (programa MAP, llamada de 20 minutos
 // o EvolutecC) a la derecha.
+import Flecha from '../brand/Flecha.astro';
 import Eyebrow from '../brand/Eyebrow.astro';
 import Section from '../brand/Section.astro';
 import type { PublishedLocale } from '../../i18n/config';
@@ -34,7 +35,8 @@ const { href, external } = resolverEnlace(locale, aparte.enlace.destino);
       <p class="text-[20px] font-bold">{aparte.titulo}</p>
       <p class="text-ink-muted">{aparte.texto}</p>
       <a href={href} class="self-start font-bold text-link hover:underline">
-        {aparte.enlace.texto} <span aria-hidden="true">{external ? '↗' : '→'}</span>
+        {aparte.enlace.texto}
+        <Flecha externa={external} />
       </a>
     </aside>
   </div>

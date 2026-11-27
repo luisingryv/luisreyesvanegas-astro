@@ -55,7 +55,7 @@ const [pagina, puertas, formulario] = await Promise.all([
     eyebrow={pagina.map.eyebrow}
     titulo={pagina.map.titulo}
     texto={pagina.map.texto}
-    botones={[{ texto: pagina.map.boton, href: localizedPath(lang, 'programasAws') }]}
+    botones={[{ texto: pagina.map.boton, href: localizedPath(lang, 'programasAws'), flecha: true }]}
   />
   <SeccionAgenda locale={lang} content={pagina.agenda} comunes={formulario} />
 </Base>

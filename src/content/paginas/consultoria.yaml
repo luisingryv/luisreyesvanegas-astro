@@ -316,9 +316,9 @@ map:
     en: "Subject to AWS's prior evaluation and approval, according to each program's requirements."
     pt: 'Sujeito à avaliação e aprovação prévia da AWS, conforme os requisitos de cada programa.'
   boton:
-    es: 'Conoce el programa →'
-    en: 'Learn about the program →'
-    pt: 'Conheça o programa →'
+    es: 'Conoce el programa'
+    en: 'Learn about the program'
+    pt: 'Conheça o programa'
 agenda:
   eyebrow:
     es: 'Agenda'

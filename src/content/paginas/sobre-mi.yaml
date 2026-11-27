@@ -36,9 +36,9 @@ historia:
     en: 'How I got here'
     pt: 'Como cheguei até aqui'
   siguienteNivel:
-    es: 'Siguiente nivel: tu proyecto →'
-    en: 'Next level: your project →'
-    pt: 'Próximo nível: seu projeto →'
+    es: 'Siguiente nivel: tu proyecto'
+    en: 'Next level: your project'
+    pt: 'Próximo nível: seu projeto'
 
 principios:
   eyebrow:

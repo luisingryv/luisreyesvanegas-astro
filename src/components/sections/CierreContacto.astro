@@ -1,6 +1,6 @@
 ---
 // Cierre de contacto reutilizable: texto y botones a la izquierda, logo LR en 3D a la derecha
-// (debajo en móvil). Cualquier página puede usarlo con el mismo bloque de textos `cierre`.
+// (arriba en celular, Luis 27 nov 2026). Cualquier página puede usarlo con el mismo bloque de textos `cierre`.
 // 21 nov 2026: solo Consultoría y Conferencia; sin "Conversación general" ni "Otras opciones".
 import Button from '../brand/Button.astro';
 import Container from '../brand/Container.astro';
@@ -53,7 +53,7 @@ const agenda = bookingUrl(locale);
     </div>
     {visual === 'logo3d' && (
       <Logo3D
-        class="-my-6 aspect-square w-full max-w-[min(100%,520px)] justify-self-center md:my-0"
+        class="-my-6 aspect-square w-full max-w-[min(100%,520px)] justify-self-center md:my-0 order-first md:order-none"
         sizes="(min-width: 768px) 30vw, 60vw"
       />
     )}

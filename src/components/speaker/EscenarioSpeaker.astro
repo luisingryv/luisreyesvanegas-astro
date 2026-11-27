@@ -1,6 +1,7 @@
 ---
 // "Algunos de los eventos en los que he hablado": el mapa de ciudades (pieza 10, en "He hablado
 // en") y la selección de eventos en PhotoCard 4:3, con enlace a Eventos.
+import Flecha from '../brand/Flecha.astro';
 import PhotoCard from '../brand/PhotoCard.astro';
 import Section from '../brand/Section.astro';
 import SectionHeader from '../brand/SectionHeader.astro';
@@ -20,7 +21,8 @@ const { textos, eventos, ciudades, eventosHref } = Astro.props;
 <Section tone="dark" aria-labelledby="escenario-titulo">
   <SectionHeader id="escenario-titulo" eyebrow={textos.eyebrow} title={textos.titulo}>
     <a slot="action" href={eventosHref} class="font-bold text-link hover:underline">
-      {textos.verTodos} <span aria-hidden="true">→</span>
+      {textos.verTodos}
+      <Flecha />
     </a>
   </SectionHeader>
   <div class="flex flex-col gap-7">

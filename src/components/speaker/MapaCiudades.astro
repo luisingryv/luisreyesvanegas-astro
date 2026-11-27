@@ -5,6 +5,7 @@
 // ciudades confirmadas; Los Ángeles, pendiente de Luis. Cada ciudad abre su panel con los eventos
 // de la colección. motion/mapa.ts anima la entrada y el pulso; sin JavaScript se ven los tres
 // paneles.
+import Flecha from '../brand/Flecha.astro';
 import Eyebrow from '../brand/Eyebrow.astro';
 import type { CiudadCharla, CiudadMapa } from '../../lib/content';
 
@@ -118,8 +119,8 @@ const inicial = enOrden[0]?.ciudad;
           </ul>
           {eventos.length > MAX_EVENTOS && (
             <a href={eventosHref} class="text-small font-bold text-link hover:underline">
-              {textos.masEventos.replace('{n}', String(eventos.length - MAX_EVENTOS))}{' '}
-              <span aria-hidden="true">→</span>
+              {textos.masEventos.replace('{n}', String(eventos.length - MAX_EVENTOS))}
+              <Flecha />
             </a>
           )}
         </div>

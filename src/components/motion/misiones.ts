@@ -52,7 +52,7 @@ export function iniciarMisiones(lista: HTMLElement) {
           vista.disconnect();
           probar(t);
         },
-        { threshold: 0.6 },
+        { threshold: 0.35 },
       );
       vista.observe(t);
     }

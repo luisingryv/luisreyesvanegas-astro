@@ -1,5 +1,6 @@
 ---
 // Pieza 09 · Insignias coleccionables (laboratorio de motion).
+import Flecha from '../brand/Flecha.astro';
 import Badge from '../brand/Badge.astro';
 import BadgeHex from './BadgeHex.astro';
 import type { PublishedLocale } from '../../i18n/config';
@@ -99,7 +100,7 @@ const filters = [
             <a href={c.verificacion} class="text-caption font-bold text-link hover:underline">
               {t.verificar}
               <span class="sr-only">: {c.nombre}</span>
-              <span aria-hidden="true"> ↗</span>
+              <Flecha externa />
             </a>
           )}
         </li>

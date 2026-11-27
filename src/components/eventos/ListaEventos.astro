@@ -2,6 +2,7 @@
 // Paneles de las pestañas de Eventos: próximos (por ahora, ninguno anunciado) y pasados, con
 // todas las charlas de la colección en PhotoCard 4:3 sin recorte. Las tarjetas aparecen al
 // entrar en pantalla. La tarjeta con galería abre el visor de fotos del evento (21 nov 2026).
+import Flecha from '../brand/Flecha.astro';
 import Container from '../brand/Container.astro';
 import PhotoCard from '../brand/PhotoCard.astro';
 import type { Dictionary } from '../../i18n/es';
@@ -48,7 +49,8 @@ const fotosDe = (id: string) => ((galerias[id]?.length ?? 0) > 1 ? galerias[id]!
       <div class="flex flex-wrap items-center justify-between gap-4 rounded-md border border-dashed border-gray-700 px-6 py-5.5">
         <p class="text-text-secondary-on-dark">{textos.proximos.vacio}</p>
         <a href={invitarHref} class="font-bold text-link hover:underline">
-          {textos.proximos.invitar} <span aria-hidden="true">→</span>
+          {textos.proximos.invitar}
+          <Flecha />
         </a>
       </div>
     </Container>

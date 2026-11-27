@@ -1,17 +1,19 @@
 ---
-// Apariciones suaves: cada bloque con data-reveal sube 20 px y aparece una sola vez.
+// Apariciones suaves: cada bloque con data-reveal sube y aparece una sola vez.
+// 27 nov 2026 (Luis: los retrasos se sentían forzados): empieza en cuanto el bloque asoma (antes
+// esperaba a ver el 15 % de una sección entera), sube menos y tarda un poco más, más suave.
 ---
 
 <style is:global>
   /* Solo transiciona al aparecer: al armar se oculta al instante. */
   [data-reveal]:not([data-reveal-armed]) {
     transition:
-      opacity 0.5s var(--ease-brand),
-      transform 0.5s var(--ease-brand);
+      opacity 0.7s var(--ease-brand),
+      transform 0.7s var(--ease-brand);
   }
   [data-reveal][data-reveal-armed] {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(14px);
   }
 </style>
 
@@ -27,7 +29,7 @@
           observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.15 },
+      { rootMargin: '0px 0px -6% 0px' },
     );
     document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
       if (!isBelowFold(el, 0.9)) return;

@@ -46,7 +46,7 @@ export function iniciarLogros(lista: HTMLElement) {
         scale: 0,
         rotate: -90,
         duration: 0.6,
-        delay: retraso + 0.25,
+        delay: retraso + 0.15,
         ease: 'back.out(3)',
       });
 
@@ -60,7 +60,7 @@ export function iniciarLogros(lista: HTMLElement) {
         gsap.to(valor, {
           n: partes.n,
           duration: 1.2,
-          delay: retraso + 0.2,
+          delay: retraso + 0.1,
           ease: 'brand',
           onUpdate: () => {
             cifra.textContent = `${partes.antes}${formato.format(Math.round(valor.n))}${partes.despues}`;
@@ -74,15 +74,15 @@ export function iniciarLogros(lista: HTMLElement) {
       gsap.from(tarjeta.querySelectorAll('[data-barra]'), {
         scaleX: 0,
         duration: 1.1,
-        delay: retraso + 0.25,
+        delay: retraso + 0.15,
         ease: 'brand',
       });
       gsap.from(tarjeta.querySelectorAll('[data-sello]'), {
         opacity: 0,
         scale: 1.6,
         duration: 0.5,
-        delay: retraso + 0.4,
-        stagger: 0.25,
+        delay: retraso + 0.3,
+        stagger: 0.2,
         ease: 'back.out(2.5)',
       });
     };
@@ -94,7 +94,7 @@ export function iniciarLogros(lista: HTMLElement) {
           observador.disconnect();
           desbloquear(tarjeta, i % 3);
         },
-        { threshold: 0.6 },
+        { threshold: 0.3 },
       );
       observador.observe(tarjeta);
     });

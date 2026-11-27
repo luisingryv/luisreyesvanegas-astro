@@ -1,4 +1,5 @@
 ---
+import Flecha from '../brand/Flecha.astro';
 import PhotoCard from '../brand/PhotoCard.astro';
 import Section from '../brand/Section.astro';
 import SectionHeader from '../brand/SectionHeader.astro';
@@ -24,6 +25,7 @@ const { locale, content, charlas } = Astro.props;
         class="font-bold text-link hover:underline"
       >
         {content.verTodos}
+        <Flecha />
       </a>
     </SectionHeader>
     <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-4">

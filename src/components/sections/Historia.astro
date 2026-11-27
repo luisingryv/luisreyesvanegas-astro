@@ -15,7 +15,7 @@ interface Props {
 const { locale, content, historia, galerias } = Astro.props;
 ---
 
-<Section tone="dark" separator aria-labelledby="historia-titulo">
+<Section tone="dark" aria-labelledby="historia-titulo">
   <SectionHeader id="historia-titulo" eyebrow={content.eyebrow} title={content.titulo} />
   <LevelTimeline
     locale={locale}

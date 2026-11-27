@@ -1,4 +1,5 @@
 ---
+import Flecha from './Flecha.astro';
 interface Source {
   text: string;
   href?: string;
@@ -28,7 +29,7 @@ const { value, label, source, size = 'large' } = Astro.props;
         {source.href ? (
           <a href={source.href} class="underline underline-offset-2 hover:text-ink">
             {source.text}
-            <span aria-hidden="true"> ↗</span>
+            <Flecha externa />
           </a>
         ) : (
           source.text

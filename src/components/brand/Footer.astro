@@ -1,4 +1,5 @@
 ---
+import Flecha from './Flecha.astro';
 import Container from './Container.astro';
 import Logo from './Logo.astro';
 import { evoluteccUrl, site } from '../../config/site';
@@ -34,7 +35,7 @@ const links = [
           <li>
             <a href={link.href} class="text-link underline-offset-2 hover:underline">
               {link.label}
-              {link.external && <span aria-hidden="true"> ↗</span>}
+              {link.external && <Flecha externa />}
             </a>
           </li>
         ))}

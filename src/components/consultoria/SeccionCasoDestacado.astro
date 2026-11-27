@@ -1,6 +1,7 @@
 ---
 // Caso de la subpágina, en sección oscura. La tarjeta de la cifra es la protagonista (pieza 02):
 // cuenta al verse y sus barras crecen (motion/cifra-protagonista.ts).
+import Flecha from '../brand/Flecha.astro';
 import Eyebrow from '../brand/Eyebrow.astro';
 import Section from '../brand/Section.astro';
 import type { PublishedLocale } from '../../i18n/config';
@@ -25,7 +26,8 @@ const { href } = resolverEnlace(locale, caso.enlace.destino);
       </h2>
       <p class="text-text-secondary-on-dark">{caso.texto}</p>
       <a href={href} class="self-start font-bold text-link hover:underline">
-        {caso.enlace.texto} <span aria-hidden="true">→</span>
+        {caso.enlace.texto}
+        <Flecha />
       </a>
     </div>
     <div

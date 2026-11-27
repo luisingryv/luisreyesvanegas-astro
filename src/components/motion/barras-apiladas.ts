@@ -15,14 +15,14 @@ export function iniciarBarrasApiladas(barra: HTMLElement) {
       partes.forEach((parte, i) => {
         parte.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], {
           duration: 600,
-          delay: i * 220,
+          delay: i * 140,
           easing: MARCA,
           fill: 'backwards',
         });
         parte.style.transform = '';
       });
     },
-    { threshold: 0.6 },
+    { threshold: 0.3 },
   );
   observador.observe(barra);
 }

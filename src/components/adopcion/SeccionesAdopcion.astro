@@ -1,6 +1,7 @@
 ---
 // Cuerpo de Adopción de IA: el framework 4D, lo que el equipo aprende, las tres etapas y la
 // prueba (este sitio y las certificaciones verificables).
+import Flecha from '../brand/Flecha.astro';
 import Eyebrow from '../brand/Eyebrow.astro';
 import Section from '../brand/Section.astro';
 import SectionHeader from '../brand/SectionHeader.astro';
@@ -81,7 +82,8 @@ const { cuatroD, temas, etapas, prueba } = Astro.props.content;
                 <span class="text-caption text-text-tertiary-on-dark">{c.detalle}</span>
               </span>
               <span class="font-bold whitespace-nowrap text-link">
-                {prueba.verificar} <span aria-hidden="true">↗</span>
+                {prueba.verificar}
+                <Flecha externa />
               </span>
             </a>
           </li>

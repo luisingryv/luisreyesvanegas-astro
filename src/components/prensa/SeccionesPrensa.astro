@@ -1,6 +1,7 @@
 ---
 // Prensa: kit de prensa (hero con datos rápidos), fotos oficiales, logos, datos del XPRIZE y la
 // descarga del kit completo. La bio y el formulario son componentes aparte.
+import Flecha from '../brand/Flecha.astro';
 import { Image } from 'astro:assets';
 import iconBlancoPng from '../../assets/brand/icon-b.png';
 import iconBlancoSvg from '../../assets/brand/icon-b.svg';
@@ -220,7 +221,8 @@ const logos = [
             rel="noopener"
             class="self-start font-bold text-link hover:underline"
           >
-            {textos.xprize.fuente.texto} <span aria-hidden="true">↗</span>
+            {textos.xprize.fuente.texto}
+            <Flecha externa />
           </a>
         </div>
         <dl class="grid rounded-lg border border-hairline bg-surface-raised p-6">

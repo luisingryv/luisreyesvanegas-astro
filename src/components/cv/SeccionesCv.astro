@@ -4,6 +4,7 @@
 // recomendaciones de ejemplo no se publican.
 // 21 nov 2026 (Luis): los logros usan el mismo motion del Home (pieza 02, en claro) y la
 // formación y certificaciones, las insignias coleccionables de Sobre mí (pieza 09).
+import Flecha from '../brand/Flecha.astro';
 import AchievementCard from '../brand/AchievementCard.astro';
 import Section from '../brand/Section.astro';
 import CollectibleBadges from '../motion/CollectibleBadges.astro';
@@ -67,7 +68,8 @@ const logros: Logro[] = textos.logros.lista.map((l, i) => ({
       ))}
     </ol>
     <a href={sobreMiHref} class="self-start font-bold text-link hover:underline">
-      {textos.experiencia.historia} <span aria-hidden="true">→</span>
+      {textos.experiencia.historia}
+      <Flecha />
     </a>
   </div>
 </Section>
@@ -99,7 +101,8 @@ const logros: Logro[] = textos.logros.lista.map((l, i) => ({
     </h2>
     <p class="text-ink-muted">{textos.comunidad.texto}</p>
     <a href={eventosHref} class="self-start font-bold text-link hover:underline">
-      {textos.comunidad.enlace} <span aria-hidden="true">→</span>
+      {textos.comunidad.enlace}
+      <Flecha />
     </a>
   </div>
 </Section>

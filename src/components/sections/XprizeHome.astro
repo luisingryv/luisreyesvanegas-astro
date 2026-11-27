@@ -18,7 +18,7 @@ const { locale, content } = Astro.props;
 ---
 
 <Section tone="dark" reveal aria-labelledby="xprize-titulo">
-  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-center gap-8 rounded-lg border border-accent bg-surface-raised p-[clamp(28px,4vw,56px)]">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-center gap-8 rounded-lg border border-accent bg-surface-raised p-[clamp(28px,4vw,56px)] @container @max-[712px]:[&>:last-child]:order-first">
     <div class="flex min-w-0 flex-col gap-4">
       <Eyebrow>{content.eyebrow}</Eyebrow>
       <h2 id="xprize-titulo" class="text-heading font-bold text-balance">

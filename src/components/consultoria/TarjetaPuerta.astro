@@ -1,6 +1,7 @@
 ---
 // Pieza 07 · Tarjeta de una puerta de entrada: dolor, oferta y prueba siempre en el HTML; la
 // mini visualización y la inclinación son efectos (motion/misiones.ts).
+import Flecha from '../brand/Flecha.astro';
 import Viz from '../brand/Viz.astro';
 import type { PublishedLocale } from '../../i18n/config';
 import type { Puerta } from '../../lib/content';
@@ -40,9 +41,7 @@ const dos = (n: number) => String(n).padStart(2, '0');
   </div>
   <span class="relative font-bold text-link">
     {boton}
-    <span aria-hidden="true" class="inline-block transition-transform group-hover:translate-x-1">
-      →
-    </span>
+    <Flecha />
   </span>
 </a>
 

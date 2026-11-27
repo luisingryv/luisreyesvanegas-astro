@@ -2,6 +2,7 @@
 // Hero del CV (rediagramado el 19 nov 2026): texto, botones y los cuatro datos en dos columnas con
 // línea fina superior, sin caja; a la derecha, el retrato 4:5 a todo el ancho de la columna.
 // "Download CV (EN)" no se publica hasta que Luis apruebe el CV en inglés.
+import Flecha from '../brand/Flecha.astro';
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 import Button from '../brand/Button.astro';
@@ -43,7 +44,8 @@ const { textos, foto, pdfHref, linkedin } = Astro.props;
           {textos.entrevista}
         </Button>
         <a href={linkedin} target="_blank" rel="noopener" class="px-1 py-3.75 font-bold text-link">
-          {textos.linkedin} <span aria-hidden="true">↗</span>
+          {textos.linkedin}
+          <Flecha externa />
         </a>
       </div>
       <dl class="mt-4 grid grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] gap-x-8 text-[15px] leading-[1.45]">

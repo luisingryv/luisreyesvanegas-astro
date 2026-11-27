@@ -1,4 +1,5 @@
 ---
+import Flecha from './Flecha.astro';
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'a'> {
@@ -6,12 +7,15 @@ interface Props extends HTMLAttributes<'a'> {
   variant?: 'primary' | 'secondary' | 'accent' | 'highlight' | 'outline';
   size?: 'lg' | 'md' | 'sm';
   external?: boolean;
+  /** Flecha → que entra al pasar el cursor (enlaces que llevan a otra página o sección). */
+  flecha?: boolean;
 }
 
 const {
   variant = 'primary',
   size = 'md',
   external = false,
+  flecha = false,
   class: className,
   ...rest
 } = Astro.props;
@@ -35,7 +39,7 @@ const sizes = {
 
 <a
   class:list={[
-    'inline-flex items-center justify-center gap-2 rounded-pill border leading-none font-bold',
+    'inline-flex items-center justify-center rounded-pill border leading-none font-bold',
     'transition-colors duration-150',
     variants[variant],
     sizes[size],
@@ -44,5 +48,5 @@ const sizes = {
   {...rest}
 >
   <slot />
-  {external && <span aria-hidden="true">↗</span>}
+  {external ? <Flecha externa /> : flecha && <Flecha />}
 </a>

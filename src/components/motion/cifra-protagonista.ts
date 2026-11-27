@@ -21,7 +21,7 @@ export function iniciarCifraProtagonista(tarjeta: HTMLElement) {
       barras.forEach((b, i) =>
         b.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], {
           duration: 1100,
-          delay: 150 + i * 180,
+          delay: 60 + i * 120,
           easing: MARCA,
           fill: 'backwards',
         }),
@@ -37,7 +37,7 @@ export function iniciarCifraProtagonista(tarjeta: HTMLElement) {
       };
       requestAnimationFrame(cuadro);
     },
-    { threshold: 0.5 },
+    { threshold: 0.3 },
   );
   vista.observe(tarjeta);
 }

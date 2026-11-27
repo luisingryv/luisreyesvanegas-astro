@@ -17,7 +17,7 @@ export function animarViz(viz: HTMLElement): Promise<void> {
         todos('[data-barra]').map((b, i) =>
           b.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], {
             duration: 900,
-            delay: i * 180,
+            delay: i * 130,
             easing: MARCA,
             fill: 'backwards',
           }),

@@ -15,7 +15,13 @@ interface Props {
   eyebrow?: string;
   titulo: string;
   texto?: string;
-  botones: { texto: string; href: string; variante?: 'primary' | 'outline'; external?: boolean }[];
+  botones: {
+    texto: string;
+    href: string;
+    variante?: 'primary' | 'outline';
+    external?: boolean;
+    flecha?: boolean;
+  }[];
   /** compacta: la banda del programa MAP (menos alto). */
   compacta?: boolean;
   /** Sin logo 3D: brand (azul) o dark (night). */
@@ -69,6 +75,7 @@ const conLogo = visual === 'logo3d';
               size="lg"
               variant={boton.variante ?? 'primary'}
               external={boton.external}
+              flecha={boton.flecha}
             >
               {boton.texto}
             </Button>
@@ -76,7 +83,7 @@ const conLogo = visual === 'logo3d';
         </div>
       </div>
       <Logo3D
-        class="-my-4 aspect-square w-full max-w-[min(100%,420px)] justify-self-center md:my-0"
+        class="-my-4 aspect-square w-full max-w-[min(100%,420px)] justify-self-center md:my-0 order-first md:order-none"
         sizes="(min-width: 768px) 28vw, 60vw"
       />
     </Container>
@@ -120,6 +127,7 @@ const conLogo = visual === 'logo3d';
             size="lg"
             variant={boton.variante ?? 'primary'}
             external={boton.external}
+            flecha={boton.flecha}
           >
             {boton.texto}
           </Button>

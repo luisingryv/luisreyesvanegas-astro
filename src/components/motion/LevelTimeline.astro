@@ -1,5 +1,10 @@
 ---
 // Pieza 03 · Línea de tiempo por niveles (laboratorio de motion).
+// Fotos de cada nivel (Luis, 27 nov 2026): en escritorio van al lado de la línea de tiempo, en
+// cascada y acompañando el recorrido (sticky), para que se note que hay fotos; cada una abre el
+// visor en esa foto. Se muestran las que caben según los hitos del nivel; la última dice cuántas
+// faltan. En celular sigue el botón "Ver N fotos".
+import { Image } from 'astro:assets';
 import Button from '../brand/Button.astro';
 import LevelCard from '../brand/LevelCard.astro';
 import MilestoneCard from '../brand/MilestoneCard.astro';
@@ -23,6 +28,10 @@ const tg = dict.galeria;
 const { niveles, resumen } = historia;
 // Cada nivel con fotos enlaza a la página de su galería; el visor de la página la abre.
 const rutaGaleria = (capitulo: string) => `${localizedPath(locale, 'galerias')}/nivel-${capitulo}`;
+
+/** Fotos al lado del nivel: al menos dos, y una menos que sus hitos (las que caben). */
+const fotosVisibles = (fotos: FotoGaleria[], hitos: number) =>
+  fotos.slice(0, Math.max(2, hitos - 1));
 
 const lockIcon = 'M8 11V8a4 4 0 0 1 8 0v3';
 const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
@@ -82,36 +91,72 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
           {n.rotulo && <p class="basis-full text-caption text-text-tertiary-on-dark">{n.rotulo}</p>}
         </div>
 
-        <div class="path relative max-w-195" data-path>
-          <div
-            class="rail absolute top-3.5 bottom-3.5 w-0.5 rounded-sm bg-hairline"
-            aria-hidden="true"
-          >
-            <i class="absolute inset-0 origin-top bg-accent shadow-glow" data-rail-fill />
+        <div class="cuerpo">
+          <div class="path relative max-w-195" data-path>
+            <div
+              class="rail absolute top-3.5 bottom-3.5 w-0.5 rounded-sm bg-hairline"
+              aria-hidden="true"
+            >
+              <i class="absolute inset-0 origin-top bg-accent shadow-glow" data-rail-fill />
+            </div>
+            <ol class="grid gap-4.5">
+              {n.hitos.map((h) => (
+                <li class="hito relative" data-hito>
+                  <span
+                    class="node absolute top-5.5 grid size-5.5 place-items-center rounded-full border-2 bg-night"
+                    aria-hidden="true"
+                    data-node
+                  >
+                    <span class="size-2 rounded-full" />
+                  </span>
+                  <MilestoneCard
+                    year={h.anio}
+                    age={t.edad(h.edad)}
+                    title={h.titulo}
+                    text={h.texto}
+                    stat={h.cifra}
+                    impactLabel={t.impacto}
+                    impact={h.impacto}
+                    link={h.enlace}
+                  />
+                </li>
+              ))}
+            </ol>
           </div>
-          <ol class="grid gap-4.5">
-            {n.hitos.map((h) => (
-              <li class="hito relative" data-hito>
-                <span
-                  class="node absolute top-5.5 grid size-5.5 place-items-center rounded-full border-2 bg-night"
-                  aria-hidden="true"
-                  data-node
-                >
-                  <span class="size-2 rounded-full" />
-                </span>
-                <MilestoneCard
-                  year={h.anio}
-                  age={t.edad(h.edad)}
-                  title={h.titulo}
-                  text={h.texto}
-                  stat={h.cifra}
-                  impactLabel={t.impacto}
-                  impact={h.impacto}
-                  link={h.enlace}
-                />
-              </li>
-            ))}
-          </ol>
+          {galerias[n.id]?.length ? (
+            <aside class="fotos-nivel" aria-label={tg.ver(galerias[n.id]!.length)}>
+              <ul class="grid gap-4">
+                {fotosVisibles(galerias[n.id]!, n.hitos.length).map((f, j, visibles) => {
+                  const restantes = galerias[n.id]!.length - visibles.length;
+                  return (
+                    <li class="foto" data-reveal style={`transition-delay: ${j * 120}ms`}>
+                      <a
+                        href={rutaGaleria(n.id)}
+                        data-abrir-galeria
+                        data-indice={j}
+                        data-titulo={`${t.nivel(n.nivel)} · ${n.nombre}`}
+                        data-sub={n.periodo}
+                        class="relative block overflow-hidden rounded-lg border border-hairline"
+                      >
+                        <Image
+                          src={f.foto}
+                          alt={f.alt}
+                          widths={[360, 720]}
+                          sizes="(min-width: 1024px) 360px, 1px"
+                          class="aspect-4/3 w-full object-cover"
+                        />
+                        {j === visibles.length - 1 && restantes > 0 && (
+                          <span class="mas absolute inset-0 grid place-items-center text-title-md font-bold text-white">
+                            +{restantes}
+                          </span>
+                        )}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </aside>
+          ) : null}
         </div>
 
         {next ? (
@@ -187,7 +232,7 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
               <p class="text-label font-bold text-cyan-300 uppercase">{t.recorridoCompleto}</p>
               <p class="text-title-md font-bold">{t.resumen(resumen)}</p>
             </div>
-            <Button href={cta.href} variant="accent" size="sm">
+            <Button href={cta.href} variant="accent" size="sm" flecha>
               {cta.label}
             </Button>
           </div>
@@ -214,6 +259,48 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
   .ver-fotos:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
+  }
+
+  /* Fotos del nivel al lado de la línea de tiempo, solo en escritorio (27 nov 2026). */
+  .fotos-nivel {
+    display: none;
+  }
+  @media (min-width: 64rem) {
+    .cuerpo {
+      display: grid;
+      grid-template-columns: minmax(0, 48.75rem) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .fotos-nivel {
+      display: block;
+      position: sticky;
+      top: 6.5rem;
+    }
+    /* En cascada: cada foto un poco corrida respecto a la anterior. */
+    .foto:nth-child(odd) {
+      margin-right: 1.5rem;
+    }
+    .foto:nth-child(even) {
+      margin-left: 1.5rem;
+    }
+  }
+  .foto a {
+    transition:
+      border-color 0.25s ease,
+      transform 0.35s var(--ease-brand);
+  }
+  .foto a:hover,
+  .foto a:focus-visible {
+    border-color: var(--color-accent);
+    transform: translateY(-3px);
+  }
+  .foto a:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  .mas {
+    background: color-mix(in oklab, var(--color-night) 62%, transparent);
   }
 
   /* Riel y nodos: 56 px de margen en escritorio, 40 px en celular (laboratorio). */
@@ -285,8 +372,8 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
 
   .levelup[data-open] :is(p, [data-medal]) {
     transition:
-      color 0.3s 0.4s,
-      background-color 0.3s 0.4s;
+      color 0.3s 0.2s,
+      background-color 0.3s 0.2s;
   }
   .levelup:not([data-open]) p {
     color: var(--color-ink-muted);
@@ -394,7 +481,7 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
         const wasLocked = c.card.dataset.state === 'locked';
         c.card.dataset.state = state;
         if (animate && gsap && wasLocked && state === 'on') {
-          pop(gsap, c.card, { scale: [0.94, 1.04, 1] }, 0.7);
+          pop(gsap, c.card, { scale: [0.94, 1.04, 1] }, 0.35);
         }
 
         if (complete && !c.done) {
@@ -421,10 +508,10 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
         g,
         c.levelup.querySelector('[data-medal]'),
         { scale: [0.2, 1.25, 1], rotate: [-120, 0, 0] },
-        0.45,
+        0.25,
       );
       if (!final) return;
-      pop(g, c.levelup, { scale: [0.96, 1.02, 1] }, 0.4);
+      pop(g, c.levelup, { scale: [0.96, 1.02, 1] }, 0.25);
       const burst = c.levelup.querySelector<HTMLElement>('[data-burst]');
       if (!burst) return;
       const count = 22;
@@ -432,7 +519,7 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
       [...burst.children].forEach((dot, i) => {
         const angle = (i / count) * Math.PI * 2 + Math.random() * 0.3;
         const radius = 46 + Math.random() * 42;
-        g.timeline({ delay: 0.55, onComplete: () => dot.remove() })
+        g.timeline({ delay: 0.35, onComplete: () => dot.remove() })
           .fromTo(
             dot,
             { x: 0, y: 0, rotate: 0, scale: 1, opacity: 1 },
@@ -501,7 +588,7 @@ const unlockIcon = 'M8 11V8a4 4 0 0 1 7.5-2';
         gsap,
         h.querySelector('[data-stat]'),
         { scale: [0.6, 1.08, 1], opacity: [0, 1, 1] },
-        0.25,
+        0.15,
       );
       sync(true);
     };

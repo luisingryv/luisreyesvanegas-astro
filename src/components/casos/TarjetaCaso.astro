@@ -2,6 +2,7 @@
 // Tarjeta de un caso en el índice (Luis, 22 nov 2026): arriba, una caja con el logo del cliente
 // centrado sobre el color que mejor lo favorece; abajo, la información. Todas las tarjetas de una
 // fila miden lo mismo. Los casos sin página propia se muestran sin enlace. La cifra cuenta al verse.
+import Flecha from '../brand/Flecha.astro';
 import { Image } from 'astro:assets';
 import type { PublishedLocale } from '../../i18n/config';
 import { localizedPath } from '../../i18n/routes';
@@ -62,13 +63,8 @@ const logo = caso.caja?.logo ?? caso.logo;
     <p class="mt-auto pt-1 text-[12px] text-ink-muted">{caso.tarjeta.quien}</p>
     {caso.pagina && (
       <span class="font-bold text-link">
-        {textos.verCaso}{' '}
-        <span
-          aria-hidden="true"
-          class="inline-block transition-transform group-hover:translate-x-1"
-        >
-          →
-        </span>
+        {textos.verCaso}
+        <Flecha />
       </span>
     )}
   </div>

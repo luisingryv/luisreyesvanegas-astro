@@ -2,6 +2,7 @@
 // Pieza 08 · Casos como burbujas. Desde el 22 nov 2026 llevan el logo a color del cliente (Luis
 // entregó los logos); el nombre queda para lectores de pantalla y como respaldo si falta el logo.
 // Cada burbuja enlaza a su caso o al índice de casos.
+import Flecha from '../brand/Flecha.astro';
 import { Image } from 'astro:assets';
 import Section from '../brand/Section.astro';
 import SectionHeader from '../brand/SectionHeader.astro';
@@ -27,6 +28,7 @@ const indice = localizedPath(locale, 'casos');
   <SectionHeader id="casos-titulo" eyebrow={content.eyebrow} title={content.titulo}>
     <a slot="action" href={indice} class="font-bold text-link hover:underline">
       {content.verTodos}
+      <Flecha />
     </a>
   </SectionHeader>
   <div

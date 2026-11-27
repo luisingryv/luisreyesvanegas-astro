@@ -229,10 +229,10 @@ export function iniciarXprize(campo: HTMLElement) {
       (entradas) => {
         if (entradas.some((e) => e.isIntersecting)) {
           observador.disconnect();
-          setTimeout(reproducir, 500);
+          setTimeout(reproducir, 150);
         }
       },
-      { threshold: 0.5 },
+      { threshold: 0.35 },
     );
     observador.observe(campo);
   });
