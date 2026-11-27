@@ -462,8 +462,14 @@ const temas = z
 const formularios = defineCollection({
   loader: entries('formularios'),
   schema: z.object({
-    whatsapp: localized,
-    campos: z.object({ nombre: localized, correo: localized, mensaje: localized }),
+    campos: z.object({
+      nombre: localized,
+      correo: localized,
+      mensaje: localized,
+      // Teléfono con indicativo (27 nov 2026): etiqueta y nombre accesible del selector de país.
+      telefono: localized,
+      pais: localized,
+    }),
     autorizacion: z.object({ antes: localized, enlace: localized, despues: localized }),
     enviar: localized,
     enviado: localized,
@@ -498,8 +504,6 @@ const contacto = defineCollection({
     formulario: z.object({
       eyebrow: localized,
       titulo: localized,
-      /** Se muestra solo si hay número de WhatsApp. */
-      textoWhatsapp: localized,
       tema: localized,
       temas,
     }),
@@ -699,7 +703,6 @@ const home = defineCollection({
             top: localized,
             final: localized,
           }),
-          nota: localized,
         }),
       }),
       trayectoria: z.object({ ...encabezado, boton: localized }),
@@ -1196,7 +1199,6 @@ const productosPagina = defineCollection({
           nombre: localized,
           empresa: localized,
           correo: localized,
-          telefono: localized,
           mensaje: localized,
         }),
         productos: z.array(z.object({ valor: z.enum(PRODUCTOS_DEMO), texto: localized })),
@@ -1207,9 +1209,7 @@ const productosPagina = defineCollection({
         campos: z.object({
           tipo: localized,
           nombre: localized,
-          pais: localized,
           correo: localized,
-          telefono: localized,
         }),
         tipos: z.array(z.object({ valor: z.enum(TIPOS_INVERSIONISTA), texto: localized })),
         enviar: localized,

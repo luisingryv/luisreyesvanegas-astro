@@ -281,6 +281,61 @@ body {
   display: block;
 }
 
+/* Indicativo del teléfono (27 nov 2026): sin JavaScript se ve el selector con el nombre de cada
+   país. Con JavaScript (data-mejorado) se ve una caja compacta con bandera e indicativo, y el
+   selector queda encima, transparente, para abrir la misma lista. */
+.campo-indicativo .indicativo-caja {
+  display: none;
+}
+.campo-indicativo[data-mejorado] {
+  width: 7.75rem;
+  max-width: none;
+}
+.campo-indicativo[data-mejorado] .indicativo-caja {
+  display: flex;
+}
+.campo-indicativo[data-mejorado] [data-slot='native-select-wrapper'] {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+}
+.campo-indicativo[data-mejorado] select {
+  height: 100%;
+  cursor: pointer;
+}
+.campo-indicativo:has(select:focus-visible) .indicativo-caja {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
+}
+
+/* Flechas de las acciones (Luis, 27 nov 2026, regla para todo el sitio): no se ven en reposo;
+   entran al pasar el cursor o al enfocar el enlace, el botón o la tarjeta que las contiene
+   (data-con-flecha). Ocupan 0 de ancho hasta entonces, para no correr el texto. Componente:
+   src/components/brand/Flecha.astro. */
+.flecha-hover {
+  display: inline-block;
+  width: 0;
+  margin-inline-start: 0;
+  opacity: 0;
+  transform: translateX(-0.4em);
+  transition:
+    width 0.3s var(--ease-brand),
+    margin 0.3s var(--ease-brand),
+    opacity 0.25s ease,
+    transform 0.35s var(--ease-brand);
+}
+.flecha-hover.externa {
+  transform: translate(-0.3em, 0.3em);
+}
+:is(a, button, [data-con-flecha]):is(:hover, :focus-visible) .flecha-hover,
+[data-con-flecha]:focus-within .flecha-hover {
+  width: 1em;
+  margin-inline-start: 0.3em;
+  opacity: 1;
+  transform: none;
+}
+
 /* Movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   *,

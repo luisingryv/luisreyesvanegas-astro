@@ -2,6 +2,7 @@
 // Productos (prototipo aprobado): Trama AI con la medalla 3D (pieza 05), cómo funciona (con la
 // conversación de demostración), sus logros (pieza 02), las dos formas de acercarse, el
 // portafolio con Ofilix y "Ya escalamos un producto antes". Andrés Martínez solo se nombra aquí.
+import Flecha from '../brand/Flecha.astro';
 import { Image } from 'astro:assets';
 import logoTrama from '../../assets/brand/trama_blanco.svg';
 import AchievementCard from '../brand/AchievementCard.astro';
@@ -27,10 +28,33 @@ const { locale, textos, comunes } = Astro.props;
 const t = getDictionary(locale);
 const h2 = 'text-[clamp(28px,3.4vw,42px)] leading-[1.1] font-bold text-balance';
 const { medalla } = textos.hero;
+const { empresas, inversionistas } = textos.caminos;
+// Las dos formas de acercarse a Trama: cada tarjeta abre su formulario (27 nov 2026).
+const caminos = [
+  {
+    id: 'usar',
+    eyebrow: empresas.eyebrow,
+    titulo: empresas.titulo,
+    texto: empresas.texto,
+    cta: empresas.boton,
+  },
+  {
+    id: 'invertir',
+    eyebrow: inversionistas.eyebrow,
+    titulo: inversionistas.titulo,
+    texto: inversionistas.texto,
+    cta: inversionistas.enviar,
+  },
+];
+// Logo de cada producto del portafolio sobre su color (27 nov 2026). Ofilix queda con su nombre
+// hasta que Luis entregue su imagen y su logo.
+const logos: Record<string, { src: ImageMetadata; fondo: string }> = {
+  'Trama AI': { src: logoTrama, fondo: 'var(--color-night)' },
+};
 ---
 
 <Section tone="dark" spacing="hero" aria-labelledby="productos-titulo">
-  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-12">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-center gap-12 @container @max-[928px]:[&>:last-child]:order-first">
     <div class="flex min-w-0 flex-col gap-5.5">
       <Image src={logoTrama} alt="Trama" height={34} class="h-[34px] w-auto self-start" />
       <Eyebrow>{textos.hero.eyebrow}</Eyebrow>
@@ -73,7 +97,8 @@ const { medalla } = textos.hero;
         rel="noopener"
         class="text-[13px] text-cyan-300 underline-offset-2 hover:underline"
       >
-        {textos.hero.fuente.texto} <span aria-hidden="true">↗</span>
+        {textos.hero.fuente.texto}
+        <Flecha externa />
       </a>
     </div>
   </div>
@@ -142,56 +167,96 @@ const { medalla } = textos.hero;
     <h2 id="caminos-titulo" class={h2}>
       {textos.caminos.titulo}
     </h2>
-    <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,440px),1fr))] items-start gap-4">
-      {/* 21 nov 2026 (Luis): la demo es un formulario y la persona elige el producto. */}
-      <div id="usar">
-        <FormularioDemo
-          textos={{
-            eyebrow: textos.caminos.empresas.eyebrow,
-            titulo: textos.caminos.empresas.titulo,
-            texto: textos.caminos.empresas.texto,
-            producto: textos.caminos.empresas.campos.producto,
-            productos: textos.caminos.empresas.productos,
-            nombre: textos.caminos.empresas.campos.nombre,
-            empresa: textos.caminos.empresas.campos.empresa,
-            correo: textos.caminos.empresas.campos.correo,
-            telefono: textos.caminos.empresas.campos.telefono,
-            mensaje: textos.caminos.empresas.campos.mensaje,
-            autorizacion: comunes.autorizacion,
-            enviar: textos.caminos.empresas.boton,
-            recibido: textos.caminos.empresas.recibido,
-            error: comunes.error,
-          }}
-          mensajes={t.formulario}
-          idioma={locale}
-          pagina={localizedPath(locale, 'productos')}
-          politicaHref={localizedPath(locale, 'privacidad')}
-        />
-      </div>
-      <div id="invertir">
-        <FormularioProductos
-          textos={{
-            eyebrow: textos.caminos.inversionistas.eyebrow,
-            titulo: textos.caminos.inversionistas.titulo,
-            texto: textos.caminos.inversionistas.texto,
-            tipo: textos.caminos.inversionistas.campos.tipo,
-            tipos: textos.caminos.inversionistas.tipos,
-            nombre: textos.caminos.inversionistas.campos.nombre,
-            pais: textos.caminos.inversionistas.campos.pais,
-            correo: textos.caminos.inversionistas.campos.correo,
-            telefono: textos.caminos.inversionistas.campos.telefono,
-            autorizacion: comunes.autorizacion,
-            enviar: textos.caminos.inversionistas.enviar,
-            aviso: textos.caminos.inversionistas.aviso,
-            recibido: textos.caminos.inversionistas.recibido,
-            error: comunes.error,
-          }}
-          mensajes={t.formulario}
-          idioma={locale}
-          pagina={localizedPath(locale, 'productos')}
-          politicaHref={localizedPath(locale, 'privacidad')}
-        />
-      </div>
+    {/* 27 nov 2026 (Luis): los dos formularios abiertos a la vez se veían raros. Ahora son dos
+        tarjetas y cada una abre su formulario debajo. Sin JavaScript se ven los dos. */}
+    <div class="caminos grid items-start gap-4 md:grid-cols-2" data-caminos>
+      {caminos.map((c, i) => (
+        <>
+          <button
+            type="button"
+            id={c.id}
+            class:list={[
+              'camino flex h-full flex-col gap-2.5 rounded-lg border bg-surface-raised p-7 text-left md:row-start-1',
+              i === 0 ? 'md:col-start-1' : 'md:col-start-2',
+            ]}
+            aria-controls={`panel-${c.id}`}
+            aria-expanded="true"
+            data-camino={c.id}
+            data-con-flecha
+          >
+            <span class="text-[12px] font-bold tracking-[0.12em] text-link uppercase">
+              {c.eyebrow}
+            </span>
+            <span id={`${c.id}-titulo`} class="text-[26px] leading-[1.2] font-bold text-balance">
+              {c.titulo}
+            </span>
+            <span class="grow text-text-secondary-on-dark">{c.texto}</span>
+            <span class="pt-1 font-bold text-link">
+              {c.cta}
+              <Flecha />
+            </span>
+          </button>
+          <div
+            id={`panel-${c.id}`}
+            role="region"
+            aria-labelledby={`${c.id}-titulo`}
+            class:list={[
+              'panel-camino md:row-start-2',
+              i === 0 ? 'md:col-start-1' : 'md:col-start-2',
+            ]}
+            data-panel={c.id}
+          >
+            {c.id === 'usar' ? (
+              <FormularioDemo
+                contacto={comunes.campos}
+                textos={{
+                  eyebrow: textos.caminos.empresas.eyebrow,
+                  titulo: textos.caminos.empresas.titulo,
+                  texto: textos.caminos.empresas.texto,
+                  producto: textos.caminos.empresas.campos.producto,
+                  productos: textos.caminos.empresas.productos,
+                  nombre: textos.caminos.empresas.campos.nombre,
+                  empresa: textos.caminos.empresas.campos.empresa,
+                  correo: textos.caminos.empresas.campos.correo,
+                  mensaje: textos.caminos.empresas.campos.mensaje,
+                  autorizacion: comunes.autorizacion,
+                  enviar: textos.caminos.empresas.boton,
+                  recibido: textos.caminos.empresas.recibido,
+                  error: comunes.error,
+                }}
+                mensajes={t.formulario}
+                idioma={locale}
+                pagina={localizedPath(locale, 'productos')}
+                politicaHref={localizedPath(locale, 'privacidad')}
+                encabezado={false}
+              />
+            ) : (
+              <FormularioProductos
+                contacto={comunes.campos}
+                textos={{
+                  eyebrow: textos.caminos.inversionistas.eyebrow,
+                  titulo: textos.caminos.inversionistas.titulo,
+                  texto: textos.caminos.inversionistas.texto,
+                  tipo: textos.caminos.inversionistas.campos.tipo,
+                  tipos: textos.caminos.inversionistas.tipos,
+                  nombre: textos.caminos.inversionistas.campos.nombre,
+                  correo: textos.caminos.inversionistas.campos.correo,
+                  autorizacion: comunes.autorizacion,
+                  enviar: textos.caminos.inversionistas.enviar,
+                  aviso: textos.caminos.inversionistas.aviso,
+                  recibido: textos.caminos.inversionistas.recibido,
+                  error: comunes.error,
+                }}
+                mensajes={t.formulario}
+                idioma={locale}
+                pagina={localizedPath(locale, 'productos')}
+                politicaHref={localizedPath(locale, 'privacidad')}
+                encabezado={false}
+              />
+            )}
+          </div>
+        </>
+      ))}
     </div>
   </div>
 </Section>
@@ -206,26 +271,48 @@ const { medalla } = textos.hero;
     </div>
     <ul class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-4">
       {textos.portafolio.productos.map((p) => (
-        <li class="flex min-w-0 flex-col gap-3 rounded-lg bg-surface-raised p-7">
-          <div class="flex flex-wrap justify-between gap-2">
-            <span class="text-[11px] font-bold tracking-[0.1em] text-blue-600 uppercase">
-              {p.dueno}
-            </span>
-            <span class="rounded-pill bg-primary px-2.25 py-1.25 text-[11px] font-bold text-on-primary">
-              {p.estado}
-            </span>
+        <li
+          class="producto flex min-w-0 flex-col overflow-hidden rounded-lg border border-blue-200 bg-surface-raised"
+          data-con-flecha
+        >
+          <div
+            class="grid aspect-[16/7] place-items-center border-b border-black/5 px-8"
+            style={`background: ${logos[p.nombre]?.fondo ?? 'var(--color-blue-100)'}`}
+          >
+            {logos[p.nombre] ? (
+              <Image
+                src={logos[p.nombre]!.src}
+                alt={p.nombre}
+                width={208}
+                class="h-auto max-h-14 w-52 object-contain"
+              />
+            ) : (
+              <span class="text-[34px] font-bold tracking-[-0.02em] text-blue-600">{p.nombre}</span>
+            )}
           </div>
-          <h3 class="text-[28px] font-bold">{p.nombre}</h3>
-          <p class="grow text-ink-muted">{p.texto}</p>
-          <div class="flex flex-wrap gap-x-4 gap-y-2 font-bold">
-            <a href="#usar" class="text-link hover:underline">
-              {textos.portafolio.usar}
-              <span class="sr-only">: {p.nombre}</span> <span aria-hidden="true">→</span>
-            </a>
-            <a href="#invertir" class="text-link hover:underline">
-              {textos.portafolio.invertir}
-              <span class="sr-only">: {p.nombre}</span> <span aria-hidden="true">→</span>
-            </a>
+          <div class="flex grow flex-col gap-3 p-7">
+            <div class="flex flex-wrap justify-between gap-2">
+              <span class="text-[11px] font-bold tracking-[0.1em] text-blue-600 uppercase">
+                {p.dueno}
+              </span>
+              <span class="rounded-pill bg-primary px-2.25 py-1.25 text-[11px] font-bold text-on-primary">
+                {p.estado}
+              </span>
+            </div>
+            <h3 class="text-[28px] font-bold">{p.nombre}</h3>
+            <p class="grow text-ink-muted">{p.texto}</p>
+            <div class="flex flex-wrap gap-x-4 gap-y-2 font-bold">
+              <a href="#usar" class="text-link hover:underline">
+                {textos.portafolio.usar}
+                <span class="sr-only">: {p.nombre}</span>
+                <Flecha />
+              </a>
+              <a href="#invertir" class="text-link hover:underline">
+                {textos.portafolio.invertir}
+                <span class="sr-only">: {p.nombre}</span>
+                <Flecha />
+              </a>
+            </div>
           </div>
         </li>
       ))}
@@ -257,4 +344,77 @@ const { medalla } = textos.hero;
   for (const lista of document.querySelectorAll<HTMLElement>('[data-logros]')) {
     iniciarLogros(lista);
   }
+
+  // Dos formas de acercarse a Trama (27 nov 2026): cada tarjeta abre su formulario y cierra el
+  // otro. Los enlaces a #usar y #invertir (hero y portafolio) abren el que corresponde.
+  for (const caminos of document.querySelectorAll<HTMLElement>('[data-caminos]')) {
+    const tarjetas = [...caminos.querySelectorAll<HTMLButtonElement>('[data-camino]')];
+    const panelDe = (t: HTMLButtonElement) =>
+      caminos.querySelector<HTMLElement>(`[data-panel="${t.dataset.camino}"]`);
+    const abrir = (id: string | null) => {
+      for (const t of tarjetas) {
+        const abierta = t.dataset.camino === id;
+        t.setAttribute('aria-expanded', String(abierta));
+        panelDe(t)?.toggleAttribute('hidden', !abierta);
+      }
+    };
+    // Abierto el que pide la dirección (o el que trae un aviso después de enviar).
+    const desdeHash = () => {
+      const destino = location.hash ? document.getElementById(location.hash.slice(1)) : null;
+      return tarjetas.find((t) => t === destino || panelDe(t)?.contains(destino))?.dataset.camino;
+    };
+    abrir(desdeHash() ?? null);
+    for (const t of tarjetas) {
+      t.addEventListener('click', () =>
+        abrir(t.getAttribute('aria-expanded') === 'true' ? null : t.dataset.camino!),
+      );
+    }
+    window.addEventListener('hashchange', () => {
+      const id = desdeHash();
+      if (id) abrir(id);
+    });
+    // Un enlace a la tarjeta que ya está en la dirección no dispara hashchange.
+    document.addEventListener('click', (e) => {
+      const enlace = (e.target as Element).closest<HTMLAnchorElement>('a[href^="#"]');
+      const id = enlace?.hash.slice(1);
+      if (id && tarjetas.some((t) => t.id === id) && location.hash === `#${id}`) abrir(id);
+    });
+  }
 </script>
+
+<style>
+  .camino {
+    border-color: var(--color-hairline);
+    transition:
+      border-color 0.25s ease,
+      transform 0.35s var(--ease-brand),
+      box-shadow 0.35s var(--ease-brand);
+  }
+  .camino:hover,
+  .camino:focus-visible,
+  .camino[aria-expanded='true'] {
+    border-color: var(--color-accent);
+  }
+  .camino:hover,
+  .camino:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow-ring);
+  }
+  .camino:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  /* Abierta: la flecha queda a la vista y apunta hacia el formulario. */
+  .camino[aria-expanded='true'] :global(.flecha-hover) {
+    width: 1em;
+    margin-inline-start: 0.3em;
+    opacity: 1;
+    transform: rotate(90deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .camino:hover,
+    .camino:focus-visible {
+      transform: none;
+    }
+  }
+</style>

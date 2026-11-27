@@ -9,7 +9,9 @@ import {
   Campo,
   clasesControles,
   TarjetaFormulario,
+  CampoTelefono,
   type MensajesFormulario,
+  type TextosContacto,
   type TextosAutorizacion,
 } from './partes';
 
@@ -28,6 +30,8 @@ export interface TextosPrensa {
 }
 
 interface Props {
+  /** Nombre y teléfono: los piden todos los formularios (27 nov 2026). */
+  contacto: TextosContacto;
   textos: TextosPrensa;
   mensajes: MensajesFormulario;
   idioma: string;
@@ -35,7 +39,14 @@ interface Props {
   politicaHref: string;
 }
 
-export function FormularioPrensa({ textos, mensajes, idioma, pagina, politicaHref }: Props) {
+export function FormularioPrensa({
+  textos,
+  contacto,
+  mensajes,
+  idioma,
+  pagina,
+  politicaHref,
+}: Props) {
   const clases = clasesControles('raised');
   return (
     <TarjetaFormulario
@@ -84,6 +95,7 @@ export function FormularioPrensa({ textos, mensajes, idioma, pagina, politicaHre
           className={clases.input}
         />
       </Campo>
+      <CampoTelefono prefijo="prensa" textos={contacto} idioma={idioma} variante="raised" />
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] gap-3.5">
         <Campo id="prensa-necesidad" etiqueta={textos.necesidad}>
           <NativeSelect id="prensa-necesidad" name="necesidad" required className={clases.select}>

@@ -1,8 +1,12 @@
 // Partes comunes de los formularios: tarjeta, avisos, campos ocultos (formulario, idioma,
-// página, UTM y campo trampa), campo con su error, casilla de autorización y botón.
-// Todo funciona sin JavaScript; formulario.ts lo mejora.
+// página, UTM y campo trampa), campo con su error, nombre, teléfono con indicativo, casilla de
+// autorización y botón. Todo funciona sin JavaScript; formulario.ts lo mejora.
 import type { ReactNode } from 'react';
+import { ChevronDownIcon } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { NativeSelect, NativeSelectOption } from '@/components/ui/native-select';
+import { opcionesDePais, PAIS_INICIAL } from '@/lib/formularios/paises';
 import { NOMBRES_UTM } from '@/lib/utm';
 import { cn } from '@/lib/utils';
 
@@ -39,6 +43,7 @@ const base =
 export function clasesControles(variante: VarianteFormulario) {
   const fondo = variante === 'raised' ? 'bg-surface' : 'bg-surface-raised';
   return {
+    fondo,
     input: cn('h-12 px-3.5', base, fondo),
     textarea: cn('min-h-28 resize-y px-3.5 py-3', base, fondo),
     select: cn(
@@ -144,6 +149,123 @@ export function Campo({
       </Label>
       {children}
       <p id={`${id}-error`} className="text-small font-bold text-error" data-error-de={id} hidden />
+    </div>
+  );
+}
+
+/** Textos de los datos de contacto que piden todos los formularios (27 nov 2026). */
+export interface TextosContacto {
+  nombre: string;
+  telefono: string;
+  /** Nombre accesible del selector de país del teléfono. */
+  pais: string;
+}
+
+/** Nombre: lo piden todos los formularios desde el 27 nov 2026. */
+export function CampoNombre({
+  prefijo,
+  etiqueta,
+  variante,
+}: {
+  prefijo: string;
+  etiqueta: string;
+  variante: VarianteFormulario;
+}) {
+  const id = `${prefijo}-nombre`;
+  return (
+    <Campo id={id} etiqueta={etiqueta}>
+      <Input
+        id={id}
+        name="nombre"
+        type="text"
+        autoComplete="name"
+        required
+        minLength={2}
+        maxLength={120}
+        className={clasesControles(variante).input}
+      />
+    </Campo>
+  );
+}
+
+/**
+ * Teléfono con indicativo (Luis, 27 nov 2026): país y número en una fila. Sin JavaScript, el
+ * selector muestra el nombre de cada país; con JavaScript (formulario.ts) se ve compacto, con
+ * bandera e indicativo (🇨🇴 +57), y la lista sigue con los nombres. El país inicial depende del
+ * idioma de la página. El número puede traer su propio +indicativo.
+ */
+export function CampoTelefono({
+  prefijo,
+  textos,
+  idioma,
+  variante,
+}: {
+  prefijo: string;
+  textos: Pick<TextosContacto, 'telefono' | 'pais'>;
+  idioma: string;
+  variante: VarianteFormulario;
+}) {
+  const clases = clasesControles(variante);
+  const opciones = opcionesDePais(idioma);
+  const inicial = PAIS_INICIAL[idioma] ?? 'CO';
+  const elegida = opciones.find((o) => o.valor === inicial)!;
+  const corto = (o: (typeof opciones)[number]) => `${o.bandera} +${o.indicativo}`;
+  const id = `${prefijo}-telefono`;
+  const idPais = `${prefijo}-pais`;
+  return (
+    <div className="flex flex-col gap-1.5">
+      <Label htmlFor={id} className="text-[13px] font-bold">
+        {textos.telefono}
+      </Label>
+      <div className="flex gap-2">
+        <div className="campo-indicativo relative max-w-[48%] shrink-0" data-indicativo>
+          <NativeSelect
+            id={idPais}
+            name="pais"
+            aria-label={textos.pais}
+            required
+            defaultValue={inicial}
+            autoComplete="tel-country-code"
+            className={clases.select}
+          >
+            {opciones.map((o) => (
+              <NativeSelectOption key={o.valor} value={o.valor} data-corto={corto(o)}>
+                {`${o.bandera} ${o.nombre} (+${o.indicativo})`}
+              </NativeSelectOption>
+            ))}
+          </NativeSelect>
+          <span
+            aria-hidden="true"
+            className={cn(
+              'indicativo-caja h-12 items-center gap-1 rounded-[12px] border border-gray-700 pr-8 pl-3.5 text-body whitespace-nowrap',
+              clases.fondo,
+              // Igual que los campos de texto (Input) en los temas oscuros.
+              'dark:bg-input/30',
+            )}
+          >
+            <span data-indicativo-corto>{corto(elegida)}</span>
+            <ChevronDownIcon className="pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2 opacity-70" />
+          </span>
+        </div>
+        <Input
+          id={id}
+          name="telefono"
+          type="tel"
+          autoComplete="tel-national"
+          inputMode="tel"
+          required
+          maxLength={24}
+          pattern="\+?[0-9\(][0-9 \(\)\.\-]{3,23}"
+          className={cn(clases.input, 'min-w-0 flex-1')}
+        />
+      </div>
+      <p id={`${id}-error`} className="text-small font-bold text-error" data-error-de={id} hidden />
+      <p
+        id={`${idPais}-error`}
+        className="text-small font-bold text-error"
+        data-error-de={idPais}
+        hidden
+      />
     </div>
   );
 }

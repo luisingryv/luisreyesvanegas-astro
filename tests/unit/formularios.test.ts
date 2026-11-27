@@ -1,9 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { erroresPorCampo, formularioGeneral, solicitud } from '../../src/lib/formularios/esquemas';
+import {
+  bandera,
+  numeroValido,
+  opcionesDePais,
+  telefonoCompleto,
+} from '../../src/lib/formularios/paises';
+
+// Nombre, país y teléfono: los piden todos los formularios desde el 27 nov 2026.
+const contacto = { nombre: 'Ana Pérez', pais: 'CO', telefono: '300 123 4567' };
+const faltaContacto = { nombre: 'requerido', pais: 'requerido', telefono: 'requerido' };
 
 const valida = {
   formulario: 'general',
-  nombre: 'Ana Pérez',
+  ...contacto,
   email: 'ana@ejemplo.com',
   mensaje: 'Quiero conversar sobre la migración a AWS.',
   acepta: 'on',
@@ -18,12 +28,10 @@ describe('formulario general', () => {
   it('acepta lo que manda un formulario HTML y deja los vacíos como ausentes', () => {
     const r = formularioGeneral.parse({
       ...valida,
-      whatsapp: '',
       utm_source: '',
       pagina: '/es/contacto',
     });
-    expect(r).toMatchObject({ idioma: 'es', acepta: true, pagina: '/es/contacto' });
-    expect(r.whatsapp).toBeUndefined();
+    expect(r).toMatchObject({ idioma: 'es', acepta: true, pagina: '/es/contacto', pais: 'CO' });
     expect(r.utm_source).toBeUndefined();
   });
 
@@ -33,7 +41,7 @@ describe('formulario general', () => {
 
   it('devuelve un código por campo', () => {
     expect(errores({ formulario: 'general' })).toEqual({
-      nombre: 'requerido',
+      ...faltaContacto,
       email: 'requerido',
       mensaje: 'requerido',
       acepta: 'debe-aceptar',
@@ -47,11 +55,13 @@ describe('formulario general', () => {
     expect(errores({ ...valida, mensaje: 'x'.repeat(5001) })).toEqual({ mensaje: 'muy-largo' });
   });
 
-  it('valida WhatsApp, puerta, idioma y formulario', () => {
-    expect(formularioGeneral.parse({ ...valida, whatsapp: '+57 300 123 4567' }).whatsapp).toBe(
+  it('valida teléfono, país, puerta, idioma y formulario', () => {
+    expect(formularioGeneral.parse({ ...valida, telefono: '+57 300 123 4567' }).telefono).toBe(
       '+57 300 123 4567',
     );
-    expect(errores({ ...valida, whatsapp: 'llámame' })).toEqual({ whatsapp: 'invalido' });
+    expect(errores({ ...valida, telefono: 'llámame' })).toEqual({ telefono: 'invalido' });
+    expect(errores({ ...valida, telefono: '12' })).toEqual({ telefono: 'invalido' });
+    expect(errores({ ...valida, pais: 'XX' })).toEqual({ pais: 'invalido' });
     expect(errores({ ...valida, puerta: 'Costos <script>' })).toEqual({ puerta: 'invalido' });
     expect(errores({ ...valida, idioma: 'fr' })).toEqual({ idioma: 'invalido' });
     expect(errores({ ...valida, formulario: 'otro' })).toEqual({ formulario: 'invalido' });
@@ -67,6 +77,7 @@ describe('formulario general', () => {
 describe('agenda de Consultoría', () => {
   const agenda = {
     formulario: 'consultoria',
+    ...contacto,
     email: 'cto@ejemplo.com',
     puerta: 'optimizar-costos',
     nubes: 'AWS, Google Cloud',
@@ -74,13 +85,14 @@ describe('agenda de Consultoría', () => {
     acepta: 'on',
   };
 
-  it('no pide nombre ni mensaje; nubes y gasto son opcionales', () => {
+  it('no pide mensaje; nubes y gasto son opcionales', () => {
     expect(solicitud.safeParse(agenda).success).toBe(true);
     expect(solicitud.safeParse({ ...agenda, nubes: '', gasto: '' }).success).toBe(true);
   });
 
-  it('exige el tema, el correo y la autorización', () => {
+  it('exige el tema, nombre, correo, teléfono y la autorización', () => {
     expect(errores({ formulario: 'consultoria' })).toEqual({
+      ...faltaContacto,
       email: 'requerido',
       puerta: 'requerido',
       acepta: 'debe-aceptar',
@@ -92,6 +104,7 @@ describe('agenda de Consultoría', () => {
 describe('invitación a una charla', () => {
   const invitacion = {
     formulario: 'speaker',
+    ...contacto,
     evento: 'DevFest Barranquilla',
     fecha: '2026-11-28',
     ciudad: 'Barranquilla',
@@ -99,11 +112,12 @@ describe('invitación a una charla', () => {
     acepta: 'on',
   };
 
-  it('pide evento, fecha, ciudad, correo y autorización; audiencia y presupuesto son opcionales', () => {
+  it('pide evento, fecha, ciudad, contacto y autorización; audiencia y presupuesto opcionales', () => {
     expect(solicitud.safeParse({ ...invitacion, audiencia: '', presupuesto: '' }).success).toBe(
       true,
     );
     expect(errores({ formulario: 'speaker' })).toEqual({
+      ...faltaContacto,
       evento: 'requerido',
       fecha: 'requerido',
       ciudad: 'requerido',
@@ -122,6 +136,7 @@ describe('invitación a una charla', () => {
 describe('contacto de prensa', () => {
   const prensa = {
     formulario: 'prensa',
+    ...contacto,
     nombre: 'Laura Gómez',
     medio: 'El Heraldo',
     necesidad: 'entrevista',
@@ -132,7 +147,7 @@ describe('contacto de prensa', () => {
   it('pide nombre, medio, necesidad, correo y autorización; cierre y detalles son opcionales', () => {
     expect(solicitud.safeParse({ ...prensa, cierre: '', mensaje: '' }).success).toBe(true);
     expect(errores({ formulario: 'prensa' })).toEqual({
-      nombre: 'requerido',
+      ...faltaContacto,
       medio: 'requerido',
       necesidad: 'requerido',
       email: 'requerido',
@@ -149,6 +164,7 @@ describe('contacto de prensa', () => {
 describe('evaluación de Programas AWS', () => {
   const evaluacion = {
     formulario: 'programas-aws',
+    ...contacto,
     tipoEmpresa: 'startup',
     infraestructura: 'google-cloud',
     consumo: '10000',
@@ -169,6 +185,7 @@ describe('evaluación de Programas AWS', () => {
       tipoEmpresa: 'invalido',
     });
     expect(errores({ formulario: 'programas-aws' })).toEqual({
+      ...faltaContacto,
       tipoEmpresa: 'requerido',
       infraestructura: 'requerido',
       consumo: 'requerido',
@@ -181,15 +198,13 @@ describe('evaluación de Programas AWS', () => {
 });
 
 describe('inversionistas de Trama', () => {
-  it('pide tipo de inversionista, nombre, país, correo, teléfono y autorización', () => {
+  it('pide tipo de inversionista, nombre, correo, teléfono con su país y autorización', () => {
     expect(
       solicitud.safeParse({
         formulario: 'productos',
         inversionista: 'angel',
-        nombre: 'Ana Pérez',
-        pais: 'Colombia',
+        ...contacto,
         email: 'inversion@ejemplo.com',
-        telefono: '+57 300 123 4567',
         acepta: 'on',
       }).success,
     ).toBe(true);
@@ -205,11 +220,12 @@ describe('inversionistas de Trama', () => {
 });
 
 describe('demo de productos', () => {
-  it('pide el producto, nombre, empresa, correo y autorización; teléfono y mensaje opcionales', () => {
+  it('pide el producto, nombre, empresa, correo, teléfono y autorización; mensaje opcional', () => {
     expect(
       solicitud.safeParse({
         formulario: 'demo',
         producto: 'ofilix',
+        ...contacto,
         nombre: 'Carlos Gómez',
         empresa: 'Textiles del Caribe',
         email: 'carlos@ejemplo.com',
@@ -218,10 +234,41 @@ describe('demo de productos', () => {
     ).toBe(true);
     expect(errores({ formulario: 'demo', producto: 'otra-cosa' })).toEqual({
       producto: 'invalido',
-      nombre: 'requerido',
+      ...faltaContacto,
       empresa: 'requerido',
       email: 'requerido',
       acepta: 'debe-aceptar',
     });
+  });
+});
+
+describe('teléfono con indicativo', () => {
+  it('acepta el número como lo escribe la persona, con o sin su propio +indicativo', () => {
+    expect(numeroValido('300 123 4567')).toBe(true);
+    expect(numeroValido('(601) 555-0100')).toBe(true);
+    expect(numeroValido('+57 300 123 4567')).toBe(true);
+    expect(numeroValido('123')).toBe(false);
+    expect(numeroValido('+57 3')).toBe(false);
+    expect(numeroValido('llámame')).toBe(false);
+    expect(numeroValido('1'.repeat(15))).toBe(false);
+  });
+
+  it('guarda el número con el indicativo del país, salvo que ya traiga el suyo', () => {
+    expect(telefonoCompleto('CO', ' 300  123 4567 ')).toBe('+57 300 123 4567');
+    expect(telefonoCompleto('US', '(415) 555-0100')).toBe('+1 (415) 555-0100');
+    expect(telefonoCompleto('CO', '+34 600 000 000')).toBe('+34 600 000 000');
+  });
+
+  it('nombra los países en el idioma de la página, en orden alfabético', () => {
+    const es = opcionesDePais('es');
+    expect(es.find((o) => o.valor === 'CO')).toMatchObject({
+      nombre: 'Colombia',
+      indicativo: '57',
+      bandera: bandera('CO'),
+    });
+    expect(opcionesDePais('en').find((o) => o.valor === 'DE')?.nombre).toBe('Germany');
+    expect(opcionesDePais('pt').find((o) => o.valor === 'DE')?.nombre).toBe('Alemanha');
+    const nombres = es.map((o) => o.nombre);
+    expect(nombres).toEqual([...nombres].sort((a, b) => a.localeCompare(b, 'es')));
   });
 });

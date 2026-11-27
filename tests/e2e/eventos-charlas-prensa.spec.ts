@@ -170,7 +170,9 @@ test.describe('Charlas', () => {
     await form.getByLabel('Ciudad o en línea').fill('Barranquilla');
     await form.getByLabel('Audiencia').fill('300 desarrolladores');
     await form.getByLabel('Presupuesto para la charla').selectOption('comunidad');
+    await form.getByLabel('Nombre', { exact: true }).fill('Laura Gómez');
     await form.getByLabel('Correo').fill(`gdg-${randomUUID()}@ejemplo.com`);
+    await form.getByLabel('Teléfono').fill('300 123 4567');
     await form.getByLabel(/Acepto la/).check();
     const peticion = page.waitForRequest((r) => r.url().endsWith('/api/solicitudes'));
     await form.getByRole('button', { name: 'Enviar invitación' }).click();
@@ -244,6 +246,7 @@ test.describe('Prensa', () => {
     await form.getByLabel('Nombre').fill('Laura Gómez');
     await form.getByLabel('Medio').fill('El Heraldo');
     await form.getByLabel('Correo').fill(`laura-${randomUUID()}@ejemplo.com`);
+    await form.getByLabel('Teléfono').fill('300 123 4567');
     await form.getByLabel('¿Qué necesitas?').selectOption('declaracion');
     await form.getByLabel('Fecha de cierre').fill('2026-12-01');
     await form.getByLabel('Detalles').fill('Nota sobre el XPRIZE.');

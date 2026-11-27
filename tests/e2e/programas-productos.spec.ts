@@ -58,7 +58,11 @@ test.describe('Programas AWS', () => {
     await form.getByLabel('¿Quién toma la decisión?').fill('CTO');
     await form.getByLabel('¿Cuándo tienes que tomar la decisión?').selectOption('3-6');
     await form.getByLabel('Empresa y país').fill('Acme, Estados Unidos');
+    await form.getByLabel('Nombre').fill('Ana Pérez');
     await form.getByLabel('Correo').fill(`cto-${randomUUID()}@ejemplo.com`);
+    // "Empresa y país" también dice país: el selector del teléfono se busca exacto.
+    await form.getByLabel('País', { exact: true }).selectOption('US');
+    await form.getByLabel('Teléfono').fill('(305) 555-0100');
     await form.getByLabel(/Acepto la/).check();
     const peticion = page.waitForRequest((r) => r.url().endsWith('/api/solicitudes'));
     await form.getByRole('button', { name: 'Enviar' }).click();
@@ -95,14 +99,28 @@ test.describe('Productos', () => {
     );
     await expect(page.locator('[data-conversacion]')).toContainText('Demostración');
     await expect(page.locator('[data-logros] > li')).toHaveCount(4);
+    // 27 nov 2026: dos tarjetas; cada una abre su formulario y cierra el otro.
+    const usar = page.locator('#usar');
+    const invertir = page.locator('#invertir');
+    await expect(page.locator('#panel-usar')).toBeHidden();
+    await expect(page.locator('#panel-invertir')).toBeHidden();
+    await usar.click();
+    await expect(usar).toHaveAttribute('aria-expanded', 'true');
     // 21 nov 2026: la demo es un formulario con el producto (Trama, Ofilix u otro).
     await expect(
-      page.locator('#usar').getByLabel('¿Qué producto quieres conocer?').locator('option'),
+      page.locator('#panel-usar').getByLabel('¿Qué producto quieres conocer?').locator('option'),
     ).toHaveText(['Trama AI', 'Ofilix', 'Otro producto o no estoy seguro']);
     await expect(
-      page.locator('#usar').getByRole('button', { name: 'Solicitar demo' }),
+      page.locator('#panel-usar').getByRole('button', { name: 'Solicitar demo' }),
     ).toBeVisible();
-    await expect(page.locator('#invertir')).toContainText('no constituye una oferta de valores');
+    await invertir.click();
+    await expect(page.locator('#panel-usar')).toBeHidden();
+    await expect(page.locator('#panel-invertir')).toContainText(
+      'no constituye una oferta de valores',
+    );
+    // Los enlaces del portafolio abren su formulario.
+    await page.getByRole('link', { name: /Usar el producto.*Trama AI/ }).click();
+    await expect(page.locator('#panel-usar')).toBeVisible();
     await expect(page.locator('main')).toContainText('Ofilix');
     await expect(page.locator('main')).not.toContainText('[');
     await expect(
@@ -132,12 +150,12 @@ test.describe('Productos', () => {
 
   test('la solicitud de inversionistas se guarda como "productos"', async ({ page, isMobile }) => {
     test.skip(isMobile, 'solo escritorio');
-    await page.goto('/es/productos');
-    const form = page.locator('#invertir form');
+    await page.goto('/es/productos#invertir');
+    const form = page.locator('#panel-invertir form');
     await form.getByLabel('Tipo de inversionista').selectOption('fondo');
     await form.getByLabel('Nombre').fill('Ana Pérez');
-    await form.getByLabel('País').fill('Estados Unidos');
     await form.getByLabel('Correo').fill(`fondo-${randomUUID()}@ejemplo.com`);
+    await form.getByLabel('País').selectOption('US');
     await form.getByLabel('Teléfono').fill('+1 305 555 0100');
     await form.getByLabel(/Acepto la/).check();
     const peticion = page.waitForRequest((r) => r.url().endsWith('/api/solicitudes'));
@@ -146,7 +164,7 @@ test.describe('Productos', () => {
       formulario: 'productos',
       inversionista: 'fondo',
       nombre: 'Ana Pérez',
-      pais: 'Estados Unidos',
+      pais: 'US',
       telefono: '+1 305 555 0100',
     });
     await expect(page.locator('#formulario-enviado')).toHaveText(
@@ -157,11 +175,13 @@ test.describe('Productos', () => {
   test('la demo se guarda como "demo" con el producto elegido', async ({ page, isMobile }) => {
     test.skip(isMobile, 'solo escritorio');
     await page.goto('/es/productos');
-    const form = page.locator('#usar form');
+    await page.locator('#usar').click();
+    const form = page.locator('#panel-usar form');
     await form.getByLabel('¿Qué producto quieres conocer?').selectOption('ofilix');
     await form.getByLabel('Nombre').fill('Carlos Gómez');
     await form.getByLabel('Empresa').fill('Textiles del Caribe');
     await form.getByLabel('Correo').fill(`demo-${randomUUID()}@ejemplo.com`);
+    await form.getByLabel('Teléfono').fill('300 123 4567');
     await form.getByLabel(/Acepto la/).check();
     const peticion = page.waitForRequest((r) => r.url().endsWith('/api/solicitudes'));
     await form.getByRole('button', { name: 'Solicitar demo' }).click();

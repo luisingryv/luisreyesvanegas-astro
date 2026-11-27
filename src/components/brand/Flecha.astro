@@ -1,0 +1,15 @@
+---
+// Flecha de una acción (Luis, 27 nov 2026): no se ve en reposo y entra al pasar el cursor o al
+// enfocar el enlace, el botón o la tarjeta (data-con-flecha) que la contiene. Va pegada al texto,
+// sin espacio antes: el espacio lo pone la flecha al aparecer. Estilos en global.css.
+interface Props {
+  /** Abre otro sitio: ↗ en lugar de →. */
+  externa?: boolean;
+}
+
+const { externa = false } = Astro.props;
+---
+
+<span aria-hidden="true" class:list={['flecha-hover', externa && 'externa']}>
+  {externa ? '↗' : '→'}
+</span>

@@ -10,7 +10,10 @@ import {
   Campo,
   clasesControles,
   TarjetaFormulario,
+  CampoNombre,
+  CampoTelefono,
   type MensajesFormulario,
+  type TextosContacto,
   type TextosAutorizacion,
 } from './partes';
 
@@ -41,6 +44,8 @@ export interface TextosProgramas {
 }
 
 interface Props {
+  /** Nombre y teléfono: los piden todos los formularios (27 nov 2026). */
+  contacto: TextosContacto;
   textos: TextosProgramas;
   mensajes: MensajesFormulario;
   idioma: string;
@@ -55,7 +60,14 @@ const Opciones = ({ opciones }: { opciones: Opcion[] }) =>
     </NativeSelectOption>
   ));
 
-export function FormularioProgramas({ textos, mensajes, idioma, pagina, politicaHref }: Props) {
+export function FormularioProgramas({
+  textos,
+  contacto,
+  mensajes,
+  idioma,
+  pagina,
+  politicaHref,
+}: Props) {
   const clases = clasesControles('base');
   return (
     <TarjetaFormulario
@@ -158,6 +170,9 @@ export function FormularioProgramas({ textos, mensajes, idioma, pagina, politica
         </Campo>
       </div>
       <div className="campo-medio">
+        <CampoNombre prefijo="programas" etiqueta={contacto.nombre} variante="base" />
+      </div>
+      <div className="campo-medio">
         <Campo id="programas-correo" etiqueta={textos.correo}>
           <Input
             id="programas-correo"
@@ -169,6 +184,9 @@ export function FormularioProgramas({ textos, mensajes, idioma, pagina, politica
             className={clases.input}
           />
         </Campo>
+      </div>
+      <div className="campo-medio">
+        <CampoTelefono prefijo="programas" textos={contacto} idioma={idioma} variante="base" />
       </div>
       <Autorizacion
         id="programas-acepta"

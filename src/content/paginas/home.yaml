@@ -182,10 +182,6 @@ xprize:
         es: '1 de {total}'
         en: '1 of {total}'
         pt: '1 de {total}'
-    nota:
-      es: 'Cada punto representa unos 10 equipos inscritos en todo el mundo.'
-      en: 'Each dot represents about 10 teams registered worldwide.'
-      pt: 'Cada ponto representa cerca de 10 equipes inscritas no mundo todo.'
 
 trayectoria:
   eyebrow:
@@ -211,9 +207,9 @@ charlas:
     en: 'Recent talks'
     pt: 'Palestras recentes'
   verTodos:
-    es: 'Ver todos los eventos →'
-    en: 'See all events →'
-    pt: 'Ver todos os eventos →'
+    es: 'Ver todos los eventos'
+    en: 'See all events'
+    pt: 'Ver todos os eventos'
 
 # Burbujas con el nombre del cliente (sin logos hasta tener permisos). Los casos sin página
 # propia llevan al índice de casos.
@@ -227,9 +223,9 @@ casos:
     en: 'Case studies'
     pt: 'Casos de sucesso'
   verTodos:
-    es: 'Ver todos los casos →'
-    en: 'See all case studies →'
-    pt: 'Ver todos os casos →'
+    es: 'Ver todos los casos'
+    en: 'See all case studies'
+    pt: 'Ver todos os casos'
   grupos:
     - titulo:
         es: 'Mis productos y mi consultoría'

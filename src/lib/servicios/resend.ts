@@ -16,7 +16,7 @@ export function crearAvisoResend(apiKey: string, remitente: string, destinatario
       ];
 
       if (solicitud.whatsapp) {
-        lineas.push(`• WhatsApp: ${solicitud.whatsapp}`);
+        lineas.push(`• Teléfono: ${solicitud.whatsapp}`);
       }
       if (solicitud.puerta) {
         lineas.push(`• Puerta / Servicio: ${solicitud.puerta}`);

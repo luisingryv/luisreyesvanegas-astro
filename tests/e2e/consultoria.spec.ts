@@ -70,11 +70,14 @@ test.describe('Consultoría', () => {
     await page.goto('/es/consultoria');
     const form = page.locator('#agenda form');
     await expect(form.locator('input[name="formulario"]')).toHaveValue('consultoria');
-    await expect(form.getByLabel('Nombre')).toHaveCount(0);
     await form.getByLabel('¿Qué quieres resolver?').selectOption('escalar');
     await form.getByLabel('Nube o nubes que usas').fill('AWS y Google Cloud');
     await form.getByLabel('Gasto mensual aproximado en la nube').fill('US$12.000');
+    // Desde el 27 nov 2026 la agenda pide nombre y teléfono, como todos los formularios.
+    await form.getByLabel('Nombre').fill('Ana Pérez');
     await form.getByLabel('Correo').fill(`cto-${randomUUID()}@ejemplo.com`);
+    await form.getByLabel('País').selectOption('MX');
+    await form.getByLabel('Teléfono').fill('55 1234 5678');
     await form.getByLabel(/Acepto la/).check();
     const peticion = page.waitForRequest((r) => r.url().endsWith('/api/solicitudes'));
     await form.getByRole('button', { name: 'Elegir fecha y hora' }).click();
@@ -83,6 +86,9 @@ test.describe('Consultoría', () => {
       puerta: 'escalar',
       nubes: 'AWS y Google Cloud',
       gasto: 'US$12.000',
+      nombre: 'Ana Pérez',
+      pais: 'MX',
+      telefono: '55 1234 5678',
       acepta: true,
     });
     await expect(page.locator('#formulario-enviado')).toHaveText(

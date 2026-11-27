@@ -266,10 +266,6 @@ caminos:
         es: 'Correo'
         en: 'Email'
         pt: 'E-mail'
-      telefono:
-        es: 'Teléfono (opcional)'
-        en: 'Phone (optional)'
-        pt: 'Telefone (opcional)'
       mensaje:
         es: 'Qué quieres resolver (opcional)'
         en: 'What you want to solve (optional)'
@@ -312,19 +308,12 @@ caminos:
         es: 'Tipo de inversionista'
         en: 'Investor type'
         pt: 'Tipo de investidor'
-      # 21 nov 2026 (Luis): nombre y teléfono para validar a la persona.
+      # 21 nov 2026 (Luis): nombre y teléfono para validar a la persona. El teléfono y su país
+      # usan los textos comunes de src/content/formularios/general.yaml (27 nov 2026).
       nombre:
         es: 'Nombre'
         en: 'Name'
         pt: 'Nome'
-      telefono:
-        es: 'Teléfono'
-        en: 'Phone'
-        pt: 'Telefone'
-      pais:
-        es: 'País'
-        en: 'Country'
-        pt: 'País'
       correo:
         es: 'Correo'
         en: 'Email'

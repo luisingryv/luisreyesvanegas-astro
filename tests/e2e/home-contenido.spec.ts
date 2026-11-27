@@ -151,6 +151,9 @@ test.describe('Home · formulario', () => {
 
     await page.getByLabel('Nombre').fill('Ana Pérez');
     await page.getByLabel('Correo').fill(`prueba-${randomUUID()}@ejemplo.com`);
+    // Sin JavaScript el país se elige en el selector con el nombre completo.
+    await page.getByLabel('País').selectOption('ES');
+    await page.getByLabel('Teléfono').fill('600 123 456');
     await page.getByLabel('¿En qué te ayudo?').selectOption('conferencia');
     await page
       .getByLabel('Mensaje', { exact: true })

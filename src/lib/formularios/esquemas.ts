@@ -12,6 +12,7 @@ import {
   TIPOS_EMPRESA_AWS,
   TIPOS_INVERSIONISTA,
 } from './opciones';
+import { numeroValido, PAISES } from './paises';
 
 export type CodigoError = 'requerido' | 'invalido' | 'muy-corto' | 'muy-largo' | 'debe-aceptar';
 
@@ -38,19 +39,26 @@ const autorizacion = z.preprocess(
 
 const slug = z.string().regex(/^[a-z0-9-]{1,60}$/, { error: 'invalido' });
 
-// Teléfono con indicativo, espacios, guiones o paréntesis (WhatsApp o fijo).
-const TELEFONO = /^\+?[0-9][0-9 ()-]{6,19}$/;
-const telefonoRequerido = z.preprocess(
+// Teléfono (Luis, 27 nov 2026): obligatorio en todos los formularios. El país da el indicativo;
+// el número va como lo escribe la persona (espacios, guiones o paréntesis) o con su propio +.
+const pais = z.preprocess(
   vacioAusente,
-  z.string({ error: 'requerido' }).trim().regex(TELEFONO, { error: 'invalido' }),
+  z.enum(PAISES, { error: (i) => (i.input === undefined ? 'requerido' : 'invalido') }),
 );
-const telefonoOpcional = z.preprocess(
+const telefono = z.preprocess(
   vacioAusente,
-  z.string().trim().regex(TELEFONO, { error: 'invalido' }).optional(),
+  z
+    .string({ error: 'requerido' })
+    .trim()
+    .max(24, { error: 'muy-largo' })
+    .refine(numeroValido, { error: 'invalido' }),
 );
 
-// Campos que comparten todos los formularios.
+// Campos que comparten todos los formularios: desde el 27 nov 2026, nombre, correo y teléfono.
 const comunes = {
+  nombre: requerido(2, 120),
+  pais,
+  telefono,
   idioma: z.preprocess(vacioAusente, z.enum(IDIOMAS, { error: 'invalido' }).default('es')),
   email: z.preprocess(
     (v) => (typeof v === 'string' ? v.trim() : v),
@@ -76,16 +84,17 @@ const comunes = {
   acepta: autorizacion,
 };
 
-/** Formulario general (Home y Contacto): nombre, email, tema, mensaje y autorización. */
+/** Formulario general (Home y Contacto): nombre, email, teléfono, tema, mensaje y autorización. */
 export const formularioGeneral = z.object({
   formulario: z.literal('general', { error: 'invalido' }),
   ...comunes,
-  nombre: requerido(2, 120),
-  whatsapp: telefonoOpcional,
   mensaje: requerido(10, 5000),
 });
 
-/** Agenda de Consultoría: preguntas previas a elegir fecha (sin nombre, como el prototipo). */
+/**
+ * Agenda de Consultoría: preguntas previas a elegir fecha. Desde el 27 nov 2026 pide también
+ * nombre y teléfono, como todos los formularios (antes iba sin nombre, como el prototipo).
+ */
 export const formularioConsultoria = z.object({
   formulario: z.literal('consultoria', { error: 'invalido' }),
   ...comunes,
@@ -119,7 +128,6 @@ export const formularioSpeaker = z.object({
 export const formularioPrensa = z.object({
   formulario: z.literal('prensa', { error: 'invalido' }),
   ...comunes,
-  nombre: requerido(2, 120),
   medio: requerido(2, 160),
   necesidad: z.preprocess(
     vacioAusente,
@@ -157,15 +165,13 @@ export const formularioProgramasAws = z.object({
 
 /**
  * Inversionistas de Trama (Productos, #invertir). Desde el 21 nov 2026 pide también nombre y
- * teléfono, para validar a la persona antes de responder (pedido de Luis).
+ * teléfono, para validar a la persona antes de responder (pedido de Luis). Desde el 27 nov 2026
+ * el país es el del teléfono (antes era un campo de texto aparte).
  */
 export const formularioProductos = z.object({
   formulario: z.literal('productos', { error: 'invalido' }),
   ...comunes,
   inversionista: opcionDe(TIPOS_INVERSIONISTA),
-  nombre: requerido(2, 120),
-  pais: requerido(2, 80),
-  telefono: telefonoRequerido,
 });
 
 /** Demo de un producto (Productos, #usar, 21 nov 2026): Trama, Ofilix u otro. */
@@ -173,9 +179,7 @@ export const formularioDemo = z.object({
   formulario: z.literal('demo', { error: 'invalido' }),
   ...comunes,
   producto: opcionDe(PRODUCTOS_DEMO),
-  nombre: requerido(2, 120),
   empresa: requerido(2, 160),
-  telefono: telefonoOpcional,
   mensaje: opcional(3000),
 });
 

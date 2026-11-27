@@ -7,6 +7,8 @@ const correo = () => `prueba-${randomUUID()}@ejemplo.com`;
 const base = () => ({
   formulario: 'general',
   nombre: 'Ana Pérez',
+  pais: 'CO',
+  telefono: '300 123 4567',
   email: correo(),
   mensaje: 'Quiero conversar sobre la migración a AWS.',
   pagina: '/es/sobre-mi',

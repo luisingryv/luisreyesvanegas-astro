@@ -20,6 +20,8 @@ const desactivadas: Integraciones = { crm: crmDesactivado, aviso: avisoDesactiva
 const entrada = {
   formulario: 'general',
   nombre: 'Ana Pérez',
+  pais: 'CO',
+  telefono: '300 123 4567',
   email: 'Ana@Ejemplo.com',
   mensaje: 'Quiero conversar sobre la migración a AWS.',
   acepta: 'on',
@@ -47,6 +49,8 @@ describe('procesarSolicitud', () => {
     expect(await obtenerSolicitud(db, id)).toMatchObject({
       formulario: 'general',
       email: 'ana@ejemplo.com',
+      // Teléfono con el indicativo del país elegido (27 nov 2026).
+      whatsapp: '+57 300 123 4567',
       pagina: '/es/contacto',
       utmSource: 'linkedin',
       utmCampaign: 'lanzamiento',
@@ -121,10 +125,13 @@ describe('procesarSolicitud', () => {
 });
 
 describe('agenda de Consultoría', () => {
-  it('guarda sin nombre, con el tema como puerta y las nubes y el gasto en datos', async () => {
+  it('guarda nombre y teléfono, el tema como puerta y las nubes y el gasto en datos', async () => {
     const r = await procesarSolicitud(
       {
         formulario: 'consultoria',
+        nombre: 'Ana Pérez',
+        pais: 'US',
+        telefono: '+1 305 555 0100',
         email: 'cto@ejemplo.com',
         puerta: 'optimizar-costos',
         nubes: 'AWS',
@@ -135,7 +142,8 @@ describe('agenda de Consultoría', () => {
     );
     expect(await obtenerSolicitud(db, r.ok ? r.id! : 0)).toMatchObject({
       formulario: 'consultoria',
-      nombre: null,
+      nombre: 'Ana Pérez',
+      whatsapp: '+1 305 555 0100',
       mensaje: null,
       puerta: 'optimizar-costos',
       datos: { nubes: 'AWS', gasto: 'US$8.000' },

@@ -50,6 +50,7 @@ test.describe('Contacto', () => {
     const form = page.locator('#general form');
     await form.getByLabel('Nombre').fill('Ana Pérez');
     await form.getByLabel('Correo').fill(`prueba-${randomUUID()}@ejemplo.com`);
+    await form.getByLabel('Teléfono').fill('300 123 4567');
     await form.getByLabel('Tema').selectOption('prensa');
     await form.getByLabel('Mensaje', { exact: true }).fill('Quiero una entrevista para un medio.');
     await form.getByLabel(/Acepto la/).check();
@@ -58,6 +59,8 @@ test.describe('Contacto', () => {
     expect((await peticion).postDataJSON()).toMatchObject({
       puerta: 'prensa',
       pagina: '/es/contacto',
+      pais: 'CO',
+      telefono: '300 123 4567',
     });
     await expect(page.locator('#formulario-enviado')).toBeVisible();
   });

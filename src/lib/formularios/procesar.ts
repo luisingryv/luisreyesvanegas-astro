@@ -13,6 +13,16 @@ import {
 } from '../db/solicitudes';
 import type { Integraciones } from '../servicios/integraciones';
 import { CAMPO_TRAMPA, erroresPorCampo, solicitud, type CodigoError } from './esquemas';
+import { telefonoCompleto, type Pais } from './paises';
+
+/** Nombre del país en español, para el aviso y el CRM (Colombia en lugar de CO). */
+const nombrePais = (pais: Pais) => {
+  try {
+    return new Intl.DisplayNames(['es'], { type: 'region' }).of(pais) ?? pais;
+  } catch {
+    return pais;
+  }
+};
 
 const quitarVacios = (objeto: Record<string, string | undefined>) => {
   const lleno = Object.fromEntries(Object.entries(objeto).filter(([, v]) => v !== undefined));
@@ -47,11 +57,12 @@ export async function procesarSolicitud(
     return { ok: false, motivo: 'demasiadas' };
   }
 
-  // Lo propio de cada formulario: nombre y mensaje van en sus columnas; lo demás, en datos.
+  // Lo propio de cada formulario: mensaje en su columna; lo demás, en datos. El nombre y el
+  // teléfono (con indicativo, en la columna whatsapp) los tienen todos desde el 27 nov 2026.
   const propios = (() => {
     switch (datos.formulario) {
       case 'general':
-        return { nombre: datos.nombre, whatsapp: datos.whatsapp, mensaje: datos.mensaje };
+        return { mensaje: datos.mensaje };
       case 'consultoria':
         return { datos: quitarVacios({ nubes: datos.nubes, gasto: datos.gasto }) };
       case 'speaker':
@@ -66,7 +77,6 @@ export async function procesarSolicitud(
         };
       case 'prensa':
         return {
-          nombre: datos.nombre,
           mensaje: datos.mensaje,
           datos: quitarVacios({
             medio: datos.medio,
@@ -89,22 +99,15 @@ export async function procesarSolicitud(
         };
       case 'productos':
         return {
-          nombre: datos.nombre,
           datos: quitarVacios({
             inversionista: datos.inversionista,
-            pais: datos.pais,
-            telefono: datos.telefono,
+            pais: nombrePais(datos.pais),
           }),
         };
       case 'demo':
         return {
-          nombre: datos.nombre,
           mensaje: datos.mensaje,
-          datos: quitarVacios({
-            producto: datos.producto,
-            empresa: datos.empresa,
-            telefono: datos.telefono,
-          }),
+          datos: quitarVacios({ producto: datos.producto, empresa: datos.empresa }),
         };
     }
   })();
@@ -113,6 +116,8 @@ export async function procesarSolicitud(
     formulario: datos.formulario,
     idioma: datos.idioma,
     email: datos.email,
+    nombre: datos.nombre,
+    whatsapp: telefonoCompleto(datos.pais, datos.telefono),
     ...propios,
     puerta: datos.puerta,
     pagina: datos.pagina,

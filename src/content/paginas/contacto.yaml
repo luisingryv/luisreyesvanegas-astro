@@ -135,10 +135,6 @@ formulario:
     es: 'Cuéntame qué estás construyendo.'
     en: "Tell me what you're building."
     pt: 'Conte o que você está construindo.'
-  textoWhatsapp:
-    es: 'Si prefieres, también puedes escribirme por WhatsApp.'
-    en: 'If you prefer, you can also message me on WhatsApp.'
-    pt: 'Se preferir, também pode me escrever pelo WhatsApp.'
   tema:
     es: 'Tema'
     en: 'Topic'

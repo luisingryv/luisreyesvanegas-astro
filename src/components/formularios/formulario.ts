@@ -86,6 +86,19 @@ export function mejorarFormulario(form: HTMLFormElement) {
   if (conTurnstile)
     form.addEventListener('focusin', () => void prepararTurnstile(), { once: true });
 
+  // Indicativo del teléfono: la caja compacta muestra bandera e indicativo del país elegido.
+  for (const caja of form.querySelectorAll<HTMLElement>('[data-indicativo]')) {
+    const selector = caja.querySelector('select');
+    const corto = caja.querySelector<HTMLElement>('[data-indicativo-corto]');
+    if (!selector || !corto) continue;
+    const pintar = () => (corto.textContent = selector.selectedOptions[0]?.dataset.corto ?? '');
+    selector.addEventListener('change', pintar);
+    // Al vaciar el formulario el selector vuelve al país inicial sin avisar.
+    form.addEventListener('reset', () => setTimeout(pintar));
+    pintar();
+    caja.dataset.mejorado = '';
+  }
+
   const utm = guardarUtmDeLaUrl();
   for (const [nombre, valor] of Object.entries(utm)) {
     const campo = form.elements.namedItem(nombre);

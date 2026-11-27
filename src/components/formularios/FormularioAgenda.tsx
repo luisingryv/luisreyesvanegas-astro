@@ -1,6 +1,7 @@
-// Agenda de Consultoría: preguntas previas (tema, nubes, gasto y correo) que se guardan antes
-// de abrir la página de reservas de Google Calendar. Sin nombre, como el prototipo (Luis,
-// 20 nov 2026). Sin URL de agenda, guarda y muestra el aviso "recibido".
+// Agenda de Consultoría: preguntas previas (tema, nubes, gasto, nombre, correo y teléfono) que se
+// guardan antes de abrir la página de reservas de Google Calendar. Sin URL de agenda, guarda y
+// muestra el aviso "recibido". Nombre y teléfono desde el 27 nov 2026 (Luis: todos los
+// formularios piden nombre, correo y teléfono); antes iba sin nombre, como el prototipo.
 import { Input } from '@/components/ui/input';
 import { NativeSelect, NativeSelectOption } from '@/components/ui/native-select';
 import {
@@ -9,7 +10,10 @@ import {
   Campo,
   clasesControles,
   TarjetaFormulario,
+  CampoNombre,
+  CampoTelefono,
   type MensajesFormulario,
+  type TextosContacto,
   type TextosAutorizacion,
 } from './partes';
 
@@ -28,6 +32,8 @@ export interface TextosAgenda {
 }
 
 interface Props {
+  /** Nombre y teléfono: los piden todos los formularios (27 nov 2026). */
+  contacto: TextosContacto;
   textos: TextosAgenda;
   mensajes: MensajesFormulario;
   idioma: string;
@@ -35,7 +41,14 @@ interface Props {
   politicaHref: string;
 }
 
-export function FormularioAgenda({ textos, mensajes, idioma, pagina, politicaHref }: Props) {
+export function FormularioAgenda({
+  textos,
+  contacto,
+  mensajes,
+  idioma,
+  pagina,
+  politicaHref,
+}: Props) {
   const clases = clasesControles('raised');
   return (
     <TarjetaFormulario
@@ -77,6 +90,7 @@ export function FormularioAgenda({ textos, mensajes, idioma, pagina, politicaHre
           className={clases.input}
         />
       </Campo>
+      <CampoNombre prefijo="agenda" etiqueta={contacto.nombre} variante="raised" />
       <Campo id="agenda-correo" etiqueta={textos.correo}>
         <Input
           id="agenda-correo"
@@ -88,6 +102,7 @@ export function FormularioAgenda({ textos, mensajes, idioma, pagina, politicaHre
           className={clases.input}
         />
       </Campo>
+      <CampoTelefono prefijo="agenda" textos={contacto} idioma={idioma} variante="raised" />
       <Autorizacion id="agenda-acepta" textos={textos.autorizacion} politicaHref={politicaHref} />
       <BotonEnviar texto={textos.enviar} />
     </TarjetaFormulario>

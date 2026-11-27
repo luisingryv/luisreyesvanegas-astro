@@ -1,9 +1,5 @@
 # Textos comunes del formulario general (Home y Contacto). Cada página pone su pregunta de
 # tema y sus opciones.
-whatsapp:
-  es: 'WhatsApp:'
-  en: 'WhatsApp:'
-  pt: 'WhatsApp:'
 campos:
   nombre:
     es: 'Nombre'
@@ -17,6 +13,17 @@ campos:
     es: 'Mensaje'
     en: 'Message'
     pt: 'Mensagem'
+  # Teléfono con indicativo (Luis, 27 nov 2026): obligatorio en todos los formularios. Los textos
+  # son los que Luis aprobó para el formulario de inversionistas de Productos (21 nov 2026).
+  telefono:
+    es: 'Teléfono'
+    en: 'Phone'
+    pt: 'Telefone'
+  # Nombre accesible del selector de país del teléfono.
+  pais:
+    es: 'País'
+    en: 'Country'
+    pt: 'País'
 # Casilla de autorización (Luis, 20 nov 2026): texto del prototipo de Contacto.
 autorizacion:
   antes:

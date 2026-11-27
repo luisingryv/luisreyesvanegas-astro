@@ -70,9 +70,10 @@ export const solicitudes = mysqlTable(
     /** Puerta de entrada de consultoría o etiqueta del router de contacto. */
     puerta: varchar({ length: 60 }),
     idioma: char({ length: 2 }).$type<Idioma>().notNull(),
-    /** Opcional: el formulario de agenda de Consultoría no lo pide (Luis, 20 nov 2026). */
+    /** Lo piden todos los formularios desde el 27 nov 2026; antes la agenda iba sin nombre. */
     nombre: varchar({ length: 120 }),
     email: varchar({ length: 254 }).notNull(),
+    /** Teléfono con indicativo ("+57 300 123 4567"), obligatorio desde el 27 nov 2026. */
     whatsapp: varchar({ length: 40 }),
     mensaje: text(),
     /** Campos propios de cada formulario (fecha, ciudad, audiencia, presupuesto…). */

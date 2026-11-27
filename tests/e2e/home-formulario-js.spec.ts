@@ -10,6 +10,7 @@ async function llenar(page: Page, email = correo()) {
   const f = form(page);
   await f.getByLabel('Nombre').fill('Ana Pérez');
   await f.getByLabel('Correo').fill(email);
+  await f.getByLabel('Teléfono').fill('300 123 4567');
   await f.getByLabel('Mensaje', { exact: true }).fill('Quiero conversar sobre la migración a AWS.');
   await f.getByLabel(/Acepto la/).check();
 }

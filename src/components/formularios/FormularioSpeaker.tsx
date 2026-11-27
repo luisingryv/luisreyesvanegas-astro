@@ -1,5 +1,5 @@
 // Invitación a una charla (Charlas, #invitar): evento, fecha, ciudad, audiencia, presupuesto y
-// correo, como el prototipo. La casilla de autorización se agrega como en los demás formularios.
+// correo, como el prototipo; nombre y teléfono desde el 27 nov 2026. La casilla de autorización se agrega como en los demás formularios.
 import { Input } from '@/components/ui/input';
 import { NativeSelect, NativeSelectOption } from '@/components/ui/native-select';
 import {
@@ -8,7 +8,10 @@ import {
   Campo,
   clasesControles,
   TarjetaFormulario,
+  CampoNombre,
+  CampoTelefono,
   type MensajesFormulario,
+  type TextosContacto,
   type TextosAutorizacion,
 } from './partes';
 
@@ -28,6 +31,8 @@ export interface TextosSpeaker {
 }
 
 interface Props {
+  /** Nombre y teléfono: los piden todos los formularios (27 nov 2026). */
+  contacto: TextosContacto;
   textos: TextosSpeaker;
   mensajes: MensajesFormulario;
   idioma: string;
@@ -35,7 +40,14 @@ interface Props {
   politicaHref: string;
 }
 
-export function FormularioSpeaker({ textos, mensajes, idioma, pagina, politicaHref }: Props) {
+export function FormularioSpeaker({
+  textos,
+  contacto,
+  mensajes,
+  idioma,
+  pagina,
+  politicaHref,
+}: Props) {
   const clases = clasesControles('raised');
   return (
     <TarjetaFormulario
@@ -93,6 +105,7 @@ export function FormularioSpeaker({ textos, mensajes, idioma, pagina, politicaHr
           ))}
         </NativeSelect>
       </Campo>
+      <CampoNombre prefijo="speaker" etiqueta={contacto.nombre} variante="raised" />
       <Campo id="speaker-correo" etiqueta={textos.correo}>
         <Input
           id="speaker-correo"
@@ -104,6 +117,7 @@ export function FormularioSpeaker({ textos, mensajes, idioma, pagina, politicaHr
           className={clases.input}
         />
       </Campo>
+      <CampoTelefono prefijo="speaker" textos={contacto} idioma={idioma} variante="raised" />
       <Autorizacion id="speaker-acepta" textos={textos.autorizacion} politicaHref={politicaHref} />
       <BotonEnviar texto={textos.enviar} />
     </TarjetaFormulario>

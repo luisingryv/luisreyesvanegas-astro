@@ -10,7 +10,9 @@ import {
   Campo,
   clasesControles,
   TarjetaFormulario,
+  CampoTelefono,
   type MensajesFormulario,
+  type TextosContacto,
   type TextosAutorizacion,
   type VarianteFormulario,
 } from './partes';
@@ -30,6 +32,8 @@ export interface TextosFormulario {
 }
 
 interface Props {
+  /** Nombre y teléfono: los piden todos los formularios (27 nov 2026). */
+  contacto: TextosContacto;
   textos: TextosFormulario;
   mensajes: MensajesFormulario;
   idioma: string;
@@ -43,6 +47,7 @@ interface Props {
 
 export function FormularioContacto({
   textos,
+  contacto,
   mensajes,
   idioma,
   pagina,
@@ -86,6 +91,7 @@ export function FormularioContacto({
           className={clases.input}
         />
       </Campo>
+      <CampoTelefono prefijo="contacto" textos={contacto} idioma={idioma} variante={variante} />
       <Campo id="contacto-tema" etiqueta={textos.tema}>
         <NativeSelect id="contacto-tema" name="puerta" className={clases.select}>
           {textos.temas.map((tema) => (
