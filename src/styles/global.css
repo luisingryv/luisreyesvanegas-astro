@@ -309,6 +309,112 @@ body {
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 50%, transparent);
 }
 
+/* WhatsApp flotante (Luis, 27 nov 2026): burbuja verde abajo a la derecha, en todas las páginas.
+   Da dos saltitos cortos cada pocos segundos y deja una onda alrededor. El verde es más oscuro
+   que el de WhatsApp (#25D366) para que el ícono blanco llegue a 3:1. Componente:
+   src/components/brand/WhatsappFlotante.astro. */
+.whatsapp-flotante {
+  position: fixed;
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 9999px;
+  color: var(--color-white);
+  background: #1da851;
+  box-shadow:
+    0 10px 24px rgb(0 0 0 / 0.3),
+    0 0 0 1px rgb(255 255 255 / 0.14);
+  animation: whatsapp-saltitos 3.2s var(--ease-brand) 1.5s infinite;
+  transition:
+    background-color 0.2s ease,
+    transform 0.35s var(--ease-brand),
+    box-shadow 0.35s var(--ease-brand);
+}
+.whatsapp-flotante svg {
+  width: 2rem;
+  height: 2rem;
+}
+/* La onda de la burbuja: sale del borde y se desvanece. */
+.whatsapp-flotante::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: #1da851;
+  z-index: -1;
+  animation: whatsapp-onda 3.2s ease-out 1.5s infinite;
+}
+.whatsapp-flotante:hover,
+.whatsapp-flotante:focus-visible {
+  animation-play-state: paused;
+  background: #178f45;
+  transform: scale(1.08);
+  box-shadow:
+    0 14px 32px rgb(0 0 0 / 0.34),
+    0 0 0 1px rgb(255 255 255 / 0.18);
+}
+.whatsapp-flotante:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+@media (min-width: 48rem) {
+  .whatsapp-flotante {
+    right: max(1.75rem, env(safe-area-inset-right));
+    bottom: max(1.75rem, env(safe-area-inset-bottom));
+  }
+}
+@keyframes whatsapp-saltitos {
+  0%,
+  30%,
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  6% {
+    transform: translateY(0) scale(1.06, 0.94);
+  }
+  12% {
+    transform: translateY(-10px) scale(0.96, 1.04);
+  }
+  18% {
+    transform: translateY(0) scale(1.04, 0.96);
+  }
+  23% {
+    transform: translateY(-5px) scale(0.98, 1.02);
+  }
+  27% {
+    transform: translateY(0) scale(1, 1);
+  }
+}
+@keyframes whatsapp-onda {
+  0%,
+  20% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  24% {
+    opacity: 0.45;
+  }
+  60%,
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-flotante,
+  .whatsapp-flotante::before {
+    animation: none;
+  }
+  .whatsapp-flotante:hover,
+  .whatsapp-flotante:focus-visible {
+    transform: none;
+  }
+}
+
 /* Flechas de las acciones (Luis, 27 nov 2026, regla para todo el sitio): no se ven en reposo;
    entran al pasar el cursor o al enfocar el enlace, el botón o la tarjeta que las contiene
    (data-con-flecha). Ocupan 0 de ancho hasta entonces, para no correr el texto. Componente:
